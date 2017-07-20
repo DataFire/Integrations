@@ -456,6 +456,9 @@ Lists all users. Only api callers that have full access can call this method.
 learnifier.users.get({}, context)
 ```
 
+#### Parameters
+* limit (integer) - The maximum number of users to return
+* offset (integer) - The offset to start listing users from
 
 ### users.post
 Adds a user. No two users can have the same email address. Email is saved WITH case but compared regardless of case. Email can be changed for a user assuming it doesn't cause a conflict.

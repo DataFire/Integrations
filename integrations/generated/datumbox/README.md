@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 datumbox.AdultContentDetection({}, context).then(data => {
   console.log(data);
 })

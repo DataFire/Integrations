@@ -21,7 +21,6 @@ let context = new datafire.Context({
   }
 })
 
-
 neutrinoapi.bad_word_filter.post({}, context).then(data => {
   console.log(data);
 })

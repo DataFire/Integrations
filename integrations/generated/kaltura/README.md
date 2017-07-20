@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 kaltura.widget.list({}, context).then(data => {
   console.log(data);
 })
@@ -38,6 +37,14 @@ Add new Access Control Profile
 kaltura.accessControl.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* accessControl[name] (string) - The name of the Access Control Profile
+* accessControl[systemName] (string) - System name of the Access Control Profile
+* accessControl[description] (string) - The description of the Access Control Profile
+* accessControl[isDefault] (integer) - Enum Type: `KalturaNullableBoolean`
+* accessControl[restrictions] (array)
 
 ### accessControl.delete
 Delete Access Control Profile by id
@@ -77,6 +84,60 @@ List Access Control Profiles by filter and pager
 kaltura.accessControl.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### accessControl.update
 Update Access Control Profile by id
@@ -106,6 +167,14 @@ Add new access control profile
 kaltura.accessControlProfile.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* accessControlProfile[name] (string) - The name of the Access Control Profile
+* accessControlProfile[systemName] (string) - System name of the Access Control Profile
+* accessControlProfile[description] (string) - The description of the Access Control Profile
+* accessControlProfile[isDefault] (integer) - Enum Type: `KalturaNullableBoolean`
+* accessControlProfile[rules] (array)
 
 ### accessControlProfile.delete
 Delete access control profile by id
@@ -145,6 +214,62 @@ List access control profiles by filter and pager
 kaltura.accessControlProfile.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### accessControlProfile.update
 Update access control profile by id
@@ -239,6 +364,18 @@ report query action allows to get a analytics data for specific query dimensions
 kaltura.analytics.query({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[from_time] (string) - Query start time (in local time) MM/dd/yyyy HH:mi
+* filter[to_time] (string) - Query end time (in local time) MM/dd/yyyy HH:mi
+* filter[metrics] (string) - Comma separated metrics list
+* filter[utcOffset] (number) - Timezone offset from UTC (in minutes)
+* filter[dimensions] (string) - Comma separated dimensions list
+* filter[filters] (array)
+* filter[orderBy] (string) - Query order by metric/dimension
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### annotation.add
 Allows you to add an annotation object associated with an entry
@@ -248,6 +385,41 @@ Allows you to add an annotation object associated with an entry
 kaltura.annotation.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* annotation[entryId] (string) - `insertOnly`
+* annotation[triggeredAt] (integer)
+* annotation[tags] (string)
+* annotation[startTime] (integer) - Start time in milliseconds
+* annotation[partnerData] (string)
+* annotation[partnerSortValue] (integer)
+* annotation[forceStop] (integer) - Enum Type: `KalturaNullableBoolean`
+* annotation[thumbOffset] (integer)
+* annotation[systemName] (string)
+* annotation[objectType] (string)
+* annotation[parentId] (string) - `insertOnly`
+* annotation[text] (string)
+* annotation[endTime] (integer) - End time in milliseconds
+* annotation[isPublic] (integer) - Enum Type: `KalturaNullableBoolean`
+* annotation[searchableOnEntry] (integer) - Enum Type: `KalturaNullableBoolean`
+* annotation[protocolType] (string) - `insertOnly`
+* annotation[sourceUrl] (string)
+* annotation[adType] (string) - Enum Type: `KalturaAdType`
+* annotation[title] (string)
+* annotation[duration] (integer) - Duration in milliseconds
+* annotation[quizUserEntryId] (string) - `insertOnly`
+* annotation[answerKey] (string)
+* annotation[correctAnswerKeys] (array)
+* annotation[code] (string)
+* annotation[description] (string)
+* annotation[eventType] (string) - Enum Type: `KalturaEventType`
+* annotation[optionalAnswers] (array)
+* annotation[hint] (string)
+* annotation[question] (string)
+* annotation[explanation] (string)
+* annotation[assetId] (string)
+* annotation[subType] (integer) - Enum Type: `KalturaThumbCuePointSubType`
 
 ### annotation.addFromBulk
 Allows you to add multiple cue points objects by uploading XML that contains multiple cue point definitions
@@ -289,6 +461,116 @@ count cue point objects by filter
 kaltura.annotation.count({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string)
+* filter[idIn] (string)
+* filter[cuePointTypeEqual] (string) - Enum Type: `KalturaCuePointType`
+* filter[cuePointTypeIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaCuePointStatus`
+* filter[statusIn] (string)
+* filter[entryIdEqual] (string)
+* filter[entryIdIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[triggeredAtGreaterThanOrEqual] (integer)
+* filter[triggeredAtLessThanOrEqual] (integer)
+* filter[tagsLike] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[startTimeGreaterThanOrEqual] (integer)
+* filter[startTimeLessThanOrEqual] (integer)
+* filter[userIdEqual] (string)
+* filter[userIdIn] (string)
+* filter[partnerSortValueEqual] (integer)
+* filter[partnerSortValueIn] (string)
+* filter[partnerSortValueGreaterThanOrEqual] (integer)
+* filter[partnerSortValueLessThanOrEqual] (integer)
+* filter[forceStopEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[freeText] (string)
+* filter[userIdEqualCurrent] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[userIdCurrent] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[objectType] (string)
+* filter[protocolTypeEqual] (string) - Enum Type: `KalturaAdProtocolType`
+* filter[protocolTypeIn] (string)
+* filter[titleLike] (string)
+* filter[titleMultiLikeOr] (string)
+* filter[titleMultiLikeAnd] (string)
+* filter[endTimeGreaterThanOrEqual] (integer)
+* filter[endTimeLessThanOrEqual] (integer)
+* filter[durationGreaterThanOrEqual] (integer)
+* filter[durationLessThanOrEqual] (integer)
+* filter[parentIdEqual] (string)
+* filter[parentIdIn] (string)
+* filter[textLike] (string)
+* filter[textMultiLikeOr] (string)
+* filter[textMultiLikeAnd] (string)
+* filter[isPublicEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[quizUserEntryIdEqual] (string)
+* filter[quizUserEntryIdIn] (string)
+* filter[codeLike] (string)
+* filter[codeMultiLikeOr] (string)
+* filter[codeMultiLikeAnd] (string)
+* filter[codeEqual] (string)
+* filter[codeIn] (string)
+* filter[descriptionLike] (string)
+* filter[descriptionMultiLikeOr] (string)
+* filter[descriptionMultiLikeAnd] (string)
+* filter[eventTypeEqual] (string) - Enum Type: `KalturaEventType`
+* filter[eventTypeIn] (string)
+* filter[questionLike] (string)
+* filter[questionMultiLikeOr] (string)
+* filter[questionMultiLikeAnd] (string)
+* filter[subTypeEqual] (integer) - Enum Type: `KalturaThumbCuePointSubType`
+* filter[subTypeIn] (string)
 
 ### annotation.delete
 delete cue point by id, and delete all children cue points
@@ -328,6 +610,118 @@ List annotation objects by filter and pager
 kaltura.annotation.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string)
+* filter[idIn] (string)
+* filter[cuePointTypeEqual] (string) - Enum Type: `KalturaCuePointType`
+* filter[cuePointTypeIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaCuePointStatus`
+* filter[statusIn] (string)
+* filter[entryIdEqual] (string)
+* filter[entryIdIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[triggeredAtGreaterThanOrEqual] (integer)
+* filter[triggeredAtLessThanOrEqual] (integer)
+* filter[tagsLike] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[startTimeGreaterThanOrEqual] (integer)
+* filter[startTimeLessThanOrEqual] (integer)
+* filter[userIdEqual] (string)
+* filter[userIdIn] (string)
+* filter[partnerSortValueEqual] (integer)
+* filter[partnerSortValueIn] (string)
+* filter[partnerSortValueGreaterThanOrEqual] (integer)
+* filter[partnerSortValueLessThanOrEqual] (integer)
+* filter[forceStopEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[freeText] (string)
+* filter[userIdEqualCurrent] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[userIdCurrent] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[objectType] (string)
+* filter[protocolTypeEqual] (string) - Enum Type: `KalturaAdProtocolType`
+* filter[protocolTypeIn] (string)
+* filter[titleLike] (string)
+* filter[titleMultiLikeOr] (string)
+* filter[titleMultiLikeAnd] (string)
+* filter[endTimeGreaterThanOrEqual] (integer)
+* filter[endTimeLessThanOrEqual] (integer)
+* filter[durationGreaterThanOrEqual] (integer)
+* filter[durationLessThanOrEqual] (integer)
+* filter[parentIdEqual] (string)
+* filter[parentIdIn] (string)
+* filter[textLike] (string)
+* filter[textMultiLikeOr] (string)
+* filter[textMultiLikeAnd] (string)
+* filter[isPublicEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[quizUserEntryIdEqual] (string)
+* filter[quizUserEntryIdIn] (string)
+* filter[codeLike] (string)
+* filter[codeMultiLikeOr] (string)
+* filter[codeMultiLikeAnd] (string)
+* filter[codeEqual] (string)
+* filter[codeIn] (string)
+* filter[descriptionLike] (string)
+* filter[descriptionMultiLikeOr] (string)
+* filter[descriptionMultiLikeAnd] (string)
+* filter[eventTypeEqual] (string) - Enum Type: `KalturaEventType`
+* filter[eventTypeIn] (string)
+* filter[questionLike] (string)
+* filter[questionMultiLikeOr] (string)
+* filter[questionMultiLikeAnd] (string)
+* filter[subTypeEqual] (integer) - Enum Type: `KalturaThumbCuePointSubType`
+* filter[subTypeIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### annotation.serveBulk
 Download multiple cue points objects as XML definitions
@@ -337,6 +731,118 @@ Download multiple cue points objects as XML definitions
 kaltura.annotation.serveBulk({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string)
+* filter[idIn] (string)
+* filter[cuePointTypeEqual] (string) - Enum Type: `KalturaCuePointType`
+* filter[cuePointTypeIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaCuePointStatus`
+* filter[statusIn] (string)
+* filter[entryIdEqual] (string)
+* filter[entryIdIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[triggeredAtGreaterThanOrEqual] (integer)
+* filter[triggeredAtLessThanOrEqual] (integer)
+* filter[tagsLike] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[startTimeGreaterThanOrEqual] (integer)
+* filter[startTimeLessThanOrEqual] (integer)
+* filter[userIdEqual] (string)
+* filter[userIdIn] (string)
+* filter[partnerSortValueEqual] (integer)
+* filter[partnerSortValueIn] (string)
+* filter[partnerSortValueGreaterThanOrEqual] (integer)
+* filter[partnerSortValueLessThanOrEqual] (integer)
+* filter[forceStopEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[freeText] (string)
+* filter[userIdEqualCurrent] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[userIdCurrent] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[objectType] (string)
+* filter[protocolTypeEqual] (string) - Enum Type: `KalturaAdProtocolType`
+* filter[protocolTypeIn] (string)
+* filter[titleLike] (string)
+* filter[titleMultiLikeOr] (string)
+* filter[titleMultiLikeAnd] (string)
+* filter[endTimeGreaterThanOrEqual] (integer)
+* filter[endTimeLessThanOrEqual] (integer)
+* filter[durationGreaterThanOrEqual] (integer)
+* filter[durationLessThanOrEqual] (integer)
+* filter[parentIdEqual] (string)
+* filter[parentIdIn] (string)
+* filter[textLike] (string)
+* filter[textMultiLikeOr] (string)
+* filter[textMultiLikeAnd] (string)
+* filter[isPublicEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[quizUserEntryIdEqual] (string)
+* filter[quizUserEntryIdIn] (string)
+* filter[codeLike] (string)
+* filter[codeMultiLikeOr] (string)
+* filter[codeMultiLikeAnd] (string)
+* filter[codeEqual] (string)
+* filter[codeIn] (string)
+* filter[descriptionLike] (string)
+* filter[descriptionMultiLikeOr] (string)
+* filter[descriptionMultiLikeAnd] (string)
+* filter[eventTypeEqual] (string) - Enum Type: `KalturaEventType`
+* filter[eventTypeIn] (string)
+* filter[questionLike] (string)
+* filter[questionMultiLikeOr] (string)
+* filter[questionMultiLikeAnd] (string)
+* filter[subTypeEqual] (integer) - Enum Type: `KalturaThumbCuePointSubType`
+* filter[subTypeIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### annotation.update
 Update annotation by id
@@ -410,6 +916,15 @@ Add new application authentication token
 kaltura.appToken.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* appToken[expiry] (integer) - Expiry time of current token (unix timestamp in seconds)
+* appToken[sessionType] (integer) - Enum Type: `KalturaSessionType`
+* appToken[sessionUserId] (string) - User id of KS (Kaltura Session) that created using the current token
+* appToken[sessionDuration] (integer) - Expiry duration of KS (Kaltura Session) that created using the current token (in seconds)
+* appToken[sessionPrivileges] (string) - Comma separated privileges to be applied on KS (Kaltura Session) that created using the current token
+* appToken[hashType] (string) - Enum Type: `KalturaAppTokenHashType`
 
 ### appToken.delete
 Delete application authentication token by id
@@ -449,6 +964,62 @@ List application authentication tokens by filter and pager
 kaltura.appToken.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string)
+* filter[idIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[statusEqual] (integer) - Enum Type: `KalturaAppTokenStatus`
+* filter[statusIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### appToken.startSession
 Starts a new KS (kaltura Session) based on application authentication token id
@@ -603,6 +1174,98 @@ List attachment Assets by filter and pager
 kaltura.attachmentAsset.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string)
+* filter[idIn] (string)
+* filter[entryIdEqual] (string)
+* filter[entryIdIn] (string)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[sizeGreaterThanOrEqual] (integer)
+* filter[sizeLessThanOrEqual] (integer)
+* filter[tagsLike] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[deletedAtGreaterThanOrEqual] (integer)
+* filter[deletedAtLessThanOrEqual] (integer)
+* filter[typeIn] (string)
+* filter[objectType] (string)
+* filter[formatEqual] (string) - Enum Type: `KalturaAttachmentType`
+* filter[formatIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaAttachmentAssetStatus`
+* filter[statusIn] (string)
+* filter[statusNotIn] (string)
+* filter[captionParamsIdEqual] (integer)
+* filter[captionParamsIdIn] (string)
+* filter[flavorParamsIdEqual] (integer)
+* filter[flavorParamsIdIn] (string)
+* filter[thumbParamsIdEqual] (integer)
+* filter[thumbParamsIdIn] (string)
+* filter[contentLike] (string)
+* filter[contentMultiLikeOr] (string)
+* filter[contentMultiLikeAnd] (string)
+* filter[partnerDescriptionLike] (string)
+* filter[partnerDescriptionMultiLikeOr] (string)
+* filter[partnerDescriptionMultiLikeAnd] (string)
+* filter[languageEqual] (string) - Enum Type: `KalturaLanguage`
+* filter[languageIn] (string)
+* filter[labelEqual] (string)
+* filter[labelIn] (string)
+* filter[startTimeGreaterThanOrEqual] (integer)
+* filter[startTimeLessThanOrEqual] (integer)
+* filter[endTimeGreaterThanOrEqual] (integer)
+* filter[endTimeLessThanOrEqual] (integer)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### attachmentAsset.serve
 Serves attachment by its id
@@ -773,6 +1436,24 @@ Allows you to add an audit trail object and audit trail content associated with 
 kaltura.auditTrail.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* auditTrail[auditObjectType] (string) - Enum Type: `KalturaAuditTrailObjectType`
+* auditTrail[objectId] (string)
+* auditTrail[relatedObjectId] (string)
+* auditTrail[relatedObjectType] (string) - Enum Type: `KalturaAuditTrailObjectType`
+* auditTrail[entryId] (string)
+* auditTrail[userId] (string)
+* auditTrail[action] (string) - Enum Type: `KalturaAuditTrailAction`
+* auditTrail[data][objectType] (string)
+* auditTrail[data][changedItems] (array)
+* auditTrail[data][version] (string)
+* auditTrail[data][objectSubType] (integer)
+* auditTrail[data][dc] (integer)
+* auditTrail[data][original] (boolean)
+* auditTrail[data][fileType] (integer) - Enum Type: `KalturaAuditTrailFileSyncType`
+* auditTrail[data][info] (string)
 
 ### auditTrail.get
 Retrieve an audit trail object by id
@@ -797,6 +1478,91 @@ List audit trail objects by filter and pager
 kaltura.auditTrail.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[parsedAtGreaterThanOrEqual] (integer)
+* filter[parsedAtLessThanOrEqual] (integer)
+* filter[statusEqual] (integer) - Enum Type: `KalturaAuditTrailStatus`
+* filter[statusIn] (string)
+* filter[auditObjectTypeEqual] (string) - Enum Type: `KalturaAuditTrailObjectType`
+* filter[auditObjectTypeIn] (string)
+* filter[objectIdEqual] (string)
+* filter[objectIdIn] (string)
+* filter[relatedObjectIdEqual] (string)
+* filter[relatedObjectIdIn] (string)
+* filter[relatedObjectTypeEqual] (string) - Enum Type: `KalturaAuditTrailObjectType`
+* filter[relatedObjectTypeIn] (string)
+* filter[entryIdEqual] (string)
+* filter[entryIdIn] (string)
+* filter[masterPartnerIdEqual] (integer)
+* filter[masterPartnerIdIn] (string)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[requestIdEqual] (string)
+* filter[requestIdIn] (string)
+* filter[userIdEqual] (string)
+* filter[userIdIn] (string)
+* filter[actionEqual] (string) - Enum Type: `KalturaAuditTrailAction`
+* filter[actionIn] (string)
+* filter[ksEqual] (string)
+* filter[contextEqual] (integer) - Enum Type: `KalturaAuditTrailContext`
+* filter[contextIn] (string)
+* filter[entryPointEqual] (string)
+* filter[entryPointIn] (string)
+* filter[serverNameEqual] (string)
+* filter[serverNameIn] (string)
+* filter[ipAddressEqual] (string)
+* filter[ipAddressIn] (string)
+* filter[clientTagEqual] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### avn.getFeed
 
@@ -823,6 +1589,82 @@ Generic add entry, should be used when the uploaded entry type is not known.
 kaltura.baseEntry.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* entry[name] (string) - Entry name (Min 1 chars)
+* entry[description] (string) - Entry description
+* entry[userId] (string) - The ID of the user who is the owner of this entry
+* entry[creatorId] (string) - `insertOnly`
+* entry[tags] (string) - Entry tags
+* entry[adminTags] (string) - Entry admin tags can be updated only by administrators
+* entry[categories] (string) - Comma separated list of full names of categories to which this entry belongs. Only categories that don't have entitlement (privacy context) are listed, to retrieve the full list of categories, use the categoryEntry.list action.
+* entry[categoriesIds] (string) - Comma separated list of ids of categories to which this entry belongs. Only categories that don't have entitlement (privacy context) are listed, to retrieve the full list of categories, use the categoryEntry.list action.
+* entry[type] (string) - Enum Type: `KalturaEntryType`
+* entry[groupId] (integer)
+* entry[partnerData] (string) - Can be used to store various partner related data as a string
+* entry[licenseType] (integer) - Enum Type: `KalturaLicenseType`
+* entry[accessControlId] (integer) - The Access Control ID assigned to this entry (null when not set, send -1 to remove)
+* entry[startDate] (integer) - Entry scheduling start date (null when not set, send -1 to remove)
+* entry[endDate] (integer) - Entry scheduling end date (null when not set, send -1 to remove)
+* entry[referenceId] (string) - Entry external reference id
+* entry[partnerSortValue] (integer) - Can be used to store various partner related data as a numeric value
+* entry[conversionProfileId] (integer) - Override the default ingestion profile
+* entry[redirectEntryId] (string) - IF not empty, points to an entry ID the should replace this current entry's id.
+* entry[parentEntryId] (string) - ID of source root entry, used for defining entires association
+* entry[operationAttributes] (array)
+* entry[entitledUsersEdit] (string) - list of user ids that are entitled to edit the entry (no server enforcement) The difference between entitledUsersEdit and entitledUsersPublish is applicative only
+* entry[entitledUsersPublish] (string) - list of user ids that are entitled to publish the entry (no server enforcement) The difference between entitledUsersEdit and entitledUsersPublish is applicative only
+* entry[templateEntryId] (string) - `insertOnly`
+* entry[displayInSearch] (integer) - Enum Type: `KalturaEntryDisplayInSearchType`
+* entry[objectType] (string)
+* entry[dataContent] (string) - The data of the entry
+* entry[retrieveDataContentByGet] (boolean) - `insertOnly`
+* entry[documentType] (integer) - `insertOnly`
+* entry[msDuration] (integer) - The duration in miliseconds
+* entry[playlistContent] (string) - Content of the playlist - 
+* entry[filters] (array)
+* entry[totalResults] (integer) - Maximum count of results to be returned in playlist execution
+* entry[playlistType] (integer) - Enum Type: `KalturaPlaylistType`
+* entry[mediaType] (integer) - `insertOnly`
+* entry[conversionQuality] (string) - `insertOnly`
+* entry[sourceType] (string) - `insertOnly`
+* entry[searchProviderType] (integer) - `insertOnly`
+* entry[searchProviderId] (string) - `insertOnly`
+* entry[creditUserName] (string) - The user name used for credits
+* entry[creditUrl] (string) - The URL for credits
+* entry[streams] (array)
+* entry[editorType] (integer) - Enum Type: `KalturaEditorType`
+* entry[externalSourceType] (string) - `insertOnly`
+* entry[offlineMessage] (string) - The message to be presented when the stream is offline
+* entry[recordStatus] (integer) - Enum Type: `KalturaRecordStatus`
+* entry[dvrStatus] (integer) - Enum Type: `KalturaDVRStatus`
+* entry[dvrWindow] (integer) - Window of time which the DVR allows for backwards scrubbing (in minutes)
+* entry[lastElapsedRecordingTime] (integer) - Elapsed recording time (in msec) up to the point where the live stream was last stopped (unpublished).
+* entry[liveStreamConfigurations] (array)
+* entry[recordedEntryId] (string) - Recorded entry id
+* entry[pushPublishEnabled] (integer) - Enum Type: `KalturaLivePublishStatus`
+* entry[publishConfigurations] (array)
+* entry[currentBroadcastStartTime] (number) - The time (unix timestamp in milliseconds) in which the entry broadcast started or 0 when the entry is off the air
+* entry[recordingOptions][shouldCopyEntitlement] (integer) - Enum Type: `KalturaNullableBoolean`
+* entry[recordingOptions][shouldCopyScheduling] (integer) - Enum Type: `KalturaNullableBoolean`
+* entry[recordingOptions][shouldCopyThumbnail] (integer) - Enum Type: `KalturaNullableBoolean`
+* entry[recordingOptions][shouldMakeHidden] (integer) - Enum Type: `KalturaNullableBoolean`
+* entry[playlistId] (string) - Playlist id to be played
+* entry[repeat] (integer) - Enum Type: `KalturaNullableBoolean`
+* entry[bitrates] (array)
+* entry[primaryBroadcastingUrl] (string)
+* entry[secondaryBroadcastingUrl] (string)
+* entry[primaryRtspBroadcastingUrl] (string)
+* entry[secondaryRtspBroadcastingUrl] (string)
+* entry[streamName] (string)
+* entry[streamUrl] (string) - The stream url
+* entry[hlsStreamUrl] (string) - HLS URL - URL for live stream playback on mobile device
+* entry[urlManager] (string) - URL Manager to handle the live stream URL (for instance, add token)
+* entry[encodingIP1] (string) - The broadcast primary ip
+* entry[encodingIP2] (string) - The broadcast secondary ip
+* entry[streamPassword] (string) - The broadcast password
+* type (string) - Enum Type: `KalturaEntryType`
 
 ### baseEntry.addContent
 Attach content resource to entry in status NO_MEDIA
@@ -1066,6 +1908,163 @@ Count base entries by filter.
 kaltura.baseEntry.count({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string) - This filter should be in use for retrieving only a specific entry (identified by its entryId).
+* filter[idIn] (string) - This filter should be in use for retrieving few specific entries (string should include comma separated list of entryId strings).
+* filter[idNotIn] (string)
+* filter[nameLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry names (no wildcards, spaces are treated as part of the string).
+* filter[nameMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[nameMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[nameEqual] (string) - This filter should be in use for retrieving entries with a specific name.
+* filter[partnerIdEqual] (integer) - This filter should be in use for retrieving only entries which were uploaded by/assigned to users of a specific Kaltura Partner (identified by Partner ID).
+* filter[partnerIdIn] (string) - This filter should be in use for retrieving only entries within Kaltura network which were uploaded by/assigned to users of few Kaltura Partners  (string should include comma separated list of PartnerIDs)
+* filter[userIdEqual] (string) - This filter parameter should be in use for retrieving only entries, uploaded by/assigned to a specific user (identified by user Id).
+* filter[userIdIn] (string)
+* filter[userIdNotIn] (string)
+* filter[creatorIdEqual] (string)
+* filter[tagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags (no wildcards, spaces are treated as part of the string).
+* filter[tagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[tagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags set by an ADMIN user (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[categoriesMatchAnd] (string)
+* filter[categoriesMatchOr] (string) - All entries within these categories or their child categories.
+* filter[categoriesNotContains] (string)
+* filter[categoriesIdsMatchAnd] (string)
+* filter[categoriesIdsMatchOr] (string) - All entries of the categories, excluding their child categories.
+* filter[categoriesIdsNotContains] (string)
+* filter[categoriesIdsEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[statusEqual] (string) - Enum Type: `KalturaEntryStatus`
+* filter[statusNotEqual] (string) - Enum Type: `KalturaEntryStatus`
+* filter[statusIn] (string) - This filter should be in use for retrieving only entries, at few specific {
+* filter[statusNotIn] (string) - This filter should be in use for retrieving only entries, not at few specific {
+* filter[moderationStatusEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* filter[moderationStatusNotEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* filter[moderationStatusIn] (string)
+* filter[moderationStatusNotIn] (string)
+* filter[typeEqual] (string) - Enum Type: `KalturaEntryType`
+* filter[typeIn] (string) - This filter should be in use for retrieving entries of few {
+* filter[createdAtGreaterThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system after a specific time/date (standard timestamp format).
+* filter[createdAtLessThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system before a specific time/date (standard timestamp format).
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[totalRankLessThanOrEqual] (integer)
+* filter[totalRankGreaterThanOrEqual] (integer)
+* filter[groupIdEqual] (integer)
+* filter[searchTextMatchAnd] (string) - This filter should be in use for retrieving specific entries while search match the input string within all of the following metadata attributes: name, description, tags, adminTags.
+* filter[searchTextMatchOr] (string) - This filter should be in use for retrieving specific entries while search match the input string within at least one of the following metadata attributes: name, description, tags, adminTags.
+* filter[accessControlIdEqual] (integer)
+* filter[accessControlIdIn] (string)
+* filter[startDateGreaterThanOrEqual] (integer)
+* filter[startDateLessThanOrEqual] (integer)
+* filter[startDateGreaterThanOrEqualOrNull] (integer)
+* filter[startDateLessThanOrEqualOrNull] (integer)
+* filter[endDateGreaterThanOrEqual] (integer)
+* filter[endDateLessThanOrEqual] (integer)
+* filter[endDateGreaterThanOrEqualOrNull] (integer)
+* filter[endDateLessThanOrEqualOrNull] (integer)
+* filter[referenceIdEqual] (string)
+* filter[referenceIdIn] (string)
+* filter[replacingEntryIdEqual] (string)
+* filter[replacingEntryIdIn] (string)
+* filter[replacedEntryIdEqual] (string)
+* filter[replacedEntryIdIn] (string)
+* filter[replacementStatusEqual] (string) - Enum Type: `KalturaEntryReplacementStatus`
+* filter[replacementStatusIn] (string)
+* filter[partnerSortValueGreaterThanOrEqual] (integer)
+* filter[partnerSortValueLessThanOrEqual] (integer)
+* filter[rootEntryIdEqual] (string)
+* filter[rootEntryIdIn] (string)
+* filter[parentEntryIdEqual] (string)
+* filter[entitledUsersEditMatchAnd] (string)
+* filter[entitledUsersEditMatchOr] (string)
+* filter[entitledUsersPublishMatchAnd] (string)
+* filter[entitledUsersPublishMatchOr] (string)
+* filter[tagsNameMultiLikeOr] (string)
+* filter[tagsAdminTagsMultiLikeOr] (string)
+* filter[tagsAdminTagsNameMultiLikeOr] (string)
+* filter[tagsNameMultiLikeAnd] (string)
+* filter[tagsAdminTagsMultiLikeAnd] (string)
+* filter[tagsAdminTagsNameMultiLikeAnd] (string)
+* filter[freeText] (string)
+* filter[isRoot] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[categoriesFullNameIn] (string)
+* filter[categoryAncestorIdIn] (string) - All entries within this categoy or in child categories
+* filter[redirectFromEntryId] (string) - The id of the original entry
+* filter[objectType] (string)
+* filter[lastPlayedAtGreaterThanOrEqual] (integer)
+* filter[lastPlayedAtLessThanOrEqual] (integer)
+* filter[durationLessThan] (integer)
+* filter[durationGreaterThan] (integer)
+* filter[durationLessThanOrEqual] (integer)
+* filter[durationGreaterThanOrEqual] (integer)
+* filter[durationTypeMatchOr] (string)
+* filter[documentTypeEqual] (integer) - Enum Type: `KalturaDocumentType`
+* filter[documentTypeIn] (string)
+* filter[assetParamsIdsMatchOr] (string)
+* filter[assetParamsIdsMatchAnd] (string)
+* filter[mediaTypeEqual] (integer) - Enum Type: `KalturaMediaType`
+* filter[mediaTypeIn] (string)
+* filter[sourceTypeEqual] (string) - Enum Type: `KalturaSourceType`
+* filter[sourceTypeNotEqual] (string) - Enum Type: `KalturaSourceType`
+* filter[sourceTypeIn] (string)
+* filter[sourceTypeNotIn] (string)
+* filter[mediaDateGreaterThanOrEqual] (integer)
+* filter[mediaDateLessThanOrEqual] (integer)
+* filter[flavorParamsIdsMatchOr] (string)
+* filter[flavorParamsIdsMatchAnd] (string)
+* filter[limit] (integer)
+* filter[externalSourceTypeEqual] (string) - Enum Type: `KalturaExternalMediaSourceType`
+* filter[externalSourceTypeIn] (string)
+* filter[isLive] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[isRecordedEntryIdEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[hasMediaServerHostname] (string)
 
 ### baseEntry.delete
 Delete an entry.
@@ -1107,6 +2106,13 @@ Flag inappropriate entry for moderation.
 kaltura.baseEntry.flag({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* moderationFlag[flaggedEntryId] (string) - If moderation flag is set for entry, this is the flagged entry id
+* moderationFlag[flaggedUserId] (string) - If moderation flag is set for user, this is the flagged user id
+* moderationFlag[comments] (string) - The comment that was added to the flag
+* moderationFlag[flagType] (integer) - Enum Type: `KalturaModerationFlagType`
 
 ### baseEntry.get
 Get base entry by ID.
@@ -1231,6 +2237,165 @@ List base entries by filter with paging support.
 kaltura.baseEntry.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string) - This filter should be in use for retrieving only a specific entry (identified by its entryId).
+* filter[idIn] (string) - This filter should be in use for retrieving few specific entries (string should include comma separated list of entryId strings).
+* filter[idNotIn] (string)
+* filter[nameLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry names (no wildcards, spaces are treated as part of the string).
+* filter[nameMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[nameMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[nameEqual] (string) - This filter should be in use for retrieving entries with a specific name.
+* filter[partnerIdEqual] (integer) - This filter should be in use for retrieving only entries which were uploaded by/assigned to users of a specific Kaltura Partner (identified by Partner ID).
+* filter[partnerIdIn] (string) - This filter should be in use for retrieving only entries within Kaltura network which were uploaded by/assigned to users of few Kaltura Partners  (string should include comma separated list of PartnerIDs)
+* filter[userIdEqual] (string) - This filter parameter should be in use for retrieving only entries, uploaded by/assigned to a specific user (identified by user Id).
+* filter[userIdIn] (string)
+* filter[userIdNotIn] (string)
+* filter[creatorIdEqual] (string)
+* filter[tagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags (no wildcards, spaces are treated as part of the string).
+* filter[tagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[tagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags set by an ADMIN user (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[categoriesMatchAnd] (string)
+* filter[categoriesMatchOr] (string) - All entries within these categories or their child categories.
+* filter[categoriesNotContains] (string)
+* filter[categoriesIdsMatchAnd] (string)
+* filter[categoriesIdsMatchOr] (string) - All entries of the categories, excluding their child categories.
+* filter[categoriesIdsNotContains] (string)
+* filter[categoriesIdsEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[statusEqual] (string) - Enum Type: `KalturaEntryStatus`
+* filter[statusNotEqual] (string) - Enum Type: `KalturaEntryStatus`
+* filter[statusIn] (string) - This filter should be in use for retrieving only entries, at few specific {
+* filter[statusNotIn] (string) - This filter should be in use for retrieving only entries, not at few specific {
+* filter[moderationStatusEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* filter[moderationStatusNotEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* filter[moderationStatusIn] (string)
+* filter[moderationStatusNotIn] (string)
+* filter[typeEqual] (string) - Enum Type: `KalturaEntryType`
+* filter[typeIn] (string) - This filter should be in use for retrieving entries of few {
+* filter[createdAtGreaterThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system after a specific time/date (standard timestamp format).
+* filter[createdAtLessThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system before a specific time/date (standard timestamp format).
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[totalRankLessThanOrEqual] (integer)
+* filter[totalRankGreaterThanOrEqual] (integer)
+* filter[groupIdEqual] (integer)
+* filter[searchTextMatchAnd] (string) - This filter should be in use for retrieving specific entries while search match the input string within all of the following metadata attributes: name, description, tags, adminTags.
+* filter[searchTextMatchOr] (string) - This filter should be in use for retrieving specific entries while search match the input string within at least one of the following metadata attributes: name, description, tags, adminTags.
+* filter[accessControlIdEqual] (integer)
+* filter[accessControlIdIn] (string)
+* filter[startDateGreaterThanOrEqual] (integer)
+* filter[startDateLessThanOrEqual] (integer)
+* filter[startDateGreaterThanOrEqualOrNull] (integer)
+* filter[startDateLessThanOrEqualOrNull] (integer)
+* filter[endDateGreaterThanOrEqual] (integer)
+* filter[endDateLessThanOrEqual] (integer)
+* filter[endDateGreaterThanOrEqualOrNull] (integer)
+* filter[endDateLessThanOrEqualOrNull] (integer)
+* filter[referenceIdEqual] (string)
+* filter[referenceIdIn] (string)
+* filter[replacingEntryIdEqual] (string)
+* filter[replacingEntryIdIn] (string)
+* filter[replacedEntryIdEqual] (string)
+* filter[replacedEntryIdIn] (string)
+* filter[replacementStatusEqual] (string) - Enum Type: `KalturaEntryReplacementStatus`
+* filter[replacementStatusIn] (string)
+* filter[partnerSortValueGreaterThanOrEqual] (integer)
+* filter[partnerSortValueLessThanOrEqual] (integer)
+* filter[rootEntryIdEqual] (string)
+* filter[rootEntryIdIn] (string)
+* filter[parentEntryIdEqual] (string)
+* filter[entitledUsersEditMatchAnd] (string)
+* filter[entitledUsersEditMatchOr] (string)
+* filter[entitledUsersPublishMatchAnd] (string)
+* filter[entitledUsersPublishMatchOr] (string)
+* filter[tagsNameMultiLikeOr] (string)
+* filter[tagsAdminTagsMultiLikeOr] (string)
+* filter[tagsAdminTagsNameMultiLikeOr] (string)
+* filter[tagsNameMultiLikeAnd] (string)
+* filter[tagsAdminTagsMultiLikeAnd] (string)
+* filter[tagsAdminTagsNameMultiLikeAnd] (string)
+* filter[freeText] (string)
+* filter[isRoot] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[categoriesFullNameIn] (string)
+* filter[categoryAncestorIdIn] (string) - All entries within this categoy or in child categories
+* filter[redirectFromEntryId] (string) - The id of the original entry
+* filter[objectType] (string)
+* filter[lastPlayedAtGreaterThanOrEqual] (integer)
+* filter[lastPlayedAtLessThanOrEqual] (integer)
+* filter[durationLessThan] (integer)
+* filter[durationGreaterThan] (integer)
+* filter[durationLessThanOrEqual] (integer)
+* filter[durationGreaterThanOrEqual] (integer)
+* filter[durationTypeMatchOr] (string)
+* filter[documentTypeEqual] (integer) - Enum Type: `KalturaDocumentType`
+* filter[documentTypeIn] (string)
+* filter[assetParamsIdsMatchOr] (string)
+* filter[assetParamsIdsMatchAnd] (string)
+* filter[mediaTypeEqual] (integer) - Enum Type: `KalturaMediaType`
+* filter[mediaTypeIn] (string)
+* filter[sourceTypeEqual] (string) - Enum Type: `KalturaSourceType`
+* filter[sourceTypeNotEqual] (string) - Enum Type: `KalturaSourceType`
+* filter[sourceTypeIn] (string)
+* filter[sourceTypeNotIn] (string)
+* filter[mediaDateGreaterThanOrEqual] (integer)
+* filter[mediaDateLessThanOrEqual] (integer)
+* filter[flavorParamsIdsMatchOr] (string)
+* filter[flavorParamsIdsMatchAnd] (string)
+* filter[limit] (integer)
+* filter[externalSourceTypeEqual] (string) - Enum Type: `KalturaExternalMediaSourceType`
+* filter[externalSourceTypeIn] (string)
+* filter[isLive] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[isRecordedEntryIdEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[hasMediaServerHostname] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### baseEntry.listByReferenceId
 List base entries by filter according to reference id
@@ -1546,6 +2711,81 @@ batch addBulkUploadResultAction action adds KalturaBulkUploadResult to the DB
 kaltura.batch.addBulkUploadResult({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* bulkUploadResult[bulkUploadJobId] (integer) - The id of the parent job
+* bulkUploadResult[lineIndex] (integer) - The index of the line in the CSV
+* bulkUploadResult[partnerId] (integer)
+* bulkUploadResult[status] (string) - Enum Type: `KalturaBulkUploadResultStatus`
+* bulkUploadResult[action] (string) - Enum Type: `KalturaBulkUploadAction`
+* bulkUploadResult[objectId] (string)
+* bulkUploadResult[objectStatus] (integer)
+* bulkUploadResult[bulkUploadResultObjectType] (string) - Enum Type: `KalturaBulkUploadObjectType`
+* bulkUploadResult[rowData] (string) - The data as recieved in the csv
+* bulkUploadResult[partnerData] (string)
+* bulkUploadResult[objectErrorDescription] (string)
+* bulkUploadResult[pluginsData] (array)
+* bulkUploadResult[errorDescription] (string)
+* bulkUploadResult[errorCode] (string)
+* bulkUploadResult[errorType] (integer)
+* bulkUploadResult[objectType] (string)
+* bulkUploadResult[relativePath] (string)
+* bulkUploadResult[name] (string)
+* bulkUploadResult[referenceId] (string)
+* bulkUploadResult[description] (string)
+* bulkUploadResult[tags] (string)
+* bulkUploadResult[appearInList] (integer)
+* bulkUploadResult[privacy] (integer)
+* bulkUploadResult[inheritanceType] (integer)
+* bulkUploadResult[userJoinPolicy] (integer)
+* bulkUploadResult[defaultPermissionLevel] (integer)
+* bulkUploadResult[owner] (string)
+* bulkUploadResult[contributionPolicy] (integer)
+* bulkUploadResult[partnerSortValue] (integer)
+* bulkUploadResult[moderation] (boolean)
+* bulkUploadResult[categoryId] (integer)
+* bulkUploadResult[entryId] (string)
+* bulkUploadResult[categoryReferenceId] (string)
+* bulkUploadResult[userId] (string)
+* bulkUploadResult[permissionLevel] (integer)
+* bulkUploadResult[updateMethod] (integer)
+* bulkUploadResult[requiredObjectStatus] (integer)
+* bulkUploadResult[title] (string)
+* bulkUploadResult[url] (string)
+* bulkUploadResult[contentType] (string)
+* bulkUploadResult[conversionProfileId] (integer)
+* bulkUploadResult[accessControlProfileId] (integer)
+* bulkUploadResult[category] (string)
+* bulkUploadResult[scheduleStartDate] (integer)
+* bulkUploadResult[scheduleEndDate] (integer)
+* bulkUploadResult[entryStatus] (integer)
+* bulkUploadResult[thumbnailUrl] (string)
+* bulkUploadResult[thumbnailSaved] (boolean)
+* bulkUploadResult[sshPrivateKey] (string)
+* bulkUploadResult[sshPublicKey] (string)
+* bulkUploadResult[sshKeyPassphrase] (string)
+* bulkUploadResult[creatorId] (string)
+* bulkUploadResult[entitledUsersEdit] (string)
+* bulkUploadResult[entitledUsersPublish] (string)
+* bulkUploadResult[ownerId] (string)
+* bulkUploadResult[templateEntryId] (string)
+* bulkUploadResult[resourceId] (string)
+* bulkUploadResult[type] (string)
+* bulkUploadResult[systemName] (string)
+* bulkUploadResult[parentType] (string)
+* bulkUploadResult[parentSystemName] (string)
+* bulkUploadResult[screenName] (string)
+* bulkUploadResult[email] (string)
+* bulkUploadResult[dateOfBirth] (integer)
+* bulkUploadResult[country] (string)
+* bulkUploadResult[state] (string)
+* bulkUploadResult[city] (string)
+* bulkUploadResult[zip] (string)
+* bulkUploadResult[gender] (integer)
+* bulkUploadResult[firstName] (string)
+* bulkUploadResult[lastName] (string)
+* bulkUploadResult[group] (string)
 
 ### batch.addMediaInfo
 batch addMediaInfoAction action saves a media info object
@@ -1555,6 +2795,43 @@ batch addMediaInfoAction action saves a media info object
 kaltura.batch.addMediaInfo({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* mediaInfo[flavorAssetId] (string) - The id of the related flavor asset
+* mediaInfo[fileSize] (integer) - The file size
+* mediaInfo[containerFormat] (string) - The container format
+* mediaInfo[containerId] (string) - The container id
+* mediaInfo[containerProfile] (string) - The container profile
+* mediaInfo[containerDuration] (integer) - The container duration
+* mediaInfo[containerBitRate] (integer) - The container bit rate
+* mediaInfo[videoFormat] (string) - The video format
+* mediaInfo[videoCodecId] (string) - The video codec id
+* mediaInfo[videoDuration] (integer) - The video duration
+* mediaInfo[videoBitRate] (integer) - The video bit rate
+* mediaInfo[videoBitRateMode] (integer) - Enum Type: `KalturaBitRateMode`
+* mediaInfo[videoWidth] (integer) - The video width
+* mediaInfo[videoHeight] (integer) - The video height
+* mediaInfo[videoFrameRate] (number) - The video frame rate
+* mediaInfo[videoDar] (number) - The video display aspect ratio (dar)
+* mediaInfo[videoRotation] (integer)
+* mediaInfo[audioFormat] (string) - The audio format
+* mediaInfo[audioCodecId] (string) - The audio codec id
+* mediaInfo[audioDuration] (integer) - The audio duration
+* mediaInfo[audioBitRate] (integer) - The audio bit rate
+* mediaInfo[audioBitRateMode] (integer) - Enum Type: `KalturaBitRateMode`
+* mediaInfo[audioChannels] (integer) - The number of audio channels
+* mediaInfo[audioSamplingRate] (integer) - The audio sampling rate
+* mediaInfo[audioResolution] (integer) - The audio resolution
+* mediaInfo[writingLib] (string) - The writing library
+* mediaInfo[rawData] (string) - The data as returned by the mediainfo command line
+* mediaInfo[multiStreamInfo] (string)
+* mediaInfo[scanType] (integer)
+* mediaInfo[multiStream] (string)
+* mediaInfo[isFastStart] (integer)
+* mediaInfo[contentStreams] (string)
+* mediaInfo[complexityValue] (integer)
+* mediaInfo[maxGOP] (number)
 
 ### batch.checkEntryIsDone
 batch checkEntryIsDone Check weather a specified entry is done converting and changes it to ready.
@@ -1596,6 +2873,9 @@ batch cleanExclusiveJobs action mark as fatal error all expired jobs
 kaltura.batch.cleanExclusiveJobs({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
 
 ### batch.countBulkUploadEntries
 Returns total created entries count and total error entries count
@@ -1990,6 +3270,102 @@ batch getQueueSize action get the queue size for job type
 kaltura.batch.getQueueSize({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* workerQueueFilter[schedulerId] (integer)
+* workerQueueFilter[workerId] (integer)
+* workerQueueFilter[jobType] (string) - Enum Type: `KalturaBatchJobType`
+* workerQueueFilter[filter][orderBy] (string)
+* workerQueueFilter[filter][advancedSearch][objectType] (string)
+* workerQueueFilter[filter][advancedSearch][value] (string)
+* workerQueueFilter[filter][advancedSearch][categoriesMatchOr] (string)
+* workerQueueFilter[filter][advancedSearch][categoryEntryStatusIn] (string)
+* workerQueueFilter[filter][advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* workerQueueFilter[filter][advancedSearch][categoryIdEqual] (integer)
+* workerQueueFilter[filter][advancedSearch][memberIdEq] (string)
+* workerQueueFilter[filter][advancedSearch][memberIdIn] (string)
+* workerQueueFilter[filter][advancedSearch][memberPermissionsMatchOr] (string)
+* workerQueueFilter[filter][advancedSearch][memberPermissionsMatchAnd] (string)
+* workerQueueFilter[filter][advancedSearch][noDistributionProfiles] (boolean)
+* workerQueueFilter[filter][advancedSearch][distributionProfileId] (integer)
+* workerQueueFilter[filter][advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* workerQueueFilter[filter][advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* workerQueueFilter[filter][advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* workerQueueFilter[filter][advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* workerQueueFilter[filter][advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* workerQueueFilter[filter][advancedSearch][contentLike] (string)
+* workerQueueFilter[filter][advancedSearch][contentMultiLikeOr] (string)
+* workerQueueFilter[filter][advancedSearch][contentMultiLikeAnd] (string)
+* workerQueueFilter[filter][advancedSearch][cuePointsFreeText] (string)
+* workerQueueFilter[filter][advancedSearch][cuePointTypeIn] (string)
+* workerQueueFilter[filter][advancedSearch][cuePointSubTypeEqual] (integer)
+* workerQueueFilter[filter][advancedSearch][watermarkId] (integer)
+* workerQueueFilter[filter][advancedSearch][indexIdGreaterThan] (integer)
+* workerQueueFilter[filter][advancedSearch][depthGreaterThanEqual] (integer)
+* workerQueueFilter[filter][advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* workerQueueFilter[filter][advancedSearch][field] (string)
+* workerQueueFilter[filter][advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* workerQueueFilter[filter][advancedSearch][items] (array)
+* workerQueueFilter[filter][advancedSearch][idEqual] (string)
+* workerQueueFilter[filter][advancedSearch][idIn] (string)
+* workerQueueFilter[filter][advancedSearch][userIdEqual] (string)
+* workerQueueFilter[filter][advancedSearch][userIdIn] (string)
+* workerQueueFilter[filter][advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* workerQueueFilter[filter][advancedSearch][updatedAtLessThanOrEqual] (string)
+* workerQueueFilter[filter][advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* workerQueueFilter[filter][advancedSearch][extendedStatusIn] (string)
+* workerQueueFilter[filter][advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* workerQueueFilter[filter][advancedSearch][not] (boolean)
+* workerQueueFilter[filter][advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* workerQueueFilter[filter][advancedSearch][metadataProfileId] (integer)
+* workerQueueFilter[filter][idEqual] (integer)
+* workerQueueFilter[filter][idGreaterThanOrEqual] (integer)
+* workerQueueFilter[filter][partnerIdEqual] (integer)
+* workerQueueFilter[filter][partnerIdIn] (string)
+* workerQueueFilter[filter][partnerIdNotIn] (string)
+* workerQueueFilter[filter][createdAtGreaterThanOrEqual] (integer)
+* workerQueueFilter[filter][createdAtLessThanOrEqual] (integer)
+* workerQueueFilter[filter][updatedAtGreaterThanOrEqual] (integer)
+* workerQueueFilter[filter][updatedAtLessThanOrEqual] (integer)
+* workerQueueFilter[filter][executionAttemptsGreaterThanOrEqual] (integer)
+* workerQueueFilter[filter][executionAttemptsLessThanOrEqual] (integer)
+* workerQueueFilter[filter][lockVersionGreaterThanOrEqual] (integer)
+* workerQueueFilter[filter][lockVersionLessThanOrEqual] (integer)
+* workerQueueFilter[filter][entryIdEqual] (string)
+* workerQueueFilter[filter][jobTypeEqual] (string) - Enum Type: `KalturaBatchJobType`
+* workerQueueFilter[filter][jobTypeIn] (string)
+* workerQueueFilter[filter][jobTypeNotIn] (string)
+* workerQueueFilter[filter][jobSubTypeEqual] (integer)
+* workerQueueFilter[filter][jobSubTypeIn] (string)
+* workerQueueFilter[filter][jobSubTypeNotIn] (string)
+* workerQueueFilter[filter][statusEqual] (integer) - Enum Type: `KalturaBatchJobStatus`
+* workerQueueFilter[filter][statusIn] (string)
+* workerQueueFilter[filter][statusNotIn] (string)
+* workerQueueFilter[filter][priorityGreaterThanOrEqual] (integer)
+* workerQueueFilter[filter][priorityLessThanOrEqual] (integer)
+* workerQueueFilter[filter][priorityEqual] (integer)
+* workerQueueFilter[filter][priorityIn] (string)
+* workerQueueFilter[filter][priorityNotIn] (string)
+* workerQueueFilter[filter][batchVersionGreaterThanOrEqual] (integer)
+* workerQueueFilter[filter][batchVersionLessThanOrEqual] (integer)
+* workerQueueFilter[filter][batchVersionEqual] (integer)
+* workerQueueFilter[filter][queueTimeGreaterThanOrEqual] (integer)
+* workerQueueFilter[filter][queueTimeLessThanOrEqual] (integer)
+* workerQueueFilter[filter][finishTimeGreaterThanOrEqual] (integer)
+* workerQueueFilter[filter][finishTimeLessThanOrEqual] (integer)
+* workerQueueFilter[filter][errTypeEqual] (integer) - Enum Type: `KalturaBatchJobErrorTypes`
+* workerQueueFilter[filter][errTypeIn] (string)
+* workerQueueFilter[filter][errTypeNotIn] (string)
+* workerQueueFilter[filter][errNumberEqual] (integer)
+* workerQueueFilter[filter][errNumberIn] (string)
+* workerQueueFilter[filter][errNumberNotIn] (string)
+* workerQueueFilter[filter][estimatedEffortLessThan] (integer)
+* workerQueueFilter[filter][estimatedEffortGreaterThan] (integer)
+* workerQueueFilter[filter][urgencyLessThanOrEqual] (integer)
+* workerQueueFilter[filter][urgencyGreaterThanOrEqual] (integer)
+* workerQueueFilter[filter][objectType] (string)
+* workerQueueFilter[filter][jobTypeAndSubTypeIn] (string)
 
 ### batch.logConversion
 Add the data to the flavor asset conversion log, creates it if doesn't exists
@@ -2036,6 +3412,9 @@ batch suspendJobs action suspends jobs from running.
 kaltura.batch.suspendJobs({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
 
 ### batch.updateBulkUploadResults
 batch updateBulkUploadResults action adds KalturaBulkUploadResult to the DB
@@ -3364,6 +4743,9 @@ batch updatePartnerLoadTable action cleans the partner load table
 kaltura.batch.updatePartnerLoadTable({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
 
 ### batchcontrol.configLoaded
 batch configLoaded action saves the configuration as loaded by a remote scheduler
@@ -3414,6 +4796,9 @@ batch getFullStatus action returns the status of all schedulers and queues
 kaltura.batchcontrol.getFullStatus({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
 
 ### batchcontrol.kill
 batch kill action forces stop og a batch on a remote scheduler
@@ -3444,6 +4829,65 @@ list batch control commands
 kaltura.batchcontrol.listCommands({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[createdByIdEqual] (integer)
+* filter[typeEqual] (integer) - Enum Type: `KalturaControlPanelCommandType`
+* filter[typeIn] (string)
+* filter[targetTypeEqual] (integer) - Enum Type: `KalturaControlPanelCommandTargetType`
+* filter[targetTypeIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaControlPanelCommandStatus`
+* filter[statusIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### batchcontrol.listSchedulers
 list all Schedulers
@@ -3453,6 +4897,9 @@ list all Schedulers
 kaltura.batchcontrol.listSchedulers({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
 
 ### batchcontrol.listWorkers
 list all Workers
@@ -3462,6 +4909,9 @@ list all Workers
 kaltura.batchcontrol.listWorkers({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
 
 ### batchcontrol.reportStatus
 batch reportStatus action saves the a status attribute from a remote scheduler and returns pending commands for the scheduler
@@ -3471,6 +4921,15 @@ batch reportStatus action saves the a status attribute from a remote scheduler a
 kaltura.batchcontrol.reportStatus({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* scheduler[configuredId] (integer) - The id as configured in the batch config
+* scheduler[name] (string) - The scheduler name
+* scheduler[host] (string) - The host name
+* scheduler[statuses] (array)
+* scheduler[configs] (array)
+* scheduler[workers] (array)
 
 ### batchcontrol.setCommandResult
 batch setCommandResult action saves the results of a command as recieved from a remote scheduler
@@ -3654,6 +5113,11 @@ List bulk upload batch jobs
 kaltura.bulkUpload.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### bulkUpload.serve
 serve action returan the original file.
@@ -3723,6 +5187,61 @@ List bulk upload batch jobs
 kaltura.bulk.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* bulkUploadFilter[orderBy] (string)
+* bulkUploadFilter[advancedSearch][objectType] (string)
+* bulkUploadFilter[advancedSearch][value] (string)
+* bulkUploadFilter[advancedSearch][categoriesMatchOr] (string)
+* bulkUploadFilter[advancedSearch][categoryEntryStatusIn] (string)
+* bulkUploadFilter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* bulkUploadFilter[advancedSearch][categoryIdEqual] (integer)
+* bulkUploadFilter[advancedSearch][memberIdEq] (string)
+* bulkUploadFilter[advancedSearch][memberIdIn] (string)
+* bulkUploadFilter[advancedSearch][memberPermissionsMatchOr] (string)
+* bulkUploadFilter[advancedSearch][memberPermissionsMatchAnd] (string)
+* bulkUploadFilter[advancedSearch][noDistributionProfiles] (boolean)
+* bulkUploadFilter[advancedSearch][distributionProfileId] (integer)
+* bulkUploadFilter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* bulkUploadFilter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* bulkUploadFilter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* bulkUploadFilter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* bulkUploadFilter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* bulkUploadFilter[advancedSearch][contentLike] (string)
+* bulkUploadFilter[advancedSearch][contentMultiLikeOr] (string)
+* bulkUploadFilter[advancedSearch][contentMultiLikeAnd] (string)
+* bulkUploadFilter[advancedSearch][cuePointsFreeText] (string)
+* bulkUploadFilter[advancedSearch][cuePointTypeIn] (string)
+* bulkUploadFilter[advancedSearch][cuePointSubTypeEqual] (integer)
+* bulkUploadFilter[advancedSearch][watermarkId] (integer)
+* bulkUploadFilter[advancedSearch][indexIdGreaterThan] (integer)
+* bulkUploadFilter[advancedSearch][depthGreaterThanEqual] (integer)
+* bulkUploadFilter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* bulkUploadFilter[advancedSearch][field] (string)
+* bulkUploadFilter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* bulkUploadFilter[advancedSearch][items] (array)
+* bulkUploadFilter[advancedSearch][idEqual] (string)
+* bulkUploadFilter[advancedSearch][idIn] (string)
+* bulkUploadFilter[advancedSearch][userIdEqual] (string)
+* bulkUploadFilter[advancedSearch][userIdIn] (string)
+* bulkUploadFilter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* bulkUploadFilter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* bulkUploadFilter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* bulkUploadFilter[advancedSearch][extendedStatusIn] (string)
+* bulkUploadFilter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* bulkUploadFilter[advancedSearch][not] (boolean)
+* bulkUploadFilter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* bulkUploadFilter[advancedSearch][metadataProfileId] (integer)
+* bulkUploadFilter[uploadedOnGreaterThanOrEqual] (integer)
+* bulkUploadFilter[uploadedOnLessThanOrEqual] (integer)
+* bulkUploadFilter[uploadedOnEqual] (integer)
+* bulkUploadFilter[statusIn] (string)
+* bulkUploadFilter[statusEqual] (integer) - Enum Type: `KalturaBatchJobStatus`
+* bulkUploadFilter[bulkUploadObjectTypeEqual] (string) - Enum Type: `KalturaBulkUploadObjectType`
+* bulkUploadFilter[bulkUploadObjectTypeIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### bulk.serve
 serve action returns the original file.
@@ -3817,6 +5336,19 @@ Allows you to add a new Business-Process server object
 kaltura.businessProcessServer.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* businessProcessServer[name] (string)
+* businessProcessServer[systemName] (string)
+* businessProcessServer[description] (string)
+* businessProcessServer[dc] (integer) - The dc of the server
+* businessProcessServer[objectType] (string)
+* businessProcessServer[host] (string)
+* businessProcessServer[port] (integer)
+* businessProcessServer[protocol] (string) - Enum Type: `KalturaActivitiBusinessProcessServerProtocol`
+* businessProcessServer[username] (string)
+* businessProcessServer[password] (string)
 
 ### businessProcessServer.delete
 Delete an Business-Process server object
@@ -3856,6 +5388,74 @@ list Business-Process server objects
 kaltura.businessProcessServer.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[idNotIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[statusEqual] (string) - Enum Type: `KalturaBusinessProcessServerStatus`
+* filter[statusNotEqual] (string) - Enum Type: `KalturaBusinessProcessServerStatus`
+* filter[statusIn] (string)
+* filter[statusNotIn] (string)
+* filter[typeEqual] (string) - Enum Type: `KalturaBusinessProcessProvider`
+* filter[typeIn] (string)
+* filter[dcEqual] (integer)
+* filter[dcEqOrNull] (integer)
+* filter[currentDcOrExternal] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[currentDc] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[objectType] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### businessProcessServer.update
 Update an existing Business-Process server object
@@ -3995,6 +5595,98 @@ List caption Assets by filter and pager
 kaltura.captionAsset.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string)
+* filter[idIn] (string)
+* filter[entryIdEqual] (string)
+* filter[entryIdIn] (string)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[sizeGreaterThanOrEqual] (integer)
+* filter[sizeLessThanOrEqual] (integer)
+* filter[tagsLike] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[deletedAtGreaterThanOrEqual] (integer)
+* filter[deletedAtLessThanOrEqual] (integer)
+* filter[typeIn] (string)
+* filter[objectType] (string)
+* filter[formatEqual] (string) - Enum Type: `KalturaAttachmentType`
+* filter[formatIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaAttachmentAssetStatus`
+* filter[statusIn] (string)
+* filter[statusNotIn] (string)
+* filter[captionParamsIdEqual] (integer)
+* filter[captionParamsIdIn] (string)
+* filter[flavorParamsIdEqual] (integer)
+* filter[flavorParamsIdIn] (string)
+* filter[thumbParamsIdEqual] (integer)
+* filter[thumbParamsIdIn] (string)
+* filter[contentLike] (string)
+* filter[contentMultiLikeOr] (string)
+* filter[contentMultiLikeAnd] (string)
+* filter[partnerDescriptionLike] (string)
+* filter[partnerDescriptionMultiLikeOr] (string)
+* filter[partnerDescriptionMultiLikeAnd] (string)
+* filter[languageEqual] (string) - Enum Type: `KalturaLanguage`
+* filter[languageIn] (string)
+* filter[labelEqual] (string)
+* filter[labelIn] (string)
+* filter[startTimeGreaterThanOrEqual] (integer)
+* filter[startTimeLessThanOrEqual] (integer)
+* filter[endTimeGreaterThanOrEqual] (integer)
+* filter[endTimeLessThanOrEqual] (integer)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### captionAsset.serve
 Serves caption by its id
@@ -4194,6 +5886,24 @@ Add new Caption Params
 kaltura.captionParams.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* captionParams[partnerId] (integer)
+* captionParams[name] (string) - The name of the Flavor Params
+* captionParams[systemName] (string) - System name of the Flavor Params
+* captionParams[description] (string) - The description of the Flavor Params
+* captionParams[tags] (string) - The Flavor Params tags are used to identify the flavor for different usage (e.g. web, hd, mobile)
+* captionParams[requiredPermissions] (array)
+* captionParams[sourceRemoteStorageProfileId] (integer) - Id of remote storage profile that used to get the source, zero indicates Kaltura data center
+* captionParams[remoteStorageProfileIds] (integer) - Comma seperated ids of remote storage profiles that the flavor distributed to, the distribution done by the conversion engine
+* captionParams[mediaParserType] (string) - Enum Type: `KalturaMediaParserType`
+* captionParams[sourceAssetParamsIds] (string) - Comma seperated ids of source flavor params this flavor is created from
+* captionParams[language] (string) - `insertOnly`
+* captionParams[isDefault] (integer) - Enum Type: `KalturaNullableBoolean`
+* captionParams[label] (string) - Friendly label
+* captionParams[format] (string) - `insertOnly`
+* captionParams[sourceParamsId] (integer) - Id of the caption params or the flavor params to be used as source for the caption creation
 
 ### captionParams.delete
 Delete Caption Params by ID
@@ -4233,6 +5943,62 @@ List Caption Params by filter with paging support (By default - all system defau
 kaltura.captionParams.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[isSystemDefaultEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[tagsEqual] (string)
+* filter[formatEqual] (string) - Enum Type: `KalturaCaptionType`
+* filter[formatIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### captionParams.update
 Update Caption Params by ID
@@ -4287,6 +6053,247 @@ Search caption asset items by filter, pager and free text
 kaltura.captionAssetItem.search({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* entryFilter[orderBy] (string)
+* entryFilter[advancedSearch][objectType] (string)
+* entryFilter[advancedSearch][value] (string)
+* entryFilter[advancedSearch][categoriesMatchOr] (string)
+* entryFilter[advancedSearch][categoryEntryStatusIn] (string)
+* entryFilter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* entryFilter[advancedSearch][categoryIdEqual] (integer)
+* entryFilter[advancedSearch][memberIdEq] (string)
+* entryFilter[advancedSearch][memberIdIn] (string)
+* entryFilter[advancedSearch][memberPermissionsMatchOr] (string)
+* entryFilter[advancedSearch][memberPermissionsMatchAnd] (string)
+* entryFilter[advancedSearch][noDistributionProfiles] (boolean)
+* entryFilter[advancedSearch][distributionProfileId] (integer)
+* entryFilter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* entryFilter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* entryFilter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* entryFilter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* entryFilter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* entryFilter[advancedSearch][contentLike] (string)
+* entryFilter[advancedSearch][contentMultiLikeOr] (string)
+* entryFilter[advancedSearch][contentMultiLikeAnd] (string)
+* entryFilter[advancedSearch][cuePointsFreeText] (string)
+* entryFilter[advancedSearch][cuePointTypeIn] (string)
+* entryFilter[advancedSearch][cuePointSubTypeEqual] (integer)
+* entryFilter[advancedSearch][watermarkId] (integer)
+* entryFilter[advancedSearch][indexIdGreaterThan] (integer)
+* entryFilter[advancedSearch][depthGreaterThanEqual] (integer)
+* entryFilter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* entryFilter[advancedSearch][field] (string)
+* entryFilter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* entryFilter[advancedSearch][items] (array)
+* entryFilter[advancedSearch][idEqual] (string)
+* entryFilter[advancedSearch][idIn] (string)
+* entryFilter[advancedSearch][userIdEqual] (string)
+* entryFilter[advancedSearch][userIdIn] (string)
+* entryFilter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* entryFilter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* entryFilter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* entryFilter[advancedSearch][extendedStatusIn] (string)
+* entryFilter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* entryFilter[advancedSearch][not] (boolean)
+* entryFilter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* entryFilter[advancedSearch][metadataProfileId] (integer)
+* entryFilter[idEqual] (string) - This filter should be in use for retrieving only a specific entry (identified by its entryId).
+* entryFilter[idIn] (string) - This filter should be in use for retrieving few specific entries (string should include comma separated list of entryId strings).
+* entryFilter[idNotIn] (string)
+* entryFilter[nameLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry names (no wildcards, spaces are treated as part of the string).
+* entryFilter[nameMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* entryFilter[nameMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* entryFilter[nameEqual] (string) - This filter should be in use for retrieving entries with a specific name.
+* entryFilter[partnerIdEqual] (integer) - This filter should be in use for retrieving only entries which were uploaded by/assigned to users of a specific Kaltura Partner (identified by Partner ID).
+* entryFilter[partnerIdIn] (string) - This filter should be in use for retrieving only entries within Kaltura network which were uploaded by/assigned to users of few Kaltura Partners  (string should include comma separated list of PartnerIDs)
+* entryFilter[userIdEqual] (string) - This filter parameter should be in use for retrieving only entries, uploaded by/assigned to a specific user (identified by user Id).
+* entryFilter[userIdIn] (string)
+* entryFilter[userIdNotIn] (string)
+* entryFilter[creatorIdEqual] (string)
+* entryFilter[tagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags (no wildcards, spaces are treated as part of the string).
+* entryFilter[tagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* entryFilter[tagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* entryFilter[adminTagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags set by an ADMIN user (no wildcards, spaces are treated as part of the string).
+* entryFilter[adminTagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* entryFilter[adminTagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* entryFilter[categoriesMatchAnd] (string)
+* entryFilter[categoriesMatchOr] (string) - All entries within these categories or their child categories.
+* entryFilter[categoriesNotContains] (string)
+* entryFilter[categoriesIdsMatchAnd] (string)
+* entryFilter[categoriesIdsMatchOr] (string) - All entries of the categories, excluding their child categories.
+* entryFilter[categoriesIdsNotContains] (string)
+* entryFilter[categoriesIdsEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* entryFilter[statusEqual] (string) - Enum Type: `KalturaEntryStatus`
+* entryFilter[statusNotEqual] (string) - Enum Type: `KalturaEntryStatus`
+* entryFilter[statusIn] (string) - This filter should be in use for retrieving only entries, at few specific {
+* entryFilter[statusNotIn] (string) - This filter should be in use for retrieving only entries, not at few specific {
+* entryFilter[moderationStatusEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* entryFilter[moderationStatusNotEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* entryFilter[moderationStatusIn] (string)
+* entryFilter[moderationStatusNotIn] (string)
+* entryFilter[typeEqual] (string) - Enum Type: `KalturaEntryType`
+* entryFilter[typeIn] (string) - This filter should be in use for retrieving entries of few {
+* entryFilter[createdAtGreaterThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system after a specific time/date (standard timestamp format).
+* entryFilter[createdAtLessThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system before a specific time/date (standard timestamp format).
+* entryFilter[updatedAtGreaterThanOrEqual] (integer)
+* entryFilter[updatedAtLessThanOrEqual] (integer)
+* entryFilter[totalRankLessThanOrEqual] (integer)
+* entryFilter[totalRankGreaterThanOrEqual] (integer)
+* entryFilter[groupIdEqual] (integer)
+* entryFilter[searchTextMatchAnd] (string) - This filter should be in use for retrieving specific entries while search match the input string within all of the following metadata attributes: name, description, tags, adminTags.
+* entryFilter[searchTextMatchOr] (string) - This filter should be in use for retrieving specific entries while search match the input string within at least one of the following metadata attributes: name, description, tags, adminTags.
+* entryFilter[accessControlIdEqual] (integer)
+* entryFilter[accessControlIdIn] (string)
+* entryFilter[startDateGreaterThanOrEqual] (integer)
+* entryFilter[startDateLessThanOrEqual] (integer)
+* entryFilter[startDateGreaterThanOrEqualOrNull] (integer)
+* entryFilter[startDateLessThanOrEqualOrNull] (integer)
+* entryFilter[endDateGreaterThanOrEqual] (integer)
+* entryFilter[endDateLessThanOrEqual] (integer)
+* entryFilter[endDateGreaterThanOrEqualOrNull] (integer)
+* entryFilter[endDateLessThanOrEqualOrNull] (integer)
+* entryFilter[referenceIdEqual] (string)
+* entryFilter[referenceIdIn] (string)
+* entryFilter[replacingEntryIdEqual] (string)
+* entryFilter[replacingEntryIdIn] (string)
+* entryFilter[replacedEntryIdEqual] (string)
+* entryFilter[replacedEntryIdIn] (string)
+* entryFilter[replacementStatusEqual] (string) - Enum Type: `KalturaEntryReplacementStatus`
+* entryFilter[replacementStatusIn] (string)
+* entryFilter[partnerSortValueGreaterThanOrEqual] (integer)
+* entryFilter[partnerSortValueLessThanOrEqual] (integer)
+* entryFilter[rootEntryIdEqual] (string)
+* entryFilter[rootEntryIdIn] (string)
+* entryFilter[parentEntryIdEqual] (string)
+* entryFilter[entitledUsersEditMatchAnd] (string)
+* entryFilter[entitledUsersEditMatchOr] (string)
+* entryFilter[entitledUsersPublishMatchAnd] (string)
+* entryFilter[entitledUsersPublishMatchOr] (string)
+* entryFilter[tagsNameMultiLikeOr] (string)
+* entryFilter[tagsAdminTagsMultiLikeOr] (string)
+* entryFilter[tagsAdminTagsNameMultiLikeOr] (string)
+* entryFilter[tagsNameMultiLikeAnd] (string)
+* entryFilter[tagsAdminTagsMultiLikeAnd] (string)
+* entryFilter[tagsAdminTagsNameMultiLikeAnd] (string)
+* entryFilter[freeText] (string)
+* entryFilter[isRoot] (integer) - Enum Type: `KalturaNullableBoolean`
+* entryFilter[categoriesFullNameIn] (string)
+* entryFilter[categoryAncestorIdIn] (string) - All entries within this categoy or in child categories
+* entryFilter[redirectFromEntryId] (string) - The id of the original entry
+* entryFilter[objectType] (string)
+* entryFilter[lastPlayedAtGreaterThanOrEqual] (integer)
+* entryFilter[lastPlayedAtLessThanOrEqual] (integer)
+* entryFilter[durationLessThan] (integer)
+* entryFilter[durationGreaterThan] (integer)
+* entryFilter[durationLessThanOrEqual] (integer)
+* entryFilter[durationGreaterThanOrEqual] (integer)
+* entryFilter[durationTypeMatchOr] (string)
+* entryFilter[documentTypeEqual] (integer) - Enum Type: `KalturaDocumentType`
+* entryFilter[documentTypeIn] (string)
+* entryFilter[assetParamsIdsMatchOr] (string)
+* entryFilter[assetParamsIdsMatchAnd] (string)
+* entryFilter[mediaTypeEqual] (integer) - Enum Type: `KalturaMediaType`
+* entryFilter[mediaTypeIn] (string)
+* entryFilter[sourceTypeEqual] (string) - Enum Type: `KalturaSourceType`
+* entryFilter[sourceTypeNotEqual] (string) - Enum Type: `KalturaSourceType`
+* entryFilter[sourceTypeIn] (string)
+* entryFilter[sourceTypeNotIn] (string)
+* entryFilter[mediaDateGreaterThanOrEqual] (integer)
+* entryFilter[mediaDateLessThanOrEqual] (integer)
+* entryFilter[flavorParamsIdsMatchOr] (string)
+* entryFilter[flavorParamsIdsMatchAnd] (string)
+* entryFilter[limit] (integer)
+* entryFilter[externalSourceTypeEqual] (string) - Enum Type: `KalturaExternalMediaSourceType`
+* entryFilter[externalSourceTypeIn] (string)
+* entryFilter[isLive] (integer) - Enum Type: `KalturaNullableBoolean`
+* entryFilter[isRecordedEntryIdEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* entryFilter[hasMediaServerHostname] (string)
+* captionAssetItemFilter[orderBy] (string)
+* captionAssetItemFilter[advancedSearch][objectType] (string)
+* captionAssetItemFilter[advancedSearch][value] (string)
+* captionAssetItemFilter[advancedSearch][categoriesMatchOr] (string)
+* captionAssetItemFilter[advancedSearch][categoryEntryStatusIn] (string)
+* captionAssetItemFilter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* captionAssetItemFilter[advancedSearch][categoryIdEqual] (integer)
+* captionAssetItemFilter[advancedSearch][memberIdEq] (string)
+* captionAssetItemFilter[advancedSearch][memberIdIn] (string)
+* captionAssetItemFilter[advancedSearch][memberPermissionsMatchOr] (string)
+* captionAssetItemFilter[advancedSearch][memberPermissionsMatchAnd] (string)
+* captionAssetItemFilter[advancedSearch][noDistributionProfiles] (boolean)
+* captionAssetItemFilter[advancedSearch][distributionProfileId] (integer)
+* captionAssetItemFilter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* captionAssetItemFilter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* captionAssetItemFilter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* captionAssetItemFilter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* captionAssetItemFilter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* captionAssetItemFilter[advancedSearch][contentLike] (string)
+* captionAssetItemFilter[advancedSearch][contentMultiLikeOr] (string)
+* captionAssetItemFilter[advancedSearch][contentMultiLikeAnd] (string)
+* captionAssetItemFilter[advancedSearch][cuePointsFreeText] (string)
+* captionAssetItemFilter[advancedSearch][cuePointTypeIn] (string)
+* captionAssetItemFilter[advancedSearch][cuePointSubTypeEqual] (integer)
+* captionAssetItemFilter[advancedSearch][watermarkId] (integer)
+* captionAssetItemFilter[advancedSearch][indexIdGreaterThan] (integer)
+* captionAssetItemFilter[advancedSearch][depthGreaterThanEqual] (integer)
+* captionAssetItemFilter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* captionAssetItemFilter[advancedSearch][field] (string)
+* captionAssetItemFilter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* captionAssetItemFilter[advancedSearch][items] (array)
+* captionAssetItemFilter[advancedSearch][idEqual] (string)
+* captionAssetItemFilter[advancedSearch][idIn] (string)
+* captionAssetItemFilter[advancedSearch][userIdEqual] (string)
+* captionAssetItemFilter[advancedSearch][userIdIn] (string)
+* captionAssetItemFilter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* captionAssetItemFilter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* captionAssetItemFilter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* captionAssetItemFilter[advancedSearch][extendedStatusIn] (string)
+* captionAssetItemFilter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* captionAssetItemFilter[advancedSearch][not] (boolean)
+* captionAssetItemFilter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* captionAssetItemFilter[advancedSearch][metadataProfileId] (integer)
+* captionAssetItemFilter[idEqual] (string)
+* captionAssetItemFilter[idIn] (string)
+* captionAssetItemFilter[entryIdEqual] (string)
+* captionAssetItemFilter[entryIdIn] (string)
+* captionAssetItemFilter[partnerIdEqual] (integer)
+* captionAssetItemFilter[partnerIdIn] (string)
+* captionAssetItemFilter[sizeGreaterThanOrEqual] (integer)
+* captionAssetItemFilter[sizeLessThanOrEqual] (integer)
+* captionAssetItemFilter[tagsLike] (string)
+* captionAssetItemFilter[tagsMultiLikeOr] (string)
+* captionAssetItemFilter[tagsMultiLikeAnd] (string)
+* captionAssetItemFilter[createdAtGreaterThanOrEqual] (integer)
+* captionAssetItemFilter[createdAtLessThanOrEqual] (integer)
+* captionAssetItemFilter[updatedAtGreaterThanOrEqual] (integer)
+* captionAssetItemFilter[updatedAtLessThanOrEqual] (integer)
+* captionAssetItemFilter[deletedAtGreaterThanOrEqual] (integer)
+* captionAssetItemFilter[deletedAtLessThanOrEqual] (integer)
+* captionAssetItemFilter[typeIn] (string)
+* captionAssetItemFilter[captionParamsIdEqual] (integer)
+* captionAssetItemFilter[captionParamsIdIn] (string)
+* captionAssetItemFilter[formatEqual] (string) - Enum Type: `KalturaCaptionType`
+* captionAssetItemFilter[formatIn] (string)
+* captionAssetItemFilter[statusEqual] (integer) - Enum Type: `KalturaCaptionAssetStatus`
+* captionAssetItemFilter[statusIn] (string)
+* captionAssetItemFilter[statusNotIn] (string)
+* captionAssetItemFilter[contentLike] (string)
+* captionAssetItemFilter[contentMultiLikeOr] (string)
+* captionAssetItemFilter[contentMultiLikeAnd] (string)
+* captionAssetItemFilter[partnerDescriptionLike] (string)
+* captionAssetItemFilter[partnerDescriptionMultiLikeOr] (string)
+* captionAssetItemFilter[partnerDescriptionMultiLikeAnd] (string)
+* captionAssetItemFilter[languageEqual] (string) - Enum Type: `KalturaLanguage`
+* captionAssetItemFilter[languageIn] (string)
+* captionAssetItemFilter[labelEqual] (string)
+* captionAssetItemFilter[labelIn] (string)
+* captionAssetItemFilter[startTimeGreaterThanOrEqual] (integer)
+* captionAssetItemFilter[startTimeLessThanOrEqual] (integer)
+* captionAssetItemFilter[endTimeGreaterThanOrEqual] (integer)
+* captionAssetItemFilter[endTimeLessThanOrEqual] (integer)
+* captionAssetItemPager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* captionAssetItemPager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### captionAssetItem.searchEntries
 Search caption asset items by filter, pager and free text
@@ -4296,6 +6303,247 @@ Search caption asset items by filter, pager and free text
 kaltura.captionAssetItem.searchEntries({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* entryFilter[orderBy] (string)
+* entryFilter[advancedSearch][objectType] (string)
+* entryFilter[advancedSearch][value] (string)
+* entryFilter[advancedSearch][categoriesMatchOr] (string)
+* entryFilter[advancedSearch][categoryEntryStatusIn] (string)
+* entryFilter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* entryFilter[advancedSearch][categoryIdEqual] (integer)
+* entryFilter[advancedSearch][memberIdEq] (string)
+* entryFilter[advancedSearch][memberIdIn] (string)
+* entryFilter[advancedSearch][memberPermissionsMatchOr] (string)
+* entryFilter[advancedSearch][memberPermissionsMatchAnd] (string)
+* entryFilter[advancedSearch][noDistributionProfiles] (boolean)
+* entryFilter[advancedSearch][distributionProfileId] (integer)
+* entryFilter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* entryFilter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* entryFilter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* entryFilter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* entryFilter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* entryFilter[advancedSearch][contentLike] (string)
+* entryFilter[advancedSearch][contentMultiLikeOr] (string)
+* entryFilter[advancedSearch][contentMultiLikeAnd] (string)
+* entryFilter[advancedSearch][cuePointsFreeText] (string)
+* entryFilter[advancedSearch][cuePointTypeIn] (string)
+* entryFilter[advancedSearch][cuePointSubTypeEqual] (integer)
+* entryFilter[advancedSearch][watermarkId] (integer)
+* entryFilter[advancedSearch][indexIdGreaterThan] (integer)
+* entryFilter[advancedSearch][depthGreaterThanEqual] (integer)
+* entryFilter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* entryFilter[advancedSearch][field] (string)
+* entryFilter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* entryFilter[advancedSearch][items] (array)
+* entryFilter[advancedSearch][idEqual] (string)
+* entryFilter[advancedSearch][idIn] (string)
+* entryFilter[advancedSearch][userIdEqual] (string)
+* entryFilter[advancedSearch][userIdIn] (string)
+* entryFilter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* entryFilter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* entryFilter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* entryFilter[advancedSearch][extendedStatusIn] (string)
+* entryFilter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* entryFilter[advancedSearch][not] (boolean)
+* entryFilter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* entryFilter[advancedSearch][metadataProfileId] (integer)
+* entryFilter[idEqual] (string) - This filter should be in use for retrieving only a specific entry (identified by its entryId).
+* entryFilter[idIn] (string) - This filter should be in use for retrieving few specific entries (string should include comma separated list of entryId strings).
+* entryFilter[idNotIn] (string)
+* entryFilter[nameLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry names (no wildcards, spaces are treated as part of the string).
+* entryFilter[nameMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* entryFilter[nameMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* entryFilter[nameEqual] (string) - This filter should be in use for retrieving entries with a specific name.
+* entryFilter[partnerIdEqual] (integer) - This filter should be in use for retrieving only entries which were uploaded by/assigned to users of a specific Kaltura Partner (identified by Partner ID).
+* entryFilter[partnerIdIn] (string) - This filter should be in use for retrieving only entries within Kaltura network which were uploaded by/assigned to users of few Kaltura Partners  (string should include comma separated list of PartnerIDs)
+* entryFilter[userIdEqual] (string) - This filter parameter should be in use for retrieving only entries, uploaded by/assigned to a specific user (identified by user Id).
+* entryFilter[userIdIn] (string)
+* entryFilter[userIdNotIn] (string)
+* entryFilter[creatorIdEqual] (string)
+* entryFilter[tagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags (no wildcards, spaces are treated as part of the string).
+* entryFilter[tagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* entryFilter[tagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* entryFilter[adminTagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags set by an ADMIN user (no wildcards, spaces are treated as part of the string).
+* entryFilter[adminTagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* entryFilter[adminTagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* entryFilter[categoriesMatchAnd] (string)
+* entryFilter[categoriesMatchOr] (string) - All entries within these categories or their child categories.
+* entryFilter[categoriesNotContains] (string)
+* entryFilter[categoriesIdsMatchAnd] (string)
+* entryFilter[categoriesIdsMatchOr] (string) - All entries of the categories, excluding their child categories.
+* entryFilter[categoriesIdsNotContains] (string)
+* entryFilter[categoriesIdsEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* entryFilter[statusEqual] (string) - Enum Type: `KalturaEntryStatus`
+* entryFilter[statusNotEqual] (string) - Enum Type: `KalturaEntryStatus`
+* entryFilter[statusIn] (string) - This filter should be in use for retrieving only entries, at few specific {
+* entryFilter[statusNotIn] (string) - This filter should be in use for retrieving only entries, not at few specific {
+* entryFilter[moderationStatusEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* entryFilter[moderationStatusNotEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* entryFilter[moderationStatusIn] (string)
+* entryFilter[moderationStatusNotIn] (string)
+* entryFilter[typeEqual] (string) - Enum Type: `KalturaEntryType`
+* entryFilter[typeIn] (string) - This filter should be in use for retrieving entries of few {
+* entryFilter[createdAtGreaterThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system after a specific time/date (standard timestamp format).
+* entryFilter[createdAtLessThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system before a specific time/date (standard timestamp format).
+* entryFilter[updatedAtGreaterThanOrEqual] (integer)
+* entryFilter[updatedAtLessThanOrEqual] (integer)
+* entryFilter[totalRankLessThanOrEqual] (integer)
+* entryFilter[totalRankGreaterThanOrEqual] (integer)
+* entryFilter[groupIdEqual] (integer)
+* entryFilter[searchTextMatchAnd] (string) - This filter should be in use for retrieving specific entries while search match the input string within all of the following metadata attributes: name, description, tags, adminTags.
+* entryFilter[searchTextMatchOr] (string) - This filter should be in use for retrieving specific entries while search match the input string within at least one of the following metadata attributes: name, description, tags, adminTags.
+* entryFilter[accessControlIdEqual] (integer)
+* entryFilter[accessControlIdIn] (string)
+* entryFilter[startDateGreaterThanOrEqual] (integer)
+* entryFilter[startDateLessThanOrEqual] (integer)
+* entryFilter[startDateGreaterThanOrEqualOrNull] (integer)
+* entryFilter[startDateLessThanOrEqualOrNull] (integer)
+* entryFilter[endDateGreaterThanOrEqual] (integer)
+* entryFilter[endDateLessThanOrEqual] (integer)
+* entryFilter[endDateGreaterThanOrEqualOrNull] (integer)
+* entryFilter[endDateLessThanOrEqualOrNull] (integer)
+* entryFilter[referenceIdEqual] (string)
+* entryFilter[referenceIdIn] (string)
+* entryFilter[replacingEntryIdEqual] (string)
+* entryFilter[replacingEntryIdIn] (string)
+* entryFilter[replacedEntryIdEqual] (string)
+* entryFilter[replacedEntryIdIn] (string)
+* entryFilter[replacementStatusEqual] (string) - Enum Type: `KalturaEntryReplacementStatus`
+* entryFilter[replacementStatusIn] (string)
+* entryFilter[partnerSortValueGreaterThanOrEqual] (integer)
+* entryFilter[partnerSortValueLessThanOrEqual] (integer)
+* entryFilter[rootEntryIdEqual] (string)
+* entryFilter[rootEntryIdIn] (string)
+* entryFilter[parentEntryIdEqual] (string)
+* entryFilter[entitledUsersEditMatchAnd] (string)
+* entryFilter[entitledUsersEditMatchOr] (string)
+* entryFilter[entitledUsersPublishMatchAnd] (string)
+* entryFilter[entitledUsersPublishMatchOr] (string)
+* entryFilter[tagsNameMultiLikeOr] (string)
+* entryFilter[tagsAdminTagsMultiLikeOr] (string)
+* entryFilter[tagsAdminTagsNameMultiLikeOr] (string)
+* entryFilter[tagsNameMultiLikeAnd] (string)
+* entryFilter[tagsAdminTagsMultiLikeAnd] (string)
+* entryFilter[tagsAdminTagsNameMultiLikeAnd] (string)
+* entryFilter[freeText] (string)
+* entryFilter[isRoot] (integer) - Enum Type: `KalturaNullableBoolean`
+* entryFilter[categoriesFullNameIn] (string)
+* entryFilter[categoryAncestorIdIn] (string) - All entries within this categoy or in child categories
+* entryFilter[redirectFromEntryId] (string) - The id of the original entry
+* entryFilter[objectType] (string)
+* entryFilter[lastPlayedAtGreaterThanOrEqual] (integer)
+* entryFilter[lastPlayedAtLessThanOrEqual] (integer)
+* entryFilter[durationLessThan] (integer)
+* entryFilter[durationGreaterThan] (integer)
+* entryFilter[durationLessThanOrEqual] (integer)
+* entryFilter[durationGreaterThanOrEqual] (integer)
+* entryFilter[durationTypeMatchOr] (string)
+* entryFilter[documentTypeEqual] (integer) - Enum Type: `KalturaDocumentType`
+* entryFilter[documentTypeIn] (string)
+* entryFilter[assetParamsIdsMatchOr] (string)
+* entryFilter[assetParamsIdsMatchAnd] (string)
+* entryFilter[mediaTypeEqual] (integer) - Enum Type: `KalturaMediaType`
+* entryFilter[mediaTypeIn] (string)
+* entryFilter[sourceTypeEqual] (string) - Enum Type: `KalturaSourceType`
+* entryFilter[sourceTypeNotEqual] (string) - Enum Type: `KalturaSourceType`
+* entryFilter[sourceTypeIn] (string)
+* entryFilter[sourceTypeNotIn] (string)
+* entryFilter[mediaDateGreaterThanOrEqual] (integer)
+* entryFilter[mediaDateLessThanOrEqual] (integer)
+* entryFilter[flavorParamsIdsMatchOr] (string)
+* entryFilter[flavorParamsIdsMatchAnd] (string)
+* entryFilter[limit] (integer)
+* entryFilter[externalSourceTypeEqual] (string) - Enum Type: `KalturaExternalMediaSourceType`
+* entryFilter[externalSourceTypeIn] (string)
+* entryFilter[isLive] (integer) - Enum Type: `KalturaNullableBoolean`
+* entryFilter[isRecordedEntryIdEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* entryFilter[hasMediaServerHostname] (string)
+* captionAssetItemFilter[orderBy] (string)
+* captionAssetItemFilter[advancedSearch][objectType] (string)
+* captionAssetItemFilter[advancedSearch][value] (string)
+* captionAssetItemFilter[advancedSearch][categoriesMatchOr] (string)
+* captionAssetItemFilter[advancedSearch][categoryEntryStatusIn] (string)
+* captionAssetItemFilter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* captionAssetItemFilter[advancedSearch][categoryIdEqual] (integer)
+* captionAssetItemFilter[advancedSearch][memberIdEq] (string)
+* captionAssetItemFilter[advancedSearch][memberIdIn] (string)
+* captionAssetItemFilter[advancedSearch][memberPermissionsMatchOr] (string)
+* captionAssetItemFilter[advancedSearch][memberPermissionsMatchAnd] (string)
+* captionAssetItemFilter[advancedSearch][noDistributionProfiles] (boolean)
+* captionAssetItemFilter[advancedSearch][distributionProfileId] (integer)
+* captionAssetItemFilter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* captionAssetItemFilter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* captionAssetItemFilter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* captionAssetItemFilter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* captionAssetItemFilter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* captionAssetItemFilter[advancedSearch][contentLike] (string)
+* captionAssetItemFilter[advancedSearch][contentMultiLikeOr] (string)
+* captionAssetItemFilter[advancedSearch][contentMultiLikeAnd] (string)
+* captionAssetItemFilter[advancedSearch][cuePointsFreeText] (string)
+* captionAssetItemFilter[advancedSearch][cuePointTypeIn] (string)
+* captionAssetItemFilter[advancedSearch][cuePointSubTypeEqual] (integer)
+* captionAssetItemFilter[advancedSearch][watermarkId] (integer)
+* captionAssetItemFilter[advancedSearch][indexIdGreaterThan] (integer)
+* captionAssetItemFilter[advancedSearch][depthGreaterThanEqual] (integer)
+* captionAssetItemFilter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* captionAssetItemFilter[advancedSearch][field] (string)
+* captionAssetItemFilter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* captionAssetItemFilter[advancedSearch][items] (array)
+* captionAssetItemFilter[advancedSearch][idEqual] (string)
+* captionAssetItemFilter[advancedSearch][idIn] (string)
+* captionAssetItemFilter[advancedSearch][userIdEqual] (string)
+* captionAssetItemFilter[advancedSearch][userIdIn] (string)
+* captionAssetItemFilter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* captionAssetItemFilter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* captionAssetItemFilter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* captionAssetItemFilter[advancedSearch][extendedStatusIn] (string)
+* captionAssetItemFilter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* captionAssetItemFilter[advancedSearch][not] (boolean)
+* captionAssetItemFilter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* captionAssetItemFilter[advancedSearch][metadataProfileId] (integer)
+* captionAssetItemFilter[idEqual] (string)
+* captionAssetItemFilter[idIn] (string)
+* captionAssetItemFilter[entryIdEqual] (string)
+* captionAssetItemFilter[entryIdIn] (string)
+* captionAssetItemFilter[partnerIdEqual] (integer)
+* captionAssetItemFilter[partnerIdIn] (string)
+* captionAssetItemFilter[sizeGreaterThanOrEqual] (integer)
+* captionAssetItemFilter[sizeLessThanOrEqual] (integer)
+* captionAssetItemFilter[tagsLike] (string)
+* captionAssetItemFilter[tagsMultiLikeOr] (string)
+* captionAssetItemFilter[tagsMultiLikeAnd] (string)
+* captionAssetItemFilter[createdAtGreaterThanOrEqual] (integer)
+* captionAssetItemFilter[createdAtLessThanOrEqual] (integer)
+* captionAssetItemFilter[updatedAtGreaterThanOrEqual] (integer)
+* captionAssetItemFilter[updatedAtLessThanOrEqual] (integer)
+* captionAssetItemFilter[deletedAtGreaterThanOrEqual] (integer)
+* captionAssetItemFilter[deletedAtLessThanOrEqual] (integer)
+* captionAssetItemFilter[typeIn] (string)
+* captionAssetItemFilter[captionParamsIdEqual] (integer)
+* captionAssetItemFilter[captionParamsIdIn] (string)
+* captionAssetItemFilter[formatEqual] (string) - Enum Type: `KalturaCaptionType`
+* captionAssetItemFilter[formatIn] (string)
+* captionAssetItemFilter[statusEqual] (integer) - Enum Type: `KalturaCaptionAssetStatus`
+* captionAssetItemFilter[statusIn] (string)
+* captionAssetItemFilter[statusNotIn] (string)
+* captionAssetItemFilter[contentLike] (string)
+* captionAssetItemFilter[contentMultiLikeOr] (string)
+* captionAssetItemFilter[contentMultiLikeAnd] (string)
+* captionAssetItemFilter[partnerDescriptionLike] (string)
+* captionAssetItemFilter[partnerDescriptionMultiLikeOr] (string)
+* captionAssetItemFilter[partnerDescriptionMultiLikeAnd] (string)
+* captionAssetItemFilter[languageEqual] (string) - Enum Type: `KalturaLanguage`
+* captionAssetItemFilter[languageIn] (string)
+* captionAssetItemFilter[labelEqual] (string)
+* captionAssetItemFilter[labelIn] (string)
+* captionAssetItemFilter[startTimeGreaterThanOrEqual] (integer)
+* captionAssetItemFilter[startTimeLessThanOrEqual] (integer)
+* captionAssetItemFilter[endTimeGreaterThanOrEqual] (integer)
+* captionAssetItemFilter[endTimeLessThanOrEqual] (integer)
+* captionAssetItemPager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* captionAssetItemPager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### captureSpace.clientUpdates
 Returns latest version and URL
@@ -4352,6 +6600,27 @@ Add new Category
 kaltura.category.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* category[parentId] (integer)
+* category[name] (string) - The name of the Category. 
+* category[description] (string) - Category description
+* category[tags] (string) - Category tags
+* category[appearInList] (integer) - Enum Type: `KalturaAppearInListType`
+* category[privacy] (integer) - Enum Type: `KalturaPrivacyType`
+* category[inheritanceType] (integer) - Enum Type: `KalturaInheritanceType`
+* category[defaultPermissionLevel] (integer) - Enum Type: `KalturaCategoryUserPermissionLevel`
+* category[owner] (string) - Category Owner (User id)
+* category[referenceId] (string) - Category external id, controlled and managed by the partner.
+* category[contributionPolicy] (integer) - Enum Type: `KalturaContributionPolicyType`
+* category[privacyContext] (string) - Set privacy context for search entries that assiged to private and public categories. the entries will be private if the search context is set with those categories.
+* category[partnerSortValue] (integer) - Can be used to store various partner related data as a numeric value
+* category[partnerData] (string) - Can be used to store various partner related data as a string
+* category[defaultOrderBy] (string) - Enum Type: `KalturaCategoryOrderBy`
+* category[moderation] (integer) - Enum Type: `KalturaNullableBoolean`
+* category[isAggregationCategory] (integer) - Enum Type: `KalturaNullableBoolean`
+* category[aggregationCategories] (string) - List of aggregation channels the category belongs to
 
 ### category.addFromBulkUpload
 
@@ -4426,6 +6695,102 @@ List all categories
 kaltura.category.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[idNotIn] (string)
+* filter[parentIdEqual] (integer)
+* filter[parentIdIn] (string)
+* filter[depthEqual] (integer)
+* filter[fullNameEqual] (string)
+* filter[fullNameStartsWith] (string)
+* filter[fullNameIn] (string)
+* filter[fullIdsEqual] (string)
+* filter[fullIdsStartsWith] (string)
+* filter[fullIdsMatchOr] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[tagsLike] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[appearInListEqual] (integer) - Enum Type: `KalturaAppearInListType`
+* filter[privacyEqual] (integer) - Enum Type: `KalturaPrivacyType`
+* filter[privacyIn] (string)
+* filter[inheritanceTypeEqual] (integer) - Enum Type: `KalturaInheritanceType`
+* filter[inheritanceTypeIn] (string)
+* filter[referenceIdEqual] (string)
+* filter[referenceIdEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[contributionPolicyEqual] (integer) - Enum Type: `KalturaContributionPolicyType`
+* filter[membersCountGreaterThanOrEqual] (integer)
+* filter[membersCountLessThanOrEqual] (integer)
+* filter[pendingMembersCountGreaterThanOrEqual] (integer)
+* filter[pendingMembersCountLessThanOrEqual] (integer)
+* filter[privacyContextEqual] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaCategoryStatus`
+* filter[statusIn] (string)
+* filter[inheritedParentIdEqual] (integer)
+* filter[inheritedParentIdIn] (string)
+* filter[partnerSortValueGreaterThanOrEqual] (integer)
+* filter[partnerSortValueLessThanOrEqual] (integer)
+* filter[aggregationCategoriesMultiLikeOr] (string)
+* filter[aggregationCategoriesMultiLikeAnd] (string)
+* filter[freeText] (string)
+* filter[membersIn] (string)
+* filter[nameOrReferenceIdStartsWith] (string)
+* filter[managerEqual] (string)
+* filter[memberEqual] (string)
+* filter[fullNameStartsWithIn] (string)
+* filter[ancestorIdIn] (string) - not includes the category itself (only sub categories)
+* filter[idOrInheritedParentIdIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### category.move
 Move categories that belong to the same parent category to a target categroy - enabled only for ks with disable entitlement
@@ -4452,6 +6817,9 @@ Unlock categories
 kaltura.category.unlockCategories({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
 
 ### category.update
 Update Category
@@ -4511,6 +6879,11 @@ Add new CategoryEntry
 kaltura.categoryEntry.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* categoryEntry[categoryId] (integer)
+* categoryEntry[entryId] (string) - entry id
 
 ### categoryEntry.addFromBulkUpload
 
@@ -4520,6 +6893,53 @@ kaltura.categoryEntry.add({}, context)
 kaltura.categoryEntry.addFromBulkUpload({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* bulkUploadData[objectType] (string)
+* bulkUploadData[filter][orderBy] (string)
+* bulkUploadData[filter][advancedSearch][objectType] (string)
+* bulkUploadData[filter][advancedSearch][value] (string)
+* bulkUploadData[filter][advancedSearch][categoriesMatchOr] (string)
+* bulkUploadData[filter][advancedSearch][categoryEntryStatusIn] (string)
+* bulkUploadData[filter][advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* bulkUploadData[filter][advancedSearch][categoryIdEqual] (integer)
+* bulkUploadData[filter][advancedSearch][memberIdEq] (string)
+* bulkUploadData[filter][advancedSearch][memberIdIn] (string)
+* bulkUploadData[filter][advancedSearch][memberPermissionsMatchOr] (string)
+* bulkUploadData[filter][advancedSearch][memberPermissionsMatchAnd] (string)
+* bulkUploadData[filter][advancedSearch][noDistributionProfiles] (boolean)
+* bulkUploadData[filter][advancedSearch][distributionProfileId] (integer)
+* bulkUploadData[filter][advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* bulkUploadData[filter][advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* bulkUploadData[filter][advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* bulkUploadData[filter][advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* bulkUploadData[filter][advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* bulkUploadData[filter][advancedSearch][contentLike] (string)
+* bulkUploadData[filter][advancedSearch][contentMultiLikeOr] (string)
+* bulkUploadData[filter][advancedSearch][contentMultiLikeAnd] (string)
+* bulkUploadData[filter][advancedSearch][cuePointsFreeText] (string)
+* bulkUploadData[filter][advancedSearch][cuePointTypeIn] (string)
+* bulkUploadData[filter][advancedSearch][cuePointSubTypeEqual] (integer)
+* bulkUploadData[filter][advancedSearch][watermarkId] (integer)
+* bulkUploadData[filter][advancedSearch][indexIdGreaterThan] (integer)
+* bulkUploadData[filter][advancedSearch][depthGreaterThanEqual] (integer)
+* bulkUploadData[filter][advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* bulkUploadData[filter][advancedSearch][field] (string)
+* bulkUploadData[filter][advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* bulkUploadData[filter][advancedSearch][items] (array)
+* bulkUploadData[filter][advancedSearch][idEqual] (string)
+* bulkUploadData[filter][advancedSearch][idIn] (string)
+* bulkUploadData[filter][advancedSearch][userIdEqual] (string)
+* bulkUploadData[filter][advancedSearch][userIdIn] (string)
+* bulkUploadData[filter][advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* bulkUploadData[filter][advancedSearch][updatedAtLessThanOrEqual] (string)
+* bulkUploadData[filter][advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* bulkUploadData[filter][advancedSearch][extendedStatusIn] (string)
+* bulkUploadData[filter][advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* bulkUploadData[filter][advancedSearch][not] (boolean)
+* bulkUploadData[filter][advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* bulkUploadData[filter][advancedSearch][metadataProfileId] (integer)
 
 ### categoryEntry.delete
 Delete CategoryEntry
@@ -4564,6 +6984,65 @@ List all categoryEntry
 kaltura.categoryEntry.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[categoryIdEqual] (integer)
+* filter[categoryIdIn] (string)
+* filter[entryIdEqual] (string)
+* filter[entryIdIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[categoryFullIdsStartsWith] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaCategoryEntryStatus`
+* filter[statusIn] (string)
+* filter[creatorUserIdEqual] (string)
+* filter[creatorUserIdIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### categoryEntry.reject
 activate CategoryEntry when it is pending moderation
@@ -4624,6 +7103,14 @@ Add new CategoryUser
 kaltura.categoryUser.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* categoryUser[categoryId] (integer) - `insertOnly`
+* categoryUser[userId] (string) - `insertOnly`
+* categoryUser[permissionLevel] (integer) - Enum Type: `KalturaCategoryUserPermissionLevel`
+* categoryUser[updateMethod] (integer) - Enum Type: `KalturaUpdateMethodType`
+* categoryUser[permissionNames] (string) - Set of category-related permissions for the current category user.
 
 ### categoryUser.addFromBulkUpload
 
@@ -4735,6 +7222,76 @@ List all categories
 kaltura.categoryUser.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[categoryIdEqual] (integer)
+* filter[categoryIdIn] (string)
+* filter[userIdEqual] (string)
+* filter[userIdIn] (string)
+* filter[permissionLevelEqual] (integer) - Enum Type: `KalturaCategoryUserPermissionLevel`
+* filter[permissionLevelIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaCategoryUserStatus`
+* filter[statusIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[updateMethodEqual] (integer) - Enum Type: `KalturaUpdateMethodType`
+* filter[updateMethodIn] (string)
+* filter[categoryFullIdsStartsWith] (string)
+* filter[categoryFullIdsEqual] (string)
+* filter[permissionNamesMatchAnd] (string)
+* filter[permissionNamesMatchOr] (string)
+* filter[permissionNamesNotContains] (string)
+* filter[categoryDirectMembers] (boolean) - Return the list of categoryUser that are not inherited from parent category - only the direct categoryUsers.
+* filter[freeText] (string) - Free text search on user id or screen name
+* filter[relatedGroupsByUserId] (string) - Return a list of categoryUser that related to the userId in this field by groups
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### categoryUser.update
 Update CategoryUser by id
@@ -4784,6 +7341,9 @@ creates all required jobs according to entry distribution dirty flags
 kaltura.contentDistributionBatch.createRequiredJobs({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
 
 ### contentDistributionBatch.getAssetUrl
 returns absolute valid url for asset file
@@ -4808,6 +7368,9 @@ updates entry distribution sun status in the search engine
 kaltura.contentDistributionBatch.updateSunStatus({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
 
 ### distributionProfile.add
 Add new Distribution Profile
@@ -4817,6 +7380,235 @@ Add new Distribution Profile
 kaltura.distributionProfile.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* distributionProfile[providerType] (string) - `insertOnly`
+* distributionProfile[name] (string)
+* distributionProfile[status] (integer) - Enum Type: `KalturaDistributionProfileStatus`
+* distributionProfile[submitEnabled] (integer) - Enum Type: `KalturaDistributionProfileActionStatus`
+* distributionProfile[updateEnabled] (integer) - Enum Type: `KalturaDistributionProfileActionStatus`
+* distributionProfile[deleteEnabled] (integer) - Enum Type: `KalturaDistributionProfileActionStatus`
+* distributionProfile[reportEnabled] (integer) - Enum Type: `KalturaDistributionProfileActionStatus`
+* distributionProfile[autoCreateFlavors] (string) - Comma separated flavor params ids that should be auto converted
+* distributionProfile[autoCreateThumb] (string) - Comma separated thumbnail params ids that should be auto generated
+* distributionProfile[optionalFlavorParamsIds] (string) - Comma separated flavor params ids that should be submitted if ready
+* distributionProfile[requiredFlavorParamsIds] (string) - Comma separated flavor params ids that required to be ready before submission
+* distributionProfile[optionalThumbDimensions] (array)
+* distributionProfile[requiredThumbDimensions] (array)
+* distributionProfile[optionalAssetDistributionRules] (array)
+* distributionProfile[requiredAssetDistributionRules] (array)
+* distributionProfile[sunriseDefaultOffset] (integer) - If entry distribution sunrise not specified that will be the default since entry creation time, in seconds
+* distributionProfile[sunsetDefaultOffset] (integer) - If entry distribution sunset not specified that will be the default since entry creation time, in seconds
+* distributionProfile[recommendedStorageProfileForDownload] (integer) - The best external storage to be used to download the asset files from
+* distributionProfile[recommendedDcForDownload] (integer) - The best Kaltura data center to be used to download the asset files to
+* distributionProfile[recommendedDcForExecute] (integer) - The best Kaltura data center to be used to execute the distribution job
+* distributionProfile[objectType] (string)
+* distributionProfile[fieldConfigArray] (array)
+* distributionProfile[itemXpathsToExtend] (array)
+* distributionProfile[useCategoryEntries] (boolean) - When checking custom XSLT conditions using the fieldConfigArray - address only categories associated with the entry via the categoryEntry object
+* distributionProfile[apikey] (string)
+* distributionProfile[email] (string)
+* distributionProfile[sftpPass] (string)
+* distributionProfile[sftpLogin] (string)
+* distributionProfile[accountId] (string)
+* distributionProfile[metadataProfileId] (integer)
+* distributionProfile[genericProviderId] (integer) - `insertOnly`
+* distributionProfile[submitAction][protocol] (integer) - Enum Type: `KalturaDistributionProtocol`
+* distributionProfile[submitAction][serverUrl] (string)
+* distributionProfile[submitAction][serverPath] (string)
+* distributionProfile[submitAction][username] (string)
+* distributionProfile[submitAction][password] (string)
+* distributionProfile[submitAction][ftpPassiveMode] (boolean)
+* distributionProfile[submitAction][httpFieldName] (string)
+* distributionProfile[submitAction][httpFileName] (string)
+* distributionProfile[xsl] (string)
+* distributionProfile[ftpHost] (string)
+* distributionProfile[ftpUsername] (string)
+* distributionProfile[ftpPassword] (string)
+* distributionProfile[ftpPath] (string)
+* distributionProfile[channelTitle] (string)
+* distributionProfile[flavorAssetFilenameXslt] (string)
+* distributionProfile[thumbnailAssetFilenameXslt] (string)
+* distributionProfile[assetFilenameXslt] (string)
+* distributionProfile[feedTitle] (string)
+* distributionProfile[feedLink] (string)
+* distributionProfile[feedDescription] (string)
+* distributionProfile[feedLastBuildDate] (string)
+* distributionProfile[itemLink] (string)
+* distributionProfile[cPlatformTvSeries] (array)
+* distributionProfile[cPlatformTvSeriesField] (string)
+* distributionProfile[shouldIncludeCuePoints] (boolean)
+* distributionProfile[shouldIncludeCaptions] (boolean)
+* distributionProfile[shouldAddThumbExtension] (boolean)
+* distributionProfile[targetServiceUrl] (string)
+* distributionProfile[targetAccountId] (integer)
+* distributionProfile[targetLoginId] (string)
+* distributionProfile[targetLoginPassword] (string)
+* distributionProfile[metadataXslt] (string)
+* distributionProfile[metadataXpathsTriggerUpdate] (array)
+* distributionProfile[distributeCaptions] (boolean)
+* distributionProfile[distributeCuePoints] (boolean)
+* distributionProfile[distributeRemoteFlavorAssetContent] (boolean)
+* distributionProfile[distributeRemoteThumbAssetContent] (boolean)
+* distributionProfile[distributeRemoteCaptionAssetContent] (boolean)
+* distributionProfile[mapAccessControlProfileIds] (array)
+* distributionProfile[mapConversionProfileIds] (array)
+* distributionProfile[mapMetadataProfileIds] (array)
+* distributionProfile[mapStorageProfileIds] (array)
+* distributionProfile[mapFlavorParamsIds] (array)
+* distributionProfile[mapThumbParamsIds] (array)
+* distributionProfile[mapCaptionParamsIds] (array)
+* distributionProfile[user] (string)
+* distributionProfile[password] (string)
+* distributionProfile[geoBlockingMapping] (integer) - Enum Type: `KalturaDailymotionGeoBlockingMapping`
+* distributionProfile[channelLink] (string)
+* distributionProfile[channelDescription] (string)
+* distributionProfile[cuePointsProvider] (string)
+* distributionProfile[itemsPerPage] (string)
+* distributionProfile[ignoreSchedulingInFeed] (boolean)
+* distributionProfile[apiAuthorizeUrl] (string)
+* distributionProfile[pageId] (string)
+* distributionProfile[pageAccessToken] (string)
+* distributionProfile[userAccessToken] (string)
+* distributionProfile[state] (string)
+* distributionProfile[permissions] (string)
+* distributionProfile[reRequestPermissions] (integer)
+* distributionProfile[contentOwner] (string)
+* distributionProfile[upstreamVideoId] (string)
+* distributionProfile[upstreamNetworkName] (string)
+* distributionProfile[upstreamNetworkId] (string)
+* distributionProfile[categoryId] (string)
+* distributionProfile[replaceGroup] (boolean)
+* distributionProfile[replaceAirDates] (boolean)
+* distributionProfile[protocol] (integer) - `insertOnly`
+* distributionProfile[host] (string)
+* distributionProfile[port] (integer)
+* distributionProfile[basePath] (string)
+* distributionProfile[username] (string)
+* distributionProfile[passphrase] (string)
+* distributionProfile[sftpPublicKey] (string)
+* distributionProfile[sftpPrivateKey] (string)
+* distributionProfile[disableMetadata] (boolean)
+* distributionProfile[metadataFilenameXslt] (string)
+* distributionProfile[asperaPublicKey] (string)
+* distributionProfile[asperaPrivateKey] (string)
+* distributionProfile[sendMetadataAfterAssets] (boolean)
+* distributionProfile[sftpHost] (string)
+* distributionProfile[seriesChannel] (string)
+* distributionProfile[seriesPrimaryCategory] (string)
+* distributionProfile[seriesAdditionalCategories] (array)
+* distributionProfile[seasonNumber] (string)
+* distributionProfile[seasonSynopsis] (string)
+* distributionProfile[seasonTuneInInformation] (string)
+* distributionProfile[videoMediaType] (string)
+* distributionProfile[disableEpisodeNumberCustomValidation] (boolean)
+* distributionProfile[asperaHost] (string)
+* distributionProfile[asperaLogin] (string)
+* distributionProfile[asperaPass] (string)
+* distributionProfile[domain] (string)
+* distributionProfile[ftpLogin] (string)
+* distributionProfile[ftpPass] (string)
+* distributionProfile[providerName] (string)
+* distributionProfile[providerId] (string)
+* distributionProfile[copyright] (string)
+* distributionProfile[entitlements] (string)
+* distributionProfile[rating] (string)
+* distributionProfile[itemType] (string)
+* distributionProfile[csId] (string)
+* distributionProfile[source] (string)
+* distributionProfile[sourceFriendlyName] (string)
+* distributionProfile[pageGroup] (string)
+* distributionProfile[sourceFlavorParamsId] (integer)
+* distributionProfile[wmvFlavorParamsId] (integer)
+* distributionProfile[flvFlavorParamsId] (integer)
+* distributionProfile[slFlavorParamsId] (integer)
+* distributionProfile[slHdFlavorParamsId] (integer)
+* distributionProfile[msnvideoCat] (string)
+* distributionProfile[msnvideoTop] (string)
+* distributionProfile[msnvideoTopCat] (string)
+* distributionProfile[channelLanguage] (string)
+* distributionProfile[channelCopyright] (string)
+* distributionProfile[channelImageTitle] (string)
+* distributionProfile[channelImageUrl] (string)
+* distributionProfile[channelImageLink] (string)
+* distributionProfile[itemMediaRating] (string)
+* distributionProfile[ips] (string)
+* distributionProfile[certificateKey] (string)
+* distributionProfile[bodyXslt] (string)
+* distributionProfile[sftpBasePath] (string)
+* distributionProfile[channelManagingEditor] (string)
+* distributionProfile[channelImageWidth] (string)
+* distributionProfile[channelImageHeight] (string)
+* distributionProfile[channelGenerator] (string)
+* distributionProfile[channelRating] (string)
+* distributionProfile[feedSubtitle] (string)
+* distributionProfile[feedAuthorName] (string)
+* distributionProfile[feedLanguage] (string)
+* distributionProfile[feedCopyright] (string)
+* distributionProfile[feedImageTitle] (string)
+* distributionProfile[feedImageUrl] (string)
+* distributionProfile[feedImageLink] (string)
+* distributionProfile[feedImageWidth] (integer)
+* distributionProfile[feedImageHeight] (integer)
+* distributionProfile[ingestUrl] (string)
+* distributionProfile[tags] (array)
+* distributionProfile[xsltFile] (string)
+* distributionProfile[domainName] (string) - The name of the Domain that the Upload User should have access to, Used for authentication.
+* distributionProfile[channelGuid] (string) - The Channel GUID assigned to this Publication Rule. Must be a valid Channel in the Domain that was used in authentication.
+* distributionProfile[apiHostUrl] (string) - The API host URL that the Upload User should have access to, Used for HTTP content submission.
+* distributionProfile[domainGuid] (string) - The GUID of the Customer Domain in the Unicorn system obtained by contacting your Unicorn representative.
+* distributionProfile[adFreeApplicationGuid] (string) - The GUID for the application in which to record metrics and enforce business rules obtained through your Unicorn representative.
+* distributionProfile[remoteAssetParamsId] (integer) - The flavor-params that will be used for the remote asset.
+* distributionProfile[storageProfileId] (string) - The remote storage that should be used for the remote asset.
+* distributionProfile[backgroundImageWide] (string)
+* distributionProfile[backgroundImageStandard] (string)
+* distributionProfile[entitlement] (string)
+* distributionProfile[priority] (string)
+* distributionProfile[allowStreaming] (string)
+* distributionProfile[streamingPriceCode] (string)
+* distributionProfile[allowDownload] (string)
+* distributionProfile[downloadPriceCode] (string)
+* distributionProfile[contactTelephone] (string)
+* distributionProfile[contactEmail] (string)
+* distributionProfile[processFeed] (integer) - Enum Type: `KalturaYahooDistributionProcessFeedActionStatus`
+* distributionProfile[feedSpecVersion] (string) - Enum Type: `KalturaYouTubeDistributionFeedSpecVersion`
+* distributionProfile[notificationEmail] (string)
+* distributionProfile[sftpPort] (integer)
+* distributionProfile[sftpBaseDir] (string)
+* distributionProfile[ownerName] (string)
+* distributionProfile[defaultCategory] (string)
+* distributionProfile[allowComments] (string)
+* distributionProfile[allowEmbedding] (string)
+* distributionProfile[allowRatings] (string)
+* distributionProfile[allowResponses] (string)
+* distributionProfile[commercialPolicy] (string)
+* distributionProfile[ugcPolicy] (string)
+* distributionProfile[target] (string)
+* distributionProfile[adServerPartnerId] (string)
+* distributionProfile[enableAdServer] (boolean)
+* distributionProfile[allowPreRollAds] (boolean)
+* distributionProfile[allowPostRollAds] (boolean)
+* distributionProfile[strict] (string)
+* distributionProfile[overrideManualEdits] (string)
+* distributionProfile[urgentReference] (string)
+* distributionProfile[allowSyndication] (string)
+* distributionProfile[hideViewCount] (string)
+* distributionProfile[allowAdsenseForVideo] (string)
+* distributionProfile[allowInvideo] (string)
+* distributionProfile[allowMidRollAds] (boolean)
+* distributionProfile[instreamStandard] (string)
+* distributionProfile[instreamTrueview] (string)
+* distributionProfile[claimType] (string)
+* distributionProfile[blockOutsideOwnership] (string)
+* distributionProfile[captionAutosync] (string)
+* distributionProfile[deleteReference] (boolean)
+* distributionProfile[releaseClaims] (boolean)
+* distributionProfile[googleClientId] (string)
+* distributionProfile[googleClientSecret] (string)
+* distributionProfile[googleTokenData] (string)
+* distributionProfile[assumeSuccess] (boolean)
+* distributionProfile[privacyStatus] (string)
 
 ### distributionProfile.delete
 Delete Distribution Profile by id
@@ -4856,6 +7648,63 @@ List all distribution providers
 kaltura.distributionProfile.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[statusEqual] (integer) - Enum Type: `KalturaDistributionProfileStatus`
+* filter[statusIn] (string)
+* filter[objectType] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### distributionProfile.listByPartner
 
@@ -4865,6 +7714,73 @@ kaltura.distributionProfile.list({}, context)
 kaltura.distributionProfile.listByPartner({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[idNotIn] (string)
+* filter[nameLike] (string)
+* filter[nameMultiLikeOr] (string)
+* filter[nameMultiLikeAnd] (string)
+* filter[nameEqual] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaPartnerStatus`
+* filter[statusIn] (string)
+* filter[partnerPackageEqual] (integer)
+* filter[partnerPackageGreaterThanOrEqual] (integer)
+* filter[partnerPackageLessThanOrEqual] (integer)
+* filter[partnerPackageIn] (string)
+* filter[partnerGroupTypeEqual] (integer) - Enum Type: `KalturaPartnerGroupType`
+* filter[partnerNameDescriptionWebsiteAdminNameAdminEmailLike] (string)
+* filter[objectType] (string)
+* filter[groupTypeEq] (integer) - Enum Type: `KalturaPartnerGroupType`
+* filter[groupTypeIn] (string) - In filter for the partner's group type
+* filter[partnerPermissionsExist] (string) - Filter for partner permissions- filter contains comma-separated string of permission names which the returned partners should have.
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### distributionProfile.update
 Update Distribution Profile by id
@@ -5132,6 +8048,69 @@ List all distribution providers
 kaltura.distributionProvider.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[typeEqual] (string) - Enum Type: `KalturaDistributionProviderType`
+* filter[typeIn] (string)
+* filter[objectType] (string)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[isDefaultEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[isDefaultIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaGenericDistributionProviderStatus`
+* filter[statusIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### entryDistribution.add
 Add new Entry Distribution
@@ -5141,6 +8120,17 @@ Add new Entry Distribution
 kaltura.entryDistribution.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* entryDistribution[entryId] (string) - `insertOnly`
+* entryDistribution[distributionProfileId] (integer) - `insertOnly`
+* entryDistribution[thumbAssetIds] (string) - Comma separated thumbnail asset ids
+* entryDistribution[flavorAssetIds] (string) - Comma separated flavor asset ids
+* entryDistribution[assetIds] (string) - Comma separated asset ids
+* entryDistribution[sunrise] (integer) - Entry distribution publish time as Unix timestamp (In seconds)
+* entryDistribution[sunset] (integer) - Entry distribution un-publish time as Unix timestamp (In seconds)
+* entryDistribution[validationErrors] (array)
 
 ### entryDistribution.delete
 Delete Entry Distribution by id
@@ -5180,6 +8170,74 @@ List all distribution providers
 kaltura.entryDistribution.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[submittedAtGreaterThanOrEqual] (integer)
+* filter[submittedAtLessThanOrEqual] (integer)
+* filter[entryIdEqual] (string)
+* filter[entryIdIn] (string)
+* filter[distributionProfileIdEqual] (integer)
+* filter[distributionProfileIdIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[statusIn] (string)
+* filter[dirtyStatusEqual] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[dirtyStatusIn] (string)
+* filter[sunriseGreaterThanOrEqual] (integer)
+* filter[sunriseLessThanOrEqual] (integer)
+* filter[sunsetGreaterThanOrEqual] (integer)
+* filter[sunsetLessThanOrEqual] (integer)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### entryDistribution.retrySubmit
 Retries last submit action
@@ -5337,6 +8395,24 @@ Add new Generic Distribution Provider
 kaltura.genericDistributionProvider.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* genericDistributionProvider[name] (string)
+* genericDistributionProvider[scheduleUpdateEnabled] (boolean)
+* genericDistributionProvider[availabilityUpdateEnabled] (boolean)
+* genericDistributionProvider[deleteInsteadUpdate] (boolean)
+* genericDistributionProvider[intervalBeforeSunrise] (integer)
+* genericDistributionProvider[intervalBeforeSunset] (integer)
+* genericDistributionProvider[updateRequiredEntryFields] (string)
+* genericDistributionProvider[updateRequiredMetadataXPaths] (string)
+* genericDistributionProvider[isDefault] (boolean)
+* genericDistributionProvider[optionalFlavorParamsIds] (string)
+* genericDistributionProvider[requiredFlavorParamsIds] (string)
+* genericDistributionProvider[optionalThumbDimensions] (array)
+* genericDistributionProvider[requiredThumbDimensions] (array)
+* genericDistributionProvider[editableFields] (string)
+* genericDistributionProvider[mandatoryFields] (string)
 
 ### genericDistributionProvider.delete
 Delete Generic Distribution Provider by id
@@ -5376,6 +8452,68 @@ List all distribution providers
 kaltura.genericDistributionProvider.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[typeEqual] (string) - Enum Type: `KalturaDistributionProviderType`
+* filter[typeIn] (string)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[isDefaultEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[isDefaultIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaGenericDistributionProviderStatus`
+* filter[statusIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### genericDistributionProvider.update
 Update Generic Distribution Provider by id
@@ -5415,6 +8553,19 @@ Add new Generic Distribution Provider Action
 kaltura.genericDistributionProviderAction.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* genericDistributionProviderAction[genericDistributionProviderId] (integer) - `insertOnly`
+* genericDistributionProviderAction[action] (integer) - `insertOnly`
+* genericDistributionProviderAction[resultsParser] (integer) - Enum Type: `KalturaGenericDistributionProviderParser`
+* genericDistributionProviderAction[protocol] (integer) - Enum Type: `KalturaDistributionProtocol`
+* genericDistributionProviderAction[serverAddress] (string)
+* genericDistributionProviderAction[remotePath] (string)
+* genericDistributionProviderAction[remoteUsername] (string)
+* genericDistributionProviderAction[remotePassword] (string)
+* genericDistributionProviderAction[editableFields] (string)
+* genericDistributionProviderAction[mandatoryFields] (string)
 
 ### genericDistributionProviderAction.addMrssTransform
 Add MRSS transform file to generic distribution provider action
@@ -5590,6 +8741,64 @@ List all distribution providers
 kaltura.genericDistributionProviderAction.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[genericDistributionProviderIdEqual] (integer)
+* filter[genericDistributionProviderIdIn] (string)
+* filter[actionEqual] (integer) - Enum Type: `KalturaDistributionAction`
+* filter[actionIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### genericDistributionProviderAction.update
 Update Generic Distribution Provider Action by id
@@ -5651,6 +8860,22 @@ Add new Conversion Profile
 kaltura.conversionProfile.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* conversionProfile[status] (string) - Enum Type: `KalturaConversionProfileStatus`
+* conversionProfile[type] (string) - `insertOnly`
+* conversionProfile[name] (string) - The name of the Conversion Profile
+* conversionProfile[systemName] (string) - System name of the Conversion Profile
+* conversionProfile[tags] (string) - Comma separated tags
+* conversionProfile[description] (string) - The description of the Conversion Profile
+* conversionProfile[defaultEntryId] (string) - ID of the default entry to be used for template data
+* conversionProfile[flavorParamsIds] (string) - List of included flavor ids (comma separated)
+* conversionProfile[isDefault] (integer) - Enum Type: `KalturaNullableBoolean`
+* conversionProfile[cropDimensions][left] (integer) - Crop left point
+* conversionProfile[cropDimensions][top] (integer) - Crop top point
+* conversionProfile[cropDimensions][width] (integer) - Crop width
+* conversionProfile[cropDimensions][height] (integer) - Crop height
 
 ### conversionProfile.delete
 Delete Conversion Profile by ID
@@ -5690,6 +8915,10 @@ Get the partner's default conversion profile
 kaltura.conversionProfile.getDefault({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* type (string) - Enum Type: `KalturaConversionProfileType`
 
 ### conversionProfile.list
 List Conversion Profiles by filter with paging support
@@ -5699,6 +8928,67 @@ List Conversion Profiles by filter with paging support
 kaltura.conversionProfile.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[statusEqual] (string) - Enum Type: `KalturaConversionProfileStatus`
+* filter[statusIn] (string)
+* filter[typeEqual] (string) - Enum Type: `KalturaConversionProfileType`
+* filter[typeIn] (string)
+* filter[nameEqual] (string)
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[defaultEntryIdEqual] (string)
+* filter[defaultEntryIdIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### conversionProfile.setAsDefault
 Set Conversion Profile to be the partner default
@@ -5751,6 +9041,120 @@ Lists asset parmas of conversion profile by ID
 kaltura.conversionProfileAssetParams.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[conversionProfileIdEqual] (integer)
+* filter[conversionProfileIdIn] (string)
+* filter[assetParamsIdEqual] (integer)
+* filter[assetParamsIdIn] (string)
+* filter[readyBehaviorEqual] (integer) - Enum Type: `KalturaFlavorReadyBehaviorType`
+* filter[readyBehaviorIn] (string)
+* filter[originEqual] (integer) - Enum Type: `KalturaAssetParamsOrigin`
+* filter[originIn] (string)
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[conversionProfileIdFilter][orderBy] (string)
+* filter[conversionProfileIdFilter][advancedSearch][objectType] (string)
+* filter[conversionProfileIdFilter][advancedSearch][value] (string)
+* filter[conversionProfileIdFilter][advancedSearch][categoriesMatchOr] (string)
+* filter[conversionProfileIdFilter][advancedSearch][categoryEntryStatusIn] (string)
+* filter[conversionProfileIdFilter][advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[conversionProfileIdFilter][advancedSearch][categoryIdEqual] (integer)
+* filter[conversionProfileIdFilter][advancedSearch][memberIdEq] (string)
+* filter[conversionProfileIdFilter][advancedSearch][memberIdIn] (string)
+* filter[conversionProfileIdFilter][advancedSearch][memberPermissionsMatchOr] (string)
+* filter[conversionProfileIdFilter][advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[conversionProfileIdFilter][advancedSearch][noDistributionProfiles] (boolean)
+* filter[conversionProfileIdFilter][advancedSearch][distributionProfileId] (integer)
+* filter[conversionProfileIdFilter][advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[conversionProfileIdFilter][advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[conversionProfileIdFilter][advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[conversionProfileIdFilter][advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[conversionProfileIdFilter][advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[conversionProfileIdFilter][advancedSearch][contentLike] (string)
+* filter[conversionProfileIdFilter][advancedSearch][contentMultiLikeOr] (string)
+* filter[conversionProfileIdFilter][advancedSearch][contentMultiLikeAnd] (string)
+* filter[conversionProfileIdFilter][advancedSearch][cuePointsFreeText] (string)
+* filter[conversionProfileIdFilter][advancedSearch][cuePointTypeIn] (string)
+* filter[conversionProfileIdFilter][advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[conversionProfileIdFilter][advancedSearch][watermarkId] (integer)
+* filter[conversionProfileIdFilter][advancedSearch][indexIdGreaterThan] (integer)
+* filter[conversionProfileIdFilter][advancedSearch][depthGreaterThanEqual] (integer)
+* filter[conversionProfileIdFilter][advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[conversionProfileIdFilter][advancedSearch][field] (string)
+* filter[conversionProfileIdFilter][advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[conversionProfileIdFilter][advancedSearch][items] (array)
+* filter[conversionProfileIdFilter][advancedSearch][idEqual] (string)
+* filter[conversionProfileIdFilter][advancedSearch][idIn] (string)
+* filter[conversionProfileIdFilter][advancedSearch][userIdEqual] (string)
+* filter[conversionProfileIdFilter][advancedSearch][userIdIn] (string)
+* filter[conversionProfileIdFilter][advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[conversionProfileIdFilter][advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[conversionProfileIdFilter][advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[conversionProfileIdFilter][advancedSearch][extendedStatusIn] (string)
+* filter[conversionProfileIdFilter][advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[conversionProfileIdFilter][advancedSearch][not] (boolean)
+* filter[conversionProfileIdFilter][advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[conversionProfileIdFilter][advancedSearch][metadataProfileId] (integer)
+* filter[conversionProfileIdFilter][idEqual] (integer)
+* filter[conversionProfileIdFilter][idIn] (string)
+* filter[conversionProfileIdFilter][statusEqual] (string) - Enum Type: `KalturaConversionProfileStatus`
+* filter[conversionProfileIdFilter][statusIn] (string)
+* filter[conversionProfileIdFilter][typeEqual] (string) - Enum Type: `KalturaConversionProfileType`
+* filter[conversionProfileIdFilter][typeIn] (string)
+* filter[conversionProfileIdFilter][nameEqual] (string)
+* filter[conversionProfileIdFilter][systemNameEqual] (string)
+* filter[conversionProfileIdFilter][systemNameIn] (string)
+* filter[conversionProfileIdFilter][tagsMultiLikeOr] (string)
+* filter[conversionProfileIdFilter][tagsMultiLikeAnd] (string)
+* filter[conversionProfileIdFilter][defaultEntryIdEqual] (string)
+* filter[conversionProfileIdFilter][defaultEntryIdIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### conversionProfileAssetParams.update
 Update asset parmas of conversion profile by ID
@@ -5786,6 +9190,41 @@ Allows you to add an cue point object associated with an entry
 kaltura.cuePoint.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* cuePoint[entryId] (string) - `insertOnly`
+* cuePoint[triggeredAt] (integer)
+* cuePoint[tags] (string)
+* cuePoint[startTime] (integer) - Start time in milliseconds
+* cuePoint[partnerData] (string)
+* cuePoint[partnerSortValue] (integer)
+* cuePoint[forceStop] (integer) - Enum Type: `KalturaNullableBoolean`
+* cuePoint[thumbOffset] (integer)
+* cuePoint[systemName] (string)
+* cuePoint[objectType] (string)
+* cuePoint[parentId] (string) - `insertOnly`
+* cuePoint[text] (string)
+* cuePoint[endTime] (integer) - End time in milliseconds
+* cuePoint[isPublic] (integer) - Enum Type: `KalturaNullableBoolean`
+* cuePoint[searchableOnEntry] (integer) - Enum Type: `KalturaNullableBoolean`
+* cuePoint[protocolType] (string) - `insertOnly`
+* cuePoint[sourceUrl] (string)
+* cuePoint[adType] (string) - Enum Type: `KalturaAdType`
+* cuePoint[title] (string)
+* cuePoint[duration] (integer) - Duration in milliseconds
+* cuePoint[quizUserEntryId] (string) - `insertOnly`
+* cuePoint[answerKey] (string)
+* cuePoint[correctAnswerKeys] (array)
+* cuePoint[code] (string)
+* cuePoint[description] (string)
+* cuePoint[eventType] (string) - Enum Type: `KalturaEventType`
+* cuePoint[optionalAnswers] (array)
+* cuePoint[hint] (string)
+* cuePoint[question] (string)
+* cuePoint[explanation] (string)
+* cuePoint[assetId] (string)
+* cuePoint[subType] (integer) - Enum Type: `KalturaThumbCuePointSubType`
 
 ### cuePoint.addFromBulk
 Allows you to add multiple cue points objects by uploading XML that contains multiple cue point definitions
@@ -5827,6 +9266,116 @@ count cue point objects by filter
 kaltura.cuePoint.count({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string)
+* filter[idIn] (string)
+* filter[cuePointTypeEqual] (string) - Enum Type: `KalturaCuePointType`
+* filter[cuePointTypeIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaCuePointStatus`
+* filter[statusIn] (string)
+* filter[entryIdEqual] (string)
+* filter[entryIdIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[triggeredAtGreaterThanOrEqual] (integer)
+* filter[triggeredAtLessThanOrEqual] (integer)
+* filter[tagsLike] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[startTimeGreaterThanOrEqual] (integer)
+* filter[startTimeLessThanOrEqual] (integer)
+* filter[userIdEqual] (string)
+* filter[userIdIn] (string)
+* filter[partnerSortValueEqual] (integer)
+* filter[partnerSortValueIn] (string)
+* filter[partnerSortValueGreaterThanOrEqual] (integer)
+* filter[partnerSortValueLessThanOrEqual] (integer)
+* filter[forceStopEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[freeText] (string)
+* filter[userIdEqualCurrent] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[userIdCurrent] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[objectType] (string)
+* filter[protocolTypeEqual] (string) - Enum Type: `KalturaAdProtocolType`
+* filter[protocolTypeIn] (string)
+* filter[titleLike] (string)
+* filter[titleMultiLikeOr] (string)
+* filter[titleMultiLikeAnd] (string)
+* filter[endTimeGreaterThanOrEqual] (integer)
+* filter[endTimeLessThanOrEqual] (integer)
+* filter[durationGreaterThanOrEqual] (integer)
+* filter[durationLessThanOrEqual] (integer)
+* filter[parentIdEqual] (string)
+* filter[parentIdIn] (string)
+* filter[textLike] (string)
+* filter[textMultiLikeOr] (string)
+* filter[textMultiLikeAnd] (string)
+* filter[isPublicEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[quizUserEntryIdEqual] (string)
+* filter[quizUserEntryIdIn] (string)
+* filter[codeLike] (string)
+* filter[codeMultiLikeOr] (string)
+* filter[codeMultiLikeAnd] (string)
+* filter[codeEqual] (string)
+* filter[codeIn] (string)
+* filter[descriptionLike] (string)
+* filter[descriptionMultiLikeOr] (string)
+* filter[descriptionMultiLikeAnd] (string)
+* filter[eventTypeEqual] (string) - Enum Type: `KalturaEventType`
+* filter[eventTypeIn] (string)
+* filter[questionLike] (string)
+* filter[questionMultiLikeOr] (string)
+* filter[questionMultiLikeAnd] (string)
+* filter[subTypeEqual] (integer) - Enum Type: `KalturaThumbCuePointSubType`
+* filter[subTypeIn] (string)
 
 ### cuePoint.delete
 delete cue point by id, and delete all children cue points
@@ -5866,6 +9415,118 @@ List cue point objects by filter and pager
 kaltura.cuePoint.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string)
+* filter[idIn] (string)
+* filter[cuePointTypeEqual] (string) - Enum Type: `KalturaCuePointType`
+* filter[cuePointTypeIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaCuePointStatus`
+* filter[statusIn] (string)
+* filter[entryIdEqual] (string)
+* filter[entryIdIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[triggeredAtGreaterThanOrEqual] (integer)
+* filter[triggeredAtLessThanOrEqual] (integer)
+* filter[tagsLike] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[startTimeGreaterThanOrEqual] (integer)
+* filter[startTimeLessThanOrEqual] (integer)
+* filter[userIdEqual] (string)
+* filter[userIdIn] (string)
+* filter[partnerSortValueEqual] (integer)
+* filter[partnerSortValueIn] (string)
+* filter[partnerSortValueGreaterThanOrEqual] (integer)
+* filter[partnerSortValueLessThanOrEqual] (integer)
+* filter[forceStopEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[freeText] (string)
+* filter[userIdEqualCurrent] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[userIdCurrent] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[objectType] (string)
+* filter[protocolTypeEqual] (string) - Enum Type: `KalturaAdProtocolType`
+* filter[protocolTypeIn] (string)
+* filter[titleLike] (string)
+* filter[titleMultiLikeOr] (string)
+* filter[titleMultiLikeAnd] (string)
+* filter[endTimeGreaterThanOrEqual] (integer)
+* filter[endTimeLessThanOrEqual] (integer)
+* filter[durationGreaterThanOrEqual] (integer)
+* filter[durationLessThanOrEqual] (integer)
+* filter[parentIdEqual] (string)
+* filter[parentIdIn] (string)
+* filter[textLike] (string)
+* filter[textMultiLikeOr] (string)
+* filter[textMultiLikeAnd] (string)
+* filter[isPublicEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[quizUserEntryIdEqual] (string)
+* filter[quizUserEntryIdIn] (string)
+* filter[codeLike] (string)
+* filter[codeMultiLikeOr] (string)
+* filter[codeMultiLikeAnd] (string)
+* filter[codeEqual] (string)
+* filter[codeIn] (string)
+* filter[descriptionLike] (string)
+* filter[descriptionMultiLikeOr] (string)
+* filter[descriptionMultiLikeAnd] (string)
+* filter[eventTypeEqual] (string) - Enum Type: `KalturaEventType`
+* filter[eventTypeIn] (string)
+* filter[questionLike] (string)
+* filter[questionMultiLikeOr] (string)
+* filter[questionMultiLikeAnd] (string)
+* filter[subTypeEqual] (integer) - Enum Type: `KalturaThumbCuePointSubType`
+* filter[subTypeIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### cuePoint.serveBulk
 Download multiple cue points objects as XML definitions
@@ -5875,6 +9536,118 @@ Download multiple cue points objects as XML definitions
 kaltura.cuePoint.serveBulk({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string)
+* filter[idIn] (string)
+* filter[cuePointTypeEqual] (string) - Enum Type: `KalturaCuePointType`
+* filter[cuePointTypeIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaCuePointStatus`
+* filter[statusIn] (string)
+* filter[entryIdEqual] (string)
+* filter[entryIdIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[triggeredAtGreaterThanOrEqual] (integer)
+* filter[triggeredAtLessThanOrEqual] (integer)
+* filter[tagsLike] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[startTimeGreaterThanOrEqual] (integer)
+* filter[startTimeLessThanOrEqual] (integer)
+* filter[userIdEqual] (string)
+* filter[userIdIn] (string)
+* filter[partnerSortValueEqual] (integer)
+* filter[partnerSortValueIn] (string)
+* filter[partnerSortValueGreaterThanOrEqual] (integer)
+* filter[partnerSortValueLessThanOrEqual] (integer)
+* filter[forceStopEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[freeText] (string)
+* filter[userIdEqualCurrent] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[userIdCurrent] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[objectType] (string)
+* filter[protocolTypeEqual] (string) - Enum Type: `KalturaAdProtocolType`
+* filter[protocolTypeIn] (string)
+* filter[titleLike] (string)
+* filter[titleMultiLikeOr] (string)
+* filter[titleMultiLikeAnd] (string)
+* filter[endTimeGreaterThanOrEqual] (integer)
+* filter[endTimeLessThanOrEqual] (integer)
+* filter[durationGreaterThanOrEqual] (integer)
+* filter[durationLessThanOrEqual] (integer)
+* filter[parentIdEqual] (string)
+* filter[parentIdIn] (string)
+* filter[textLike] (string)
+* filter[textMultiLikeOr] (string)
+* filter[textMultiLikeAnd] (string)
+* filter[isPublicEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[quizUserEntryIdEqual] (string)
+* filter[quizUserEntryIdIn] (string)
+* filter[codeLike] (string)
+* filter[codeMultiLikeOr] (string)
+* filter[codeMultiLikeAnd] (string)
+* filter[codeEqual] (string)
+* filter[codeIn] (string)
+* filter[descriptionLike] (string)
+* filter[descriptionMultiLikeOr] (string)
+* filter[descriptionMultiLikeAnd] (string)
+* filter[eventTypeEqual] (string) - Enum Type: `KalturaEventType`
+* filter[eventTypeIn] (string)
+* filter[questionLike] (string)
+* filter[questionMultiLikeOr] (string)
+* filter[questionMultiLikeAnd] (string)
+* filter[subTypeEqual] (integer) - Enum Type: `KalturaThumbCuePointSubType`
+* filter[subTypeIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### cuePoint.update
 Update cue point by id
@@ -5948,6 +9721,36 @@ Adds a new data entry
 kaltura.data.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* dataEntry[name] (string) - Entry name (Min 1 chars)
+* dataEntry[description] (string) - Entry description
+* dataEntry[userId] (string) - The ID of the user who is the owner of this entry
+* dataEntry[creatorId] (string) - `insertOnly`
+* dataEntry[tags] (string) - Entry tags
+* dataEntry[adminTags] (string) - Entry admin tags can be updated only by administrators
+* dataEntry[categories] (string) - Comma separated list of full names of categories to which this entry belongs. Only categories that don't have entitlement (privacy context) are listed, to retrieve the full list of categories, use the categoryEntry.list action.
+* dataEntry[categoriesIds] (string) - Comma separated list of ids of categories to which this entry belongs. Only categories that don't have entitlement (privacy context) are listed, to retrieve the full list of categories, use the categoryEntry.list action.
+* dataEntry[type] (string) - Enum Type: `KalturaEntryType`
+* dataEntry[groupId] (integer)
+* dataEntry[partnerData] (string) - Can be used to store various partner related data as a string
+* dataEntry[licenseType] (integer) - Enum Type: `KalturaLicenseType`
+* dataEntry[accessControlId] (integer) - The Access Control ID assigned to this entry (null when not set, send -1 to remove)
+* dataEntry[startDate] (integer) - Entry scheduling start date (null when not set, send -1 to remove)
+* dataEntry[endDate] (integer) - Entry scheduling end date (null when not set, send -1 to remove)
+* dataEntry[referenceId] (string) - Entry external reference id
+* dataEntry[partnerSortValue] (integer) - Can be used to store various partner related data as a numeric value
+* dataEntry[conversionProfileId] (integer) - Override the default ingestion profile
+* dataEntry[redirectEntryId] (string) - IF not empty, points to an entry ID the should replace this current entry's id.
+* dataEntry[parentEntryId] (string) - ID of source root entry, used for defining entires association
+* dataEntry[operationAttributes] (array)
+* dataEntry[entitledUsersEdit] (string) - list of user ids that are entitled to edit the entry (no server enforcement) The difference between entitledUsersEdit and entitledUsersPublish is applicative only
+* dataEntry[entitledUsersPublish] (string) - list of user ids that are entitled to publish the entry (no server enforcement) The difference between entitledUsersEdit and entitledUsersPublish is applicative only
+* dataEntry[templateEntryId] (string) - `insertOnly`
+* dataEntry[displayInSearch] (integer) - Enum Type: `KalturaEntryDisplayInSearchType`
+* dataEntry[dataContent] (string) - The data of the entry
+* dataEntry[retrieveDataContentByGet] (boolean) - `insertOnly`
 
 ### data.delete
 Delete a data entry.
@@ -5988,6 +9791,137 @@ List data entries by filter with paging support.
 kaltura.data.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string) - This filter should be in use for retrieving only a specific entry (identified by its entryId).
+* filter[idIn] (string) - This filter should be in use for retrieving few specific entries (string should include comma separated list of entryId strings).
+* filter[idNotIn] (string)
+* filter[nameLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry names (no wildcards, spaces are treated as part of the string).
+* filter[nameMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[nameMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[nameEqual] (string) - This filter should be in use for retrieving entries with a specific name.
+* filter[partnerIdEqual] (integer) - This filter should be in use for retrieving only entries which were uploaded by/assigned to users of a specific Kaltura Partner (identified by Partner ID).
+* filter[partnerIdIn] (string) - This filter should be in use for retrieving only entries within Kaltura network which were uploaded by/assigned to users of few Kaltura Partners  (string should include comma separated list of PartnerIDs)
+* filter[userIdEqual] (string) - This filter parameter should be in use for retrieving only entries, uploaded by/assigned to a specific user (identified by user Id).
+* filter[userIdIn] (string)
+* filter[userIdNotIn] (string)
+* filter[creatorIdEqual] (string)
+* filter[tagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags (no wildcards, spaces are treated as part of the string).
+* filter[tagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[tagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags set by an ADMIN user (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[categoriesMatchAnd] (string)
+* filter[categoriesMatchOr] (string) - All entries within these categories or their child categories.
+* filter[categoriesNotContains] (string)
+* filter[categoriesIdsMatchAnd] (string)
+* filter[categoriesIdsMatchOr] (string) - All entries of the categories, excluding their child categories.
+* filter[categoriesIdsNotContains] (string)
+* filter[categoriesIdsEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[statusEqual] (string) - Enum Type: `KalturaEntryStatus`
+* filter[statusNotEqual] (string) - Enum Type: `KalturaEntryStatus`
+* filter[statusIn] (string) - This filter should be in use for retrieving only entries, at few specific {
+* filter[statusNotIn] (string) - This filter should be in use for retrieving only entries, not at few specific {
+* filter[moderationStatusEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* filter[moderationStatusNotEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* filter[moderationStatusIn] (string)
+* filter[moderationStatusNotIn] (string)
+* filter[typeEqual] (string) - Enum Type: `KalturaEntryType`
+* filter[typeIn] (string) - This filter should be in use for retrieving entries of few {
+* filter[createdAtGreaterThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system after a specific time/date (standard timestamp format).
+* filter[createdAtLessThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system before a specific time/date (standard timestamp format).
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[totalRankLessThanOrEqual] (integer)
+* filter[totalRankGreaterThanOrEqual] (integer)
+* filter[groupIdEqual] (integer)
+* filter[searchTextMatchAnd] (string) - This filter should be in use for retrieving specific entries while search match the input string within all of the following metadata attributes: name, description, tags, adminTags.
+* filter[searchTextMatchOr] (string) - This filter should be in use for retrieving specific entries while search match the input string within at least one of the following metadata attributes: name, description, tags, adminTags.
+* filter[accessControlIdEqual] (integer)
+* filter[accessControlIdIn] (string)
+* filter[startDateGreaterThanOrEqual] (integer)
+* filter[startDateLessThanOrEqual] (integer)
+* filter[startDateGreaterThanOrEqualOrNull] (integer)
+* filter[startDateLessThanOrEqualOrNull] (integer)
+* filter[endDateGreaterThanOrEqual] (integer)
+* filter[endDateLessThanOrEqual] (integer)
+* filter[endDateGreaterThanOrEqualOrNull] (integer)
+* filter[endDateLessThanOrEqualOrNull] (integer)
+* filter[referenceIdEqual] (string)
+* filter[referenceIdIn] (string)
+* filter[replacingEntryIdEqual] (string)
+* filter[replacingEntryIdIn] (string)
+* filter[replacedEntryIdEqual] (string)
+* filter[replacedEntryIdIn] (string)
+* filter[replacementStatusEqual] (string) - Enum Type: `KalturaEntryReplacementStatus`
+* filter[replacementStatusIn] (string)
+* filter[partnerSortValueGreaterThanOrEqual] (integer)
+* filter[partnerSortValueLessThanOrEqual] (integer)
+* filter[rootEntryIdEqual] (string)
+* filter[rootEntryIdIn] (string)
+* filter[parentEntryIdEqual] (string)
+* filter[entitledUsersEditMatchAnd] (string)
+* filter[entitledUsersEditMatchOr] (string)
+* filter[entitledUsersPublishMatchAnd] (string)
+* filter[entitledUsersPublishMatchOr] (string)
+* filter[tagsNameMultiLikeOr] (string)
+* filter[tagsAdminTagsMultiLikeOr] (string)
+* filter[tagsAdminTagsNameMultiLikeOr] (string)
+* filter[tagsNameMultiLikeAnd] (string)
+* filter[tagsAdminTagsMultiLikeAnd] (string)
+* filter[tagsAdminTagsNameMultiLikeAnd] (string)
+* filter[freeText] (string)
+* filter[isRoot] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[categoriesFullNameIn] (string)
+* filter[categoryAncestorIdIn] (string) - All entries within this categoy or in child categories
+* filter[redirectFromEntryId] (string) - The id of the original entry
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### data.serve
 serve action returan the file from dataContent field.
@@ -6056,6 +9990,23 @@ Add new delivery.
 kaltura.deliveryProfile.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* delivery[name] (string) - The name of the Delivery
+* delivery[type] (string) - Enum Type: `KalturaDeliveryProfileType`
+* delivery[systemName] (string) - System name of the delivery
+* delivery[description] (string) - The description of the Delivery
+* delivery[streamerType] (string) - Enum Type: `KalturaPlaybackProtocol`
+* delivery[url] (string)
+* delivery[status] (integer) - Enum Type: `KalturaDeliveryStatus`
+* delivery[recognizer][hosts] (string) - The hosts that are recognized
+* delivery[recognizer][uriPrefix] (string) - The URI prefix we use for security
+* delivery[recognizer][objectType] (string)
+* delivery[recognizer][headerData] (string) - headerData
+* delivery[recognizer][headerSign] (string) - headerSign
+* delivery[recognizer][timeout] (integer) - timeout
+* delivery[recognizer][salt] (string) - salt
 
 ### deliveryProfile.clone
 Add delivery based on existing delivery.
@@ -6097,6 +10048,69 @@ Retrieve a list of available delivery depends on the filter given
 kaltura.deliveryProfile.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[streamerTypeEqual] (string) - Enum Type: `KalturaPlaybackProtocol`
+* filter[statusEqual] (integer) - Enum Type: `KalturaDeliveryStatus`
+* filter[statusIn] (string)
+* filter[isLive] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[objectType] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### deliveryProfile.update
 Update exisiting delivery
@@ -6353,6 +10367,141 @@ List document entries by filter with paging support.
 kaltura.documents.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string) - This filter should be in use for retrieving only a specific entry (identified by its entryId).
+* filter[idIn] (string) - This filter should be in use for retrieving few specific entries (string should include comma separated list of entryId strings).
+* filter[idNotIn] (string)
+* filter[nameLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry names (no wildcards, spaces are treated as part of the string).
+* filter[nameMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[nameMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[nameEqual] (string) - This filter should be in use for retrieving entries with a specific name.
+* filter[partnerIdEqual] (integer) - This filter should be in use for retrieving only entries which were uploaded by/assigned to users of a specific Kaltura Partner (identified by Partner ID).
+* filter[partnerIdIn] (string) - This filter should be in use for retrieving only entries within Kaltura network which were uploaded by/assigned to users of few Kaltura Partners  (string should include comma separated list of PartnerIDs)
+* filter[userIdEqual] (string) - This filter parameter should be in use for retrieving only entries, uploaded by/assigned to a specific user (identified by user Id).
+* filter[userIdIn] (string)
+* filter[userIdNotIn] (string)
+* filter[creatorIdEqual] (string)
+* filter[tagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags (no wildcards, spaces are treated as part of the string).
+* filter[tagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[tagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags set by an ADMIN user (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[categoriesMatchAnd] (string)
+* filter[categoriesMatchOr] (string) - All entries within these categories or their child categories.
+* filter[categoriesNotContains] (string)
+* filter[categoriesIdsMatchAnd] (string)
+* filter[categoriesIdsMatchOr] (string) - All entries of the categories, excluding their child categories.
+* filter[categoriesIdsNotContains] (string)
+* filter[categoriesIdsEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[statusEqual] (string) - Enum Type: `KalturaEntryStatus`
+* filter[statusNotEqual] (string) - Enum Type: `KalturaEntryStatus`
+* filter[statusIn] (string) - This filter should be in use for retrieving only entries, at few specific {
+* filter[statusNotIn] (string) - This filter should be in use for retrieving only entries, not at few specific {
+* filter[moderationStatusEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* filter[moderationStatusNotEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* filter[moderationStatusIn] (string)
+* filter[moderationStatusNotIn] (string)
+* filter[typeEqual] (string) - Enum Type: `KalturaEntryType`
+* filter[typeIn] (string) - This filter should be in use for retrieving entries of few {
+* filter[createdAtGreaterThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system after a specific time/date (standard timestamp format).
+* filter[createdAtLessThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system before a specific time/date (standard timestamp format).
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[totalRankLessThanOrEqual] (integer)
+* filter[totalRankGreaterThanOrEqual] (integer)
+* filter[groupIdEqual] (integer)
+* filter[searchTextMatchAnd] (string) - This filter should be in use for retrieving specific entries while search match the input string within all of the following metadata attributes: name, description, tags, adminTags.
+* filter[searchTextMatchOr] (string) - This filter should be in use for retrieving specific entries while search match the input string within at least one of the following metadata attributes: name, description, tags, adminTags.
+* filter[accessControlIdEqual] (integer)
+* filter[accessControlIdIn] (string)
+* filter[startDateGreaterThanOrEqual] (integer)
+* filter[startDateLessThanOrEqual] (integer)
+* filter[startDateGreaterThanOrEqualOrNull] (integer)
+* filter[startDateLessThanOrEqualOrNull] (integer)
+* filter[endDateGreaterThanOrEqual] (integer)
+* filter[endDateLessThanOrEqual] (integer)
+* filter[endDateGreaterThanOrEqualOrNull] (integer)
+* filter[endDateLessThanOrEqualOrNull] (integer)
+* filter[referenceIdEqual] (string)
+* filter[referenceIdIn] (string)
+* filter[replacingEntryIdEqual] (string)
+* filter[replacingEntryIdIn] (string)
+* filter[replacedEntryIdEqual] (string)
+* filter[replacedEntryIdIn] (string)
+* filter[replacementStatusEqual] (string) - Enum Type: `KalturaEntryReplacementStatus`
+* filter[replacementStatusIn] (string)
+* filter[partnerSortValueGreaterThanOrEqual] (integer)
+* filter[partnerSortValueLessThanOrEqual] (integer)
+* filter[rootEntryIdEqual] (string)
+* filter[rootEntryIdIn] (string)
+* filter[parentEntryIdEqual] (string)
+* filter[entitledUsersEditMatchAnd] (string)
+* filter[entitledUsersEditMatchOr] (string)
+* filter[entitledUsersPublishMatchAnd] (string)
+* filter[entitledUsersPublishMatchOr] (string)
+* filter[tagsNameMultiLikeOr] (string)
+* filter[tagsAdminTagsMultiLikeOr] (string)
+* filter[tagsAdminTagsNameMultiLikeOr] (string)
+* filter[tagsNameMultiLikeAnd] (string)
+* filter[tagsAdminTagsMultiLikeAnd] (string)
+* filter[tagsAdminTagsNameMultiLikeAnd] (string)
+* filter[freeText] (string)
+* filter[isRoot] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[categoriesFullNameIn] (string)
+* filter[categoryAncestorIdIn] (string) - All entries within this categoy or in child categories
+* filter[redirectFromEntryId] (string) - The id of the original entry
+* filter[documentTypeEqual] (integer) - Enum Type: `KalturaDocumentType`
+* filter[documentTypeIn] (string)
+* filter[assetParamsIdsMatchOr] (string)
+* filter[assetParamsIdsMatchAnd] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### documents.serve
 Serves the file content
@@ -6613,6 +10762,26 @@ Allows you to add a new DrmPolicy object
 kaltura.drmPolicy.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* drmPolicy[partnerId] (integer) - `insertOnly`
+* drmPolicy[name] (string)
+* drmPolicy[systemName] (string)
+* drmPolicy[description] (string)
+* drmPolicy[provider] (string) - Enum Type: `KalturaDrmProviderType`
+* drmPolicy[status] (integer) - Enum Type: `KalturaDrmPolicyStatus`
+* drmPolicy[scenario] (string) - Enum Type: `KalturaDrmLicenseScenario`
+* drmPolicy[licenseType] (string) - Enum Type: `KalturaDrmLicenseType`
+* drmPolicy[licenseExpirationPolicy] (integer) - Enum Type: `KalturaDrmLicenseExpirationPolicy`
+* drmPolicy[duration] (integer) - Duration in days the license is effective
+* drmPolicy[licenseParams] (array)
+* drmPolicy[objectType] (string)
+* drmPolicy[gracePeriod] (integer)
+* drmPolicy[licenseRemovalPolicy] (integer) - Enum Type: `KalturaPlayReadyLicenseRemovalPolicy`
+* drmPolicy[licenseRemovalDuration] (integer)
+* drmPolicy[minSecurityLevel] (integer) - Enum Type: `KalturaPlayReadyMinimumLicenseSecurityLevel`
+* drmPolicy[rights] (array)
 
 ### drmPolicy.delete
 Mark the KalturaDrmPolicy object as deleted
@@ -6652,6 +10821,65 @@ List KalturaDrmPolicy objects
 kaltura.drmPolicy.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[nameLike] (string)
+* filter[systemNameLike] (string)
+* filter[providerEqual] (string) - Enum Type: `KalturaDrmProviderType`
+* filter[providerIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaDrmPolicyStatus`
+* filter[statusIn] (string)
+* filter[scenarioEqual] (string) - Enum Type: `KalturaDrmLicenseScenario`
+* filter[scenarioIn] (string)
+* filter[objectType] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### drmPolicy.update
 Update an existing KalturaDrmPolicy object
@@ -6693,6 +10921,26 @@ Allows you to add a new DrmProfile object
 kaltura.drmProfile.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* drmProfile[partnerId] (integer) - `insertOnly`
+* drmProfile[name] (string)
+* drmProfile[description] (string)
+* drmProfile[provider] (string) - Enum Type: `KalturaDrmProviderType`
+* drmProfile[status] (integer) - Enum Type: `KalturaDrmProfileStatus`
+* drmProfile[licenseServerUrl] (string)
+* drmProfile[defaultPolicy] (string)
+* drmProfile[signingKey] (string)
+* drmProfile[objectType] (string)
+* drmProfile[publicCertificate] (string)
+* drmProfile[keySeed] (string)
+* drmProfile[key] (string)
+* drmProfile[iv] (string)
+* drmProfile[owner] (string)
+* drmProfile[portal] (string)
+* drmProfile[maxGop] (integer)
+* drmProfile[regServerHost] (string)
 
 ### drmProfile.delete
 Mark the KalturaDrmProfile object as deleted
@@ -6747,6 +10995,64 @@ List KalturaDrmProfile objects
 kaltura.drmProfile.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[nameLike] (string)
+* filter[providerEqual] (string) - Enum Type: `KalturaDrmProviderType`
+* filter[providerIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaDrmProfileStatus`
+* filter[statusIn] (string)
+* filter[objectType] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### drmProfile.update
 Update an existing KalturaDrmProfile object
@@ -6788,6 +11094,26 @@ Allows you to add a new KalturaDropFolder object
 kaltura.dropFolder.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* dropFolder[partnerId] (integer) - `insertOnly`
+* dropFolder[name] (string)
+* dropFolder[description] (string)
+* dropFolder[type] (string) - Enum Type: `KalturaDropFolderType`
+* dropFolder[status] (integer) - Enum Type: `KalturaDropFolderStatus`
+* dropFolder[conversionProfileId] (integer)
+* dropFolder[dc] (integer)
+* dropFolder[path] (string)
+* dropFolder[fileSizeCheckInterval] (integer) - The ammount of time, in seconds, that should pass so that a file with no change in size we'll be treated as "finished uploading to folder"
+* dropFolder[fileDeletePolicy] (integer) - Enum Type: `KalturaDropFolderFileDeletePolicy`
+* dropFolder[autoFileDeleteDays] (integer)
+* dropFolder[fileHandlerType] (string) - Enum Type: `KalturaDropFolderFileHandlerType`
+* dropFolder[fileNamePatterns] (string)
+* dropFolder[fileHandlerConfig][objectType] (string)
+* dropFolder[fileHandlerConfig][contentMatchPolicy] (integer) - Enum Type: `KalturaDropFolderContentFileHandlerMatchPolicy`
+* dropFolder[fileHandlerConfig][slugRegex] (string) - Regular expression that defines valid file names to be handled.
+* dropFolder[fileHandlerConfig][eventsType] (integer) - Enum Type: `KalturaScheduleEventType`
 
 ### dropFolder.delete
 Mark the KalturaDropFolder object as deleted
@@ -6863,6 +11189,85 @@ List KalturaDropFolder objects
 kaltura.dropFolder.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[nameLike] (string)
+* filter[typeEqual] (string) - Enum Type: `KalturaDropFolderType`
+* filter[typeIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaDropFolderStatus`
+* filter[statusIn] (string)
+* filter[conversionProfileIdEqual] (integer)
+* filter[conversionProfileIdIn] (string)
+* filter[dcEqual] (integer)
+* filter[dcIn] (string)
+* filter[pathEqual] (string)
+* filter[pathLike] (string)
+* filter[fileHandlerTypeEqual] (string) - Enum Type: `KalturaDropFolderFileHandlerType`
+* filter[fileHandlerTypeIn] (string)
+* filter[fileNamePatternsLike] (string)
+* filter[fileNamePatternsMultiLikeOr] (string)
+* filter[fileNamePatternsMultiLikeAnd] (string)
+* filter[tagsLike] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[errorCodeEqual] (string) - Enum Type: `KalturaDropFolderErrorCode`
+* filter[errorCodeIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[currentDc] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[objectType] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### dropFolder.update
 Update an existing KalturaDropFolder object
@@ -6904,6 +11309,33 @@ Allows you to add a new KalturaDropFolderFile object
 kaltura.dropFolderFile.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* dropFolderFile[dropFolderId] (integer) - `insertOnly`
+* dropFolderFile[fileName] (string) - `insertOnly`
+* dropFolderFile[fileSize] (number)
+* dropFolderFile[parsedSlug] (string)
+* dropFolderFile[parsedFlavor] (string)
+* dropFolderFile[parsedUserId] (string)
+* dropFolderFile[leadDropFolderFileId] (integer)
+* dropFolderFile[deletedDropFolderFileId] (integer)
+* dropFolderFile[entryId] (string)
+* dropFolderFile[errorCode] (string) - Enum Type: `KalturaDropFolderFileErrorCode`
+* dropFolderFile[errorDescription] (string)
+* dropFolderFile[lastModificationTime] (string)
+* dropFolderFile[uploadStartDetectedAt] (integer)
+* dropFolderFile[uploadEndDetectedAt] (integer)
+* dropFolderFile[importStartedAt] (integer)
+* dropFolderFile[importEndedAt] (integer)
+* dropFolderFile[objectType] (string)
+* dropFolderFile[hash] (string) - MD5 or Sha1 encrypted string
+* dropFolderFile[feedXmlPath] (string) - Path of the original Feed content XML
+* dropFolderFile[recordingId] (integer)
+* dropFolderFile[webexHostId] (string)
+* dropFolderFile[description] (string)
+* dropFolderFile[confId] (string)
+* dropFolderFile[contentUrl] (string)
 
 ### dropFolderFile.delete
 Mark the KalturaDropFolderFile object as deleted
@@ -6958,6 +11390,82 @@ List KalturaDropFolderFile objects
 kaltura.dropFolderFile.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[dropFolderIdEqual] (integer)
+* filter[dropFolderIdIn] (string)
+* filter[fileNameEqual] (string)
+* filter[fileNameIn] (string)
+* filter[fileNameLike] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaDropFolderFileStatus`
+* filter[statusIn] (string)
+* filter[statusNotIn] (string)
+* filter[parsedSlugEqual] (string)
+* filter[parsedSlugIn] (string)
+* filter[parsedSlugLike] (string)
+* filter[parsedFlavorEqual] (string)
+* filter[parsedFlavorIn] (string)
+* filter[parsedFlavorLike] (string)
+* filter[leadDropFolderFileIdEqual] (integer)
+* filter[deletedDropFolderFileIdEqual] (integer)
+* filter[entryIdEqual] (string)
+* filter[errorCodeEqual] (string) - Enum Type: `KalturaDropFolderFileErrorCode`
+* filter[errorCodeIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[objectType] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### dropFolderFile.update
 Update an existing KalturaDropFolderFile object
@@ -7023,6 +11531,21 @@ EmailIngestionProfile Add action allows you to add a EmailIngestionProfile to Ka
 kaltura.EmailIngestionProfile.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* EmailIP[name] (string)
+* EmailIP[description] (string)
+* EmailIP[emailAddress] (string)
+* EmailIP[mailboxId] (string)
+* EmailIP[conversionProfile2Id] (integer)
+* EmailIP[moderationStatus] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* EmailIP[defaultCategory] (string)
+* EmailIP[defaultUserId] (string)
+* EmailIP[defaultTags] (string)
+* EmailIP[defaultAdminTags] (string)
+* EmailIP[maxAttachmentSizeKbytes] (integer)
+* EmailIP[maxAttachmentsPerMail] (integer)
 
 ### EmailIngestionProfile.addMediaEntry
 add KalturaMediaEntry from email ingestion
@@ -7204,6 +11727,64 @@ kaltura.entryServerNode.get({
 kaltura.entryServerNode.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[entryIdEqual] (string)
+* filter[entryIdIn] (string)
+* filter[serverNodeIdEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[statusEqual] (integer) - Enum Type: `KalturaEntryServerNodeStatus`
+* filter[statusIn] (string)
+* filter[serverTypeEqual] (string) - Enum Type: `KalturaEntryServerNodeType`
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### entryServerNode.update
 
@@ -7245,6 +11826,132 @@ This action allows for the creation of new backend event types in the system. Th
 kaltura.eventNotificationTemplate.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* eventNotificationTemplate[name] (string)
+* eventNotificationTemplate[systemName] (string)
+* eventNotificationTemplate[description] (string)
+* eventNotificationTemplate[type] (string) - `insertOnly`
+* eventNotificationTemplate[manualDispatchEnabled] (boolean) - Define that the template could be dispatched manually from the API
+* eventNotificationTemplate[automaticDispatchEnabled] (boolean) - Define that the template could be dispatched automatically by the system
+* eventNotificationTemplate[eventType] (string) - Enum Type: `KalturaEventNotificationEventType`
+* eventNotificationTemplate[eventObjectType] (string) - Enum Type: `KalturaEventNotificationEventObjectType`
+* eventNotificationTemplate[eventConditions] (array)
+* eventNotificationTemplate[contentParameters] (array)
+* eventNotificationTemplate[userParameters] (array)
+* eventNotificationTemplate[objectType] (string)
+* eventNotificationTemplate[serverId] (integer) - Define the integrated BPM server id
+* eventNotificationTemplate[processId] (string) - Define the integrated BPM process id
+* eventNotificationTemplate[mainObjectCode] (string) - Code to load the main triggering object
+* eventNotificationTemplate[format] (string) - Enum Type: `KalturaEmailNotificationFormat`
+* eventNotificationTemplate[subject] (string) - Define the email subject
+* eventNotificationTemplate[body] (string) - Define the email body content
+* eventNotificationTemplate[fromEmail] (string) - Define the email sender email
+* eventNotificationTemplate[fromName] (string) - Define the email sender name
+* eventNotificationTemplate[to][objectType] (string)
+* eventNotificationTemplate[to][categoryId][description] (string)
+* eventNotificationTemplate[to][categoryId][value] (string)
+* eventNotificationTemplate[to][categoryId][objectType] (string)
+* eventNotificationTemplate[to][categoryId][geoCoderType] (string) - Enum Type: `KalturaGeoCoderType`
+* eventNotificationTemplate[to][categoryId][code] (string) - PHP code
+* eventNotificationTemplate[to][categoryId][xPath] (string) - May contain the full xpath to the field in three formats
+* eventNotificationTemplate[to][categoryId][profileId] (integer) - Metadata profile id
+* eventNotificationTemplate[to][categoryId][profileSystemName] (string) - Metadata profile system name
+* eventNotificationTemplate[to][emailRecipients] (array)
+* eventNotificationTemplate[to][filter][orderBy] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][objectType] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][value] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][categoriesMatchOr] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][categoryEntryStatusIn] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* eventNotificationTemplate[to][filter][advancedSearch][categoryIdEqual] (integer)
+* eventNotificationTemplate[to][filter][advancedSearch][memberIdEq] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][memberIdIn] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][memberPermissionsMatchOr] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][memberPermissionsMatchAnd] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][noDistributionProfiles] (boolean)
+* eventNotificationTemplate[to][filter][advancedSearch][distributionProfileId] (integer)
+* eventNotificationTemplate[to][filter][advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* eventNotificationTemplate[to][filter][advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* eventNotificationTemplate[to][filter][advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* eventNotificationTemplate[to][filter][advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* eventNotificationTemplate[to][filter][advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* eventNotificationTemplate[to][filter][advancedSearch][contentLike] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][contentMultiLikeOr] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][contentMultiLikeAnd] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][cuePointsFreeText] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][cuePointTypeIn] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][cuePointSubTypeEqual] (integer)
+* eventNotificationTemplate[to][filter][advancedSearch][watermarkId] (integer)
+* eventNotificationTemplate[to][filter][advancedSearch][indexIdGreaterThan] (integer)
+* eventNotificationTemplate[to][filter][advancedSearch][depthGreaterThanEqual] (integer)
+* eventNotificationTemplate[to][filter][advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* eventNotificationTemplate[to][filter][advancedSearch][field] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* eventNotificationTemplate[to][filter][advancedSearch][items] (array)
+* eventNotificationTemplate[to][filter][advancedSearch][idEqual] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][idIn] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][userIdEqual] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][userIdIn] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][updatedAtLessThanOrEqual] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* eventNotificationTemplate[to][filter][advancedSearch][extendedStatusIn] (string)
+* eventNotificationTemplate[to][filter][advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* eventNotificationTemplate[to][filter][advancedSearch][not] (boolean)
+* eventNotificationTemplate[to][filter][advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* eventNotificationTemplate[to][filter][advancedSearch][metadataProfileId] (integer)
+* eventNotificationTemplate[to][filter][partnerIdEqual] (integer)
+* eventNotificationTemplate[to][filter][typeEqual] (integer) - Enum Type: `KalturaUserType`
+* eventNotificationTemplate[to][filter][typeIn] (string)
+* eventNotificationTemplate[to][filter][screenNameLike] (string)
+* eventNotificationTemplate[to][filter][screenNameStartsWith] (string)
+* eventNotificationTemplate[to][filter][emailLike] (string)
+* eventNotificationTemplate[to][filter][emailStartsWith] (string)
+* eventNotificationTemplate[to][filter][tagsMultiLikeOr] (string)
+* eventNotificationTemplate[to][filter][tagsMultiLikeAnd] (string)
+* eventNotificationTemplate[to][filter][statusEqual] (integer) - Enum Type: `KalturaUserStatus`
+* eventNotificationTemplate[to][filter][statusIn] (string)
+* eventNotificationTemplate[to][filter][createdAtGreaterThanOrEqual] (integer)
+* eventNotificationTemplate[to][filter][createdAtLessThanOrEqual] (integer)
+* eventNotificationTemplate[to][filter][firstNameStartsWith] (string)
+* eventNotificationTemplate[to][filter][lastNameStartsWith] (string)
+* eventNotificationTemplate[to][filter][isAdminEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* eventNotificationTemplate[to][filter][idOrScreenNameStartsWith] (string)
+* eventNotificationTemplate[to][filter][idEqual] (string)
+* eventNotificationTemplate[to][filter][idIn] (string)
+* eventNotificationTemplate[to][filter][loginEnabledEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* eventNotificationTemplate[to][filter][roleIdEqual] (string)
+* eventNotificationTemplate[to][filter][roleIdsEqual] (string)
+* eventNotificationTemplate[to][filter][roleIdsIn] (string)
+* eventNotificationTemplate[to][filter][firstNameOrLastNameStartsWith] (string)
+* eventNotificationTemplate[to][filter][permissionNamesMultiLikeOr] (string) - Permission names filter expression
+* eventNotificationTemplate[to][filter][permissionNamesMultiLikeAnd] (string) - Permission names filter expression
+* eventNotificationTemplate[to][filter][objectType] (string)
+* eventNotificationTemplate[url] (string) - Remote server URL
+* eventNotificationTemplate[method] (integer) - Enum Type: `KalturaHttpNotificationMethod`
+* eventNotificationTemplate[data][objectType] (string)
+* eventNotificationTemplate[data][content][description] (string)
+* eventNotificationTemplate[data][content][value] (string)
+* eventNotificationTemplate[data][content][objectType] (string)
+* eventNotificationTemplate[data][content][geoCoderType] (string) - Enum Type: `KalturaGeoCoderType`
+* eventNotificationTemplate[data][content][code] (string) - PHP code
+* eventNotificationTemplate[data][content][xPath] (string) - May contain the full xpath to the field in three formats
+* eventNotificationTemplate[data][content][profileId] (integer) - Metadata profile id
+* eventNotificationTemplate[data][content][profileSystemName] (string) - Metadata profile system name
+* eventNotificationTemplate[data][apiObjectType] (string) - Kaltura API object type
+* eventNotificationTemplate[data][format] (integer) - Enum Type: `KalturaResponseType`
+* eventNotificationTemplate[data][ignoreNull] (boolean) - Ignore null attributes during serialization
+* eventNotificationTemplate[data][code] (string) - PHP code
+* eventNotificationTemplate[queueNameParameters] (array)
+* eventNotificationTemplate[queueKeyParameters] (array)
+* eventNotificationTemplate[apiObjectType] (string) - Kaltura API object type
+* eventNotificationTemplate[objectFormat] (integer) - Enum Type: `KalturaResponseType`
+* eventNotificationTemplate[responseProfileId] (integer) - Kaltura response-profile id
+* eventNotificationTemplate[message] (string) - Define the message to be sent
+* eventNotificationTemplate[eventId] (string) - Define the event that waiting to the signal
+* eventNotificationTemplate[abortOnDeletion] (boolean) - Abort the process automatically if the triggering object deleted
 
 ### eventNotificationTemplate.clone
 This action allows registering to various backend event. Use this action to create notifications that will react to events such as new video was uploaded or metadata field was updated. To see the list of available event types, call the listTemplates action.
@@ -7439,6 +12146,69 @@ list event notification template objects
 kaltura.eventNotificationTemplate.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[typeEqual] (string) - Enum Type: `KalturaEventNotificationTemplateType`
+* filter[typeIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaEventNotificationTemplateStatus`
+* filter[statusIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[objectType] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### eventNotificationTemplate.listByPartner
 
@@ -7448,6 +12218,73 @@ kaltura.eventNotificationTemplate.list({}, context)
 kaltura.eventNotificationTemplate.listByPartner({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[idNotIn] (string)
+* filter[nameLike] (string)
+* filter[nameMultiLikeOr] (string)
+* filter[nameMultiLikeAnd] (string)
+* filter[nameEqual] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaPartnerStatus`
+* filter[statusIn] (string)
+* filter[partnerPackageEqual] (integer)
+* filter[partnerPackageGreaterThanOrEqual] (integer)
+* filter[partnerPackageLessThanOrEqual] (integer)
+* filter[partnerPackageIn] (string)
+* filter[partnerGroupTypeEqual] (integer) - Enum Type: `KalturaPartnerGroupType`
+* filter[partnerNameDescriptionWebsiteAdminNameAdminEmailLike] (string)
+* filter[objectType] (string)
+* filter[groupTypeEq] (integer) - Enum Type: `KalturaPartnerGroupType`
+* filter[groupTypeIn] (string) - In filter for the partner's group type
+* filter[partnerPermissionsExist] (string) - Filter for partner permissions- filter contains comma-separated string of permission names which the returned partners should have.
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### eventNotificationTemplate.listTemplates
 Action lists the template partner event notification templates.
@@ -7457,6 +12294,69 @@ Action lists the template partner event notification templates.
 kaltura.eventNotificationTemplate.listTemplates({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[typeEqual] (string) - Enum Type: `KalturaEventNotificationTemplateType`
+* filter[typeIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaEventNotificationTemplateStatus`
+* filter[statusIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[objectType] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### eventNotificationTemplate.register
 Register to a queue from which event messages will be provided according to given template. Queue will be created if not already exists
@@ -7655,6 +12555,44 @@ Add external media entry
 kaltura.externalMedia.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* entry[name] (string) - Entry name (Min 1 chars)
+* entry[description] (string) - Entry description
+* entry[userId] (string) - The ID of the user who is the owner of this entry
+* entry[creatorId] (string) - `insertOnly`
+* entry[tags] (string) - Entry tags
+* entry[adminTags] (string) - Entry admin tags can be updated only by administrators
+* entry[categories] (string) - Comma separated list of full names of categories to which this entry belongs. Only categories that don't have entitlement (privacy context) are listed, to retrieve the full list of categories, use the categoryEntry.list action.
+* entry[categoriesIds] (string) - Comma separated list of ids of categories to which this entry belongs. Only categories that don't have entitlement (privacy context) are listed, to retrieve the full list of categories, use the categoryEntry.list action.
+* entry[type] (string) - Enum Type: `KalturaEntryType`
+* entry[groupId] (integer)
+* entry[partnerData] (string) - Can be used to store various partner related data as a string
+* entry[licenseType] (integer) - Enum Type: `KalturaLicenseType`
+* entry[accessControlId] (integer) - The Access Control ID assigned to this entry (null when not set, send -1 to remove)
+* entry[startDate] (integer) - Entry scheduling start date (null when not set, send -1 to remove)
+* entry[endDate] (integer) - Entry scheduling end date (null when not set, send -1 to remove)
+* entry[referenceId] (string) - Entry external reference id
+* entry[partnerSortValue] (integer) - Can be used to store various partner related data as a numeric value
+* entry[conversionProfileId] (integer) - Override the default ingestion profile
+* entry[redirectEntryId] (string) - IF not empty, points to an entry ID the should replace this current entry's id.
+* entry[parentEntryId] (string) - ID of source root entry, used for defining entires association
+* entry[operationAttributes] (array)
+* entry[entitledUsersEdit] (string) - list of user ids that are entitled to edit the entry (no server enforcement) The difference between entitledUsersEdit and entitledUsersPublish is applicative only
+* entry[entitledUsersPublish] (string) - list of user ids that are entitled to publish the entry (no server enforcement) The difference between entitledUsersEdit and entitledUsersPublish is applicative only
+* entry[templateEntryId] (string) - `insertOnly`
+* entry[displayInSearch] (integer) - Enum Type: `KalturaEntryDisplayInSearchType`
+* entry[msDuration] (integer) - The duration in miliseconds
+* entry[mediaType] (integer) - `insertOnly`
+* entry[conversionQuality] (string) - `insertOnly`
+* entry[sourceType] (string) - `insertOnly`
+* entry[searchProviderType] (integer) - `insertOnly`
+* entry[searchProviderId] (string) - `insertOnly`
+* entry[creditUserName] (string) - The user name used for credits
+* entry[creditUrl] (string) - The URL for credits
+* entry[streams] (array)
+* entry[externalSourceType] (string) - `insertOnly`
 
 ### externalMedia.count
 Count media entries by filter.
@@ -7664,6 +12602,156 @@ Count media entries by filter.
 kaltura.externalMedia.count({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string) - This filter should be in use for retrieving only a specific entry (identified by its entryId).
+* filter[idIn] (string) - This filter should be in use for retrieving few specific entries (string should include comma separated list of entryId strings).
+* filter[idNotIn] (string)
+* filter[nameLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry names (no wildcards, spaces are treated as part of the string).
+* filter[nameMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[nameMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[nameEqual] (string) - This filter should be in use for retrieving entries with a specific name.
+* filter[partnerIdEqual] (integer) - This filter should be in use for retrieving only entries which were uploaded by/assigned to users of a specific Kaltura Partner (identified by Partner ID).
+* filter[partnerIdIn] (string) - This filter should be in use for retrieving only entries within Kaltura network which were uploaded by/assigned to users of few Kaltura Partners  (string should include comma separated list of PartnerIDs)
+* filter[userIdEqual] (string) - This filter parameter should be in use for retrieving only entries, uploaded by/assigned to a specific user (identified by user Id).
+* filter[userIdIn] (string)
+* filter[userIdNotIn] (string)
+* filter[creatorIdEqual] (string)
+* filter[tagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags (no wildcards, spaces are treated as part of the string).
+* filter[tagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[tagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags set by an ADMIN user (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[categoriesMatchAnd] (string)
+* filter[categoriesMatchOr] (string) - All entries within these categories or their child categories.
+* filter[categoriesNotContains] (string)
+* filter[categoriesIdsMatchAnd] (string)
+* filter[categoriesIdsMatchOr] (string) - All entries of the categories, excluding their child categories.
+* filter[categoriesIdsNotContains] (string)
+* filter[categoriesIdsEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[statusEqual] (string) - Enum Type: `KalturaEntryStatus`
+* filter[statusNotEqual] (string) - Enum Type: `KalturaEntryStatus`
+* filter[statusIn] (string) - This filter should be in use for retrieving only entries, at few specific {
+* filter[statusNotIn] (string) - This filter should be in use for retrieving only entries, not at few specific {
+* filter[moderationStatusEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* filter[moderationStatusNotEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* filter[moderationStatusIn] (string)
+* filter[moderationStatusNotIn] (string)
+* filter[typeEqual] (string) - Enum Type: `KalturaEntryType`
+* filter[typeIn] (string) - This filter should be in use for retrieving entries of few {
+* filter[createdAtGreaterThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system after a specific time/date (standard timestamp format).
+* filter[createdAtLessThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system before a specific time/date (standard timestamp format).
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[totalRankLessThanOrEqual] (integer)
+* filter[totalRankGreaterThanOrEqual] (integer)
+* filter[groupIdEqual] (integer)
+* filter[searchTextMatchAnd] (string) - This filter should be in use for retrieving specific entries while search match the input string within all of the following metadata attributes: name, description, tags, adminTags.
+* filter[searchTextMatchOr] (string) - This filter should be in use for retrieving specific entries while search match the input string within at least one of the following metadata attributes: name, description, tags, adminTags.
+* filter[accessControlIdEqual] (integer)
+* filter[accessControlIdIn] (string)
+* filter[startDateGreaterThanOrEqual] (integer)
+* filter[startDateLessThanOrEqual] (integer)
+* filter[startDateGreaterThanOrEqualOrNull] (integer)
+* filter[startDateLessThanOrEqualOrNull] (integer)
+* filter[endDateGreaterThanOrEqual] (integer)
+* filter[endDateLessThanOrEqual] (integer)
+* filter[endDateGreaterThanOrEqualOrNull] (integer)
+* filter[endDateLessThanOrEqualOrNull] (integer)
+* filter[referenceIdEqual] (string)
+* filter[referenceIdIn] (string)
+* filter[replacingEntryIdEqual] (string)
+* filter[replacingEntryIdIn] (string)
+* filter[replacedEntryIdEqual] (string)
+* filter[replacedEntryIdIn] (string)
+* filter[replacementStatusEqual] (string) - Enum Type: `KalturaEntryReplacementStatus`
+* filter[replacementStatusIn] (string)
+* filter[partnerSortValueGreaterThanOrEqual] (integer)
+* filter[partnerSortValueLessThanOrEqual] (integer)
+* filter[rootEntryIdEqual] (string)
+* filter[rootEntryIdIn] (string)
+* filter[parentEntryIdEqual] (string)
+* filter[entitledUsersEditMatchAnd] (string)
+* filter[entitledUsersEditMatchOr] (string)
+* filter[entitledUsersPublishMatchAnd] (string)
+* filter[entitledUsersPublishMatchOr] (string)
+* filter[tagsNameMultiLikeOr] (string)
+* filter[tagsAdminTagsMultiLikeOr] (string)
+* filter[tagsAdminTagsNameMultiLikeOr] (string)
+* filter[tagsNameMultiLikeAnd] (string)
+* filter[tagsAdminTagsMultiLikeAnd] (string)
+* filter[tagsAdminTagsNameMultiLikeAnd] (string)
+* filter[freeText] (string)
+* filter[isRoot] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[categoriesFullNameIn] (string)
+* filter[categoryAncestorIdIn] (string) - All entries within this categoy or in child categories
+* filter[redirectFromEntryId] (string) - The id of the original entry
+* filter[lastPlayedAtGreaterThanOrEqual] (integer)
+* filter[lastPlayedAtLessThanOrEqual] (integer)
+* filter[durationLessThan] (integer)
+* filter[durationGreaterThan] (integer)
+* filter[durationLessThanOrEqual] (integer)
+* filter[durationGreaterThanOrEqual] (integer)
+* filter[durationTypeMatchOr] (string)
+* filter[mediaTypeEqual] (integer) - Enum Type: `KalturaMediaType`
+* filter[mediaTypeIn] (string)
+* filter[sourceTypeEqual] (string) - Enum Type: `KalturaSourceType`
+* filter[sourceTypeNotEqual] (string) - Enum Type: `KalturaSourceType`
+* filter[sourceTypeIn] (string)
+* filter[sourceTypeNotIn] (string)
+* filter[mediaDateGreaterThanOrEqual] (integer)
+* filter[mediaDateLessThanOrEqual] (integer)
+* filter[flavorParamsIdsMatchOr] (string)
+* filter[flavorParamsIdsMatchAnd] (string)
+* filter[externalSourceTypeEqual] (string) - Enum Type: `KalturaExternalMediaSourceType`
+* filter[externalSourceTypeIn] (string)
+* filter[assetParamsIdsMatchOr] (string)
+* filter[assetParamsIdsMatchAnd] (string)
 
 ### externalMedia.delete
 Delete a external media entry.
@@ -7703,6 +12791,158 @@ List media entries by filter with paging support.
 kaltura.externalMedia.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string) - This filter should be in use for retrieving only a specific entry (identified by its entryId).
+* filter[idIn] (string) - This filter should be in use for retrieving few specific entries (string should include comma separated list of entryId strings).
+* filter[idNotIn] (string)
+* filter[nameLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry names (no wildcards, spaces are treated as part of the string).
+* filter[nameMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[nameMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[nameEqual] (string) - This filter should be in use for retrieving entries with a specific name.
+* filter[partnerIdEqual] (integer) - This filter should be in use for retrieving only entries which were uploaded by/assigned to users of a specific Kaltura Partner (identified by Partner ID).
+* filter[partnerIdIn] (string) - This filter should be in use for retrieving only entries within Kaltura network which were uploaded by/assigned to users of few Kaltura Partners  (string should include comma separated list of PartnerIDs)
+* filter[userIdEqual] (string) - This filter parameter should be in use for retrieving only entries, uploaded by/assigned to a specific user (identified by user Id).
+* filter[userIdIn] (string)
+* filter[userIdNotIn] (string)
+* filter[creatorIdEqual] (string)
+* filter[tagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags (no wildcards, spaces are treated as part of the string).
+* filter[tagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[tagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags set by an ADMIN user (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[categoriesMatchAnd] (string)
+* filter[categoriesMatchOr] (string) - All entries within these categories or their child categories.
+* filter[categoriesNotContains] (string)
+* filter[categoriesIdsMatchAnd] (string)
+* filter[categoriesIdsMatchOr] (string) - All entries of the categories, excluding their child categories.
+* filter[categoriesIdsNotContains] (string)
+* filter[categoriesIdsEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[statusEqual] (string) - Enum Type: `KalturaEntryStatus`
+* filter[statusNotEqual] (string) - Enum Type: `KalturaEntryStatus`
+* filter[statusIn] (string) - This filter should be in use for retrieving only entries, at few specific {
+* filter[statusNotIn] (string) - This filter should be in use for retrieving only entries, not at few specific {
+* filter[moderationStatusEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* filter[moderationStatusNotEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* filter[moderationStatusIn] (string)
+* filter[moderationStatusNotIn] (string)
+* filter[typeEqual] (string) - Enum Type: `KalturaEntryType`
+* filter[typeIn] (string) - This filter should be in use for retrieving entries of few {
+* filter[createdAtGreaterThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system after a specific time/date (standard timestamp format).
+* filter[createdAtLessThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system before a specific time/date (standard timestamp format).
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[totalRankLessThanOrEqual] (integer)
+* filter[totalRankGreaterThanOrEqual] (integer)
+* filter[groupIdEqual] (integer)
+* filter[searchTextMatchAnd] (string) - This filter should be in use for retrieving specific entries while search match the input string within all of the following metadata attributes: name, description, tags, adminTags.
+* filter[searchTextMatchOr] (string) - This filter should be in use for retrieving specific entries while search match the input string within at least one of the following metadata attributes: name, description, tags, adminTags.
+* filter[accessControlIdEqual] (integer)
+* filter[accessControlIdIn] (string)
+* filter[startDateGreaterThanOrEqual] (integer)
+* filter[startDateLessThanOrEqual] (integer)
+* filter[startDateGreaterThanOrEqualOrNull] (integer)
+* filter[startDateLessThanOrEqualOrNull] (integer)
+* filter[endDateGreaterThanOrEqual] (integer)
+* filter[endDateLessThanOrEqual] (integer)
+* filter[endDateGreaterThanOrEqualOrNull] (integer)
+* filter[endDateLessThanOrEqualOrNull] (integer)
+* filter[referenceIdEqual] (string)
+* filter[referenceIdIn] (string)
+* filter[replacingEntryIdEqual] (string)
+* filter[replacingEntryIdIn] (string)
+* filter[replacedEntryIdEqual] (string)
+* filter[replacedEntryIdIn] (string)
+* filter[replacementStatusEqual] (string) - Enum Type: `KalturaEntryReplacementStatus`
+* filter[replacementStatusIn] (string)
+* filter[partnerSortValueGreaterThanOrEqual] (integer)
+* filter[partnerSortValueLessThanOrEqual] (integer)
+* filter[rootEntryIdEqual] (string)
+* filter[rootEntryIdIn] (string)
+* filter[parentEntryIdEqual] (string)
+* filter[entitledUsersEditMatchAnd] (string)
+* filter[entitledUsersEditMatchOr] (string)
+* filter[entitledUsersPublishMatchAnd] (string)
+* filter[entitledUsersPublishMatchOr] (string)
+* filter[tagsNameMultiLikeOr] (string)
+* filter[tagsAdminTagsMultiLikeOr] (string)
+* filter[tagsAdminTagsNameMultiLikeOr] (string)
+* filter[tagsNameMultiLikeAnd] (string)
+* filter[tagsAdminTagsMultiLikeAnd] (string)
+* filter[tagsAdminTagsNameMultiLikeAnd] (string)
+* filter[freeText] (string)
+* filter[isRoot] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[categoriesFullNameIn] (string)
+* filter[categoryAncestorIdIn] (string) - All entries within this categoy or in child categories
+* filter[redirectFromEntryId] (string) - The id of the original entry
+* filter[lastPlayedAtGreaterThanOrEqual] (integer)
+* filter[lastPlayedAtLessThanOrEqual] (integer)
+* filter[durationLessThan] (integer)
+* filter[durationGreaterThan] (integer)
+* filter[durationLessThanOrEqual] (integer)
+* filter[durationGreaterThanOrEqual] (integer)
+* filter[durationTypeMatchOr] (string)
+* filter[mediaTypeEqual] (integer) - Enum Type: `KalturaMediaType`
+* filter[mediaTypeIn] (string)
+* filter[sourceTypeEqual] (string) - Enum Type: `KalturaSourceType`
+* filter[sourceTypeNotEqual] (string) - Enum Type: `KalturaSourceType`
+* filter[sourceTypeIn] (string)
+* filter[sourceTypeNotIn] (string)
+* filter[mediaDateGreaterThanOrEqual] (integer)
+* filter[mediaDateLessThanOrEqual] (integer)
+* filter[flavorParamsIdsMatchOr] (string)
+* filter[flavorParamsIdsMatchAnd] (string)
+* filter[externalSourceTypeEqual] (string) - Enum Type: `KalturaExternalMediaSourceType`
+* filter[externalSourceTypeIn] (string)
+* filter[assetParamsIdsMatchOr] (string)
+* filter[assetParamsIdsMatchAnd] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### externalMedia.update
 Update external media entry. Only the properties that were set will be updated.
@@ -7762,6 +13002,14 @@ Add new file asset
 kaltura.fileAsset.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* fileAsset[fileAssetObjectType] (string) - `insertOnly`
+* fileAsset[objectId] (string) - `insertOnly`
+* fileAsset[name] (string)
+* fileAsset[systemName] (string)
+* fileAsset[fileExt] (string)
 
 ### fileAsset.delete
 Delete file asset by id
@@ -7800,6 +13048,65 @@ List file assets by filter and pager
 kaltura.fileAsset.list({}, context)
 ```
 
+#### Parameters
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[partnerIdEqual] (integer)
+* filter[fileAssetObjectTypeEqual] (string) - Enum Type: `KalturaFileAssetObjectType`
+* filter[objectIdEqual] (string)
+* filter[objectIdIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[statusEqual] (string) - Enum Type: `KalturaFileAssetStatus`
+* filter[statusIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### fileAsset.serve
 Serve file asset by id
@@ -7942,6 +13249,84 @@ List file syce objects by filter and pager
 kaltura.fileSync.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[partnerIdEqual] (integer)
+* filter[fileObjectTypeEqual] (string) - Enum Type: `KalturaFileSyncObjectType`
+* filter[fileObjectTypeIn] (string)
+* filter[objectIdEqual] (string)
+* filter[objectIdIn] (string)
+* filter[versionEqual] (string)
+* filter[versionIn] (string)
+* filter[objectSubTypeEqual] (integer)
+* filter[objectSubTypeIn] (string)
+* filter[dcEqual] (string)
+* filter[dcIn] (string)
+* filter[originalEqual] (integer)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[readyAtGreaterThanOrEqual] (integer)
+* filter[readyAtLessThanOrEqual] (integer)
+* filter[syncTimeGreaterThanOrEqual] (integer)
+* filter[syncTimeLessThanOrEqual] (integer)
+* filter[statusEqual] (integer) - Enum Type: `KalturaFileSyncStatus`
+* filter[statusIn] (string)
+* filter[fileTypeEqual] (integer) - Enum Type: `KalturaFileSyncType`
+* filter[fileTypeIn] (string)
+* filter[linkedIdEqual] (integer)
+* filter[linkCountGreaterThanOrEqual] (integer)
+* filter[linkCountLessThanOrEqual] (integer)
+* filter[fileSizeGreaterThanOrEqual] (number)
+* filter[fileSizeLessThanOrEqual] (number)
+* filter[currentDc] (integer) - Enum Type: `KalturaNullableBoolean`
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### fileSync.update
 Update file sync by id
@@ -8173,6 +13558,98 @@ List Flavor Assets by filter and pager
 kaltura.flavorAsset.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string)
+* filter[idIn] (string)
+* filter[entryIdEqual] (string)
+* filter[entryIdIn] (string)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[sizeGreaterThanOrEqual] (integer)
+* filter[sizeLessThanOrEqual] (integer)
+* filter[tagsLike] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[deletedAtGreaterThanOrEqual] (integer)
+* filter[deletedAtLessThanOrEqual] (integer)
+* filter[typeIn] (string)
+* filter[objectType] (string)
+* filter[formatEqual] (string) - Enum Type: `KalturaAttachmentType`
+* filter[formatIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaAttachmentAssetStatus`
+* filter[statusIn] (string)
+* filter[statusNotIn] (string)
+* filter[captionParamsIdEqual] (integer)
+* filter[captionParamsIdIn] (string)
+* filter[flavorParamsIdEqual] (integer)
+* filter[flavorParamsIdIn] (string)
+* filter[thumbParamsIdEqual] (integer)
+* filter[thumbParamsIdIn] (string)
+* filter[contentLike] (string)
+* filter[contentMultiLikeOr] (string)
+* filter[contentMultiLikeAnd] (string)
+* filter[partnerDescriptionLike] (string)
+* filter[partnerDescriptionMultiLikeOr] (string)
+* filter[partnerDescriptionMultiLikeAnd] (string)
+* filter[languageEqual] (string) - Enum Type: `KalturaLanguage`
+* filter[languageIn] (string)
+* filter[labelEqual] (string)
+* filter[labelIn] (string)
+* filter[startTimeGreaterThanOrEqual] (integer)
+* filter[startTimeLessThanOrEqual] (integer)
+* filter[endTimeGreaterThanOrEqual] (integer)
+* filter[endTimeLessThanOrEqual] (integer)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### flavorAsset.reconvert
 Reconvert Flavor Asset by ID
@@ -8357,6 +13834,76 @@ Add new Flavor Params
 kaltura.flavorParams.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* flavorParams[partnerId] (integer)
+* flavorParams[name] (string) - The name of the Flavor Params
+* flavorParams[systemName] (string) - System name of the Flavor Params
+* flavorParams[description] (string) - The description of the Flavor Params
+* flavorParams[tags] (string) - The Flavor Params tags are used to identify the flavor for different usage (e.g. web, hd, mobile)
+* flavorParams[requiredPermissions] (array)
+* flavorParams[sourceRemoteStorageProfileId] (integer) - Id of remote storage profile that used to get the source, zero indicates Kaltura data center
+* flavorParams[remoteStorageProfileIds] (integer) - Comma seperated ids of remote storage profiles that the flavor distributed to, the distribution done by the conversion engine
+* flavorParams[mediaParserType] (string) - Enum Type: `KalturaMediaParserType`
+* flavorParams[sourceAssetParamsIds] (string) - Comma seperated ids of source flavor params this flavor is created from
+* flavorParams[videoCodec] (string) - Enum Type: `KalturaVideoCodec`
+* flavorParams[videoBitrate] (integer) - The video bitrate (in KBits) of the Flavor Params
+* flavorParams[audioCodec] (string) - Enum Type: `KalturaAudioCodec`
+* flavorParams[audioBitrate] (integer) - The audio bitrate (in KBits) of the Flavor Params
+* flavorParams[audioChannels] (integer) - The number of audio channels for "downmixing"
+* flavorParams[audioSampleRate] (integer) - The audio sample rate of the Flavor Params
+* flavorParams[width] (integer) - The desired width of the Flavor Params
+* flavorParams[height] (integer) - The desired height of the Flavor Params
+* flavorParams[frameRate] (number) - The frame rate of the Flavor Params
+* flavorParams[gopSize] (integer) - The gop size of the Flavor Params
+* flavorParams[conversionEngines] (string) - The list of conversion engines (comma separated)
+* flavorParams[conversionEnginesExtraParams] (string) - The list of conversion engines extra params (separated with "|")
+* flavorParams[twoPass] (boolean)
+* flavorParams[deinterlice] (integer)
+* flavorParams[rotate] (integer)
+* flavorParams[operators] (string)
+* flavorParams[engineVersion] (integer)
+* flavorParams[format] (string) - Enum Type: `KalturaContainerFormat`
+* flavorParams[aspectRatioProcessingMode] (integer)
+* flavorParams[forceFrameToMultiplication16] (integer)
+* flavorParams[isGopInSec] (integer)
+* flavorParams[isAvoidVideoShrinkFramesizeToSource] (integer)
+* flavorParams[isAvoidVideoShrinkBitrateToSource] (integer)
+* flavorParams[isVideoFrameRateForLowBrAppleHls] (integer)
+* flavorParams[multiStream] (string)
+* flavorParams[anamorphicPixels] (number)
+* flavorParams[isAvoidForcedKeyFrames] (integer)
+* flavorParams[forcedKeyFramesMode] (integer)
+* flavorParams[isCropIMX] (integer)
+* flavorParams[optimizationPolicy] (integer)
+* flavorParams[maxFrameRate] (integer)
+* flavorParams[videoConstantBitrate] (integer)
+* flavorParams[videoBitrateTolerance] (integer)
+* flavorParams[watermarkData] (string)
+* flavorParams[subtitlesData] (string)
+* flavorParams[isEncrypted] (integer)
+* flavorParams[contentAwareness] (number)
+* flavorParams[clipOffset] (integer)
+* flavorParams[clipDuration] (integer)
+* flavorParams[objectType] (string)
+* flavorParams[flavorParamsId] (integer)
+* flavorParams[commandLinesStr] (string)
+* flavorParams[flavorParamsVersion] (string)
+* flavorParams[flavorAssetId] (string)
+* flavorParams[flavorAssetVersion] (string)
+* flavorParams[readyBehavior] (integer)
+* flavorParams[densityWidth] (integer)
+* flavorParams[densityHeight] (integer)
+* flavorParams[sizeWidth] (integer)
+* flavorParams[sizeHeight] (integer)
+* flavorParams[depth] (integer)
+* flavorParams[streamSuffix] (string) - Suffix to be added to the stream name after the entry id {entry_id}_{stream_suffix}, e.g. for entry id 0_kjdu5jr6 and suffix 1, the stream name will be 0_kjdu5jr6_1
+* flavorParams[readonly] (boolean)
+* flavorParams[flashVersion] (integer)
+* flavorParams[poly2Bitmap] (boolean)
+* flavorParams[widevineDistributionStartDate] (integer) - License distribution window start date
+* flavorParams[widevineDistributionEndDate] (integer) - License distribution window end date
 
 ### flavorParams.delete
 Delete Flavor Params by ID
@@ -8411,6 +13958,66 @@ List Flavor Params by filter with paging support (By default - all system defaul
 kaltura.flavorParams.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[isSystemDefaultEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[tagsEqual] (string)
+* filter[formatEqual] (string) - Enum Type: `KalturaContainerFormat`
+* filter[objectType] (string)
+* filter[flavorParamsIdEqual] (integer)
+* filter[flavorParamsVersionEqual] (string)
+* filter[flavorAssetIdEqual] (string)
+* filter[flavorAssetVersionEqual] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### flavorParams.update
 Update Flavor Params by ID
@@ -8517,6 +14124,66 @@ List flavor params output objects by filter and pager
 kaltura.flavorParamsOutput.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[isSystemDefaultEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[tagsEqual] (string)
+* filter[formatEqual] (string) - Enum Type: `KalturaContainerFormat`
+* filter[flavorParamsIdEqual] (integer)
+* filter[flavorParamsVersionEqual] (string)
+* filter[flavorAssetIdEqual] (string)
+* filter[flavorAssetVersionEqual] (string)
+* filter[objectType] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### groupUser.add
 Add new GroupUser
@@ -8526,6 +14193,11 @@ Add new GroupUser
 kaltura.groupUser.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* groupUser[userId] (string) - `insertOnly`
+* groupUser[groupId] (string) - `insertOnly`
 
 ### groupUser.delete
 delete by userId and groupId
@@ -8552,6 +14224,64 @@ List all GroupUsers
 kaltura.groupUser.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[userIdEqual] (string)
+* filter[userIdIn] (string)
+* filter[groupIdEqual] (string)
+* filter[groupIdIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaGroupUserStatus`
+* filter[statusIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### integration.dispatch
 Dispatch integration task
@@ -8836,6 +14566,643 @@ batch addBatchJob action allows to add a generic BatchJob
 kaltura.jobs.addBatchJob({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* batchJob[entryId] (string)
+* batchJob[entryName] (string)
+* batchJob[jobSubType] (integer)
+* batchJob[data][objectType] (string)
+* batchJob[data][entryIds] (string) - Comma separated list of entry ids
+* batchJob[data][flavorParamsId] (integer) - Flavor params id to use for conversion
+* batchJob[data][puserId] (string) - The id of the requesting user
+* batchJob[data][fileName] (string) - Friendly name of the file, used to be recognized later in the logs.
+* batchJob[data][objectData][objectType] (string)
+* batchJob[data][objectData][conversionProfileId] (integer) - Selected profile id for all bulk entries
+* batchJob[data][srcFileSyncLocalPath] (string)
+* batchJob[data][actualSrcFileSyncLocalPath] (string) - The translated path as used by the scheduler
+* batchJob[data][srcFileSyncRemoteUrl] (string)
+* batchJob[data][thumbParamsOutputId] (integer)
+* batchJob[data][thumbAssetId] (string)
+* batchJob[data][srcAssetId] (string)
+* batchJob[data][srcAssetType] (string) - Enum Type: `KalturaAssetType`
+* batchJob[data][thumbPath] (string)
+* batchJob[data][srcFiles] (array)
+* batchJob[data][destFilePath] (string) - Output file
+* batchJob[data][flavorAssetId] (string) - Flavor asset to be ingested with the output
+* batchJob[data][offset] (number) - Clipping offset in seconds
+* batchJob[data][duration] (number) - Clipping duration in seconds
+* batchJob[data][concatenatedDuration] (number) - duration of the concated video
+* batchJob[data][srcFileSyncs] (array)
+* batchJob[data][engineVersion] (integer)
+* batchJob[data][flavorParamsOutputId] (integer)
+* batchJob[data][flavorParamsOutput][partnerId] (integer)
+* batchJob[data][flavorParamsOutput][name] (string) - The name of the Flavor Params
+* batchJob[data][flavorParamsOutput][systemName] (string) - System name of the Flavor Params
+* batchJob[data][flavorParamsOutput][description] (string) - The description of the Flavor Params
+* batchJob[data][flavorParamsOutput][tags] (string) - The Flavor Params tags are used to identify the flavor for different usage (e.g. web, hd, mobile)
+* batchJob[data][flavorParamsOutput][requiredPermissions] (array)
+* batchJob[data][flavorParamsOutput][sourceRemoteStorageProfileId] (integer) - Id of remote storage profile that used to get the source, zero indicates Kaltura data center
+* batchJob[data][flavorParamsOutput][remoteStorageProfileIds] (integer) - Comma seperated ids of remote storage profiles that the flavor distributed to, the distribution done by the conversion engine
+* batchJob[data][flavorParamsOutput][mediaParserType] (string) - Enum Type: `KalturaMediaParserType`
+* batchJob[data][flavorParamsOutput][sourceAssetParamsIds] (string) - Comma seperated ids of source flavor params this flavor is created from
+* batchJob[data][flavorParamsOutput][videoCodec] (string) - Enum Type: `KalturaVideoCodec`
+* batchJob[data][flavorParamsOutput][videoBitrate] (integer) - The video bitrate (in KBits) of the Flavor Params
+* batchJob[data][flavorParamsOutput][audioCodec] (string) - Enum Type: `KalturaAudioCodec`
+* batchJob[data][flavorParamsOutput][audioBitrate] (integer) - The audio bitrate (in KBits) of the Flavor Params
+* batchJob[data][flavorParamsOutput][audioChannels] (integer) - The number of audio channels for "downmixing"
+* batchJob[data][flavorParamsOutput][audioSampleRate] (integer) - The audio sample rate of the Flavor Params
+* batchJob[data][flavorParamsOutput][width] (integer) - The desired width of the Flavor Params
+* batchJob[data][flavorParamsOutput][height] (integer) - The desired height of the Flavor Params
+* batchJob[data][flavorParamsOutput][frameRate] (number) - The frame rate of the Flavor Params
+* batchJob[data][flavorParamsOutput][gopSize] (integer) - The gop size of the Flavor Params
+* batchJob[data][flavorParamsOutput][conversionEngines] (string) - The list of conversion engines (comma separated)
+* batchJob[data][flavorParamsOutput][conversionEnginesExtraParams] (string) - The list of conversion engines extra params (separated with "|")
+* batchJob[data][flavorParamsOutput][twoPass] (boolean)
+* batchJob[data][flavorParamsOutput][deinterlice] (integer)
+* batchJob[data][flavorParamsOutput][rotate] (integer)
+* batchJob[data][flavorParamsOutput][operators] (string)
+* batchJob[data][flavorParamsOutput][engineVersion] (integer)
+* batchJob[data][flavorParamsOutput][format] (string) - Enum Type: `KalturaContainerFormat`
+* batchJob[data][flavorParamsOutput][aspectRatioProcessingMode] (integer)
+* batchJob[data][flavorParamsOutput][forceFrameToMultiplication16] (integer)
+* batchJob[data][flavorParamsOutput][isGopInSec] (integer)
+* batchJob[data][flavorParamsOutput][isAvoidVideoShrinkFramesizeToSource] (integer)
+* batchJob[data][flavorParamsOutput][isAvoidVideoShrinkBitrateToSource] (integer)
+* batchJob[data][flavorParamsOutput][isVideoFrameRateForLowBrAppleHls] (integer)
+* batchJob[data][flavorParamsOutput][multiStream] (string)
+* batchJob[data][flavorParamsOutput][anamorphicPixels] (number)
+* batchJob[data][flavorParamsOutput][isAvoidForcedKeyFrames] (integer)
+* batchJob[data][flavorParamsOutput][forcedKeyFramesMode] (integer)
+* batchJob[data][flavorParamsOutput][isCropIMX] (integer)
+* batchJob[data][flavorParamsOutput][optimizationPolicy] (integer)
+* batchJob[data][flavorParamsOutput][maxFrameRate] (integer)
+* batchJob[data][flavorParamsOutput][videoConstantBitrate] (integer)
+* batchJob[data][flavorParamsOutput][videoBitrateTolerance] (integer)
+* batchJob[data][flavorParamsOutput][watermarkData] (string)
+* batchJob[data][flavorParamsOutput][subtitlesData] (string)
+* batchJob[data][flavorParamsOutput][isEncrypted] (integer)
+* batchJob[data][flavorParamsOutput][contentAwareness] (number)
+* batchJob[data][flavorParamsOutput][clipOffset] (integer)
+* batchJob[data][flavorParamsOutput][clipDuration] (integer)
+* batchJob[data][flavorParamsOutput][flavorParamsId] (integer)
+* batchJob[data][flavorParamsOutput][commandLinesStr] (string)
+* batchJob[data][flavorParamsOutput][flavorParamsVersion] (string)
+* batchJob[data][flavorParamsOutput][flavorAssetId] (string)
+* batchJob[data][flavorParamsOutput][flavorAssetVersion] (string)
+* batchJob[data][flavorParamsOutput][readyBehavior] (integer)
+* batchJob[data][flavorParamsOutput][objectType] (string)
+* batchJob[data][flavorParamsOutput][densityWidth] (integer)
+* batchJob[data][flavorParamsOutput][densityHeight] (integer)
+* batchJob[data][flavorParamsOutput][sizeWidth] (integer)
+* batchJob[data][flavorParamsOutput][sizeHeight] (integer)
+* batchJob[data][flavorParamsOutput][depth] (integer)
+* batchJob[data][flavorParamsOutput][readonly] (boolean)
+* batchJob[data][flavorParamsOutput][flashVersion] (integer)
+* batchJob[data][flavorParamsOutput][poly2Bitmap] (boolean)
+* batchJob[data][flavorParamsOutput][widevineDistributionStartDate] (integer) - License distribution window start date
+* batchJob[data][flavorParamsOutput][widevineDistributionEndDate] (integer) - License distribution window end date
+* batchJob[data][entryId] (string) - Live stream entry id
+* batchJob[data][assetId] (string)
+* batchJob[data][mediaServerIndex] (string) - Enum Type: `KalturaEntryServerNodeType`
+* batchJob[data][fileIndex] (integer) - The index of the file within the entry
+* batchJob[data][srcFilePath] (string) - The recorded live media
+* batchJob[data][endTime] (number) - Duration of the live entry including all recorded segments including the current
+* batchJob[data][destDataFilePath] (string) - The data output file
+* batchJob[data][inputFileSyncLocalPath] (string)
+* batchJob[data][thumbHeight] (integer) - The height of last created thumbnail, will be used to comapare if this thumbnail is the best we can have
+* batchJob[data][thumbBitrate] (integer) - The bit rate of last created thumbnail, will be used to comapare if this thumbnail is the best we can have
+* batchJob[data][filter][orderBy] (string)
+* batchJob[data][filter][advancedSearch][objectType] (string)
+* batchJob[data][filter][advancedSearch][value] (string)
+* batchJob[data][filter][advancedSearch][categoriesMatchOr] (string)
+* batchJob[data][filter][advancedSearch][categoryEntryStatusIn] (string)
+* batchJob[data][filter][advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* batchJob[data][filter][advancedSearch][categoryIdEqual] (integer)
+* batchJob[data][filter][advancedSearch][memberIdEq] (string)
+* batchJob[data][filter][advancedSearch][memberIdIn] (string)
+* batchJob[data][filter][advancedSearch][memberPermissionsMatchOr] (string)
+* batchJob[data][filter][advancedSearch][memberPermissionsMatchAnd] (string)
+* batchJob[data][filter][advancedSearch][noDistributionProfiles] (boolean)
+* batchJob[data][filter][advancedSearch][distributionProfileId] (integer)
+* batchJob[data][filter][advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* batchJob[data][filter][advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* batchJob[data][filter][advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* batchJob[data][filter][advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* batchJob[data][filter][advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* batchJob[data][filter][advancedSearch][contentLike] (string)
+* batchJob[data][filter][advancedSearch][contentMultiLikeOr] (string)
+* batchJob[data][filter][advancedSearch][contentMultiLikeAnd] (string)
+* batchJob[data][filter][advancedSearch][cuePointsFreeText] (string)
+* batchJob[data][filter][advancedSearch][cuePointTypeIn] (string)
+* batchJob[data][filter][advancedSearch][cuePointSubTypeEqual] (integer)
+* batchJob[data][filter][advancedSearch][watermarkId] (integer)
+* batchJob[data][filter][advancedSearch][indexIdGreaterThan] (integer)
+* batchJob[data][filter][advancedSearch][depthGreaterThanEqual] (integer)
+* batchJob[data][filter][advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* batchJob[data][filter][advancedSearch][field] (string)
+* batchJob[data][filter][advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* batchJob[data][filter][advancedSearch][items] (array)
+* batchJob[data][filter][advancedSearch][idEqual] (string)
+* batchJob[data][filter][advancedSearch][idIn] (string)
+* batchJob[data][filter][advancedSearch][userIdEqual] (string)
+* batchJob[data][filter][advancedSearch][userIdIn] (string)
+* batchJob[data][filter][advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* batchJob[data][filter][advancedSearch][updatedAtLessThanOrEqual] (string)
+* batchJob[data][filter][advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* batchJob[data][filter][advancedSearch][extendedStatusIn] (string)
+* batchJob[data][filter][advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* batchJob[data][filter][advancedSearch][not] (boolean)
+* batchJob[data][filter][advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* batchJob[data][filter][advancedSearch][metadataProfileId] (integer)
+* batchJob[data][fromPartnerId] (integer) - Id of the partner to copy from
+* batchJob[data][toPartnerId] (integer) - Id of the partner to copy to
+* batchJob[data][localFileSyncPath] (string)
+* batchJob[data][distributionProfileId] (integer)
+* batchJob[data][distributionProfile][providerType] (string) - `insertOnly`
+* batchJob[data][distributionProfile][name] (string)
+* batchJob[data][distributionProfile][status] (integer) - Enum Type: `KalturaDistributionProfileStatus`
+* batchJob[data][distributionProfile][submitEnabled] (integer) - Enum Type: `KalturaDistributionProfileActionStatus`
+* batchJob[data][distributionProfile][updateEnabled] (integer) - Enum Type: `KalturaDistributionProfileActionStatus`
+* batchJob[data][distributionProfile][deleteEnabled] (integer) - Enum Type: `KalturaDistributionProfileActionStatus`
+* batchJob[data][distributionProfile][reportEnabled] (integer) - Enum Type: `KalturaDistributionProfileActionStatus`
+* batchJob[data][distributionProfile][autoCreateFlavors] (string) - Comma separated flavor params ids that should be auto converted
+* batchJob[data][distributionProfile][autoCreateThumb] (string) - Comma separated thumbnail params ids that should be auto generated
+* batchJob[data][distributionProfile][optionalFlavorParamsIds] (string) - Comma separated flavor params ids that should be submitted if ready
+* batchJob[data][distributionProfile][requiredFlavorParamsIds] (string) - Comma separated flavor params ids that required to be ready before submission
+* batchJob[data][distributionProfile][optionalThumbDimensions] (array)
+* batchJob[data][distributionProfile][requiredThumbDimensions] (array)
+* batchJob[data][distributionProfile][optionalAssetDistributionRules] (array)
+* batchJob[data][distributionProfile][requiredAssetDistributionRules] (array)
+* batchJob[data][distributionProfile][sunriseDefaultOffset] (integer) - If entry distribution sunrise not specified that will be the default since entry creation time, in seconds
+* batchJob[data][distributionProfile][sunsetDefaultOffset] (integer) - If entry distribution sunset not specified that will be the default since entry creation time, in seconds
+* batchJob[data][distributionProfile][recommendedStorageProfileForDownload] (integer) - The best external storage to be used to download the asset files from
+* batchJob[data][distributionProfile][recommendedDcForDownload] (integer) - The best Kaltura data center to be used to download the asset files to
+* batchJob[data][distributionProfile][recommendedDcForExecute] (integer) - The best Kaltura data center to be used to execute the distribution job
+* batchJob[data][distributionProfile][objectType] (string)
+* batchJob[data][distributionProfile][fieldConfigArray] (array)
+* batchJob[data][distributionProfile][itemXpathsToExtend] (array)
+* batchJob[data][distributionProfile][useCategoryEntries] (boolean) - When checking custom XSLT conditions using the fieldConfigArray - address only categories associated with the entry via the categoryEntry object
+* batchJob[data][distributionProfile][apikey] (string)
+* batchJob[data][distributionProfile][email] (string)
+* batchJob[data][distributionProfile][sftpPass] (string)
+* batchJob[data][distributionProfile][sftpLogin] (string)
+* batchJob[data][distributionProfile][accountId] (string)
+* batchJob[data][distributionProfile][metadataProfileId] (integer)
+* batchJob[data][distributionProfile][genericProviderId] (integer) - `insertOnly`
+* batchJob[data][distributionProfile][submitAction][protocol] (integer) - Enum Type: `KalturaDistributionProtocol`
+* batchJob[data][distributionProfile][submitAction][serverUrl] (string)
+* batchJob[data][distributionProfile][submitAction][serverPath] (string)
+* batchJob[data][distributionProfile][submitAction][username] (string)
+* batchJob[data][distributionProfile][submitAction][password] (string)
+* batchJob[data][distributionProfile][submitAction][ftpPassiveMode] (boolean)
+* batchJob[data][distributionProfile][submitAction][httpFieldName] (string)
+* batchJob[data][distributionProfile][submitAction][httpFileName] (string)
+* batchJob[data][distributionProfile][xsl] (string)
+* batchJob[data][distributionProfile][ftpHost] (string)
+* batchJob[data][distributionProfile][ftpUsername] (string)
+* batchJob[data][distributionProfile][ftpPassword] (string)
+* batchJob[data][distributionProfile][ftpPath] (string)
+* batchJob[data][distributionProfile][channelTitle] (string)
+* batchJob[data][distributionProfile][flavorAssetFilenameXslt] (string)
+* batchJob[data][distributionProfile][thumbnailAssetFilenameXslt] (string)
+* batchJob[data][distributionProfile][assetFilenameXslt] (string)
+* batchJob[data][distributionProfile][feedTitle] (string)
+* batchJob[data][distributionProfile][feedLink] (string)
+* batchJob[data][distributionProfile][feedDescription] (string)
+* batchJob[data][distributionProfile][feedLastBuildDate] (string)
+* batchJob[data][distributionProfile][itemLink] (string)
+* batchJob[data][distributionProfile][cPlatformTvSeries] (array)
+* batchJob[data][distributionProfile][cPlatformTvSeriesField] (string)
+* batchJob[data][distributionProfile][shouldIncludeCuePoints] (boolean)
+* batchJob[data][distributionProfile][shouldIncludeCaptions] (boolean)
+* batchJob[data][distributionProfile][shouldAddThumbExtension] (boolean)
+* batchJob[data][distributionProfile][targetServiceUrl] (string)
+* batchJob[data][distributionProfile][targetAccountId] (integer)
+* batchJob[data][distributionProfile][targetLoginId] (string)
+* batchJob[data][distributionProfile][targetLoginPassword] (string)
+* batchJob[data][distributionProfile][metadataXslt] (string)
+* batchJob[data][distributionProfile][metadataXpathsTriggerUpdate] (array)
+* batchJob[data][distributionProfile][distributeCaptions] (boolean)
+* batchJob[data][distributionProfile][distributeCuePoints] (boolean)
+* batchJob[data][distributionProfile][distributeRemoteFlavorAssetContent] (boolean)
+* batchJob[data][distributionProfile][distributeRemoteThumbAssetContent] (boolean)
+* batchJob[data][distributionProfile][distributeRemoteCaptionAssetContent] (boolean)
+* batchJob[data][distributionProfile][mapAccessControlProfileIds] (array)
+* batchJob[data][distributionProfile][mapConversionProfileIds] (array)
+* batchJob[data][distributionProfile][mapMetadataProfileIds] (array)
+* batchJob[data][distributionProfile][mapStorageProfileIds] (array)
+* batchJob[data][distributionProfile][mapFlavorParamsIds] (array)
+* batchJob[data][distributionProfile][mapThumbParamsIds] (array)
+* batchJob[data][distributionProfile][mapCaptionParamsIds] (array)
+* batchJob[data][distributionProfile][user] (string)
+* batchJob[data][distributionProfile][password] (string)
+* batchJob[data][distributionProfile][geoBlockingMapping] (integer) - Enum Type: `KalturaDailymotionGeoBlockingMapping`
+* batchJob[data][distributionProfile][channelLink] (string)
+* batchJob[data][distributionProfile][channelDescription] (string)
+* batchJob[data][distributionProfile][cuePointsProvider] (string)
+* batchJob[data][distributionProfile][itemsPerPage] (string)
+* batchJob[data][distributionProfile][ignoreSchedulingInFeed] (boolean)
+* batchJob[data][distributionProfile][apiAuthorizeUrl] (string)
+* batchJob[data][distributionProfile][pageId] (string)
+* batchJob[data][distributionProfile][pageAccessToken] (string)
+* batchJob[data][distributionProfile][userAccessToken] (string)
+* batchJob[data][distributionProfile][state] (string)
+* batchJob[data][distributionProfile][permissions] (string)
+* batchJob[data][distributionProfile][reRequestPermissions] (integer)
+* batchJob[data][distributionProfile][contentOwner] (string)
+* batchJob[data][distributionProfile][upstreamVideoId] (string)
+* batchJob[data][distributionProfile][upstreamNetworkName] (string)
+* batchJob[data][distributionProfile][upstreamNetworkId] (string)
+* batchJob[data][distributionProfile][categoryId] (string)
+* batchJob[data][distributionProfile][replaceGroup] (boolean)
+* batchJob[data][distributionProfile][replaceAirDates] (boolean)
+* batchJob[data][distributionProfile][protocol] (integer) - `insertOnly`
+* batchJob[data][distributionProfile][host] (string)
+* batchJob[data][distributionProfile][port] (integer)
+* batchJob[data][distributionProfile][basePath] (string)
+* batchJob[data][distributionProfile][username] (string)
+* batchJob[data][distributionProfile][passphrase] (string)
+* batchJob[data][distributionProfile][sftpPublicKey] (string)
+* batchJob[data][distributionProfile][sftpPrivateKey] (string)
+* batchJob[data][distributionProfile][disableMetadata] (boolean)
+* batchJob[data][distributionProfile][metadataFilenameXslt] (string)
+* batchJob[data][distributionProfile][asperaPublicKey] (string)
+* batchJob[data][distributionProfile][asperaPrivateKey] (string)
+* batchJob[data][distributionProfile][sendMetadataAfterAssets] (boolean)
+* batchJob[data][distributionProfile][sftpHost] (string)
+* batchJob[data][distributionProfile][seriesChannel] (string)
+* batchJob[data][distributionProfile][seriesPrimaryCategory] (string)
+* batchJob[data][distributionProfile][seriesAdditionalCategories] (array)
+* batchJob[data][distributionProfile][seasonNumber] (string)
+* batchJob[data][distributionProfile][seasonSynopsis] (string)
+* batchJob[data][distributionProfile][seasonTuneInInformation] (string)
+* batchJob[data][distributionProfile][videoMediaType] (string)
+* batchJob[data][distributionProfile][disableEpisodeNumberCustomValidation] (boolean)
+* batchJob[data][distributionProfile][asperaHost] (string)
+* batchJob[data][distributionProfile][asperaLogin] (string)
+* batchJob[data][distributionProfile][asperaPass] (string)
+* batchJob[data][distributionProfile][domain] (string)
+* batchJob[data][distributionProfile][ftpLogin] (string)
+* batchJob[data][distributionProfile][ftpPass] (string)
+* batchJob[data][distributionProfile][providerName] (string)
+* batchJob[data][distributionProfile][providerId] (string)
+* batchJob[data][distributionProfile][copyright] (string)
+* batchJob[data][distributionProfile][entitlements] (string)
+* batchJob[data][distributionProfile][rating] (string)
+* batchJob[data][distributionProfile][itemType] (string)
+* batchJob[data][distributionProfile][csId] (string)
+* batchJob[data][distributionProfile][source] (string)
+* batchJob[data][distributionProfile][sourceFriendlyName] (string)
+* batchJob[data][distributionProfile][pageGroup] (string)
+* batchJob[data][distributionProfile][sourceFlavorParamsId] (integer)
+* batchJob[data][distributionProfile][wmvFlavorParamsId] (integer)
+* batchJob[data][distributionProfile][flvFlavorParamsId] (integer)
+* batchJob[data][distributionProfile][slFlavorParamsId] (integer)
+* batchJob[data][distributionProfile][slHdFlavorParamsId] (integer)
+* batchJob[data][distributionProfile][msnvideoCat] (string)
+* batchJob[data][distributionProfile][msnvideoTop] (string)
+* batchJob[data][distributionProfile][msnvideoTopCat] (string)
+* batchJob[data][distributionProfile][channelLanguage] (string)
+* batchJob[data][distributionProfile][channelCopyright] (string)
+* batchJob[data][distributionProfile][channelImageTitle] (string)
+* batchJob[data][distributionProfile][channelImageUrl] (string)
+* batchJob[data][distributionProfile][channelImageLink] (string)
+* batchJob[data][distributionProfile][itemMediaRating] (string)
+* batchJob[data][distributionProfile][ips] (string)
+* batchJob[data][distributionProfile][certificateKey] (string)
+* batchJob[data][distributionProfile][bodyXslt] (string)
+* batchJob[data][distributionProfile][sftpBasePath] (string)
+* batchJob[data][distributionProfile][channelManagingEditor] (string)
+* batchJob[data][distributionProfile][channelImageWidth] (string)
+* batchJob[data][distributionProfile][channelImageHeight] (string)
+* batchJob[data][distributionProfile][channelGenerator] (string)
+* batchJob[data][distributionProfile][channelRating] (string)
+* batchJob[data][distributionProfile][feedSubtitle] (string)
+* batchJob[data][distributionProfile][feedAuthorName] (string)
+* batchJob[data][distributionProfile][feedLanguage] (string)
+* batchJob[data][distributionProfile][feedCopyright] (string)
+* batchJob[data][distributionProfile][feedImageTitle] (string)
+* batchJob[data][distributionProfile][feedImageUrl] (string)
+* batchJob[data][distributionProfile][feedImageLink] (string)
+* batchJob[data][distributionProfile][feedImageWidth] (integer)
+* batchJob[data][distributionProfile][feedImageHeight] (integer)
+* batchJob[data][distributionProfile][ingestUrl] (string)
+* batchJob[data][distributionProfile][tags] (array)
+* batchJob[data][distributionProfile][xsltFile] (string)
+* batchJob[data][distributionProfile][domainName] (string) - The name of the Domain that the Upload User should have access to, Used for authentication.
+* batchJob[data][distributionProfile][channelGuid] (string) - The Channel GUID assigned to this Publication Rule. Must be a valid Channel in the Domain that was used in authentication.
+* batchJob[data][distributionProfile][apiHostUrl] (string) - The API host URL that the Upload User should have access to, Used for HTTP content submission.
+* batchJob[data][distributionProfile][domainGuid] (string) - The GUID of the Customer Domain in the Unicorn system obtained by contacting your Unicorn representative.
+* batchJob[data][distributionProfile][adFreeApplicationGuid] (string) - The GUID for the application in which to record metrics and enforce business rules obtained through your Unicorn representative.
+* batchJob[data][distributionProfile][remoteAssetParamsId] (integer) - The flavor-params that will be used for the remote asset.
+* batchJob[data][distributionProfile][storageProfileId] (string) - The remote storage that should be used for the remote asset.
+* batchJob[data][distributionProfile][backgroundImageWide] (string)
+* batchJob[data][distributionProfile][backgroundImageStandard] (string)
+* batchJob[data][distributionProfile][entitlement] (string)
+* batchJob[data][distributionProfile][priority] (string)
+* batchJob[data][distributionProfile][allowStreaming] (string)
+* batchJob[data][distributionProfile][streamingPriceCode] (string)
+* batchJob[data][distributionProfile][allowDownload] (string)
+* batchJob[data][distributionProfile][downloadPriceCode] (string)
+* batchJob[data][distributionProfile][contactTelephone] (string)
+* batchJob[data][distributionProfile][contactEmail] (string)
+* batchJob[data][distributionProfile][processFeed] (integer) - Enum Type: `KalturaYahooDistributionProcessFeedActionStatus`
+* batchJob[data][distributionProfile][feedSpecVersion] (string) - Enum Type: `KalturaYouTubeDistributionFeedSpecVersion`
+* batchJob[data][distributionProfile][notificationEmail] (string)
+* batchJob[data][distributionProfile][sftpPort] (integer)
+* batchJob[data][distributionProfile][sftpBaseDir] (string)
+* batchJob[data][distributionProfile][ownerName] (string)
+* batchJob[data][distributionProfile][defaultCategory] (string)
+* batchJob[data][distributionProfile][allowComments] (string)
+* batchJob[data][distributionProfile][allowEmbedding] (string)
+* batchJob[data][distributionProfile][allowRatings] (string)
+* batchJob[data][distributionProfile][allowResponses] (string)
+* batchJob[data][distributionProfile][commercialPolicy] (string)
+* batchJob[data][distributionProfile][ugcPolicy] (string)
+* batchJob[data][distributionProfile][target] (string)
+* batchJob[data][distributionProfile][adServerPartnerId] (string)
+* batchJob[data][distributionProfile][enableAdServer] (boolean)
+* batchJob[data][distributionProfile][allowPreRollAds] (boolean)
+* batchJob[data][distributionProfile][allowPostRollAds] (boolean)
+* batchJob[data][distributionProfile][strict] (string)
+* batchJob[data][distributionProfile][overrideManualEdits] (string)
+* batchJob[data][distributionProfile][urgentReference] (string)
+* batchJob[data][distributionProfile][allowSyndication] (string)
+* batchJob[data][distributionProfile][hideViewCount] (string)
+* batchJob[data][distributionProfile][allowAdsenseForVideo] (string)
+* batchJob[data][distributionProfile][allowInvideo] (string)
+* batchJob[data][distributionProfile][allowMidRollAds] (boolean)
+* batchJob[data][distributionProfile][instreamStandard] (string)
+* batchJob[data][distributionProfile][instreamTrueview] (string)
+* batchJob[data][distributionProfile][claimType] (string)
+* batchJob[data][distributionProfile][blockOutsideOwnership] (string)
+* batchJob[data][distributionProfile][captionAutosync] (string)
+* batchJob[data][distributionProfile][deleteReference] (boolean)
+* batchJob[data][distributionProfile][releaseClaims] (boolean)
+* batchJob[data][distributionProfile][googleClientId] (string)
+* batchJob[data][distributionProfile][googleClientSecret] (string)
+* batchJob[data][distributionProfile][googleTokenData] (string)
+* batchJob[data][distributionProfile][assumeSuccess] (boolean)
+* batchJob[data][distributionProfile][privacyStatus] (string)
+* batchJob[data][dropFolderId] (integer)
+* batchJob[data][dropFolderFileIds] (string)
+* batchJob[data][parsedSlug] (string)
+* batchJob[data][contentMatchPolicy] (integer) - Enum Type: `KalturaDropFolderContentFileHandlerMatchPolicy`
+* batchJob[data][conversionProfileId] (integer)
+* batchJob[data][parsedUserId] (string)
+* batchJob[data][templateId] (integer)
+* batchJob[data][contentParameters] (array)
+* batchJob[data][srcFileUrl] (string)
+* batchJob[data][destFileLocalPath] (string)
+* batchJob[data][fileSize] (integer)
+* batchJob[data][metadataId] (integer)
+* batchJob[data][changedCategoryId] (integer)
+* batchJob[data][deletedPrivacyContexts] (string)
+* batchJob[data][addedPrivacyContexts] (string)
+* batchJob[data][providerType] (string) - Enum Type: `KalturaIntegrationProviderType`
+* batchJob[data][providerData][objectType] (string)
+* batchJob[data][providerData][entryId] (string) - Entry ID
+* batchJob[data][providerData][flavorAssetId] (string) - Flavor ID
+* batchJob[data][providerData][captionAssetFormats] (string) - Caption formats
+* batchJob[data][providerData][priority] (string) - Enum Type: `KalturaCielo24Priority`
+* batchJob[data][providerData][fidelity] (string) - Enum Type: `KalturaCielo24Fidelity`
+* batchJob[data][providerData][spokenLanguage] (string) - Enum Type: `KalturaLanguage`
+* batchJob[data][providerData][replaceMediaContent] (boolean) - should replace remote media content
+* batchJob[data][providerData][additionalParameters] (string) - additional parameters to send to Cielo24
+* batchJob[data][providerData][metadataProfileId] (integer) - ID of the metadata profile for the extracted term metadata
+* batchJob[data][providerData][transcriptAssetId] (string) - ID of the transcript asset
+* batchJob[data][providerData][voicebaseApiKey] (string) - Voicebase API key to fetch transcript tokens
+* batchJob[data][providerData][voicebaseApiPassword] (string) - Voicebase API password to fetch transcript tokens
+* batchJob[data][providerData][exampleUrl] (string) - Just an example
+* batchJob[data][providerData][transcriptId] (string) - input Transcript-asset ID
+* batchJob[data][timeReference] (integer)
+* batchJob[data][timeZoneOffset] (integer)
+* batchJob[data][outputPath] (string)
+* batchJob[data][recipientEmail] (string)
+* batchJob[data][vodEntryId] (string) - $vod Entry Id
+* batchJob[data][liveEntryId] (string) - live Entry Id
+* batchJob[data][totalVodDuration] (number) - total VOD Duration
+* batchJob[data][lastSegmentDuration] (number) - last Segment Duration
+* batchJob[data][amfArray] (string) - amf Array File Path
+* batchJob[data][lastCuePointSyncTime] (integer) - last live to vod sync time
+* batchJob[data][lastSegmentDrift] (integer) - last segment drift
+* batchJob[data][mailType] (string) - Enum Type: `KalturaMailType`
+* batchJob[data][mailPriority] (integer)
+* batchJob[data][status] (integer) - Enum Type: `KalturaMailJobStatus`
+* batchJob[data][recipientName] (string)
+* batchJob[data][recipientId] (integer) - kuserId
+* batchJob[data][fromName] (string)
+* batchJob[data][fromEmail] (string)
+* batchJob[data][bodyParams] (string)
+* batchJob[data][subjectParams] (string)
+* batchJob[data][templatePath] (string)
+* batchJob[data][language] (string) - Enum Type: `KalturaLanguageCode`
+* batchJob[data][campaignId] (integer)
+* batchJob[data][minSendDate] (integer)
+* batchJob[data][isHtml] (boolean)
+* batchJob[data][separator] (string)
+* batchJob[data][srcCategoryId] (integer) - Source category id
+* batchJob[data][destCategoryId] (integer) - Destination category id
+* batchJob[data][lastMovedCategoryId] (integer) - Saves the last category id that its entries moved completely
+* batchJob[data][lastMovedCategoryPageIndex] (integer) - Saves the last page index of the child categories filter pager
+* batchJob[data][lastMovedCategoryEntryPageIndex] (integer) - Saves the last page index of the category entries filter pager
+* batchJob[data][moveFromChildren] (boolean) - All entries from all child categories will be moved as well
+* batchJob[data][destCategoryFullIds] (string) - Destination categories fallback ids
+* batchJob[data][userId] (string)
+* batchJob[data][type] (integer) - Enum Type: `KalturaNotificationType`
+* batchJob[data][typeAsString] (string)
+* batchJob[data][objectId] (string)
+* batchJob[data][data] (string)
+* batchJob[data][numberOfAttempts] (integer)
+* batchJob[data][notificationResult] (string)
+* batchJob[data][objType] (integer) - Enum Type: `KalturaNotificationObjectType`
+* batchJob[data][captionAssetId] (string)
+* batchJob[data][multiLanaguageCaptionAssetId] (string)
+* batchJob[data][fileLocation] (string)
+* batchJob[data][streamID] (string)
+* batchJob[data][backupStreamID] (string)
+* batchJob[data][rtmp] (string)
+* batchJob[data][encoderIP] (string)
+* batchJob[data][backupEncoderIP] (string)
+* batchJob[data][encoderPassword] (string)
+* batchJob[data][encoderUsername] (string)
+* batchJob[data][endDate] (integer)
+* batchJob[data][returnVal] (string)
+* batchJob[data][mediaType] (integer)
+* batchJob[data][primaryBroadcastingUrl] (string)
+* batchJob[data][secondaryBroadcastingUrl] (string)
+* batchJob[data][streamName] (string)
+* batchJob[data][maxResults] (integer)
+* batchJob[data][resultsFilePath] (string)
+* batchJob[data][referenceTime] (integer)
+* batchJob[data][serverUrl] (string)
+* batchJob[data][serverUsername] (string)
+* batchJob[data][serverPassword] (string)
+* batchJob[data][serverPrivateKey] (string)
+* batchJob[data][serverPublicKey] (string)
+* batchJob[data][serverPassPhrase] (string)
+* batchJob[data][ftpPassiveMode] (boolean)
+* batchJob[data][srcFileSyncId] (string)
+* batchJob[data][destFileSyncStoredPath] (string)
+* batchJob[data][categoryId] (integer) - category id
+* batchJob[data][lastUpdatedCategoryEntryCreatedAt] (integer) - Saves the last category entry creation date that was updated
+* batchJob[data][lastUpdatedCategoryCreatedAt] (integer) - Saves the last sub category creation date that was updated
+* batchJob[data][srcXslPath] (string)
+* batchJob[data][srcVersion] (integer)
+* batchJob[data][destVersion] (integer)
+* batchJob[data][destXsdPath] (string)
+* batchJob[data][metadataProfileId] (integer)
+* batchJob[data][scanResult] (integer) - Enum Type: `KalturaVirusScanJobResult`
+* batchJob[data][virusFoundAction] (integer) - Enum Type: `KalturaVirusFoundAction`
+* batchJob[data][syncMode] (integer) - Enum Type: `KalturaWidevineRepositorySyncMode`
+* batchJob[data][wvAssetIds] (string)
+* batchJob[data][modifiedAttributes] (string)
+* batchJob[data][monitorSyncCompletion] (integer)
+* batchJob[data][columns] (array)
+* batchJob[data][eventsType] (integer) - Enum Type: `KalturaScheduleEventType`
+* batchJob[data][destDirLocalPath] (string)
+* batchJob[data][destDirRemoteUrl] (string)
+* batchJob[data][destFileName] (string)
+* batchJob[data][inputXmlLocalPath] (string)
+* batchJob[data][inputXmlRemoteUrl] (string)
+* batchJob[data][commandLinesStr] (string)
+* batchJob[data][flavors] (array)
+* batchJob[data][destFileSyncLocalPath] (string)
+* batchJob[data][destFileSyncRemoteUrl] (string)
+* batchJob[data][logFileSyncLocalPath] (string)
+* batchJob[data][logFileSyncRemoteUrl] (string)
+* batchJob[data][remoteMediaId] (string)
+* batchJob[data][customData] (string)
+* batchJob[data][extraDestFileSyncs] (array)
+* batchJob[data][engineMessage] (string)
+* batchJob[data][calculateComplexity] (boolean)
+* batchJob[data][extractId3Tags] (boolean)
+* batchJob[data][detectGOP] (integer)
+* batchJob[data][createThumb] (boolean) - Indicates if a thumbnail should be created
+* batchJob[data][thumbOffset] (integer) - The position of the thumbnail in the media file
+* batchJob[data][keepDistributionItem] (boolean) - Flag signifying that the associated distribution item should not be moved to 'removed' status
+* batchJob[data][plays] (integer)
+* batchJob[data][views] (integer)
+* batchJob[data][description] (string)
+* batchJob[data][webexHostId] (string)
+* batchJob[data][server][name] (string)
+* batchJob[data][server][systemName] (string)
+* batchJob[data][server][description] (string)
+* batchJob[data][server][dc] (integer) - The dc of the server
+* batchJob[data][server][objectType] (string)
+* batchJob[data][server][host] (string)
+* batchJob[data][server][port] (integer)
+* batchJob[data][server][protocol] (string) - Enum Type: `KalturaActivitiBusinessProcessServerProtocol`
+* batchJob[data][server][username] (string)
+* batchJob[data][server][password] (string)
+* batchJob[data][to][objectType] (string)
+* batchJob[data][to][categoryUserFilter][orderBy] (string)
+* batchJob[data][to][categoryUserFilter][categoryIdEqual] (integer)
+* batchJob[data][to][categoryUserFilter][categoryIdIn] (string)
+* batchJob[data][to][categoryUserFilter][userIdEqual] (string)
+* batchJob[data][to][categoryUserFilter][userIdIn] (string)
+* batchJob[data][to][categoryUserFilter][permissionLevelEqual] (integer) - Enum Type: `KalturaCategoryUserPermissionLevel`
+* batchJob[data][to][categoryUserFilter][permissionLevelIn] (string)
+* batchJob[data][to][categoryUserFilter][statusEqual] (integer) - Enum Type: `KalturaCategoryUserStatus`
+* batchJob[data][to][categoryUserFilter][statusIn] (string)
+* batchJob[data][to][categoryUserFilter][createdAtGreaterThanOrEqual] (integer)
+* batchJob[data][to][categoryUserFilter][createdAtLessThanOrEqual] (integer)
+* batchJob[data][to][categoryUserFilter][updatedAtGreaterThanOrEqual] (integer)
+* batchJob[data][to][categoryUserFilter][updatedAtLessThanOrEqual] (integer)
+* batchJob[data][to][categoryUserFilter][updateMethodEqual] (integer) - Enum Type: `KalturaUpdateMethodType`
+* batchJob[data][to][categoryUserFilter][updateMethodIn] (string)
+* batchJob[data][to][categoryUserFilter][categoryFullIdsStartsWith] (string)
+* batchJob[data][to][categoryUserFilter][categoryFullIdsEqual] (string)
+* batchJob[data][to][categoryUserFilter][permissionNamesMatchAnd] (string)
+* batchJob[data][to][categoryUserFilter][permissionNamesMatchOr] (string)
+* batchJob[data][to][categoryUserFilter][permissionNamesNotContains] (string)
+* batchJob[data][to][categoryUserFilter][categoryDirectMembers] (boolean) - Return the list of categoryUser that are not inherited from parent category - only the direct categoryUsers.
+* batchJob[data][to][categoryUserFilter][freeText] (string) - Free text search on user id or screen name
+* batchJob[data][to][categoryUserFilter][relatedGroupsByUserId] (string) - Return a list of categoryUser that related to the userId in this field by groups
+* batchJob[data][to][emailRecipients] (array)
+* batchJob[data][to][filter][orderBy] (string)
+* batchJob[data][to][filter][partnerIdEqual] (integer)
+* batchJob[data][to][filter][typeEqual] (integer) - Enum Type: `KalturaUserType`
+* batchJob[data][to][filter][typeIn] (string)
+* batchJob[data][to][filter][screenNameLike] (string)
+* batchJob[data][to][filter][screenNameStartsWith] (string)
+* batchJob[data][to][filter][emailLike] (string)
+* batchJob[data][to][filter][emailStartsWith] (string)
+* batchJob[data][to][filter][tagsMultiLikeOr] (string)
+* batchJob[data][to][filter][tagsMultiLikeAnd] (string)
+* batchJob[data][to][filter][statusEqual] (integer) - Enum Type: `KalturaUserStatus`
+* batchJob[data][to][filter][statusIn] (string)
+* batchJob[data][to][filter][createdAtGreaterThanOrEqual] (integer)
+* batchJob[data][to][filter][createdAtLessThanOrEqual] (integer)
+* batchJob[data][to][filter][firstNameStartsWith] (string)
+* batchJob[data][to][filter][lastNameStartsWith] (string)
+* batchJob[data][to][filter][isAdminEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* batchJob[data][to][filter][idOrScreenNameStartsWith] (string)
+* batchJob[data][to][filter][idEqual] (string)
+* batchJob[data][to][filter][idIn] (string)
+* batchJob[data][to][filter][loginEnabledEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* batchJob[data][to][filter][roleIdEqual] (string)
+* batchJob[data][to][filter][roleIdsEqual] (string)
+* batchJob[data][to][filter][roleIdsIn] (string)
+* batchJob[data][to][filter][firstNameOrLastNameStartsWith] (string)
+* batchJob[data][to][filter][permissionNamesMultiLikeOr] (string) - Permission names filter expression
+* batchJob[data][to][filter][permissionNamesMultiLikeAnd] (string) - Permission names filter expression
+* batchJob[data][to][filter][objectType] (string)
+* batchJob[data][url] (string) - Remote server URL
+* batchJob[data][method] (integer) - Enum Type: `KalturaHttpNotificationMethod`
+* batchJob[data][timeout] (integer) - The maximum number of seconds to allow cURL functions to execute.
+* batchJob[data][connectTimeout] (integer) - The number of seconds to wait while trying to connect.
+* batchJob[data][username] (string) - A username to use for the connection.
+* batchJob[data][password] (string) - A password to use for the connection.
+* batchJob[data][authenticationMethod] (integer) - Enum Type: `KalturaHttpNotificationAuthenticationMethod`
+* batchJob[data][sslVersion] (integer) - Enum Type: `KalturaHttpNotificationSslVersion`
+* batchJob[data][sslCertificate] (string) - SSL certificate to verify the peer with.
+* batchJob[data][sslCertificateType] (string) - Enum Type: `KalturaHttpNotificationCertificateType`
+* batchJob[data][sslCertificatePassword] (string) - The password required to use the certificate.
+* batchJob[data][sslEngine] (string) - The identifier for the crypto engine of the private SSL key specified in ssl key.
+* batchJob[data][sslEngineDefault] (string) - The identifier for the crypto engine used for asymmetric crypto operations.
+* batchJob[data][sslKeyType] (string) - Enum Type: `KalturaHttpNotificationSslKeyType`
+* batchJob[data][sslKey] (string) - Private SSL key.
+* batchJob[data][sslKeyPassword] (string) - The secret password needed to use the private SSL key specified in ssl key.
+* batchJob[data][customHeaders] (array)
+* batchJob[data][signSecret] (string) - The secret to sign the notification with
+* batchJob[data][privateKey] (string)
+* batchJob[data][publicKey] (string)
+* batchJob[data][passPhrase] (string)
+* batchJob[data][dropFolderFileId] (integer)
+* batchJob[data][wsdlUsername] (string)
+* batchJob[data][wsdlPassword] (string)
+* batchJob[data][cpcode] (string)
+* batchJob[data][emailId] (string)
+* batchJob[data][primaryContact] (string)
+* batchJob[data][secondaryContact] (string)
+* batchJob[data][streamId] (integer)
+* batchJob[data][systemUserName] (string)
+* batchJob[data][systemPassword] (string)
+* batchJob[data][domainName] (string)
+* batchJob[data][dvrEnabled] (integer) - Enum Type: `KalturaDVRStatus`
+* batchJob[data][dvrWindow] (integer)
+* batchJob[data][streamType] (string) - Enum Type: `KalturaAkamaiUniversalStreamType`
+* batchJob[data][notificationEmail] (string)
+* batchJob[data][provisioningParams] (array)
+* batchJob[data][userName] (string)
+* batchJob[data][protocol] (string) - http / https
+* batchJob[data][ksType] (integer) - Enum Type: `KalturaSessionType`
+* batchJob[data][userRoles] (array)
+* batchJob[data][cachedObjectType] (string) - Class name
+* batchJob[data][startObjectKey] (string)
+* batchJob[data][endObjectKey] (string)
+* batchJob[data][force] (boolean)
+* batchJob[data][createLink] (boolean)
+* batchJob[data][contentMoid] (string) - Unique Kontiki MOID for the content uploaded to Kontiki
+* batchJob[data][serviceToken] (string)
+* batchJob[data][filesPermissionInS3] (string) - Enum Type: `KalturaAmazonS3StorageProfileFilesPermissionLevel`
+* batchJob[data][s3Region] (string)
+* batchJob[data][sseType] (string)
+* batchJob[data][sseKmsKeyId] (string)
+* batchJob[data][signatureType] (string)
+* batchJob[data][endPoint] (string)
 
 ### jobs.addConvertProfileJob
 batch addConvertProfileJobAction creates a new convert profile job
@@ -8860,6 +15227,25 @@ Adds new mail job
 kaltura.jobs.addMailJob({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* mailJobData[mailType] (string) - Enum Type: `KalturaMailType`
+* mailJobData[mailPriority] (integer)
+* mailJobData[status] (integer) - Enum Type: `KalturaMailJobStatus`
+* mailJobData[recipientName] (string)
+* mailJobData[recipientEmail] (string)
+* mailJobData[recipientId] (integer) - kuserId
+* mailJobData[fromName] (string)
+* mailJobData[fromEmail] (string)
+* mailJobData[bodyParams] (string)
+* mailJobData[subjectParams] (string)
+* mailJobData[templatePath] (string)
+* mailJobData[language] (string) - Enum Type: `KalturaLanguageCode`
+* mailJobData[campaignId] (integer)
+* mailJobData[minSendDate] (integer)
+* mailJobData[isHtml] (boolean)
+* mailJobData[separator] (string)
 
 ### jobs.boostEntryJobs
 batch boostEntryJobsAction boosts all the jobs associated with the entry
@@ -9352,6 +15738,101 @@ list Batch Jobs
 kaltura.jobs.listBatchJobs({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idGreaterThanOrEqual] (integer)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[partnerIdNotIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[executionAttemptsGreaterThanOrEqual] (integer)
+* filter[executionAttemptsLessThanOrEqual] (integer)
+* filter[lockVersionGreaterThanOrEqual] (integer)
+* filter[lockVersionLessThanOrEqual] (integer)
+* filter[entryIdEqual] (string)
+* filter[jobTypeEqual] (string) - Enum Type: `KalturaBatchJobType`
+* filter[jobTypeIn] (string)
+* filter[jobTypeNotIn] (string)
+* filter[jobSubTypeEqual] (integer)
+* filter[jobSubTypeIn] (string)
+* filter[jobSubTypeNotIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaBatchJobStatus`
+* filter[statusIn] (string)
+* filter[statusNotIn] (string)
+* filter[priorityGreaterThanOrEqual] (integer)
+* filter[priorityLessThanOrEqual] (integer)
+* filter[priorityEqual] (integer)
+* filter[priorityIn] (string)
+* filter[priorityNotIn] (string)
+* filter[batchVersionGreaterThanOrEqual] (integer)
+* filter[batchVersionLessThanOrEqual] (integer)
+* filter[batchVersionEqual] (integer)
+* filter[queueTimeGreaterThanOrEqual] (integer)
+* filter[queueTimeLessThanOrEqual] (integer)
+* filter[finishTimeGreaterThanOrEqual] (integer)
+* filter[finishTimeLessThanOrEqual] (integer)
+* filter[errTypeEqual] (integer) - Enum Type: `KalturaBatchJobErrorTypes`
+* filter[errTypeIn] (string)
+* filter[errTypeNotIn] (string)
+* filter[errNumberEqual] (integer)
+* filter[errNumberIn] (string)
+* filter[errNumberNotIn] (string)
+* filter[estimatedEffortLessThan] (integer)
+* filter[estimatedEffortGreaterThan] (integer)
+* filter[urgencyLessThanOrEqual] (integer)
+* filter[urgencyGreaterThanOrEqual] (integer)
+* filter[objectType] (string)
+* filter[jobTypeAndSubTypeIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### jobs.retryBulkUpload
 batch retryBulkUploadAction retrys and returns the status of bulk upload task
@@ -9607,6 +16088,8 @@ list uiconfs for sharepoint extension
 kaltura.sharepointExtension.listUiconfs({}, context)
 ```
 
+#### Parameters
+* format (integer) - The format of the response
 
 ### like.checkLikeExists
 
@@ -9647,6 +16130,59 @@ kaltura.like.like({
 kaltura.like.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[entryIdEqual] (string)
+* filter[entryIdIn] (string)
+* filter[userIdEqual] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### like.unlike
 
@@ -9751,6 +16287,20 @@ KalturaStatsEvent $event
 kaltura.liveStats.collect({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* event[partnerId] (integer)
+* event[entryId] (string)
+* event[eventType] (integer) - Enum Type: `KalturaLiveStatsEventType`
+* event[sessionId] (string) - a unique string generated by the client that will represent the client-side session: the primary component will pass it on to other components that sprout from it
+* event[eventIndex] (integer) - incremental sequence of the event
+* event[bufferTime] (integer) - buffer time in seconds from the last 10 seconds
+* event[bitrate] (integer) - bitrate used in the last 10 seconds
+* event[referrer] (string) - the referrer of the client
+* event[isLive] (boolean)
+* event[startTime] (string) - the event start time as string
+* event[deliveryType] (string) - Enum Type: `KalturaPlaybackProtocol`
 
 ### liveStream.add
 Adds new live stream entry.
@@ -9762,6 +16312,71 @@ The entry will be queued for provision.
 kaltura.liveStream.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* liveStreamEntry[name] (string) - Entry name (Min 1 chars)
+* liveStreamEntry[description] (string) - Entry description
+* liveStreamEntry[userId] (string) - The ID of the user who is the owner of this entry
+* liveStreamEntry[creatorId] (string) - `insertOnly`
+* liveStreamEntry[tags] (string) - Entry tags
+* liveStreamEntry[adminTags] (string) - Entry admin tags can be updated only by administrators
+* liveStreamEntry[categories] (string) - Comma separated list of full names of categories to which this entry belongs. Only categories that don't have entitlement (privacy context) are listed, to retrieve the full list of categories, use the categoryEntry.list action.
+* liveStreamEntry[categoriesIds] (string) - Comma separated list of ids of categories to which this entry belongs. Only categories that don't have entitlement (privacy context) are listed, to retrieve the full list of categories, use the categoryEntry.list action.
+* liveStreamEntry[type] (string) - Enum Type: `KalturaEntryType`
+* liveStreamEntry[groupId] (integer)
+* liveStreamEntry[partnerData] (string) - Can be used to store various partner related data as a string
+* liveStreamEntry[licenseType] (integer) - Enum Type: `KalturaLicenseType`
+* liveStreamEntry[accessControlId] (integer) - The Access Control ID assigned to this entry (null when not set, send -1 to remove)
+* liveStreamEntry[startDate] (integer) - Entry scheduling start date (null when not set, send -1 to remove)
+* liveStreamEntry[endDate] (integer) - Entry scheduling end date (null when not set, send -1 to remove)
+* liveStreamEntry[referenceId] (string) - Entry external reference id
+* liveStreamEntry[partnerSortValue] (integer) - Can be used to store various partner related data as a numeric value
+* liveStreamEntry[conversionProfileId] (integer) - Override the default ingestion profile
+* liveStreamEntry[redirectEntryId] (string) - IF not empty, points to an entry ID the should replace this current entry's id.
+* liveStreamEntry[parentEntryId] (string) - ID of source root entry, used for defining entires association
+* liveStreamEntry[operationAttributes] (array)
+* liveStreamEntry[entitledUsersEdit] (string) - list of user ids that are entitled to edit the entry (no server enforcement) The difference between entitledUsersEdit and entitledUsersPublish is applicative only
+* liveStreamEntry[entitledUsersPublish] (string) - list of user ids that are entitled to publish the entry (no server enforcement) The difference between entitledUsersEdit and entitledUsersPublish is applicative only
+* liveStreamEntry[templateEntryId] (string) - `insertOnly`
+* liveStreamEntry[displayInSearch] (integer) - Enum Type: `KalturaEntryDisplayInSearchType`
+* liveStreamEntry[msDuration] (integer) - The duration in miliseconds
+* liveStreamEntry[mediaType] (integer) - `insertOnly`
+* liveStreamEntry[conversionQuality] (string) - `insertOnly`
+* liveStreamEntry[sourceType] (string) - `insertOnly`
+* liveStreamEntry[searchProviderType] (integer) - `insertOnly`
+* liveStreamEntry[searchProviderId] (string) - `insertOnly`
+* liveStreamEntry[creditUserName] (string) - The user name used for credits
+* liveStreamEntry[creditUrl] (string) - The URL for credits
+* liveStreamEntry[streams] (array)
+* liveStreamEntry[offlineMessage] (string) - The message to be presented when the stream is offline
+* liveStreamEntry[recordStatus] (integer) - Enum Type: `KalturaRecordStatus`
+* liveStreamEntry[dvrStatus] (integer) - Enum Type: `KalturaDVRStatus`
+* liveStreamEntry[dvrWindow] (integer) - Window of time which the DVR allows for backwards scrubbing (in minutes)
+* liveStreamEntry[lastElapsedRecordingTime] (integer) - Elapsed recording time (in msec) up to the point where the live stream was last stopped (unpublished).
+* liveStreamEntry[liveStreamConfigurations] (array)
+* liveStreamEntry[recordedEntryId] (string) - Recorded entry id
+* liveStreamEntry[pushPublishEnabled] (integer) - Enum Type: `KalturaLivePublishStatus`
+* liveStreamEntry[publishConfigurations] (array)
+* liveStreamEntry[currentBroadcastStartTime] (number) - The time (unix timestamp in milliseconds) in which the entry broadcast started or 0 when the entry is off the air
+* liveStreamEntry[recordingOptions][shouldCopyEntitlement] (integer) - Enum Type: `KalturaNullableBoolean`
+* liveStreamEntry[recordingOptions][shouldCopyScheduling] (integer) - Enum Type: `KalturaNullableBoolean`
+* liveStreamEntry[recordingOptions][shouldCopyThumbnail] (integer) - Enum Type: `KalturaNullableBoolean`
+* liveStreamEntry[recordingOptions][shouldMakeHidden] (integer) - Enum Type: `KalturaNullableBoolean`
+* liveStreamEntry[bitrates] (array)
+* liveStreamEntry[primaryBroadcastingUrl] (string)
+* liveStreamEntry[secondaryBroadcastingUrl] (string)
+* liveStreamEntry[primaryRtspBroadcastingUrl] (string)
+* liveStreamEntry[secondaryRtspBroadcastingUrl] (string)
+* liveStreamEntry[streamName] (string)
+* liveStreamEntry[streamUrl] (string) - The stream url
+* liveStreamEntry[hlsStreamUrl] (string) - HLS URL - URL for live stream playback on mobile device
+* liveStreamEntry[urlManager] (string) - URL Manager to handle the live stream URL (for instance, add token)
+* liveStreamEntry[encodingIP1] (string) - The broadcast primary ip
+* liveStreamEntry[encodingIP2] (string) - The broadcast secondary ip
+* liveStreamEntry[streamPassword] (string) - The broadcast password
+* liveStreamEntry[objectType] (string)
+* sourceType (string) - Enum Type: `KalturaSourceType`
 
 ### liveStream.addLiveStreamPushPublishConfiguration
 Add new pushPublish configuration to entry
@@ -9909,6 +16524,158 @@ List live stream entries by filter with paging support.
 kaltura.liveStream.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string) - This filter should be in use for retrieving only a specific entry (identified by its entryId).
+* filter[idIn] (string) - This filter should be in use for retrieving few specific entries (string should include comma separated list of entryId strings).
+* filter[idNotIn] (string)
+* filter[nameLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry names (no wildcards, spaces are treated as part of the string).
+* filter[nameMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[nameMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[nameEqual] (string) - This filter should be in use for retrieving entries with a specific name.
+* filter[partnerIdEqual] (integer) - This filter should be in use for retrieving only entries which were uploaded by/assigned to users of a specific Kaltura Partner (identified by Partner ID).
+* filter[partnerIdIn] (string) - This filter should be in use for retrieving only entries within Kaltura network which were uploaded by/assigned to users of few Kaltura Partners  (string should include comma separated list of PartnerIDs)
+* filter[userIdEqual] (string) - This filter parameter should be in use for retrieving only entries, uploaded by/assigned to a specific user (identified by user Id).
+* filter[userIdIn] (string)
+* filter[userIdNotIn] (string)
+* filter[creatorIdEqual] (string)
+* filter[tagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags (no wildcards, spaces are treated as part of the string).
+* filter[tagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[tagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags set by an ADMIN user (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[categoriesMatchAnd] (string)
+* filter[categoriesMatchOr] (string) - All entries within these categories or their child categories.
+* filter[categoriesNotContains] (string)
+* filter[categoriesIdsMatchAnd] (string)
+* filter[categoriesIdsMatchOr] (string) - All entries of the categories, excluding their child categories.
+* filter[categoriesIdsNotContains] (string)
+* filter[categoriesIdsEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[statusEqual] (string) - Enum Type: `KalturaEntryStatus`
+* filter[statusNotEqual] (string) - Enum Type: `KalturaEntryStatus`
+* filter[statusIn] (string) - This filter should be in use for retrieving only entries, at few specific {
+* filter[statusNotIn] (string) - This filter should be in use for retrieving only entries, not at few specific {
+* filter[moderationStatusEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* filter[moderationStatusNotEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* filter[moderationStatusIn] (string)
+* filter[moderationStatusNotIn] (string)
+* filter[typeEqual] (string) - Enum Type: `KalturaEntryType`
+* filter[typeIn] (string) - This filter should be in use for retrieving entries of few {
+* filter[createdAtGreaterThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system after a specific time/date (standard timestamp format).
+* filter[createdAtLessThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system before a specific time/date (standard timestamp format).
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[totalRankLessThanOrEqual] (integer)
+* filter[totalRankGreaterThanOrEqual] (integer)
+* filter[groupIdEqual] (integer)
+* filter[searchTextMatchAnd] (string) - This filter should be in use for retrieving specific entries while search match the input string within all of the following metadata attributes: name, description, tags, adminTags.
+* filter[searchTextMatchOr] (string) - This filter should be in use for retrieving specific entries while search match the input string within at least one of the following metadata attributes: name, description, tags, adminTags.
+* filter[accessControlIdEqual] (integer)
+* filter[accessControlIdIn] (string)
+* filter[startDateGreaterThanOrEqual] (integer)
+* filter[startDateLessThanOrEqual] (integer)
+* filter[startDateGreaterThanOrEqualOrNull] (integer)
+* filter[startDateLessThanOrEqualOrNull] (integer)
+* filter[endDateGreaterThanOrEqual] (integer)
+* filter[endDateLessThanOrEqual] (integer)
+* filter[endDateGreaterThanOrEqualOrNull] (integer)
+* filter[endDateLessThanOrEqualOrNull] (integer)
+* filter[referenceIdEqual] (string)
+* filter[referenceIdIn] (string)
+* filter[replacingEntryIdEqual] (string)
+* filter[replacingEntryIdIn] (string)
+* filter[replacedEntryIdEqual] (string)
+* filter[replacedEntryIdIn] (string)
+* filter[replacementStatusEqual] (string) - Enum Type: `KalturaEntryReplacementStatus`
+* filter[replacementStatusIn] (string)
+* filter[partnerSortValueGreaterThanOrEqual] (integer)
+* filter[partnerSortValueLessThanOrEqual] (integer)
+* filter[rootEntryIdEqual] (string)
+* filter[rootEntryIdIn] (string)
+* filter[parentEntryIdEqual] (string)
+* filter[entitledUsersEditMatchAnd] (string)
+* filter[entitledUsersEditMatchOr] (string)
+* filter[entitledUsersPublishMatchAnd] (string)
+* filter[entitledUsersPublishMatchOr] (string)
+* filter[tagsNameMultiLikeOr] (string)
+* filter[tagsAdminTagsMultiLikeOr] (string)
+* filter[tagsAdminTagsNameMultiLikeOr] (string)
+* filter[tagsNameMultiLikeAnd] (string)
+* filter[tagsAdminTagsMultiLikeAnd] (string)
+* filter[tagsAdminTagsNameMultiLikeAnd] (string)
+* filter[freeText] (string)
+* filter[isRoot] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[categoriesFullNameIn] (string)
+* filter[categoryAncestorIdIn] (string) - All entries within this categoy or in child categories
+* filter[redirectFromEntryId] (string) - The id of the original entry
+* filter[lastPlayedAtGreaterThanOrEqual] (integer)
+* filter[lastPlayedAtLessThanOrEqual] (integer)
+* filter[durationLessThan] (integer)
+* filter[durationGreaterThan] (integer)
+* filter[durationLessThanOrEqual] (integer)
+* filter[durationGreaterThanOrEqual] (integer)
+* filter[durationTypeMatchOr] (string)
+* filter[mediaTypeEqual] (integer) - Enum Type: `KalturaMediaType`
+* filter[mediaTypeIn] (string)
+* filter[sourceTypeEqual] (string) - Enum Type: `KalturaSourceType`
+* filter[sourceTypeNotEqual] (string) - Enum Type: `KalturaSourceType`
+* filter[sourceTypeIn] (string)
+* filter[sourceTypeNotIn] (string)
+* filter[mediaDateGreaterThanOrEqual] (integer)
+* filter[mediaDateLessThanOrEqual] (integer)
+* filter[flavorParamsIdsMatchOr] (string)
+* filter[flavorParamsIdsMatchAnd] (string)
+* filter[isLive] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[isRecordedEntryIdEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[hasMediaServerHostname] (string)
+* filter[objectType] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### liveStream.regenerateStreamToken
 Regenerate new secure token for liveStream
@@ -10142,6 +16909,73 @@ Add entry
 kaltura.media.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* entry[name] (string) - Entry name (Min 1 chars)
+* entry[description] (string) - Entry description
+* entry[userId] (string) - The ID of the user who is the owner of this entry
+* entry[creatorId] (string) - `insertOnly`
+* entry[tags] (string) - Entry tags
+* entry[adminTags] (string) - Entry admin tags can be updated only by administrators
+* entry[categories] (string) - Comma separated list of full names of categories to which this entry belongs. Only categories that don't have entitlement (privacy context) are listed, to retrieve the full list of categories, use the categoryEntry.list action.
+* entry[categoriesIds] (string) - Comma separated list of ids of categories to which this entry belongs. Only categories that don't have entitlement (privacy context) are listed, to retrieve the full list of categories, use the categoryEntry.list action.
+* entry[type] (string) - Enum Type: `KalturaEntryType`
+* entry[groupId] (integer)
+* entry[partnerData] (string) - Can be used to store various partner related data as a string
+* entry[licenseType] (integer) - Enum Type: `KalturaLicenseType`
+* entry[accessControlId] (integer) - The Access Control ID assigned to this entry (null when not set, send -1 to remove)
+* entry[startDate] (integer) - Entry scheduling start date (null when not set, send -1 to remove)
+* entry[endDate] (integer) - Entry scheduling end date (null when not set, send -1 to remove)
+* entry[referenceId] (string) - Entry external reference id
+* entry[partnerSortValue] (integer) - Can be used to store various partner related data as a numeric value
+* entry[conversionProfileId] (integer) - Override the default ingestion profile
+* entry[redirectEntryId] (string) - IF not empty, points to an entry ID the should replace this current entry's id.
+* entry[parentEntryId] (string) - ID of source root entry, used for defining entires association
+* entry[operationAttributes] (array)
+* entry[entitledUsersEdit] (string) - list of user ids that are entitled to edit the entry (no server enforcement) The difference between entitledUsersEdit and entitledUsersPublish is applicative only
+* entry[entitledUsersPublish] (string) - list of user ids that are entitled to publish the entry (no server enforcement) The difference between entitledUsersEdit and entitledUsersPublish is applicative only
+* entry[templateEntryId] (string) - `insertOnly`
+* entry[displayInSearch] (integer) - Enum Type: `KalturaEntryDisplayInSearchType`
+* entry[msDuration] (integer) - The duration in miliseconds
+* entry[mediaType] (integer) - `insertOnly`
+* entry[conversionQuality] (string) - `insertOnly`
+* entry[sourceType] (string) - `insertOnly`
+* entry[searchProviderType] (integer) - `insertOnly`
+* entry[searchProviderId] (string) - `insertOnly`
+* entry[creditUserName] (string) - The user name used for credits
+* entry[creditUrl] (string) - The URL for credits
+* entry[streams] (array)
+* entry[objectType] (string)
+* entry[externalSourceType] (string) - `insertOnly`
+* entry[offlineMessage] (string) - The message to be presented when the stream is offline
+* entry[recordStatus] (integer) - Enum Type: `KalturaRecordStatus`
+* entry[dvrStatus] (integer) - Enum Type: `KalturaDVRStatus`
+* entry[dvrWindow] (integer) - Window of time which the DVR allows for backwards scrubbing (in minutes)
+* entry[lastElapsedRecordingTime] (integer) - Elapsed recording time (in msec) up to the point where the live stream was last stopped (unpublished).
+* entry[liveStreamConfigurations] (array)
+* entry[recordedEntryId] (string) - Recorded entry id
+* entry[pushPublishEnabled] (integer) - Enum Type: `KalturaLivePublishStatus`
+* entry[publishConfigurations] (array)
+* entry[currentBroadcastStartTime] (number) - The time (unix timestamp in milliseconds) in which the entry broadcast started or 0 when the entry is off the air
+* entry[recordingOptions][shouldCopyEntitlement] (integer) - Enum Type: `KalturaNullableBoolean`
+* entry[recordingOptions][shouldCopyScheduling] (integer) - Enum Type: `KalturaNullableBoolean`
+* entry[recordingOptions][shouldCopyThumbnail] (integer) - Enum Type: `KalturaNullableBoolean`
+* entry[recordingOptions][shouldMakeHidden] (integer) - Enum Type: `KalturaNullableBoolean`
+* entry[playlistId] (string) - Playlist id to be played
+* entry[repeat] (integer) - Enum Type: `KalturaNullableBoolean`
+* entry[bitrates] (array)
+* entry[primaryBroadcastingUrl] (string)
+* entry[secondaryBroadcastingUrl] (string)
+* entry[primaryRtspBroadcastingUrl] (string)
+* entry[secondaryRtspBroadcastingUrl] (string)
+* entry[streamName] (string)
+* entry[streamUrl] (string) - The stream url
+* entry[hlsStreamUrl] (string) - HLS URL - URL for live stream playback on mobile device
+* entry[urlManager] (string) - URL Manager to handle the live stream URL (for instance, add token)
+* entry[encodingIP1] (string) - The broadcast primary ip
+* entry[encodingIP2] (string) - The broadcast secondary ip
+* entry[streamPassword] (string) - The broadcast password
 
 ### media.addContent
 Add content to media entry which is not yet associated with content (therefore is in status NO_CONTENT).
@@ -10576,6 +17410,89 @@ This action should be used with the search service result.
 kaltura.media.addFromSearchResult({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* mediaEntry[name] (string) - Entry name (Min 1 chars)
+* mediaEntry[description] (string) - Entry description
+* mediaEntry[userId] (string) - The ID of the user who is the owner of this entry
+* mediaEntry[creatorId] (string) - `insertOnly`
+* mediaEntry[tags] (string) - Entry tags
+* mediaEntry[adminTags] (string) - Entry admin tags can be updated only by administrators
+* mediaEntry[categories] (string) - Comma separated list of full names of categories to which this entry belongs. Only categories that don't have entitlement (privacy context) are listed, to retrieve the full list of categories, use the categoryEntry.list action.
+* mediaEntry[categoriesIds] (string) - Comma separated list of ids of categories to which this entry belongs. Only categories that don't have entitlement (privacy context) are listed, to retrieve the full list of categories, use the categoryEntry.list action.
+* mediaEntry[type] (string) - Enum Type: `KalturaEntryType`
+* mediaEntry[groupId] (integer)
+* mediaEntry[partnerData] (string) - Can be used to store various partner related data as a string
+* mediaEntry[licenseType] (integer) - Enum Type: `KalturaLicenseType`
+* mediaEntry[accessControlId] (integer) - The Access Control ID assigned to this entry (null when not set, send -1 to remove)
+* mediaEntry[startDate] (integer) - Entry scheduling start date (null when not set, send -1 to remove)
+* mediaEntry[endDate] (integer) - Entry scheduling end date (null when not set, send -1 to remove)
+* mediaEntry[referenceId] (string) - Entry external reference id
+* mediaEntry[partnerSortValue] (integer) - Can be used to store various partner related data as a numeric value
+* mediaEntry[conversionProfileId] (integer) - Override the default ingestion profile
+* mediaEntry[redirectEntryId] (string) - IF not empty, points to an entry ID the should replace this current entry's id.
+* mediaEntry[parentEntryId] (string) - ID of source root entry, used for defining entires association
+* mediaEntry[operationAttributes] (array)
+* mediaEntry[entitledUsersEdit] (string) - list of user ids that are entitled to edit the entry (no server enforcement) The difference between entitledUsersEdit and entitledUsersPublish is applicative only
+* mediaEntry[entitledUsersPublish] (string) - list of user ids that are entitled to publish the entry (no server enforcement) The difference between entitledUsersEdit and entitledUsersPublish is applicative only
+* mediaEntry[templateEntryId] (string) - `insertOnly`
+* mediaEntry[displayInSearch] (integer) - Enum Type: `KalturaEntryDisplayInSearchType`
+* mediaEntry[msDuration] (integer) - The duration in miliseconds
+* mediaEntry[mediaType] (integer) - `insertOnly`
+* mediaEntry[conversionQuality] (string) - `insertOnly`
+* mediaEntry[sourceType] (string) - `insertOnly`
+* mediaEntry[searchProviderType] (integer) - `insertOnly`
+* mediaEntry[searchProviderId] (string) - `insertOnly`
+* mediaEntry[creditUserName] (string) - The user name used for credits
+* mediaEntry[creditUrl] (string) - The URL for credits
+* mediaEntry[streams] (array)
+* mediaEntry[objectType] (string)
+* mediaEntry[externalSourceType] (string) - `insertOnly`
+* mediaEntry[offlineMessage] (string) - The message to be presented when the stream is offline
+* mediaEntry[recordStatus] (integer) - Enum Type: `KalturaRecordStatus`
+* mediaEntry[dvrStatus] (integer) - Enum Type: `KalturaDVRStatus`
+* mediaEntry[dvrWindow] (integer) - Window of time which the DVR allows for backwards scrubbing (in minutes)
+* mediaEntry[lastElapsedRecordingTime] (integer) - Elapsed recording time (in msec) up to the point where the live stream was last stopped (unpublished).
+* mediaEntry[liveStreamConfigurations] (array)
+* mediaEntry[recordedEntryId] (string) - Recorded entry id
+* mediaEntry[pushPublishEnabled] (integer) - Enum Type: `KalturaLivePublishStatus`
+* mediaEntry[publishConfigurations] (array)
+* mediaEntry[currentBroadcastStartTime] (number) - The time (unix timestamp in milliseconds) in which the entry broadcast started or 0 when the entry is off the air
+* mediaEntry[recordingOptions][shouldCopyEntitlement] (integer) - Enum Type: `KalturaNullableBoolean`
+* mediaEntry[recordingOptions][shouldCopyScheduling] (integer) - Enum Type: `KalturaNullableBoolean`
+* mediaEntry[recordingOptions][shouldCopyThumbnail] (integer) - Enum Type: `KalturaNullableBoolean`
+* mediaEntry[recordingOptions][shouldMakeHidden] (integer) - Enum Type: `KalturaNullableBoolean`
+* mediaEntry[playlistId] (string) - Playlist id to be played
+* mediaEntry[repeat] (integer) - Enum Type: `KalturaNullableBoolean`
+* mediaEntry[bitrates] (array)
+* mediaEntry[primaryBroadcastingUrl] (string)
+* mediaEntry[secondaryBroadcastingUrl] (string)
+* mediaEntry[primaryRtspBroadcastingUrl] (string)
+* mediaEntry[secondaryRtspBroadcastingUrl] (string)
+* mediaEntry[streamName] (string)
+* mediaEntry[streamUrl] (string) - The stream url
+* mediaEntry[hlsStreamUrl] (string) - HLS URL - URL for live stream playback on mobile device
+* mediaEntry[urlManager] (string) - URL Manager to handle the live stream URL (for instance, add token)
+* mediaEntry[encodingIP1] (string) - The broadcast primary ip
+* mediaEntry[encodingIP2] (string) - The broadcast secondary ip
+* mediaEntry[streamPassword] (string) - The broadcast password
+* searchResult[keyWords] (string)
+* searchResult[searchSource] (integer) - Enum Type: `KalturaSearchProviderType`
+* searchResult[mediaType] (integer) - Enum Type: `KalturaMediaType`
+* searchResult[extraData] (string) - Use this field to pass dynamic data for searching
+* searchResult[authData] (string)
+* searchResult[id] (string)
+* searchResult[title] (string)
+* searchResult[thumbUrl] (string)
+* searchResult[description] (string)
+* searchResult[tags] (string)
+* searchResult[url] (string)
+* searchResult[sourceLink] (string)
+* searchResult[credit] (string)
+* searchResult[licenseType] (integer) - Enum Type: `KalturaLicenseType`
+* searchResult[flashPlaybackType] (string)
+* searchResult[fileExt] (string)
 
 ### media.addFromUploadedFile
 Add new entry after the specific media file was uploaded and the upload token id exists
@@ -10846,6 +17763,161 @@ Count media entries by filter.
 kaltura.media.count({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string) - This filter should be in use for retrieving only a specific entry (identified by its entryId).
+* filter[idIn] (string) - This filter should be in use for retrieving few specific entries (string should include comma separated list of entryId strings).
+* filter[idNotIn] (string)
+* filter[nameLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry names (no wildcards, spaces are treated as part of the string).
+* filter[nameMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[nameMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[nameEqual] (string) - This filter should be in use for retrieving entries with a specific name.
+* filter[partnerIdEqual] (integer) - This filter should be in use for retrieving only entries which were uploaded by/assigned to users of a specific Kaltura Partner (identified by Partner ID).
+* filter[partnerIdIn] (string) - This filter should be in use for retrieving only entries within Kaltura network which were uploaded by/assigned to users of few Kaltura Partners  (string should include comma separated list of PartnerIDs)
+* filter[userIdEqual] (string) - This filter parameter should be in use for retrieving only entries, uploaded by/assigned to a specific user (identified by user Id).
+* filter[userIdIn] (string)
+* filter[userIdNotIn] (string)
+* filter[creatorIdEqual] (string)
+* filter[tagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags (no wildcards, spaces are treated as part of the string).
+* filter[tagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[tagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags set by an ADMIN user (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[categoriesMatchAnd] (string)
+* filter[categoriesMatchOr] (string) - All entries within these categories or their child categories.
+* filter[categoriesNotContains] (string)
+* filter[categoriesIdsMatchAnd] (string)
+* filter[categoriesIdsMatchOr] (string) - All entries of the categories, excluding their child categories.
+* filter[categoriesIdsNotContains] (string)
+* filter[categoriesIdsEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[statusEqual] (string) - Enum Type: `KalturaEntryStatus`
+* filter[statusNotEqual] (string) - Enum Type: `KalturaEntryStatus`
+* filter[statusIn] (string) - This filter should be in use for retrieving only entries, at few specific {
+* filter[statusNotIn] (string) - This filter should be in use for retrieving only entries, not at few specific {
+* filter[moderationStatusEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* filter[moderationStatusNotEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* filter[moderationStatusIn] (string)
+* filter[moderationStatusNotIn] (string)
+* filter[typeEqual] (string) - Enum Type: `KalturaEntryType`
+* filter[typeIn] (string) - This filter should be in use for retrieving entries of few {
+* filter[createdAtGreaterThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system after a specific time/date (standard timestamp format).
+* filter[createdAtLessThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system before a specific time/date (standard timestamp format).
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[totalRankLessThanOrEqual] (integer)
+* filter[totalRankGreaterThanOrEqual] (integer)
+* filter[groupIdEqual] (integer)
+* filter[searchTextMatchAnd] (string) - This filter should be in use for retrieving specific entries while search match the input string within all of the following metadata attributes: name, description, tags, adminTags.
+* filter[searchTextMatchOr] (string) - This filter should be in use for retrieving specific entries while search match the input string within at least one of the following metadata attributes: name, description, tags, adminTags.
+* filter[accessControlIdEqual] (integer)
+* filter[accessControlIdIn] (string)
+* filter[startDateGreaterThanOrEqual] (integer)
+* filter[startDateLessThanOrEqual] (integer)
+* filter[startDateGreaterThanOrEqualOrNull] (integer)
+* filter[startDateLessThanOrEqualOrNull] (integer)
+* filter[endDateGreaterThanOrEqual] (integer)
+* filter[endDateLessThanOrEqual] (integer)
+* filter[endDateGreaterThanOrEqualOrNull] (integer)
+* filter[endDateLessThanOrEqualOrNull] (integer)
+* filter[referenceIdEqual] (string)
+* filter[referenceIdIn] (string)
+* filter[replacingEntryIdEqual] (string)
+* filter[replacingEntryIdIn] (string)
+* filter[replacedEntryIdEqual] (string)
+* filter[replacedEntryIdIn] (string)
+* filter[replacementStatusEqual] (string) - Enum Type: `KalturaEntryReplacementStatus`
+* filter[replacementStatusIn] (string)
+* filter[partnerSortValueGreaterThanOrEqual] (integer)
+* filter[partnerSortValueLessThanOrEqual] (integer)
+* filter[rootEntryIdEqual] (string)
+* filter[rootEntryIdIn] (string)
+* filter[parentEntryIdEqual] (string)
+* filter[entitledUsersEditMatchAnd] (string)
+* filter[entitledUsersEditMatchOr] (string)
+* filter[entitledUsersPublishMatchAnd] (string)
+* filter[entitledUsersPublishMatchOr] (string)
+* filter[tagsNameMultiLikeOr] (string)
+* filter[tagsAdminTagsMultiLikeOr] (string)
+* filter[tagsAdminTagsNameMultiLikeOr] (string)
+* filter[tagsNameMultiLikeAnd] (string)
+* filter[tagsAdminTagsMultiLikeAnd] (string)
+* filter[tagsAdminTagsNameMultiLikeAnd] (string)
+* filter[freeText] (string)
+* filter[isRoot] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[categoriesFullNameIn] (string)
+* filter[categoryAncestorIdIn] (string) - All entries within this categoy or in child categories
+* filter[redirectFromEntryId] (string) - The id of the original entry
+* filter[lastPlayedAtGreaterThanOrEqual] (integer)
+* filter[lastPlayedAtLessThanOrEqual] (integer)
+* filter[durationLessThan] (integer)
+* filter[durationGreaterThan] (integer)
+* filter[durationLessThanOrEqual] (integer)
+* filter[durationGreaterThanOrEqual] (integer)
+* filter[durationTypeMatchOr] (string)
+* filter[mediaTypeEqual] (integer) - Enum Type: `KalturaMediaType`
+* filter[mediaTypeIn] (string)
+* filter[sourceTypeEqual] (string) - Enum Type: `KalturaSourceType`
+* filter[sourceTypeNotEqual] (string) - Enum Type: `KalturaSourceType`
+* filter[sourceTypeIn] (string)
+* filter[sourceTypeNotIn] (string)
+* filter[mediaDateGreaterThanOrEqual] (integer)
+* filter[mediaDateLessThanOrEqual] (integer)
+* filter[flavorParamsIdsMatchOr] (string)
+* filter[flavorParamsIdsMatchAnd] (string)
+* filter[objectType] (string)
+* filter[limit] (integer)
+* filter[externalSourceTypeEqual] (string) - Enum Type: `KalturaExternalMediaSourceType`
+* filter[externalSourceTypeIn] (string)
+* filter[assetParamsIdsMatchOr] (string)
+* filter[assetParamsIdsMatchAnd] (string)
+* filter[isLive] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[isRecordedEntryIdEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[hasMediaServerHostname] (string)
 
 ### media.delete
 Delete a media entry.
@@ -10870,6 +17942,13 @@ Flag inappropriate media entry for moderation
 kaltura.media.flag({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* moderationFlag[flaggedEntryId] (string) - If moderation flag is set for entry, this is the flagged entry id
+* moderationFlag[flaggedUserId] (string) - If moderation flag is set for user, this is the flagged user id
+* moderationFlag[comments] (string) - The comment that was added to the flag
+* moderationFlag[flagType] (integer) - Enum Type: `KalturaModerationFlagType`
 
 ### media.get
 Get media entry by ID.
@@ -10912,6 +17991,163 @@ List media entries by filter with paging support.
 kaltura.media.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string) - This filter should be in use for retrieving only a specific entry (identified by its entryId).
+* filter[idIn] (string) - This filter should be in use for retrieving few specific entries (string should include comma separated list of entryId strings).
+* filter[idNotIn] (string)
+* filter[nameLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry names (no wildcards, spaces are treated as part of the string).
+* filter[nameMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[nameMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[nameEqual] (string) - This filter should be in use for retrieving entries with a specific name.
+* filter[partnerIdEqual] (integer) - This filter should be in use for retrieving only entries which were uploaded by/assigned to users of a specific Kaltura Partner (identified by Partner ID).
+* filter[partnerIdIn] (string) - This filter should be in use for retrieving only entries within Kaltura network which were uploaded by/assigned to users of few Kaltura Partners  (string should include comma separated list of PartnerIDs)
+* filter[userIdEqual] (string) - This filter parameter should be in use for retrieving only entries, uploaded by/assigned to a specific user (identified by user Id).
+* filter[userIdIn] (string)
+* filter[userIdNotIn] (string)
+* filter[creatorIdEqual] (string)
+* filter[tagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags (no wildcards, spaces are treated as part of the string).
+* filter[tagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[tagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags set by an ADMIN user (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[categoriesMatchAnd] (string)
+* filter[categoriesMatchOr] (string) - All entries within these categories or their child categories.
+* filter[categoriesNotContains] (string)
+* filter[categoriesIdsMatchAnd] (string)
+* filter[categoriesIdsMatchOr] (string) - All entries of the categories, excluding their child categories.
+* filter[categoriesIdsNotContains] (string)
+* filter[categoriesIdsEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[statusEqual] (string) - Enum Type: `KalturaEntryStatus`
+* filter[statusNotEqual] (string) - Enum Type: `KalturaEntryStatus`
+* filter[statusIn] (string) - This filter should be in use for retrieving only entries, at few specific {
+* filter[statusNotIn] (string) - This filter should be in use for retrieving only entries, not at few specific {
+* filter[moderationStatusEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* filter[moderationStatusNotEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* filter[moderationStatusIn] (string)
+* filter[moderationStatusNotIn] (string)
+* filter[typeEqual] (string) - Enum Type: `KalturaEntryType`
+* filter[typeIn] (string) - This filter should be in use for retrieving entries of few {
+* filter[createdAtGreaterThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system after a specific time/date (standard timestamp format).
+* filter[createdAtLessThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system before a specific time/date (standard timestamp format).
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[totalRankLessThanOrEqual] (integer)
+* filter[totalRankGreaterThanOrEqual] (integer)
+* filter[groupIdEqual] (integer)
+* filter[searchTextMatchAnd] (string) - This filter should be in use for retrieving specific entries while search match the input string within all of the following metadata attributes: name, description, tags, adminTags.
+* filter[searchTextMatchOr] (string) - This filter should be in use for retrieving specific entries while search match the input string within at least one of the following metadata attributes: name, description, tags, adminTags.
+* filter[accessControlIdEqual] (integer)
+* filter[accessControlIdIn] (string)
+* filter[startDateGreaterThanOrEqual] (integer)
+* filter[startDateLessThanOrEqual] (integer)
+* filter[startDateGreaterThanOrEqualOrNull] (integer)
+* filter[startDateLessThanOrEqualOrNull] (integer)
+* filter[endDateGreaterThanOrEqual] (integer)
+* filter[endDateLessThanOrEqual] (integer)
+* filter[endDateGreaterThanOrEqualOrNull] (integer)
+* filter[endDateLessThanOrEqualOrNull] (integer)
+* filter[referenceIdEqual] (string)
+* filter[referenceIdIn] (string)
+* filter[replacingEntryIdEqual] (string)
+* filter[replacingEntryIdIn] (string)
+* filter[replacedEntryIdEqual] (string)
+* filter[replacedEntryIdIn] (string)
+* filter[replacementStatusEqual] (string) - Enum Type: `KalturaEntryReplacementStatus`
+* filter[replacementStatusIn] (string)
+* filter[partnerSortValueGreaterThanOrEqual] (integer)
+* filter[partnerSortValueLessThanOrEqual] (integer)
+* filter[rootEntryIdEqual] (string)
+* filter[rootEntryIdIn] (string)
+* filter[parentEntryIdEqual] (string)
+* filter[entitledUsersEditMatchAnd] (string)
+* filter[entitledUsersEditMatchOr] (string)
+* filter[entitledUsersPublishMatchAnd] (string)
+* filter[entitledUsersPublishMatchOr] (string)
+* filter[tagsNameMultiLikeOr] (string)
+* filter[tagsAdminTagsMultiLikeOr] (string)
+* filter[tagsAdminTagsNameMultiLikeOr] (string)
+* filter[tagsNameMultiLikeAnd] (string)
+* filter[tagsAdminTagsMultiLikeAnd] (string)
+* filter[tagsAdminTagsNameMultiLikeAnd] (string)
+* filter[freeText] (string)
+* filter[isRoot] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[categoriesFullNameIn] (string)
+* filter[categoryAncestorIdIn] (string) - All entries within this categoy or in child categories
+* filter[redirectFromEntryId] (string) - The id of the original entry
+* filter[lastPlayedAtGreaterThanOrEqual] (integer)
+* filter[lastPlayedAtLessThanOrEqual] (integer)
+* filter[durationLessThan] (integer)
+* filter[durationGreaterThan] (integer)
+* filter[durationLessThanOrEqual] (integer)
+* filter[durationGreaterThanOrEqual] (integer)
+* filter[durationTypeMatchOr] (string)
+* filter[mediaTypeEqual] (integer) - Enum Type: `KalturaMediaType`
+* filter[mediaTypeIn] (string)
+* filter[sourceTypeEqual] (string) - Enum Type: `KalturaSourceType`
+* filter[sourceTypeNotEqual] (string) - Enum Type: `KalturaSourceType`
+* filter[sourceTypeIn] (string)
+* filter[sourceTypeNotIn] (string)
+* filter[mediaDateGreaterThanOrEqual] (integer)
+* filter[mediaDateLessThanOrEqual] (integer)
+* filter[flavorParamsIdsMatchOr] (string)
+* filter[flavorParamsIdsMatchAnd] (string)
+* filter[objectType] (string)
+* filter[limit] (integer)
+* filter[externalSourceTypeEqual] (string) - Enum Type: `KalturaExternalMediaSourceType`
+* filter[externalSourceTypeIn] (string)
+* filter[assetParamsIdsMatchOr] (string)
+* filter[assetParamsIdsMatchAnd] (string)
+* filter[isLive] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[isRecordedEntryIdEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[hasMediaServerHostname] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### media.listFlags
 List all pending flags for the media entry
@@ -11242,6 +18478,55 @@ List media info objects by filter and pager
 kaltura.mediaInfo.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[flavorAssetIdEqual] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### metadata.add
 Allows you to add a metadata object and metadata content associated with Kaltura object
@@ -11402,6 +18687,72 @@ List metadata objects by filter and pager
 kaltura.metadata.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[partnerIdEqual] (integer)
+* filter[metadataProfileIdEqual] (integer)
+* filter[metadataProfileIdIn] (string)
+* filter[metadataProfileVersionEqual] (integer)
+* filter[metadataProfileVersionGreaterThanOrEqual] (integer)
+* filter[metadataProfileVersionLessThanOrEqual] (integer)
+* filter[metadataObjectTypeEqual] (string) - Enum Type: `KalturaMetadataObjectType`
+* filter[objectIdEqual] (string)
+* filter[objectIdIn] (string)
+* filter[versionEqual] (integer)
+* filter[versionGreaterThanOrEqual] (integer)
+* filter[versionLessThanOrEqual] (integer)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[statusEqual] (integer) - Enum Type: `KalturaMetadataStatus`
+* filter[statusIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### metadata.serve
 Serves metadata XML file
@@ -11682,6 +19033,72 @@ List metadata profile objects by filter and pager
 kaltura.metadataProfile.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[partnerIdEqual] (integer)
+* filter[metadataObjectTypeEqual] (string) - Enum Type: `KalturaMetadataObjectType`
+* filter[metadataObjectTypeIn] (string)
+* filter[versionEqual] (integer)
+* filter[nameEqual] (string)
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[statusEqual] (integer) - Enum Type: `KalturaMetadataProfileStatus`
+* filter[statusIn] (string)
+* filter[createModeEqual] (integer) - Enum Type: `KalturaMetadataProfileCreateMode`
+* filter[createModeNotEqual] (integer) - Enum Type: `KalturaMetadataProfileCreateMode`
+* filter[createModeIn] (string)
+* filter[createModeNotIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### metadataProfile.listFields
 List metadata profile fields by metadata profile id
@@ -11969,6 +19386,71 @@ Count partner's existing sub-publishers (count includes the partner itself).
 kaltura.partner.count({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[idNotIn] (string)
+* filter[nameLike] (string)
+* filter[nameMultiLikeOr] (string)
+* filter[nameMultiLikeAnd] (string)
+* filter[nameEqual] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaPartnerStatus`
+* filter[statusIn] (string)
+* filter[partnerPackageEqual] (integer)
+* filter[partnerPackageGreaterThanOrEqual] (integer)
+* filter[partnerPackageLessThanOrEqual] (integer)
+* filter[partnerPackageIn] (string)
+* filter[partnerGroupTypeEqual] (integer) - Enum Type: `KalturaPartnerGroupType`
+* filter[partnerNameDescriptionWebsiteAdminNameAdminEmailLike] (string)
+* filter[objectType] (string)
+* filter[groupTypeEq] (integer) - Enum Type: `KalturaPartnerGroupType`
+* filter[groupTypeIn] (string) - In filter for the partner's group type
+* filter[partnerPermissionsExist] (string) - Filter for partner permissions- filter contains comma-separated string of permission names which the returned partners should have.
 
 ### partner.get
 Retrieve partner object by Id
@@ -11978,6 +19460,10 @@ Retrieve partner object by Id
 kaltura.partner.get({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* id (integer)
 
 ### partner.getInfo
 Retrieve all info attributed to the partner
@@ -11989,6 +19475,9 @@ This action expects no parameters. It returns information for the current KS par
 kaltura.partner.getInfo({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
 
 ### partner.getSecrets
 Retrieve partner secret and admin secret
@@ -12018,6 +19507,9 @@ Calculation is done according to partner's package
 kaltura.partner.getStatistics({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
 
 ### partner.getUsage
 Get usage statistics for a partner
@@ -12033,6 +19525,12 @@ The resolution can be "days" or "months"
 kaltura.partner.getUsage({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* year (integer)
+* month (integer)
+* resolution (string) - Enum Type: `KalturaReportInterval`
 
 ### partner.list
 List partners by filter with paging support
@@ -12046,6 +19544,73 @@ This action is only partially implemented to support listing sub partners of a V
 kaltura.partner.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[idNotIn] (string)
+* filter[nameLike] (string)
+* filter[nameMultiLikeOr] (string)
+* filter[nameMultiLikeAnd] (string)
+* filter[nameEqual] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaPartnerStatus`
+* filter[statusIn] (string)
+* filter[partnerPackageEqual] (integer)
+* filter[partnerPackageGreaterThanOrEqual] (integer)
+* filter[partnerPackageLessThanOrEqual] (integer)
+* filter[partnerPackageIn] (string)
+* filter[partnerGroupTypeEqual] (integer) - Enum Type: `KalturaPartnerGroupType`
+* filter[partnerNameDescriptionWebsiteAdminNameAdminEmailLike] (string)
+* filter[objectType] (string)
+* filter[groupTypeEq] (integer) - Enum Type: `KalturaPartnerGroupType`
+* filter[groupTypeIn] (string) - In filter for the partner's group type
+* filter[partnerPermissionsExist] (string) - Filter for partner permissions- filter contains comma-separated string of permission names which the returned partners should have.
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### partner.listFeatureStatus
 List partner's current processes' statuses
@@ -12055,6 +19620,9 @@ List partner's current processes' statuses
 kaltura.partner.listFeatureStatus({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
 
 ### partner.listPartnersForUser
 Retrieve a list of partner objects which the current user is allowed to access.
@@ -12064,6 +19632,73 @@ Retrieve a list of partner objects which the current user is allowed to access.
 kaltura.partner.listPartnersForUser({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* partnerFilter[orderBy] (string)
+* partnerFilter[advancedSearch][objectType] (string)
+* partnerFilter[advancedSearch][value] (string)
+* partnerFilter[advancedSearch][categoriesMatchOr] (string)
+* partnerFilter[advancedSearch][categoryEntryStatusIn] (string)
+* partnerFilter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* partnerFilter[advancedSearch][categoryIdEqual] (integer)
+* partnerFilter[advancedSearch][memberIdEq] (string)
+* partnerFilter[advancedSearch][memberIdIn] (string)
+* partnerFilter[advancedSearch][memberPermissionsMatchOr] (string)
+* partnerFilter[advancedSearch][memberPermissionsMatchAnd] (string)
+* partnerFilter[advancedSearch][noDistributionProfiles] (boolean)
+* partnerFilter[advancedSearch][distributionProfileId] (integer)
+* partnerFilter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* partnerFilter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* partnerFilter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* partnerFilter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* partnerFilter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* partnerFilter[advancedSearch][contentLike] (string)
+* partnerFilter[advancedSearch][contentMultiLikeOr] (string)
+* partnerFilter[advancedSearch][contentMultiLikeAnd] (string)
+* partnerFilter[advancedSearch][cuePointsFreeText] (string)
+* partnerFilter[advancedSearch][cuePointTypeIn] (string)
+* partnerFilter[advancedSearch][cuePointSubTypeEqual] (integer)
+* partnerFilter[advancedSearch][watermarkId] (integer)
+* partnerFilter[advancedSearch][indexIdGreaterThan] (integer)
+* partnerFilter[advancedSearch][depthGreaterThanEqual] (integer)
+* partnerFilter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* partnerFilter[advancedSearch][field] (string)
+* partnerFilter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* partnerFilter[advancedSearch][items] (array)
+* partnerFilter[advancedSearch][idEqual] (string)
+* partnerFilter[advancedSearch][idIn] (string)
+* partnerFilter[advancedSearch][userIdEqual] (string)
+* partnerFilter[advancedSearch][userIdIn] (string)
+* partnerFilter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* partnerFilter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* partnerFilter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* partnerFilter[advancedSearch][extendedStatusIn] (string)
+* partnerFilter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* partnerFilter[advancedSearch][not] (boolean)
+* partnerFilter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* partnerFilter[advancedSearch][metadataProfileId] (integer)
+* partnerFilter[idEqual] (integer)
+* partnerFilter[idIn] (string)
+* partnerFilter[idNotIn] (string)
+* partnerFilter[nameLike] (string)
+* partnerFilter[nameMultiLikeOr] (string)
+* partnerFilter[nameMultiLikeAnd] (string)
+* partnerFilter[nameEqual] (string)
+* partnerFilter[statusEqual] (integer) - Enum Type: `KalturaPartnerStatus`
+* partnerFilter[statusIn] (string)
+* partnerFilter[partnerPackageEqual] (integer)
+* partnerFilter[partnerPackageGreaterThanOrEqual] (integer)
+* partnerFilter[partnerPackageLessThanOrEqual] (integer)
+* partnerFilter[partnerPackageIn] (string)
+* partnerFilter[partnerGroupTypeEqual] (integer) - Enum Type: `KalturaPartnerGroupType`
+* partnerFilter[partnerNameDescriptionWebsiteAdminNameAdminEmailLike] (string)
+* partnerFilter[objectType] (string)
+* partnerFilter[groupTypeEq] (integer) - Enum Type: `KalturaPartnerGroupType`
+* partnerFilter[groupTypeIn] (string) - In filter for the partner's group type
+* partnerFilter[partnerPermissionsExist] (string) - Filter for partner permissions- filter contains comma-separated string of permission names which the returned partners should have.
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### partner.register
 Create a new Partner object
@@ -12073,6 +19708,45 @@ Create a new Partner object
 kaltura.partner.register({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* partner[name] (string)
+* partner[website] (string)
+* partner[notificationUrl] (string)
+* partner[appearInSearch] (integer)
+* partner[adminName] (string) - deprecated - lastName and firstName replaces this field
+* partner[adminEmail] (string)
+* partner[description] (string)
+* partner[commercialUse] (integer) - Enum Type: `KalturaCommercialUseType`
+* partner[landingPage] (string)
+* partner[userLandingPage] (string)
+* partner[contentCategories] (string)
+* partner[type] (integer) - Enum Type: `KalturaPartnerType`
+* partner[phone] (string)
+* partner[describeYourself] (string)
+* partner[adultContent] (boolean)
+* partner[defConversionProfileType] (string)
+* partner[notify] (integer)
+* partner[allowQuickEdit] (integer)
+* partner[mergeEntryLists] (integer)
+* partner[notificationsConfig] (string)
+* partner[maxUploadSize] (integer)
+* partner[partnerPackage] (integer)
+* partner[allowMultiNotification] (integer)
+* partner[adminUserId] (string)
+* partner[firstName] (string) - firstName and lastName replace the old (deprecated) adminName
+* partner[lastName] (string) - lastName and firstName replace the old (deprecated) adminName
+* partner[country] (string) - country code (2char) - this field is optional
+* partner[state] (string) - state code (2char) - this field is optional
+* partner[additionalParams] (array)
+* partner[deliveryTypes] (array)
+* partner[embedCodeTypes] (array)
+* partner[partnerParentId] (integer)
+* partner[referenceId] (string)
+* cmsPassword (string)
+* templatePartnerId (integer)
+* silent (boolean)
 
 ### partner.update
 Update details and settings of an existing partner
@@ -12082,6 +19756,43 @@ Update details and settings of an existing partner
 kaltura.partner.update({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* partner[name] (string)
+* partner[website] (string)
+* partner[notificationUrl] (string)
+* partner[appearInSearch] (integer)
+* partner[adminName] (string) - deprecated - lastName and firstName replaces this field
+* partner[adminEmail] (string)
+* partner[description] (string)
+* partner[commercialUse] (integer) - Enum Type: `KalturaCommercialUseType`
+* partner[landingPage] (string)
+* partner[userLandingPage] (string)
+* partner[contentCategories] (string)
+* partner[type] (integer) - Enum Type: `KalturaPartnerType`
+* partner[phone] (string)
+* partner[describeYourself] (string)
+* partner[adultContent] (boolean)
+* partner[defConversionProfileType] (string)
+* partner[notify] (integer)
+* partner[allowQuickEdit] (integer)
+* partner[mergeEntryLists] (integer)
+* partner[notificationsConfig] (string)
+* partner[maxUploadSize] (integer)
+* partner[partnerPackage] (integer)
+* partner[allowMultiNotification] (integer)
+* partner[adminUserId] (string)
+* partner[firstName] (string) - firstName and lastName replace the old (deprecated) adminName
+* partner[lastName] (string) - lastName and firstName replace the old (deprecated) adminName
+* partner[country] (string) - country code (2char) - this field is optional
+* partner[state] (string) - state code (2char) - this field is optional
+* partner[additionalParams] (array)
+* partner[deliveryTypes] (array)
+* partner[embedCodeTypes] (array)
+* partner[partnerParentId] (integer)
+* partner[referenceId] (string)
+* allowEmpty (boolean)
 
 ### permission.add
 Adds a new permission object to the account.
@@ -12091,6 +19802,17 @@ Adds a new permission object to the account.
 kaltura.permission.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* permission[name] (string)
+* permission[friendlyName] (string)
+* permission[description] (string)
+* permission[status] (integer) - Enum Type: `KalturaPermissionStatus`
+* permission[dependsOnPermissionNames] (string)
+* permission[tags] (string)
+* permission[permissionItemsIds] (string)
+* permission[partnerGroup] (string)
 
 ### permission.delete
 Deletes an existing permission object.
@@ -12130,6 +19852,9 @@ Retrieves a list of permissions that apply to the current KS.
 kaltura.permission.getCurrentPermissions({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
 
 ### permission.list
 Lists permission objects that are associated with an account.
@@ -12143,6 +19868,74 @@ Blocked permissions are listed unless you use a filter to exclude them.
 kaltura.permission.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[typeEqual] (integer) - Enum Type: `KalturaPermissionType`
+* filter[typeIn] (string)
+* filter[nameEqual] (string)
+* filter[nameIn] (string)
+* filter[friendlyNameLike] (string)
+* filter[descriptionLike] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaPermissionStatus`
+* filter[statusIn] (string)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[dependsOnPermissionNamesMultiLikeOr] (string)
+* filter[dependsOnPermissionNamesMultiLikeAnd] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### permission.update
 Updates an existing permission object.
@@ -12177,6 +19970,15 @@ This action is available only to Kaltura system administrators.
 kaltura.permissionItem.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* permissionItem[tags] (string)
+* permissionItem[objectType] (string)
+* permissionItem[service] (string)
+* permissionItem[action] (string)
+* permissionItem[object] (string)
+* permissionItem[parameter] (string)
 
 ### permissionItem.delete
 Deletes an existing permission item object.
@@ -12218,6 +20020,67 @@ Lists permission item objects that are associated with an account.
 kaltura.permissionItem.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[typeEqual] (string) - Enum Type: `KalturaPermissionItemType`
+* filter[typeIn] (string)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[objectType] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### permissionItem.update
 Updates an existing permission item object.
@@ -12252,6 +20115,39 @@ Note that all entries used in a playlist will become public and may appear in Ka
 kaltura.playlist.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* playlist[name] (string) - Entry name (Min 1 chars)
+* playlist[description] (string) - Entry description
+* playlist[userId] (string) - The ID of the user who is the owner of this entry
+* playlist[creatorId] (string) - `insertOnly`
+* playlist[tags] (string) - Entry tags
+* playlist[adminTags] (string) - Entry admin tags can be updated only by administrators
+* playlist[categories] (string) - Comma separated list of full names of categories to which this entry belongs. Only categories that don't have entitlement (privacy context) are listed, to retrieve the full list of categories, use the categoryEntry.list action.
+* playlist[categoriesIds] (string) - Comma separated list of ids of categories to which this entry belongs. Only categories that don't have entitlement (privacy context) are listed, to retrieve the full list of categories, use the categoryEntry.list action.
+* playlist[type] (string) - Enum Type: `KalturaEntryType`
+* playlist[groupId] (integer)
+* playlist[partnerData] (string) - Can be used to store various partner related data as a string
+* playlist[licenseType] (integer) - Enum Type: `KalturaLicenseType`
+* playlist[accessControlId] (integer) - The Access Control ID assigned to this entry (null when not set, send -1 to remove)
+* playlist[startDate] (integer) - Entry scheduling start date (null when not set, send -1 to remove)
+* playlist[endDate] (integer) - Entry scheduling end date (null when not set, send -1 to remove)
+* playlist[referenceId] (string) - Entry external reference id
+* playlist[partnerSortValue] (integer) - Can be used to store various partner related data as a numeric value
+* playlist[conversionProfileId] (integer) - Override the default ingestion profile
+* playlist[redirectEntryId] (string) - IF not empty, points to an entry ID the should replace this current entry's id.
+* playlist[parentEntryId] (string) - ID of source root entry, used for defining entires association
+* playlist[operationAttributes] (array)
+* playlist[entitledUsersEdit] (string) - list of user ids that are entitled to edit the entry (no server enforcement) The difference between entitledUsersEdit and entitledUsersPublish is applicative only
+* playlist[entitledUsersPublish] (string) - list of user ids that are entitled to publish the entry (no server enforcement) The difference between entitledUsersEdit and entitledUsersPublish is applicative only
+* playlist[templateEntryId] (string) - `insertOnly`
+* playlist[displayInSearch] (integer) - Enum Type: `KalturaEntryDisplayInSearchType`
+* playlist[playlistContent] (string) - Content of the playlist - 
+* playlist[filters] (array)
+* playlist[totalResults] (integer) - Maximum count of results to be returned in playlist execution
+* playlist[playlistType] (integer) - Enum Type: `KalturaPlaylistType`
+* updateStats (boolean) - indicates that the playlist statistics attributes should be updated synchronously now
 
 ### playlist.clone
 Clone an existing playlist
@@ -12556,6 +20452,137 @@ List available playlists
 kaltura.playlist.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string) - This filter should be in use for retrieving only a specific entry (identified by its entryId).
+* filter[idIn] (string) - This filter should be in use for retrieving few specific entries (string should include comma separated list of entryId strings).
+* filter[idNotIn] (string)
+* filter[nameLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry names (no wildcards, spaces are treated as part of the string).
+* filter[nameMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[nameMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[nameEqual] (string) - This filter should be in use for retrieving entries with a specific name.
+* filter[partnerIdEqual] (integer) - This filter should be in use for retrieving only entries which were uploaded by/assigned to users of a specific Kaltura Partner (identified by Partner ID).
+* filter[partnerIdIn] (string) - This filter should be in use for retrieving only entries within Kaltura network which were uploaded by/assigned to users of few Kaltura Partners  (string should include comma separated list of PartnerIDs)
+* filter[userIdEqual] (string) - This filter parameter should be in use for retrieving only entries, uploaded by/assigned to a specific user (identified by user Id).
+* filter[userIdIn] (string)
+* filter[userIdNotIn] (string)
+* filter[creatorIdEqual] (string)
+* filter[tagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags (no wildcards, spaces are treated as part of the string).
+* filter[tagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[tagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags set by an ADMIN user (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* filter[adminTagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* filter[categoriesMatchAnd] (string)
+* filter[categoriesMatchOr] (string) - All entries within these categories or their child categories.
+* filter[categoriesNotContains] (string)
+* filter[categoriesIdsMatchAnd] (string)
+* filter[categoriesIdsMatchOr] (string) - All entries of the categories, excluding their child categories.
+* filter[categoriesIdsNotContains] (string)
+* filter[categoriesIdsEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[statusEqual] (string) - Enum Type: `KalturaEntryStatus`
+* filter[statusNotEqual] (string) - Enum Type: `KalturaEntryStatus`
+* filter[statusIn] (string) - This filter should be in use for retrieving only entries, at few specific {
+* filter[statusNotIn] (string) - This filter should be in use for retrieving only entries, not at few specific {
+* filter[moderationStatusEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* filter[moderationStatusNotEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* filter[moderationStatusIn] (string)
+* filter[moderationStatusNotIn] (string)
+* filter[typeEqual] (string) - Enum Type: `KalturaEntryType`
+* filter[typeIn] (string) - This filter should be in use for retrieving entries of few {
+* filter[createdAtGreaterThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system after a specific time/date (standard timestamp format).
+* filter[createdAtLessThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system before a specific time/date (standard timestamp format).
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[totalRankLessThanOrEqual] (integer)
+* filter[totalRankGreaterThanOrEqual] (integer)
+* filter[groupIdEqual] (integer)
+* filter[searchTextMatchAnd] (string) - This filter should be in use for retrieving specific entries while search match the input string within all of the following metadata attributes: name, description, tags, adminTags.
+* filter[searchTextMatchOr] (string) - This filter should be in use for retrieving specific entries while search match the input string within at least one of the following metadata attributes: name, description, tags, adminTags.
+* filter[accessControlIdEqual] (integer)
+* filter[accessControlIdIn] (string)
+* filter[startDateGreaterThanOrEqual] (integer)
+* filter[startDateLessThanOrEqual] (integer)
+* filter[startDateGreaterThanOrEqualOrNull] (integer)
+* filter[startDateLessThanOrEqualOrNull] (integer)
+* filter[endDateGreaterThanOrEqual] (integer)
+* filter[endDateLessThanOrEqual] (integer)
+* filter[endDateGreaterThanOrEqualOrNull] (integer)
+* filter[endDateLessThanOrEqualOrNull] (integer)
+* filter[referenceIdEqual] (string)
+* filter[referenceIdIn] (string)
+* filter[replacingEntryIdEqual] (string)
+* filter[replacingEntryIdIn] (string)
+* filter[replacedEntryIdEqual] (string)
+* filter[replacedEntryIdIn] (string)
+* filter[replacementStatusEqual] (string) - Enum Type: `KalturaEntryReplacementStatus`
+* filter[replacementStatusIn] (string)
+* filter[partnerSortValueGreaterThanOrEqual] (integer)
+* filter[partnerSortValueLessThanOrEqual] (integer)
+* filter[rootEntryIdEqual] (string)
+* filter[rootEntryIdIn] (string)
+* filter[parentEntryIdEqual] (string)
+* filter[entitledUsersEditMatchAnd] (string)
+* filter[entitledUsersEditMatchOr] (string)
+* filter[entitledUsersPublishMatchAnd] (string)
+* filter[entitledUsersPublishMatchOr] (string)
+* filter[tagsNameMultiLikeOr] (string)
+* filter[tagsAdminTagsMultiLikeOr] (string)
+* filter[tagsAdminTagsNameMultiLikeOr] (string)
+* filter[tagsNameMultiLikeAnd] (string)
+* filter[tagsAdminTagsMultiLikeAnd] (string)
+* filter[tagsAdminTagsNameMultiLikeAnd] (string)
+* filter[freeText] (string)
+* filter[isRoot] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[categoriesFullNameIn] (string)
+* filter[categoryAncestorIdIn] (string) - All entries within this categoy or in child categories
+* filter[redirectFromEntryId] (string) - The id of the original entry
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### playlist.update
 Update existing playlist
@@ -12612,6 +20639,9 @@ Generate key id and content key for PlayReady encryption
 kaltura.playReadyDrm.generateKey({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
 
 ### playReadyDrm.getContentKeys
 Get content keys for input key ids
@@ -12673,6 +20703,10 @@ Add Action
 kaltura.poll.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* pollType (string)
 
 ### poll.getVote
 Vote Action
@@ -12804,6 +20838,56 @@ List quiz objects by filter and pager
 kaltura.quiz.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[entryIdEqual] (string) - This filter should be in use for retrieving only a specific quiz entry (identified by its entryId).
+* filter[entryIdIn] (string) - This filter should be in use for retrieving few specific quiz entries (string should include comma separated list of entryId strings).
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### quiz.serve
 creates a pdf from quiz object
@@ -13086,6 +21170,464 @@ Add new response profile
 kaltura.responseProfile.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* addResponseProfile[name] (string) - Friendly name
+* addResponseProfile[type] (integer) - Enum Type: `KalturaResponseProfileType`
+* addResponseProfile[fields] (string) - Comma separated fields list to be included or excluded
+* addResponseProfile[filter][orderBy] (string)
+* addResponseProfile[filter][advancedSearch][objectType] (string)
+* addResponseProfile[filter][advancedSearch][value] (string)
+* addResponseProfile[filter][advancedSearch][categoriesMatchOr] (string)
+* addResponseProfile[filter][advancedSearch][categoryEntryStatusIn] (string)
+* addResponseProfile[filter][advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* addResponseProfile[filter][advancedSearch][categoryIdEqual] (integer)
+* addResponseProfile[filter][advancedSearch][memberIdEq] (string)
+* addResponseProfile[filter][advancedSearch][memberIdIn] (string)
+* addResponseProfile[filter][advancedSearch][memberPermissionsMatchOr] (string)
+* addResponseProfile[filter][advancedSearch][memberPermissionsMatchAnd] (string)
+* addResponseProfile[filter][advancedSearch][noDistributionProfiles] (boolean)
+* addResponseProfile[filter][advancedSearch][distributionProfileId] (integer)
+* addResponseProfile[filter][advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* addResponseProfile[filter][advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* addResponseProfile[filter][advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* addResponseProfile[filter][advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* addResponseProfile[filter][advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* addResponseProfile[filter][advancedSearch][contentLike] (string)
+* addResponseProfile[filter][advancedSearch][contentMultiLikeOr] (string)
+* addResponseProfile[filter][advancedSearch][contentMultiLikeAnd] (string)
+* addResponseProfile[filter][advancedSearch][cuePointsFreeText] (string)
+* addResponseProfile[filter][advancedSearch][cuePointTypeIn] (string)
+* addResponseProfile[filter][advancedSearch][cuePointSubTypeEqual] (integer)
+* addResponseProfile[filter][advancedSearch][watermarkId] (integer)
+* addResponseProfile[filter][advancedSearch][indexIdGreaterThan] (integer)
+* addResponseProfile[filter][advancedSearch][depthGreaterThanEqual] (integer)
+* addResponseProfile[filter][advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* addResponseProfile[filter][advancedSearch][field] (string)
+* addResponseProfile[filter][advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* addResponseProfile[filter][advancedSearch][items] (array)
+* addResponseProfile[filter][advancedSearch][idEqual] (string)
+* addResponseProfile[filter][advancedSearch][idIn] (string)
+* addResponseProfile[filter][advancedSearch][userIdEqual] (string)
+* addResponseProfile[filter][advancedSearch][userIdIn] (string)
+* addResponseProfile[filter][advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* addResponseProfile[filter][advancedSearch][updatedAtLessThanOrEqual] (string)
+* addResponseProfile[filter][advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* addResponseProfile[filter][advancedSearch][extendedStatusIn] (string)
+* addResponseProfile[filter][advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* addResponseProfile[filter][advancedSearch][not] (boolean)
+* addResponseProfile[filter][advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* addResponseProfile[filter][advancedSearch][metadataProfileId] (integer)
+* addResponseProfile[filter][objectType] (string)
+* addResponseProfile[filter][idEqual] (string)
+* addResponseProfile[filter][idIn] (string)
+* addResponseProfile[filter][entryIdEqual] (string)
+* addResponseProfile[filter][entryIdIn] (string)
+* addResponseProfile[filter][partnerIdEqual] (integer)
+* addResponseProfile[filter][partnerIdIn] (string)
+* addResponseProfile[filter][sizeGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][sizeLessThanOrEqual] (integer)
+* addResponseProfile[filter][tagsLike] (string)
+* addResponseProfile[filter][tagsMultiLikeOr] (string)
+* addResponseProfile[filter][tagsMultiLikeAnd] (string)
+* addResponseProfile[filter][createdAtGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][createdAtLessThanOrEqual] (integer)
+* addResponseProfile[filter][updatedAtGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][updatedAtLessThanOrEqual] (integer)
+* addResponseProfile[filter][deletedAtGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][deletedAtLessThanOrEqual] (integer)
+* addResponseProfile[filter][idNotIn] (string)
+* addResponseProfile[filter][nameLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry names (no wildcards, spaces are treated as part of the string).
+* addResponseProfile[filter][nameMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* addResponseProfile[filter][nameMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* addResponseProfile[filter][nameEqual] (string) - This filter should be in use for retrieving entries with a specific name.
+* addResponseProfile[filter][userIdEqual] (string) - This filter parameter should be in use for retrieving only entries, uploaded by/assigned to a specific user (identified by user Id).
+* addResponseProfile[filter][userIdIn] (string)
+* addResponseProfile[filter][userIdNotIn] (string)
+* addResponseProfile[filter][creatorIdEqual] (string)
+* addResponseProfile[filter][adminTagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags set by an ADMIN user (no wildcards, spaces are treated as part of the string).
+* addResponseProfile[filter][adminTagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* addResponseProfile[filter][adminTagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* addResponseProfile[filter][categoriesMatchAnd] (string)
+* addResponseProfile[filter][categoriesMatchOr] (string) - All entries within these categories or their child categories.
+* addResponseProfile[filter][categoriesNotContains] (string)
+* addResponseProfile[filter][categoriesIdsMatchAnd] (string)
+* addResponseProfile[filter][categoriesIdsMatchOr] (string) - All entries of the categories, excluding their child categories.
+* addResponseProfile[filter][categoriesIdsNotContains] (string)
+* addResponseProfile[filter][categoriesIdsEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* addResponseProfile[filter][statusEqual] (string) - Enum Type: `KalturaEntryStatus`
+* addResponseProfile[filter][statusNotEqual] (string) - Enum Type: `KalturaEntryStatus`
+* addResponseProfile[filter][statusIn] (string) - This filter should be in use for retrieving only entries, at few specific {
+* addResponseProfile[filter][statusNotIn] (string) - This filter should be in use for retrieving only entries, not at few specific {
+* addResponseProfile[filter][moderationStatusEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* addResponseProfile[filter][moderationStatusNotEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* addResponseProfile[filter][moderationStatusIn] (string)
+* addResponseProfile[filter][moderationStatusNotIn] (string)
+* addResponseProfile[filter][typeEqual] (string) - Enum Type: `KalturaEntryType`
+* addResponseProfile[filter][typeIn] (string) - This filter should be in use for retrieving entries of few {
+* addResponseProfile[filter][totalRankLessThanOrEqual] (integer)
+* addResponseProfile[filter][totalRankGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][groupIdEqual] (integer)
+* addResponseProfile[filter][searchTextMatchAnd] (string) - This filter should be in use for retrieving specific entries while search match the input string within all of the following metadata attributes: name, description, tags, adminTags.
+* addResponseProfile[filter][searchTextMatchOr] (string) - This filter should be in use for retrieving specific entries while search match the input string within at least one of the following metadata attributes: name, description, tags, adminTags.
+* addResponseProfile[filter][accessControlIdEqual] (integer)
+* addResponseProfile[filter][accessControlIdIn] (string)
+* addResponseProfile[filter][startDateGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][startDateLessThanOrEqual] (integer)
+* addResponseProfile[filter][startDateGreaterThanOrEqualOrNull] (integer)
+* addResponseProfile[filter][startDateLessThanOrEqualOrNull] (integer)
+* addResponseProfile[filter][endDateGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][endDateLessThanOrEqual] (integer)
+* addResponseProfile[filter][endDateGreaterThanOrEqualOrNull] (integer)
+* addResponseProfile[filter][endDateLessThanOrEqualOrNull] (integer)
+* addResponseProfile[filter][referenceIdEqual] (string)
+* addResponseProfile[filter][referenceIdIn] (string)
+* addResponseProfile[filter][replacingEntryIdEqual] (string)
+* addResponseProfile[filter][replacingEntryIdIn] (string)
+* addResponseProfile[filter][replacedEntryIdEqual] (string)
+* addResponseProfile[filter][replacedEntryIdIn] (string)
+* addResponseProfile[filter][replacementStatusEqual] (string) - Enum Type: `KalturaEntryReplacementStatus`
+* addResponseProfile[filter][replacementStatusIn] (string)
+* addResponseProfile[filter][partnerSortValueGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][partnerSortValueLessThanOrEqual] (integer)
+* addResponseProfile[filter][rootEntryIdEqual] (string)
+* addResponseProfile[filter][rootEntryIdIn] (string)
+* addResponseProfile[filter][parentEntryIdEqual] (string)
+* addResponseProfile[filter][entitledUsersEditMatchAnd] (string)
+* addResponseProfile[filter][entitledUsersEditMatchOr] (string)
+* addResponseProfile[filter][entitledUsersPublishMatchAnd] (string)
+* addResponseProfile[filter][entitledUsersPublishMatchOr] (string)
+* addResponseProfile[filter][tagsNameMultiLikeOr] (string)
+* addResponseProfile[filter][tagsAdminTagsMultiLikeOr] (string)
+* addResponseProfile[filter][tagsAdminTagsNameMultiLikeOr] (string)
+* addResponseProfile[filter][tagsNameMultiLikeAnd] (string)
+* addResponseProfile[filter][tagsAdminTagsMultiLikeAnd] (string)
+* addResponseProfile[filter][tagsAdminTagsNameMultiLikeAnd] (string)
+* addResponseProfile[filter][categoryIdEqual] (integer)
+* addResponseProfile[filter][categoryIdIn] (string)
+* addResponseProfile[filter][permissionLevelEqual] (integer) - Enum Type: `KalturaCategoryUserPermissionLevel`
+* addResponseProfile[filter][permissionLevelIn] (string)
+* addResponseProfile[filter][updateMethodEqual] (integer) - Enum Type: `KalturaUpdateMethodType`
+* addResponseProfile[filter][updateMethodIn] (string)
+* addResponseProfile[filter][categoryFullIdsStartsWith] (string)
+* addResponseProfile[filter][categoryFullIdsEqual] (string)
+* addResponseProfile[filter][permissionNamesMatchAnd] (string)
+* addResponseProfile[filter][permissionNamesMatchOr] (string)
+* addResponseProfile[filter][permissionNamesNotContains] (string)
+* addResponseProfile[filter][screenNameLike] (string)
+* addResponseProfile[filter][screenNameStartsWith] (string)
+* addResponseProfile[filter][emailLike] (string)
+* addResponseProfile[filter][emailStartsWith] (string)
+* addResponseProfile[filter][firstNameStartsWith] (string)
+* addResponseProfile[filter][lastNameStartsWith] (string)
+* addResponseProfile[filter][isAdminEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* addResponseProfile[filter][systemNameEqual] (string)
+* addResponseProfile[filter][systemNameIn] (string)
+* addResponseProfile[filter][isSystemDefaultEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* addResponseProfile[filter][tagsEqual] (string)
+* addResponseProfile[filter][parsedAtGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][parsedAtLessThanOrEqual] (integer)
+* addResponseProfile[filter][auditObjectTypeEqual] (string) - Enum Type: `KalturaAuditTrailObjectType`
+* addResponseProfile[filter][auditObjectTypeIn] (string)
+* addResponseProfile[filter][objectIdEqual] (string)
+* addResponseProfile[filter][objectIdIn] (string)
+* addResponseProfile[filter][relatedObjectIdEqual] (string)
+* addResponseProfile[filter][relatedObjectIdIn] (string)
+* addResponseProfile[filter][relatedObjectTypeEqual] (string) - Enum Type: `KalturaAuditTrailObjectType`
+* addResponseProfile[filter][relatedObjectTypeIn] (string)
+* addResponseProfile[filter][masterPartnerIdEqual] (integer)
+* addResponseProfile[filter][masterPartnerIdIn] (string)
+* addResponseProfile[filter][requestIdEqual] (string)
+* addResponseProfile[filter][requestIdIn] (string)
+* addResponseProfile[filter][actionEqual] (string) - Enum Type: `KalturaAuditTrailAction`
+* addResponseProfile[filter][actionIn] (string)
+* addResponseProfile[filter][ksEqual] (string)
+* addResponseProfile[filter][contextEqual] (integer) - Enum Type: `KalturaAuditTrailContext`
+* addResponseProfile[filter][contextIn] (string)
+* addResponseProfile[filter][entryPointEqual] (string)
+* addResponseProfile[filter][entryPointIn] (string)
+* addResponseProfile[filter][serverNameEqual] (string)
+* addResponseProfile[filter][serverNameIn] (string)
+* addResponseProfile[filter][ipAddressEqual] (string)
+* addResponseProfile[filter][ipAddressIn] (string)
+* addResponseProfile[filter][clientTagEqual] (string)
+* addResponseProfile[filter][parentIdEqual] (integer)
+* addResponseProfile[filter][parentIdIn] (string)
+* addResponseProfile[filter][depthEqual] (integer)
+* addResponseProfile[filter][fullNameEqual] (string)
+* addResponseProfile[filter][fullNameStartsWith] (string)
+* addResponseProfile[filter][fullNameIn] (string)
+* addResponseProfile[filter][fullIdsEqual] (string)
+* addResponseProfile[filter][fullIdsStartsWith] (string)
+* addResponseProfile[filter][fullIdsMatchOr] (string)
+* addResponseProfile[filter][appearInListEqual] (integer) - Enum Type: `KalturaAppearInListType`
+* addResponseProfile[filter][privacyEqual] (integer) - Enum Type: `KalturaPrivacyType`
+* addResponseProfile[filter][privacyIn] (string)
+* addResponseProfile[filter][inheritanceTypeEqual] (integer) - Enum Type: `KalturaInheritanceType`
+* addResponseProfile[filter][inheritanceTypeIn] (string)
+* addResponseProfile[filter][referenceIdEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* addResponseProfile[filter][contributionPolicyEqual] (integer) - Enum Type: `KalturaContributionPolicyType`
+* addResponseProfile[filter][membersCountGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][membersCountLessThanOrEqual] (integer)
+* addResponseProfile[filter][pendingMembersCountGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][pendingMembersCountLessThanOrEqual] (integer)
+* addResponseProfile[filter][privacyContextEqual] (string)
+* addResponseProfile[filter][inheritedParentIdEqual] (integer)
+* addResponseProfile[filter][inheritedParentIdIn] (string)
+* addResponseProfile[filter][aggregationCategoriesMultiLikeOr] (string)
+* addResponseProfile[filter][aggregationCategoriesMultiLikeAnd] (string)
+* addResponseProfile[filter][creatorUserIdEqual] (string)
+* addResponseProfile[filter][creatorUserIdIn] (string)
+* addResponseProfile[filter][conversionProfileIdEqual] (integer)
+* addResponseProfile[filter][conversionProfileIdIn] (string)
+* addResponseProfile[filter][assetParamsIdEqual] (integer)
+* addResponseProfile[filter][assetParamsIdIn] (string)
+* addResponseProfile[filter][readyBehaviorEqual] (integer) - Enum Type: `KalturaFlavorReadyBehaviorType`
+* addResponseProfile[filter][readyBehaviorIn] (string)
+* addResponseProfile[filter][originEqual] (integer) - Enum Type: `KalturaAssetParamsOrigin`
+* addResponseProfile[filter][originIn] (string)
+* addResponseProfile[filter][defaultEntryIdEqual] (string)
+* addResponseProfile[filter][defaultEntryIdIn] (string)
+* addResponseProfile[filter][cuePointTypeEqual] (string) - Enum Type: `KalturaCuePointType`
+* addResponseProfile[filter][cuePointTypeIn] (string)
+* addResponseProfile[filter][triggeredAtGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][triggeredAtLessThanOrEqual] (integer)
+* addResponseProfile[filter][startTimeGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][startTimeLessThanOrEqual] (integer)
+* addResponseProfile[filter][partnerSortValueEqual] (integer)
+* addResponseProfile[filter][partnerSortValueIn] (string)
+* addResponseProfile[filter][forceStopEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* addResponseProfile[filter][submittedAtGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][submittedAtLessThanOrEqual] (integer)
+* addResponseProfile[filter][distributionProfileIdEqual] (integer)
+* addResponseProfile[filter][distributionProfileIdIn] (string)
+* addResponseProfile[filter][dirtyStatusEqual] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* addResponseProfile[filter][dirtyStatusIn] (string)
+* addResponseProfile[filter][sunriseGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][sunriseLessThanOrEqual] (integer)
+* addResponseProfile[filter][sunsetGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][sunsetLessThanOrEqual] (integer)
+* addResponseProfile[filter][fileAssetObjectTypeEqual] (string) - Enum Type: `KalturaFileAssetObjectType`
+* addResponseProfile[filter][groupIdIn] (string)
+* addResponseProfile[filter][channelIdEqual] (string)
+* addResponseProfile[filter][channelIdIn] (string)
+* addResponseProfile[filter][metadataProfileIdEqual] (integer)
+* addResponseProfile[filter][metadataProfileIdIn] (string)
+* addResponseProfile[filter][metadataProfileVersionEqual] (integer)
+* addResponseProfile[filter][metadataProfileVersionGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][metadataProfileVersionLessThanOrEqual] (integer)
+* addResponseProfile[filter][metadataObjectTypeEqual] (string) - Enum Type: `KalturaMetadataObjectType`
+* addResponseProfile[filter][versionEqual] (integer)
+* addResponseProfile[filter][versionGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][versionLessThanOrEqual] (integer)
+* addResponseProfile[filter][nameIn] (string)
+* addResponseProfile[filter][friendlyNameLike] (string)
+* addResponseProfile[filter][descriptionLike] (string)
+* addResponseProfile[filter][dependsOnPermissionNamesMultiLikeOr] (string)
+* addResponseProfile[filter][dependsOnPermissionNamesMultiLikeAnd] (string)
+* addResponseProfile[filter][parentIdNotIn] (string)
+* addResponseProfile[filter][ownerIdEqual] (string)
+* addResponseProfile[filter][ownerIdIn] (string)
+* addResponseProfile[filter][priorityEqual] (integer)
+* addResponseProfile[filter][priorityIn] (string)
+* addResponseProfile[filter][priorityGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][priorityLessThanOrEqual] (integer)
+* addResponseProfile[filter][recurrenceTypeEqual] (integer) - Enum Type: `KalturaScheduleEventRecurrenceType`
+* addResponseProfile[filter][recurrenceTypeIn] (string)
+* addResponseProfile[filter][eventIdEqual] (integer)
+* addResponseProfile[filter][eventIdIn] (string)
+* addResponseProfile[filter][resourceIdEqual] (integer)
+* addResponseProfile[filter][resourceIdIn] (string)
+* addResponseProfile[filter][entryIdNotIn] (string)
+* addResponseProfile[filter][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* addResponseProfile[filter][extendedStatusIn] (string)
+* addResponseProfile[filter][extendedStatusNotIn] (string)
+* addResponseProfile[filter][loginEmailEqual] (string)
+* addResponseProfile[filter][formatEqual] (string) - Enum Type: `KalturaAttachmentType`
+* addResponseProfile[filter][formatIn] (string)
+* addResponseProfile[filter][captionParamsIdEqual] (integer)
+* addResponseProfile[filter][captionParamsIdIn] (string)
+* addResponseProfile[filter][flavorParamsIdEqual] (integer)
+* addResponseProfile[filter][flavorParamsIdIn] (string)
+* addResponseProfile[filter][thumbParamsIdEqual] (integer)
+* addResponseProfile[filter][thumbParamsIdIn] (string)
+* addResponseProfile[filter][contentLike] (string)
+* addResponseProfile[filter][contentMultiLikeOr] (string)
+* addResponseProfile[filter][contentMultiLikeAnd] (string)
+* addResponseProfile[filter][partnerDescriptionLike] (string)
+* addResponseProfile[filter][partnerDescriptionMultiLikeOr] (string)
+* addResponseProfile[filter][partnerDescriptionMultiLikeAnd] (string)
+* addResponseProfile[filter][languageEqual] (string) - Enum Type: `KalturaLanguage`
+* addResponseProfile[filter][languageIn] (string)
+* addResponseProfile[filter][labelEqual] (string)
+* addResponseProfile[filter][labelIn] (string)
+* addResponseProfile[filter][endTimeGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][endTimeLessThanOrEqual] (integer)
+* addResponseProfile[filter][freeText] (string)
+* addResponseProfile[filter][isRoot] (integer) - Enum Type: `KalturaNullableBoolean`
+* addResponseProfile[filter][categoriesFullNameIn] (string)
+* addResponseProfile[filter][categoryAncestorIdIn] (string) - All entries within this categoy or in child categories
+* addResponseProfile[filter][redirectFromEntryId] (string) - The id of the original entry
+* addResponseProfile[filter][lastPlayedAtGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][lastPlayedAtLessThanOrEqual] (integer)
+* addResponseProfile[filter][durationLessThan] (integer)
+* addResponseProfile[filter][durationGreaterThan] (integer)
+* addResponseProfile[filter][durationLessThanOrEqual] (integer)
+* addResponseProfile[filter][durationGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][durationTypeMatchOr] (string)
+* addResponseProfile[filter][documentTypeEqual] (integer) - Enum Type: `KalturaDocumentType`
+* addResponseProfile[filter][documentTypeIn] (string)
+* addResponseProfile[filter][assetParamsIdsMatchOr] (string)
+* addResponseProfile[filter][assetParamsIdsMatchAnd] (string)
+* addResponseProfile[filter][mediaTypeEqual] (integer) - Enum Type: `KalturaMediaType`
+* addResponseProfile[filter][mediaTypeIn] (string)
+* addResponseProfile[filter][sourceTypeEqual] (string) - Enum Type: `KalturaSourceType`
+* addResponseProfile[filter][sourceTypeNotEqual] (string) - Enum Type: `KalturaSourceType`
+* addResponseProfile[filter][sourceTypeIn] (string)
+* addResponseProfile[filter][sourceTypeNotIn] (string)
+* addResponseProfile[filter][mediaDateGreaterThanOrEqual] (integer)
+* addResponseProfile[filter][mediaDateLessThanOrEqual] (integer)
+* addResponseProfile[filter][flavorParamsIdsMatchOr] (string)
+* addResponseProfile[filter][flavorParamsIdsMatchAnd] (string)
+* addResponseProfile[filter][limit] (integer)
+* addResponseProfile[filter][externalSourceTypeEqual] (string) - Enum Type: `KalturaExternalMediaSourceType`
+* addResponseProfile[filter][externalSourceTypeIn] (string)
+* addResponseProfile[filter][isLive] (integer) - Enum Type: `KalturaNullableBoolean`
+* addResponseProfile[filter][isRecordedEntryIdEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* addResponseProfile[filter][hasMediaServerHostname] (string)
+* addResponseProfile[filter][categoryDirectMembers] (boolean) - Return the list of categoryUser that are not inherited from parent category - only the direct categoryUsers.
+* addResponseProfile[filter][relatedGroupsByUserId] (string) - Return a list of categoryUser that related to the userId in this field by groups
+* addResponseProfile[filter][idOrScreenNameStartsWith] (string)
+* addResponseProfile[filter][loginEnabledEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* addResponseProfile[filter][roleIdEqual] (string)
+* addResponseProfile[filter][roleIdsEqual] (string)
+* addResponseProfile[filter][roleIdsIn] (string)
+* addResponseProfile[filter][firstNameOrLastNameStartsWith] (string)
+* addResponseProfile[filter][permissionNamesMultiLikeOr] (string) - Permission names filter expression
+* addResponseProfile[filter][permissionNamesMultiLikeAnd] (string) - Permission names filter expression
+* addResponseProfile[filter][flavorParamsVersionEqual] (string)
+* addResponseProfile[filter][flavorAssetIdEqual] (string)
+* addResponseProfile[filter][flavorAssetVersionEqual] (string)
+* addResponseProfile[filter][thumbParamsVersionEqual] (string)
+* addResponseProfile[filter][thumbAssetIdEqual] (string)
+* addResponseProfile[filter][thumbAssetVersionEqual] (string)
+* addResponseProfile[filter][membersIn] (string)
+* addResponseProfile[filter][nameOrReferenceIdStartsWith] (string)
+* addResponseProfile[filter][managerEqual] (string)
+* addResponseProfile[filter][memberEqual] (string)
+* addResponseProfile[filter][fullNameStartsWithIn] (string)
+* addResponseProfile[filter][ancestorIdIn] (string) - not includes the category itself (only sub categories)
+* addResponseProfile[filter][idOrInheritedParentIdIn] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][orderBy] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][objectType] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][value] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][categoriesMatchOr] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][categoryEntryStatusIn] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][categoryIdEqual] (integer)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][memberIdEq] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][memberIdIn] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][memberPermissionsMatchOr] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][memberPermissionsMatchAnd] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][noDistributionProfiles] (boolean)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][distributionProfileId] (integer)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][contentLike] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][contentMultiLikeOr] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][contentMultiLikeAnd] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][cuePointsFreeText] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][cuePointTypeIn] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][cuePointSubTypeEqual] (integer)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][watermarkId] (integer)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][indexIdGreaterThan] (integer)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][depthGreaterThanEqual] (integer)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][field] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][items] (array)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][idEqual] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][idIn] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][userIdEqual] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][userIdIn] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][updatedAtLessThanOrEqual] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][extendedStatusIn] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][not] (boolean)
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* addResponseProfile[filter][conversionProfileIdFilter][advancedSearch][metadataProfileId] (integer)
+* addResponseProfile[filter][conversionProfileIdFilter][idEqual] (integer)
+* addResponseProfile[filter][conversionProfileIdFilter][idIn] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][statusEqual] (string) - Enum Type: `KalturaConversionProfileStatus`
+* addResponseProfile[filter][conversionProfileIdFilter][statusIn] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][typeEqual] (string) - Enum Type: `KalturaConversionProfileType`
+* addResponseProfile[filter][conversionProfileIdFilter][typeIn] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][nameEqual] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][systemNameEqual] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][systemNameIn] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][tagsMultiLikeOr] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][tagsMultiLikeAnd] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][defaultEntryIdEqual] (string)
+* addResponseProfile[filter][conversionProfileIdFilter][defaultEntryIdIn] (string)
+* addResponseProfile[filter][userIdEqualCurrent] (integer) - Enum Type: `KalturaNullableBoolean`
+* addResponseProfile[filter][userIdCurrent] (integer) - Enum Type: `KalturaNullableBoolean`
+* addResponseProfile[filter][protocolTypeEqual] (string) - Enum Type: `KalturaAdProtocolType`
+* addResponseProfile[filter][protocolTypeIn] (string)
+* addResponseProfile[filter][titleLike] (string)
+* addResponseProfile[filter][titleMultiLikeOr] (string)
+* addResponseProfile[filter][titleMultiLikeAnd] (string)
+* addResponseProfile[filter][textLike] (string)
+* addResponseProfile[filter][textMultiLikeOr] (string)
+* addResponseProfile[filter][textMultiLikeAnd] (string)
+* addResponseProfile[filter][isPublicEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* addResponseProfile[filter][quizUserEntryIdEqual] (string)
+* addResponseProfile[filter][quizUserEntryIdIn] (string)
+* addResponseProfile[filter][codeLike] (string)
+* addResponseProfile[filter][codeMultiLikeOr] (string)
+* addResponseProfile[filter][codeMultiLikeAnd] (string)
+* addResponseProfile[filter][codeEqual] (string)
+* addResponseProfile[filter][codeIn] (string)
+* addResponseProfile[filter][descriptionMultiLikeOr] (string)
+* addResponseProfile[filter][descriptionMultiLikeAnd] (string)
+* addResponseProfile[filter][eventTypeEqual] (string) - Enum Type: `KalturaEventType`
+* addResponseProfile[filter][eventTypeIn] (string)
+* addResponseProfile[filter][questionLike] (string)
+* addResponseProfile[filter][questionMultiLikeOr] (string)
+* addResponseProfile[filter][questionMultiLikeAnd] (string)
+* addResponseProfile[filter][subTypeEqual] (integer) - Enum Type: `KalturaThumbCuePointSubType`
+* addResponseProfile[filter][subTypeIn] (string)
+* addResponseProfile[filter][resourceIdsLike] (string)
+* addResponseProfile[filter][resourceIdsMultiLikeOr] (string)
+* addResponseProfile[filter][resourceIdsMultiLikeAnd] (string)
+* addResponseProfile[filter][parentResourceIdsLike] (string)
+* addResponseProfile[filter][parentResourceIdsMultiLikeOr] (string)
+* addResponseProfile[filter][parentResourceIdsMultiLikeAnd] (string)
+* addResponseProfile[filter][templateEntryCategoriesIdsMultiLikeAnd] (string)
+* addResponseProfile[filter][templateEntryCategoriesIdsMultiLikeOr] (string)
+* addResponseProfile[filter][resourceSystemNamesMultiLikeOr] (string)
+* addResponseProfile[filter][templateEntryCategoriesIdsLike] (string)
+* addResponseProfile[filter][resourceSystemNamesMultiLikeAnd] (string)
+* addResponseProfile[filter][resourceSystemNamesLike] (string)
+* addResponseProfile[filter][templateEntryIdEqual] (string)
+* addResponseProfile[filter][entryIdsLike] (string)
+* addResponseProfile[filter][entryIdsMultiLikeOr] (string)
+* addResponseProfile[filter][entryIdsMultiLikeAnd] (string)
+* addResponseProfile[filter][categoryIdsLike] (string)
+* addResponseProfile[filter][categoryIdsMultiLikeOr] (string)
+* addResponseProfile[filter][categoryIdsMultiLikeAnd] (string)
+* addResponseProfile[filter][parentCategoryIdsLike] (string)
+* addResponseProfile[filter][parentCategoryIdsMultiLikeOr] (string)
+* addResponseProfile[filter][parentCategoryIdsMultiLikeAnd] (string)
+* addResponseProfile[filter][eventIdOrItsParentIdEqual] (integer) - Find event-resource objects that associated with the event, if none found, find by its parent event
+* addResponseProfile[filter][isAnonymous] (integer) - Enum Type: `KalturaNullableBoolean`
+* addResponseProfile[filter][privacyContextIn] (string)
+* addResponseProfile[systemName] (string) - Unique system name
 
 ### responseProfile.clone
 Clone an existing response profile
@@ -13595,6 +22137,64 @@ List response profiles by filter and pager
 kaltura.responseProfile.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[statusEqual] (integer) - Enum Type: `KalturaResponseProfileStatus`
+* filter[statusIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### responseProfile.recalculate
 Recalculate response profile cached objects
@@ -13604,6 +22204,16 @@ Recalculate response profile cached objects
 kaltura.responseProfile.recalculate({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* options[limit] (integer) - Maximum number of keys to recalculate
+* options[cachedObjectType] (string) - Class name
+* options[objectId] (string)
+* options[startObjectKey] (string)
+* options[endObjectKey] (string)
+* options[jobCreatedAt] (integer)
+* options[isFirstLoop] (boolean)
 
 ### responseProfile.update
 Update response profile by id
@@ -14100,6 +22710,43 @@ Allows you to add a new KalturaScheduleEvent object
 kaltura.scheduleEvent.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* scheduleEvent[summary] (string) - Defines a short summary or subject for the event
+* scheduleEvent[description] (string)
+* scheduleEvent[startDate] (integer)
+* scheduleEvent[endDate] (integer)
+* scheduleEvent[referenceId] (string)
+* scheduleEvent[classificationType] (integer) - Enum Type: `KalturaScheduleEventClassificationType`
+* scheduleEvent[geoLatitude] (number) - Specifies the global position for the activity
+* scheduleEvent[geoLongitude] (number) - Specifies the global position for the activity
+* scheduleEvent[location] (string) - Defines the intended venue for the activity
+* scheduleEvent[organizer] (string)
+* scheduleEvent[ownerId] (string)
+* scheduleEvent[priority] (integer) - The value for the priority field.
+* scheduleEvent[sequence] (integer) - Defines the revision sequence number.
+* scheduleEvent[recurrenceType] (integer) - Enum Type: `KalturaScheduleEventRecurrenceType`
+* scheduleEvent[duration] (integer) - Duration in seconds
+* scheduleEvent[contact] (string) - Used to represent contact information or alternately a reference to contact information.
+* scheduleEvent[comment] (string) - Specifies non-processing information intended to provide a comment to the calendar user.
+* scheduleEvent[tags] (string)
+* scheduleEvent[recurrence][name] (string)
+* scheduleEvent[recurrence][frequency] (string) - Enum Type: `KalturaScheduleEventRecurrenceFrequency`
+* scheduleEvent[recurrence][until] (integer)
+* scheduleEvent[recurrence][timeZone] (string) - TimeZone String
+* scheduleEvent[recurrence][count] (integer)
+* scheduleEvent[recurrence][interval] (integer)
+* scheduleEvent[recurrence][bySecond] (string) - Comma separated numbers between 0 to 59
+* scheduleEvent[recurrence][byMinute] (string) - Comma separated numbers between 0 to 59
+* scheduleEvent[recurrence][byHour] (string) - Comma separated numbers between 0 to 23
+* scheduleEvent[recurrence][byDay] (string) - Comma separated of KalturaScheduleEventRecurrenceDay
+* scheduleEvent[recurrence][byMonthDay] (string) - Comma separated of numbers between -31 to 31, excluding 0.
+* scheduleEvent[recurrence][byYearDay] (string) - Comma separated of numbers between -366 to 366, excluding 0.
+* scheduleEvent[recurrence][byWeekNumber] (string) - Comma separated of numbers between -53 to 53, excluding 0.
+* scheduleEvent[recurrence][byMonth] (string) - Comma separated numbers between 1 to 12
+* scheduleEvent[recurrence][byOffset] (string) - Comma separated of numbers between -366 to 366, excluding 0.
+* scheduleEvent[recurrence][weekStartDay] (string) - Enum Type: `KalturaScheduleEventRecurrenceDay`
 
 ### scheduleEvent.addFromBulkUpload
 Add new bulk upload batch job
@@ -14223,6 +22870,107 @@ List KalturaScheduleEvent objects
 kaltura.scheduleEvent.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[idNotIn] (string)
+* filter[parentIdEqual] (integer)
+* filter[parentIdIn] (string)
+* filter[parentIdNotIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaScheduleEventStatus`
+* filter[statusIn] (string)
+* filter[startDateGreaterThanOrEqual] (integer)
+* filter[startDateLessThanOrEqual] (integer)
+* filter[endDateGreaterThanOrEqual] (integer)
+* filter[endDateLessThanOrEqual] (integer)
+* filter[referenceIdEqual] (string)
+* filter[referenceIdIn] (string)
+* filter[ownerIdEqual] (string)
+* filter[ownerIdIn] (string)
+* filter[priorityEqual] (integer)
+* filter[priorityIn] (string)
+* filter[priorityGreaterThanOrEqual] (integer)
+* filter[priorityLessThanOrEqual] (integer)
+* filter[recurrenceTypeEqual] (integer) - Enum Type: `KalturaScheduleEventRecurrenceType`
+* filter[recurrenceTypeIn] (string)
+* filter[tagsLike] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[resourceIdsLike] (string)
+* filter[resourceIdsMultiLikeOr] (string)
+* filter[resourceIdsMultiLikeAnd] (string)
+* filter[parentResourceIdsLike] (string)
+* filter[parentResourceIdsMultiLikeOr] (string)
+* filter[parentResourceIdsMultiLikeAnd] (string)
+* filter[templateEntryCategoriesIdsMultiLikeAnd] (string)
+* filter[templateEntryCategoriesIdsMultiLikeOr] (string)
+* filter[resourceSystemNamesMultiLikeOr] (string)
+* filter[templateEntryCategoriesIdsLike] (string)
+* filter[resourceSystemNamesMultiLikeAnd] (string)
+* filter[resourceSystemNamesLike] (string)
+* filter[resourceIdEqual] (string)
+* filter[objectType] (string)
+* filter[templateEntryIdEqual] (string)
+* filter[entryIdsLike] (string)
+* filter[entryIdsMultiLikeOr] (string)
+* filter[entryIdsMultiLikeAnd] (string)
+* filter[categoryIdsLike] (string)
+* filter[categoryIdsMultiLikeOr] (string)
+* filter[categoryIdsMultiLikeAnd] (string)
+* filter[parentCategoryIdsLike] (string)
+* filter[parentCategoryIdsMultiLikeOr] (string)
+* filter[parentCategoryIdsMultiLikeAnd] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### scheduleEvent.update
 Update an existing KalturaScheduleEvent object
@@ -14281,6 +23029,11 @@ Allows you to add a new KalturaScheduleEventResource object
 kaltura.scheduleEventResource.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* scheduleEventResource[eventId] (integer) - `insertOnly`
+* scheduleEventResource[resourceId] (integer) - `insertOnly`
 
 ### scheduleEventResource.delete
 Mark the KalturaScheduleEventResource object as deleted
@@ -14324,6 +23077,63 @@ List KalturaScheduleEventResource objects
 kaltura.scheduleEventResource.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[eventIdEqual] (integer)
+* filter[eventIdIn] (string)
+* filter[resourceIdEqual] (integer)
+* filter[resourceIdIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[eventIdOrItsParentIdEqual] (integer) - Find event-resource objects that associated with the event, if none found, find by its parent event
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### scheduleEventResource.update
 Update an existing KalturaScheduleEventResource object
@@ -14352,6 +23162,17 @@ Allows you to add a new KalturaScheduleResource object
 kaltura.scheduleResource.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* scheduleResource[parentId] (integer)
+* scheduleResource[name] (string) - Defines a short name
+* scheduleResource[systemName] (string) - Defines a unique system-name
+* scheduleResource[description] (string)
+* scheduleResource[tags] (string)
+* scheduleResource[objectType] (string)
+* scheduleResource[streamUrl] (string) - URL of the stream
+* scheduleResource[entryId] (string)
 
 ### scheduleResource.addFromBulkUpload
 Add new bulk upload batch job
@@ -14410,6 +23231,72 @@ List KalturaScheduleResource objects
 kaltura.scheduleResource.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[idNotIn] (string)
+* filter[parentIdEqual] (integer)
+* filter[parentIdIn] (string)
+* filter[nameEqual] (string)
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaScheduleResourceStatus`
+* filter[statusIn] (string)
+* filter[tagsLike] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[objectType] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### scheduleResource.update
 Update an existing KalturaScheduleResource object
@@ -14442,6 +23329,57 @@ Add a new scheduled task profile
 kaltura.scheduledTaskProfile.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* scheduledTaskProfile[name] (string)
+* scheduledTaskProfile[systemName] (string)
+* scheduledTaskProfile[description] (string)
+* scheduledTaskProfile[status] (integer) - Enum Type: `KalturaScheduledTaskProfileStatus`
+* scheduledTaskProfile[objectFilterEngineType] (string) - Enum Type: `KalturaObjectFilterEngineType`
+* scheduledTaskProfile[objectFilter][orderBy] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][objectType] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][value] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][categoriesMatchOr] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][categoryEntryStatusIn] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* scheduledTaskProfile[objectFilter][advancedSearch][categoryIdEqual] (integer)
+* scheduledTaskProfile[objectFilter][advancedSearch][memberIdEq] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][memberIdIn] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][memberPermissionsMatchOr] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][memberPermissionsMatchAnd] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][noDistributionProfiles] (boolean)
+* scheduledTaskProfile[objectFilter][advancedSearch][distributionProfileId] (integer)
+* scheduledTaskProfile[objectFilter][advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* scheduledTaskProfile[objectFilter][advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* scheduledTaskProfile[objectFilter][advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* scheduledTaskProfile[objectFilter][advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* scheduledTaskProfile[objectFilter][advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* scheduledTaskProfile[objectFilter][advancedSearch][contentLike] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][contentMultiLikeOr] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][contentMultiLikeAnd] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][cuePointsFreeText] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][cuePointTypeIn] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][cuePointSubTypeEqual] (integer)
+* scheduledTaskProfile[objectFilter][advancedSearch][watermarkId] (integer)
+* scheduledTaskProfile[objectFilter][advancedSearch][indexIdGreaterThan] (integer)
+* scheduledTaskProfile[objectFilter][advancedSearch][depthGreaterThanEqual] (integer)
+* scheduledTaskProfile[objectFilter][advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* scheduledTaskProfile[objectFilter][advancedSearch][field] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* scheduledTaskProfile[objectFilter][advancedSearch][items] (array)
+* scheduledTaskProfile[objectFilter][advancedSearch][idEqual] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][idIn] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][userIdEqual] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][userIdIn] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][updatedAtLessThanOrEqual] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* scheduledTaskProfile[objectFilter][advancedSearch][extendedStatusIn] (string)
+* scheduledTaskProfile[objectFilter][advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* scheduledTaskProfile[objectFilter][advancedSearch][not] (boolean)
+* scheduledTaskProfile[objectFilter][advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* scheduledTaskProfile[objectFilter][advancedSearch][metadataProfileId] (integer)
 
 ### scheduledTaskProfile.delete
 Delete a scheduled task profile
@@ -14496,6 +23434,68 @@ List scheduled task profiles
 kaltura.scheduledTaskProfile.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaScheduledTaskProfileStatus`
+* filter[statusIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[lastExecutionStartedAtGreaterThanOrEqual] (integer)
+* filter[lastExecutionStartedAtLessThanOrEqual] (integer)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### scheduledTaskProfile.requestDryRun
 
@@ -14599,6 +23599,28 @@ Adds a server node to the Kaltura DB.
 kaltura.serverNode.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* serverNode[name] (string) - serverNode name
+* serverNode[systemName] (string) - serverNode uniqe system name
+* serverNode[description] (string)
+* serverNode[hostName] (string) - serverNode hostName
+* serverNode[tags] (string) - serverNode tags
+* serverNode[parentId] (string) - Id of the parent serverNode
+* serverNode[objectType] (string)
+* serverNode[deliveryProfileIds] (array)
+* serverNode[playbackDomain] (string) - Delivery server playback Domain
+* serverNode[config] (string) - Overdie edge server default configuration - json format
+* serverNode[applicationName] (string) - Media server application name
+* serverNode[mediaServerPortConfig] (array)
+* serverNode[mediaServerPlaybackDomainConfig] (array)
+* serverNode[appPrefix] (string) - Wowza Media server app prefix
+* serverNode[transcoder] (string) - Wowza Media server transcoder configuration overide
+* serverNode[GPUID] (integer) - Wowza Media server GPU index id
+* serverNode[liveServicePort] (integer) - Live service port
+* serverNode[liveServiceProtocol] (string) - Live service protocol
+* serverNode[liveServiceInternalDomain] (string) - Wowza media server live service internal domain
 
 ### serverNode.delete
 delete server node by id
@@ -14668,6 +23690,85 @@ kaltura.serverNode.get({
 kaltura.serverNode.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[heartbeatTimeGreaterThanOrEqual] (integer)
+* filter[heartbeatTimeLessThanOrEqual] (integer)
+* filter[nameEqual] (string)
+* filter[nameIn] (string)
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[hostNameLike] (string)
+* filter[hostNameMultiLikeOr] (string)
+* filter[hostNameMultiLikeAnd] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaServerNodeStatus`
+* filter[statusIn] (string)
+* filter[typeEqual] (string) - Enum Type: `KalturaServerNodeType`
+* filter[typeIn] (string)
+* filter[tagsLike] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[dcEqual] (integer)
+* filter[dcIn] (string)
+* filter[parentIdLike] (string)
+* filter[parentIdMultiLikeOr] (string)
+* filter[parentIdMultiLikeAnd] (string)
+* filter[objectType] (string)
+* filter[playbackDomainLike] (string)
+* filter[playbackDomainMultiLikeOr] (string)
+* filter[playbackDomainMultiLikeAnd] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### serverNode.reportStatus
 Update server node status
@@ -14745,6 +23846,9 @@ End a session with the Kaltura server, making the current KS invalid.
 kaltura.session.end({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
 
 ### session.get
 Parse session key and return its info
@@ -14754,6 +23858,10 @@ Parse session key and return its info
 kaltura.session.get({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* session (string) - The KS to be parsed, keep it empty to use current session.
 
 ### session.impersonate
 Start an impersonated session with Kaltura's server.
@@ -14844,6 +23952,15 @@ Allows you to add a short link object
 kaltura.shortLink.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* shortLink[expiresAt] (integer)
+* shortLink[userId] (string)
+* shortLink[name] (string)
+* shortLink[systemName] (string)
+* shortLink[fullUrl] (string)
+* shortLink[status] (integer) - Enum Type: `KalturaShortLinkStatus`
 
 ### shortLink.delete
 Mark the short link as deleted
@@ -14898,6 +24015,70 @@ List short link objects by filter and pager
 kaltura.shortLink.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string)
+* filter[idIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[expiresAtGreaterThanOrEqual] (integer)
+* filter[expiresAtLessThanOrEqual] (integer)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[userIdEqual] (string)
+* filter[userIdIn] (string)
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaShortLinkStatus`
+* filter[statusIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### shortLink.update
 Update exisitng short link
@@ -14949,6 +24130,29 @@ KalturaStatsEvent $event
 kaltura.stats.collect({}, context)
 ```
 
+#### Parameters
+* format (integer) - The format of the response
+* event[clientVer] (string)
+* event[eventType] (integer) - Enum Type: `KalturaStatsEventType`
+* event[eventTimestamp] (number) - the client's timestamp of this event
+* event[sessionId] (string) - a unique string generated by the client that will represent the client-side session: the primary component will pass it on to other components that sprout from it
+* event[partnerId] (integer)
+* event[entryId] (string)
+* event[uniqueViewer] (string) - the UV cookie - creates in the operational system and should be passed on ofr every event
+* event[widgetId] (string)
+* event[uiconfId] (integer)
+* event[userId] (string) - the partner's user id
+* event[currentPoint] (integer) - the timestamp along the video when the event happend
+* event[duration] (integer) - the duration of the video in milliseconds - will make it much faster than quering the db for each entry
+* event[processDuration] (integer) - the time in milliseconds the event took
+* event[controlId] (string) - the id of the GUI control - will be used in the future to better understand what the user clicked
+* event[seek] (boolean) - true if the user ever used seek in this session
+* event[newPoint] (integer) - timestamp of the new point on the timeline of the video after the user seeks
+* event[referrer] (string) - the referrer of the client
+* event[isFirstInSession] (boolean) - will indicate if the event is thrown for the first video in the session
+* event[applicationId] (string) - kaltura application name
+* event[contextId] (integer)
+* event[featureType] (integer) - Enum Type: `KalturaStatsFeatureType`
 
 ### stats.kmcCollect
 Will collect the kmcEvent sent form the KMC client
@@ -14960,6 +24164,18 @@ Will collect the kmcEvent sent form the KMC client
 kaltura.stats.kmcCollect({}, context)
 ```
 
+#### Parameters
+* format (integer) - The format of the response
+* kmcEvent[clientVer] (string)
+* kmcEvent[kmcEventActionPath] (string)
+* kmcEvent[kmcEventType] (integer) - Enum Type: `KalturaStatsKmcEventType`
+* kmcEvent[eventTimestamp] (number) - the client's timestamp of this event
+* kmcEvent[sessionId] (string) - a unique string generated by the client that will represent the client-side session: the primary component will pass it on to other components that sprout from it
+* kmcEvent[partnerId] (integer)
+* kmcEvent[entryId] (string)
+* kmcEvent[widgetId] (string)
+* kmcEvent[uiconfId] (integer)
+* kmcEvent[userId] (string) - the partner's user id
 
 ### stats.reportDeviceCapabilities
 Use this action to report device capabilities to the kaltura server.
@@ -14999,6 +24215,17 @@ kaltura.stats.reportError({
 kaltura.stats.reportKceError({}, context)
 ```
 
+#### Parameters
+* format (integer) - The format of the response
+* kalturaCEError[partnerId] (integer)
+* kalturaCEError[browser] (string)
+* kalturaCEError[serverIp] (string)
+* kalturaCEError[serverOs] (string)
+* kalturaCEError[phpVersion] (string)
+* kalturaCEError[ceAdminEmail] (string)
+* kalturaCEError[type] (string)
+* kalturaCEError[description] (string)
+* kalturaCEError[data] (string)
 
 ### storageProfile.add
 Adds a storage profile to the Kaltura DB.
@@ -15008,6 +24235,45 @@ Adds a storage profile to the Kaltura DB.
 kaltura.storageProfile.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* storageProfile[name] (string)
+* storageProfile[systemName] (string)
+* storageProfile[desciption] (string)
+* storageProfile[status] (integer) - Enum Type: `KalturaStorageProfileStatus`
+* storageProfile[protocol] (string) - Enum Type: `KalturaStorageProfileProtocol`
+* storageProfile[storageUrl] (string)
+* storageProfile[storageBaseDir] (string)
+* storageProfile[storageUsername] (string)
+* storageProfile[storagePassword] (string)
+* storageProfile[storageFtpPassiveMode] (boolean)
+* storageProfile[minFileSize] (integer)
+* storageProfile[maxFileSize] (integer)
+* storageProfile[flavorParamsIds] (string)
+* storageProfile[maxConcurrentConnections] (integer)
+* storageProfile[pathManagerClass] (string)
+* storageProfile[pathManagerParams] (array)
+* storageProfile[trigger] (integer) - No need to create enum for temp field
+* storageProfile[deliveryPriority] (integer) - Delivery Priority
+* storageProfile[deliveryStatus] (integer) - Enum Type: `KalturaStorageProfileDeliveryStatus`
+* storageProfile[readyBehavior] (integer) - Enum Type: `KalturaStorageProfileReadyBehavior`
+* storageProfile[allowAutoDelete] (integer) - Flag sugnifying that the storage exported content should be deleted when soure entry is deleted
+* storageProfile[createFileLink] (boolean) - Indicates to the local file transfer manager to create a link to the file instead of copying it
+* storageProfile[rules] (array)
+* storageProfile[deliveryProfileIds] (array)
+* storageProfile[privateKey] (string)
+* storageProfile[publicKey] (string)
+* storageProfile[passPhrase] (string)
+* storageProfile[shouldExportThumbs] (boolean)
+* storageProfile[objectType] (string)
+* storageProfile[filesPermissionInS3] (string) - Enum Type: `KalturaAmazonS3StorageProfileFilesPermissionLevel`
+* storageProfile[s3Region] (string)
+* storageProfile[sseType] (string)
+* storageProfile[sseKmsKeyId] (string)
+* storageProfile[signatureType] (string)
+* storageProfile[endPoint] (string)
+* storageProfile[serviceToken] (string)
 
 ### storageProfile.get
 Get storage profile by id
@@ -15032,6 +24298,69 @@ kaltura.storageProfile.get({
 kaltura.storageProfile.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaStorageProfileStatus`
+* filter[statusIn] (string)
+* filter[protocolEqual] (string) - Enum Type: `KalturaStorageProfileProtocol`
+* filter[protocolIn] (string)
+* filter[objectType] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### storageProfile.update
 Update storage profile by id
@@ -15126,6 +24455,191 @@ Add new Syndication Feed
 kaltura.syndicationFeed.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* syndicationFeed[playlistId] (string) - link a playlist that will set what content the feed will include
+* syndicationFeed[name] (string) - feed name
+* syndicationFeed[type] (integer) - `insertOnly`
+* syndicationFeed[landingPage] (string) - Base URL for each video, on the partners site
+* syndicationFeed[allowEmbed] (boolean) - allow_embed tells google OR yahoo weather to allow embedding the video on google OR yahoo video results
+* syndicationFeed[playerUiconfId] (integer) - Select a uiconf ID as player skin to include in the kwidget url
+* syndicationFeed[flavorParamId] (integer)
+* syndicationFeed[transcodeExistingContent] (boolean)
+* syndicationFeed[addToDefaultConversionProfile] (boolean)
+* syndicationFeed[categories] (string)
+* syndicationFeed[storageId] (integer)
+* syndicationFeed[entriesOrderBy] (string) - Enum Type: `KalturaSyndicationFeedEntriesOrderBy`
+* syndicationFeed[enforceEntitlement] (boolean) - Should enforce entitlement on feed entries
+* syndicationFeed[privacyContext] (string) - Set privacy context for search entries that assiged to private and public categories within a category privacy context.
+* syndicationFeed[useCategoryEntries] (boolean)
+* syndicationFeed[feedContentTypeHeader] (string) - Feed content-type header value
+* syndicationFeed[objectType] (string)
+* syndicationFeed[feedDescription] (string) - feed description
+* syndicationFeed[feedLandingPage] (string) - feed landing page (i.e publisher website)
+* syndicationFeed[entryFilter][orderBy] (string)
+* syndicationFeed[entryFilter][advancedSearch][objectType] (string)
+* syndicationFeed[entryFilter][advancedSearch][value] (string)
+* syndicationFeed[entryFilter][advancedSearch][categoriesMatchOr] (string)
+* syndicationFeed[entryFilter][advancedSearch][categoryEntryStatusIn] (string)
+* syndicationFeed[entryFilter][advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* syndicationFeed[entryFilter][advancedSearch][categoryIdEqual] (integer)
+* syndicationFeed[entryFilter][advancedSearch][memberIdEq] (string)
+* syndicationFeed[entryFilter][advancedSearch][memberIdIn] (string)
+* syndicationFeed[entryFilter][advancedSearch][memberPermissionsMatchOr] (string)
+* syndicationFeed[entryFilter][advancedSearch][memberPermissionsMatchAnd] (string)
+* syndicationFeed[entryFilter][advancedSearch][noDistributionProfiles] (boolean)
+* syndicationFeed[entryFilter][advancedSearch][distributionProfileId] (integer)
+* syndicationFeed[entryFilter][advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* syndicationFeed[entryFilter][advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* syndicationFeed[entryFilter][advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* syndicationFeed[entryFilter][advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* syndicationFeed[entryFilter][advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* syndicationFeed[entryFilter][advancedSearch][contentLike] (string)
+* syndicationFeed[entryFilter][advancedSearch][contentMultiLikeOr] (string)
+* syndicationFeed[entryFilter][advancedSearch][contentMultiLikeAnd] (string)
+* syndicationFeed[entryFilter][advancedSearch][cuePointsFreeText] (string)
+* syndicationFeed[entryFilter][advancedSearch][cuePointTypeIn] (string)
+* syndicationFeed[entryFilter][advancedSearch][cuePointSubTypeEqual] (integer)
+* syndicationFeed[entryFilter][advancedSearch][watermarkId] (integer)
+* syndicationFeed[entryFilter][advancedSearch][indexIdGreaterThan] (integer)
+* syndicationFeed[entryFilter][advancedSearch][depthGreaterThanEqual] (integer)
+* syndicationFeed[entryFilter][advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* syndicationFeed[entryFilter][advancedSearch][field] (string)
+* syndicationFeed[entryFilter][advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* syndicationFeed[entryFilter][advancedSearch][items] (array)
+* syndicationFeed[entryFilter][advancedSearch][idEqual] (string)
+* syndicationFeed[entryFilter][advancedSearch][idIn] (string)
+* syndicationFeed[entryFilter][advancedSearch][userIdEqual] (string)
+* syndicationFeed[entryFilter][advancedSearch][userIdIn] (string)
+* syndicationFeed[entryFilter][advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* syndicationFeed[entryFilter][advancedSearch][updatedAtLessThanOrEqual] (string)
+* syndicationFeed[entryFilter][advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* syndicationFeed[entryFilter][advancedSearch][extendedStatusIn] (string)
+* syndicationFeed[entryFilter][advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* syndicationFeed[entryFilter][advancedSearch][not] (boolean)
+* syndicationFeed[entryFilter][advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* syndicationFeed[entryFilter][advancedSearch][metadataProfileId] (integer)
+* syndicationFeed[entryFilter][idEqual] (string) - This filter should be in use for retrieving only a specific entry (identified by its entryId).
+* syndicationFeed[entryFilter][idIn] (string) - This filter should be in use for retrieving few specific entries (string should include comma separated list of entryId strings).
+* syndicationFeed[entryFilter][idNotIn] (string)
+* syndicationFeed[entryFilter][nameLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry names (no wildcards, spaces are treated as part of the string).
+* syndicationFeed[entryFilter][nameMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* syndicationFeed[entryFilter][nameMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* syndicationFeed[entryFilter][nameEqual] (string) - This filter should be in use for retrieving entries with a specific name.
+* syndicationFeed[entryFilter][partnerIdEqual] (integer) - This filter should be in use for retrieving only entries which were uploaded by/assigned to users of a specific Kaltura Partner (identified by Partner ID).
+* syndicationFeed[entryFilter][partnerIdIn] (string) - This filter should be in use for retrieving only entries within Kaltura network which were uploaded by/assigned to users of few Kaltura Partners  (string should include comma separated list of PartnerIDs)
+* syndicationFeed[entryFilter][userIdEqual] (string) - This filter parameter should be in use for retrieving only entries, uploaded by/assigned to a specific user (identified by user Id).
+* syndicationFeed[entryFilter][userIdIn] (string)
+* syndicationFeed[entryFilter][userIdNotIn] (string)
+* syndicationFeed[entryFilter][creatorIdEqual] (string)
+* syndicationFeed[entryFilter][tagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags (no wildcards, spaces are treated as part of the string).
+* syndicationFeed[entryFilter][tagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* syndicationFeed[entryFilter][tagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* syndicationFeed[entryFilter][adminTagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags set by an ADMIN user (no wildcards, spaces are treated as part of the string).
+* syndicationFeed[entryFilter][adminTagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* syndicationFeed[entryFilter][adminTagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* syndicationFeed[entryFilter][categoriesMatchAnd] (string)
+* syndicationFeed[entryFilter][categoriesMatchOr] (string) - All entries within these categories or their child categories.
+* syndicationFeed[entryFilter][categoriesNotContains] (string)
+* syndicationFeed[entryFilter][categoriesIdsMatchAnd] (string)
+* syndicationFeed[entryFilter][categoriesIdsMatchOr] (string) - All entries of the categories, excluding their child categories.
+* syndicationFeed[entryFilter][categoriesIdsNotContains] (string)
+* syndicationFeed[entryFilter][categoriesIdsEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* syndicationFeed[entryFilter][statusEqual] (string) - Enum Type: `KalturaEntryStatus`
+* syndicationFeed[entryFilter][statusNotEqual] (string) - Enum Type: `KalturaEntryStatus`
+* syndicationFeed[entryFilter][statusIn] (string) - This filter should be in use for retrieving only entries, at few specific {
+* syndicationFeed[entryFilter][statusNotIn] (string) - This filter should be in use for retrieving only entries, not at few specific {
+* syndicationFeed[entryFilter][moderationStatusEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* syndicationFeed[entryFilter][moderationStatusNotEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* syndicationFeed[entryFilter][moderationStatusIn] (string)
+* syndicationFeed[entryFilter][moderationStatusNotIn] (string)
+* syndicationFeed[entryFilter][typeEqual] (string) - Enum Type: `KalturaEntryType`
+* syndicationFeed[entryFilter][typeIn] (string) - This filter should be in use for retrieving entries of few {
+* syndicationFeed[entryFilter][createdAtGreaterThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system after a specific time/date (standard timestamp format).
+* syndicationFeed[entryFilter][createdAtLessThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system before a specific time/date (standard timestamp format).
+* syndicationFeed[entryFilter][updatedAtGreaterThanOrEqual] (integer)
+* syndicationFeed[entryFilter][updatedAtLessThanOrEqual] (integer)
+* syndicationFeed[entryFilter][totalRankLessThanOrEqual] (integer)
+* syndicationFeed[entryFilter][totalRankGreaterThanOrEqual] (integer)
+* syndicationFeed[entryFilter][groupIdEqual] (integer)
+* syndicationFeed[entryFilter][searchTextMatchAnd] (string) - This filter should be in use for retrieving specific entries while search match the input string within all of the following metadata attributes: name, description, tags, adminTags.
+* syndicationFeed[entryFilter][searchTextMatchOr] (string) - This filter should be in use for retrieving specific entries while search match the input string within at least one of the following metadata attributes: name, description, tags, adminTags.
+* syndicationFeed[entryFilter][accessControlIdEqual] (integer)
+* syndicationFeed[entryFilter][accessControlIdIn] (string)
+* syndicationFeed[entryFilter][startDateGreaterThanOrEqual] (integer)
+* syndicationFeed[entryFilter][startDateLessThanOrEqual] (integer)
+* syndicationFeed[entryFilter][startDateGreaterThanOrEqualOrNull] (integer)
+* syndicationFeed[entryFilter][startDateLessThanOrEqualOrNull] (integer)
+* syndicationFeed[entryFilter][endDateGreaterThanOrEqual] (integer)
+* syndicationFeed[entryFilter][endDateLessThanOrEqual] (integer)
+* syndicationFeed[entryFilter][endDateGreaterThanOrEqualOrNull] (integer)
+* syndicationFeed[entryFilter][endDateLessThanOrEqualOrNull] (integer)
+* syndicationFeed[entryFilter][referenceIdEqual] (string)
+* syndicationFeed[entryFilter][referenceIdIn] (string)
+* syndicationFeed[entryFilter][replacingEntryIdEqual] (string)
+* syndicationFeed[entryFilter][replacingEntryIdIn] (string)
+* syndicationFeed[entryFilter][replacedEntryIdEqual] (string)
+* syndicationFeed[entryFilter][replacedEntryIdIn] (string)
+* syndicationFeed[entryFilter][replacementStatusEqual] (string) - Enum Type: `KalturaEntryReplacementStatus`
+* syndicationFeed[entryFilter][replacementStatusIn] (string)
+* syndicationFeed[entryFilter][partnerSortValueGreaterThanOrEqual] (integer)
+* syndicationFeed[entryFilter][partnerSortValueLessThanOrEqual] (integer)
+* syndicationFeed[entryFilter][rootEntryIdEqual] (string)
+* syndicationFeed[entryFilter][rootEntryIdIn] (string)
+* syndicationFeed[entryFilter][parentEntryIdEqual] (string)
+* syndicationFeed[entryFilter][entitledUsersEditMatchAnd] (string)
+* syndicationFeed[entryFilter][entitledUsersEditMatchOr] (string)
+* syndicationFeed[entryFilter][entitledUsersPublishMatchAnd] (string)
+* syndicationFeed[entryFilter][entitledUsersPublishMatchOr] (string)
+* syndicationFeed[entryFilter][tagsNameMultiLikeOr] (string)
+* syndicationFeed[entryFilter][tagsAdminTagsMultiLikeOr] (string)
+* syndicationFeed[entryFilter][tagsAdminTagsNameMultiLikeOr] (string)
+* syndicationFeed[entryFilter][tagsNameMultiLikeAnd] (string)
+* syndicationFeed[entryFilter][tagsAdminTagsMultiLikeAnd] (string)
+* syndicationFeed[entryFilter][tagsAdminTagsNameMultiLikeAnd] (string)
+* syndicationFeed[entryFilter][freeText] (string)
+* syndicationFeed[entryFilter][isRoot] (integer) - Enum Type: `KalturaNullableBoolean`
+* syndicationFeed[entryFilter][categoriesFullNameIn] (string)
+* syndicationFeed[entryFilter][categoryAncestorIdIn] (string) - All entries within this categoy or in child categories
+* syndicationFeed[entryFilter][redirectFromEntryId] (string) - The id of the original entry
+* syndicationFeed[entryFilter][objectType] (string)
+* syndicationFeed[entryFilter][lastPlayedAtGreaterThanOrEqual] (integer)
+* syndicationFeed[entryFilter][lastPlayedAtLessThanOrEqual] (integer)
+* syndicationFeed[entryFilter][durationLessThan] (integer)
+* syndicationFeed[entryFilter][durationGreaterThan] (integer)
+* syndicationFeed[entryFilter][durationLessThanOrEqual] (integer)
+* syndicationFeed[entryFilter][durationGreaterThanOrEqual] (integer)
+* syndicationFeed[entryFilter][durationTypeMatchOr] (string)
+* syndicationFeed[entryFilter][documentTypeEqual] (integer) - Enum Type: `KalturaDocumentType`
+* syndicationFeed[entryFilter][documentTypeIn] (string)
+* syndicationFeed[entryFilter][assetParamsIdsMatchOr] (string)
+* syndicationFeed[entryFilter][assetParamsIdsMatchAnd] (string)
+* syndicationFeed[entryFilter][mediaTypeEqual] (integer) - Enum Type: `KalturaMediaType`
+* syndicationFeed[entryFilter][mediaTypeIn] (string)
+* syndicationFeed[entryFilter][sourceTypeEqual] (string) - Enum Type: `KalturaSourceType`
+* syndicationFeed[entryFilter][sourceTypeNotEqual] (string) - Enum Type: `KalturaSourceType`
+* syndicationFeed[entryFilter][sourceTypeIn] (string)
+* syndicationFeed[entryFilter][sourceTypeNotIn] (string)
+* syndicationFeed[entryFilter][mediaDateGreaterThanOrEqual] (integer)
+* syndicationFeed[entryFilter][mediaDateLessThanOrEqual] (integer)
+* syndicationFeed[entryFilter][flavorParamsIdsMatchOr] (string)
+* syndicationFeed[entryFilter][flavorParamsIdsMatchAnd] (string)
+* syndicationFeed[entryFilter][limit] (integer)
+* syndicationFeed[entryFilter][externalSourceTypeEqual] (string) - Enum Type: `KalturaExternalMediaSourceType`
+* syndicationFeed[entryFilter][externalSourceTypeIn] (string)
+* syndicationFeed[entryFilter][isLive] (integer) - Enum Type: `KalturaNullableBoolean`
+* syndicationFeed[entryFilter][isRecordedEntryIdEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* syndicationFeed[entryFilter][hasMediaServerHostname] (string)
+* syndicationFeed[adultContent] (string) - Enum Type: `KalturaGoogleSyndicationFeedAdultValues`
+* syndicationFeed[language] (string) - feed language
+* syndicationFeed[ownerName] (string) - author/publisher name
+* syndicationFeed[ownerEmail] (string) - publisher email
+* syndicationFeed[feedImageUrl] (string) - podcast thumbnail
+* syndicationFeed[feedAuthor] (string)
+* syndicationFeed[enforceOrder] (integer) - Enum Type: `KalturaNullableBoolean`
+* syndicationFeed[xslt] (string)
+* syndicationFeed[itemXpathsToExtend] (array)
 
 ### syndicationFeed.delete
 Delete Syndication Feed by ID
@@ -15180,6 +24694,55 @@ List Syndication Feeds by filter with paging support
 kaltura.syndicationFeed.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[objectType] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### syndicationFeed.requestConversion
 request conversion for all entries that doesnt have the required flavor param
@@ -15403,6 +24966,8 @@ kaltura.syndicationFeed.update({
 kaltura.system.getTime({}, context)
 ```
 
+#### Parameters
+* format (integer) - The format of the response
 
 ### system.getVersion
 
@@ -15412,6 +24977,8 @@ kaltura.system.getTime({}, context)
 kaltura.system.getVersion({}, context)
 ```
 
+#### Parameters
+* format (integer) - The format of the response
 
 ### system.ping
 
@@ -15421,6 +24988,8 @@ kaltura.system.getVersion({}, context)
 kaltura.system.ping({}, context)
 ```
 
+#### Parameters
+* format (integer) - The format of the response
 
 ### system.pingDatabase
 
@@ -15430,6 +24999,8 @@ kaltura.system.ping({}, context)
 kaltura.system.pingDatabase({}, context)
 ```
 
+#### Parameters
+* format (integer) - The format of the response
 
 ### tag.deletePending
 Action goes over all tags with instanceCount==0 and checks whether they need to be removed from the DB. Returns number of removed tags.
@@ -15439,6 +25010,9 @@ Action goes over all tags with instanceCount==0 and checks whether they need to 
 kaltura.tag.deletePending({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
 
 ### tag.indexCategoryEntryTags
 
@@ -15467,6 +25041,59 @@ kaltura.tag.indexCategoryEntryTags({
 kaltura.tag.search({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* tagFilter[orderBy] (string)
+* tagFilter[advancedSearch][objectType] (string)
+* tagFilter[advancedSearch][value] (string)
+* tagFilter[advancedSearch][categoriesMatchOr] (string)
+* tagFilter[advancedSearch][categoryEntryStatusIn] (string)
+* tagFilter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* tagFilter[advancedSearch][categoryIdEqual] (integer)
+* tagFilter[advancedSearch][memberIdEq] (string)
+* tagFilter[advancedSearch][memberIdIn] (string)
+* tagFilter[advancedSearch][memberPermissionsMatchOr] (string)
+* tagFilter[advancedSearch][memberPermissionsMatchAnd] (string)
+* tagFilter[advancedSearch][noDistributionProfiles] (boolean)
+* tagFilter[advancedSearch][distributionProfileId] (integer)
+* tagFilter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* tagFilter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* tagFilter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* tagFilter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* tagFilter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* tagFilter[advancedSearch][contentLike] (string)
+* tagFilter[advancedSearch][contentMultiLikeOr] (string)
+* tagFilter[advancedSearch][contentMultiLikeAnd] (string)
+* tagFilter[advancedSearch][cuePointsFreeText] (string)
+* tagFilter[advancedSearch][cuePointTypeIn] (string)
+* tagFilter[advancedSearch][cuePointSubTypeEqual] (integer)
+* tagFilter[advancedSearch][watermarkId] (integer)
+* tagFilter[advancedSearch][indexIdGreaterThan] (integer)
+* tagFilter[advancedSearch][depthGreaterThanEqual] (integer)
+* tagFilter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* tagFilter[advancedSearch][field] (string)
+* tagFilter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* tagFilter[advancedSearch][items] (array)
+* tagFilter[advancedSearch][idEqual] (string)
+* tagFilter[advancedSearch][idIn] (string)
+* tagFilter[advancedSearch][userIdEqual] (string)
+* tagFilter[advancedSearch][userIdIn] (string)
+* tagFilter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* tagFilter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* tagFilter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* tagFilter[advancedSearch][extendedStatusIn] (string)
+* tagFilter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* tagFilter[advancedSearch][not] (boolean)
+* tagFilter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* tagFilter[advancedSearch][metadataProfileId] (integer)
+* tagFilter[objectTypeEqual] (string) - Enum Type: `KalturaTaggedObjectType`
+* tagFilter[tagEqual] (string)
+* tagFilter[tagStartsWith] (string)
+* tagFilter[instanceCountEqual] (integer)
+* tagFilter[instanceCountIn] (integer)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### thumbAsset.add
 Add thumbnail asset
@@ -15725,6 +25352,98 @@ List Thumbnail Assets by filter and pager
 kaltura.thumbAsset.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string)
+* filter[idIn] (string)
+* filter[entryIdEqual] (string)
+* filter[entryIdIn] (string)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[sizeGreaterThanOrEqual] (integer)
+* filter[sizeLessThanOrEqual] (integer)
+* filter[tagsLike] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[deletedAtGreaterThanOrEqual] (integer)
+* filter[deletedAtLessThanOrEqual] (integer)
+* filter[typeIn] (string)
+* filter[objectType] (string)
+* filter[formatEqual] (string) - Enum Type: `KalturaAttachmentType`
+* filter[formatIn] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaAttachmentAssetStatus`
+* filter[statusIn] (string)
+* filter[statusNotIn] (string)
+* filter[captionParamsIdEqual] (integer)
+* filter[captionParamsIdIn] (string)
+* filter[flavorParamsIdEqual] (integer)
+* filter[flavorParamsIdIn] (string)
+* filter[thumbParamsIdEqual] (integer)
+* filter[thumbParamsIdIn] (string)
+* filter[contentLike] (string)
+* filter[contentMultiLikeOr] (string)
+* filter[contentMultiLikeAnd] (string)
+* filter[partnerDescriptionLike] (string)
+* filter[partnerDescriptionMultiLikeOr] (string)
+* filter[partnerDescriptionMultiLikeAnd] (string)
+* filter[languageEqual] (string) - Enum Type: `KalturaLanguage`
+* filter[languageIn] (string)
+* filter[labelEqual] (string)
+* filter[labelIn] (string)
+* filter[startTimeGreaterThanOrEqual] (integer)
+* filter[startTimeLessThanOrEqual] (integer)
+* filter[endTimeGreaterThanOrEqual] (integer)
+* filter[endTimeLessThanOrEqual] (integer)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### thumbAsset.regenerate
 
@@ -15955,6 +25674,42 @@ Add new Thumb Params
 kaltura.thumbParams.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* thumbParams[partnerId] (integer)
+* thumbParams[name] (string) - The name of the Flavor Params
+* thumbParams[systemName] (string) - System name of the Flavor Params
+* thumbParams[description] (string) - The description of the Flavor Params
+* thumbParams[tags] (string) - The Flavor Params tags are used to identify the flavor for different usage (e.g. web, hd, mobile)
+* thumbParams[requiredPermissions] (array)
+* thumbParams[sourceRemoteStorageProfileId] (integer) - Id of remote storage profile that used to get the source, zero indicates Kaltura data center
+* thumbParams[remoteStorageProfileIds] (integer) - Comma seperated ids of remote storage profiles that the flavor distributed to, the distribution done by the conversion engine
+* thumbParams[mediaParserType] (string) - Enum Type: `KalturaMediaParserType`
+* thumbParams[sourceAssetParamsIds] (string) - Comma seperated ids of source flavor params this flavor is created from
+* thumbParams[cropType] (integer) - Enum Type: `KalturaThumbCropType`
+* thumbParams[quality] (integer)
+* thumbParams[cropX] (integer)
+* thumbParams[cropY] (integer)
+* thumbParams[cropWidth] (integer)
+* thumbParams[cropHeight] (integer)
+* thumbParams[videoOffset] (number)
+* thumbParams[width] (integer)
+* thumbParams[height] (integer)
+* thumbParams[scaleWidth] (number)
+* thumbParams[scaleHeight] (number)
+* thumbParams[backgroundColor] (string) - Hexadecimal value
+* thumbParams[sourceParamsId] (integer) - Id of the flavor params or the thumbnail params to be used as source for the thumbnail creation
+* thumbParams[format] (string) - Enum Type: `KalturaContainerFormat`
+* thumbParams[density] (integer) - The image density (dpi) for example: 72 or 96
+* thumbParams[stripProfiles] (boolean) - Strip profiles and comments
+* thumbParams[videoOffsetInPercentage] (integer) - Create thumbnail from the videoLengthpercentage second
+* thumbParams[objectType] (string)
+* thumbParams[thumbParamsId] (integer)
+* thumbParams[thumbParamsVersion] (string)
+* thumbParams[thumbAssetId] (string)
+* thumbParams[thumbAssetVersion] (string)
+* thumbParams[rotate] (integer)
 
 ### thumbParams.delete
 Delete Thumb Params by ID
@@ -16009,6 +25764,66 @@ List Thumb Params by filter with paging support (By default - all system default
 kaltura.thumbParams.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[isSystemDefaultEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[tagsEqual] (string)
+* filter[formatEqual] (string) - Enum Type: `KalturaContainerFormat`
+* filter[objectType] (string)
+* filter[thumbParamsIdEqual] (integer)
+* filter[thumbParamsVersionEqual] (string)
+* filter[thumbAssetIdEqual] (string)
+* filter[thumbAssetVersionEqual] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### thumbParams.update
 Update Thumb Params by ID
@@ -16081,6 +25896,65 @@ List thumb params output objects by filter and pager
 kaltura.thumbParamsOutput.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[isSystemDefaultEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[tagsEqual] (string)
+* filter[formatEqual] (string) - Enum Type: `KalturaContainerFormat`
+* filter[thumbParamsIdEqual] (integer)
+* filter[thumbParamsVersionEqual] (string)
+* filter[thumbAssetIdEqual] (string)
+* filter[thumbAssetVersionEqual] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### timeWarner.getFeed
 
@@ -16124,6 +25998,26 @@ UIConf Add action allows you to add a UIConf to Kaltura DB
 kaltura.uiConf.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* uiConf[name] (string) - Name of the uiConf, this is not a primary key
+* uiConf[description] (string)
+* uiConf[objType] (integer) - Enum Type: `KalturaUiConfObjType`
+* uiConf[width] (integer)
+* uiConf[height] (integer)
+* uiConf[htmlParams] (string)
+* uiConf[swfUrl] (string)
+* uiConf[confFile] (string)
+* uiConf[confFileFeatures] (string)
+* uiConf[config] (string)
+* uiConf[confVars] (string)
+* uiConf[useCdn] (boolean)
+* uiConf[tags] (string)
+* uiConf[swfUrlVersion] (string)
+* uiConf[creationMode] (integer) - Enum Type: `KalturaUiConfCreationMode`
+* uiConf[html5Url] (string)
+* uiConf[partnerTags] (string)
 
 ### uiConf.clone
 Clone an existing UIConf
@@ -16177,6 +26071,9 @@ Retrieve a list of all available versions by object type
 kaltura.uiConf.getAvailableTypes({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
 
 ### uiConf.list
 Retrieve a list of available UIConfs
@@ -16186,6 +26083,74 @@ Retrieve a list of available UIConfs
 kaltura.uiConf.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[nameLike] (string)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[objTypeEqual] (integer) - Enum Type: `KalturaUiConfObjType`
+* filter[objTypeIn] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[creationModeEqual] (integer) - Enum Type: `KalturaUiConfCreationMode`
+* filter[creationModeIn] (string)
+* filter[versionEqual] (string)
+* filter[versionMultiLikeOr] (string)
+* filter[versionMultiLikeAnd] (string)
+* filter[partnerTagsMultiLikeOr] (string)
+* filter[partnerTagsMultiLikeAnd] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### uiConf.listTemplates
 retrieve a list of available template UIConfs
@@ -16195,6 +26160,74 @@ retrieve a list of available template UIConfs
 kaltura.uiConf.listTemplates({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[nameLike] (string)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[objTypeEqual] (integer) - Enum Type: `KalturaUiConfObjType`
+* filter[objTypeIn] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[creationModeEqual] (integer) - Enum Type: `KalturaUiConfCreationMode`
+* filter[creationModeIn] (string)
+* filter[versionEqual] (string)
+* filter[versionMultiLikeOr] (string)
+* filter[versionMultiLikeAnd] (string)
+* filter[partnerTagsMultiLikeOr] (string)
+* filter[partnerTagsMultiLikeAnd] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### uiConf.update
 Update an existing UIConf
@@ -16280,6 +26313,11 @@ Adds new upload token to upload a file
 kaltura.uploadToken.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* uploadToken[fileName] (string) - `insertOnly`
+* uploadToken[fileSize] (number) - `insertOnly`
 
 ### uploadToken.delete
 Deletes the upload token by upload token id
@@ -16321,6 +26359,61 @@ When using a user session the service will be restricted to users objects only.
 kaltura.uploadToken.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string)
+* filter[idIn] (string)
+* filter[userIdEqual] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaUploadTokenStatus`
+* filter[statusIn] (string)
+* filter[fileNameEqual] (string)
+* filter[fileSizeEqual] (number)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### uploadToken.upload
 Upload a file using the upload token id, returns an error on failure (an exception will be thrown when using one of the Kaltura clients)
@@ -16368,6 +26461,37 @@ Input param $id is the unique identifier in the partner's system.
 kaltura.user.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* user[id] (string)
+* user[type] (integer) - Enum Type: `KalturaUserType`
+* user[screenName] (string)
+* user[fullName] (string)
+* user[email] (string)
+* user[dateOfBirth] (integer)
+* user[country] (string)
+* user[state] (string)
+* user[city] (string)
+* user[zip] (string)
+* user[thumbnailUrl] (string)
+* user[description] (string)
+* user[tags] (string)
+* user[adminTags] (string) - Admin tags can be updated only by using an admin session
+* user[gender] (integer) - Enum Type: `KalturaGender`
+* user[status] (integer) - Enum Type: `KalturaUserStatus`
+* user[partnerData] (string) - Can be used to store various partner related data as a string
+* user[indexedPartnerDataInt] (integer)
+* user[indexedPartnerDataString] (string)
+* user[password] (string) - `insertOnly` `writeOnly`
+* user[firstName] (string)
+* user[lastName] (string)
+* user[isAdmin] (boolean)
+* user[language] (string) - Enum Type: `KalturaLanguageCode`
+* user[roleIds] (string)
+* user[allowedPartnerIds] (string)
+* user[allowedPartnerPackages] (string)
+* user[objectType] (string)
 
 ### user.addFromBulkUpload
 
@@ -16395,6 +26519,53 @@ Action which checks whther user login
 kaltura.user.checkLoginDataExists({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[loginEmailEqual] (string)
 
 ### user.delete
 Deletes a user from a partner account.
@@ -16421,6 +26592,11 @@ You may use either a userId or a loginId parameter for this action.
 kaltura.user.disableLogin({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* userId (string) - The user's unique identifier in the partner's system
+* loginId (string) - The user's email address that identifies the user for login
 
 ### user.enableLogin
 Enables a user to log into a partner account using an email address and a password
@@ -16448,6 +26624,10 @@ Retrieves a user object for a specified user ID.
 kaltura.user.get({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* userId (string) - The user's unique identifier in the partner's system
 
 ### user.getByLoginId
 Retrieves a user object for a user's login ID and partner ID.
@@ -16494,6 +26674,81 @@ Deleted users are not listed unless you use a filter to include them.
 kaltura.user.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[partnerIdEqual] (integer)
+* filter[typeEqual] (integer) - Enum Type: `KalturaUserType`
+* filter[typeIn] (string)
+* filter[screenNameLike] (string)
+* filter[screenNameStartsWith] (string)
+* filter[emailLike] (string)
+* filter[emailStartsWith] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaUserStatus`
+* filter[statusIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[firstNameStartsWith] (string)
+* filter[lastNameStartsWith] (string)
+* filter[isAdminEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[idOrScreenNameStartsWith] (string)
+* filter[idEqual] (string)
+* filter[idIn] (string)
+* filter[loginEnabledEqual] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[roleIdEqual] (string)
+* filter[roleIdsEqual] (string)
+* filter[roleIdsIn] (string)
+* filter[firstNameOrLastNameStartsWith] (string)
+* filter[permissionNamesMultiLikeOr] (string) - Permission names filter expression
+* filter[permissionNamesMultiLikeAnd] (string) - Permission names filter expression
+* filter[objectType] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### user.login
 Logs a user into a partner account with a partner ID, a partner user ID (puser), and a user password.
@@ -16653,6 +26908,16 @@ Adds a user_entry to the Kaltura DB.
 kaltura.userEntry.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* userEntry[entryId] (string) - `insertOnly`
+* userEntry[userId] (string) - `insertOnly`
+* userEntry[extendedStatus] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* userEntry[objectType] (string)
+* userEntry[playbackContext] (string) - Playback context
+* userEntry[lastTimeReached] (integer) - Last playback time reached by user
+* userEntry[lastUpdateTime] (integer)
 
 ### userEntry.bulkDelete
 
@@ -16662,6 +26927,75 @@ kaltura.userEntry.add({}, context)
 kaltura.userEntry.bulkDelete({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[idNotIn] (string)
+* filter[entryIdEqual] (string)
+* filter[entryIdIn] (string)
+* filter[entryIdNotIn] (string)
+* filter[userIdEqual] (string)
+* filter[userIdIn] (string)
+* filter[userIdNotIn] (string)
+* filter[statusEqual] (string) - Enum Type: `KalturaUserEntryStatus`
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[typeEqual] (string) - Enum Type: `KalturaUserEntryType`
+* filter[extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[extendedStatusIn] (string)
+* filter[extendedStatusNotIn] (string)
+* filter[userIdEqualCurrent] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[isAnonymous] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[privacyContextEqual] (string)
+* filter[privacyContextIn] (string)
+* filter[objectType] (string)
 
 ### userEntry.delete
 
@@ -16701,6 +27035,77 @@ kaltura.userEntry.get({
 kaltura.userEntry.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[idNotIn] (string)
+* filter[entryIdEqual] (string)
+* filter[entryIdIn] (string)
+* filter[entryIdNotIn] (string)
+* filter[userIdEqual] (string)
+* filter[userIdIn] (string)
+* filter[userIdNotIn] (string)
+* filter[statusEqual] (string) - Enum Type: `KalturaUserEntryStatus`
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[typeEqual] (string) - Enum Type: `KalturaUserEntryType`
+* filter[extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[extendedStatusIn] (string)
+* filter[extendedStatusNotIn] (string)
+* filter[userIdEqualCurrent] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[isAnonymous] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[privacyContextEqual] (string)
+* filter[privacyContextIn] (string)
+* filter[objectType] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### userEntry.submitQuiz
 Submits the quiz so that it's status will be submitted and calculates the score for the quiz
@@ -16747,6 +27152,15 @@ Adds a new user role object to the account.
 kaltura.userRole.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* userRole[name] (string)
+* userRole[systemName] (string)
+* userRole[description] (string)
+* userRole[status] (integer) - Enum Type: `KalturaUserRoleStatus`
+* userRole[permissionNames] (string)
+* userRole[tags] (string)
 
 ### userRole.clone
 Creates a new user role object that is a duplicate of an existing role.
@@ -16805,6 +27219,71 @@ Deleted user roles are not listed unless you use a filter to include them.
 kaltura.userRole.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[nameEqual] (string)
+* filter[nameIn] (string)
+* filter[systemNameEqual] (string)
+* filter[systemNameIn] (string)
+* filter[descriptionLike] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaUserRoleStatus`
+* filter[statusIn] (string)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[tagsMultiLikeOr] (string)
+* filter[tagsMultiLikeAnd] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### userRole.update
 Updates an existing user role object.
@@ -16869,6 +27348,88 @@ Function which calulates partner usage of a group of a VAR's sub-publishers
 kaltura.varConsole.getPartnerUsage({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* partnerFilter[orderBy] (string)
+* partnerFilter[advancedSearch][objectType] (string)
+* partnerFilter[advancedSearch][value] (string)
+* partnerFilter[advancedSearch][categoriesMatchOr] (string)
+* partnerFilter[advancedSearch][categoryEntryStatusIn] (string)
+* partnerFilter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* partnerFilter[advancedSearch][categoryIdEqual] (integer)
+* partnerFilter[advancedSearch][memberIdEq] (string)
+* partnerFilter[advancedSearch][memberIdIn] (string)
+* partnerFilter[advancedSearch][memberPermissionsMatchOr] (string)
+* partnerFilter[advancedSearch][memberPermissionsMatchAnd] (string)
+* partnerFilter[advancedSearch][noDistributionProfiles] (boolean)
+* partnerFilter[advancedSearch][distributionProfileId] (integer)
+* partnerFilter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* partnerFilter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* partnerFilter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* partnerFilter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* partnerFilter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* partnerFilter[advancedSearch][contentLike] (string)
+* partnerFilter[advancedSearch][contentMultiLikeOr] (string)
+* partnerFilter[advancedSearch][contentMultiLikeAnd] (string)
+* partnerFilter[advancedSearch][cuePointsFreeText] (string)
+* partnerFilter[advancedSearch][cuePointTypeIn] (string)
+* partnerFilter[advancedSearch][cuePointSubTypeEqual] (integer)
+* partnerFilter[advancedSearch][watermarkId] (integer)
+* partnerFilter[advancedSearch][indexIdGreaterThan] (integer)
+* partnerFilter[advancedSearch][depthGreaterThanEqual] (integer)
+* partnerFilter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* partnerFilter[advancedSearch][field] (string)
+* partnerFilter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* partnerFilter[advancedSearch][items] (array)
+* partnerFilter[advancedSearch][idEqual] (string)
+* partnerFilter[advancedSearch][idIn] (string)
+* partnerFilter[advancedSearch][userIdEqual] (string)
+* partnerFilter[advancedSearch][userIdIn] (string)
+* partnerFilter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* partnerFilter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* partnerFilter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* partnerFilter[advancedSearch][extendedStatusIn] (string)
+* partnerFilter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* partnerFilter[advancedSearch][not] (boolean)
+* partnerFilter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* partnerFilter[advancedSearch][metadataProfileId] (integer)
+* partnerFilter[idEqual] (integer)
+* partnerFilter[idIn] (string)
+* partnerFilter[idNotIn] (string)
+* partnerFilter[nameLike] (string)
+* partnerFilter[nameMultiLikeOr] (string)
+* partnerFilter[nameMultiLikeAnd] (string)
+* partnerFilter[nameEqual] (string)
+* partnerFilter[statusEqual] (integer) - Enum Type: `KalturaPartnerStatus`
+* partnerFilter[statusIn] (string)
+* partnerFilter[partnerPackageEqual] (integer)
+* partnerFilter[partnerPackageGreaterThanOrEqual] (integer)
+* partnerFilter[partnerPackageLessThanOrEqual] (integer)
+* partnerFilter[partnerPackageIn] (string)
+* partnerFilter[partnerGroupTypeEqual] (integer) - Enum Type: `KalturaPartnerGroupType`
+* partnerFilter[partnerNameDescriptionWebsiteAdminNameAdminEmailLike] (string)
+* partnerFilter[objectType] (string)
+* partnerFilter[groupTypeEq] (integer) - Enum Type: `KalturaPartnerGroupType`
+* partnerFilter[groupTypeIn] (string) - In filter for the partner's group type
+* partnerFilter[partnerPermissionsExist] (string) - Filter for partner permissions- filter contains comma-separated string of permission names which the returned partners should have.
+* usageFilter[fromDate] (integer) - Start date as Unix timestamp (In seconds)
+* usageFilter[toDate] (integer) - End date as Unix timestamp (In seconds)
+* usageFilter[fromDay] (string) - Start day as string (YYYYMMDD)
+* usageFilter[toDay] (string) - End date as string (YYYYMMDD)
+* usageFilter[keywords] (string) - Search keywords to filter objects
+* usageFilter[searchInTags] (boolean) - Search keywords in onjects tags
+* usageFilter[searchInAdminTags] (boolean) - Search keywords in onjects admin tags
+* usageFilter[categories] (string) - Search onjects in specified categories
+* usageFilter[timeZoneOffset] (integer) - Time zone offset in minutes
+* usageFilter[interval] (string) - Enum Type: `KalturaReportInterval`
+* usageFilter[objectType] (string)
+* usageFilter[application] (string)
+* usageFilter[userIds] (string)
+* usageFilter[playbackContext] (string)
+* usageFilter[ancestorPlaybackContext] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### varConsole.updateStatus
 Function to change a sub-publisher's status
@@ -16895,6 +27456,166 @@ Allows you to add an virus scan profile object and virus scan profile content as
 kaltura.virusScanProfile.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* virusScanProfile[name] (string)
+* virusScanProfile[status] (integer) - Enum Type: `KalturaVirusScanProfileStatus`
+* virusScanProfile[engineType] (string) - Enum Type: `KalturaVirusScanEngineType`
+* virusScanProfile[entryFilter][orderBy] (string)
+* virusScanProfile[entryFilter][advancedSearch][objectType] (string)
+* virusScanProfile[entryFilter][advancedSearch][value] (string)
+* virusScanProfile[entryFilter][advancedSearch][categoriesMatchOr] (string)
+* virusScanProfile[entryFilter][advancedSearch][categoryEntryStatusIn] (string)
+* virusScanProfile[entryFilter][advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* virusScanProfile[entryFilter][advancedSearch][categoryIdEqual] (integer)
+* virusScanProfile[entryFilter][advancedSearch][memberIdEq] (string)
+* virusScanProfile[entryFilter][advancedSearch][memberIdIn] (string)
+* virusScanProfile[entryFilter][advancedSearch][memberPermissionsMatchOr] (string)
+* virusScanProfile[entryFilter][advancedSearch][memberPermissionsMatchAnd] (string)
+* virusScanProfile[entryFilter][advancedSearch][noDistributionProfiles] (boolean)
+* virusScanProfile[entryFilter][advancedSearch][distributionProfileId] (integer)
+* virusScanProfile[entryFilter][advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* virusScanProfile[entryFilter][advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* virusScanProfile[entryFilter][advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* virusScanProfile[entryFilter][advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* virusScanProfile[entryFilter][advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* virusScanProfile[entryFilter][advancedSearch][contentLike] (string)
+* virusScanProfile[entryFilter][advancedSearch][contentMultiLikeOr] (string)
+* virusScanProfile[entryFilter][advancedSearch][contentMultiLikeAnd] (string)
+* virusScanProfile[entryFilter][advancedSearch][cuePointsFreeText] (string)
+* virusScanProfile[entryFilter][advancedSearch][cuePointTypeIn] (string)
+* virusScanProfile[entryFilter][advancedSearch][cuePointSubTypeEqual] (integer)
+* virusScanProfile[entryFilter][advancedSearch][watermarkId] (integer)
+* virusScanProfile[entryFilter][advancedSearch][indexIdGreaterThan] (integer)
+* virusScanProfile[entryFilter][advancedSearch][depthGreaterThanEqual] (integer)
+* virusScanProfile[entryFilter][advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* virusScanProfile[entryFilter][advancedSearch][field] (string)
+* virusScanProfile[entryFilter][advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* virusScanProfile[entryFilter][advancedSearch][items] (array)
+* virusScanProfile[entryFilter][advancedSearch][idEqual] (string)
+* virusScanProfile[entryFilter][advancedSearch][idIn] (string)
+* virusScanProfile[entryFilter][advancedSearch][userIdEqual] (string)
+* virusScanProfile[entryFilter][advancedSearch][userIdIn] (string)
+* virusScanProfile[entryFilter][advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* virusScanProfile[entryFilter][advancedSearch][updatedAtLessThanOrEqual] (string)
+* virusScanProfile[entryFilter][advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* virusScanProfile[entryFilter][advancedSearch][extendedStatusIn] (string)
+* virusScanProfile[entryFilter][advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* virusScanProfile[entryFilter][advancedSearch][not] (boolean)
+* virusScanProfile[entryFilter][advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* virusScanProfile[entryFilter][advancedSearch][metadataProfileId] (integer)
+* virusScanProfile[entryFilter][idEqual] (string) - This filter should be in use for retrieving only a specific entry (identified by its entryId).
+* virusScanProfile[entryFilter][idIn] (string) - This filter should be in use for retrieving few specific entries (string should include comma separated list of entryId strings).
+* virusScanProfile[entryFilter][idNotIn] (string)
+* virusScanProfile[entryFilter][nameLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry names (no wildcards, spaces are treated as part of the string).
+* virusScanProfile[entryFilter][nameMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* virusScanProfile[entryFilter][nameMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* virusScanProfile[entryFilter][nameEqual] (string) - This filter should be in use for retrieving entries with a specific name.
+* virusScanProfile[entryFilter][partnerIdEqual] (integer) - This filter should be in use for retrieving only entries which were uploaded by/assigned to users of a specific Kaltura Partner (identified by Partner ID).
+* virusScanProfile[entryFilter][partnerIdIn] (string) - This filter should be in use for retrieving only entries within Kaltura network which were uploaded by/assigned to users of few Kaltura Partners  (string should include comma separated list of PartnerIDs)
+* virusScanProfile[entryFilter][userIdEqual] (string) - This filter parameter should be in use for retrieving only entries, uploaded by/assigned to a specific user (identified by user Id).
+* virusScanProfile[entryFilter][userIdIn] (string)
+* virusScanProfile[entryFilter][userIdNotIn] (string)
+* virusScanProfile[entryFilter][creatorIdEqual] (string)
+* virusScanProfile[entryFilter][tagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags (no wildcards, spaces are treated as part of the string).
+* virusScanProfile[entryFilter][tagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* virusScanProfile[entryFilter][tagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* virusScanProfile[entryFilter][adminTagsLike] (string) - This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags set by an ADMIN user (no wildcards, spaces are treated as part of the string).
+* virusScanProfile[entryFilter][adminTagsMultiLikeOr] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
+* virusScanProfile[entryFilter][adminTagsMultiLikeAnd] (string) - This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
+* virusScanProfile[entryFilter][categoriesMatchAnd] (string)
+* virusScanProfile[entryFilter][categoriesMatchOr] (string) - All entries within these categories or their child categories.
+* virusScanProfile[entryFilter][categoriesNotContains] (string)
+* virusScanProfile[entryFilter][categoriesIdsMatchAnd] (string)
+* virusScanProfile[entryFilter][categoriesIdsMatchOr] (string) - All entries of the categories, excluding their child categories.
+* virusScanProfile[entryFilter][categoriesIdsNotContains] (string)
+* virusScanProfile[entryFilter][categoriesIdsEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* virusScanProfile[entryFilter][statusEqual] (string) - Enum Type: `KalturaEntryStatus`
+* virusScanProfile[entryFilter][statusNotEqual] (string) - Enum Type: `KalturaEntryStatus`
+* virusScanProfile[entryFilter][statusIn] (string) - This filter should be in use for retrieving only entries, at few specific {
+* virusScanProfile[entryFilter][statusNotIn] (string) - This filter should be in use for retrieving only entries, not at few specific {
+* virusScanProfile[entryFilter][moderationStatusEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* virusScanProfile[entryFilter][moderationStatusNotEqual] (integer) - Enum Type: `KalturaEntryModerationStatus`
+* virusScanProfile[entryFilter][moderationStatusIn] (string)
+* virusScanProfile[entryFilter][moderationStatusNotIn] (string)
+* virusScanProfile[entryFilter][typeEqual] (string) - Enum Type: `KalturaEntryType`
+* virusScanProfile[entryFilter][typeIn] (string) - This filter should be in use for retrieving entries of few {
+* virusScanProfile[entryFilter][createdAtGreaterThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system after a specific time/date (standard timestamp format).
+* virusScanProfile[entryFilter][createdAtLessThanOrEqual] (integer) - This filter parameter should be in use for retrieving only entries which were created at Kaltura system before a specific time/date (standard timestamp format).
+* virusScanProfile[entryFilter][updatedAtGreaterThanOrEqual] (integer)
+* virusScanProfile[entryFilter][updatedAtLessThanOrEqual] (integer)
+* virusScanProfile[entryFilter][totalRankLessThanOrEqual] (integer)
+* virusScanProfile[entryFilter][totalRankGreaterThanOrEqual] (integer)
+* virusScanProfile[entryFilter][groupIdEqual] (integer)
+* virusScanProfile[entryFilter][searchTextMatchAnd] (string) - This filter should be in use for retrieving specific entries while search match the input string within all of the following metadata attributes: name, description, tags, adminTags.
+* virusScanProfile[entryFilter][searchTextMatchOr] (string) - This filter should be in use for retrieving specific entries while search match the input string within at least one of the following metadata attributes: name, description, tags, adminTags.
+* virusScanProfile[entryFilter][accessControlIdEqual] (integer)
+* virusScanProfile[entryFilter][accessControlIdIn] (string)
+* virusScanProfile[entryFilter][startDateGreaterThanOrEqual] (integer)
+* virusScanProfile[entryFilter][startDateLessThanOrEqual] (integer)
+* virusScanProfile[entryFilter][startDateGreaterThanOrEqualOrNull] (integer)
+* virusScanProfile[entryFilter][startDateLessThanOrEqualOrNull] (integer)
+* virusScanProfile[entryFilter][endDateGreaterThanOrEqual] (integer)
+* virusScanProfile[entryFilter][endDateLessThanOrEqual] (integer)
+* virusScanProfile[entryFilter][endDateGreaterThanOrEqualOrNull] (integer)
+* virusScanProfile[entryFilter][endDateLessThanOrEqualOrNull] (integer)
+* virusScanProfile[entryFilter][referenceIdEqual] (string)
+* virusScanProfile[entryFilter][referenceIdIn] (string)
+* virusScanProfile[entryFilter][replacingEntryIdEqual] (string)
+* virusScanProfile[entryFilter][replacingEntryIdIn] (string)
+* virusScanProfile[entryFilter][replacedEntryIdEqual] (string)
+* virusScanProfile[entryFilter][replacedEntryIdIn] (string)
+* virusScanProfile[entryFilter][replacementStatusEqual] (string) - Enum Type: `KalturaEntryReplacementStatus`
+* virusScanProfile[entryFilter][replacementStatusIn] (string)
+* virusScanProfile[entryFilter][partnerSortValueGreaterThanOrEqual] (integer)
+* virusScanProfile[entryFilter][partnerSortValueLessThanOrEqual] (integer)
+* virusScanProfile[entryFilter][rootEntryIdEqual] (string)
+* virusScanProfile[entryFilter][rootEntryIdIn] (string)
+* virusScanProfile[entryFilter][parentEntryIdEqual] (string)
+* virusScanProfile[entryFilter][entitledUsersEditMatchAnd] (string)
+* virusScanProfile[entryFilter][entitledUsersEditMatchOr] (string)
+* virusScanProfile[entryFilter][entitledUsersPublishMatchAnd] (string)
+* virusScanProfile[entryFilter][entitledUsersPublishMatchOr] (string)
+* virusScanProfile[entryFilter][tagsNameMultiLikeOr] (string)
+* virusScanProfile[entryFilter][tagsAdminTagsMultiLikeOr] (string)
+* virusScanProfile[entryFilter][tagsAdminTagsNameMultiLikeOr] (string)
+* virusScanProfile[entryFilter][tagsNameMultiLikeAnd] (string)
+* virusScanProfile[entryFilter][tagsAdminTagsMultiLikeAnd] (string)
+* virusScanProfile[entryFilter][tagsAdminTagsNameMultiLikeAnd] (string)
+* virusScanProfile[entryFilter][freeText] (string)
+* virusScanProfile[entryFilter][isRoot] (integer) - Enum Type: `KalturaNullableBoolean`
+* virusScanProfile[entryFilter][categoriesFullNameIn] (string)
+* virusScanProfile[entryFilter][categoryAncestorIdIn] (string) - All entries within this categoy or in child categories
+* virusScanProfile[entryFilter][redirectFromEntryId] (string) - The id of the original entry
+* virusScanProfile[entryFilter][objectType] (string)
+* virusScanProfile[entryFilter][lastPlayedAtGreaterThanOrEqual] (integer)
+* virusScanProfile[entryFilter][lastPlayedAtLessThanOrEqual] (integer)
+* virusScanProfile[entryFilter][durationLessThan] (integer)
+* virusScanProfile[entryFilter][durationGreaterThan] (integer)
+* virusScanProfile[entryFilter][durationLessThanOrEqual] (integer)
+* virusScanProfile[entryFilter][durationGreaterThanOrEqual] (integer)
+* virusScanProfile[entryFilter][durationTypeMatchOr] (string)
+* virusScanProfile[entryFilter][documentTypeEqual] (integer) - Enum Type: `KalturaDocumentType`
+* virusScanProfile[entryFilter][documentTypeIn] (string)
+* virusScanProfile[entryFilter][assetParamsIdsMatchOr] (string)
+* virusScanProfile[entryFilter][assetParamsIdsMatchAnd] (string)
+* virusScanProfile[entryFilter][mediaTypeEqual] (integer) - Enum Type: `KalturaMediaType`
+* virusScanProfile[entryFilter][mediaTypeIn] (string)
+* virusScanProfile[entryFilter][sourceTypeEqual] (string) - Enum Type: `KalturaSourceType`
+* virusScanProfile[entryFilter][sourceTypeNotEqual] (string) - Enum Type: `KalturaSourceType`
+* virusScanProfile[entryFilter][sourceTypeIn] (string)
+* virusScanProfile[entryFilter][sourceTypeNotIn] (string)
+* virusScanProfile[entryFilter][mediaDateGreaterThanOrEqual] (integer)
+* virusScanProfile[entryFilter][mediaDateLessThanOrEqual] (integer)
+* virusScanProfile[entryFilter][flavorParamsIdsMatchOr] (string)
+* virusScanProfile[entryFilter][flavorParamsIdsMatchAnd] (string)
+* virusScanProfile[entryFilter][limit] (integer)
+* virusScanProfile[entryFilter][externalSourceTypeEqual] (string) - Enum Type: `KalturaExternalMediaSourceType`
+* virusScanProfile[entryFilter][externalSourceTypeIn] (string)
+* virusScanProfile[entryFilter][isLive] (integer) - Enum Type: `KalturaNullableBoolean`
+* virusScanProfile[entryFilter][isRecordedEntryIdEmpty] (integer) - Enum Type: `KalturaNullableBoolean`
+* virusScanProfile[entryFilter][hasMediaServerHostname] (string)
 
 ### virusScanProfile.delete
 Mark the virus scan profile as deleted
@@ -16934,6 +27655,68 @@ List virus scan profile objects by filter and pager
 kaltura.virusScanProfile.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (integer)
+* filter[idIn] (string)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[partnerIdEqual] (integer)
+* filter[partnerIdIn] (string)
+* filter[nameEqual] (string)
+* filter[nameLike] (string)
+* filter[statusEqual] (integer) - Enum Type: `KalturaVirusScanProfileStatus`
+* filter[statusIn] (string)
+* filter[engineTypeEqual] (string) - Enum Type: `KalturaVirusScanEngineType`
+* filter[engineTypeIn] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### virusScanProfile.scan
 Scan flavor asset according to virus scan profile
@@ -17149,6 +27932,19 @@ SourceWidget is ignored.
 kaltura.widget.add({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* widget[sourceWidgetId] (string)
+* widget[entryId] (string)
+* widget[uiConfId] (integer)
+* widget[securityType] (integer) - Enum Type: `KalturaWidgetSecurityType`
+* widget[securityPolicy] (integer)
+* widget[partnerData] (string) - Can be used to store various partner related data as a string
+* widget[enforceEntitlement] (boolean) - Should enforce entitlement on feed entries
+* widget[privacyContext] (string) - Set privacy context for search entries that assiged to private and public categories within a category privacy context.
+* widget[addEmbedHtml5Support] (boolean) - Addes the HTML5 script line to the widget's embed code
+* widget[roles] (string)
 
 ### widget.clone
 Add widget based on existing widget.
@@ -17160,6 +27956,19 @@ Must provide valid sourceWidgetId
 kaltura.widget.clone({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* widget[sourceWidgetId] (string)
+* widget[entryId] (string)
+* widget[uiConfId] (integer)
+* widget[securityType] (integer) - Enum Type: `KalturaWidgetSecurityType`
+* widget[securityPolicy] (integer)
+* widget[partnerData] (string) - Can be used to store various partner related data as a string
+* widget[enforceEntitlement] (boolean) - Should enforce entitlement on feed entries
+* widget[privacyContext] (string) - Set privacy context for search entries that assiged to private and public categories within a category privacy context.
+* widget[addEmbedHtml5Support] (boolean) - Addes the HTML5 script line to the widget's embed code
+* widget[roles] (string)
 
 ### widget.get
 Get widget by id
@@ -17184,6 +27993,66 @@ Retrieve a list of available widget depends on the filter given
 kaltura.widget.list({}, context)
 ```
 
+#### Parameters
+* ks (string)
+* format (integer) - The format of the response
+* filter[orderBy] (string)
+* filter[advancedSearch][objectType] (string)
+* filter[advancedSearch][value] (string)
+* filter[advancedSearch][categoriesMatchOr] (string)
+* filter[advancedSearch][categoryEntryStatusIn] (string)
+* filter[advancedSearch][orderBy] (string) - Enum Type: `KalturaCategoryEntryAdvancedOrderBy`
+* filter[advancedSearch][categoryIdEqual] (integer)
+* filter[advancedSearch][memberIdEq] (string)
+* filter[advancedSearch][memberIdIn] (string)
+* filter[advancedSearch][memberPermissionsMatchOr] (string)
+* filter[advancedSearch][memberPermissionsMatchAnd] (string)
+* filter[advancedSearch][noDistributionProfiles] (boolean)
+* filter[advancedSearch][distributionProfileId] (integer)
+* filter[advancedSearch][distributionSunStatus] (integer) - Enum Type: `KalturaEntryDistributionSunStatus`
+* filter[advancedSearch][entryDistributionFlag] (integer) - Enum Type: `KalturaEntryDistributionFlag`
+* filter[advancedSearch][entryDistributionStatus] (integer) - Enum Type: `KalturaEntryDistributionStatus`
+* filter[advancedSearch][hasEntryDistributionValidationErrors] (boolean)
+* filter[advancedSearch][entryDistributionValidationErrors] (string) - Comma seperated validation error types
+* filter[advancedSearch][contentLike] (string)
+* filter[advancedSearch][contentMultiLikeOr] (string)
+* filter[advancedSearch][contentMultiLikeAnd] (string)
+* filter[advancedSearch][cuePointsFreeText] (string)
+* filter[advancedSearch][cuePointTypeIn] (string)
+* filter[advancedSearch][cuePointSubTypeEqual] (integer)
+* filter[advancedSearch][watermarkId] (integer)
+* filter[advancedSearch][indexIdGreaterThan] (integer)
+* filter[advancedSearch][depthGreaterThanEqual] (integer)
+* filter[advancedSearch][isQuiz] (integer) - Enum Type: `KalturaNullableBoolean`
+* filter[advancedSearch][field] (string)
+* filter[advancedSearch][type] (integer) - Enum Type: `KalturaSearchOperatorType`
+* filter[advancedSearch][items] (array)
+* filter[advancedSearch][idEqual] (string)
+* filter[advancedSearch][idIn] (string)
+* filter[advancedSearch][userIdEqual] (string)
+* filter[advancedSearch][userIdIn] (string)
+* filter[advancedSearch][updatedAtGreaterThanOrEqual] (string)
+* filter[advancedSearch][updatedAtLessThanOrEqual] (string)
+* filter[advancedSearch][extendedStatusEqual] (string) - Enum Type: `KalturaUserEntryExtendedStatus`
+* filter[advancedSearch][extendedStatusIn] (string)
+* filter[advancedSearch][comparison] (string) - Enum Type: `KalturaSearchConditionComparison`
+* filter[advancedSearch][not] (boolean)
+* filter[advancedSearch][attribute] (string) - Enum Type: `KalturaBaseEntryCompareAttribute`
+* filter[advancedSearch][metadataProfileId] (integer)
+* filter[idEqual] (string)
+* filter[idIn] (string)
+* filter[sourceWidgetIdEqual] (string)
+* filter[rootWidgetIdEqual] (string)
+* filter[partnerIdEqual] (integer)
+* filter[entryIdEqual] (string)
+* filter[uiConfIdEqual] (integer)
+* filter[createdAtGreaterThanOrEqual] (integer)
+* filter[createdAtLessThanOrEqual] (integer)
+* filter[updatedAtGreaterThanOrEqual] (integer)
+* filter[updatedAtLessThanOrEqual] (integer)
+* filter[partnerDataLike] (string)
+* pager[pageSize] (integer) - The number of objects to retrieve. (Default is 30, maximum page size is 500).
+* pager[pageIndex] (integer) - The page number for which {pageSize} of objects should be retrieved (Default is 1).
 
 ### widget.update
 Update exisiting widget

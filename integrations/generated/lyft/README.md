@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 lyft.GetCost({}, context).then(data => {
   console.log(data);
 })

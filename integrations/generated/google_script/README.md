@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_script.scripts.run({}, context).then(data => {
   console.log(data);
 })

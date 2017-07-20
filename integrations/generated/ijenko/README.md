@@ -21,7 +21,6 @@ let context = new datafire.Context({
   }
 })
 
-
 ijenko.Me.places({}, context).then(data => {
   console.log(data);
 })
@@ -73,6 +72,8 @@ Create a new *Place*.
 ijenko.Account.newPlace({}, context)
 ```
 
+#### Parameters
+* place (object)
 
 ### Account.tokens
 List the active *Tokens* on the account.
@@ -110,6 +111,8 @@ Get the list of *Users* of this *Account*.
 ijenko.Account.users({}, context)
 ```
 
+#### Parameters
+* embed-metadata (array) - Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
 
 ### Account.newUser
 Add a *User*.
@@ -706,6 +709,8 @@ List the *Places* to which the *Token* has access.
 ijenko.Me.places({}, context)
 ```
 
+#### Parameters
+* embed-metadata (array) - Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
 
 ### Places.get
 Get information about a *Place*.

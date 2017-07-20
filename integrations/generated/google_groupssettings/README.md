@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_groupssettings.groups.get({}, context).then(data => {
   console.log(data);
 })

@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 amazonaws_ecr.BatchCheckLayerAvailability({}, context).then(data => {
   console.log(data);
 })

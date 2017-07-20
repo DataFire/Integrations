@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_clouddebugger.debugger.debuggees.list({}, context).then(data => {
   console.log(data);
 })
@@ -74,6 +73,21 @@ have `is_disabled` set to `true`.
 google_clouddebugger.controller.debuggees.register({}, context)
 ```
 
+#### Parameters
+* body (object) - Request to register a debuggee.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
 
 ### controller.debuggees.breakpoints.list
 Returns the list of all active breakpoints for the debuggee.
@@ -160,6 +174,23 @@ Lists all the debuggees that the user can set breakpoints to.
 google_clouddebugger.debugger.debuggees.list({}, context)
 ```
 
+#### Parameters
+* clientVersion (string) - The client version making the call.
+* includeInactive (boolean) - When set to `true`, the result includes all debuggees. Otherwise, the
+* project (string) - Project number of a Google Cloud project whose debuggees to list.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
 
 ### debugger.debuggees.breakpoints.list
 Lists all breakpoints for the debuggee.

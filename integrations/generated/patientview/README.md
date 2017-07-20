@@ -29,6 +29,8 @@ Authenticate using username and password, returns token, which must be added to 
 patientview.logIn({}, context)
 ```
 
+#### Parameters
+* body (undefined)
 
 ### logOut
 Log Out
@@ -95,6 +97,8 @@ validatePatientManagement
 patientview.validatePatientManagement({}, context)
 ```
 
+#### Parameters
+* body (undefined)
 
 ### getPatientManagement
 getPatientManagement

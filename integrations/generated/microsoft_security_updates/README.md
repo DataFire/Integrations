@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 microsoft_security_updates.Updates.get({}, context).then(data => {
   console.log(data);
 })

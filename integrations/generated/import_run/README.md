@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 import_run.extractor.extractorId.cancel.post({}, context).then(data => {
   console.log(data);
 })

@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 furkot.trip.get({}, context).then(data => {
   console.log(data);
 })

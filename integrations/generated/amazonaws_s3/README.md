@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 amazonaws_s3.ListBuckets({}, context).then(data => {
   console.log(data);
 })
@@ -38,6 +37,8 @@ Returns a list of all buckets owned by the authenticated sender of the request.<
 amazonaws_s3.ListBuckets({}, context)
 ```
 
+#### Parameters
+* x-amz-security-token (string)
 
 ### DeleteBucket
 Deletes the bucket. All objects (including all object versions and Delete Markers) in the bucket must be deleted before the bucket itself can be deleted.<p>http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketDELETE.html</p>

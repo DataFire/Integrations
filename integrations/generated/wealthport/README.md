@@ -21,7 +21,6 @@ let context = new datafire.Context({
   }
 })
 
-
 wealthport.createSource({}, context).then(data => {
   console.log(data);
 })
@@ -48,6 +47,8 @@ Creates the specified Folder in the Data Inventory.
 wealthport.createFolder({}, context)
 ```
 
+#### Parameters
+* body (object) - Represents a folder to be created or updated.
 
 ### deleteFolder
 Deletes the specified Folder and all contained Sources from the Data Inventory.
@@ -158,6 +159,8 @@ Creates a new Order to be submitted.<p>Orders reference one or more Sources, e.g
 wealthport.createOrder({}, context)
 ```
 
+#### Parameters
+* body (object) - Represents an order to be created or updated.
 
 ### deleteOrder
 Deletes the specified Order.
@@ -278,6 +281,8 @@ Creates the specified Source.<p>Sources are either uploaded files or a reference
 wealthport.createSource({}, context)
 ```
 
+#### Parameters
+* body (object) - Represents a source to be created or updated.
 
 ### getUploadUrl
 Initiates a file upload and returns the URL where to upload the file to.<p>Calling this API generates a secure, unique and time-restricted URL where the file can be uploaded to. The URL is available in the <pre>Location</pre> HTTP header of the response. The temporal validity of the URL is available in the <pre>Cache-Control</pre> HTTP header of the response.Clients may perform a <pre>HTTP PUT</pre> request on the URL to upload the file using a form where a file <pre>sample.csv</pre> is passed as property <pre>file=sample.csv</pre>. For security reasons, clients must pass all HTTP headers as returned by the <pre>X-WP-Upload-Headers</pre> in the response, together with their values. This procedure ensures a secure, encrypted file upload.</p><p>Note that calling this API automatically generates a Source, there is no need to call the Create Source API.</p>

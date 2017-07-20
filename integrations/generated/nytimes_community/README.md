@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 nytimes_community.user_content.user.json.get({}, context).then(data => {
   console.log(data);
 })
@@ -38,6 +37,8 @@ Comments by Date
 nytimes_community.user_content.by_date.json.get({}, context)
 ```
 
+#### Parameters
+* date (string)
 
 ### user_content.recent.json.get
 Recent User Comments
@@ -56,6 +57,8 @@ Comments by URL
 nytimes_community.user_content.url.json.get({}, context)
 ```
 
+#### Parameters
+* url (string)
 
 ### user_content.user.json.get
 Comments by User
@@ -65,4 +68,6 @@ Comments by User
 nytimes_community.user_content.user.json.get({}, context)
 ```
 
+#### Parameters
+* userID (integer)
 

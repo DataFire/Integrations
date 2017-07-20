@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 nytimes_most_popular_api.mostemailed.section.time_period.json.get({}, context).then(data => {
   console.log(data);
 })

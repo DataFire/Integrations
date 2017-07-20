@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 nytimes_semantic_api.name.concept_type.specific_concept.json.get({}, context).then(data => {
   console.log(data);
 })

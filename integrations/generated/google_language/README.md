@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_language.documents.annotateText({}, context).then(data => {
   console.log(data);
 })
@@ -66,6 +65,21 @@ other properties.
 google_language.documents.analyzeEntities({}, context)
 ```
 
+#### Parameters
+* body (object) - The entity analysis request message.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
 
 ### documents.analyzeSentiment
 Analyzes the sentiment of the provided text.
@@ -75,6 +89,21 @@ Analyzes the sentiment of the provided text.
 google_language.documents.analyzeSentiment({}, context)
 ```
 
+#### Parameters
+* body (object) - The sentiment analysis request message.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
 
 ### documents.analyzeSyntax
 Analyzes the syntax of the text and provides sentence boundaries and
@@ -86,6 +115,21 @@ properties.
 google_language.documents.analyzeSyntax({}, context)
 ```
 
+#### Parameters
+* body (object) - The syntax analysis request message.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
 
 ### documents.annotateText
 A convenience method that provides all the features that analyzeSentiment,
@@ -96,4 +140,19 @@ analyzeEntities, and analyzeSyntax provide in one call.
 google_language.documents.annotateText({}, context)
 ```
 
+#### Parameters
+* body (object) - The request message for the text annotation API, which can perform multiple
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
 

@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 vatapi.vat_rates({}, context).then(data => {
   console.log(data);
 })
@@ -173,4 +172,6 @@ Retrieve all current EU VAT rates
 vatapi.vat_rates({}, context)
 ```
 
+#### Parameters
+* Response-Type (string) - The default response type is application/json if you would like to receive an XML response then set this to XML
 

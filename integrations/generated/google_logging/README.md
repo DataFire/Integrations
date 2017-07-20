@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_logging.monitoredResourceDescriptors.list({}, context).then(data => {
   console.log(data);
 })
@@ -64,6 +63,21 @@ Lists log entries. Use this method to retrieve log entries from Stackdriver Logg
 google_logging.entries.list({}, context)
 ```
 
+#### Parameters
+* body (object) - The parameters to ListLogEntries.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
 
 ### entries.write
 Writes log entries to Stackdriver Logging.
@@ -73,6 +87,21 @@ Writes log entries to Stackdriver Logging.
 google_logging.entries.write({}, context)
 ```
 
+#### Parameters
+* body (object) - The parameters to WriteLogEntries.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
 
 ### monitoredResourceDescriptors.list
 Lists the descriptors for monitored resource types used by Stackdriver Logging.
@@ -82,6 +111,22 @@ Lists the descriptors for monitored resource types used by Stackdriver Logging.
 google_logging.monitoredResourceDescriptors.list({}, context)
 ```
 
+#### Parameters
+* pageToken (string) - Optional. If present, then retrieve the next batch of results from the preceding call to this method. pageToken must be the value of nextPageToken from the previous response. The values of other method parameters should be identical to those in the previous call.
+* pageSize (integer) - Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of nextPageToken in the response indicates that more results might be available.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
 
 ### billingAccounts.logs.delete
 Deletes all the log entries in a log. The log reappears if it receives new entries. Log entries written shortly before the delete operation might not be deleted.

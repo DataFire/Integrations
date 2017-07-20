@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_fitness.users.dataSources.list({}, context).then(data => {
   console.log(data);
 })

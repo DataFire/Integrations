@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_youtube.videos.reportAbuse({}, context).then(data => {
   console.log(data);
 })
@@ -238,6 +237,16 @@ Uploads a channel banner image to YouTube. This method represents the first two 
 google_youtube.channelBanners.insert({}, context)
 ```
 
+#### Parameters
+* onBehalfOfContentOwner (string) - Note: This parameter is intended exclusively for YouTube content partners.
+* body (object) - A channel banner returned as the response to a channel_banner.insert call.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### channelSections.delete
 Deletes a channelSection.
@@ -1683,6 +1692,16 @@ Report abuse for a video.
 google_youtube.videos.reportAbuse({}, context)
 ```
 
+#### Parameters
+* onBehalfOfContentOwner (string) - Note: This parameter is intended exclusively for YouTube content partners.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### watermarks.set
 Uploads a watermark image to YouTube and sets it for a channel.

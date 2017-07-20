@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 gov_bc_ca_geocoder.addresses.outputFormat.get({}, context).then(data => {
   console.log(data);
 })

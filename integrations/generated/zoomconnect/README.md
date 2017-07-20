@@ -21,7 +21,6 @@ let context = new datafire.Context({
   }
 })
 
-
 zoomconnect.sms.send_bulk.post({}, context).then(data => {
   console.log(data);
 })
@@ -48,6 +47,8 @@ Transfers credits between two users in the same team. The <i>account email addre
 zoomconnect.transfer({}, context)
 ```
 
+#### Parameters
+* body (undefined) - WebServiceTransferCreditsRequest
 
 ### search
 Find a user for a particular email address
@@ -70,6 +71,8 @@ Creates a new sub-account in your team. The following fields are required <i>fir
 zoomconnect.account.user.put({}, context)
 ```
 
+#### Parameters
+* body (undefined) - WebServiceUser
 
 ### getUser
 Gets a user from a given user id
@@ -115,6 +118,8 @@ Creates a  contact
 zoomconnect.contacts.create.post({}, context)
 ```
 
+#### Parameters
+* body (undefined) - WebServiceContact
 
 ### contacts.contactId.delete
 Deletes a  contact
@@ -224,6 +229,8 @@ Returns context information for a single provided
 zoomconnect.context.lookup.get({}, context)
 ```
 
+#### Parameters
+* body (string)
 
 ### context.lookup.post
 Returns context information for a single provided
@@ -233,6 +240,8 @@ Returns context information for a single provided
 zoomconnect.context.lookup.post({}, context)
 ```
 
+#### Parameters
+* body (string)
 
 ### groups.all.get
 Returns all groups
@@ -251,6 +260,8 @@ Create a  group
 zoomconnect.groups.create.post({}, context)
 ```
 
+#### Parameters
+* body (undefined) - WebServiceGroup
 
 ### groups.groupId.delete
 Deletes a  group
@@ -360,6 +371,22 @@ Returns all messages
 zoomconnect.messages.all.get({}, context)
 ```
 
+#### Parameters
+* pageSize (integer) - number of elements to return at a time
+* page (integer) - page number
+* type (string) - filter by message type
+* status (string) - filter by message status
+* fromDateTimeSent (string) - date format: yyyyMMdd
+* toDateTimeSent (string) - date format: yyyyMMdd
+* fromDateTimeReceived (string) - date format: yyyyMMdd
+* toDateTimeReceived (string) - date format: yyyyMMdd
+* fromNumber (string) - phone number the message was sent from
+* toNumber (string) - phone number the message was sent to
+* message (string) - search matching message text
+* campaign (string) - search by campaign
+* dataField (string) - search by data field
+* deleted (boolean) - return only deleted / not deleted messages
+* read (boolean) - return only read / unread messages (inbox messages only)
 
 ### messages.messageId.delete
 Deletes a  message
@@ -456,6 +483,8 @@ Sends a single message. The <i>recipientNumber</i> and <i>message</i> fields are
 zoomconnect.sms.send.post({}, context)
 ```
 
+#### Parameters
+* body (undefined) - WebServiceSendSmsRequest
 
 ### sms.send_bulk.get
 Returns an example of the data to POST to send multiple messages in one transaction.
@@ -474,6 +503,8 @@ Send multiple messages in one transaction.
 zoomconnect.sms.send_bulk.post({}, context)
 ```
 
+#### Parameters
+* body (undefined) - WebServiceSendSmsRequests
 
 ### sms.send_url_parameters.get
 Send a single message using URL parameters.The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional.

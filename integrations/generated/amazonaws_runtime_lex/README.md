@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 amazonaws_runtime_lex.PostContent({}, context).then(data => {
   console.log(data);
 })

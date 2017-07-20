@@ -1,18 +1,18 @@
-# @datafire/hacker-news.firebaseio.com
+# @datafire/hacker_news
 
 Client library for Hacker News
 
 ## Installation and Usage
 ```bash
-npm install --save datafire @datafire/hacker-news.firebaseio.com
+npm install --save datafire @datafire/hacker_news
 ```
 
 ```js
 let datafire = require('datafire');
-let hacker-news.firebaseio.com = require('@datafire/hacker-news.firebaseio.com').actions;
+let hacker_news = require('@datafire/hacker_news').actions;
 let context = new datafire.Context();
 
-hacker-news.firebaseio.com.getStories({}, context).then(data => {
+hacker_news.getStories({}, context).then(data => {
   console.log(data);
 })
 ```
@@ -26,16 +26,18 @@ Get an up-to-date list of stories for the given type
 
 
 ```js
-hacker-news.firebaseio.com.getStories({}, context)
+hacker_news.getStories({}, context)
 ```
 
+#### Parameters
+* storyType (string) - The type of stories to retrieve
 
 ### getItem
 Get details for a given item
 
 
 ```js
-hacker-news.firebaseio.com.getItem({
+hacker_news.getItem({
   "itemID": 0
 }, context)
 ```
@@ -48,7 +50,7 @@ Get details for a given user
 
 
 ```js
-hacker-news.firebaseio.com.getUser({
+hacker_news.getUser({
   "username": ""
 }, context)
 ```

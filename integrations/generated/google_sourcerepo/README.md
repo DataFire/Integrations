@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_sourcerepo.projects.repos.delete({}, context).then(data => {
   console.log(data);
 })

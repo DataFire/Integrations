@@ -175,6 +175,9 @@ Finds all FeaturedListingPicker in scope active.
 etsy.homepages.pickers.get({}, context)
 ```
 
+#### Parameters
+* limit (undefined)
+* offset (undefined)
 
 ### homepages.pickers.featured_listing_picker_id.get
 Retrieves a FeaturedListingPicker by id.
@@ -242,6 +245,9 @@ Finds all FeaturedListings regardless of Listing state
 etsy.homepages.listings.get({}, context)
 ```
 
+#### Parameters
+* limit (undefined)
+* offset (undefined)
 
 ### homepages.listings.active.get
 Finds all FeaturedListings that point to active Listings
@@ -251,6 +257,9 @@ Finds all FeaturedListings that point to active Listings
 etsy.homepages.listings.active.get({}, context)
 ```
 
+#### Parameters
+* limit (undefined)
+* offset (undefined)
 
 ### homepages.listings.featured_listing_id.get
 Retrieves a FeaturedListing by id.
@@ -468,6 +477,19 @@ Finds all active Listing
 etsy.listings.active.get({}, context)
 ```
 
+#### Parameters
+* limit (undefined)
+* offset (undefined)
+* keywords (undefined)
+* sort_on (undefined)
+* sort_order (undefined)
+* min_price (undefined)
+* max_price (undefined)
+* color (undefined)
+* color_accuracy (undefined)
+* tags (undefined)
+* materials (undefined)
+* category (undefined)
 
 ### shops.shop_id.listings.active.get
 Finds all active Listings associated with a Shop
@@ -925,6 +947,10 @@ Finds all Shops. If there is a keywords parameter, finds shops with shop_name st
 etsy.shops.get({}, context)
 ```
 
+#### Parameters
+* shop_name (undefined)
+* limit (undefined)
+* offset (undefined)
 
 ### shops.shop_id.listings.featured.get
 Retrieves Listings associated to a Shop that are featured
@@ -1081,6 +1107,9 @@ Creates a new ShopSection.
 etsy.sections.post({}, context)
 ```
 
+#### Parameters
+* title (undefined)
+* user_id (undefined)
 
 ### categories.tag.get
 Retrieves a top-level Category by tag.
@@ -1172,6 +1201,8 @@ Retrieves all related tags for the given tag set.
 etsy.taxonomy.tags.get({}, context)
 ```
 
+#### Parameters
+* limit (undefined)
 
 ### taxonomy.tags.tags.get
 Retrieves all related tags for the given tag set.
@@ -1221,6 +1252,14 @@ Search Treasuries or else List all Treasuries
 etsy.treasuries.get({}, context)
 ```
 
+#### Parameters
+* keywords (undefined)
+* sort_on (undefined)
+* sort_order (undefined)
+* maturity (undefined)
+* detail_level (undefined)
+* limit (undefined)
+* offset (undefined)
 
 ### users.user_id.treasuries.get
 Get a user's Treasuries
@@ -1531,6 +1570,19 @@ Creates a new PaymentTemplate
 etsy.payments.templates.post({}, context)
 ```
 
+#### Parameters
+* allow_check (undefined)
+* allow_mo (undefined)
+* allow_other (undefined)
+* allow_paypal (undefined)
+* paypal_email (undefined)
+* name (undefined)
+* first_line (undefined)
+* second_line (undefined)
+* city (undefined)
+* state (undefined)
+* zip (undefined)
+* country_id (undefined)
 
 ### payments.listing_payment_id.get
 Retrieves a ListingPayment by id.
@@ -1553,6 +1605,10 @@ Upload a new user avatar image
 etsy.users.user_id.avatar.post({}, context)
 ```
 
+#### Parameters
+* src (undefined)
+* image (undefined)
+* user_id (undefined)
 
 ### users.user_id.avatar.src.get
 Get avatar image source
@@ -1562,6 +1618,8 @@ Get avatar image source
 etsy.users.user_id.avatar.src.get({}, context)
 ```
 
+#### Parameters
+* user_id (undefined)
 
 ### users.user_id.addresses.user_address_id.get
 Retrieves a UserAddress by id.
@@ -1617,6 +1675,9 @@ Finds all FeaturedUser.
 etsy.featured.users.get({}, context)
 ```
 
+#### Parameters
+* limit (undefined)
+* offset (undefined)
 
 ### featured.users.featured_user_id.get
 Retrieves a FeaturedUser by id.

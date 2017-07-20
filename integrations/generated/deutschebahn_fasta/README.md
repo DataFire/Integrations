@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 deutschebahn_fasta.findFacilities({}, context).then(data => {
   console.log(data);
 })
@@ -39,6 +38,10 @@ Returns information about disruptions of facilities filtered by parameters.
 deutschebahn_fasta.findDisruptions({}, context)
 ```
 
+#### Parameters
+* type (array) - type of the facility to filter by
+* equipmentnumber (integer) - equipmentnumber of the facility to fetch
+* stationnumber (integer) - stationnumber of the station to fetch
 
 ### findDisruptionByDisruptionNumber
 Returns information about a specific disruption of a facility
@@ -61,6 +64,12 @@ Access to public facilities (escalators and elevators) in railway stations
 deutschebahn_fasta.findFacilities({}, context)
 ```
 
+#### Parameters
+* type (array) - type of the facility to filter by
+* state (array) - the state of the facility to filter by
+* equipmentnumbers (array) - equipmentnumbers of the facility to filter by
+* stationnumber (integer) - station number to filter by
+* area (array) - Geo coordinate rectangle in WGS84-format to filter by. Parameters must be 4 numbers exactly as follows: longitudeWest, latitudeSouth, longitudeEast, latitudeNorth.
 
 ### getFacilityByEquipmentNumber
 Returns the facility identified by its equipmentnumber

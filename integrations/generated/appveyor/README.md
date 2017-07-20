@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 appveyor.encryptValue({}, context).then(data => {
   console.log(data);
 })

@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_adexchangebuyer.proposals.search({}, context).then(data => {
   console.log(data);
 })
@@ -64,6 +63,14 @@ Retrieves the authenticated user's list of accounts.
 google_adexchangebuyer.accounts.list({}, context)
 ```
 
+#### Parameters
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### accounts.get
 Gets one account by ID.
@@ -137,6 +144,14 @@ Retrieves a list of billing information for all accounts of the authenticated us
 google_adexchangebuyer.billingInfo.list({}, context)
 ```
 
+#### Parameters
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### billingInfo.get
 Returns the billing information for one account specified by account ID.
@@ -234,6 +249,20 @@ Retrieves a list of the authenticated user's active creatives. A creative will b
 google_adexchangebuyer.creatives.list({}, context)
 ```
 
+#### Parameters
+* accountId (array) - When specified, only creatives for the given account ids are returned.
+* buyerCreativeId (array) - When specified, only creatives for the given buyer creative ids are returned.
+* dealsStatusFilter (string) - When specified, only creatives having the given deals status are returned.
+* maxResults (integer) - Maximum number of entries returned on one result page. If not set, the default is 100. Optional.
+* openAuctionStatusFilter (string) - When specified, only creatives having the given open auction status are returned.
+* pageToken (string) - A continuation token, used to page through ad clients. To retrieve the next page, set this parameter to the value of "nextPageToken" from the previous response. Optional.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### creatives.insert
 Submit a new creative.
@@ -243,6 +272,15 @@ Submit a new creative.
 google_adexchangebuyer.creatives.insert({}, context)
 ```
 
+#### Parameters
+* body (object) - A creative and its classification data.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### creatives.get
 Gets the status for a single creative. A creative will be available 30-40 minutes after submission.
@@ -522,6 +560,15 @@ Gets the requested product.
 google_adexchangebuyer.products.search({}, context)
 ```
 
+#### Parameters
+* pqlQuery (string) - The pql query used to query for products.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### products.get
 Gets the requested product by id.
@@ -551,6 +598,15 @@ Create the given list of proposals
 google_adexchangebuyer.proposals.insert({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### proposals.search
 Search for proposals using pql query
@@ -560,6 +616,15 @@ Search for proposals using pql query
 google_adexchangebuyer.proposals.search({}, context)
 ```
 
+#### Parameters
+* pqlQuery (string) - Query string to retrieve specific proposals.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### proposals.get
 Get a proposal given its id

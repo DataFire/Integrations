@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 amazonaws_ds.AddIpRoutes({}, context).then(data => {
   console.log(data);
 })

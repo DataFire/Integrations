@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_firebaserules.projects.releases.delete({}, context).then(data => {
   console.log(data);
 })

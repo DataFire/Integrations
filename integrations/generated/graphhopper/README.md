@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 graphhopper.postVrp({}, context).then(data => {
   console.log(data);
 })

@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 core_ac_uk.getArticleByCoreIdBatch({}, context).then(data => {
   console.log(data);
 })

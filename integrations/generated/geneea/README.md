@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 geneea.topicPost({}, context).then(data => {
   console.log(data);
 })
@@ -122,6 +121,12 @@ geneea.getInfo(null, context)
 geneea.correctionGet({}, context)
 ```
 
+#### Parameters
+* text (string) - raw document text
+* url (string) - document URL
+* extractor (string) - document extractor
+* language (string) - document language
+* returnTextInfo (boolean)
 
 ### correctionPost
 <strong>Notes:</strong><br/>Valid JSON cannot contain newline characters. These have to be escaped. (See also <a href="https://geneea.atlassian.net/wiki/display/IPD/The+Interpretor+API+Public+Documentation#TheInterpretorAPIPublicDocumentation-Interactiveonlinedocumentation" target="_blank">Interpretor documentation</a>)<br/>Fields <code>text</code> and <code>url</code> are mutually exclusive.<br/><strong>Examples:</strong><pre><code>{"text": "Hello world!"}</code></pre><pre><code>{"url": "https://en.wikipedia.org/wiki/Pyrrhuloxia"}</code></pre><br/><strong>Possible options:</strong><p class="markdown">An optional parameter <code>diacritize</code> with values <code>yes</code>, <code>no</code> or <code>auto</code> indicate whether the text diacritization will be performed. The default value is <code>auto</code>.</p>
@@ -131,6 +136,8 @@ geneea.correctionGet({}, context)
 geneea.correctionPost({}, context)
 ```
 
+#### Parameters
+* body (undefined) - Request encapsulation for simple API version 1
 
 ### entitiesGet
 entitiesGet
@@ -140,6 +147,12 @@ entitiesGet
 geneea.entitiesGet({}, context)
 ```
 
+#### Parameters
+* text (string) - raw document text
+* url (string) - document URL
+* extractor (string) - document extractor
+* language (string) - document language
+* returnTextInfo (boolean)
 
 ### entitiesPost
 <strong>Notes:</strong><br/>Valid JSON cannot contain newline characters. These have to be escaped. (See also <a href="https://geneea.atlassian.net/wiki/display/IPD/The+Interpretor+API+Public+Documentation#TheInterpretorAPIPublicDocumentation-Interactiveonlinedocumentation" target="_blank">Interpretor documentation</a>)<br/>Fields <code>text</code> and <code>url</code> are mutually exclusive.<br/><strong>Examples:</strong><pre><code>{"text": "Hello world!"}</code></pre><pre><code>{"url": "https://en.wikipedia.org/wiki/Pyrrhuloxia"}</code></pre>
@@ -149,6 +162,8 @@ geneea.entitiesGet({}, context)
 geneea.entitiesPost({}, context)
 ```
 
+#### Parameters
+* body (undefined) - Request encapsulation for simple API version 1
 
 ### lemmatizeGet
 lemmatizeGet
@@ -158,6 +173,12 @@ lemmatizeGet
 geneea.lemmatizeGet({}, context)
 ```
 
+#### Parameters
+* text (string) - raw document text
+* url (string) - document URL
+* extractor (string) - document extractor
+* language (string) - document language
+* returnTextInfo (boolean)
 
 ### lemmatizePost
 <strong>Notes:</strong><br/>Valid JSON cannot contain newline characters. These have to be escaped. (See also <a href="https://geneea.atlassian.net/wiki/display/IPD/The+Interpretor+API+Public+Documentation#TheInterpretorAPIPublicDocumentation-Interactiveonlinedocumentation" target="_blank">Interpretor documentation</a>)<br/>Fields <code>text</code> and <code>url</code> are mutually exclusive.<br/><strong>Examples:</strong><pre><code>{"text": "Hello world!"}</code></pre><pre><code>{"url": "https://en.wikipedia.org/wiki/Pyrrhuloxia"}</code></pre>
@@ -167,6 +188,8 @@ geneea.lemmatizeGet({}, context)
 geneea.lemmatizePost({}, context)
 ```
 
+#### Parameters
+* body (undefined) - Request encapsulation for simple API version 1
 
 ### sentimentGet
 sentimentGet
@@ -176,6 +199,12 @@ sentimentGet
 geneea.sentimentGet({}, context)
 ```
 
+#### Parameters
+* text (string) - raw document text
+* url (string) - document URL
+* extractor (string) - document extractor
+* language (string) - document language
+* returnTextInfo (boolean)
 
 ### sentimentPost
 <strong>Notes:</strong><br/>Valid JSON cannot contain newline characters. These have to be escaped. (See also <a href="https://geneea.atlassian.net/wiki/display/IPD/The+Interpretor+API+Public+Documentation#TheInterpretorAPIPublicDocumentation-Interactiveonlinedocumentation" target="_blank">Interpretor documentation</a>)<br/>Fields <code>text</code> and <code>url</code> are mutually exclusive.<br/><strong>Examples:</strong><pre><code>{"text": "Hello world!"}</code></pre><pre><code>{"url": "https://en.wikipedia.org/wiki/Pyrrhuloxia"}</code></pre>
@@ -185,6 +214,8 @@ geneea.sentimentGet({}, context)
 geneea.sentimentPost({}, context)
 ```
 
+#### Parameters
+* body (undefined) - Request encapsulation for simple API version 1
 
 ### topicGet
 topicGet
@@ -194,6 +225,12 @@ topicGet
 geneea.topicGet({}, context)
 ```
 
+#### Parameters
+* text (string) - raw document text
+* url (string) - document URL
+* extractor (string) - document extractor
+* language (string) - document language
+* returnTextInfo (boolean)
 
 ### topicPost
 <strong>Notes:</strong><br/>Valid JSON cannot contain newline characters. These have to be escaped. (See also <a href="https://geneea.atlassian.net/wiki/display/IPD/The+Interpretor+API+Public+Documentation#TheInterpretorAPIPublicDocumentation-Interactiveonlinedocumentation" target="_blank">Interpretor documentation</a>)<br/>Fields <code>text</code> and <code>url</code> are mutually exclusive.<br/><strong>Examples:</strong><pre><code>{"text": "Hello world!"}</code></pre><pre><code>{"url": "https://en.wikipedia.org/wiki/Pyrrhuloxia"}</code></pre>
@@ -203,4 +240,6 @@ geneea.topicGet({}, context)
 geneea.topicPost({}, context)
 ```
 
+#### Parameters
+* body (undefined) - Request encapsulation for simple API version 1
 

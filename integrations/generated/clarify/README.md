@@ -29,6 +29,10 @@ Gets the list of bundles. Links to each item are in the _links with link relatio
 clarify.v1.bundles.get({}, context)
 ```
 
+#### Parameters
+* limit (integer) - limit results to specified number of bundles. Default is 10. Max 100.
+* embed (string) - list of link relations to embed in the result collection. Zero or more of: items, tracks, metadata, insights. List is space or comma separated single string or an array of strings
+* iterator (string) - optional opaque value, automatically provided in next/prev links, or literal "first", "last"
 
 ### v1.bundles.post
 Create a new bundle with the specified name, media url, and optional JSON metadata.<br/><br/><b>name</b> can be any string you wish to associate with the bundle.<br/><br/><b>media_url</b> must be a publicly accessible url to a media file. It will be fetched asynchronously after the REST call returns. The audio can be mono or stereo.<br/><br/><b>audio_channel</b> is used to specify audio channels if the media is a stereo file. A value of <i>left</i> or <i>right</i> signifies that only the specified channel will be used. If no value or an empty string is specified for <b>audio_channel</b>, all channels will be used in a single track. If your stereo channels were recorded separately with each channel containing distinct content (for example if 2 legs of a phone call were recorded separately and combined into a single stereo file), for best speech recognition, create two tracks, with <b>audio_channel</b> set to <i>left</i> and <i>right</i> in each track respectively. If your stereo file is simply a recording made with a stereo microphone, <b>audio_channel</b> should be set to an empty string (or not be specified.) If you have audio channels as separate media files, after creating the bundle with one <b>media_url</b>, POST another <b>media_url</b> to /bundles/{bundle_id}/tracks.<br/><br/><b>audio_language</b> can be used to specify the language of the audio media. This is an optional parameter and if not specified or an empty string, the language of the track will be automatically detected. If specified, it must be a language code as described in RFC5646 (see <a href="http://tools.ietf.org/html/rfc5646" target="_blank">http://tools.ietf.org/html/rfc5646</a>). Supported languages: en-US, en-UK, es, fr.<br/><br/><b>label</b> is a short name for the track.<br/><br/><b>metadata</b> is a single-level JSON object of your own definition, containing key-values that can be searched and filtered on. Metadata can be used to hold text such as names, titles, descriptions and values for segregating bundles, for example by user, topic, folder name etc. The keys (property names) can be up to 64 characters and must contain only alphanumeric characters and underscore (but not start with underscore) and must not be a reserved name. Reserved names are &quot;true&quot;, &quot;false&quot;, and &quot;null&quot;. Values can be strings, numbers, boolean true/false, date-times represented as a string in ISO 8601 format (ex. &quot;2014-02-25T14:23:45.000Z&quot;), or an array of these primitive types. Strings can be up to 2000 characters and strings in arrays can be up to 128 characters each. Nested objects are not allowed. Metadata can contain up to 50 key-value pairs up to a total JSON size of 4000 characters.<br/><br/><b>start_time</b> a time in seconds that the media starts, relative to start time of the bundle. This allows you to specify sequential parts of media. If not specified, the default is 0.<br/><br/><b>parts_pending</b> a boolean flag specifying if more media parts will subsequently be added to the track. If true, a subsequent API call must be made to signify that the track is complete. If not specified, the default is false.<br/><br/><b>external_id</b> is an optional parameter that can be used to logically link a bundle to an item in an external system. The <b>external_id</b> can be whatever you use to identify items in your own database.<br/><br/><b>notify_url</b> is a webhook. It must be a publicly accessible url (http or https) on your server to which notifications for the bundle will be POSTed. There are three types of notifications: Track Notifications, Insight Notifications and Bundle Notifications. For more information on the content of notifications and when they are sent, see the <a href="http://docs.clarify.io/overview/#notifications" target="clarify">notification docs page</a>.<br/><br/>If a track was created along with the budle, the link relation <b>clarify:track</b> will be included with a link to the new track.
@@ -38,6 +42,17 @@ Create a new bundle with the specified name, media url, and optional JSON metada
 clarify.v1.bundles.post({}, context)
 ```
 
+#### Parameters
+* name (string) - Name of the bundle. Up to 128 characters.
+* media_url (string) - URL of a media (audio or video) file for this bundle. Up to 2083 characters.
+* audio_channel (string) - The audio channel to use for the track ( "" | left | right ). Default is empty string which means all channels of audio in the media file are used for the track.
+* audio_language (string) - Language of the audio in the track, specified with an RFC5646 code.
+* start_time (number) - Time offset in seconds that the media starts relative to the bundle. Default is 0.
+* parts_pending (boolean) - Set to true if more media parts will be added to the track. Default is false.
+* label (string) - Label for the track (if media_url is specified.) Up to 128 characters.
+* metadata (string) - User-defined JSON data associated with the bundle. Must be valid JSON, up to 4000 characters.
+* notify_url (string) - URL for notifications on this bundle. Up to 2083 characters.
+* external_id (string) - A string that can refer to an item in an external system. Up to 64 characters.
 
 ### v1.bundles.bundle_id.delete
 Delete a bundle and its related metadata and tracks. This will only delete media stored on Clarify systems and not delete the source media on remote systems.<br/><br/>Successful response will be a HTTP code 204 with an empty body.
@@ -325,4 +340,12 @@ Searches the bundles and returns a list of matching bundles, along with what mat
 clarify.v1search({}, context)
 ```
 
+#### Parameters
+* query (string) - search terms, typically as typed into a search field. Up to 120 characters.
+* query_fields (string) - list of insights, metadata, and bundle fields to search with the query. Use insights.spoken_words for searching audio, metadata.* for all metadata fields, bundle.* for all bundle fields, * for audio and all fields. Default is insights.spoken_words and metadata.*. List is space or comma separated single string or an array of strings. If single string, up to 1024 characters.
+* filter (string) - filter expression, typically programmatically generated based on input controls and data segregation rules etc. Up to 500 characters.
+* language (string) - Language to search in, specified with an RFC5646 code. Default is "en"
+* limit (integer) - limit results to specified number of bundles. Default is 10. Max 100.
+* embed (string) - list of link relations to embed in the result collection. Zero or more of: items, tracks, metadata, insights. List is space or comma separated single string or an array of strings
+* iterator (string) - opaque value, automatically provided in next/prev links
 

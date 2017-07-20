@@ -21,7 +21,6 @@ let context = new datafire.Context({
   }
 })
 
-
 tfl_gov_uk.Line_Route({}, context).then(data => {
   console.log(data);
 })
@@ -258,6 +257,8 @@ Get all valid routes for all lines, including the name and id of the originating
 tfl_gov_uk.Line_Route({}, context)
 ```
 
+#### Parameters
+* serviceTypes (array) - A comma seperated list of service types to filter on. If not specified. Supported values: Regular, Night. Defaulted to 'Regular' if not specified
 
 ### Line_Search
 Search for lines or routes matching the query string

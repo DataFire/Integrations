@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 tumblr.user.following.get({}, context).then(data => {
   console.log(data);
 })
@@ -249,6 +248,11 @@ Use this method to retrieve the dashboard that matches the OAuth credentials sub
 tumblr.user.dashboard.get({}, context)
 ```
 
+#### Parameters
+* limit (integer) - The number of results to return: 1–20, inclusive
+* offset (integer) - Post number to start at.
+* type (string) - The type of post to return.
+* since_id (integer) - Return posts that have appeared after this ID. Use this parameter to page through the results: first get a set of posts, and then get posts since the last ID of the previous set.
 
 ### user.likes.get
 Use this method to retrieve the liked posts that match the OAuth credentials submitted with the request.
@@ -258,6 +262,9 @@ Use this method to retrieve the liked posts that match the OAuth credentials sub
 tumblr.user.likes.get({}, context)
 ```
 
+#### Parameters
+* limit (integer) - The number of results to return: 1–20, inclusive
+* offset (integer) - Liked post number to start at.
 
 ### user.following.get
 Use this method to retrieve the blogs followed by the user whose OAuth credentials are submitted with the request.
@@ -267,6 +274,9 @@ Use this method to retrieve the blogs followed by the user whose OAuth credentia
 tumblr.user.following.get({}, context)
 ```
 
+#### Parameters
+* limit (integer) - The number of results to return: 1–20, inclusive
+* offset (integer) - Result number to start at.
 
 ### user.follow.post
 Follow a blog.

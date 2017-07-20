@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 squareup.ListCustomers({}, context).then(data => {
   console.log(data);
 })
@@ -64,6 +63,8 @@ Lists a business's customers.
 squareup.ListCustomers({}, context)
 ```
 
+#### Parameters
+* cursor (string) - A pagination cursor returned by a previous call to this endpoint.
 
 ### CreateCustomer
 Creates a new customer for a business, which can have associated cards on file.

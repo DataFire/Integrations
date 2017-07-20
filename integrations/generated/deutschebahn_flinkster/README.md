@@ -39,6 +39,16 @@ Search for areas (locations of rental objects) by criteria.
 deutschebahn_flinkster.listAreas({}, context)
 ```
 
+#### Parameters
+* lat (number)
+* lon (number)
+* radius (integer)
+* offset (integer)
+* limit (integer)
+* expand (string)
+* type (string)
+* provider (string)
+* providernetwork (string)
 
 ### getArea
 Search for a specific area by UID.
@@ -62,6 +72,17 @@ Here you can query all bookable Rental Objects with different Parameters (Time, 
 deutschebahn_flinkster.listBookingProposals({}, context)
 ```
 
+#### Parameters
+* lat (number)
+* lon (number)
+* radius (integer)
+* offset (integer)
+* limit (integer)
+* providernetwork (string)
+* begin (string)
+* end (string)
+* expand (string)
+* view (string)
 
 ### getIndex
 Show Service index.

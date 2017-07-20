@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_supportcases.youtube.transactions.refund({}, context).then(data => {
   console.log(data);
 })
@@ -64,6 +63,17 @@ Lists an agent activities.
 google_supportcases.agentActivities.list({}, context)
 ```
 
+#### Parameters
+* caseId (string)
+* pageSize (integer)
+* pageToken (string)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### agentActivities.create
 Adds an agent activity.
@@ -73,6 +83,15 @@ Adds an agent activity.
 google_supportcases.agentActivities.create({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### agentActivities.createFromHelpCenterDeepLink
 Creates an agent activity from a help center deep link.
@@ -82,6 +101,15 @@ Creates an agent activity from a help center deep link.
 google_supportcases.agentActivities.createFromHelpCenterDeepLink({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### agentSettings.list
 List all agent settings.
@@ -91,6 +119,14 @@ List all agent settings.
 google_supportcases.agentSettings.list({}, context)
 ```
 
+#### Parameters
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### cases.getAgentUnreadCasesInfo
 Gets information about unread cases for the calling agent. Only intended for use by the Cases frontend.
@@ -100,6 +136,14 @@ Gets information about unread cases for the calling agent. Only intended for use
 google_supportcases.cases.getAgentUnreadCasesInfo({}, context)
 ```
 
+#### Parameters
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### cases.autoAssign
 Auto assign a case to the calling user.
@@ -109,6 +153,15 @@ Auto assign a case to the calling user.
 google_supportcases.cases.autoAssign({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### cases.createNewCase
 Creates a new case (Note this is not a true CRUD method as no resource is being passed in).
@@ -118,6 +171,15 @@ Creates a new case (Note this is not a true CRUD method as no resource is being 
 google_supportcases.cases.createNewCase({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### cases.getAgentSearchCount
 Gets the search count for cases associated with the calling agent, and begin sending Tango notifications when the count changes.
@@ -127,6 +189,14 @@ Gets the search count for cases associated with the calling agent, and begin sen
 google_supportcases.cases.getAgentSearchCount({}, context)
 ```
 
+#### Parameters
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### cases.listByAgent
 Lists cases associated with the agent. Only intended for use by the Cases frontend.
@@ -136,6 +206,17 @@ Lists cases associated with the agent. Only intended for use by the Cases fronte
 google_supportcases.cases.listByAgent({}, context)
 ```
 
+#### Parameters
+* caseType (string)
+* pageSize (integer)
+* pageToken (string)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### cases.validateConsultForm
 Validates that consult forms are properly configured.
@@ -145,6 +226,15 @@ Validates that consult forms are properly configured.
 google_supportcases.cases.validateConsultForm({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### categoryInfos.batchGet
 Batch gets category info. (Best effort, returns valid category infos only) Suppresses warning: GET requires method name starting with "Get" or "List"
@@ -154,6 +244,15 @@ Batch gets category info. (Best effort, returns valid category infos only) Suppr
 google_supportcases.categoryInfos.batchGet({}, context)
 ```
 
+#### Parameters
+* names (array)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### categoryInfos.listTopLevel
 Lists gKMS top level category info.
@@ -163,6 +262,14 @@ Lists gKMS top level category info.
 google_supportcases.categoryInfos.listTopLevel({}, context)
 ```
 
+#### Parameters
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### categoryInfos.search
 Searches category info. Suppresses warning: GET requires method name starting with "Get" or "List"
@@ -172,6 +279,21 @@ Searches category info. Suppresses warning: GET requires method name starting wi
 google_supportcases.categoryInfos.search({}, context)
 ```
 
+#### Parameters
+* baselineOnly (boolean)
+* filterByParentCategoryId (integer)
+* filterConsultCategories (boolean)
+* maximumResults (integer)
+* productIds (array)
+* query (string)
+* topCategoryPathNodeIds (array)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### categoryInfos.searchMultiple
 Searches multiple category info.
@@ -181,6 +303,15 @@ Searches multiple category info.
 google_supportcases.categoryInfos.searchMultiple({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### communications.list
 Lists communications that match the filter.
@@ -190,6 +321,15 @@ Lists communications that match the filter.
 google_supportcases.communications.list({}, context)
 ```
 
+#### Parameters
+* caseIds (array)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### communications.buildNewEmail
 Builds an email template for the first email on a case.
@@ -199,6 +339,15 @@ Builds an email template for the first email on a case.
 google_supportcases.communications.buildNewEmail({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### communications.buildReplyEmail
 Builds an email template for a reply to an existing email.
@@ -208,6 +357,15 @@ Builds an email template for a reply to an existing email.
 google_supportcases.communications.buildReplyEmail({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### communications.createConsultNote
 Creates a draft note that replies to a consult note.
@@ -217,6 +375,15 @@ Creates a draft note that replies to a consult note.
 google_supportcases.communications.createConsultNote({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### communications.createEmail
 Creates a draft email and adds it to a case.
@@ -226,6 +393,15 @@ Creates a draft email and adds it to a case.
 google_supportcases.communications.createEmail({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### communications.createNote
 Creates a note.
@@ -235,6 +411,15 @@ Creates a note.
 google_supportcases.communications.createNote({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### communications.listRelated
 Lists communications that are related to each other, including the communications on the requested case. Related communications include consult communications from target cases. Currently, only related communications from consult cases are supported.
@@ -244,6 +429,16 @@ Lists communications that are related to each other, including the communication
 google_supportcases.communications.listRelated({}, context)
 ```
 
+#### Parameters
+* caseId (string)
+* contextCaseId (string)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### communications.suggestReplyEmailHeaders
 Suggests a set of email headers for an email reply to another email. Suppresses warning: GET requires method name starting with "Get" or "List"
@@ -253,6 +448,17 @@ Suggests a set of email headers for an email reply to another email. Suppresses 
 google_supportcases.communications.suggestReplyEmailHeaders({}, context)
 ```
 
+#### Parameters
+* caseId (string)
+* messageId (string)
+* replyType (string)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### customerInteractions.list
 List customer interactions.
@@ -262,6 +468,22 @@ List customer interactions.
 google_supportcases.customerInteractions.list({}, context)
 ```
 
+#### Parameters
+* adwordsCid (string)
+* caseId (string)
+* channels (array)
+* emailAddress (string)
+* excludeCases (array)
+* pageSize (integer)
+* pageToken (string)
+* products (array)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### customerInteractions.summarize
 Summary statistics about the cutomer's interaction history. Suppresses warning: GET requires method name starting with "Get" or "List"
@@ -271,6 +493,19 @@ Summary statistics about the cutomer's interaction history. Suppresses warning: 
 google_supportcases.customerInteractions.summarize({}, context)
 ```
 
+#### Parameters
+* adwordsCid (string)
+* caseId (string)
+* emailAddress (string)
+* excludeCases (array)
+* startTime (string)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### customerIssues.list
 List issues and their resolutions for a customer.
@@ -280,6 +515,15 @@ List issues and their resolutions for a customer.
 google_supportcases.customerIssues.list({}, context)
 ```
 
+#### Parameters
+* caseId (string)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### devices.list
 List devices.
@@ -289,6 +533,20 @@ List devices.
 google_supportcases.devices.list({}, context)
 ```
 
+#### Parameters
+* caseId (string)
+* email (string)
+* excludeGoogleStoreOrders (boolean)
+* excludeRmaTypes (boolean)
+* pageSize (integer)
+* pageToken (string)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### devices.getById
 Gets the specified device by any device ID.
@@ -298,6 +556,16 @@ Gets the specified device by any device ID.
 google_supportcases.devices.getById({}, context)
 ```
 
+#### Parameters
+* caseId (string)
+* deviceId (string)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### devices.updateOwner
 Updates the owner of a device. Suppresses warning: GET requires method name starting with "Get" or "List"
@@ -307,6 +575,24 @@ Updates the owner of a device. Suppresses warning: GET requires method name star
 google_supportcases.devices.updateOwner({}, context)
 ```
 
+#### Parameters
+* address.addressLine1 (string)
+* address.addressLine2 (string)
+* address.addressLine3 (string)
+* address.addressee (string)
+* address.city (string)
+* address.countryCode (string)
+* address.postalCode (string)
+* address.stateProvinceCode (string)
+* deviceId (string)
+* email (string)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### giftCards.checkRedeemer
 If the card is already redeemed by somebody else, customer can try a few users.
@@ -316,6 +602,15 @@ If the card is already redeemed by somebody else, customer can try a few users.
 google_supportcases.giftCards.checkRedeemer({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### giftCards.lookup
 Finds a gift card based on its full redemption code or activation number. With full redemption code, returns redemption token on success.
@@ -325,6 +620,15 @@ Finds a gift card based on its full redemption code or activation number. With f
 google_supportcases.giftCards.lookup({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### giftCards.redeem
 Redeems a gift card to a customer using the redemption token.
@@ -334,6 +638,15 @@ Redeems a gift card to a customer using the redemption token.
 google_supportcases.giftCards.redeem({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### giftCards.verify
 Verifies ownership of a damaged GC by checking if the activation number and partial redemption code are valid and refers to the same card. Returns the redemption token on success.
@@ -343,6 +656,15 @@ Verifies ownership of a damaged GC by checking if the activation number and part
 google_supportcases.giftCards.verify({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### ginlogs.logDataAccess
 Logs data access.
@@ -352,6 +674,15 @@ Logs data access.
 google_supportcases.ginlogs.logDataAccess({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### hardwareAuditor.orders.list
 Lists hardware orders.
@@ -361,6 +692,15 @@ Lists hardware orders.
 google_supportcases.hardwareAuditor.orders.list({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### hardwareOrders.hardwareSignals
 Gets hardware signals based on the case and customer.
@@ -370,6 +710,15 @@ Gets hardware signals based on the case and customer.
 google_supportcases.hardwareOrders.hardwareSignals({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### hardwareOrders.list
 Lists hardware orders.
@@ -379,6 +728,15 @@ Lists hardware orders.
 google_supportcases.hardwareOrders.list({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### hardwareOrders.listOtherDevices
 Gets a user's devices that are not in the ListHardwareOrders result.
@@ -388,6 +746,15 @@ Gets a user's devices that are not in the ListHardwareOrders result.
 google_supportcases.hardwareOrders.listOtherDevices({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### opportunities.list
 Lists opportunities.
@@ -397,6 +764,16 @@ Lists opportunities.
 google_supportcases.opportunities.list({}, context)
 ```
 
+#### Parameters
+* agentWhitelistedForApollo (boolean)
+* caseId (string)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### opportunities.pitches.batchCreate
 Batch creates pitches.
@@ -406,6 +783,15 @@ Batch creates pitches.
 google_supportcases.opportunities.pitches.batchCreate({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### play.digitalContent.orders.batchGet
 Get a collection of orders.
@@ -415,6 +801,15 @@ Get a collection of orders.
 google_supportcases.play.digitalContent.orders.batchGet({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### play.digitalContent.orders.refund
 Refund orders.
@@ -424,6 +819,15 @@ Refund orders.
 google_supportcases.play.digitalContent.orders.refund({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### play.digitalContent.orders.search
 Search for orders.
@@ -433,6 +837,15 @@ Search for orders.
 google_supportcases.play.digitalContent.orders.search({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### play.digitalContent.subscriptions.batchGet
 Get a collection of subscriptions.
@@ -442,6 +855,15 @@ Get a collection of subscriptions.
 google_supportcases.play.digitalContent.subscriptions.batchGet({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### play.digitalContent.subscriptions.cancel
 Cancel subscription.
@@ -451,6 +873,15 @@ Cancel subscription.
 google_supportcases.play.digitalContent.subscriptions.cancel({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### play.digitalContent.subscriptions.getCancellationStatus
 Get cancellation status.
@@ -460,6 +891,15 @@ Get cancellation status.
 google_supportcases.play.digitalContent.subscriptions.getCancellationStatus({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### play.digitalContent.subscriptions.list
 List subscriptions.
@@ -469,6 +909,15 @@ List subscriptions.
 google_supportcases.play.digitalContent.subscriptions.list({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### play.digitalContent.getRefundStatus
 Get refund status.
@@ -478,6 +927,15 @@ Get refund status.
 google_supportcases.play.digitalContent.getRefundStatus({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### products.list
 Lists products.
@@ -487,6 +945,14 @@ Lists products.
 google_supportcases.products.list({}, context)
 ```
 
+#### Parameters
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### resolutions.list
 Query for resolutions.
@@ -496,6 +962,22 @@ Query for resolutions.
 google_supportcases.resolutions.list({}, context)
 ```
 
+#### Parameters
+* autocompleteResults (boolean)
+* caseId (string)
+* pageSize (integer)
+* pageToken (string)
+* q (string)
+* resultsToken (string)
+* searchSessionId (string)
+* type (array)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### resolutions.cohorts.assign
 Query and assign cohorts for this case.
@@ -505,6 +987,15 @@ Query and assign cohorts for this case.
 google_supportcases.resolutions.cohorts.assign({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### resolutions.log
 Log a resolution.
@@ -514,6 +1005,15 @@ Log a resolution.
 google_supportcases.resolutions.log({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### resolutions.suggest
 Suggest some resolutions to a case based on provided signals.
@@ -523,6 +1023,15 @@ Suggest some resolutions to a case based on provided signals.
 google_supportcases.resolutions.suggest({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### rma.save
 Saves (Insert/Update) an RMA.
@@ -532,6 +1041,15 @@ Saves (Insert/Update) an RMA.
 google_supportcases.rma.save({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### rma.submit
 DEPRECATED: Use SendRma instead. Submit an RMA.
@@ -541,6 +1059,15 @@ DEPRECATED: Use SendRma instead. Submit an RMA.
 google_supportcases.rma.submit({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### rmas.list
 Lists RMAs by Case ID and RMA state
@@ -550,6 +1077,16 @@ Lists RMAs by Case ID and RMA state
 google_supportcases.rmas.list({}, context)
 ```
 
+#### Parameters
+* caseId (string)
+* state (string)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### rmas.createExchangeWithoutReturn
 Sends merchandise without expecting a return.
@@ -559,6 +1096,15 @@ Sends merchandise without expecting a return.
 google_supportcases.rmas.createExchangeWithoutReturn({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### rmas.listBuyersRemorseCountryCodes
 Lists two-character country codes valid for Buyer's Remorse RMAs.
@@ -568,6 +1114,14 @@ Lists two-character country codes valid for Buyer's Remorse RMAs.
 google_supportcases.rmas.listBuyersRemorseCountryCodes({}, context)
 ```
 
+#### Parameters
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### rmas.runWorkflow
 DEPRECATED: Use RunRmaSteps instead. Run the given workflow for an RMA.
@@ -577,6 +1131,15 @@ DEPRECATED: Use RunRmaSteps instead. Run the given workflow for an RMA.
 google_supportcases.rmas.runWorkflow({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### rmas.send
 Initiates a new RMA.
@@ -586,6 +1149,15 @@ Initiates a new RMA.
 google_supportcases.rmas.send({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### teams.getMyAssignStreamSearches
 Gets assign-stream-enabled searches associated with the agent.
@@ -595,6 +1167,14 @@ Gets assign-stream-enabled searches associated with the agent.
 google_supportcases.teams.getMyAssignStreamSearches({}, context)
 ```
 
+#### Parameters
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### troubleshooterSessions.create
 Start a new troubleshooter session.
@@ -604,6 +1184,15 @@ Start a new troubleshooter session.
 google_supportcases.troubleshooterSessions.create({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### troubleshooterSessions.listDevices
 Lists devices on a customer's account.
@@ -613,6 +1202,15 @@ Lists devices on a customer's account.
 google_supportcases.troubleshooterSessions.listDevices({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### troubleshooterSessions.listIssues
 Lists issues.
@@ -622,6 +1220,17 @@ Lists issues.
 google_supportcases.troubleshooterSessions.listIssues({}, context)
 ```
 
+#### Parameters
+* caseId (string)
+* issueId (string)
+* troubleshooterType (string)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### troubleshooterSessions.listPurchasedApps
 Lists purchased apps on a customer's account.
@@ -631,6 +1240,15 @@ Lists purchased apps on a customer's account.
 google_supportcases.troubleshooterSessions.listPurchasedApps({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### troubleshooterSessions.listPurchasedBooks
 Lists purchased books on a customer's account.
@@ -640,6 +1258,15 @@ Lists purchased books on a customer's account.
 google_supportcases.troubleshooterSessions.listPurchasedBooks({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### troubleshooterSessions.listPurchasedVideos
 Lists purchased videos on a customer's account.
@@ -649,6 +1276,15 @@ Lists purchased videos on a customer's account.
 google_supportcases.troubleshooterSessions.listPurchasedVideos({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### wallets.accounts.paymentInstruments.getHijackReviewsStatus
 Retrieve status for Payment Method Hijack (PMH) reviews. This is a POST API because it takes in a sso_ticket.
@@ -658,6 +1294,15 @@ Retrieve status for Payment Method Hijack (PMH) reviews. This is a POST API beca
 google_supportcases.wallets.accounts.paymentInstruments.getHijackReviewsStatus({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### wallets.accounts.paymentInstruments.initiateHijackReviews
 Initiate Payment Method Hijack (PMH) reviews.
@@ -667,6 +1312,15 @@ Initiate Payment Method Hijack (PMH) reviews.
 google_supportcases.wallets.accounts.paymentInstruments.initiateHijackReviews({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### wallets.accounts.getPaymentsInfo
 Fetches Payments info, such as number of Payments accounts for the user.
@@ -676,6 +1330,15 @@ Fetches Payments info, such as number of Payments accounts for the user.
 google_supportcases.wallets.accounts.getPaymentsInfo({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### wallets.accounts.getReviewStatus
 Fetches the review status of a wallet account. This is a POST API because it takes in a sso_ticket.
@@ -685,6 +1348,15 @@ Fetches the review status of a wallet account. This is a POST API because it tak
 google_supportcases.wallets.accounts.getReviewStatus({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### wallets.accounts.getSignals
 Fetches Wallet account signals for troubleshooting Wallet issues.
@@ -694,6 +1366,16 @@ Fetches Wallet account signals for troubleshooting Wallet issues.
 google_supportcases.wallets.accounts.getSignals({}, context)
 ```
 
+#### Parameters
+* accountSignals (array)
+* caseId (string)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### wallets.accounts.searchReviews
 Initiates a review on the Wallet account. This is a POST API because it takes in a sso_ticket. This API could lead to a review escalation (increase in priority).
@@ -703,6 +1385,15 @@ Initiates a review on the Wallet account. This is a POST API because it takes in
 google_supportcases.wallets.accounts.searchReviews({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### wallets.bankAccountCountries
 List supported Bank Account countries. Initially will only return supported Bank Account countries for Payment Method Hijacks (PMH). This is a POST API because it takes in a sso_ticket.
@@ -712,6 +1403,15 @@ List supported Bank Account countries. Initially will only return supported Bank
 google_supportcases.wallets.bankAccountCountries({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### wallets.creditCardTypes
 List supported Credit Card types. Initially will only return supported credit cards for Payment Method Hijacks (PMH). This is a POST API because it takes in a sso_ticket.
@@ -721,6 +1421,15 @@ List supported Credit Card types. Initially will only return supported credit ca
 google_supportcases.wallets.creditCardTypes({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### wallets.paymentInstrumentTypeInfos.list
 List supported payment instrument types. This API is not customer contextual.
@@ -730,6 +1439,15 @@ List supported payment instrument types. This API is not customer contextual.
 google_supportcases.wallets.paymentInstrumentTypeInfos.list({}, context)
 ```
 
+#### Parameters
+* caseId (string)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### wallets.paymentInstruments.suggestIssuer
 Fetches suggestions for payment(credit card, bank, direct carrier billing) issuers.
@@ -739,6 +1457,18 @@ Fetches suggestions for payment(credit card, bank, direct carrier billing) issue
 google_supportcases.wallets.paymentInstruments.suggestIssuer({}, context)
 ```
 
+#### Parameters
+* caseId (string)
+* includeDescription (boolean)
+* instrumentTypeToken (string)
+* searchKey (string)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### wallets.transactions
 Query for transactions.
@@ -748,6 +1478,15 @@ Query for transactions.
 google_supportcases.wallets.transactions({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### wallets.troubleshootAccount
 Troubleshoots a Wallet account for issues.
@@ -757,6 +1496,15 @@ Troubleshoots a Wallet account for issues.
 google_supportcases.wallets.troubleshootAccount({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### wallets.troubleshootTransaction
 Troubleshoots a Wallet transaction for issues.
@@ -766,6 +1514,15 @@ Troubleshoots a Wallet transaction for issues.
 google_supportcases.wallets.troubleshootTransaction({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### youtube.components.cancel
 Cancel/Downgrade component(s).
@@ -775,6 +1532,15 @@ Cancel/Downgrade component(s).
 google_supportcases.youtube.components.cancel({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### youtube.entitlements.cancel
 Cancel entitlement.
@@ -784,6 +1550,15 @@ Cancel entitlement.
 google_supportcases.youtube.entitlements.cancel({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### youtube.onetimepurchases
 Gets a list of one time purchases.
@@ -793,6 +1568,15 @@ Gets a list of one time purchases.
 google_supportcases.youtube.onetimepurchases({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### youtube.summary
 Get Customer Summary Information for entitlements and refund history.
@@ -802,6 +1586,15 @@ Get Customer Summary Information for entitlements and refund history.
 google_supportcases.youtube.summary({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### youtube.transactions.listByEntitlements
 Get all transactions for entitlements.
@@ -811,6 +1604,15 @@ Get all transactions for entitlements.
 google_supportcases.youtube.transactions.listByEntitlements({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### youtube.transactions.refund
 Refund a batch of transactions.
@@ -820,6 +1622,15 @@ Refund a batch of transactions.
 google_supportcases.youtube.transactions.refund({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### communications.attachments.delete
 Deletes an attachment from a draft.

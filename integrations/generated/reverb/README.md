@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 reverb.webhooks.registrations.post({}, context).then(data => {
   console.log(data);
 })
@@ -64,6 +63,8 @@ Create an account.
 reverb.accounts.post({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### articles.get
 See all Reverb blog posts
@@ -126,6 +127,8 @@ Send a password reset email
 reverb.auth.forgot_password.post({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### auth.logout.put
 Logout (primarily for mobile clients)
@@ -135,6 +138,8 @@ Logout (primarily for mobile clients)
 reverb.auth.logout.put({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### autosuggest.get
 Autosuggest terms for searches
@@ -395,6 +400,38 @@ Default search of listings includes only used & handmade. Add a filter to view a
 reverb.listings.get({}, context)
 ```
 
+#### Parameters
+* query (string) - Search query.
+* auction_price_max (number) - Maximum current auction price
+* category (string) - Category slug from /api/categories
+* product_type (string) - Product type slug from /api/categories
+* conditions (array) - Condition: all,new,b-stock,used,non-functioning
+* decade (string) - Decade: e.g. 1970s, early 70s
+* finish (string) - Visual finish of the item, common for guitars
+* handmade (boolean) - Handmade items only
+* item_city (string) - City where item is located
+* item_country (string) - DEPRECATED - Country code where item is located
+* item_region (string) - Country code where item is located
+* item_state (string) - State or region code where item is located
+* make (array) - Make(s)/brand of item (e.g. Fender). Can take a single value or an array.
+* model (string) - Model of item (e.g. Stratocaster)
+* must_not (string) - Search term negation. If you want to exclude a term, add it here
+* price_max (number) - Maximum price of search results (USD)
+* price_min (number) - Minimum price of search results (USD)
+* currency (string) - The currency to be used for the price filters
+* year_max (integer) - Maximum year of manufacture
+* year_min (integer) - Minumum year of manufacture
+* accepts_gift_cards (boolean) - If true, include only items that accept gift cards
+* preferred_seller (boolean) - If true, include only items by Reverb Preferred Sellers
+* shop (string) - Slug of shop to search
+* shop_id (string) - ID of shop to search
+* listing_type (string) - Type of listing: auctions,offers
+* ships_to (string) - Limit search to items that ship to this country code
+* exclude_auctions (boolean) - If true, exclude auctions
+* accepts_payment_plans (boolean) - If true, only show items that can be purchased with a payment plan
+* watchers_count_min (integer) - Minimum number of watchers (used to find popular items)
+* page (integer)
+* per_page (integer)
 
 ### listings.post
 Create a listing
@@ -404,6 +441,8 @@ Create a listing
 reverb.listings.post({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### listings.all.get
 All listings including used, handmade, and brand new
@@ -413,6 +452,38 @@ All listings including used, handmade, and brand new
 reverb.listings.all.get({}, context)
 ```
 
+#### Parameters
+* query (string) - Search query.
+* auction_price_max (number) - Maximum current auction price
+* category (string) - Category slug from /api/categories
+* product_type (string) - Product type slug from /api/categories
+* conditions (array) - Condition: all,new,b-stock,used,non-functioning
+* decade (string) - Decade: e.g. 1970s, early 70s
+* finish (string) - Visual finish of the item, common for guitars
+* handmade (boolean) - Handmade items only
+* item_city (string) - City where item is located
+* item_country (string) - DEPRECATED - Country code where item is located
+* item_region (string) - Country code where item is located
+* item_state (string) - State or region code where item is located
+* make (array) - Make(s)/brand of item (e.g. Fender). Can take a single value or an array.
+* model (string) - Model of item (e.g. Stratocaster)
+* must_not (string) - Search term negation. If you want to exclude a term, add it here
+* price_max (number) - Maximum price of search results (USD)
+* price_min (number) - Minimum price of search results (USD)
+* currency (string) - The currency to be used for the price filters
+* year_max (integer) - Maximum year of manufacture
+* year_min (integer) - Minumum year of manufacture
+* accepts_gift_cards (boolean) - If true, include only items that accept gift cards
+* preferred_seller (boolean) - If true, include only items by Reverb Preferred Sellers
+* shop (string) - Slug of shop to search
+* shop_id (string) - ID of shop to search
+* listing_type (string) - Type of listing: auctions,offers
+* ships_to (string) - Limit search to items that ship to this country code
+* exclude_auctions (boolean) - If true, exclude auctions
+* accepts_payment_plans (boolean) - If true, only show items that can be purchased with a payment plan
+* watchers_count_min (integer) - Minimum number of watchers (used to find popular items)
+* page (integer)
+* per_page (integer)
 
 ### listings.id.offer.post
 Make an offer to the seller of a listing
@@ -648,6 +719,8 @@ Update account details
 reverb.my.account.put({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### my.addresses.get
 See all addresses in your address book
@@ -701,6 +774,11 @@ Get a list of your conversations
 reverb.my.conversations.get({}, context)
 ```
 
+#### Parameters
+* search (string) - Query string to search conversations by
+* unread_only (boolean) - Show unread conversations only
+* page (integer)
+* per_page (integer)
 
 ### my.conversations.post
 Start a conversation
@@ -710,6 +788,8 @@ Start a conversation
 reverb.my.conversations.post({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### my.conversations.conversation_id.messages.post
 Send a message
@@ -1024,6 +1104,8 @@ Follow a search
 reverb.my.follows.search.post({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### my.follows.shops.slug.delete
 Unfollow a shop
@@ -1111,6 +1193,37 @@ Retrieve a list of live listings for the seller. To search all listings specify 
 reverb.my.listings.get({}, context)
 ```
 
+#### Parameters
+* query (string) - Search query.
+* auction_price_max (number) - Maximum current auction price
+* category (string) - Category slug from /api/categories
+* product_type (string) - Product type slug from /api/categories
+* conditions (array) - Condition: all,new,b-stock,used,non-functioning
+* decade (string) - Decade: e.g. 1970s, early 70s
+* finish (string) - Visual finish of the item, common for guitars
+* handmade (boolean) - Handmade items only
+* item_city (string) - City where item is located
+* item_country (string) - DEPRECATED - Country code where item is located
+* item_region (string) - Country code where item is located
+* item_state (string) - State or region code where item is located
+* make (array) - Make(s)/brand of item (e.g. Fender). Can take a single value or an array.
+* model (string) - Model of item (e.g. Stratocaster)
+* must_not (string) - Search term negation. If you want to exclude a term, add it here
+* price_max (number) - Maximum price of search results (USD)
+* price_min (number) - Minimum price of search results (USD)
+* currency (string) - The currency to be used for the price filters
+* year_max (integer) - Maximum year of manufacture
+* year_min (integer) - Minumum year of manufacture
+* accepts_gift_cards (boolean) - If true, include only items that accept gift cards
+* preferred_seller (boolean) - If true, include only items by Reverb Preferred Sellers
+* shop (string) - Slug of shop to search
+* shop_id (string) - ID of shop to search
+* listing_type (string) - Type of listing: auctions,offers
+* ships_to (string) - Limit search to items that ship to this country code
+* exclude_auctions (boolean) - If true, exclude auctions
+* accepts_payment_plans (boolean) - If true, only show items that can be purchased with a payment plan
+* watchers_count_min (integer) - Minimum number of watchers (used to find popular items)
+* state (string) - Available: ["all", "draft", "ended", "live", "ordered", "sold_out", "suspended", "seller_unavailable"]. Defaults to 'live'
 
 ### my.listings.drafts.get
 Retrieve a list your draft listings
@@ -1120,6 +1233,36 @@ Retrieve a list your draft listings
 reverb.my.listings.drafts.get({}, context)
 ```
 
+#### Parameters
+* query (string) - Search query.
+* auction_price_max (number) - Maximum current auction price
+* category (string) - Category slug from /api/categories
+* product_type (string) - Product type slug from /api/categories
+* conditions (array) - Condition: all,new,b-stock,used,non-functioning
+* decade (string) - Decade: e.g. 1970s, early 70s
+* finish (string) - Visual finish of the item, common for guitars
+* handmade (boolean) - Handmade items only
+* item_city (string) - City where item is located
+* item_country (string) - DEPRECATED - Country code where item is located
+* item_region (string) - Country code where item is located
+* item_state (string) - State or region code where item is located
+* make (array) - Make(s)/brand of item (e.g. Fender). Can take a single value or an array.
+* model (string) - Model of item (e.g. Stratocaster)
+* must_not (string) - Search term negation. If you want to exclude a term, add it here
+* price_max (number) - Maximum price of search results (USD)
+* price_min (number) - Minimum price of search results (USD)
+* currency (string) - The currency to be used for the price filters
+* year_max (integer) - Maximum year of manufacture
+* year_min (integer) - Minumum year of manufacture
+* accepts_gift_cards (boolean) - If true, include only items that accept gift cards
+* preferred_seller (boolean) - If true, include only items by Reverb Preferred Sellers
+* shop (string) - Slug of shop to search
+* shop_id (string) - ID of shop to search
+* listing_type (string) - Type of listing: auctions,offers
+* ships_to (string) - Limit search to items that ship to this country code
+* exclude_auctions (boolean) - If true, exclude auctions
+* accepts_payment_plans (boolean) - If true, only show items that can be purchased with a payment plan
+* watchers_count_min (integer) - Minimum number of watchers (used to find popular items)
 
 ### my.listings.negotiations.get
 Get a list of active negotiations as a seller
@@ -1129,6 +1272,9 @@ Get a list of active negotiations as a seller
 reverb.my.listings.negotiations.get({}, context)
 ```
 
+#### Parameters
+* page (integer)
+* per_page (integer)
 
 ### my.listings.slug.state.end.put
 End a listing
@@ -1161,6 +1307,9 @@ Get a list of active negotiations as a buyer
 reverb.my.negotiations.buying.get({}, context)
 ```
 
+#### Parameters
+* page (integer)
+* per_page (integer)
 
 ### my.negotiations.id.get
 Get offer details
@@ -1290,6 +1439,13 @@ Get all seller orders, newest first.
 reverb.my.orders.selling.all.get({}, context)
 ```
 
+#### Parameters
+* created_start_date (string) - Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
+* created_end_date (string) - Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
+* updated_start_date (string) - Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
+* updated_end_date (string) - Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
+* page (integer)
+* per_page (integer)
 
 ### my.orders.selling.awaiting_shipment.get
 Get seller orders awaiting shipment, newest first.
@@ -1299,6 +1455,13 @@ Get seller orders awaiting shipment, newest first.
 reverb.my.orders.selling.awaiting_shipment.get({}, context)
 ```
 
+#### Parameters
+* created_start_date (string) - Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
+* created_end_date (string) - Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
+* updated_start_date (string) - Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
+* updated_end_date (string) - Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
+* page (integer)
+* per_page (integer)
 
 ### my.orders.selling.buyer_history.buyer_id.get
 See previous orders from buyer
@@ -1321,6 +1484,13 @@ Get unpaid seller orders, newest first.
 reverb.my.orders.selling.unpaid.get({}, context)
 ```
 
+#### Parameters
+* created_start_date (string) - Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
+* created_end_date (string) - Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
+* updated_start_date (string) - Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
+* updated_end_date (string) - Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
+* page (integer)
+* per_page (integer)
 
 ### my.orders.selling.id.get
 Returns order details for a seller
@@ -1371,6 +1541,14 @@ Get payments
 reverb.my.payments.selling.get({}, context)
 ```
 
+#### Parameters
+* page (integer)
+* per_page (integer)
+* created_start_date (string) - Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
+* created_end_date (string) - Filter by date created in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
+* updated_start_date (string) - Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
+* updated_end_date (string) - Filter by date modified in ISO8601 format - e.g: 2015-04-09T10:52:23-00:00
+* order_id (string) - Look up payments by order id
 
 ### my.payments.selling.id.get
 Get payment
@@ -1498,6 +1676,8 @@ Search the Price Guide
 reverb.priceguide.get({}, context)
 ```
 
+#### Parameters
+* query (string) - Search query.
 
 ### priceguide.id.get
 Retrieve a Price Guide
@@ -1686,6 +1866,8 @@ Update your shop profile
 reverb.shop.put({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### shop.listing_conditions.get
 List of supported product conditions
@@ -1894,6 +2076,8 @@ Register a webhook
 reverb.webhooks.registrations.post({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### webhooks.registrations.id.delete
 Remove a webhook

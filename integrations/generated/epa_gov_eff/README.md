@@ -98,4 +98,9 @@ Look up Clean Water Act parameter codes and descriptions in the Integrated Compl
 epa_gov_eff.rest_lookups.cwa_parameters.get({}, context)
 ```
 
+#### Parameters
+* output (string) - Output Format Flag.  Enter one of the following keywords:
+* callback (string) - JSONP Callback.  For use with JSONP and GEOJSONP output only.  Enter a name of the function in which to wrap the JSON response.
+* search_term (string) - Enter a partial or complete search phrase or word.
+* search_code (string) - Enter a partial or complete code value.
 

@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 box_content.getWebhooks({}, context).then(data => {
   console.log(data);
 })
@@ -262,6 +261,13 @@ To retrieve Enterprise Events specify 'stream_type=admin_logs'. Retrieves up to 
 box_content.getUserEvents({}, context)
 ```
 
+#### Parameters
+* stream_position (string) - The location in the event stream at which you want to start receiving events. Can specify special case ‘now’ to get 0 events and the latest stream position for initialization.
+* stream_type (string) - Limits the type of events returned: all: returns everything, changes: returns tree changes, sync: returns tree changes only for sync folders
+* limit (integer) - Limits the number of events returned
+* event_type (string) - A comma-separated list of events to filter by
+* created_after (string) - A lower bound on the timestamp of the events returned
+* created_before (string) - An upper bound on the timestamp of the events returned
 
 ### eventLongPolling
 To get real-time notification of activity in a Box account, use the long poll feature of the /events API. To do so, first call the /events API with an OPTIONS call to retrieve the long poll URL to use. Next, make a GET request to the provided URL to begin listening for events. If an event occurs within an account you are monitoring, you will receive a response with the value new_change. It’s important to note that this response will not come with any other details, but should serve as a prompt to take further action such as calling the /events endpoint with your last known stream_position. After sending this response, the server will close the connection and you will need to repeat the long poll process to begin listening for events again.
@@ -309,6 +315,15 @@ Retrieves all file version retentions for the given enterprise.
 box_content.getFileVersionRetentions({}, context)
 ```
 
+#### Parameters
+* file_id (string) - A file id to filter the file version retentions by.
+* file_version_id (string) - A file version id to filter the file version retentions by.
+* policy_id (string) - A policy id to filter the file version retentions by.
+* disposition_action (string) - The disposition action of the retention policy. This action can be permanently_delete, which will cause the content retained by the policy to be permanently deleted, or remove_retention, which will lift the retention policy from the content, allowing it to be deleted by users, once the retention policy time period has passed.
+* disposition_before (string) - See content times for formatting
+* disposition_after (string) - See content times for formatting
+* limit (integer) - The maximum number of items to return in a page
+* marker (string) - Base 64 encoded string that represents where the paging should being. It should be left blank to begin paging.
 
 ### getFileVersionRetention
 Used to retrieve information about a file version retention
@@ -713,6 +728,10 @@ Retrieves the files and/or folders that have been moved to the trash. Any attrib
 box_content.getTrashedItems({}, context)
 ```
 
+#### Parameters
+* fields (string) - Attribute(s) to include in the response
+* limit (integer) - The maximum number of items to return
+* offset (integer) - The item at which to begin the response
 
 ### deleteFolder
 Used to delete a folder. A recursive parameter must be included in order to delete folders that have items inside of them. An optional If-Match header can be included to ensure that client only deletes the folder if it knows about the latest version.
@@ -1047,6 +1066,10 @@ Retrieves all of the groups for given enterprise. Must have permissions to see a
 box_content.getEnterpriseGroups({}, context)
 ```
 
+#### Parameters
+* fields (string) - Attribute(s) to include in the response
+* limit (integer) - The maximum number of items to return in a page. The default is 100 and the max is 1000.
+* offset (integer) - The item at which to begin the response.
 
 ### createGroup
 Used to create a group.
@@ -1173,6 +1196,10 @@ Get a list of Legal Hold Policies that belong to your Enterprise.
 box_content.getLegalHoldPolicies({}, context)
 ```
 
+#### Parameters
+* policy_name (string) - Case insensitive prefix-match filter on Policy name.
+* limit (integer) - Limit result size to this number. Defaults to 100, maximum is 1,000.
+* marker (string) - Take from next_marker column of a prior call to get the next page
 
 ### createLegalHoldPolicy
 Create a new Legal Hold Policy. Optional date filter may be passed. If Policy has a date filter, any Custodian assignments will apply only to file versions created or uploaded inside of the date range.
@@ -1346,6 +1373,10 @@ Retrieves all of the retention policies for the given enterprise.
 box_content.getRetentionPolicies({}, context)
 ```
 
+#### Parameters
+* policy_name (string) - A name to filter the retention policies by. A trailing partial match search is performed.
+* policy_type (string) - A policy type to filter the retention policies by.
+* created_by_user_id (string) - A user id to filter the retention policies by.
 
 ### createRetentionPolicy
 Used to create a new retention policy.
@@ -1601,6 +1632,12 @@ Returns a list of all users for the Enterprise along with their user_id, public_
 box_content.getEnterpriseUsers({}, context)
 ```
 
+#### Parameters
+* fields (string) - Attribute(s) to include in the response
+* filter_term (string) - A string used to filter the results to only users starting with the filter_term in either the name or the login.
+* limit (integer) - The number of records to return. The default is 100 and the max is 1000.
+* offset (integer) - The record at which to start. The default is 0.
+* user_type (string) - The type of user to search for. Valid values are all, external or managed.  If nothing is provided, the default behavior will be managed only
 
 ### createUser
 Used to provision a new user in an enterprise. This method only works for enterprise admins.
@@ -1624,6 +1661,8 @@ Retrieves information about the user who is currently logged in i.e. the user fo
 box_content.getCurrentUser({}, context)
 ```
 
+#### Parameters
+* fields (string) - Attribute(s) to include in the response
 
 ### deleteUser
 Deletes a user in an enterprise account.
@@ -1817,6 +1856,9 @@ You can use limit and marker together with the marker string returned in the nex
 box_content.getWebhooks({}, context)
 ```
 
+#### Parameters
+* limit (integer) - The maximum number of webhooks to return per page
+* marker (string) - A marker string returned by Box if the result contains less than the full number of webhooks that are defined
 
 ### createWebhook
 Create Webhook

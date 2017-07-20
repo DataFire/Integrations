@@ -56,6 +56,13 @@ to update your account with the current meta data from GitHub.
 versioneye.getGithub({}, context)
 ```
 
+#### Parameters
+* lang (string) - Filter by language
+* private (boolean) - Filter by visibility
+* org_name (string) - Filter by name of organization
+* org_type (string) - Filter by type of organization
+* page (string) - Number of page
+* only_imported (boolean) - Show only imported repositories
 
 ### postGithubHookProjectId
 This endpoint is registered as service hook on GitHub. It triggers a project re-parse on each git push. 
@@ -172,6 +179,8 @@ shows comments of authorized user
 versioneye.getMeComments({}, context)
 ```
 
+#### Parameters
+* page (integer) - page number for pagination
 
 ### getMeFavorites
 shows the packages you are following
@@ -181,6 +190,8 @@ shows the packages you are following
 versioneye.getMeFavorites({}, context)
 ```
 
+#### Parameters
+* page (integer) - page number for pagination
 
 ### getMeNotifications
 
@@ -195,6 +206,8 @@ each new version is a new **notification** for your account.
 versioneye.getMeNotifications({}, context)
 ```
 
+#### Parameters
+* page (integer) - Specify page for paging
 
 ### getOrganisations
 
@@ -499,6 +512,9 @@ your API Key to the URL as parameter. For example: "?api_key=666_your_api_key_66
 versioneye.getProjects({}, context)
 ```
 
+#### Parameters
+* orga_name (string) - The name of the organisation the project is assigned to.
+* team_name (string) - The name of the team in the organisation this project is assigned to.
 
 ### postProjects
 

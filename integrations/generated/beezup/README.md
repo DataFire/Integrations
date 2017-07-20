@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 beezup.GetOrderListLight({}, context).then(data => {
   console.log(data);
 })
@@ -220,6 +219,8 @@ Get order list without details
 beezup.GetOrderListLight({}, context)
 ```
 
+#### Parameters
+* request (object)
 
 ### GetMarketplaceAccountsSynchronization
 Get marketplace accounts synchronization status

@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_youtubereporting.reportTypes.list({}, context).then(data => {
   console.log(data);
 })
@@ -64,6 +63,24 @@ Lists jobs.
 google_youtubereporting.jobs.list({}, context)
 ```
 
+#### Parameters
+* onBehalfOfContentOwner (string) - The content owner's external ID on which behalf the user is acting on. If
+* pageToken (string) - A token identifying a page of results the server should return. Typically,
+* includeSystemManaged (boolean) - If set to true, also system-managed jobs will be returned; otherwise only
+* pageSize (integer) - Requested page size. Server may return fewer jobs than requested.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 
 ### jobs.create
 Creates a job and returns it.
@@ -73,6 +90,22 @@ Creates a job and returns it.
 google_youtubereporting.jobs.create({}, context)
 ```
 
+#### Parameters
+* onBehalfOfContentOwner (string) - The content owner's external ID on which behalf the user is acting on. If
+* body (object) - A job creating reports of a specific type.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 
 ### jobs.delete
 Deletes a job.
@@ -225,4 +258,22 @@ Lists report types.
 google_youtubereporting.reportTypes.list({}, context)
 ```
 
+#### Parameters
+* pageToken (string) - A token identifying a page of results the server should return. Typically,
+* includeSystemManaged (boolean) - If set to true, also system-managed report types will be returned;
+* pageSize (integer) - Requested page size. Server may return fewer report types than requested.
+* onBehalfOfContentOwner (string) - The content owner's external ID on which behalf the user is acting on. If
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
 

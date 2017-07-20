@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_bigquerydatatransfer.projects.transferConfigs.runs.delete({}, context).then(data => {
   console.log(data);
 })

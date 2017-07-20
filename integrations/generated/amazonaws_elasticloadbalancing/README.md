@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 amazonaws_elasticloadbalancing.AddTags({}, context).then(data => {
   console.log(data);
 })

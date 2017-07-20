@@ -63,6 +63,10 @@ Returns the list of Campaigns.
 hhs_gov.getCampaigns({}, context)
 ```
 
+#### Parameters
+* max (integer) - The maximum number of records to return
+* offset (integer) - The offset of the records set to return for pagination
+* sort (string) - * Set of fields to sort the records by.
 
 ### getCampaignById
 Returns the Campaign identified by the 'id'.
@@ -115,6 +119,10 @@ Returns the list Languages.
 hhs_gov.getLanguages({}, context)
 ```
 
+#### Parameters
+* max (integer) - The maximum number of records to return
+* offset (integer) - The offset of the records set to return for pagination
+* sort (string) - * Set of fields to sort the records by.
 
 ### getLanguageById
 Returns the Language identified by the 'id'.
@@ -137,6 +145,60 @@ Returns the list of MediaItems matching the specified query parameters.
 hhs_gov.getMedia({}, context)
 ```
 
+#### Parameters
+* max (integer) - The maximum number of records to return
+* offset (integer) - The offset of the records set to return for pagination.
+* sort (string) - * Set of fields to sort the records by.
+* order (string) - * The ascending or descending order.
+* mediaTypes (string) - Find all media items belonging to the specified media type[s].
+* name (string) - Find all media items containing the provided name, case insensitive.
+* collectionId (integer) - Restrict filtering to media items in a specific collection.
+* nameContains (string) - Find all media items containing the partial name, case insensitive.
+* descriptionContains (string) - Find all media items containing the provided partial description, case insensitive.
+* sourceUrl (string) - Find all media items which have the provided sourceUrl, case insensitive.
+* sourceUrlContains (string) - Find all media items which contain the provided partial sourceUrl, case insensitive.
+* customThumbnailUrl (string) - Find all media items which have the provided customThumbnailUrl, case insensitive.
+* customThumbnailUrlContains (string) - Find all media items which contain the provided partial customThumbnailUrl, case insensitive.
+* dateContentAuthored (string) - Find all media items authored on the provided day (RFC 3339, time ignored).
+* dateContentUpdated (string) - Find all media items updated on the provided day (RFC 3339, time ignored).
+* dateContentPublished (string) - Find all media items published on the provided day (RFC 3339, time ignored).
+* dateContentReviewed (string) - Find all media items reviewed on the provided day (RFC 3339, time ignored).
+* dateSyndicationCaptured (string) - Find all media items authored on the provided day (RFC 3339, time ignored).
+* dateSyndicationUpdated (string) - Find all media items updated on the provided day, (RFC 3339, time ignored).
+* contentAuthoredSinceDate (string) - Find all media items authored since the provided day (RFC 3339, time ignored).
+* contentAuthoredBeforeDate (string) - Find all media items authored before the provided day (RFC 3339, time ignored).
+* contentAuthoredInRange (string) - Find all media items authored between the provided start and end days (RFC 3339, comma separated, time ignored).
+* contentUpdatedSinceDate (string) - Find all media items updated since the provided day (RFC 3339, time ignored).
+* contentUpdatedBeforeDate (string) - Find all media items updated before the provided day (RFC 3339, time ignored).
+* contentUpdatedInRange (string) - Find all media items updated between the provided start and end days (RFC 3339, comma separated, time ignored).
+* contentPublishedSinceDate (string) - Find all media items published since the provided day (RFC 3339, time ignored).
+* contentPublishedBeforeDate (string) - Find all media items published before the provided day (RFC 3339, time ignored).
+* contentPublishedInRange (string) - Find all media items published between the provided start and end days (RFC 3339, comma separated, time ignored).
+* contentReviewedSinceDate (string) - Find all media items reviewed since the provided day (RFC 3339, time ignored).
+* contentReviewedBeforeDate (string) - Find all media items reviewed before the provided day (RFC 3339, time ignored).
+* contentReviewedInRange (string) - Find all media items reviewed between the provided start and end days (RFC 3339, comma separated, time ignored).
+* syndicationCapturedSinceDate (string) - Find all media items authored since the provided day (RFC 3339, time ignored).
+* syndicationCapturedBeforeDate (string) - Find all media items authored before the provided day (RFC 3339, time ignored).
+* syndicationCapturedInRange (string) - Find all media items authored between the provided start and end days (RFC 3339, comma separated, time ignored).
+* syndicationUpdatedSinceDate (string) - Find all media items updated since the provided day, (RFC 3339, time ignored).
+* syndicationUpdatedBeforeDate (string) - Find all media items updated before the provided day, (RFC 3339, time ignored).
+* syndicationUpdatedInRange (string) - Find all media items updated between the provided start and end days, (RFC 3339, comma separated, time ignored).
+* syndicationVisibleSinceDate (string) - Find all media items visible since the provided day, (RFC 3339, time ignored).
+* syndicationVisibleBeforeDate (string) - Find all media items visible before the provided day, (RFC 3339, time ignored).
+* syndicationVisibleInRange (string) - Find all media items visible between the provided start and end days, (RFC 3339, comma separated, time ignored).
+* languageId (integer) - Find all media items written in the language specified by Id.
+* languageName (string) - Find all media items written in the language specified by name, case insensitive.
+* languageIsoCode (string) - Find all media items written in the language specified by 639-2 isoCode , case insensitive.
+* hash (string) - Find all media items which match the provided hash, case insensitive.
+* hashContains (string) - Find all media items which match the provided partial hash, case insensitive.
+* sourceId (integer) - Find all media items that belong to the source specified by Id.
+* sourceName (string) - Find all media items that belong to the source specified by name, case insensitive.
+* sourceNameContains (string) - Find all media items that belong to the source specified by partial name, case insensitive.
+* sourceAcronym (string) - Find all media items that belong to the source specified by acronym, case insensitive.
+* sourceAcronymContains (string) - Find all media items that belong to the source specified by partial acronym, case insensitive.
+* tagIds (string) - Find only media items tagged with the specified tag Ids.
+* restrictToSet (string) - Find only media from within the supplied list of Ids.
+* createdBy (string) - Find all media items containing the createdBy value.
 
 ### getFeaturedMedia
 Get the list of featured content in the syndication system
@@ -146,6 +208,10 @@ Get the list of featured content in the syndication system
 hhs_gov.getFeaturedMedia({}, context)
 ```
 
+#### Parameters
+* sort (string) - * Set of fields to sort the records by.
+* max (integer) - The maximum number of records to return.
+* offset (integer) - How many records to offset the query by.
 
 ### getMostPopularMedia
 Returns the list of MediaItems with the highest ratings.
@@ -155,6 +221,9 @@ Returns the list of MediaItems with the highest ratings.
 hhs_gov.getMostPopularMedia({}, context)
 ```
 
+#### Parameters
+* max (integer) - The maximum number of records to return
+* offset (integer) - The offset of the records set to return for pagination.
 
 ### searchMedia
 Returns the list of MediaItems matching the search query 'q'.<p>The search query 'q' is a Lucene query.<br>The syntax for a Lucene query can be found <a href="http://lucene.apache.org/core/2_9_4/queryparsersyntax.html">here</a>
@@ -328,6 +397,10 @@ Returns the list of Sources.
 hhs_gov.getSources({}, context)
 ```
 
+#### Parameters
+* max (integer) - The maximum number of records to return
+* offset (integer) - The offset of the records set to return for pagination
+* sort (string) - * Set of fields to sort the records by.
 
 ### getSourceById
 Returns the Source identified by the 'id'.
@@ -364,6 +437,15 @@ Returns the list of Tags matching the specified query parameters in the specifie
 hhs_gov.getTags({}, context)
 ```
 
+#### Parameters
+* sort (string) - The name of the property to which sorting will be applied
+* max (integer) - The maximum number of records to return
+* offset (integer) - Return records starting at the offset index.
+* name (string) - Return tags[s] matching the supplied name
+* nameContains (string) - Return tags which contain the supplied partial name.
+* mediaId (integer) - Return tags associated with the supplied media id.
+* typeId (integer) - Return tags belonging to the supplied tag type id.
+* typeName (string) - Return tags belonging to the supplied tag type name.
 
 ### getTagLanguages
 Returns the list of TagLanguages

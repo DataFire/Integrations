@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_groupsmigration.archive.insert({}, context).then(data => {
   console.log(data);
 })

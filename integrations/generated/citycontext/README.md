@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 citycontext.byPoint({}, context).then(data => {
   console.log(data);
 })

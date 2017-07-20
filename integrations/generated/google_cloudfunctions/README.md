@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_cloudfunctions.projects.locations.functions.list({}, context).then(data => {
   console.log(data);
 })

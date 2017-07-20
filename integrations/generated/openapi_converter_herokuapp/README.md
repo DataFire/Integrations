@@ -51,6 +51,10 @@ Convert a Swagger 2.0 definition passed in the body to OpenAPI 3.0.x
 openapi_converter_herokuapp.convert({}, context)
 ```
 
+#### Parameters
+* filename (string) - The file to upload and convert
+* source (string) - The text of a Swagger 2.0 definition to convert
+* validate (string)
 
 ### getStatus
 Get the status of the API
@@ -82,4 +86,7 @@ Validate an OpenAPI 3.0.x definition supplied in the body of the request
 openapi_converter_herokuapp.validate({}, context)
 ```
 
+#### Parameters
+* filename (string) - The file to upload and validate
+* source (string) - The text of an OpenAPI 3.0.x definition to validate
 

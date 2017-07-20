@@ -22,7 +22,6 @@ let context = new datafire.Context({
   }
 })
 
-
 netlicensing.listLicenses({}, context).then(data => {
   console.log(data);
 })

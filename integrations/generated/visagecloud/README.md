@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 visagecloud.performAnalysisUsingPOST({}, context).then(data => {
   console.log(data);
 })

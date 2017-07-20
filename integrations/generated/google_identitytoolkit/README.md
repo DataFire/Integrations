@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_identitytoolkit.relyingparty.verifyPassword({}, context).then(data => {
   console.log(data);
 })
@@ -64,6 +63,15 @@ Creates the URI used by the IdP to authenticate the user.
 google_identitytoolkit.relyingparty.createAuthUri({}, context)
 ```
 
+#### Parameters
+* body (object) - Request to get the IDP authentication URL.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### relyingparty.deleteAccount
 Delete user account.
@@ -73,6 +81,15 @@ Delete user account.
 google_identitytoolkit.relyingparty.deleteAccount({}, context)
 ```
 
+#### Parameters
+* body (object) - Request to delete account.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### relyingparty.downloadAccount
 Batch download user accounts.
@@ -82,6 +99,15 @@ Batch download user accounts.
 google_identitytoolkit.relyingparty.downloadAccount({}, context)
 ```
 
+#### Parameters
+* body (object) - Request to download user account in batch.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### relyingparty.getAccountInfo
 Returns the account info.
@@ -91,6 +117,15 @@ Returns the account info.
 google_identitytoolkit.relyingparty.getAccountInfo({}, context)
 ```
 
+#### Parameters
+* body (object) - Request to get the account information.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### relyingparty.getOobConfirmationCode
 Get a code for user action confirmation.
@@ -100,6 +135,15 @@ Get a code for user action confirmation.
 google_identitytoolkit.relyingparty.getOobConfirmationCode({}, context)
 ```
 
+#### Parameters
+* body (object) - Request of getting a code for user confirmation (reset password, change email etc.)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### relyingparty.getProjectConfig
 Get project configuration.
@@ -109,6 +153,16 @@ Get project configuration.
 google_identitytoolkit.relyingparty.getProjectConfig({}, context)
 ```
 
+#### Parameters
+* delegatedProjectNumber (string) - Delegated GCP project number of the request.
+* projectNumber (string) - GCP project number of the request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### relyingparty.getRecaptchaParam
 Get recaptcha secure param.
@@ -118,6 +172,14 @@ Get recaptcha secure param.
 google_identitytoolkit.relyingparty.getRecaptchaParam({}, context)
 ```
 
+#### Parameters
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### relyingparty.getPublicKeys
 Get token signing public key.
@@ -127,6 +189,14 @@ Get token signing public key.
 google_identitytoolkit.relyingparty.getPublicKeys({}, context)
 ```
 
+#### Parameters
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### relyingparty.resetPassword
 Reset password for a user.
@@ -136,6 +206,15 @@ Reset password for a user.
 google_identitytoolkit.relyingparty.resetPassword({}, context)
 ```
 
+#### Parameters
+* body (object) - Request to reset the password.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### relyingparty.setAccountInfo
 Set account info for a user.
@@ -145,6 +224,15 @@ Set account info for a user.
 google_identitytoolkit.relyingparty.setAccountInfo({}, context)
 ```
 
+#### Parameters
+* body (object) - Request to set the account information.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### relyingparty.setProjectConfig
 Set project configuration.
@@ -154,6 +242,15 @@ Set project configuration.
 google_identitytoolkit.relyingparty.setProjectConfig({}, context)
 ```
 
+#### Parameters
+* body (object) - Request to set the project configuration.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### relyingparty.signOutUser
 Sign out user.
@@ -163,6 +260,15 @@ Sign out user.
 google_identitytoolkit.relyingparty.signOutUser({}, context)
 ```
 
+#### Parameters
+* body (object) - Request to sign out user.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### relyingparty.signupNewUser
 Signup new user.
@@ -172,6 +278,15 @@ Signup new user.
 google_identitytoolkit.relyingparty.signupNewUser({}, context)
 ```
 
+#### Parameters
+* body (object) - Request to signup new user, create anonymous user or anonymous user reauth.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### relyingparty.uploadAccount
 Batch upload existing user accounts.
@@ -181,6 +296,15 @@ Batch upload existing user accounts.
 google_identitytoolkit.relyingparty.uploadAccount({}, context)
 ```
 
+#### Parameters
+* body (object) - Request to upload user account in batch.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### relyingparty.verifyAssertion
 Verifies the assertion returned by the IdP.
@@ -190,6 +314,15 @@ Verifies the assertion returned by the IdP.
 google_identitytoolkit.relyingparty.verifyAssertion({}, context)
 ```
 
+#### Parameters
+* body (object) - Request to verify the IDP assertion.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### relyingparty.verifyCustomToken
 Verifies the developer asserted ID token.
@@ -199,6 +332,15 @@ Verifies the developer asserted ID token.
 google_identitytoolkit.relyingparty.verifyCustomToken({}, context)
 ```
 
+#### Parameters
+* body (object) - Request to verify a custom token
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### relyingparty.verifyPassword
 Verifies the user entered password.
@@ -208,4 +350,13 @@ Verifies the user entered password.
 google_identitytoolkit.relyingparty.verifyPassword({}, context)
 ```
 
+#### Parameters
+* body (object) - Request to verify the password.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 

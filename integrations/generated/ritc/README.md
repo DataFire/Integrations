@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 ritc.runApp({}, context).then(data => {
   console.log(data);
 })
@@ -292,6 +291,9 @@ Run active app rules
 ritc.runApp({}, context)
 ```
 
+#### Parameters
+* initial_data (object)
+* break_when_rule_fires (boolean) - Do not continue with remaining rules after a rule fires
 
 ### removeApp
 Delete an app

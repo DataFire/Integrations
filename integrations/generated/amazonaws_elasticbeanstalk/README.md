@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 amazonaws_elasticbeanstalk.AbortEnvironmentUpdate({}, context).then(data => {
   console.log(data);
 })

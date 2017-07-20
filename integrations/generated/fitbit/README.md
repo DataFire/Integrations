@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 fitbit.user._.profile.json.post({}, context).then(data => {
   console.log(data);
 })
@@ -925,6 +924,12 @@ Update user's profile using units in the unit system that corresponds to the Acc
 fitbit.user._.profile.json.post({}, context)
 ```
 
+#### Parameters
+* gender (string)
+* birthday (string)
+* height (string)
+* nickname (string)
+* fullname (string)
 
 ### user.user_id.profile.json.get
 Get user's profile in the format requested using units in the unit system which corresponds to the Accept-Language header provided.

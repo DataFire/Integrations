@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 import_extraction.extractor.extractorId.get({}, context).then(data => {
   console.log(data);
 })

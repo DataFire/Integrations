@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_runtimeconfig.operations.delete({}, context).then(data => {
   console.log(data);
 })

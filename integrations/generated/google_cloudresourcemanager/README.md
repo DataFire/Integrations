@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_cloudresourcemanager.projects.create({}, context).then(data => {
   console.log(data);
 })
@@ -68,6 +67,23 @@ For example, a Lien with a `parent` of `projects/1234` requires permission
 google_cloudresourcemanager.liens.list({}, context)
 ```
 
+#### Parameters
+* pageToken (string) - The `next_page_token` value returned from a previous List request, if any.
+* pageSize (integer) - The maximum number of items to return. This is a suggestion for the server.
+* parent (string) - The name of the resource to list all attached Liens.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
 
 ### liens.create
 Create a Lien which applies to the resource denoted by the `parent` field.
@@ -83,6 +99,21 @@ NOTE: Some resources may limit the number of Liens which may be applied.
 google_cloudresourcemanager.liens.create({}, context)
 ```
 
+#### Parameters
+* body (object) - A Lien represents an encumbrance on the actions that can be performed on a
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
 
 ### organizations.search
 Searches Organization resources that are visible to the user and satisfy
@@ -95,6 +126,21 @@ results.
 google_cloudresourcemanager.organizations.search({}, context)
 ```
 
+#### Parameters
+* body (object) - The request sent to the `SearchOrganizations` method.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
 
 ### projects.list
 Lists Projects that are visible to the user and satisfy the
@@ -106,6 +152,23 @@ New Projects do not necessarily appear at the end of the list.
 google_cloudresourcemanager.projects.list({}, context)
 ```
 
+#### Parameters
+* filter (string) - An expression for filtering the results of the request.  Filter rules are
+* pageSize (integer) - The maximum number of Projects to return in the response.
+* pageToken (string) - A pagination token returned from a previous call to ListProjects
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
 
 ### projects.create
 Request that a new Project be created. The result is an Operation which
@@ -122,6 +185,21 @@ polling at the 5th second with an exponential backoff.
 google_cloudresourcemanager.projects.create({}, context)
 ```
 
+#### Parameters
+* body (object) - A Project is a high-level Google Cloud Platform entity.  It is a
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
 
 ### projects.delete
 Marks the Project identified by the specified

@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 channel4.Coming_Soon_feed({}, context).then(data => {
   console.log(data);
 })
@@ -66,6 +65,8 @@ Information of the most popular content available on 4oD, according to user
 channel4.4oD_Most_Popular_Episodes_Feed({}, context)
 ```
 
+#### Parameters
+* platform (string) - The platform to use for the query. Alias 'client'.
 
 ### 4oD_Clips_Catch_Up_Feed
 A feed containing metadata about short-form content relating to 4oD Episodes 
@@ -82,6 +83,8 @@ A feed containing metadata about short-form content relating to 4oD Episodes
 channel4.4oD_Clips_Catch_Up_Feed({}, context)
 ```
 
+#### Parameters
+* platform (string) - The platform to use for the query. Alias 'client'.
 
 ### A_to_Z_Landing_Feed
 Lists Channel 4 programmes alphabetically from A to Z, providing the same 
@@ -97,6 +100,8 @@ Lists Channel 4 programmes alphabetically from A to Z, providing the same
 channel4.A_to_Z_Landing_Feed({}, context)
 ```
 
+#### Parameters
+* platform (string) - The platform to use for the query. Alias 'client'.
 
 ### A_to_Z_Letter_Feed
 Lists Channel 4 programmes whose names begin with the associated letter.
@@ -149,6 +154,8 @@ Lists all Channel 4 programmes available on 4oD.  By default, the programmes
 channel4.4oD_Title_All_Brands_Feed({}, context)
 ```
 
+#### Parameters
+* platform (string) - The platform to use for the query. Alias 'client'.
 
 ### brands.4od.page_pageno.atom.get
 Lists all Channel 4 programmes available on 4oD.  By default, the programmes 
@@ -182,6 +189,8 @@ Lists all Channel 4 programmes available on 4oD by popularity considering
 channel4.4oD_Popular_All_Brands_Feed({}, context)
 ```
 
+#### Parameters
+* platform (string) - The platform to use for the query. Alias 'client'.
 
 ### brands.4od.popular.page_pageno.atom.get
 Lists all Channel 4 programmes available on 4oD by popularity considering 
@@ -215,6 +224,8 @@ Lists all Channel 4 programmes by popularity considering the data gathered
 channel4.Popular_Brands_Feed({}, context)
 ```
 
+#### Parameters
+* platform (string) - The platform to use for the query. Alias 'client'.
 
 ### brands.popular.page_pageno.atom.get
 Lists all Channel 4 programmes by popularity considering the data gathered 
@@ -247,6 +258,8 @@ Lists Channel 4 programmes by category (/ tag).
 channel4.Categories_Landing_Feed({}, context)
 ```
 
+#### Parameters
+* platform (string) - The platform to use for the query. Alias 'client'.
 
 ### All_Programmes_by_TX_Date
 Lists all Channel 4 programmes associated with the specified category (tag).  
@@ -1015,6 +1028,8 @@ Coming Soon feed display a list of episodes coming soon to linear TV so that
 channel4.Coming_Soon_feed({}, context)
 ```
 
+#### Parameters
+* platform (string) - The platform to use for the query. Alias 'client'.
 
 ### coming_soon.category.atom.get
 Coming Soon feed display a list of episodes coming soon to linear TV so that 

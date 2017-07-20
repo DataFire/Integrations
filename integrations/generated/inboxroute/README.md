@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 inboxroute.contacts.lists.post({}, context).then(data => {
   console.log(data);
 })
@@ -38,6 +37,11 @@ Get a paged result of contacts from a list
 inboxroute.contacts.get({}, context)
 ```
 
+#### Parameters
+* listid (string) - Unique 16 characters ID of the contact list to get contacts of
+* offset (integer) - Skip that many records
+* limit (integer) - Maximum number of items in page
+* sort (string) - Property to sort by. Append '-' for descending order.
 
 ### contacts.lists.get
 Get a paged result of contact lists.
@@ -47,6 +51,10 @@ Get a paged result of contact lists.
 inboxroute.contacts.lists.get({}, context)
 ```
 
+#### Parameters
+* offset (integer) - Skip that many records
+* limit (integer) - Maximum number of items in page
+* sort (string) - Property to sort by. Append '-' for descending order.
 
 ### contacts.lists.post
 Add a new contact list
@@ -56,6 +64,8 @@ Add a new contact list
 inboxroute.contacts.lists.post({}, context)
 ```
 
+#### Parameters
+* contactlist (undefined)
 
 ### contacts.lists.listid.delete
 Delete an existing contact list

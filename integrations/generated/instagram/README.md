@@ -25,7 +25,6 @@ let context = new datafire.Context({
   }
 })
 
-
 instagram.users.self.media.liked.get({}, context).then(data => {
   console.log(data);
 })
@@ -81,6 +80,13 @@ Search for a location by geographic coordinate.
 instagram.locations.search.get({}, context)
 ```
 
+#### Parameters
+* distance (integer) - Default is 1000m (distance=1000), max distance is 5000.
+* facebook_places_id (string) - Returns a location mapped off of a Facebook places id. If used, a Foursquare id and `lat`, `lng` are not required.
+* foursquare_id (string) - Returns a location mapped off of a foursquare v1 api location id. If used, you are not required to use
+* lat (number) - Latitude of the center search coordinate. If used, `lng` is required.
+* lng (number) - Longitude of the center search coordinate. If used, `lat` is required.
+* foursquare_v2_id (string) - Returns a location mapped off of a foursquare v2 api location id. If used, you are not required to use
 
 ### locations.location_id.get
 Get information about a location.
@@ -337,6 +343,10 @@ See the authenticated user's feed.
 instagram.users.self.feed.get({}, context)
 ```
 
+#### Parameters
+* count (integer) - Count of media to return.
+* min_id (string) - Return media later than this `min_id`.
+* max_id (string) - Return media earlier than this `max_id`.
 
 ### users.self.media.liked.get
 See the list of media liked by the authenticated user. Private media is returned as long as the authenticated
@@ -349,6 +359,9 @@ user.
 instagram.users.self.media.liked.get({}, context)
 ```
 
+#### Parameters
+* count (integer) - Count of media to return.
+* max_like_id (string) - Return media liked before this id.
 
 ### users.self.requested_by.get
 List the users who have requested this user's permission to follow.

@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_games.turnBasedMatches.sync({}, context).then(data => {
   console.log(data);
 })
@@ -64,6 +63,18 @@ Lists all the achievement definitions for your application.
 google_games.achievementDefinitions.list({}, context)
 ```
 
+#### Parameters
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* maxResults (integer) - The maximum number of achievement resources to return in the response, used for paging. For any response, the actual number of achievement resources returned may be less than the specified maxResults.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### achievements.updateMultiple
 Updates multiple achievements for the currently authenticated player.
@@ -73,6 +84,16 @@ Updates multiple achievements for the currently authenticated player.
 google_games.achievements.updateMultiple({}, context)
 ```
 
+#### Parameters
+* consistencyToken (string) - The last-seen mutation timestamp.
+* body (object) - This is a JSON template for a list of achievement update requests.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### achievements.increment
 Increments the steps of the achievement with the given ID for the currently authenticated player.
@@ -171,6 +192,15 @@ Indicate that the the currently authenticated user is playing your application.
 google_games.applications.played({}, context)
 ```
 
+#### Parameters
+* consistencyToken (string) - The last-seen mutation timestamp.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### applications.get
 Retrieves the metadata of the application with the given ID. If the requested application is not available for the specified platformType, the returned response will not include any instance data.
@@ -224,6 +254,18 @@ Returns a list of the event definitions in this application.
 google_games.events.listDefinitions({}, context)
 ```
 
+#### Parameters
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* maxResults (integer) - The maximum number of event definitions to return in the response, used for paging. For any response, the actual number of event definitions to return may be less than the specified maxResults.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### events.listByPlayer
 Returns a list showing the current progress on events in this application for the currently authenticated user.
@@ -233,6 +275,18 @@ Returns a list showing the current progress on events in this application for th
 google_games.events.listByPlayer({}, context)
 ```
 
+#### Parameters
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* maxResults (integer) - The maximum number of events to return in the response, used for paging. For any response, the actual number of events to return may be less than the specified maxResults.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### events.record
 Records a batch of changes to the number of times events have occurred for the currently authenticated user of this application.
@@ -242,6 +296,17 @@ Records a batch of changes to the number of times events have occurred for the c
 google_games.events.record({}, context)
 ```
 
+#### Parameters
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* body (object) - This is a JSON template for an event period update resource.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### leaderboards.list
 Lists all the leaderboard metadata for your application.
@@ -251,6 +316,18 @@ Lists all the leaderboard metadata for your application.
 google_games.leaderboards.list({}, context)
 ```
 
+#### Parameters
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* maxResults (integer) - The maximum number of leaderboards to return in the response. For any response, the actual number of leaderboards returned may be less than the specified maxResults.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### scores.submitMultiple
 Submits multiple scores to leaderboards.
@@ -260,6 +337,17 @@ Submits multiple scores to leaderboards.
 google_games.scores.submitMultiple({}, context)
 ```
 
+#### Parameters
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* body (object) - This is a JSON template for a list of score submission requests
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### leaderboards.get
 Retrieves the metadata of the leaderboard with the given ID.
@@ -374,6 +462,15 @@ Return the metagame configuration data for the calling application.
 google_games.metagame.getMetagameConfig({}, context)
 ```
 
+#### Parameters
+* consistencyToken (string) - The last-seen mutation timestamp.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### players.list
 Get the collection of players for the currently authenticated user.
@@ -558,6 +655,16 @@ Registers a push token for the current user and application.
 google_games.pushtokens.update({}, context)
 ```
 
+#### Parameters
+* consistencyToken (string) - The last-seen mutation timestamp.
+* body (object) - This is a JSON template for a push token resource.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### pushtokens.remove
 Removes a push token for the current user and application. Removing a non-existent push token will report success.
@@ -567,6 +674,16 @@ Removes a push token for the current user and application. Removing a non-existe
 google_games.pushtokens.remove({}, context)
 ```
 
+#### Parameters
+* consistencyToken (string) - The last-seen mutation timestamp.
+* body (object) - This is a JSON template for a push token ID resource.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### quests.accept
 Indicates that the currently authorized user will participate in the quest.
@@ -644,6 +761,18 @@ Returns invitations to join rooms.
 google_games.rooms.list({}, context)
 ```
 
+#### Parameters
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* maxResults (integer) - The maximum number of rooms to return in the response, used for paging. For any response, the actual number of rooms to return may be less than the specified maxResults.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### rooms.create
 Create a room. For internal use by the Games SDK only. Calling this method directly is unsupported.
@@ -653,6 +782,17 @@ Create a room. For internal use by the Games SDK only. Calling this method direc
 google_games.rooms.create({}, context)
 ```
 
+#### Parameters
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* body (object) - This is a JSON template for a room creation request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### rooms.get
 Get the data for a room.
@@ -818,6 +958,20 @@ Returns turn-based matches the player is or was involved in.
 google_games.turnBasedMatches.list({}, context)
 ```
 
+#### Parameters
+* consistencyToken (string) - The last-seen mutation timestamp.
+* includeMatchData (boolean) - True if match data should be returned in the response. Note that not all data will necessarily be returned if include_match_data is true; the server may decide to only return data for some of the matches to limit download size for the client. The remainder of the data for these matches will be retrievable on request.
+* language (string) - The preferred language to use for strings returned by this method.
+* maxCompletedMatches (integer) - The maximum number of completed or canceled matches to return in the response. If not set, all matches returned could be completed or canceled.
+* maxResults (integer) - The maximum number of matches to return in the response, used for paging. For any response, the actual number of matches to return may be less than the specified maxResults.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### turnBasedMatches.create
 Create a turn-based match.
@@ -827,6 +981,17 @@ Create a turn-based match.
 google_games.turnBasedMatches.create({}, context)
 ```
 
+#### Parameters
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* body (object) - This is a JSON template for a turn-based match creation request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### turnBasedMatches.sync
 Returns turn-based matches the player is or was involved in that changed since the last sync call, with the least recent changes coming first. Matches that should be removed from the local cache will have a status of MATCH_DELETED.
@@ -836,6 +1001,20 @@ Returns turn-based matches the player is or was involved in that changed since t
 google_games.turnBasedMatches.sync({}, context)
 ```
 
+#### Parameters
+* consistencyToken (string) - The last-seen mutation timestamp.
+* includeMatchData (boolean) - True if match data should be returned in the response. Note that not all data will necessarily be returned if include_match_data is true; the server may decide to only return data for some of the matches to limit download size for the client. The remainder of the data for these matches will be retrievable on request.
+* language (string) - The preferred language to use for strings returned by this method.
+* maxCompletedMatches (integer) - The maximum number of completed or canceled matches to return in the response. If not set, all matches returned could be completed or canceled.
+* maxResults (integer) - The maximum number of matches to return in the response, used for paging. For any response, the actual number of matches to return may be less than the specified maxResults.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### turnBasedMatches.get
 Get the data for a turn-based match.

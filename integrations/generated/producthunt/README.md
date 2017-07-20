@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 producthunt.categories.category.posts.get({}, context).then(data => {
   console.log(data);
 })
@@ -64,6 +63,8 @@ producthunt.oauthRefresh(null, context)
 producthunt.users.username.get({}, context)
 ```
 
+#### Parameters
+* username (string)
 
 ### categories.category.posts.get
 
@@ -73,4 +74,7 @@ producthunt.users.username.get({}, context)
 producthunt.categories.category.posts.get({}, context)
 ```
 
+#### Parameters
+* category (string)
+* days_ago (string)
 

@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 box_upload.uploadFile({}, context).then(data => {
   console.log(data);
 })

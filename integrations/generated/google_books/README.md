@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_books.volumes.useruploaded.list({}, context).then(data => {
   console.log(data);
 })
@@ -64,6 +63,18 @@ google_books.oauthRefresh(null, context)
 google_books.cloudloading.addBook({}, context)
 ```
 
+#### Parameters
+* drive_document_id (string) - A drive document id. The upload_client_token must not be set.
+* mime_type (string) - The document MIME type. It can be set only if the drive_document_id is set.
+* name (string) - The document name. It can be set only if the drive_document_id is set.
+* upload_client_token (string)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### cloudloading.deleteBook
 Remove the book and its contents
@@ -93,6 +104,15 @@ google_books.cloudloading.deleteBook({
 google_books.cloudloading.updateBook({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### dictionary.listOfflineMetadata
 Returns a list of offline dictionary metadata available
@@ -122,6 +142,14 @@ Gets the current settings for the user.
 google_books.myconfig.getUserSettings({}, context)
 ```
 
+#### Parameters
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### myconfig.releaseDownloadAccess
 Release downloaded content access restriction.
@@ -212,6 +240,15 @@ Sets the settings for the user. If a sub-object is specified, it will overwrite 
 google_books.myconfig.updateUserSettings({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### mylibrary.annotations.list
 Retrieves a list of annotations, possibly filtered.
@@ -221,6 +258,24 @@ Retrieves a list of annotations, possibly filtered.
 google_books.mylibrary.annotations.list({}, context)
 ```
 
+#### Parameters
+* contentVersion (string) - The content version for the requested volume.
+* layerId (string) - The layer ID to limit annotation by.
+* layerIds (array) - The layer ID(s) to limit annotation by.
+* maxResults (integer) - Maximum number of results to return
+* pageToken (string) - The value of the nextToken from the previous page.
+* showDeleted (boolean) - Set to true to return deleted annotations. updatedMin must be in the request to use this. Defaults to false.
+* source (string) - String to identify the originator of this request.
+* updatedMax (string) - RFC 3339 timestamp to restrict to items updated prior to this timestamp (exclusive).
+* updatedMin (string) - RFC 3339 timestamp to restrict to items updated since this timestamp (inclusive).
+* volumeId (string) - The volume to restrict annotations to.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### mylibrary.annotations.insert
 Inserts a new annotation.
@@ -230,6 +285,19 @@ Inserts a new annotation.
 google_books.mylibrary.annotations.insert({}, context)
 ```
 
+#### Parameters
+* annotationId (string) - The ID for the annotation to insert.
+* body (object)
+* country (string) - ISO-3166-1 code to override the IP-based location.
+* showOnlySummaryInResponse (boolean) - Requests that only the summary of the specified layer be provided in the response.
+* source (string) - String to identify the originator of this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### mylibrary.annotations.summary
 Gets the summary of specified layers.
@@ -304,6 +372,15 @@ Retrieves a list of bookshelves belonging to the authenticated user.
 google_books.mylibrary.bookshelves.list({}, context)
 ```
 
+#### Parameters
+* source (string) - String to identify the originator of this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### mylibrary.bookshelves.get
 Retrieves metadata for a specific bookshelf belonging to the authenticated user.
@@ -527,6 +604,15 @@ List categories for onboarding experience.
 google_books.onboarding.listCategories({}, context)
 ```
 
+#### Parameters
+* locale (string) - ISO-639-1 language and ISO-3166-1 country code. Default is en-US if unset.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### onboarding.listCategoryVolumes
 List available volumes under categories for onboarding experience.
@@ -536,6 +622,19 @@ List available volumes under categories for onboarding experience.
 google_books.onboarding.listCategoryVolumes({}, context)
 ```
 
+#### Parameters
+* categoryId (array) - List of category ids requested.
+* locale (string) - ISO-639-1 language and ISO-3166-1 country code. Default is en-US if unset.
+* maxAllowedMaturityRating (string) - The maximum allowed maturity rating of returned volumes. Books with a higher maturity rating are filtered out.
+* pageSize (integer) - Number of maximum results per page to be included in the response.
+* pageToken (string) - The value of the nextToken from the previous page.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### personalizedstream.get
 Returns a stream of personalized book clusters
@@ -545,6 +644,17 @@ Returns a stream of personalized book clusters
 google_books.personalizedstream.get({}, context)
 ```
 
+#### Parameters
+* locale (string) - ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations.
+* maxAllowedMaturityRating (string) - The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out.
+* source (string) - String to identify the originator of this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### promooffer.accept
 
@@ -554,6 +664,22 @@ google_books.personalizedstream.get({}, context)
 google_books.promooffer.accept({}, context)
 ```
 
+#### Parameters
+* androidId (string) - device android_id
+* device (string) - device device
+* manufacturer (string) - device manufacturer
+* model (string) - device model
+* offerId (string)
+* product (string) - device product
+* serial (string) - device serial
+* volumeId (string) - Volume id to exercise the offer
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### promooffer.dismiss
 
@@ -563,6 +689,21 @@ google_books.promooffer.accept({}, context)
 google_books.promooffer.dismiss({}, context)
 ```
 
+#### Parameters
+* androidId (string) - device android_id
+* device (string) - device device
+* manufacturer (string) - device manufacturer
+* model (string) - device model
+* offerId (string) - Offer to dimiss
+* product (string) - device product
+* serial (string) - device serial
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### promooffer.get
 Returns a list of promo offers available to the user
@@ -572,6 +713,20 @@ Returns a list of promo offers available to the user
 google_books.promooffer.get({}, context)
 ```
 
+#### Parameters
+* androidId (string) - device android_id
+* device (string) - device device
+* manufacturer (string) - device manufacturer
+* model (string) - device model
+* product (string) - device product
+* serial (string) - device serial
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### series.get
 Returns Series metadata for the given series ids.
@@ -726,6 +881,21 @@ Return a list of books in My Library.
 google_books.volumes.mybooks.list({}, context)
 ```
 
+#### Parameters
+* acquireMethod (array) - How the book was acquired
+* country (string) - ISO-3166-1 code to override the IP-based location.
+* locale (string) - ISO-639-1 language and ISO-3166-1 country code. Ex:'en_US'. Used for generating recommendations.
+* maxResults (integer) - Maximum number of results to return.
+* processingState (array) - The processing state of the user uploaded volumes to be returned. Applicable only if the UPLOADED is specified in the acquireMethod.
+* source (string) - String to identify the originator of this request.
+* startIndex (integer) - Index of the first result to return (starts at 0)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### volumes.recommended.list
 Return a list of recommended books for the current user.
@@ -735,6 +905,17 @@ Return a list of recommended books for the current user.
 google_books.volumes.recommended.list({}, context)
 ```
 
+#### Parameters
+* locale (string) - ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations.
+* maxAllowedMaturityRating (string) - The maximum allowed maturity rating of returned recommendations. Books with a higher maturity rating are filtered out.
+* source (string) - String to identify the originator of this request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### volumes.recommended.rate
 Rate a recommended book for the current user.
@@ -768,6 +949,20 @@ Return a list of books uploaded by the current user.
 google_books.volumes.useruploaded.list({}, context)
 ```
 
+#### Parameters
+* locale (string) - ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for generating recommendations.
+* maxResults (integer) - Maximum number of results to return.
+* processingState (array) - The processing state of the user uploaded volumes to be returned.
+* source (string) - String to identify the originator of this request.
+* startIndex (integer) - Index of the first result to return (starts at 0)
+* volumeId (array) - The ids of the volumes to be returned. If not specified all that match the processingState are returned.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### volumes.get
 Gets volume information for a single volume.

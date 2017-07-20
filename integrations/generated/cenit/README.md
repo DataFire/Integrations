@@ -21,7 +21,6 @@ let context = new datafire.Context({
   }
 })
 
-
 cenit.setup.connection.get({}, context).then(data => {
   console.log(data);
 })

@@ -29,6 +29,8 @@ Update account. Wrap map parameters in [user].
 uebermaps.account.patch({}, context)
 ```
 
+#### Parameters
+* user (undefined)
 
 ### attachments.id.delete
 Delete attachment.
@@ -73,6 +75,8 @@ Invite user to collaborate on map.
 uebermaps.collaborator_invitations.post({}, context)
 ```
 
+#### Parameters
+* body (undefined)
 
 ### collaborator_invitations.id.delete
 Delete collaborator invitation.
@@ -148,6 +152,10 @@ List your own events.
 uebermaps.events.get({}, context)
 ```
 
+#### Parameters
+* timeframe_start (string) - Begin of time range of event (ISO 8601 date format).
+* timeframe_end (string) - End of time range of event (ISO 8601 date format).
+* bounds (string) - To refine your event index request to contain only events within                                                             a geographical box pass the followng bounds parameters.                                                             F. e. to get events within 'Hamburg, St. Pauli':                                                             bounds[sw_lat]=53.54831449741324                                                             bounds[sw_lon]=9.943227767944336                                                             bounds[ne_lat]=53.5571103674878                                                             bounds[ne_lon]=9.9776029586792
 
 ### events.id.delete
 Delete event.
@@ -206,6 +214,8 @@ Create map. Wrap map parameters in [map]. To add a map header picture pass a bas
 uebermaps.maps.post({}, context)
 ```
 
+#### Parameters
+* map (undefined)
 
 ### maps.search.get
 Search maps
@@ -215,6 +225,11 @@ Search maps
 uebermaps.maps.search.get({}, context)
 ```
 
+#### Parameters
+* q (string) - Query
+* d (integer) - Distance. Diameter of search radius in meter (default: 2000 meter)
+* lat (number) - Latitude for search radius (default distance: 2000 meter)
+* lon (number) - Longitude for search radius (default distance: 2000 meter)
 
 ### maps.id.delete
 Delete map.
@@ -496,6 +511,11 @@ Search spots
 uebermaps.spots.search.get({}, context)
 ```
 
+#### Parameters
+* q (string) - Query
+* d (integer) - Distance. Diameter of search radius in meter (default: 2000 meter)
+* lat (number) - Latitude for search radius (2 km)
+* lon (number) - Longitude for search radius (2 km)
 
 ### spots.id.delete
 Delete spot.
@@ -632,6 +652,9 @@ List subscriptions.
 uebermaps.subscriptions.get({}, context)
 ```
 
+#### Parameters
+* user_id (integer) - Id of user
+* map_id (integer) - Id of map
 
 ### subscriptions.post
 Create map subscription.
@@ -672,6 +695,8 @@ Search users
 uebermaps.users.search.get({}, context)
 ```
 
+#### Parameters
+* q (string) - Query
 
 ### users.id.get
 Get profile a user

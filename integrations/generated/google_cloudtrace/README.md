@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_cloudtrace.projects.traces.list({}, context).then(data => {
   console.log(data);
 })

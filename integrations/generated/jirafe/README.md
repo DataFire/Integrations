@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 jirafe.postBatch({}, context).then(data => {
   console.log(data);
 })

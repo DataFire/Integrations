@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_servicemanagement.services.generateConfigReport({}, context).then(data => {
   console.log(data);
 })
@@ -64,6 +63,24 @@ Lists service operations that match the specified filter in the request.
 google_servicemanagement.operations.list({}, context)
 ```
 
+#### Parameters
+* filter (string) - A string for filtering Operations.
+* name (string) - Not used.
+* pageToken (string) - The standard list page token.
+* pageSize (integer) - The maximum number of operations to return. If unspecified, defaults to
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
 
 ### services.list
 Lists managed services.
@@ -81,6 +98,24 @@ of "project:{PROJECT-ID}".
 google_servicemanagement.services.list({}, context)
 ```
 
+#### Parameters
+* pageToken (string) - Token identifying which result to start with; returned by a previous list
+* pageSize (integer) - Requested size of the next page of data.
+* producerProjectId (string) - Include services produced by the specified project.
+* consumerId (string) - Include services consumed by the specified consumer.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
 
 ### services.create
 Creates a new managed service.
@@ -93,6 +128,21 @@ Operation<response: ManagedService>
 google_servicemanagement.services.create({}, context)
 ```
 
+#### Parameters
+* body (object) - The full representation of a Service that is managed by
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
 
 ### services.delete
 Deletes a managed service. This method will change the service to the
@@ -508,6 +558,21 @@ service configuration.
 google_servicemanagement.services.generateConfigReport({}, context)
 ```
 
+#### Parameters
+* body (object) - Request message for GenerateConfigReport method.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
 
 ### operations.get
 Gets the latest state of a long-running operation.  Clients can use this

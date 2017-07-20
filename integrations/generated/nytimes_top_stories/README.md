@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 nytimes_top_stories.section.format.get({}, context).then(data => {
   console.log(data);
 })

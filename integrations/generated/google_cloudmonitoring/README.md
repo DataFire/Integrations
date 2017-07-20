@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_cloudmonitoring.metricDescriptors.list({}, context).then(data => {
   console.log(data);
 })

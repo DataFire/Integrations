@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 amadeus.airports.autocomplete.get({}, context).then(data => {
   console.log(data);
 })

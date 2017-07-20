@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 botify.getProjectAnalyses({}, context).then(data => {
   console.log(data);
 })

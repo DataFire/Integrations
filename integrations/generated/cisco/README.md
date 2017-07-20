@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 cisco.security.advisories.cvrf.advisory.advisory_id.get({}, context).then(data => {
   console.log(data);
 })

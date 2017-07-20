@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 owler.basicCompanySearch({}, context).then(data => {
   console.log(data);
 })

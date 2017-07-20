@@ -44,6 +44,14 @@ Returns a collection of sections.
 onenote.sections.get({}, context)
 ```
 
+#### Parameters
+* count (boolean) - true, to return the number of entities in the collection.
+* filter (string) - The filter for the query. Example: createdTime ge 2015-09-01
+* orderby (string) - The property to order by. Default is "name asc". Example: lastModifiedTime desc
+* select (string) - The properties to return. Example: name,pagesUrl,createdTime
+* top (undefined) - The number of entities to return from the result set. Example: 10
+* expand (string) - The navigation properties (parentNotebook or parentSectionGroup) to return inline in the response. The default query expands parentNotebook and parentSectionGroup, and selects their id, name, and self properties.
+* skip (undefined) - The number of entities to skip in the result set. Example: 10
 
 ### sectionGroups.sectionGroupId.sectionGroups.get
 Returns a collection of section groups within a specific section group.
@@ -108,6 +116,14 @@ Returns a collection of section groups.
 onenote.sectionGroups.get({}, context)
 ```
 
+#### Parameters
+* count (boolean) - true, to return the number of entities in the collection.
+* filter (string) - The filter for the query. Example: createdTime ge 2015-09-01
+* orderby (string) - The property to order by. Default is "name asc". Example: lastModifiedTime desc
+* select (string) - The properties to return. Example: name,sectionsUrl,createdTime
+* top (undefined) - The number of entities to return from the result set. Example: 10
+* expand (string) - The navigation properties (sections, sectionGroups, parentNotebook, or parentSectionGroup) to return inline in the response. The default query expands parentNotebook and parentSectionGroup, and selects their id, name, and self properties.  Example: sections,sectionGroups
+* skip (undefined) - The number of entities to skip in the result set. Example: 10
 
 ### notebooks.notebookId.sectiongroups.get
 Returns a collection of section groups within a specific notebook.
@@ -187,6 +203,14 @@ Returns a collection of notebooks.
 onenote.notebooks.get({}, context)
 ```
 
+#### Parameters
+* count (boolean) - true, to return the number of entities in the collection.
+* filter (string) - The filter for the query. Example: createdTime ge 2015-09-01
+* orderby (string) - The property to order by. Default is "name asc". Example: lastModifiedTime desc
+* select (string) - The properties to return. Example: name,self,links
+* top (undefined) - The number of entities to return from the result set. Example: 10
+* expand (string) - The navigation properties (sections or sectionGroups) to return inline in the response. Example: sections
+* skip (undefined) - The number of entities to skip in the result set. Example: 10
 
 ### notebooks.post
 Creates a new notebook.
@@ -287,6 +311,14 @@ Get the pages (metadata) from all notebooks in OneDrive that are owned by the us
 onenote.pages.get({}, context)
 ```
 
+#### Parameters
+* count (boolean) - true, to return the number of entities in the collection.
+* filter (string) - The filter for the query. Example: title eq 'Homework'
+* orderby (string) - The property to order by. Default is "lastModifiedTime desc". Example: createdTime desc
+* select (string) - The properties to return. Example: title,self,createdTime
+* top (undefined) - The number of entities to return from the result set. Default is 20, maximum is 100. Example: 10
+* search (string) - The term or phrase to search for. Example: todo
+* skip (undefined) - The number of entities to skip in the result set. Example: 10
 
 ### pages.post
 Creates a new page in the default notebook and section.

@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_tracing.projects.traces.spans.create({}, context).then(data => {
   console.log(data);
 })

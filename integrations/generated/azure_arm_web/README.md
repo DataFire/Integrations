@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 azure_arm_web.Provider_GetPublishingUser({}, context).then(data => {
   console.log(data);
 })

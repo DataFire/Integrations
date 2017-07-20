@@ -43,6 +43,13 @@ get items
 rummblelabs.getItems({}, context)
 ```
 
+#### Parameters
+* oauth_token (string) - oauth token
+* full (boolean) - get all attributes for item
+* name (string) - keywords to match
+* dimension (integer) - limit items to a particular dimension
+* type (integer) - limit items to a particular type
+* limit (integer) - limit number of items returned
 
 ### postItem
 post new item
@@ -80,6 +87,8 @@ get item type
 rummblelabs.getItemTypes({}, context)
 ```
 
+#### Parameters
+* oauth_token (string) - oauth token
 
 ### getItem
 get item
@@ -163,6 +172,11 @@ get users
 rummblelabs.getUsers({}, context)
 ```
 
+#### Parameters
+* oauth_token (string) - oauth token
+* full (boolean) - get all attributes for user
+* name (string) - keywords to match
+* limit (integer) - limit number of users returned
 
 ### postUser
 post new user

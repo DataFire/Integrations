@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 amazonaws_opsworks_cm.AssociateNode({}, context).then(data => {
   console.log(data);
 })

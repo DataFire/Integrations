@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 amazonaws_ec2.AcceptReservedInstancesExchangeQuote({}, context).then(data => {
   console.log(data);
 })

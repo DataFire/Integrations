@@ -64,6 +64,8 @@ Get custom attributes metadata for the given data interface.
 magento.customerCustomerMetadataV1GetCustomAttributesMetadataGet({}, context)
 ```
 
+#### Parameters
+* dataInterfaceName (string)
 
 ### customerCustomerMetadataV1GetAttributesGet
 Retrieve all attributes filtered by form code
@@ -108,6 +110,8 @@ Get custom attributes metadata for the given data interface.
 magento.customerAddressMetadataV1GetCustomAttributesMetadataGet({}, context)
 ```
 
+#### Parameters
+* dataInterfaceName (string)
 
 ### customerAddressMetadataV1GetAttributesGet
 Retrieve all attributes filtered by form code
@@ -130,6 +134,8 @@ Add new option for bundle product
 magento.bundleProductOptionManagementV1SavePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### bundleProductOptionTypeListV1GetItemsGet
 Get all types for options for bundle products
@@ -348,6 +354,8 @@ Save quote
 magento.quoteCartRepositoryV1SavePut({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### customerBalanceBalanceManagementV1ApplyPost
 Apply store credit
@@ -375,6 +383,8 @@ Assigns a specified billing address to a specified cart.
 magento.V1.carts.mine.billing_address.post({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### giftCardAccountGiftCardAccountManagementV1CheckGiftCardGet
 
@@ -397,6 +407,8 @@ Set shipping/billing methods and additional data for cart and collect totals.
 magento.quoteCartTotalManagementV1CollectTotalsPut({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### V1.carts.mine.coupons.delete
 Deletes a coupon from a specified cart.
@@ -437,6 +449,8 @@ Estimate shipping by address and return list of available shipping methods
 magento.V1.carts.mine.estimate_shipping_methods.post({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### V1.carts.mine.estimate_shipping_methods_by_address_id.post
 Estimate shipping
@@ -446,6 +460,8 @@ Estimate shipping
 magento.V1.carts.mine.estimate_shipping_methods_by_address_id.post({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### V1.carts.mine.gift_message.get
 Return the gift message for a specified order.
@@ -464,6 +480,8 @@ Set the gift message for an entire order.
 magento.V1.carts.mine.gift_message.post({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### V1.carts.mine.gift_message.itemId.get
 Return the gift message for a specified item in a specified shopping cart.
@@ -500,6 +518,8 @@ magento.V1.carts.mine.gift_message.itemId.post({
 magento.giftCardAccountGiftCardAccountManagementV1SaveByQuoteIdPost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### V1.carts.mine.giftCards.giftCardCode.delete
 Remove GiftCard Account entity
@@ -531,6 +551,8 @@ Add/update the specified cart item.
 magento.V1.carts.mine.items.post({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### V1.carts.mine.items.itemId.delete
 Removes the specified item from the specified cart.
@@ -567,6 +589,8 @@ Places an order for a specified cart.
 magento.V1.carts.mine.order.put({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### checkoutPaymentInformationManagementV1GetPaymentInformationGet
 Get payment information
@@ -585,6 +609,8 @@ Set payment information and place order for a specified cart.
 magento.checkoutPaymentInformationManagementV1SavePaymentInformationAndPlaceOrderPost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### V1.carts.mine.payment_methods.get
 Lists available payment methods for a specified shopping cart. This call returns an array of objects, but detailed information about each object’s attributes might not be included.  See http://devdocs.magento.com/codelinks/attributes.html#PaymentMethodManagementInterface to determine which call to use to get detailed information about all attributes for an object.
@@ -612,6 +638,8 @@ Adds a specified payment method to a specified shopping cart.
 magento.V1.carts.mine.selected_payment_method.put({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### checkoutPaymentInformationManagementV1SavePaymentInformationPost
 Set payment information for a specified cart.
@@ -621,6 +649,8 @@ Set payment information for a specified cart.
 magento.checkoutPaymentInformationManagementV1SavePaymentInformationPost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### V1.carts.mine.shipping_information.post
 
@@ -630,6 +660,8 @@ magento.checkoutPaymentInformationManagementV1SavePaymentInformationPost({}, con
 magento.V1.carts.mine.shipping_information.post({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### V1.carts.mine.shipping_methods.get
 Lists applicable shipping methods for a specified quote.
@@ -657,6 +689,8 @@ Calculate quote totals based on address and shipping method.
 magento.V1.carts.mine.totals_information.post({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### quoteCartRepositoryV1GetListGet
 Enables administrative users to list carts that match specified search criteria. This call returns an array of objects, but detailed information about each object’s attributes might not be included.  See http://devdocs.magento.com/codelinks/attributes.html#CartRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
@@ -666,6 +700,14 @@ Enables administrative users to list carts that match specified search criteria.
 magento.quoteCartRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### quoteCartRepositoryV1GetGet
 Enables an administrative user to return information for a specified cart.
@@ -1064,6 +1106,9 @@ Retrieve list of categories
 magento.catalogCategoryManagementV1GetTreeGet({}, context)
 ```
 
+#### Parameters
+* rootCategoryId (integer)
+* depth (integer)
 
 ### catalogCategoryRepositoryV1SavePost
 Create category service
@@ -1073,6 +1118,8 @@ Create category service
 magento.catalogCategoryRepositoryV1SavePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### catalogCategoryAttributeRepositoryV1GetListGet
 Retrieve all attributes for entity type
@@ -1082,6 +1129,14 @@ Retrieve all attributes for entity type
 magento.catalogCategoryAttributeRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### catalogCategoryAttributeRepositoryV1GetGet
 Retrieve specific attribute
@@ -1228,6 +1283,8 @@ Save block.
 magento.cmsBlockRepositoryV1SavePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### cmsBlockRepositoryV1GetListGet
 Retrieve blocks matching the specified criteria.
@@ -1237,6 +1294,14 @@ Retrieve blocks matching the specified criteria.
 magento.cmsBlockRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### cmsBlockRepositoryV1DeleteByIdDelete
 Delete block by ID.
@@ -1286,6 +1351,8 @@ Save page.
 magento.cmsPageRepositoryV1SavePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### cmsPageRepositoryV1GetListGet
 Retrieve pages matching the specified criteria.
@@ -1295,6 +1362,14 @@ Retrieve pages matching the specified criteria.
 magento.cmsPageRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### cmsPageRepositoryV1SavePut
 Save page.
@@ -1344,6 +1419,8 @@ Generate variation based on same product
 magento.configurableProductConfigurableProductManagementV1GenerateVariationPut({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### configurableProductLinkManagementV1AddChildPost
 
@@ -1468,6 +1545,8 @@ Save a coupon.
 magento.salesRuleCouponRepositoryV1SavePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### salesRuleCouponManagementV1DeleteByCodesPost
 Delete coupon by coupon codes.
@@ -1477,6 +1556,8 @@ Delete coupon by coupon codes.
 magento.salesRuleCouponManagementV1DeleteByCodesPost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### salesRuleCouponManagementV1DeleteByIdsPost
 Delete coupon by coupon ids.
@@ -1486,6 +1567,8 @@ Delete coupon by coupon ids.
 magento.salesRuleCouponManagementV1DeleteByIdsPost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### salesRuleCouponManagementV1GeneratePost
 Generate coupon for a rule
@@ -1495,6 +1578,8 @@ Generate coupon for a rule
 magento.salesRuleCouponManagementV1GeneratePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### salesRuleCouponRepositoryV1GetListGet
 Retrieve a coupon using the specified search criteria. This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#CouponRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
@@ -1504,6 +1589,14 @@ Retrieve a coupon using the specified search criteria. This call returns an arra
 magento.salesRuleCouponRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### salesRuleCouponRepositoryV1DeleteByIdDelete
 Delete coupon by coupon id.
@@ -1553,6 +1646,8 @@ Performs persist operations for a specified credit memo.
 magento.salesCreditmemoRepositoryV1SavePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### salesCreditmemoManagementV1RefundPost
 Prepare creditmemo to refund and save it.
@@ -1562,6 +1657,8 @@ Prepare creditmemo to refund and save it.
 magento.salesCreditmemoManagementV1RefundPost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### salesCreditmemoRepositoryV1GetGet
 Loads a specified credit memo.
@@ -1637,6 +1734,14 @@ Lists credit memos that match specified search criteria. This call returns an ar
 magento.salesCreditmemoRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### customerGroupRepositoryV1SavePost
 Save customer group.
@@ -1646,6 +1751,8 @@ Save customer group.
 magento.customerGroupRepositoryV1SavePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### V1.customerGroups.default.get
 Get default customer group.
@@ -1655,6 +1762,8 @@ Get default customer group.
 magento.V1.customerGroups.default.get({}, context)
 ```
 
+#### Parameters
+* storeId (integer)
 
 ### V1.customerGroups.default.storeId.get
 Get default customer group.
@@ -1677,6 +1786,14 @@ Retrieve customer groups. The list of groups can be filtered to exclude the NOT_
 magento.customerGroupRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### customerGroupRepositoryV1DeleteByIdDelete
 Delete customer group by ID.
@@ -1739,6 +1856,8 @@ Create customer account. Perform necessary business operations like sending emai
 magento.customerAccountManagementV1CreateAccountPost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### customerAddressRepositoryV1GetByIdGet
 Retrieve customer address.
@@ -1761,6 +1880,8 @@ Resend confirmation email.
 magento.customerAccountManagementV1ResendConfirmationPost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### customerAccountManagementV1IsEmailAvailablePost
 Check if given email is associated with a customer account in given website.
@@ -1770,6 +1891,8 @@ Check if given email is associated with a customer account in given website.
 magento.customerAccountManagementV1IsEmailAvailablePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### V1.customers.me.get
 Get customer by customer ID.
@@ -1788,6 +1911,8 @@ Create or update a customer.
 magento.V1.customers.me.put({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### customerAccountManagementV1ActivateByIdPut
 Activate a customer account using a key that was sent in a confirmation email.
@@ -1797,6 +1922,8 @@ Activate a customer account using a key that was sent in a confirmation email.
 magento.customerAccountManagementV1ActivateByIdPut({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### V1.customers.me.billingAddress.get
 Retrieve default billing address for the given customerId.
@@ -1815,6 +1942,8 @@ Change customer password.
 magento.customerAccountManagementV1ChangePasswordByIdPut({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### V1.customers.me.shippingAddress.get
 Retrieve default shipping address for the given customerId.
@@ -1833,6 +1962,8 @@ Send an email to the customer with a password reset link.
 magento.customerAccountManagementV1InitiatePasswordResetPut({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### customerCustomerRepositoryV1GetListGet
 Retrieve customers which match a specified criteria. This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#CustomerRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
@@ -1842,6 +1973,14 @@ Retrieve customers which match a specified criteria. This call returns an array 
 magento.customerCustomerRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### customerAccountManagementV1ValidatePut
 Validate customer data.
@@ -1851,6 +1990,8 @@ Validate customer data.
 magento.customerAccountManagementV1ValidatePut({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### customerCustomerRepositoryV1DeleteByIdDelete
 Delete customer by ID.
@@ -2025,6 +2166,8 @@ Create attribute set from data
 magento.eavAttributeSetManagementV1CreatePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### eavAttributeSetRepositoryV1GetListGet
 Retrieve list of Attribute Sets This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#AttributeSetRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
@@ -2034,6 +2177,14 @@ Retrieve list of Attribute Sets This call returns an array of objects, but detai
 magento.eavAttributeSetRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### eavAttributeSetRepositoryV1DeleteByIdDelete
 Remove attribute set by given ID
@@ -2083,6 +2234,14 @@ Return list of gift wrapping data objects based on search criteria
 magento.giftWrappingWrappingRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### giftWrappingWrappingRepositoryV1SavePost
 Create/Update new gift wrapping with data object values
@@ -2092,6 +2251,8 @@ Create/Update new gift wrapping with data object values
 magento.giftWrappingWrappingRepositoryV1SavePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### giftWrappingWrappingRepositoryV1DeleteByIdDelete
 Delete gift wrapping
@@ -2142,6 +2303,8 @@ Estimate shipping
 magento.giftRegistryShippingMethodManagementV1EstimateByRegistryIdPost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### quoteGuestCartManagementV1CreateEmptyCartPost
 Enable an customer or guest user to create an empty cart and quote for an anonymous customer.
@@ -2562,6 +2725,8 @@ Create access token for admin given the admin credentials.
 magento.integrationAdminTokenServiceV1CreateAdminAccessTokenPost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### integrationCustomerTokenServiceV1CreateCustomerAccessTokenPost
 Create access token for admin given the customer credentials.
@@ -2571,6 +2736,8 @@ Create access token for admin given the customer credentials.
 magento.integrationCustomerTokenServiceV1CreateCustomerAccessTokenPost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### salesRefundInvoiceV1ExecutePost
 Create refund for invoice
@@ -2594,6 +2761,14 @@ Lists invoices that match specified search criteria. This call returns an array 
 magento.salesInvoiceRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### salesInvoiceRepositoryV1SavePost
 Performs persist operations for a specified invoice.
@@ -2603,6 +2778,8 @@ Performs persist operations for a specified invoice.
 magento.salesInvoiceRepositoryV1SavePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### salesInvoiceCommentRepositoryV1SavePost
 Performs persist operations for a specified invoice comment.
@@ -2612,6 +2789,8 @@ Performs persist operations for a specified invoice comment.
 magento.salesInvoiceCommentRepositoryV1SavePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### salesInvoiceRepositoryV1GetGet
 Loads a specified invoice.
@@ -2737,6 +2916,14 @@ Lists orders that match specified search criteria. This call returns an array of
 magento.salesOrderRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### salesOrderRepositoryV1SavePost
 Performs persist operations for a specified order.
@@ -2746,6 +2933,8 @@ Performs persist operations for a specified order.
 magento.salesOrderRepositoryV1SavePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### salesOrderRepositoryV1SavePut
 Performs persist operations for a specified order.
@@ -2755,6 +2944,8 @@ Performs persist operations for a specified order.
 magento.salesOrderRepositoryV1SavePut({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### salesOrderItemRepositoryV1GetListGet
 Lists order items that match specified search criteria. This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#OrderItemRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
@@ -2764,6 +2955,14 @@ Lists order items that match specified search criteria. This call returns an arr
 magento.salesOrderItemRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### salesOrderItemRepositoryV1GetGet
 Loads a specified order item.
@@ -2905,6 +3104,14 @@ Get product list
 magento.catalogProductRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### catalogProductRepositoryV1SavePost
 Create product
@@ -2914,6 +3121,8 @@ Create product
 magento.catalogProductRepositoryV1SavePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### catalogAttributeSetManagementV1CreatePost
 Create attribute set from data
@@ -2923,6 +3132,8 @@ Create attribute set from data
 magento.catalogAttributeSetManagementV1CreatePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### catalogProductAttributeManagementV1AssignPost
 Assign attribute to attribute set
@@ -2932,6 +3143,8 @@ Assign attribute to attribute set
 magento.catalogProductAttributeManagementV1AssignPost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### catalogProductAttributeGroupRepositoryV1SavePost
 Save attribute group
@@ -2941,6 +3154,8 @@ Save attribute group
 magento.catalogProductAttributeGroupRepositoryV1SavePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### catalogProductAttributeGroupRepositoryV1GetListGet
 Retrieve list of attribute groups
@@ -2950,6 +3165,14 @@ Retrieve list of attribute groups
 magento.catalogProductAttributeGroupRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### catalogProductAttributeGroupRepositoryV1DeleteByIdDelete
 Remove attribute group by id
@@ -2972,6 +3195,14 @@ Retrieve list of Attribute Sets
 magento.catalogAttributeSetRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### catalogAttributeSetRepositoryV1DeleteByIdDelete
 Remove attribute set by given ID
@@ -3063,6 +3294,14 @@ Retrieve all attributes for entity type
 magento.catalogProductAttributeRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### catalogProductAttributeRepositoryV1SavePost
 Save attribute data
@@ -3072,6 +3311,8 @@ Save attribute data
 magento.catalogProductAttributeRepositoryV1SavePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### catalogProductAttributeTypesListV1GetItemsGet
 Retrieve list of product attribute types
@@ -3233,6 +3474,8 @@ Save Custom Option
 magento.catalogProductCustomOptionRepositoryV1SavePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### catalogProductCustomOptionTypeListV1GetItemsGet
 Get custom option types
@@ -3689,6 +3932,14 @@ Return list of rma data objects based on search criteria
 magento.rmaRmaManagementV1SearchGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### rmaRmaManagementV1SaveRmaPost
 Save RMA
@@ -3698,6 +3949,8 @@ Save RMA
 magento.rmaRmaManagementV1SaveRmaPost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### rmaRmaRepositoryV1DeleteDelete
 Delete RMA
@@ -3839,6 +4092,8 @@ Get custom attribute metadata for the given Data object's attribute set
 magento.rmaRmaAttributesManagementV1GetCustomAttributesMetadataGet({}, context)
 ```
 
+#### Parameters
+* dataObjectClassName (string) - Data object class name
 
 ### rmaRmaAttributesManagementV1GetAttributesGet
 Retrieve all attributes filtered by form code
@@ -3883,6 +4138,8 @@ Save sales rule.
 magento.salesRuleRuleRepositoryV1SavePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### salesRuleRuleRepositoryV1GetListGet
 Retrieve sales rules that match te specified criteria. This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#RuleRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
@@ -3892,6 +4149,14 @@ Retrieve sales rules that match te specified criteria. This call returns an arra
 magento.salesRuleRuleRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### salesRuleRuleRepositoryV1DeleteByIdDelete
 Delete rule by ID.
@@ -3941,6 +4206,15 @@ Make Full Text Search and return found Documents
 magento.searchV1SearchGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[requestName] (string)
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### salesShipmentRepositoryV1SavePost
 Performs persist operations for a specified shipment.
@@ -3950,6 +4224,8 @@ Performs persist operations for a specified shipment.
 magento.salesShipmentRepositoryV1SavePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### salesShipmentTrackRepositoryV1SavePost
 Performs persist operations for a specified shipment track.
@@ -3959,6 +4235,8 @@ Performs persist operations for a specified shipment track.
 magento.salesShipmentTrackRepositoryV1SavePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### salesShipmentTrackRepositoryV1DeleteByIdDelete
 Deletes a specified shipment track by ID.
@@ -4047,6 +4325,14 @@ Lists shipments that match specified search criteria. This call returns an array
 magento.salesShipmentRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### catalogInventoryStockRegistryV1GetLowStockItemsGet
 Retrieves a list of SKU's with low inventory qty
@@ -4101,6 +4387,8 @@ magento.catalogInventoryStockRegistryV1GetStockStatusBySkuGet({
 magento.storeStoreConfigManagerV1GetStoreConfigsGet({}, context)
 ```
 
+#### Parameters
+* storeCodes (array)
 
 ### storeGroupRepositoryV1GetListGet
 Retrieve list of all groups
@@ -4137,6 +4425,8 @@ Create a Tax Class
 magento.taxTaxClassRepositoryV1SavePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### taxTaxClassRepositoryV1GetListGet
 Retrieve tax classes which match a specific criteria. This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#TaxClassRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
@@ -4146,6 +4436,14 @@ Retrieve tax classes which match a specific criteria. This call returns an array
 magento.taxTaxClassRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### taxTaxClassRepositoryV1SavePut
 Create a Tax Class
@@ -4195,6 +4493,8 @@ Create or update tax rate
 magento.taxTaxRateRepositoryV1SavePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### taxTaxRateRepositoryV1SavePut
 Create or update tax rate
@@ -4204,6 +4504,8 @@ Create or update tax rate
 magento.taxTaxRateRepositoryV1SavePut({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### taxTaxRateRepositoryV1GetListGet
 Search TaxRates This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#TaxRateRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
@@ -4213,6 +4515,14 @@ Search TaxRates This call returns an array of objects, but detailed information 
 magento.taxTaxRateRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### taxTaxRateRepositoryV1DeleteByIdDelete
 Delete tax rate
@@ -4248,6 +4558,8 @@ Save TaxRule
 magento.taxTaxRuleRepositoryV1SavePost({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### taxTaxRuleRepositoryV1SavePut
 Save TaxRule
@@ -4257,6 +4569,8 @@ Save TaxRule
 magento.taxTaxRuleRepositoryV1SavePut({}, context)
 ```
 
+#### Parameters
+* $body (object)
 
 ### taxTaxRuleRepositoryV1GetListGet
 Search TaxRules This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#TaxRuleRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
@@ -4266,6 +4580,14 @@ Search TaxRules This call returns an array of objects, but detailed information 
 magento.taxTaxRuleRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### taxTaxRuleRepositoryV1DeleteByIdDelete
 Delete TaxRule
@@ -4301,6 +4623,14 @@ Lists transactions that match specified search criteria. This call returns an ar
 magento.salesTransactionRepositoryV1GetListGet({}, context)
 ```
 
+#### Parameters
+* searchCriteria[filterGroups][][filters][][field] (string) - Field
+* searchCriteria[filterGroups][][filters][][value] (string) - Value
+* searchCriteria[filterGroups][][filters][][conditionType] (string) - Condition type
+* searchCriteria[sortOrders][][field] (string) - Sorting field.
+* searchCriteria[sortOrders][][direction] (string) - Sorting direction.
+* searchCriteria[pageSize] (integer) - Page size.
+* searchCriteria[currentPage] (integer) - Current page.
 
 ### salesTransactionRepositoryV1GetGet
 Loads a specified transaction.

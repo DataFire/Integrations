@@ -25,7 +25,6 @@ let context = new datafire.Context({
   }
 })
 
-
 medium.me.get({}, context).then(data => {
   console.log(data);
 })

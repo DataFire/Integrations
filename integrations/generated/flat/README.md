@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 flat.getGroupScores({}, context).then(data => {
   console.log(data);
 })

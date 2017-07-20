@@ -29,6 +29,8 @@ Search for specified tag (no pound sign necessary). If <b>tag</b> is empty, the 
 moonmoonmoonmoon.api.hashtags.get({}, context)
 ```
 
+#### Parameters
+* tag (string) - Hashtag to search for
 
 ### api.marks.get
 The main method for querying the marks database. You may use the following options:
@@ -46,4 +48,13 @@ The main method for querying the marks database. You may use the following optio
 moonmoonmoonmoon.api.marks.get({}, context)
 ```
 
+#### Parameters
+* before (string) - Before ID (pagination purposes)
+* popular (boolean) - Popular marks
+* last_popular_id (string) - Last popular ID (for pagination purposes)
+* featured (boolean) - Featured marks
+* x (integer) - X coordinate
+* y (integer) - Y coordinate
+* user (string) - Created by user ID
+* collection (string) - Collection ID
 

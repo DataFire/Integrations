@@ -29,6 +29,8 @@ Get all station infos
 deutschebahn_reisezentren.reisezentren.get({}, context)
 ```
 
+#### Parameters
+* name (string) - A station name or part of it
 
 ### reisezentren.loc.lat.lon.get
 Get information about a station near a location

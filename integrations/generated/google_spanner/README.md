@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_spanner.projects.instances.databases.dropDatabase({}, context).then(data => {
   console.log(data);
 })

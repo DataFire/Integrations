@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_dataflow.projects.workerMessages({}, context).then(data => {
   console.log(data);
 })

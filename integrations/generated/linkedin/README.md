@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 linkedin.companies.get({}, context).then(data => {
   console.log(data);
 })
@@ -83,6 +82,9 @@ linkedin.companies.id.updates.key_update_key.update_comments_as_company.post({
 linkedin.people._.get({}, context)
 ```
 
+#### Parameters
+* Accept-Language (string) - Some members have profiles in multiple languages. To specify the language you prefer, set the values to a comma separated list of locales ordered from highest to lowest preference. For example, if your preferred order is Spanish, then English (American), and finally Italian, your header should be: Accept-Language: es-ES, en-US, it-IT. At present, we will always return data if possible. So, if you specify just one locale, but the member hasn't localized her profile for that locale, we will return data in her primary language. We support any language the member has specified. For example, for Simplified Chinese, use zh-CN. However, the six most popular languages are: en-US, fr-FR, de-DE, it-IT, pt-BR and es-ES.
+* format (string)
 
 ### people._id_num_connections_picture_url_.get
 
@@ -92,6 +94,8 @@ linkedin.people._.get({}, context)
 linkedin.people._id_num_connections_picture_url_.get({}, context)
 ```
 
+#### Parameters
+* format (string)
 
 ### people._.shares.post
 
@@ -145,6 +149,10 @@ linkedin.companies.id.relation_to_viewer.is_company_share_enabled.get({
 linkedin.companies.get({}, context)
 ```
 
+#### Parameters
+* start (integer) - The offset value for paginating company results by.
+* count (integer) - Maximum number of companies to return.
+* format (string)
 
 ### companies.id.get
 

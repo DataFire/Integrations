@@ -53,6 +53,10 @@ Retrieves the recent activity of all your projects.
 pivotaltracker.activities.get({}, context)
 ```
 
+#### Parameters
+* limit (integer) - Limits the number of activity feed items. Note the default value is 10, and there is a upper cap of 100
+* occurred_since_date (string) - Restricts the activity feed to only those items that occurred after a supplied date (example format: 2009/12/18 21:00:00 UTC)
+* newer_than_version (string) - Restricts the activity feed to only those items that have a greater than supplied version
 
 ### projects.PROJECT_ID.activities.get
 Retrieves the recent activity of a specific project.

@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_drive.teamdrives.list({}, context).then(data => {
   console.log(data);
 })
@@ -64,6 +63,14 @@ Gets information about the user, the user's Drive, and system capabilities.
 google_drive.about.get({}, context)
 ```
 
+#### Parameters
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### changes.list
 Lists the changes for a user or Team Drive.
@@ -101,6 +108,16 @@ Gets the starting pageToken for listing future changes.
 google_drive.changes.getStartPageToken({}, context)
 ```
 
+#### Parameters
+* supportsTeamDrives (boolean) - Whether the requesting application supports Team Drives.
+* teamDriveId (string) - The ID of the Team Drive for which the starting pageToken for listing future changes from that Team Drive will be returned.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### changes.watch
 Subscribes to changes for a user.
@@ -139,6 +156,15 @@ Stop watching resources through this channel
 google_drive.channels.stop({}, context)
 ```
 
+#### Parameters
+* resource (object) - An notification channel used to watch for resource changes.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### files.list
 Lists or searches files.
@@ -148,6 +174,24 @@ Lists or searches files.
 google_drive.files.list({}, context)
 ```
 
+#### Parameters
+* corpora (string) - Comma-separated list of bodies of items (files/documents) to which the query applies. Supported bodies are 'user', 'domain', 'teamDrive' and 'allTeamDrives'. 'allTeamDrives' must be combined with 'user'; all other values must be used in isolation. Prefer 'user' or 'teamDrive' to 'allTeamDrives' for efficiency.
+* corpus (string) - The source of files to list. Deprecated: use 'corpora' instead.
+* includeTeamDriveItems (boolean) - Whether Team Drive items should be included in results.
+* orderBy (string) - A comma-separated list of sort keys. Valid keys are 'createdTime', 'folder', 'modifiedByMeTime', 'modifiedTime', 'name', 'quotaBytesUsed', 'recency', 'sharedWithMeTime', 'starred', and 'viewedByMeTime'. Each key sorts ascending by default, but may be reversed with the 'desc' modifier. Example usage: ?orderBy=folder,modifiedTime desc,name. Please note that there is a current limitation for users with approximately one million files in which the requested sort order is ignored.
+* pageSize (integer) - The maximum number of files to return per page. Partial or empty result pages are possible even before the end of the files list has been reached.
+* pageToken (string) - The token for continuing a previous list request on the next page. This should be set to the value of 'nextPageToken' from the previous response.
+* q (string) - A query for filtering the file results. See the "Search for Files" guide for supported syntax.
+* spaces (string) - A comma-separated list of spaces to query within the corpus. Supported values are 'drive', 'appDataFolder' and 'photos'.
+* supportsTeamDrives (boolean) - Whether the requesting application supports Team Drives.
+* teamDriveId (string) - ID of Team Drive to search.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### files.create
 Creates a new file.
@@ -157,6 +201,20 @@ Creates a new file.
 google_drive.files.create({}, context)
 ```
 
+#### Parameters
+* ignoreDefaultVisibility (boolean) - Whether to ignore the domain's default visibility settings for the created file. Domain administrators can choose to make all uploaded files visible to the domain by default; this parameter bypasses that behavior for the request. Permissions are still inherited from parent folders.
+* keepRevisionForever (boolean) - Whether to set the 'keepForever' field in the new head revision. This is only applicable to files with binary content in Drive.
+* ocrLanguage (string) - A language hint for OCR processing during image import (ISO 639-1 code).
+* supportsTeamDrives (boolean) - Whether the requesting application supports Team Drives.
+* useContentAsIndexableText (boolean) - Whether to use the uploaded content as indexable text.
+* body (object) - The metadata for a file.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### files.generateIds
 Generates a set of file IDs which can be provided in create requests.
@@ -166,6 +224,16 @@ Generates a set of file IDs which can be provided in create requests.
 google_drive.files.generateIds({}, context)
 ```
 
+#### Parameters
+* count (integer) - The number of IDs to return.
+* space (string) - The space in which the IDs can be used to create new files. Supported values are 'drive' and 'appDataFolder'.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### files.emptyTrash
 Permanently deletes all of the user's trashed files.
@@ -175,6 +243,14 @@ Permanently deletes all of the user's trashed files.
 google_drive.files.emptyTrash({}, context)
 ```
 
+#### Parameters
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### files.delete
 Permanently deletes a file owned by the user without moving it to the trash. If the file belongs to a Team Drive the user must be an organizer on the parent. If the target is a folder, all descendants owned by the user are also deleted.
@@ -769,6 +845,16 @@ Lists the user's Team Drives.
 google_drive.teamdrives.list({}, context)
 ```
 
+#### Parameters
+* pageSize (integer) - Maximum number of Team Drives to return.
+* pageToken (string) - Page token for Team Drives.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### teamdrives.create
 Creates a new Team Drive.

@@ -21,7 +21,6 @@ let context = new datafire.Context({
   }
 })
 
-
 wavecell.SmsV1StatusGet({}, context).then(data => {
   console.log(data);
 })

@@ -27,7 +27,6 @@ let context = new datafire.Context({
   }
 })
 
-
 bitbucket.teams.get({}, context).then(data => {
   console.log(data);
 })
@@ -286,6 +285,8 @@ This endpoint also supports filtering and sorting of the results. See
 bitbucket.repositories.get({}, context)
 ```
 
+#### Parameters
+* after (string) - Filter the results to include only repositories create on or
 
 ### repositories.username.get
 Returns a paginated list of all repositories owned by the specified
@@ -2596,6 +2597,8 @@ possible to include the file contents.
 bitbucket.snippets.get({}, context)
 ```
 
+#### Parameters
+* role (string) - Filter down the result based on the authenticated user's role (`owner`, `contributor`, or `member`).
 
 ### snippets.post
 Creates a new snippet under the authenticated user's account.
@@ -3598,6 +3601,8 @@ with.
 bitbucket.teams.get({}, context)
 ```
 
+#### Parameters
+* role (string) - 
 
 ### teams.owner.projects.get
 

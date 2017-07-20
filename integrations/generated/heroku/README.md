@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 heroku.addons.get({}, context).then(data => {
   console.log(data);
 })

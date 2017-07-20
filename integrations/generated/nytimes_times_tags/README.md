@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 nytimes_times_tags.timestags.json.get({}, context).then(data => {
   console.log(data);
 })

@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 nytimes_timeswire.content.json.get({}, context).then(data => {
   console.log(data);
 })

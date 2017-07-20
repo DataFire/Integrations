@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 stackexchange.sites.get({}, context).then(data => {
   console.log(data);
 })
@@ -547,6 +546,11 @@ This method returns a list of errors.
 stackexchange.errors.get({}, context)
 ```
 
+#### Parameters
+* pagesize (integer)
+* page (integer)
+* filter (string) - #Discussion
+* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
 
 ### errors.id.get
 This method allows you to generate an error.
@@ -618,6 +622,11 @@ This method returns a single filter.
 stackexchange.filters.create.get({}, context)
 ```
 
+#### Parameters
+* base (string)
+* exclude (string) - String list (semicolon delimited).
+* include (string) - String list (semicolon delimited).
+* unsafe (boolean)
 
 ### filters.filters.get
 Returns the fields included by the given filters, and the "safeness" of those filters.
@@ -652,6 +661,11 @@ This method returns a list of inbox items.
 stackexchange.inbox.get({}, context)
 ```
 
+#### Parameters
+* pagesize (integer)
+* page (integer)
+* filter (string) - #Discussion
+* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
 
 ### inbox.unread.get
 Returns the unread items in a user's inbox.
@@ -666,6 +680,12 @@ This method returns a list of inbox items.
 stackexchange.inbox.unread.get({}, context)
 ```
 
+#### Parameters
+* pagesize (integer)
+* page (integer)
+* filter (string) - #Discussion
+* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
+* since (integer) - Unix date.
 
 ### info.get
 Returns a collection of statistics about the site.
@@ -750,6 +770,11 @@ This method returns a list of network users.
 stackexchange.me.associated.get({}, context)
 ```
 
+#### Parameters
+* pagesize (integer)
+* page (integer)
+* filter (string) - #Discussion
+* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
 
 ### me.badges.get
 Returns the badges earned by the user associated with the given access_token.
@@ -947,6 +972,11 @@ This method returns a list of account_merge.
 stackexchange.me.merges.get({}, context)
 ```
 
+#### Parameters
+* pagesize (integer)
+* page (integer)
+* filter (string) - #Discussion
+* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
 
 ### me.notifications.get
 Returns a user's notifications, given an access_token.
@@ -1409,6 +1439,11 @@ This method returns a list of notifications.
 stackexchange.notifications.get({}, context)
 ```
 
+#### Parameters
+* pagesize (integer)
+* page (integer)
+* filter (string) - #Discussion
+* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
 
 ### notifications.unread.get
 Returns a user's unread notifications.
@@ -1423,6 +1458,11 @@ This method returns a list of notifications.
 stackexchange.notifications.unread.get({}, context)
 ```
 
+#### Parameters
+* pagesize (integer)
+* page (integer)
+* filter (string) - #Discussion
+* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
 
 ### posts.get
 Fetches all posts (questions and answers) on the site.
@@ -2242,6 +2282,11 @@ This method returns a list of sites.
 stackexchange.sites.get({}, context)
 ```
 
+#### Parameters
+* pagesize (integer)
+* page (integer)
+* filter (string) - #Discussion
+* callback (string) - All API responses are JSON, we do support JSONP with the callback query parameter.
 
 ### suggested_edits.get
 Returns all the suggested edits in the systems.

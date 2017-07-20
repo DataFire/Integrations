@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_plus.activities.search({}, context).then(data => {
   console.log(data);
 })

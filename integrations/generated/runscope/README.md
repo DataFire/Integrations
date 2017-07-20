@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 runscope.account.get({}, context).then(data => {
   console.log(data);
 })

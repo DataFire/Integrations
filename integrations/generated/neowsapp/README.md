@@ -52,6 +52,8 @@ Get a list of Near Earth Objects for today
 neowsapp.retrieveNEOFeedToday({}, context)
 ```
 
+#### Parameters
+* detailed (boolean) - detailed
 
 ### browseNearEarthObjects
 Retieve a paginated list of Near Earth Objects
@@ -61,6 +63,9 @@ Retieve a paginated list of Near Earth Objects
 neowsapp.browseNearEarthObjects({}, context)
 ```
 
+#### Parameters
+* page (integer) - page
+* size (integer) - size
 
 ### retrieveNearEarthObjectById
 Retieve a Near Earth Objects with a given id

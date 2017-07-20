@@ -21,7 +21,6 @@ let context = new datafire.Context({
   }
 })
 
-
 simplyrets.properties.get({}, context).then(data => {
   console.log(data);
 })
@@ -143,6 +142,19 @@ This is the main endpoint for accessing openhouses.
 simplyrets.openhouses.get({}, context)
 ```
 
+#### Parameters
+* type (string) - Request listings by a specific property type. This
+* listingId (string) - Request openhouses for a specific `listingId`.
+* cities (array) - Filter the openhouses returned by a list of valid cities. A
+* brokers (array) - Filter the listings returned by brokerage with a Broker ID.
+* agent (string) - Filter the listings returned by an agent ID.  Note, the
+* minprice (integer) - Filter listings by a minimum price.
+* startdate (string) - Scheduled date and time of the open house showing
+* offset (integer) - Increase the offset parameter by the limit to go to the
+* lastId (integer) - Used as a cursor for pagination.
+* limit (integer) - Set the number of listings to return in the response.
+* sort (string) - Sort the response by a specific field. Values starting
+* include (array) - Include a extra fields which are not in the default
 
 ### openhouses.openHouseKey.get
 Use this endpoint for accessing a single OpenHouse.
@@ -175,6 +187,36 @@ will all work the same.
 simplyrets.properties.get({}, context)
 ```
 
+#### Parameters
+* q (string) - A textual keyword search. This parameter will search  the following
+* status (array) - Request listings by a specific status. This parameter
+* type (array) - Request listings by a specific property type. This
+* agent (string) - Filter the listings returned by an agent ID.  Note, the
+* brokers (array) - Filter the listings returned by brokerage with a Broker
+* minprice (integer) - Filter listings by a minimum price.
+* maxprice (integer) - Filter listings by a maximum price
+* minarea (integer) - Filter listings by a minimum area size in Sq Ft.
+* maxarea (integer) - Filter listings by a maximum area size in Sq Ft.
+* minbaths (integer) - Filter listings by a minimum number of bathrooms.
+* maxbaths (integer) - Filter listings by a maximum number of bathrooms.
+* minbeds (integer) - Filter listings by a minimum number of bedrooms.
+* maxbeds (integer) - Filter listings by a maximum number of bedrooms.
+* maxdom (integer) - Filter listings by a maximum number of days on market.
+* minyear (integer) - Filter listings by a setting a minimum year built.
+* limit (integer) - Set the number of listings to return in the response.
+* offset (integer) - Increase the offset parameter by the limit to go to the
+* lastId (integer) - Used as a cursor for pagination. When using `lastId`, the `sort` parameter
+* vendor (string) - Used to specify the vendor (MLS) to search from. This
+* postalCodes (array) - Filter the listings returned by postal codes / zip
+* features (array) - Filter the listings by specific interior features.  You
+* water (string) - Query water/waterfront listings only. Specify `true` to
+* neighborhoods (array) - Filter the listings returned by specific neighborhoods and
+* cities (array) - Filter the listings returned by specific cities. You can
+* counties (array) - Filter the listings returned by specific counties. You can
+* points (array) - Return listings that are within a set of latitude
+* include (array) - Include a extra fields which are not in the default
+* sort (string) - Sort the response by a specific field. Values starting
+* count (integer) - When set to `false`, The `X-Total-Count` header will not
 
 ### properties.mlsId.get
 Use this endpoint for accessing a single listing. When you

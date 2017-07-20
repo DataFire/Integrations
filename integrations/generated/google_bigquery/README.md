@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_bigquery.projects.list({}, context).then(data => {
   console.log(data);
 })
@@ -64,6 +63,16 @@ Lists all projects to which you have been granted any project role.
 google_bigquery.projects.list({}, context)
 ```
 
+#### Parameters
+* maxResults (integer) - Maximum number of results to return
+* pageToken (string) - Page token, returned by a previous call, to request the next page of results
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### datasets.list
 Lists all datasets in the specified project to which you have been granted the READER dataset role.

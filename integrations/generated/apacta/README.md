@@ -21,7 +21,6 @@ let context = new datafire.Context({
   }
 })
 
-
 apacta.wall_posts.post({}, context).then(data => {
   console.log(data);
 })
@@ -243,6 +242,8 @@ Get list of cities supported in Apacta
 apacta.cities.get({}, context)
 ```
 
+#### Parameters
+* zip_code (string) - Used to search for a city with specific zip code
 
 ### cities.city_id.get
 Get details about one city
@@ -265,6 +266,8 @@ Get a list of clocking records
 apacta.clocking_records.get({}, context)
 ```
 
+#### Parameters
+* active (boolean) - Used to search for active clocking records
 
 ### clocking_records.post
 Create clocking record for authenticated user
@@ -357,6 +360,13 @@ Get a list of contacts
 apacta.contacts.get({}, context)
 ```
 
+#### Parameters
+* name (string) - Used to search for a contact with a specific name
+* cvr (string) - Search for values in CVR field
+* ean (string) - Search for values in EAN field
+* erp_id (string) - Search for values in ERP id field
+* contact_type (string) - Used to show only contacts with with one specific `ContactType`
+* city (string) - Used to show only contacts with with one specific `City`
 
 ### contacts.post
 Add a new contact
@@ -366,6 +376,8 @@ Add a new contact
 apacta.contacts.post({}, context)
 ```
 
+#### Parameters
+* contact (object)
 
 ### contacts.contact_id.delete
 Delete a contact
@@ -451,6 +463,9 @@ Show list of expense files
 apacta.expense_files.get({}, context)
 ```
 
+#### Parameters
+* created_by_id (string)
+* expense_id (string)
 
 ### expense_files.post
 Add file to expense
@@ -513,6 +528,10 @@ Show list of expense lines
 apacta.expense_lines.get({}, context)
 ```
 
+#### Parameters
+* created_by_id (string)
+* currency_id (string)
+* expense_id (string)
 
 ### expense_lines.post
 Add line to expense
@@ -522,6 +541,8 @@ Add line to expense
 apacta.expense_lines.post({}, context)
 ```
 
+#### Parameters
+* expense_line (object)
 
 ### expense_lines.expense_line_id.delete
 Delete expense line
@@ -570,6 +591,13 @@ Show list of expenses
 apacta.expenses.get({}, context)
 ```
 
+#### Parameters
+* created_by_id (string)
+* company_id (string)
+* contact_id (string)
+* project_id (string)
+* gt_created (string) - Created after date
+* lt_created (string) - Created before date
 
 ### expenses.post
 Add line to expense
@@ -579,6 +607,8 @@ Add line to expense
 apacta.expenses.post({}, context)
 ```
 
+#### Parameters
+* expense_line (object)
 
 ### expenses.expense_id.delete
 Delete expense
@@ -627,6 +657,9 @@ Get list of form field types
 apacta.form_field_types.get({}, context)
 ```
 
+#### Parameters
+* name (string) - Used to filter on the `name` of the form_fields
+* identifier (string) - Used to filter on the `identifier` of the form_fields
 
 ### form_field_types.form_field_type_id.get
 Get details about single `FormField`
@@ -649,6 +682,8 @@ Add a new field to a `Form`
 apacta.form_fields.post({}, context)
 ```
 
+#### Parameters
+* form_field (object)
 
 ### form_fields.form_field_id.get
 Get details about single `FormField`
@@ -671,6 +706,11 @@ Get array of form_templates for your company
 apacta.form_templates.get({}, context)
 ```
 
+#### Parameters
+* name (string) - Used to filter on the `name` of the form_templates
+* identifier (string) - Used to filter on the `identifier` of the form_templates
+* pdf_template_identifier (string) - Used to filter on the `pdf_template_identifier` of the form_templates
+* description (string) - Used to filter on the `description` of the form_templates
 
 ### form_templates.form_template_id.get
 View one form template
@@ -693,6 +733,13 @@ Retrieve array of forms
 apacta.forms.get({}, context)
 ```
 
+#### Parameters
+* extended (string) - Used to have extended details from the forms from the `Form`'s `FormFields`
+* date_from (string) - Used in conjunction with `date_to` to only show forms within these dates - format like `2016-28-05`
+* date_to (string) - Used in conjunction with `date_from` to only show forms within these dates - format like `2016-28-30`
+* project_id (string) - Used to filter on the `project_id` of the forms
+* created_by_id (string) - Used to filter on the `created_by_id` of the forms
+* form_template_id (string) - Used to filter on the `form_template_id` of the forms
 
 ### forms.post
 Used to add a form into the system
@@ -702,6 +749,8 @@ Used to add a form into the system
 apacta.forms.post({}, context)
 ```
 
+#### Parameters
+* form (object)
 
 ### forms.form_id.delete
 You can only delete the forms that you've submitted yourself
@@ -750,6 +799,12 @@ View list of invoice lines
 apacta.invoice_lines.get({}, context)
 ```
 
+#### Parameters
+* invoice_id (string)
+* product_id (string)
+* user_id (string)
+* name (string)
+* discount_text (string)
 
 ### invoice_lines.post
 Add invoice
@@ -759,6 +814,8 @@ Add invoice
 apacta.invoice_lines.post({}, context)
 ```
 
+#### Parameters
+* invoice_line (object)
 
 ### invoice_lines.invoice_line_id.delete
 Delete invoice line
@@ -807,6 +864,17 @@ View list of invoices
 apacta.invoices.get({}, context)
 ```
 
+#### Parameters
+* contact_id (string) - Used to filter on the `contact_id` of the invoices
+* project_id (string) - Used to filter on the `project_id` of the invoices
+* invoice_number (string) - Used to filter on the `invoice_number` of the invoices
+* offer_number (string)
+* is_draft (integer)
+* is_offer (integer)
+* is_locked (integer)
+* date_from (string)
+* date_to (string)
+* issued_date (string)
 
 ### invoices.post
 Add invoice
@@ -816,6 +884,8 @@ Add invoice
 apacta.invoices.post({}, context)
 ```
 
+#### Parameters
+* invoice (object)
 
 ### invoices.invoice_id.delete
 Delete invoice
@@ -864,6 +934,11 @@ View list of all materials
 apacta.materials.get({}, context)
 ```
 
+#### Parameters
+* barcode (string) - Used to filter on the `barcode` of the materials
+* name (string) - Used to filter on the `name` of the materials
+* project_id (string) - Used to find materials used in specific project by `project_id`
+* currently_rented (boolean) - Used to find currently rented materials
 
 ### materials.material_id.delete
 Delete material
@@ -1023,6 +1098,10 @@ List products
 apacta.products.get({}, context)
 ```
 
+#### Parameters
+* name (string) - Used to filter on the `name` of the products
+* product_number (string) - Used to filter on the `product_number` of the products
+* barcode (string) - Used to filter on the `barcode` of the products
 
 ### products.post
 Add new product
@@ -1032,6 +1111,8 @@ Add new product
 apacta.products.post({}, context)
 ```
 
+#### Parameters
+* product (object)
 
 ### products.product_id.delete
 Delete a product
@@ -1102,6 +1183,11 @@ View list of projects
 apacta.projects.get({}, context)
 ```
 
+#### Parameters
+* show_all (boolean) - Unless this is set to `true` only open projects will be shown
+* project_status (array) - ID's of `ProjectStatus(s)` only to look in
+* project_status_id (string) - Used to filter on the `project_status_id` of the projects
+* name (string) - Used to filter on the `name` of the projects
 
 ### projects.post
 Add a project
@@ -1111,6 +1197,8 @@ Add a project
 apacta.projects.post({}, context)
 ```
 
+#### Parameters
+* project (object)
 
 ### projects.project_id.delete
 Delete a project
@@ -1347,6 +1435,8 @@ List stock_locations
 apacta.stock_locations.get({}, context)
 ```
 
+#### Parameters
+* name (string) - Used to filter on the `name` of the stock_locations
 
 ### stock_locations.post
 Add new stock_locations
@@ -1356,6 +1446,8 @@ Add new stock_locations
 apacta.stock_locations.post({}, context)
 ```
 
+#### Parameters
+* location (object)
 
 ### stock_locations.location_id.delete
 Delete location
@@ -1404,6 +1496,16 @@ List time entries
 apacta.time_entries.get({}, context)
 ```
 
+#### Parameters
+* user_id (string)
+* form_id (string)
+* project_id (string)
+* gt_from_time (string)
+* lt_from_time (string)
+* gt_to_time (string)
+* lt_to_time (string)
+* lt_sum (string)
+* gt_sum (string)
 
 ### time_entries.post
 Add new time entry
@@ -1413,6 +1515,8 @@ Add new time entry
 apacta.time_entries.post({}, context)
 ```
 
+#### Parameters
+* time_entry (object)
 
 ### time_entries.time_entry_id.delete
 Delete time entry
@@ -1492,6 +1596,8 @@ Add new time entry type
 apacta.time_entry_types.post({}, context)
 ```
 
+#### Parameters
+* time_entry_type (object)
 
 ### time_entry_types.time_entry_type_id.delete
 Delete time entry type
@@ -1584,6 +1690,11 @@ Get list of users in company
 apacta.users.get({}, context)
 ```
 
+#### Parameters
+* first_name (string) - Used to filter on the `first_name` of the users
+* last_name (string) - Used to filter on the `last_name` of the users
+* email (string) - Used to filter on the `email` of the users
+* stock_location_id (string) - Used to filter on the `stock_location_id` of the users
 
 ### users.post
 Add user to company
@@ -1593,6 +1704,8 @@ Add user to company
 apacta.users.post({}, context)
 ```
 
+#### Parameters
+* user (object)
 
 ### users.user_id.delete
 Delete user
@@ -1641,6 +1754,8 @@ Add wall comment
 apacta.wall_comments.post({}, context)
 ```
 
+#### Parameters
+* wall_comment (object)
 
 ### wall_comments.wall_comment_id.get
 View wall comment
@@ -1677,6 +1792,8 @@ Add a wall post
 apacta.wall_posts.post({}, context)
 ```
 
+#### Parameters
+* wall_post (object)
 
 ### wall_posts.wall_post_id.get
 View wall post

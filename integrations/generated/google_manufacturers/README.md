@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_manufacturers.accounts.products.list({}, context).then(data => {
   console.log(data);
 })

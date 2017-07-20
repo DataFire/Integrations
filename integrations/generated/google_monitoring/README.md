@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_monitoring.projects.groups.delete({}, context).then(data => {
   console.log(data);
 })

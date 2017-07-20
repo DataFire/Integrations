@@ -22,7 +22,6 @@ let context = new datafire.Context({
   }
 })
 
-
 bbci.atoz.letter.programmes.get({}, context).then(data => {
   console.log(data);
 })

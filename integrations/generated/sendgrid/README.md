@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 sendgrid.whitelabel.links.default.get({}, context).then(data => {
   console.log(data);
 })
@@ -50,6 +49,8 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
 sendgrid.access_settings.activity.get({}, context)
 ```
 
+#### Parameters
+* limit (integer) - Limits the number of IPs to return.
 
 ### access_settings.whitelist.delete
 **This endpoint allows you to remove one or more IPs from your IP whitelist.**
@@ -65,6 +66,8 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
 sendgrid.access_settings.whitelist.delete({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### access_settings.whitelist.get
 **This endpoint allows you to retrieve a list of IP addresses that are currently whitelisted.**
@@ -93,6 +96,8 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
 sendgrid.access_settings.whitelist.post({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### access_settings.whitelist.rule_id.delete
 **This endpoint allows you to remove a specific IP address from your IP whitelist.**
@@ -146,6 +151,8 @@ For more information about alerts, please see our [User Guide](https://sendgrid.
 sendgrid.GET_alerts({}, context)
 ```
 
+#### Parameters
+* Authorization (string)
 
 ### POST_alerts
 **This endpoint allows you to create a new alert.**
@@ -161,6 +168,9 @@ For more information about alerts, please see our [User Guide](https://sendgrid.
 sendgrid.POST_alerts({}, context)
 ```
 
+#### Parameters
+* body (object)
+* Authorization (string)
 
 ### alerts.alert_id.delete
 **This endpoint allows you to delete an alert.**
@@ -231,6 +241,8 @@ The API Keys feature allows customers to be able to generate an API Key credenti
 sendgrid.GET_api_keys({}, context)
 ```
 
+#### Parameters
+* limit (integer)
 
 ### api_keys.post
 **This enpoint allows you to create a new random API Key for the user.**
@@ -248,6 +260,8 @@ See the [API Key Permissions List](https://sendgrid.com/docs/API_Reference/Web_A
 sendgrid.api_keys.post({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### api_keys.api_key_id.delete
 **This endpoint allows you to revoke an existing API Key**
@@ -345,6 +359,8 @@ Suppression groups, or [unsubscribe groups](https://sendgrid.com/docs/API_Refere
 sendgrid.asm.groups.get({}, context)
 ```
 
+#### Parameters
+* id (integer) - The ID of a suppression group that you want to retrieve information for.
 
 ### asm.groups.post
 **This endpoint allows you to create a new suppression group.**
@@ -360,6 +376,8 @@ Each user can create up to 25 different suppression groups.
 sendgrid.asm.groups.post({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### asm.groups.group_id.delete
 **This endpoint allows you to delete a suppression group.**
@@ -510,6 +528,8 @@ A global suppression (or global unsubscribe) is an email address of a recipient 
 sendgrid.asm.suppressions.global.post({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### asm.suppressions.global.email.delete
 **This endpoint allows you to remove an email address from the global suppressions group.**
@@ -596,6 +616,9 @@ For more information:
 sendgrid.GET_campaigns({}, context)
 ```
 
+#### Parameters
+* limit (integer) - The number of results you would like to receive at a time.
+* offset (integer) - The index of the first campaign to return, where 0 is the first campaign.
 
 ### POST_campaigns
 **This endpoint allows you to create a campaign.**
@@ -613,6 +636,8 @@ For more information:
 sendgrid.POST_campaigns({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### campaigns.campaign_id.delete
 **This endpoint allows you to delete a specific campaign.**
@@ -792,6 +817,10 @@ Categories can help organize your email analytics by enabling you to “tag” e
 sendgrid.GET_categories({}, context)
 ```
 
+#### Parameters
+* limit (integer) - The number of categories to display per page.
+* category (string) - Allows you to perform a prefix search on this particular category.
+* offset (integer) - The point in the list that you would like to begin displaying results.
 
 ### categories.stats.get
 **This endpoint allows you to retrieve all of your email statistics for each of your categories.**
@@ -906,6 +935,8 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 sendgrid.contactdb.custom_fields.post({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### contactdb.custom_fields.custom_field_id.delete
 **This endpoint allows you to delete a custom field by ID.**
@@ -947,6 +978,8 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 sendgrid.contactdb.lists.delete({}, context)
 ```
 
+#### Parameters
+* body (array)
 
 ### contactdb.lists.get
 **This endpoint allows you to retrieve all of your recipient lists. If you don't have any lists, an empty array will be returned.**
@@ -969,6 +1002,8 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 sendgrid.contactdb.lists.post({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### contactdb.lists.list_id.delete
 **This endpoint allows you to delete a specific recipient list with the given ID.**
@@ -1108,6 +1143,8 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 sendgrid.contactdb.recipients.delete({}, context)
 ```
 
+#### Parameters
+* body (array)
 
 ### contactdb.recipients.get
 **This endpoint allows you to retrieve all of your Marketing Campaigns recipients.**
@@ -1122,6 +1159,9 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 sendgrid.contactdb.recipients.get({}, context)
 ```
 
+#### Parameters
+* page (integer) - Page index of first recipients to return (must be a positive integer)
+* page_size (integer) - Number of recipients to return at a time (must be a positive integer between 1 and 1000)
 
 ### contactdb.recipients.patch
 **This endpoint allows you to update one or more recipients.**
@@ -1137,6 +1177,8 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 sendgrid.contactdb.recipients.patch({}, context)
 ```
 
+#### Parameters
+* body (array)
 
 ### contactdb.recipients.post
 **This endpoint allows you to add a Marketing Campaigns recipient.**
@@ -1150,6 +1192,8 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 sendgrid.contactdb.recipients.post({}, context)
 ```
 
+#### Parameters
+* body (array)
 
 ### contactdb.recipients.billable_count.get
 **This endpoint allows you to retrieve the number of Marketing Campaigns recipients that you will be billed for.**
@@ -1194,6 +1238,8 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 sendgrid.contactdb.recipients.search.get({}, context)
 ```
 
+#### Parameters
+* {field_name} (string)
 
 ### contactdb.recipients.recipient_id.delete
 **This endpoint allows you to delete a single recipient with the given ID from your contact database.**
@@ -1296,6 +1342,8 @@ For more information about segments in Marketing Campaigns, please see our [User
 sendgrid.contactdb.segments.post({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### contactdb.segments.segment_id.delete
 **This endpoint allows you to delete a segment from your recipients database.**
@@ -1438,6 +1486,12 @@ A single IP address or a range of IP addresses may be dedicated to an account in
 sendgrid.GET_ips({}, context)
 ```
 
+#### Parameters
+* ip (string) - The IP address to get
+* exclude_whitelabels (boolean) - Should we exclude whitelabels?
+* subuser (string) - The subuser you are requesting for.
+* limit (integer) - The number of IPs you want returned at the same time.
+* offset (integer) - The offset for the number of IPs that you are requesting.
 
 ### ips.assigned.get
 **This endpoint allows you to retrieve only assigned IP addresses.**
@@ -1481,6 +1535,8 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
 sendgrid.ips.pools.post({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### ips.pools.pool_name.delete
 **This endpoint allows you to delete an IP pool.**
@@ -1602,6 +1658,8 @@ For more general information about warming up IPs, please see our [Classroom](ht
 sendgrid.ips.warmup.post({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### ips.warmup.ip_address.delete
 **This endpoint allows you to remove an IP address from warmup mode.**
@@ -1703,6 +1761,8 @@ For more detailed information about how to use the v3 Mail Send endpoint, please
 sendgrid.mail.send.post({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### GET_mail_settings
 **This endpoint allows you to retrieve a list of all mail settings.**
@@ -1714,6 +1774,9 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 sendgrid.GET_mail_settings({}, context)
 ```
 
+#### Parameters
+* limit (integer) - The number of settings to return.
+* offset (integer) - Where in the list of results to begin displaying settings.
 
 ### mail_settings.address_whitelist.get
 **This endpoint allows you to retrieve your current email address whitelist settings.**
@@ -1740,6 +1803,8 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 sendgrid.mail_settings.address_whitelist.patch({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### mail_settings.bcc.get
 **This endpoint allows you to retrieve your current BCC mail settings.**
@@ -1766,6 +1831,8 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 sendgrid.mail_settings.bcc.patch({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### mail_settings.bounce_purge.get
 **This endpoint allows you to retrieve your current bounce purge settings.**
@@ -1792,6 +1859,8 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 sendgrid.mail_settings.bounce_purge.patch({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### mail_settings.footer.get
 **This endpoint allows you to retrieve your current Footer mail settings.**
@@ -1818,6 +1887,8 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 sendgrid.mail_settings.footer.patch({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### mail_settings.forward_bounce.get
 **This endpoint allows you to retrieve your current bounce forwarding mail settings.**
@@ -1844,6 +1915,8 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 sendgrid.mail_settings.forward_bounce.patch({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### mail_settings.forward_spam.get
 **This endpoint allows you to retrieve your current Forward Spam mail settings.**
@@ -1870,6 +1943,8 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 sendgrid.mail_settings.forward_spam.patch({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### mail_settings.plain_content.get
 **This endpoint allows you to retrieve your current Plain Content mail settings.**
@@ -1896,6 +1971,8 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 sendgrid.mail_settings.plain_content.patch({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### mail_settings.spam_check.get
 **This endpoint allows you to retrieve your current Spam Checker mail settings.**
@@ -1922,6 +1999,8 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 sendgrid.mail_settings.spam_check.patch({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### mail_settings.template.get
 **This endpoint allows you to retrieve your current legacy email template settings.**
@@ -1952,6 +2031,8 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 sendgrid.mail_settings.template.patch({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### mailbox_providers.stats.get
 **This endpoint allows you to retrieve your email statistics segmented by recipient mailbox provider.**
@@ -1985,6 +2066,9 @@ Our partner settings allow you to integrate your SendGrid account with our partn
 sendgrid.GET_partner_settings({}, context)
 ```
 
+#### Parameters
+* limit (integer) - The number of settings to return per page.
+* offset (integer) - The paging offset.
 
 ### partner_settings.new_relic.get
 **This endpoint allows you to retrieve your current New Relic partner settings.**
@@ -2011,6 +2095,8 @@ By integrating with New Relic, you can send your SendGrid email statistics to yo
 sendgrid.partner_settings.new_relic.patch({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### GET_scopes
 **This endpoint returns a list of all scopes that this user has access to.**
@@ -2046,6 +2132,8 @@ Sender Identities are required to be verified before use. If your domain has bee
 sendgrid.POST_senders({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### senders.sender_id.delete
 **This endoint allows you to delete one of your sender identities.**
@@ -2142,6 +2230,10 @@ For more information about Subusers:
 sendgrid.GET_subusers({}, context)
 ```
 
+#### Parameters
+* username (string) - The username of this subuser.
+* limit (integer) - The number of results you would like to get in each request.
+* offset (integer) - The number of subusers to skip.
 
 ### POST_subusers
 This endpoint allows you to retrieve a list of all of your subusers. You can choose to retrieve specific subusers as well as limit the results that come back from the API.
@@ -2156,6 +2248,8 @@ For more information about Subusers:
 sendgrid.POST_subusers({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### subusers.reputations.get
 Subuser sender reputations give a good idea how well a sender is doing with regards to how recipients and recipient servers react to the mail that is being received. When a bounce, spam report, or other negative action happens on a sent email, it will effect your sender rating.
@@ -2167,6 +2261,8 @@ This endpoint allows you to request the reputations for your subusers.
 sendgrid.subusers.reputations.get({}, context)
 ```
 
+#### Parameters
+* usernames (string)
 
 ### subusers.stats.get
 **This endpoint allows you to retrieve the email statistics for the given subusers.**
@@ -2395,6 +2491,8 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 sendgrid.suppression.blocks.delete({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### suppression.blocks.get
 **This endpoint allows you to retrieve a list of all email addresses that are currently on your blocks list.**
@@ -2408,6 +2506,11 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 sendgrid.suppression.blocks.get({}, context)
 ```
 
+#### Parameters
+* start_time (integer) - Refers start of the time range in unix timestamp when a blocked email was created (inclusive).
+* end_time (integer) - Refers end of the time range in unix timestamp when a blocked email was created (inclusive).
+* limit (integer) - Limit the number of results to be displayed per page.
+* offset (integer) - The point in the list to begin displaying results.
 
 ### suppression.blocks.email.delete
 **This endpoint allows you to delete a specific email address from your blocks list.**
@@ -2461,6 +2564,8 @@ Note: the `delete_all` and `emails` parameters should be used independently of e
 sendgrid.suppression.bounces.delete({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### suppression.bounces.get
 **This endpoint allows you to retrieve all of your bounces.**
@@ -2547,6 +2652,8 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 sendgrid.suppression.invalid_emails.delete({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### suppression.invalid_emails.get
 **This endpoint allows you to retrieve a list of all invalid email addresses.**
@@ -2562,6 +2669,11 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 sendgrid.suppression.invalid_emails.get({}, context)
 ```
 
+#### Parameters
+* start_time (integer) - Refers start of the time range in unix timestamp when an invalid email was created (inclusive).
+* end_time (integer) - Refers end of the time range in unix timestamp when an invalid email was created (inclusive).
+* limit (integer) - Limit the number of results to be displayed per page.
+* offset (integer) - Paging offset. The point in the list to begin displaying results.
 
 ### suppression.invalid_emails.email.delete
 **This endpoint allows you to remove a specific email address from the invalid email address list.**
@@ -2652,6 +2764,8 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 sendgrid.suppression.spam_reports.delete({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### suppression.spam_reports.get
 **This endpoint allows you to retrieve all spam reports.**
@@ -2665,6 +2779,11 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 sendgrid.suppression.spam_reports.get({}, context)
 ```
 
+#### Parameters
+* start_time (integer) - Refers start of the time range in unix timestamp when a spam report was created (inclusive).
+* end_time (integer) - Refers end of the time range in unix timestamp when a spam report was created (inclusive).
+* limit (integer) - Limit the number of results to be displayed per page.
+* offset (integer) - Paging offset. The point in the list to begin displaying results.
 
 ### suppression.unsubscribes.get
 **This endpoint allows you to retrieve a list of all email address that are globally suppressed.**
@@ -2676,6 +2795,11 @@ A global suppression (or global unsubscribe) is an email address of a recipient 
 sendgrid.suppression.unsubscribes.get({}, context)
 ```
 
+#### Parameters
+* start_time (integer) - Refers start of the time range in unix timestamp when an unsubscribe email was created (inclusive).
+* end_time (integer) - Refers end of the time range in unix timestamp when an unsubscribe email was created (inclusive).
+* limit (integer) - The number of results to display on each page.
+* offset (integer) - The point in the list of results to begin displaying global suppressions.
 
 ### GET_templates
 **This endpoint allows you to retrieve all transactional templates.**
@@ -2702,6 +2826,8 @@ Transactional templates are templates created specifically for transactional ema
 sendgrid.POST_templates({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### templates.template_id.delete
 **This endpoint allows you to delete a transactional template.**
@@ -2891,6 +3017,9 @@ For more information about tracking, please see our [User Guide](https://sendgri
 sendgrid.GET_tracking_settings({}, context)
 ```
 
+#### Parameters
+* limit (integer) - The number of settings to return.
+* offset (integer) - Where in the list of results you want to begin retrieving settings.
 
 ### tracking_settings.click.get
 **This endpoint allows you to retrieve your current click tracking setting.**
@@ -2917,6 +3046,8 @@ For more information about tracking, please see our [User Guide](https://sendgri
 sendgrid.tracking_settings.click.patch({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### tracking_settings.google_analytics.get
 **This endpoint allows you to retrieve your current setting for Google Analytics.**
@@ -2951,6 +3082,8 @@ For more information about tracking, please see our [User Guide](https://sendgri
 sendgrid.tracking_settings.google_analytics.patch({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### tracking_settings.open.get
 **This endpoint allows you to retrieve your current settings for open tracking.**
@@ -2981,6 +3114,8 @@ For more information about tracking, please see our [User Guide](https://sendgri
 sendgrid.tracking_settings.open.patch({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### tracking_settings.subscription.get
 **This endpoint allows you to retrieve your current settings for subscription tracking.**
@@ -3011,6 +3146,8 @@ For more information about tracking, please see our [User Guide](https://sendgri
 sendgrid.tracking_settings.subscription.patch({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### user.account.get
 **This endpoint allows you to retrieve your user account details.**
@@ -3069,6 +3206,8 @@ For more information about your user profile:
 sendgrid.user.email.put({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### user.password.put
 **This endpoint allows you to update your password.**
@@ -3084,6 +3223,8 @@ For more information about your user profile:
 sendgrid.user.password.put({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### user.profile.get
 Keeping your user profile up to date is important. This will help SendGrid to verify who you are as well as contact you should we need to.
@@ -3114,6 +3255,8 @@ It should be noted that any one or more of the parameters can be updated via the
 sendgrid.user.profile.patch({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### user.scheduled_sends.get
 **This endpoint allows you to retrieve all cancel/paused scheduled send information.**
@@ -3139,6 +3282,8 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
 sendgrid.user.scheduled_sends.post({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### user.scheduled_sends.batch_id.delete
 **This endpoint allows you to delete the cancellation/pause of a scheduled send.**
@@ -3211,6 +3356,8 @@ The Enforced TLS settings specify whether or not the recipient is required to su
 sendgrid.user.settings.enforced_tls.patch({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### user.username.get
 **This endpoint allows you to retrieve your current account username.**
@@ -3241,6 +3388,8 @@ For more information about your user profile:
 sendgrid.user.username.put({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### user.webhooks.event.settings.get
 **This endpoint allows you to retrieve your current event webhook settings.**
@@ -3271,6 +3420,8 @@ Common uses of this data are to remove unsubscribes, react to spam reports, dete
 sendgrid.user.webhooks.event.settings.patch({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### user.webhooks.event.test.post
 **This endpoint allows you to test your event webhook by sending a fake event notification post to the provided URL.**
@@ -3284,6 +3435,8 @@ Common uses of this data are to remove unsubscribes, react to spam reports, dete
 sendgrid.user.webhooks.event.test.post({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### user.webhooks.parse.settings.get
 **This endpoint allows you to retrieve all of your current inbound parse settings.**
@@ -3306,6 +3459,8 @@ The inbound parse webhook allows you to have incoming emails parsed, extracting 
 sendgrid.user.webhooks.parse.settings.post({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### user.webhooks.parse.settings.hostname.delete
 **This endpoint allows you to delete a specific inbound parse setting.**
@@ -3387,6 +3542,12 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 sendgrid.whitelabel.domains.get({}, context)
 ```
 
+#### Parameters
+* limit (integer) - Number of domains to return.
+* offset (integer) - Paging offset.
+* exclude_subusers (boolean) - Exclude subuser domains from the result.
+* username (string) - The username associated with a whitelabel.
+* domain (string) - Search for domain whitelabels that match the given domain.
 
 ### whitelabel.domains.post
 **This endpoint allows you to create a whitelabel for one of your domains.**
@@ -3404,6 +3565,8 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 sendgrid.whitelabel.domains.post({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### whitelabel.domains.default.get
 **This endpoint allows you to retrieve the default whitelabel for a domain.**
@@ -3625,6 +3788,10 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 sendgrid.whitelabel.ips.get({}, context)
 ```
 
+#### Parameters
+* limit (integer) - The number of results to retrieve.
+* offset (integer) - The point in the list of results to begin retrieving IPs from.
+* ip (string) - The IP segment that you would like to use in a prefix search.
 
 ### whitelabel.ips.post
 **This endpoint allows you to create an IP whitelabel.**
@@ -3640,6 +3807,8 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 sendgrid.whitelabel.ips.post({}, context)
 ```
 
+#### Parameters
+* body (object)
 
 ### whitelabel.ips.id.delete
 **This endpoint allows you to delete an IP whitelabel.**
@@ -3704,6 +3873,8 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 sendgrid.whitelabel.links.get({}, context)
 ```
 
+#### Parameters
+* limit (integer) - Limits the number of results returned per page.
 
 ### whitelabel.links.post
 **This endpoint allows you to create a new link whitelabel.**
@@ -3717,6 +3888,10 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 sendgrid.whitelabel.links.post({}, context)
 ```
 
+#### Parameters
+* limit (integer) - Number of domains to return.
+* offset (integer) - Paging offset.
+* body (object)
 
 ### whitelabel.links.default.get
 **This endpoint allows you to retrieve the default link whitelabel.**
@@ -3737,6 +3912,8 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 sendgrid.whitelabel.links.default.get({}, context)
 ```
 
+#### Parameters
+* domain (string) - The domain to match against when finding a corresponding link whitelabel.
 
 ### whitelabel.links.subuser.delete
 **This endpoint allows you to disassociate a link whitelabel from a subuser.**

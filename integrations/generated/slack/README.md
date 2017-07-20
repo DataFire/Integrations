@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 slack.starsList({}, context).then(data => {
   console.log(data);
 })
@@ -149,6 +148,8 @@ Lists all channels in a Slack team.
 slack.channelsList({}, context)
 ```
 
+#### Parameters
+* exclude_archived (string) - Don't return archived channels.
 
 ### channelsMark
 Sets the read cursor in a channel.
@@ -298,6 +299,14 @@ Uploads or creates a file.
 slack.filesUpload({}, context)
 ```
 
+#### Parameters
+* file (string) - File contents via multipart/form-data.
+* content (string) - File contents via a POST var.
+* filetype (string) - Slack-internal file type identifier.
+* filename (string) - Filename of file.
+* title (string) - Title of file.
+* initial_comment (string) - Initial comment to add to file.
+* channels (string) - Comma separated list of channels to share the file into.
 
 ### groupsHistory
 Fetches history of messages and events from a private group.
@@ -325,6 +334,8 @@ Lists private groups that the calling user has access to.
 slack.groupsList({}, context)
 ```
 
+#### Parameters
+* exclude_archived (string) - Don't return archived channels.
 
 ### groupsMark
 Sets the read cursor in a private group.
@@ -475,6 +486,10 @@ Lists stars for a user.
 slack.starsList({}, context)
 ```
 
+#### Parameters
+* user (string) - Show stars by this user. Defaults to the authed user.
+* count (number) - Number of items to return per page.
+* page (number) - Page number of results to return.
 
 ### usersList
 Lists all users in a Slack team.

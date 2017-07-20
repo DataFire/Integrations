@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_adexchangebuyer2.accounts.clients.list({}, context).then(data => {
   console.log(data);
 })

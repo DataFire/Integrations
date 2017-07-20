@@ -29,6 +29,8 @@ Get all station and stop infos
 deutschebahn_betriebsstellen.betriebsstellen.get({}, context)
 ```
 
+#### Parameters
+* name (string) - A station name or part of it
 
 ### betriebsstellen.abbrev.get
 Get information about a specific station or stop by abbrevation

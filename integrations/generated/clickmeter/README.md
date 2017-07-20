@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 clickmeter.tags.count.get({}, context).then(data => {
   console.log(data);
 })
@@ -60,6 +59,9 @@ Retrieve list of a domains allowed to redirect in DDU mode
 clickmeter.account.domainwhitelist.get({}, context)
 ```
 
+#### Parameters
+* offset (integer) - Offset where to start from
+* limit (integer) - Limit results to this number
 
 ### account.domainwhitelist.post
 Create an domain entry
@@ -95,6 +97,12 @@ Retrieve list of a guest
 clickmeter.account.guests.get({}, context)
 ```
 
+#### Parameters
+* offset (integer) - Offset where to start from
+* limit (integer) - Limit results to this number
+* sortBy (string) - Field to sort by
+* sortDirection (string) - Direction of sort "asc" or "desc"
+* textSearch (string) - Filter fields by this pattern
 
 ### account.guests.post
 Create a guest
@@ -117,6 +125,8 @@ Retrieve count of guests
 clickmeter.account.guests.count.get({}, context)
 ```
 
+#### Parameters
+* textSearch (string) - Filter fields by this pattern
 
 ### account.guests.guestId.delete
 Delete a guest
@@ -235,6 +245,9 @@ Retrieve list of a ip to exclude from event tracking
 clickmeter.account.ipblacklist.get({}, context)
 ```
 
+#### Parameters
+* offset (integer) - Offset where to start from
+* limit (integer) - Limit results to this number
 
 ### account.ipblacklist.post
 Create an ip blacklist entry
@@ -382,6 +395,12 @@ Retrieve the latest list of events of this account. Limited to last 100.
 clickmeter.clickstream.get({}, context)
 ```
 
+#### Parameters
+* group (integer) - Filter by this group id (mutually exclusive with "datapoint" and "conversion")
+* datapoint (integer) - Filter by this datapoint id (mutually exclusive with "group" and "conversion")
+* conversion (integer) - Filter by this conversion id (mutually exclusive with "datapoint" and "group")
+* pageSize (integer) - Limit results to this number
+* filter (string) - Filter event type ("spiders"/"uniques"/"nonuniques"/"conversions")
 
 ### conversions.get
 Retrieve a list of conversions
@@ -391,6 +410,13 @@ Retrieve a list of conversions
 clickmeter.conversions.get({}, context)
 ```
 
+#### Parameters
+* offset (integer) - Offset where to start from
+* limit (integer) - Limit results to this number
+* status (string) - Status of conversion ("deleted"/"active")
+* textSearch (string) - Filter fields by this pattern
+* createdAfter (string) - Exclude conversions created before this date (YYYYMMDD)
+* createdBefore (string) - Exclude conversions created after this date (YYYYMMDD)
 
 ### conversions.post
 Create a conversion
@@ -430,6 +456,11 @@ Retrieve a count of conversions
 clickmeter.conversions.count.get({}, context)
 ```
 
+#### Parameters
+* status (string) - Status of conversion ("deleted"/"active")
+* textSearch (string) - Filter fields by this pattern
+* createdAfter (string) - Exclude conversions created before this date (YYYYMMDD)
+* createdBefore (string) - Exclude conversions created after this date (YYYYMMDD)
 
 ### conversions.conversionId.delete
 Delete conversion specified by id
@@ -643,6 +674,18 @@ List of all the datapoints associated to the user
 clickmeter.datapoints.get({}, context)
 ```
 
+#### Parameters
+* offset (integer) - Where to start when retrieving elements. Default is 0 if not specified.
+* limit (integer) - Maximum elements to retrieve. Default to 20 if not specified.
+* type (string) - Type of the datapoint ("tp"/"tl")
+* status (string) - Status of the datapoint
+* tags (string) - A comma separated list of tags you want to filter with.
+* textSearch (string) - Filter fields by this pattern
+* onlyFavorites (boolean) - Filter fields by favourite status
+* sortBy (string) - Field to sort by
+* sortDirection (string) - Direction of sort "asc" or "desc"
+* createdAfter (string) - Exclude datapoints created before this date (YYYYMMDD)
+* createdBefore (string) - Exclude datapoints created after this date (YYYYMMDD)
 
 ### datapoints.post
 Create a datapoint
@@ -745,6 +788,14 @@ Count the datapoints associated to the user
 clickmeter.datapoints.count.get({}, context)
 ```
 
+#### Parameters
+* type (string) - Type of the datapoint ("tp"/"tl")
+* status (string) - Status of the datapoint
+* tags (string) - A comma separated list of tags you want to filter with.
+* textSearch (string) - Filter fields by this pattern
+* onlyFavorites (boolean) - Filter fields by favourite status
+* createdAfter (string) - Exclude datapoints created before this date (YYYYMMDD)
+* createdBefore (string) - Exclude datapoints created after this date (YYYYMMDD)
 
 ### datapoints.id.delete
 Delete a datapoint
@@ -898,6 +949,11 @@ Retrieve a list of domains
 clickmeter.domains.get({}, context)
 ```
 
+#### Parameters
+* offset (integer) - Offset where to start from
+* limit (integer) - Limit results to this number
+* type (string) - Type of domain ("system"/"go"/"personal"/"dedicated"). If not specified default is "system"
+* name (string) - Filter domains with this anmen
 
 ### domains.post
 Create a domain
@@ -920,6 +976,9 @@ Retrieve count of domains
 clickmeter.domains.count.get({}, context)
 ```
 
+#### Parameters
+* type (string) - Type of domain ("system"/"go"/"personal"/"dedicated"). If not specified default is "system"
+* name (string) - Filter domains with this anmen
 
 ### domains.id.delete
 Delete a domain
@@ -970,6 +1029,15 @@ List of all the groups associated to the user.
 clickmeter.groups.get({}, context)
 ```
 
+#### Parameters
+* offset (integer) - Where to start when retrieving elements. Default is 0 if not specified.
+* limit (integer) - Maximum elements to retrieve. Default to 20 if not specified.
+* status (string) - Status of the group
+* tags (string) - A comma separated list of tags you want to filter with.
+* textSearch (string) - Filter fields by this pattern
+* createdAfter (string) - Exclude groups created before this date (YYYYMMDD)
+* createdBefore (string) - Exclude groups created after this date (YYYYMMDD)
+* write (boolean) - Write permission
 
 ### groups.post
 Create a group
@@ -1030,6 +1098,13 @@ Count the groups associated to the user.
 clickmeter.groups.count.get({}, context)
 ```
 
+#### Parameters
+* status (string) - Status of the datapoint
+* tags (string) - A comma separated list of tags you want to filter with.
+* textSearch (string) - Filter fields by this pattern
+* createdAfter (string) - Exclude groups created before this date (YYYYMMDD)
+* createdBefore (string) - Exclude groups created after this date (YYYYMMDD)
+* write (boolean) - Write permission
 
 ### groups.id.delete
 Delete group specified by id
@@ -1326,6 +1401,9 @@ List of all the retargeting scripts associated to the user
 clickmeter.retargeting.get({}, context)
 ```
 
+#### Parameters
+* offset (integer) - Where to start when retrieving elements. Default is 0 if not specified.
+* limit (integer) - Maximum elements to retrieve. Default to 20 if not specified.
 
 ### retargeting.post
 Creates a retargeting script
@@ -1440,6 +1518,13 @@ List of all the groups associated to the user filtered by this tag.
 clickmeter.tags.get({}, context)
 ```
 
+#### Parameters
+* offset (integer) - Where to start when retrieving elements. Default is 0 if not specified.
+* limit (integer) - Maximum elements to retrieve. Default to 20 if not specified.
+* name (string) - Name of the tag
+* datapoints (string) - Comma separated list of datapoints id to filter by
+* groups (string) - Comma separated list of groups id to filter by
+* type (string) - Type of entity related to the tag
 
 ### tags.post
 Create a tag
@@ -1462,6 +1547,11 @@ List of all the groups associated to the user filtered by this tag.
 clickmeter.tags.count.get({}, context)
 ```
 
+#### Parameters
+* name (string) - Name of the tag
+* datapoints (string) - Comma separated list of datapoints id to filter by
+* groups (string) - Comma separated list of groups id to filter by
+* type (string) - Type of entity related to the tag
 
 ### tags.tagId.delete
 Delete a tag

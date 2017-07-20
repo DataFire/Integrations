@@ -29,6 +29,16 @@ In the NSIDC Search and Arctic Data Explorer interfaces, this endpoint is used i
 nsidc.facets({}, context)
 ```
 
+#### Parameters
+* searchTerms (string) - URL-encoded keyword or keywords desired by the client; OpenSearch 1.1
+* count (integer) - The number of search results per page desired by the client; OpenSearch 1.1
+* startIndex (integer) - First search result desired by the search client; OpenSearch 1.1
+* spatial (string) - 4 comma separated values - W, S, E, N; OpenSearch-Geo 1.0, "box" parameter
+* sortKeys (string) - Sort the results by most relevant (default), smallest or largest spatial area, shortest or longest temporal duration, or most recently updated; partial implementation of OpenSearch SRU 1.0
+* startDate (string) - The start date in yyyy-mm-dd format
+* endDate (string) - The end date in yyyy-mm-dd format
+* facetFilters (string) - Describes faceted restrictions on the search. A URL-encoded JSON object where the keys are the names of the facet, and the values are arrays of the selected facet values
+* source (string) - Custom parameter for selecting which source to use; the Arctic Data Explorer (ADE) uses data aggregated from many sources, including, but not limited to, NSIDC
 
 ### OpenSearch.get
 This endpoint uses parameters from the OpenSearch 1.1 specification, as well as parameters from the OpenSearch Geo (1.0) and SRU (1.0) extensions.
@@ -38,6 +48,16 @@ This endpoint uses parameters from the OpenSearch 1.1 specification, as well as 
 nsidc.OpenSearch.get({}, context)
 ```
 
+#### Parameters
+* searchTerms (string) - URL-encoded keyword or keywords desired by the client; OpenSearch 1.1
+* count (integer) - The number of search results per page desired by the client; OpenSearch 1.1
+* startIndex (integer) - First search result desired by the search client; OpenSearch 1.1
+* spatial (string) - 4 comma separated values - W, S, E, N; OpenSearch-Geo 1.0, "box" parameter
+* sortKeys (string) - Sort the results by most relevant (default), smallest or largest spatial area, shortest or longest temporal duration, or most recently updated; partial implementation of OpenSearch SRU 1.0
+* startDate (string) - The start date in yyyy-mm-dd format
+* endDate (string) - The end date in yyyy-mm-dd format
+* facetFilters (string) - Describes faceted restrictions on the search. A URL-encoded JSON object where the keys are the names of the facet, and the values are arrays of the selected facet values
+* source (string) - Custom parameter for selecting which source to use; the Arctic Data Explorer (ADE) uses data aggregated from many sources, including, but not limited to, NSIDC
 
 ### OpenSearchDescription.get
 Describes the web interface of NSIDC's data search engine

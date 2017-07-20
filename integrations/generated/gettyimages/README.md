@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 gettyimages.Search_GetEditorialVideosByPhrase({}, context).then(data => {
   console.log(data);
 })
@@ -323,6 +322,9 @@ Gets countries codes and names.
 gettyimages.Countries_GetCountries({}, context)
 ```
 
+#### Parameters
+* Accept-Language (string) - Specifies the language of result values.
+* Authorization (string) - Provide access token in the format of 'Bearer {token}'.
 
 ### Downloads_GetDownloads
 Returns information about a customer's downloaded assets.
@@ -419,6 +421,11 @@ Returns an array of event metadata
 gettyimages.Events_GetBatch({}, context)
 ```
 
+#### Parameters
+* Accept-Language (string) - Specifies the language of result values.
+* Authorization (string) - Provide access token in the format of 'Bearer {token}'.
+* fields (array) - A comma separated list of fields to return in the response.
+* ids (array) - A comma separated list of event ids.
 
 ### Events_Get
 Returns an array of event metadata
@@ -543,6 +550,16 @@ Search for events
 gettyimages.Search_GetEvents({}, context)
 ```
 
+#### Parameters
+* Accept-Language (string) - Specifies the language of result values.
+* Authorization (string) - Provide access token in the format of 'Bearer {token}'.
+* date_from (string) - Filters to events that start on or after this date. Use ISO 8601 format (e.g., 1999-12-31).
+* date_to (string) - Filters to events that start on or before this date. Use ISO 8601 format (e.g., 1999-12-31).
+* editorial_segment (string) - Filters to events with a matching editorial segment.
+* fields (array) - Specifies fields to return. Default set is 'id','name','start_date'.
+* page (integer) - Request results starting at a page number (default is 1).
+* page_size (integer) - Request number of images to return in each page.
+* phrase (string) - Filters to events related to this phrase
 
 ### Search_GetImagesByPhrase
 Search for both creative and editorial images
@@ -552,6 +569,34 @@ Search for both creative and editorial images
 gettyimages.Search_GetImagesByPhrase({}, context)
 ```
 
+#### Parameters
+* Accept-Language (string) - Specifies the language of result values.
+* Authorization (string) - Provide access token in the format of 'Bearer {token}'.
+* age_of_people (array) - Filter based on the age of individuals in an image.
+* artists (string) - Search for images by specific artists (free-text, comma-separated list of artists).
+* collection_codes (array) - Filter by collection codes (comma-separated list). Include or exclude based on collections_filter_type.
+* collections_filter_type (string) - Provides searching based on specified collection(s).
+* color (string) - Filter based on predominant color in an image. Use 6 character hexidecimal format (e.g., #002244). Note: when specified, results will not contain editorial images.
+* compositions (array) - Filter based on image composition.
+* embed_content_only (boolean) - Restrict search results to embeddable images. The default is false.
+* ethnicity (array) - Filter search results based on the ethnicity of individuals in an image.
+* event_ids (array) - Filter based on specific events
+* exclude_nudity (boolean) - Excludes images containing nudity. The default is false.
+* fields (array) - Specifies fields to return. Defaults to 'summary_set'.
+* file_types (array) - Return only images having a specific file type.
+* graphical_styles (array) - Filter based on graphical style of the image.
+* keyword_ids (array) - Return only images tagged with specific keyword(s). Specify using a comma-separated list of keyword Ids. If keyword Ids and phrase are both specified, only those images matching the query phrase which also contain the requested keyword(s) are returned.
+* license_models (array) - Specifies the image licensing model(s).
+* minimum_size (string) - Filter based on minimum size requested.
+* number_of_people (array) - Filter based on the number of people in the image.
+* orientations (array) - Return only images with selected aspect ratios.
+* page (integer) - Request results starting at a page number (default is 1).
+* page_size (integer) - Request number of images to return in each page.
+* phrase (string) - Search images using a search phrase.
+* prestige_content_only (boolean) - Restrict search results to prestige images. The default is false.
+* product_types (array) - Filter images to those having product types from the selected list.
+* sort_order (string) - Select sort order of results.
+* specific_people (array) - Return only images associated with specific people (using a comma-delimited list).
 
 ### Search_GetCreativeImagesByPhrase
 Search for creative images only
@@ -561,6 +606,32 @@ Search for creative images only
 gettyimages.Search_GetCreativeImagesByPhrase({}, context)
 ```
 
+#### Parameters
+* Accept-Language (string) - Specifies the language of result values.
+* Authorization (string) - Provide access token in the format of 'Bearer {token}'.
+* age_of_people (array) - Filter based on the age of individuals in an image.
+* artists (string) - Search for images by specific artists (free-text, comma-separated list of artists).
+* collection_codes (array) - Filter by collection codes (comma-separated list). Include or exclude based on collections_filter_type.
+* collections_filter_type (string) - Use to include or exclude collections from search.
+* color (string) - Filter based on predominant color in an image. Use 6 character hexidecimal format (e.g., #002244).
+* compositions (array) - Filter based on image composition.
+* embed_content_only (boolean) - Restrict search results to embeddable images. The default is false.
+* ethnicity (array) - Filter search results based on the ethnicity of individuals in an image.
+* exclude_nudity (boolean) - Excludes images containing nudity. The default is false.
+* fields (array) - Specifies fields to return. Defaults to 'summary_set'.
+* file_types (array) - Return only images having a specific file type.
+* graphical_styles (array) - Filter based on graphical style of the image.
+* keyword_ids (array) - Return only images tagged with specific keyword(s). Specify using a comma-separated list of keyword Ids. If keyword Ids and phrase are both specified, only those images matching the query phrase which also contain the requested keyword(s) are returned.
+* license_models (array) - Specifies the image licensing model(s).
+* minimum_size (string) - Filter based on minimum size requested.
+* number_of_people (array) - Filter based on the number of people in the image.
+* orientations (array) - Return only images with selected aspect ratios.
+* page (integer) - Request results starting at a page number (default is 1).
+* page_size (integer) - Request number of images to return in each page.
+* phrase (string) - Search images using a search phrase.
+* prestige_content_only (boolean) - Restrict search results to prestige images. The default is false.
+* product_types (array) - Filter images to those having product types from the selected list.
+* sort_order (string) - Select sort order of results.
 
 ### Search_GetEditorialImagesByPhrase
 Search for editorial images only
@@ -570,6 +641,36 @@ Search for editorial images only
 gettyimages.Search_GetEditorialImagesByPhrase({}, context)
 ```
 
+#### Parameters
+* Accept-Language (string) - Specifies the language of result values.
+* Authorization (string) - Provide access token in the format of 'Bearer {token}'.
+* age_of_people (array) - Filter based on the age of individuals in an image.
+* artists (string) - Search for images by specific artists (free-text, comma-separated list of artists).
+* collection_codes (array) - Filter by collections (comma-separated list of collection codes). Include or exclude based on collections_filter_type.
+* collections_filter_type (string) - Use to include or exclude collections from search.
+* compositions (array) - Filter based on image composition.
+* date_from (string) - Return only images that are created on or after this date. Use ISO 8601 format (e.g., 1999-12-31).
+* date_to (string) - Return only images that are created on or before this date. Use ISO 8601 format (e.g., 1999-12-31).
+* editorial_segments (array) - Return only events with a matching editorial segment.
+* embed_content_only (boolean) - Restrict search results to embeddable images. The default is false.
+* entity_uris (array) - specify linked data entity uri.
+* ethnicity (array) - Filter search results based on the ethnicity of individuals in an image.
+* event_ids (array) - Filter based on specific events
+* exclude_nudity (boolean) - Excludes images containing nudity. The default is false.
+* fields (array) - Specifies fields to return. Defaults to 'summary_set'.
+* file_types (array) - Return only images having a specific file type.
+* graphical_styles (array) - Filter based on graphical style of the image.
+* keyword_ids (array) - Return only images tagged with specific keyword(s). Specify using a comma-separated list of keyword Ids. If keyword Ids and phrase are both specified, only those images matching the query phrase which also contain the requested keyword(s) are returned.
+* minimum_quality_rank (integer) - Filter search results based on minimum quality ranking. Possible values 1, 2, 3 with 1 being best.
+* minimum_size (string) - Filter based on minimum size requested.
+* number_of_people (array) - Filter based on the number of people in the image.
+* orientations (array) - Return only images with selected aspect ratios.
+* page (integer) - Request results starting at a page number (default is 1).
+* page_size (integer) - Request number of images to return in each page.
+* phrase (string) - Search images using a search phrase.
+* product_types (array) - Filter images to those having product types from the selected list.
+* sort_order (string) - Select sort order of results.
+* specific_people (array) - Return only images associated with specific people (using a comma-delimited list).
 
 ### Search_GetVideosByPhrase
 Search for both creative and editorial videos
@@ -579,6 +680,23 @@ Search for both creative and editorial videos
 gettyimages.Search_GetVideosByPhrase({}, context)
 ```
 
+#### Parameters
+* Accept-Language (string) - Specifies the language of result values.
+* Authorization (string) - Provide access token in the format of 'Bearer {token}'.
+* age_of_people (array) - Provides filtering according to the age of individuals in a video.
+* collection_codes (array) - Provides filtering by collection code.
+* collections_filter_type (string) - Provides searching based on specified collection(s).
+* exclude_nudity (boolean) - Excludes images containing nudity. The default is false.
+* fields (array) - Specifies fields to return. Defaults to 'summary_set'.
+* format_available (string) - Filters according to the digital video format available on a film asset.
+* keyword_ids (array) - Return only images tagged with specific keyword(s). Specify using a comma-separated list of keyword Ids. If keyword Ids and phrase are both specified, only those images matching the query phrase which also contain the requested keyword(s) are returned.
+* license_models (array) - Specifies the video licensing model(s).
+* page (integer) - Identifies page to return. Default is 1.
+* page_size (integer) - Specifies page size. Default is 30, maximum page_size is 100.
+* phrase (string) - Free-text search query.
+* product_types (array) - Provides filtering by a list of product types.
+* sort_order (string) - Allows sorting of results.
+* specific_people (array) - Provides filtering by specific peoples' names.
 
 ### Search_GetCreativeVideosByPhrase
 Search for creative videos
@@ -588,6 +706,22 @@ Search for creative videos
 gettyimages.Search_GetCreativeVideosByPhrase({}, context)
 ```
 
+#### Parameters
+* Accept-Language (string) - Specifies the language of result values.
+* Authorization (string) - Provide access token in the format of 'Bearer {token}'.
+* age_of_people (array) - Provides filtering according to the age of individuals in a video.
+* collection_codes (array) - Provides filtering by collection code.
+* collections_filter_type (string) - Provides searching based on specified collection(s).
+* exclude_nudity (boolean) - Excludes images containing nudity. The default is false.
+* fields (array) - Specifies fields to return. Defaults to 'summary_set'.
+* format_available (string) - Filters according to the digital video format available on a film asset.
+* keyword_ids (array) - Return only images tagged with specific keyword(s). Specify using a comma-separated list of keyword Ids. If keyword Ids and phrase are both specified, only those images matching the query phrase which also contain the requested keyword(s) are returned.
+* license_models (array) - Specifies the video licensing model(s).
+* page (integer) - Identifies page to return. Default is 1.
+* page_size (integer) - Specifies page size. Default is 30, maximum page_size is 100.
+* phrase (string) - Free-text search query.
+* product_types (array) - Allows filtering by a list of product types.
+* sort_order (string) - Allows sorting of results.
 
 ### Search_GetEditorialVideosByPhrase
 Search for editorial videos
@@ -597,6 +731,23 @@ Search for editorial videos
 gettyimages.Search_GetEditorialVideosByPhrase({}, context)
 ```
 
+#### Parameters
+* Accept-Language (string) - Specifies the language of result values.
+* Authorization (string) - Provide access token in the format of 'Bearer {token}'.
+* age_of_people (array) - Provides filtering according to the age of individuals in a video.
+* collection_codes (array) - Provides filtering by collection code.
+* collections_filter_type (string) - Provides searching based on specified collection(s).
+* entity_uris (array) - specify link data entity uri.
+* exclude_nudity (boolean) - Excludes images containing nudity. The default is false.
+* fields (array) - Specifies fields to return. Defaults to 'summary_set'.
+* format_available (string) - Filters according to the digital video format available on a film asset.
+* keyword_ids (array) - Return only images tagged with specific keyword(s). Specify using a comma-separated list of keyword Ids. If keyword Ids and phrase are both specified, only those images matching the query phrase which also contain the requested keyword(s) are returned.
+* page (integer) - Identifies page to return. Default is 1.
+* page_size (integer) - Specifies page size. Default is 30, maximum page_size is 100.
+* phrase (string) - Free-text search query.
+* product_types (array) - Allows filtering by a list of product types.
+* sort_order (string) - Allows sorting of results.
+* specific_people (array) - Allows filtering by specific peoples' names.
 
 ### Usage_Put
 Report usage of assets via a batch format.

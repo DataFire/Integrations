@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 statsocial.reports.twitter.create.post({}, context).then(data => {
   console.log(data);
 })
@@ -276,6 +275,10 @@ This report uses the twitter followers as the audience. To create custom or twee
 statsocial.reports.twitter.create.get({}, context)
 ```
 
+#### Parameters
+* twitter_id (integer) - (required if twitter_handle is not supplied) twitter_id must be sent with all client requests. Multiple handles are separated by commas.
+* twitter_handle (string) - (required if twitter_id is not supplied) twitter_handle must be sent with all client requests. Multiple ids are separated by commas.
+* filter (string) - Filtering options to be used when creating a filtered report. The options must be in JSON form, example: {'gender':['male'],'ages':['18-24'],'countries':['usa']}
 
 ### reports.twitter.create.post
 This report uses the twitter followers as the audience. To create custom or tweet reports other methods must be used. Any report older than two days will be automatically regenerated upon create.
@@ -286,4 +289,8 @@ This report uses the twitter followers as the audience. To create custom or twee
 statsocial.reports.twitter.create.post({}, context)
 ```
 
+#### Parameters
+* twitter_id (integer) - (required if twitter_handle is not supplied) twitter_id must be sent with all client requests. Multiple handles are separated by commas.
+* twitter_handle (string) - (required if twitter_id is not supplied) twitter_handle must be sent with all client requests. Multiple ids are separated by commas.
+* filter (string) - Filtering options to be used when creating a filtered report. The options must be in JSON form, example: {'gender':['male'],'ages':['18-24'],'countries':['usa']}
 

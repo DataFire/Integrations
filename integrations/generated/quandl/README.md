@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 quandl.databases.get({}, context).then(data => {
   console.log(data);
 })
@@ -124,6 +123,11 @@ You can search for individual datasets on Quandl by making the following API req
 quandl.datasets.get({}, context)
 ```
 
+#### Parameters
+* database_code (string) - You can restrict your search to a specific database by including a Quandl database code. For example, the database code for “IMF Cross Country Macroeconomic Statistics” is ODA.
+* page (string) - The current page of total available pages you wish to view.
+* per_page (string) - The number of results per page that will be returned.
+* query (string) - You can retrieve all datasets related to a search term using the query parameter. Multiple search terms should be separated by a + character.
 
 ### databases.database_code.data.get
 You can download all the data in a premium database in a single call, by appending /data to your database request. You can specify whether you want the entire history, or merely the last day’s worth of updates, by setting the correct query parameters.
@@ -173,4 +177,8 @@ You can search for specific databases on Quandl by making the following API requ
 quandl.databases.get({}, context)
 ```
 
+#### Parameters
+* page (string) - The current page of total available pages you wish to view.
+* per_page (string) - The number of results per page that will be returned.
+* query (string) - You can retrieve all databases related to a search term using the query parameter. Multiple search terms should be separated by a + character.
 

@@ -29,6 +29,8 @@ Make a payment using credit card, cash, cheque, profile, or token. Each payment 
 beanstream.payments.post({}, context)
 ```
 
+#### Parameters
+* payment_request (undefined)
 
 ### payments.transId.get
 Get a previous payment (transaction).
@@ -209,6 +211,8 @@ Query for transactions using a date range and optional search criteria. This met
 beanstream.reports.post({}, context)
 ```
 
+#### Parameters
+* search_query (undefined)
 
 ### scripts.tokenization.tokens.post
 NOTE that the full URL for this API call is https://www.beanstream.com/scripts/tokenization/tokens. Turn a credit card into a token using this service. This helps lessen your PCI scope by not passing the credit card information to your server. Instead you turn the card number into a token in the client app, then send the token to the server. When you send the token to Beanstream to make a payment, Beanstream then looks up the card number from that token and makes the payment. Tokens can also be used to create payment profiles.
@@ -218,4 +222,6 @@ NOTE that the full URL for this API call is https://www.beanstream.com/scripts/t
 beanstream.scripts.tokenization.tokens.post({}, context)
 ```
 
+#### Parameters
+* token_request (undefined)
 

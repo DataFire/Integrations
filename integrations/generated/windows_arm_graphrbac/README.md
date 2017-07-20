@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 windows_arm_graphrbac.Applications_List({}, context).then(data => {
   console.log(data);
 })

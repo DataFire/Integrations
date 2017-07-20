@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 amazonaws_rekognition.CompareFaces({}, context).then(data => {
   console.log(data);
 })

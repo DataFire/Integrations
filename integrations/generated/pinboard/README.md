@@ -72,6 +72,12 @@ Returns one or more posts on a single day matching the arguments. If no date or 
 pinboard.posts.get.get({}, context)
 ```
 
+#### Parameters
+* tag (string) - Filter by up to three tags.
+* dt (string) - Return results bookmarked on this day.
+* url (string) - Return bookmark for this URL.
+* meta (string) - Include a change detection signature in a meta attribute (yes/no).
+* format (string) - Default is xml.
 
 ### posts.dates.get
 Returns a list of dates with the number of posts at each date.
@@ -81,6 +87,8 @@ Returns a list of dates with the number of posts at each date.
 pinboard.posts.dates.get({}, context)
 ```
 
+#### Parameters
+* tag (string) - Filter by up to three tags.
 
 ### posts.recent.get
 Returns a list of the user's most recent posts, filtered by tag.
@@ -90,6 +98,9 @@ Returns a list of the user's most recent posts, filtered by tag.
 pinboard.posts.recent.get({}, context)
 ```
 
+#### Parameters
+* tag (string) - Filter by up to three tags.
+* count (integer) - Number of results to return. Default is 15, max is 100.
 
 ### posts.all.get
 Returns all bookmarks in the user's account.
@@ -99,6 +110,14 @@ Returns all bookmarks in the user's account.
 pinboard.posts.all.get({}, context)
 ```
 
+#### Parameters
+* tag (string) - Filter by up to three tags.
+* start (integer) - Offset value (default is 0).
+* results (integer) - Number of results to return. Default is all.
+* fromdt (string) - Return only bookmarks created after this time.
+* todt (string) - Return only bookmarks created before this time.
+* meta (integer) - Include a change detection signature for each bookmark.
+* format (string) - Default is xml.
 
 ### posts.suggest.get
 Returns a list of popular tags and recommended tags for a given URL. Popular tags are tags used site-wide for the url; recommended tags are drawn from the user's own tags.

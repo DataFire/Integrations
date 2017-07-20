@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 taxamo.listTransactions({}, context).then(data => {
   console.log(data);
 })
@@ -38,6 +37,8 @@ Countries
 taxamo.getCountriesDict({}, context)
 ```
 
+#### Parameters
+* tax_supported (boolean) - Should only countries with tax supported be listed?
 
 ### getCurrenciesDict
 Currencies
@@ -131,6 +132,13 @@ Detailed refunds
 taxamo.getDetailedRefunds({}, context)
 ```
 
+#### Parameters
+* format (string) - Output format. 'json' or 'csv'. Default value is 'json'
+* country_codes (string) - Comma separated list of 2-letter country codes
+* date_from (string) - Take only refunds issued at or after the date. Format: yyyy-MM-dd
+* date_to (string) - Take only refunds issued at or before the date. Format: yyyy-MM-dd
+* limit (number) - Limit (no more than 1000, defaults to 100).
+* offset (number) - Offset. Defaults to 0
 
 ### getRefunds
 Fetch refunds
@@ -319,6 +327,9 @@ Calculate location
 taxamo.calculateTaxLocation({}, context)
 ```
 
+#### Parameters
+* billing_country_code (string) - Billing two letter ISO country code.
+* buyer_credit_card_prefix (string) - First 6 digits of buyer's credit card prefix.
 
 ### validateTaxNumber
 Validate VAT number
@@ -342,6 +353,24 @@ Browse transactions
 taxamo.listTransactions({}, context)
 ```
 
+#### Parameters
+* filter_text (string) - Filtering expression
+* offset (integer) - Offset
+* has_note (boolean) - Return only transactions with a note field set.
+* key_or_custom_id (string) - Taxamo provided transaction key or custom id
+* currency_code (string) - Three letter ISO currency code.
+* order_date_to (string) - Order date to in yyyy-MM-dd format.
+* sort_reverse (boolean) - If true, results are sorted in descending order.
+* limit (integer) - Limit (no more than 1000, defaults to 100).
+* invoice_number (string) - Transaction invoice number.
+* tax_country_codes (string) - Comma separated list of two letter ISO tax country codes.
+* statuses (string) - Comma separated list of of transaction statuses. 'N' - unconfirmed transaction, 'C' - confirmed transaction.
+* original_transaction_key (string) - Taxamo provided original transaction key
+* order_date_from (string) - Order date from in yyyy-MM-dd format.
+* total_amount_greater_than (string) - Return only transactions with total amount greater than given number. Transactions with total amount equal to a given number (e.g. 0) are not returned.
+* format (string) - Output format - supports 'csv' value for this operation.
+* total_amount_less_than (string) - Return only transactions with total amount less than a given number. Transactions with total amount equal to a given number (e.g. 1) are not returned.
+* tax_country_code (string) - Two letter ISO tax country code.
 
 ### createTransaction
 Store transaction

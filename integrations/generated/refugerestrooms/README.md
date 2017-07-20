@@ -29,6 +29,12 @@ Get all restroom records ordered by date descending.
 refugerestrooms.v1.restrooms.json.get({}, context)
 ```
 
+#### Parameters
+* page (integer) - Page offset to fetch.
+* per_page (integer) - Number of results to return per page.
+* offset (integer) - Pad a number of results.
+* ada (boolean) - Only return restrooms that are ADA accessible.
+* unisex (boolean) - Only return restrooms that are unisex.
 
 ### v1.restrooms.by_date.json.get
 Search for restroom records updated or created on or after a given date

@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_adexperiencereport.violatingSites.list({}, context).then(data => {
   console.log(data);
 })
@@ -64,6 +63,20 @@ Lists sites with Ad Experience Report statuses of "Failing" or "Warning".
 google_adexperiencereport.violatingSites.list({}, context)
 ```
 
+#### Parameters
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### sites.get
 Gets a summary of the ads rating of a site.

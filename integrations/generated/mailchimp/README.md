@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 mailchimp._method_templates.get({}, context).then(data => {
   console.log(data);
 })

@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 azure_arm_network.ApplicationGateways_ListAll({}, context).then(data => {
   console.log(data);
 })

@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 nrel_building_case_studies.project({}, context).then(data => {
   console.log(data);
 })

@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_pubsub.projects.topics.create({}, context).then(data => {
   console.log(data);
 })

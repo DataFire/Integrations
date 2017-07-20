@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 azure_arm_notificationhubs.Namespaces_CheckAvailability({}, context).then(data => {
   console.log(data);
 })

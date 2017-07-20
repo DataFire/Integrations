@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 amazonaws_cognito_sync.ListIdentityPoolUsage({}, context).then(data => {
   console.log(data);
 })

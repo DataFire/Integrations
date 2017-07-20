@@ -21,7 +21,6 @@ let context = new datafire.Context({
   }
 })
 
-
 smart_me.AccessToken_Put({}, context).then(data => {
   console.log(data);
 })

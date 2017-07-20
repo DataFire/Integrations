@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 wikimedia.media.math.check.type.post({}, context).then(data => {
   console.log(data);
 })

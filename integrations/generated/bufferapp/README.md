@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 bufferapp.info.configuration.json.get({}, context).then(data => {
   console.log(data);
 })

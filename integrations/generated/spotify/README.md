@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 spotify.me.tracks.get({}, context).then(data => {
   console.log(data);
 })
@@ -188,6 +187,12 @@ spotify.artists.id.top_tracks.get({
 spotify.browse.categories.get({}, context)
 ```
 
+#### Parameters
+* limit (integer) - The maximum number of items to return
+* offset (integer) - The index of the first item to return
+* country (string) - The country (an ISO 3166-1 alpha-2 country code)
+* locale (string) - The desired language, consisting of an ISO 639 language code and an ISO 3166-1 alpha-2 country code, joined by an underscore. For example: es_MX, meaning "Spanish (Mexico)".
+* Accept (string) - It is used to set specified media type.
 
 ### browse.categories.category_id.get
 [Get a Single Browse Category](https://developer.spotify.com/web-api/get-category/)
@@ -233,6 +238,13 @@ spotify.browse.categories.category_id.playlists.get({
 spotify.browse.featured_playlists.get({}, context)
 ```
 
+#### Parameters
+* limit (integer) - The maximum number of items to return
+* offset (integer) - The index of the first item to return
+* country (string) - The country (an ISO 3166-1 alpha-2 country code)
+* locale (string) - The desired language, consisting of an ISO 639 language code and an ISO 3166-1 alpha-2 country code, joined by an underscore. For example: es_MX, meaning "Spanish (Mexico)".
+* timestamp (string) - A timestamp in ISO 8601 format (yyyy-MM-dd'T'HH:mm:ss) with the user's local time to get results tailored to a specific date and time in the day. If not provided, it defaults to the current UTC time. Example: "2014-10-23T09:00:00" for a user whose local time is 9AM.
+* Accept (string) - It is used to set specified media type.
 
 ### browse.new_releases.get
 [Get a List of New Releases](https://developer.spotify.com/web-api/get-list-new-releases/)
@@ -243,6 +255,11 @@ spotify.browse.featured_playlists.get({}, context)
 spotify.browse.new_releases.get({}, context)
 ```
 
+#### Parameters
+* limit (integer) - The maximum number of items to return
+* offset (integer) - The index of the first item to return
+* country (string) - The country (an ISO 3166-1 alpha-2 country code)
+* Accept (string) - It is used to set specified media type.
 
 ### me.get
 [Get Current User's Profile](https://developer.spotify.com/web-api/get-current-users-profile/)
@@ -342,6 +359,11 @@ spotify.me.tracks.delete({
 spotify.me.tracks.get({}, context)
 ```
 
+#### Parameters
+* limit (integer) - The maximum number of items to return
+* offset (integer) - The index of the first item to return
+* market (string) - The market (an ISO 3166-1 alpha-2 country code)
+* Accept (string) - It is used to set specified media type.
 
 ### me.tracks.put
 [Save Tracks for Current User](https://developer.spotify.com/web-api/save-tracks-user/)

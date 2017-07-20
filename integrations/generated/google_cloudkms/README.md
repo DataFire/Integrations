@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.get({}, context).then(data => {
   console.log(data);
 })

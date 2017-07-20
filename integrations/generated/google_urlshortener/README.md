@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_urlshortener.url.list({}, context).then(data => {
   console.log(data);
 })
@@ -85,6 +84,15 @@ Creates a new short URL.
 google_urlshortener.url.insert({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### url.list
 Retrieves a list of URLs shortened by a user.
@@ -94,4 +102,14 @@ Retrieves a list of URLs shortened by a user.
 google_urlshortener.url.list({}, context)
 ```
 
+#### Parameters
+* projection (string) - Additional information to return.
+* start-token (string) - Token for requesting successive pages of results.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 

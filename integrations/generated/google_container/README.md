@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_container.projects.zones.clusters.list({}, context).then(data => {
   console.log(data);
 })

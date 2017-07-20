@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_plusdomains.activities.get({}, context).then(data => {
   console.log(data);
 })

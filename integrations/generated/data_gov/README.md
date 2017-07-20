@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 data_gov.docket({}, context).then(data => {
   console.log(data);
 })

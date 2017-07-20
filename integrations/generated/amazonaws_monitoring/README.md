@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 amazonaws_monitoring.DeleteAlarms({}, context).then(data => {
   console.log(data);
 })

@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 wordnik.getWordOfTheDay({}, context).then(data => {
   console.log(data);
 })
@@ -39,6 +38,8 @@ Returns usage statistics for the API account.
 wordnik.getApiTokenStatus({}, context)
 ```
 
+#### Parameters
+* api_key (string) - Wordnik authentication token
 
 ### authenticate
 Authenticates a User
@@ -392,6 +393,16 @@ Returns a single random WordObject
 wordnik.getRandomWord({}, context)
 ```
 
+#### Parameters
+* hasDictionaryDef (string) - Only return words with dictionary definitions
+* includePartOfSpeech (string) - CSV part-of-speech values to include
+* excludePartOfSpeech (string) - CSV part-of-speech values to exclude
+* minCorpusCount (integer) - Minimum corpus frequency for terms
+* maxCorpusCount (integer) - Maximum corpus frequency for terms
+* minDictionaryCount (integer) - Minimum dictionary count
+* maxDictionaryCount (integer) - Maximum dictionary count
+* minLength (integer) - Minimum word length
+* maxLength (integer) - Maximum word length
 
 ### getRandomWords
 Returns an array of random WordObjects
@@ -401,6 +412,19 @@ Returns an array of random WordObjects
 wordnik.getRandomWords({}, context)
 ```
 
+#### Parameters
+* hasDictionaryDef (string) - Only return words with dictionary definitions
+* includePartOfSpeech (string) - CSV part-of-speech values to include
+* excludePartOfSpeech (string) - CSV part-of-speech values to exclude
+* minCorpusCount (integer) - Minimum corpus frequency for terms
+* maxCorpusCount (integer) - Maximum corpus frequency for terms
+* minDictionaryCount (integer) - Minimum dictionary count
+* maxDictionaryCount (integer) - Maximum dictionary count
+* minLength (integer) - Minimum word length
+* maxLength (integer) - Maximum word length
+* sortBy (string) - Attribute to sort by
+* sortOrder (string) - Sort direction
+* limit (integer) - Maximum number of results to return
 
 ### reverseDictionary
 Reverse dictionary search
@@ -462,4 +486,6 @@ Returns a specific WordOfTheDay
 wordnik.getWordOfTheDay({}, context)
 ```
 
+#### Parameters
+* date (string) - Fetches by date in yyyy-MM-dd
 

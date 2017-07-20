@@ -21,7 +21,6 @@ let context = new datafire.Context({
   }
 })
 
-
 traccar.users.notifications.get({}, context).then(data => {
   console.log(data);
 })
@@ -39,6 +38,8 @@ Without params, it returns a list of AttributeAlias from all the user's Devices
 traccar.attributes.aliases.get({}, context)
 ```
 
+#### Parameters
+* deviceId (integer) - Standard users can use this only with _userId_s, they have access to
 
 ### attributes.aliases.post
 Set an AttributeAlias
@@ -89,6 +90,9 @@ Without params, it returns a list of Calendars the user has access to
 traccar.calendars.get({}, context)
 ```
 
+#### Parameters
+* all (boolean) - Can only be used by admins or managers to fetch all entities
+* userId (integer) - Standard users can use this only with their own _userId_
 
 ### calendars.post
 Create a Calendar
@@ -165,6 +169,9 @@ Without any params, returns a list of the user's devices
 traccar.devices.get({}, context)
 ```
 
+#### Parameters
+* all (boolean) - Can only be used by admins or managers to fetch all entities
+* userId (integer) - Standard users can use this only with their own _userId_
 
 ### devices.post
 Create a Device
@@ -269,6 +276,12 @@ Without params, it returns a list of Geofences the user has access to
 traccar.geofences.get({}, context)
 ```
 
+#### Parameters
+* all (boolean) - Can only be used by admins or managers to fetch all entities
+* userId (integer) - Standard users can use this only with their own _userId_
+* groupId (integer)
+* deviceId (integer) - Standard users can use this only with _userId_s, they have access to
+* refresh (boolean)
 
 ### geofences.post
 Create a Geofence
@@ -319,6 +332,9 @@ Without any params, returns a list of the Groups the user belongs to
 traccar.groups.get({}, context)
 ```
 
+#### Parameters
+* all (boolean) - Can only be used by admins or managers to fetch all entities
+* userId (integer) - Standard users can use this only with their own _userId_
 
 ### groups.post
 Create a Group
@@ -525,6 +541,11 @@ Without any params, it returns a list of last known positions for all the user's
 traccar.positions.get({}, context)
 ```
 
+#### Parameters
+* deviceId (integer) - _deviceId_ is optional, but requires the _from_ and _to_ parameters when used
+* from (string) - in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+* to (string) - in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+* id (integer) - To fetch one or more positions. Multiple params can be passed like `id=31&id=42`
 
 ### reports.events.get
 At least one _deviceId_ or one _groupId_ must be passed
@@ -634,6 +655,8 @@ Fetch Session information
 traccar.session.get({}, context)
 ```
 
+#### Parameters
+* token (string)
 
 ### session.post
 Create a new Session
@@ -673,6 +696,8 @@ Fetch a list of Users
 traccar.users.get({}, context)
 ```
 
+#### Parameters
+* userId (string) - Can only be used by admin or manager users
 
 ### users.post
 Create a User
@@ -695,6 +720,9 @@ Without params, it returns a list of the user's enabled Notifications
 traccar.users.notifications.get({}, context)
 ```
 
+#### Parameters
+* all (boolean) - To fetch a list of all available Notifications
+* userId (integer) - Standard users can use this only with their own _userId_
 
 ### users.notifications.post
 Set or unset a Notification

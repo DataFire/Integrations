@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 amazonaws_servicecatalog.AcceptPortfolioShare({}, context).then(data => {
   console.log(data);
 })

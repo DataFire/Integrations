@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 rottentomatoes.MoviesSearchSearch({}, context).then(data => {
   console.log(data);
 })
@@ -56,6 +55,10 @@ rottentomatoes.DVDListsDirectoryTopLevelLists(null, context)
 rottentomatoes.CurrentReleaseDVDsDVDLists({}, context)
 ```
 
+#### Parameters
+* page_limit (string) - The amount of new release dvds to show per page
+* page (string) - The selected page of current DVD releases
+* country (string) - Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
 
 ### NewReleaseDVDsDVDLists
 
@@ -65,6 +68,10 @@ rottentomatoes.CurrentReleaseDVDsDVDLists({}, context)
 rottentomatoes.NewReleaseDVDsDVDLists({}, context)
 ```
 
+#### Parameters
+* page_limit (string) - The amount of new release dvds to show per page
+* page (string) - The selected page of new release DVDs
+* country (string) - Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
 
 ### TopRentalsDVDLists
 
@@ -74,6 +81,9 @@ rottentomatoes.NewReleaseDVDsDVDLists({}, context)
 rottentomatoes.TopRentalsDVDLists({}, context)
 ```
 
+#### Parameters
+* limit (string) - Limits the number of top rentals returned
+* country (string) - Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
 
 ### UpcomingDVDsDVDLists
 
@@ -83,6 +93,10 @@ rottentomatoes.TopRentalsDVDLists({}, context)
 rottentomatoes.UpcomingDVDsDVDLists({}, context)
 ```
 
+#### Parameters
+* page_limit (string) - The amount of upcoming dvds to show per page
+* page (string) - The selected page of upcoming DVDs
+* country (string) - Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
 
 ### MovieListsDirectoryTopLevelLists
 
@@ -101,6 +115,9 @@ rottentomatoes.MovieListsDirectoryTopLevelLists(null, context)
 rottentomatoes.BoxOfficeMovieLists({}, context)
 ```
 
+#### Parameters
+* limit (string) - Limits the number of movies returned
+* country (string) - Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
 
 ### InTheatersMovieLists
 
@@ -110,6 +127,10 @@ rottentomatoes.BoxOfficeMovieLists({}, context)
 rottentomatoes.InTheatersMovieLists({}, context)
 ```
 
+#### Parameters
+* page_limit (string) - The amount of movies in theaters to show per page
+* page (string) - The selected page of in theaters movies
+* country (string) - Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
 
 ### OpeningMoviesMovieLists
 
@@ -119,6 +140,9 @@ rottentomatoes.InTheatersMovieLists({}, context)
 rottentomatoes.OpeningMoviesMovieLists({}, context)
 ```
 
+#### Parameters
+* limit (string) - Limits the number of opening movies returned
+* country (string) - Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
 
 ### UpcomingMoviesMovieLists
 
@@ -128,6 +152,10 @@ rottentomatoes.OpeningMoviesMovieLists({}, context)
 rottentomatoes.UpcomingMoviesMovieLists({}, context)
 ```
 
+#### Parameters
+* page_limit (string) - The amount of upcoming movies to show per page
+* page (string) - The selected page of upcoming movies
+* country (string) - Provides localized data for the selected country (ISO 3166-1 alpha-2) if available. Otherwise, returns US data.
 
 ### MoviesAliasDetailedInfo
 
@@ -137,6 +165,9 @@ rottentomatoes.UpcomingMoviesMovieLists({}, context)
 rottentomatoes.MoviesAliasDetailedInfo({}, context)
 ```
 
+#### Parameters
+* id (string) - Movie ID. You can use the movies search endpoint or peruse the lists of movies/dvds to get the Movie ID
+* type (string) - Only supports imdb lookup at this time
 
 ### MoviesSearchSearch
 
@@ -146,6 +177,10 @@ rottentomatoes.MoviesAliasDetailedInfo({}, context)
 rottentomatoes.MoviesSearchSearch({}, context)
 ```
 
+#### Parameters
+* q (string) - The plain text search query to search for a movie. Remember to URI encode this!
+* page_limit (string) - The amount of movie search results to show per page
+* page (string) - The selected page of movie search results
 
 ### MoviesInfoDetailedInfo
 

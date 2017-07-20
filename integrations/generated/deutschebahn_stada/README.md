@@ -63,6 +63,13 @@ To specify parameter values containing German umlauts, the following encoding ha
 deutschebahn_stada.stations.get({}, context)
 ```
 
+#### Parameters
+* offset (integer) - Offset of the first hit returned in the QueryResult object with respect to all hits returned by the query. If this parameter is omitted, it will be set to 0 internally.
+* limit (integer) - The maximum number of hits to be returned by that query. If 'limit' is set greater than 100, it will be reset to 100 internally and only 100 hits will be returned.
+* searchstring (string) - String to search for a station name. The wildcards * (indicating an arbitrary number of characters) and ? (indicating one single character) can be used in the search pattern. A comma separated list of station names is also supported (e.g. searchstring=hamburg*,berlin*).
+* category (string) - Filter by station category. Category ranges as well as lists of categories are also supported (e.g. category=2-4 or category=1,3-5). The category must be between 1 and 7, otherwise a parameter exception is returned.
+* federalstate (string) - Filter by German federal state. Lists of federal states are also supported (e.g. federalstate=bayern,hamburg). Wildcards are not allowed here.
+* logicaloperator (string) - Logical operator to combine query parameters (default=AND). See above for further details.  Allowed values: or, and
 
 ### stations.id.get
 Get a QueryResult object containing one station object specified by its id.
@@ -92,6 +99,9 @@ QueryResult is a container providing the following information about the query r
 deutschebahn_stada.szentralen.get({}, context)
 ```
 
+#### Parameters
+* offset (integer) - Offset of the first hit returned in the QueryResult object with respect to all hits returned by the query. If this parameter is omitted, it will be set to 0 internally.
+* limit (integer) - The maximum number of hits to be returned by that query. If 'limit' is set greater than 100, it will be reset to 100 internally and only 100 hits will be returned.
 
 ### szentralen.id.get
 Get a QueryResult object containing one SZentralen object specified by its id. 

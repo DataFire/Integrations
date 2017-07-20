@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 azure_arm_eventhub.Operations_List({}, context).then(data => {
   console.log(data);
 })

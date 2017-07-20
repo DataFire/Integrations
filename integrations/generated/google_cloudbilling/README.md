@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_cloudbilling.billingAccounts.list({}, context).then(data => {
   console.log(data);
 })
@@ -66,6 +65,22 @@ Lists the billing accounts that the current authenticated user
 google_cloudbilling.billingAccounts.list({}, context)
 ```
 
+#### Parameters
+* pageSize (integer) - Requested page size. The maximum page size is 100; this is also the
+* pageToken (string) - A token identifying a page of results to return. This should be a
+* access_token (string) - OAuth access token.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* alt (string) - Data format for response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### billingAccounts.get
 Gets information about a billing account. The current authenticated user

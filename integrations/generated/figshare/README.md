@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 figshare.projects_search({}, context).then(data => {
   console.log(data);
 })
@@ -73,6 +72,11 @@ Get Own Articles
 figshare.private_articles_list({}, context)
 ```
 
+#### Parameters
+* page (integer) - Page number. Used for pagination with page_size
+* page_size (integer) - The number of results included on a page. Used for pagination with page
+* limit (integer) - Number of results included on a page. Used for pagination with query
+* offset (integer) - Where to start the listing(the offset of the first result). Used for pagination with limit
 
 ### private_article_create
 Create a new Article by sending article information
@@ -515,6 +519,8 @@ Search for authors
 figshare.private_authors_search({}, context)
 ```
 
+#### Parameters
+* search (object)
 
 ### private_author_details
 View author details
@@ -546,6 +552,13 @@ List private collections
 figshare.private_collections_list({}, context)
 ```
 
+#### Parameters
+* page (integer) - Page number. Used for pagination with page_size
+* page_size (integer) - The number of results included on a page. Used for pagination with page
+* limit (integer) - Number of results included on a page. Used for pagination with query
+* offset (integer) - Where to start the listing(the offset of the first result). Used for pagination with limit
+* order (string) - The field by which to order. Default varies by endpoint/resource.
+* order_direction (string)
 
 ### private_collection_create
 Create a new Collection by sending collection information
@@ -903,6 +916,18 @@ Get Articles from own institution. User must be administrator of the institution
 figshare.private_institution_articles({}, context)
 ```
 
+#### Parameters
+* page (integer) - Page number. Used for pagination with page_size
+* page_size (integer) - The number of results included on a page. Used for pagination with page
+* limit (integer) - Number of results included on a page. Used for pagination with query
+* offset (integer) - Where to start the listing(the offset of the first result). Used for pagination with limit
+* order (string) - The field by which to order. Default varies by endpoint/resource.
+* order_direction (string)
+* published_since (string) - Filter by article publishing date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD
+* modified_since (string) - Filter by article modified date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD
+* status (integer) - only return collections with this status
+* resource_doi (string) - only return collections with this resource_doi
+* item_type (integer) - Only return collections with the respective type. Mapping for item_type is: 1 - Figure, 2 - Media, 3 - Dataset, 4 - Fileset, 5 - Poster, 6 - Paper, 7 - Presentation, 8 - Thesis, 9 - Code, 12 - Preprint
 
 ### private_institution_groups_list
 Returns the groups for which the account has administrative privileges (assigned and inherited).
@@ -930,6 +955,15 @@ List private projects
 figshare.private_projects_list({}, context)
 ```
 
+#### Parameters
+* page (integer) - Page number. Used for pagination with page_size
+* page_size (integer) - The number of results included on a page. Used for pagination with page
+* limit (integer) - Number of results included on a page. Used for pagination with query
+* offset (integer) - Where to start the listing(the offset of the first result). Used for pagination with limit
+* order (string) - The field by which to order. Default varies by endpoint/resource.
+* order_direction (string)
+* storage (string) - only return collections from this institution
+* roles (string) - Any combination of owner, collaborator, viewer separated by comma. Examples: "owner" or "owner,collaborator".
 
 ### private_project_create
 Create a new project
@@ -954,6 +988,8 @@ Search inside the private projects
 figshare.private_projects_search({}, context)
 ```
 
+#### Parameters
+* search (object)
 
 ### private_project_delete
 A project can be deleted only if: - it is not public - it does not have public articles.
@@ -1255,6 +1291,19 @@ Returns a list of public articles
 figshare.articles_list({}, context)
 ```
 
+#### Parameters
+* page (integer) - Page number. Used for pagination with page_size
+* page_size (integer) - The number of results included on a page. Used for pagination with page
+* limit (integer) - Number of results included on a page. Used for pagination with query
+* offset (integer) - Where to start the listing(the offset of the first result). Used for pagination with limit
+* order (string) - The field by which to order. Default varies by endpoint/resource.
+* order_direction (string)
+* institution (integer) - only return collections from this institution
+* published_since (string) - Filter by article publishing date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD
+* modified_since (string) - Filter by article modified date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD
+* group (integer) - only return collections from this group
+* resource_doi (string) - only return collections with this resource_doi
+* item_type (integer) - Only return collections with the respective type. Mapping for item_type is: 1 - Figure, 2 - Media, 3 - Dataset, 4 - Fileset, 5 - Poster, 6 - Paper, 7 - Presentation, 8 - Thesis, 9 - Code, 12 - Preprint
 
 ### articles_search
 Returns a list of public articles, filtered by the search parameters
@@ -1264,6 +1313,8 @@ Returns a list of public articles, filtered by the search parameters
 figshare.articles_search({}, context)
 ```
 
+#### Parameters
+* search (object)
 
 ### article_details
 View an article
@@ -1381,6 +1432,18 @@ Returns a list of public collections
 figshare.collections_list({}, context)
 ```
 
+#### Parameters
+* page (integer) - Page number. Used for pagination with page_size
+* page_size (integer) - The number of results included on a page. Used for pagination with page
+* limit (integer) - Number of results included on a page. Used for pagination with query
+* offset (integer) - Where to start the listing(the offset of the first result). Used for pagination with limit
+* order (string) - The field by which to order. Default varies by endpoint/resource.
+* order_direction (string)
+* institution (integer) - only return collections from this institution
+* published_since (string) - Filter by collection publishing date. Will only return collections published after the date. date(ISO 8601) YYYY-MM-DD
+* modified_since (string) - Filter by collection modified date. Will only return collections published after the date. date(ISO 8601) YYYY-MM-DD
+* group (integer) - only return collections from this group
+* resource_doi (string) - only return collections with this resource_doi
 
 ### collections_search
 Returns a list of public collections
@@ -1390,6 +1453,8 @@ Returns a list of public collections
 figshare.collections_search({}, context)
 ```
 
+#### Parameters
+* search (object)
 
 ### collection_details
 View a collection
@@ -1470,6 +1535,8 @@ More info in the <a href="#hr_feed">HR Feed section</a>
 figshare.institution_hrfeed_upload({}, context)
 ```
 
+#### Parameters
+* hrfeed (string) - You can find an example in the Hr Feed section
 
 ### institution_articles
 Returns a list of articles belonging to the institution
@@ -1505,6 +1572,16 @@ Returns a list of public projects
 figshare.projects_list({}, context)
 ```
 
+#### Parameters
+* page (integer) - Page number. Used for pagination with page_size
+* page_size (integer) - The number of results included on a page. Used for pagination with page
+* limit (integer) - Number of results included on a page. Used for pagination with query
+* offset (integer) - Where to start the listing(the offset of the first result). Used for pagination with limit
+* order (string) - The field by which to order. Default varies by endpoint/resource.
+* order_direction (string)
+* institution (integer) - only return collections from this institution
+* published_since (string) - Filter by article publishing date. Will only return articles published after the date. date(ISO 8601) YYYY-MM-DD
+* group (integer) - only return collections from this group
 
 ### projects_search
 Returns a list of public articles
@@ -1514,6 +1591,8 @@ Returns a list of public articles
 figshare.projects_search({}, context)
 ```
 
+#### Parameters
+* search (object)
 
 ### project_details
 View a project

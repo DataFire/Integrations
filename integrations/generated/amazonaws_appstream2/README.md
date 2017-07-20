@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 amazonaws_appstream2.AssociateFleet({}, context).then(data => {
   console.log(data);
 })

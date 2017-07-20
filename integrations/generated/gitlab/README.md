@@ -21,7 +21,6 @@ let context = new datafire.Context({
   }
 })
 
-
 gitlab.getV3Users({}, context).then(data => {
   console.log(data);
 })
@@ -234,6 +233,15 @@ Get a groups list
 gitlab.getV3Groups({}, context)
 ```
 
+#### Parameters
+* statistics (boolean) - Include project statistics
+* skip_groups (array) - Array of group ids to exclude from list
+* all_available (boolean) - Show all group that you have access to
+* search (string) - Search for a specific group
+* order_by (string) - Order by name or path
+* sort (string) - Sort by asc (ascending) or desc (descending)
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
 
 ### postV3Groups
 Create a group. Available only for users who can create groups.
@@ -262,6 +270,10 @@ Get list of owned groups for authenticated user
 gitlab.getV3GroupsOwned({}, context)
 ```
 
+#### Parameters
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+* statistics (boolean) - Include project statistics
 
 ### deleteV3GroupsId
 Remove a group.
@@ -667,6 +679,14 @@ Get currently authenticated user's issues
 gitlab.getV3Issues({}, context)
 ```
 
+#### Parameters
+* state (string) - Return opened, closed, or all issues
+* labels (string) - Comma-separated list of label names
+* milestone (string) - Return issues for a specific milestone
+* order_by (string) - Return issues ordered by `created_at` or `updated_at` fields.
+* sort (string) - Return issues sorted in `asc` or `desc` order.
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
 
 ### getV3KeysId
 Get single ssh key by id. Only available to admin users
@@ -689,6 +709,8 @@ This feature was introduced in GitLab 8.7. This endpoint is deprecated and will 
 gitlab.getV3Licenses({}, context)
 ```
 
+#### Parameters
+* popular (boolean) - If passed, returns only popular licenses
 
 ### getV3LicensesName
 This feature was introduced in GitLab 8.7. This endpoint is deprecated and will be removed in GitLab 9.0.
@@ -711,6 +733,10 @@ Get a namespaces list
 gitlab.getV3Namespaces({}, context)
 ```
 
+#### Parameters
+* search (string) - Search query for namespaces
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
 
 ### getV3NotificationSettings
 This feature was introduced in GitLab 8.12
@@ -729,6 +755,21 @@ This feature was introduced in GitLab 8.12
 gitlab.putV3NotificationSettings({}, context)
 ```
 
+#### Parameters
+* level (string) - The global notification level
+* notification_email (string) - The email address to send notifications
+* new_note (boolean) - Enable/disable this notification
+* new_issue (boolean) - Enable/disable this notification
+* reopen_issue (boolean) - Enable/disable this notification
+* close_issue (boolean) - Enable/disable this notification
+* reassign_issue (boolean) - Enable/disable this notification
+* new_merge_request (boolean) - Enable/disable this notification
+* reopen_merge_request (boolean) - Enable/disable this notification
+* close_merge_request (boolean) - Enable/disable this notification
+* reassign_merge_request (boolean) - Enable/disable this notification
+* merge_merge_request (boolean) - Enable/disable this notification
+* failed_pipeline (boolean) - Enable/disable this notification
+* success_pipeline (boolean) - Enable/disable this notification
 
 ### getV3Projects
 Get a projects list for authenticated user
@@ -738,6 +779,15 @@ Get a projects list for authenticated user
 gitlab.getV3Projects({}, context)
 ```
 
+#### Parameters
+* order_by (string) - Return projects ordered by field
+* sort (string) - Return projects sorted in ascending and descending order
+* archived (boolean) - Limit by archived status
+* visibility (string) - Limit by visibility
+* search (string) - Return list of authorized projects matching the search criteria
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+* simple (boolean) - Return only the ID, URL, name, and path of each project
 
 ### postV3Projects
 Create new project
@@ -778,6 +828,16 @@ Get all projects for admin user
 gitlab.getV3ProjectsAll({}, context)
 ```
 
+#### Parameters
+* order_by (string) - Return projects ordered by field
+* sort (string) - Return projects sorted in ascending and descending order
+* archived (boolean) - Limit by archived status
+* visibility (string) - Limit by visibility
+* search (string) - Return list of authorized projects matching the search criteria
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+* simple (boolean) - Return only the ID, URL, name, and path of each project
+* statistics (boolean) - Include project statistics
 
 ### postV3ProjectsForkId
 Fork new project for the current user or provided namespace.
@@ -801,6 +861,16 @@ Get an owned projects list for authenticated user
 gitlab.getV3ProjectsOwned({}, context)
 ```
 
+#### Parameters
+* order_by (string) - Return projects ordered by field
+* sort (string) - Return projects sorted in ascending and descending order
+* archived (boolean) - Limit by archived status
+* visibility (string) - Limit by visibility
+* search (string) - Return list of authorized projects matching the search criteria
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+* simple (boolean) - Return only the ID, URL, name, and path of each project
+* statistics (boolean) - Include project statistics
 
 ### getV3ProjectsSearchQuery
 Search for projects the current user has access to
@@ -827,6 +897,15 @@ Gets starred project for the authenticated user
 gitlab.getV3ProjectsStarred({}, context)
 ```
 
+#### Parameters
+* order_by (string) - Return projects ordered by field
+* sort (string) - Return projects sorted in ascending and descending order
+* archived (boolean) - Limit by archived status
+* visibility (string) - Limit by visibility
+* search (string) - Return list of authorized projects matching the search criteria
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+* simple (boolean) - Return only the ID, URL, name, and path of each project
 
 ### postV3ProjectsUserUserId
 Create new project for a specified user. Only available to admin users.
@@ -869,6 +948,15 @@ Get a list of visible projects for authenticated user
 gitlab.getV3ProjectsVisible({}, context)
 ```
 
+#### Parameters
+* order_by (string) - Return projects ordered by field
+* sort (string) - Return projects sorted in ascending and descending order
+* archived (boolean) - Limit by archived status
+* visibility (string) - Limit by visibility
+* search (string) - Return list of authorized projects matching the search criteria
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+* simple (boolean) - Return only the ID, URL, name, and path of each project
 
 ### deleteV3ProjectsId
 Remove a project
@@ -5100,6 +5188,10 @@ Get runners available for user
 gitlab.getV3Runners({}, context)
 ```
 
+#### Parameters
+* scope (string) - The scope of specific runners to show
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
 
 ### getV3RunnersAll
 Get all runners - shared and specific
@@ -5109,6 +5201,10 @@ Get all runners - shared and specific
 gitlab.getV3RunnersAll({}, context)
 ```
 
+#### Parameters
+* scope (string) - The scope of specific runners to show
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
 
 ### deleteV3RunnersId
 Remove a runner
@@ -5213,6 +5309,9 @@ This feature was introduced in GitLab 8.15.
 gitlab.getV3Snippets({}, context)
 ```
 
+#### Parameters
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
 
 ### postV3Snippets
 This feature was introduced in GitLab 8.15.
@@ -5240,6 +5339,9 @@ This feature was introduced in GitLab 8.15.
 gitlab.getV3SnippetsPublic({}, context)
 ```
 
+#### Parameters
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
 
 ### deleteV3SnippetsId
 This feature was introduced in GitLab 8.15.
@@ -5371,6 +5473,8 @@ This feature was introduced in GitLab 8.7.
 gitlab.getV3TemplatesLicenses({}, context)
 ```
 
+#### Parameters
+* popular (boolean) - If passed, returns only popular licenses
 
 ### getV3TemplatesLicensesName
 This feature was introduced in GitLab 8.7.
@@ -5402,6 +5506,9 @@ Get a todo list
 gitlab.getV3Todos({}, context)
 ```
 
+#### Parameters
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
 
 ### deleteV3TodosId
 Mark a todo as done
@@ -5531,6 +5638,14 @@ Get the list of users
 gitlab.getV3Users({}, context)
 ```
 
+#### Parameters
+* username (string) - Get a single user with a specific username
+* search (string) - Search for a username
+* active (boolean) - Filters only active users
+* external (boolean) - Filters only external users
+* blocked (boolean) - Filters only blocked users
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
 
 ### postV3Users
 Create a user. Available only for admins.

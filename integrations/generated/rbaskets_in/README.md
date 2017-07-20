@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 rbaskets_in.baskets.get({}, context).then(data => {
   console.log(data);
 })
@@ -38,6 +37,10 @@ Fetches a list of basket names managed by service. Require master token.
 rbaskets_in.baskets.get({}, context)
 ```
 
+#### Parameters
+* max (integer) - Maximum number of basket names to return; default 20
+* skip (integer) - Number of basket names to skip; default 0
+* q (string) - Query string to filter result, only those basket names that match the query will be included in response
 
 ### baskets.name.delete
 Permanently deletes this basket and all collected requests.

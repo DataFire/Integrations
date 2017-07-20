@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 azure_arm_devtestlabs.Lab_ListBySubscription({}, context).then(data => {
   console.log(data);
 })

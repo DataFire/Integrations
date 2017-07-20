@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 azure_monitor.UsageMetrics_List({}, context).then(data => {
   console.log(data);
 })

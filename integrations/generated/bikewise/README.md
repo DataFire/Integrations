@@ -36,6 +36,15 @@ bikewise.v2.locations.markers.get({}, context).then(data => {
 bikewise.v2.incidents.get({}, context)
 ```
 
+#### Parameters
+* page (integer) - <p>Page of results to fetch.</p>
+* per_page (integer) - <p>Number of results to return per page.</p>
+* occurred_before (integer) - <p>End of period</p>
+* occurred_after (integer) - <p>Start of period</p>
+* incident_type (string) - <p>Only incidents of specific type</p>
+* proximity (string) - <p>Center of location for proximity search</p>
+* proximity_square (integer) - <p>Size of the proximity search</p>
+* query (string) - <p>Full text search of incidents</p>
 
 ### v2.incidents.id.get
 
@@ -81,6 +90,15 @@ bikewise.v2.incidents.id.get({
 bikewise.v2.locations.get({}, context)
 ```
 
+#### Parameters
+* occurred_before (integer) - <p>End of period</p>
+* occurred_after (integer) - <p>Start of period</p>
+* incident_type (string) - <p>Only incidents of specific type</p>
+* proximity (string) - <p>Center of location for proximity search</p>
+* proximity_square (integer) - <p>Size of the proximity search</p>
+* query (string) - <p>Full text search of incidents</p>
+* limit (integer) - <p>Max number of results to return. Defaults to 100</p>
+* all (boolean) - <p>Give ‘em all to me. Will ignore limit</p>
 
 ### v2.locations.markers.get
 <p>This behaves exactly like the root <code>locations</code> endpoint, but returns <a href="https://github.com/mapbox/simplestyle-spec">simplestyled markers</a> (<a href="https://www.mapbox.com/guides/markers/#simple-style">mapbox styled markers</a>)</p>
@@ -93,4 +111,13 @@ bikewise.v2.locations.get({}, context)
 bikewise.v2.locations.markers.get({}, context)
 ```
 
+#### Parameters
+* occurred_before (integer) - <p>End of period</p>
+* occurred_after (integer) - <p>Start of period</p>
+* incident_type (string) - <p>Only incidents of specific type</p>
+* proximity (string) - <p>Center of location for proximity search</p>
+* proximity_square (integer) - <p>Size of the proximity search</p>
+* query (string) - <p>Full text search of incidents</p>
+* limit (integer) - <p>Max number of results to return. Defaults to 100</p>
+* all (boolean) - <p>Give ‘em all to me. Will ignore limit</p>
 

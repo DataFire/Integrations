@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_toolresults.projects.histories.list({}, context).then(data => {
   console.log(data);
 })

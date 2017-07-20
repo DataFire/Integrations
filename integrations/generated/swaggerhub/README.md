@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 swaggerhub.searchDomains({}, context).then(data => {
   console.log(data);
 })
@@ -43,6 +42,14 @@ Retrieves a list of currently defined APIs in APIs.json format
 swaggerhub.searchApis({}, context)
 ```
 
+#### Parameters
+* query (string) - free text query to match
+* state (string) - matches against published state
+* tag (array) - matches against tags associated with an API
+* page (integer) - page to return
+* limit (integer) - number of results per page
+* sort (string) - sort criteria
+* order (string) - sort order
 
 ### getApiTemplates
 Retrieves list of apis templates
@@ -636,6 +643,14 @@ Retrieves a list of currently defined domains in APIs.json format
 swaggerhub.searchDomains({}, context)
 ```
 
+#### Parameters
+* query (string) - free text query to match
+* state (string) - matches against published state
+* tag (array) - matches against tags associated with a domain
+* page (integer) - page to return
+* limit (integer) - number of results per page
+* sort (string) - sort criteria
+* order (string) - sort order
 
 ### getDomainTemplates
 Retrieves list of domains templates

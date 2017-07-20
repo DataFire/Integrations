@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 browshot.GetMultipleScreenshotsInfo({}, context).then(data => {
   console.log(data);
 })
@@ -38,6 +37,8 @@ Get information about your account.
 browshot.GetAccountInfo({}, context)
 ```
 
+#### Parameters
+* details (integer) - level of information returned
 
 ### CreateBatch
 Get hundreds or thousands of screenshots from a text file. You can use this API call or the dashboard. Unlike the other API calls, you must issue a POST request with the Content-Type "multipart/form-data" in order to upload the text file. The text file must contain the list of URLs to request, 1 URL per line. Failed screenshots will be tried up to 3 times before giving up.
@@ -251,6 +252,9 @@ Get information about the last 100 screenshots requested.
 browshot.GetMultipleScreenshotsInfo({}, context)
 ```
 
+#### Parameters
+* limit (integer) - maximum number of screenshots' information to return
+* status (string) - get list of screenshot in a given status (error, finished, in_process)
 
 ### CreateMultipleScreenshots
 Request multiple screenshots in one API call. The API call accepts all the parameters supported by screenshot/create.

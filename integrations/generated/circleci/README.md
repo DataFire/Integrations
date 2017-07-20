@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 circleci.recent_builds.get({}, context).then(data => {
   console.log(data);
 })
@@ -386,6 +385,9 @@ Build summary for each of the last 30 recent builds, ordered by build_num.
 circleci.recent_builds.get({}, context)
 ```
 
+#### Parameters
+* limit (integer) - The number of builds to return. Maximum 100, defaults to 30.
+* offset (integer) - The API returns builds starting from this offset, defaults to 0.
 
 ### user.heroku_key.post
 Adds your Heroku API key to CircleCI, takes apikey as form param name.

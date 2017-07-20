@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_licensing.licenseAssignments.insert({}, context).then(data => {
   console.log(data);
 })

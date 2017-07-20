@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 thetvdb.user.ratings.query.get({}, context).then(data => {
   console.log(data);
 })
@@ -134,6 +133,11 @@ Allows the user to search for a series based on the following parameters.
 thetvdb.search.series.get({}, context)
 ```
 
+#### Parameters
+* name (string) - Name of the series to search for.
+* imdbId (string) - IMDB id of the series
+* zap2itId (string) - Zap2it ID of the series to search for.
+* Accept-Language (string) - Records are returned with the Episode name and Overview in the desired language, if it exists. If there is no translation for the given language, then the record is still returned but with empty values for the translated fields.
 
 ### search.series.params.get
 Returns an array of parameters to query by in the `/search/series` route.
@@ -411,6 +415,8 @@ Returns an array of ratings for a given user that match the query.
 thetvdb.user.ratings.query.get({}, context)
 ```
 
+#### Parameters
+* itemType (string) - Item to query. Can be either 'series', 'episode', or 'banner'
 
 ### user.ratings.query.params.get
 Returns a list of query params for use in the `/user/ratings/query` route.

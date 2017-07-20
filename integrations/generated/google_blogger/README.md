@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_blogger.blogs.getByUrl({}, context).then(data => {
   console.log(data);
 })

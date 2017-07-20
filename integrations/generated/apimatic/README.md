@@ -22,7 +22,6 @@ let context = new datafire.Context({
   }
 })
 
-
 apimatic.ConvertAPI({}, context).then(data => {
   console.log(data);
 })

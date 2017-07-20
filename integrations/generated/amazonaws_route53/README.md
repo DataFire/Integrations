@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 amazonaws_route53.GetChange({}, context).then(data => {
   console.log(data);
 })

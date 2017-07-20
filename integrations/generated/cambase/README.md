@@ -29,6 +29,9 @@ Fetches all Models
 cambase.api.v1.models.json.get({}, context)
 ```
 
+#### Parameters
+* page (integer) - Page number
+* order (string) - Sort order
 
 ### api.v1.models.json.post
 Creates a new Model
@@ -69,6 +72,21 @@ Searches all Models
 cambase.api.v1.models.search.json.get({}, context)
 ```
 
+#### Parameters
+* page (integer) - Page number
+* q[model_cont] (string) - Model
+* q[manufacturer_name_cont] (string) - Vendor
+* q[shape_eq] (string) - Shape
+* q[resolution_eq] (string) - Resolution
+* q[onvif_true] (string) - ONVIF
+* q[psia_true] (string) - PSIA
+* q[ptz_true] (string) - PTZ
+* q[infrared_true] (string) - Infrared
+* q[varifocal_true] (string) - Varifocal
+* q[sd_card_true] (string) - SD Card
+* q[upnp_true] (string) - UPnP
+* q[audio_in_true] (string) - Audio In
+* q[audio_out_true] (string) - Audio Out
 
 ### api.v1.models.id.json.get
 Fetches a single Model
@@ -155,6 +173,9 @@ Fetches all Recorders
 cambase.api.v1.recorders.json.get({}, context)
 ```
 
+#### Parameters
+* page (integer) - Page number
+* order (string) - Sort order
 
 ### api.v1.recorders.json.post
 Creates a new Recorder
@@ -211,6 +232,26 @@ Searches all Recorders
 cambase.api.v1.recorders.search.json.get({}, context)
 ```
 
+#### Parameters
+* page (integer) - Page number
+* q[model_cont] (string) - Model
+* q[vendor_name_cont] (string) - Vendor
+* q[sdhc_eq] (string) - SD Card (GB)
+* q[type_eq] (string) - Type
+* q[resolution_eq] (string) - Resolution
+* q[input_channels_eq] (string) - Input Channels
+* q[playback_channels_eq] (string) - Playback Channels
+* q[onvif_true] (string) - ONVIF
+* q[psia_true] (string) - PSIA
+* q[ptz_true] (string) - PTZ
+* q[sd_card_true] (string) - SD Card
+* q[upnp_true] (string) - UPnP
+* q[audio_in_true] (string) - Audio In
+* q[audio_out_true] (string) - Audio Out
+* q[hdmi_true] (string) - HDMI Support
+* q[hot_swap_true] (string) - Hot Swap
+* q[support_3rdparty_true] (string) - 3rd pparty Camera Support
+* q[digital_io_true] (string) - Digital I/O
 
 ### api.v1.recorders.id.json.get
 Fetches a single Recorder
@@ -331,6 +372,9 @@ Fetches all Vendors
 cambase.api.v1.vendors.json.get({}, context)
 ```
 
+#### Parameters
+* page (integer) - Page number
+* order (string) - Sort order
 
 ### api.v1.vendors.json.post
 Creates a new Vendor

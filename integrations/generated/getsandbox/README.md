@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 getsandbox.getSandboxes({}, context).then(data => {
   console.log(data);
 })
@@ -38,6 +37,12 @@ searchActivity
 getsandbox.getSandboxesActivity({}, context)
 ```
 
+#### Parameters
+* fromTimestamp (integer) - Timestamp to start search from, epoch time in milliseconds.
+* sourceSandboxes (string) - Comma-separated list of Sandbox names to search.
+* keyword (string) - A keyword to search activities by, will match any part of the ActivityMessage.
+* allTypes (boolean) - Flag to return all types of activity, defaults to just Requests
+* maxResults (integer) - Maximum number of results to return
 
 ### getSandboxes
 getSandboxes
@@ -47,6 +52,8 @@ getSandboxes
 getsandbox.getSandboxes({}, context)
 ```
 
+#### Parameters
+* filterType (string)
 
 ### createSandbox
 createSandbox

@@ -177,6 +177,9 @@ Gets information about all of your device tokens. If your application has a larg
 urbanairship.device_tokens.get({}, context)
 ```
 
+#### Parameters
+* page (integer) - The page number.
+* limit (integer) - The total items to return. By default, we paginate at 5000 device tokens.
 
 ### device_tokens.count.get
 Gets the number of device tokens you have registered.
@@ -249,6 +252,9 @@ Gets APIDs. You can control how many APIDs are returned at a time by using the l
 urbanairship.apids.get({}, context)
 ```
 
+#### Parameters
+* start (integer) - APID from where to start from.
+* limit (integer) - Control how many APIDs are returned at a time. The maximum limit is 5000.
 
 ### device_pins.pin.put
 Registers a BlackBerry PIN. This is optional, but recommended, for BlackBerry push messages. This returns HTTP 201 Created for the first registration and 200 OK for any updates. If you wish to include additional information about a device pin, for instance an alias or tags, include a JSON payload along with this request. Not including one of these keys removes it from the device pin.

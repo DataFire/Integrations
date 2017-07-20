@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_storagetransfer.transferJobs.create({}, context).then(data => {
   console.log(data);
 })
@@ -97,6 +96,23 @@ Lists transfer jobs.
 google_storagetransfer.transferJobs.list({}, context)
 ```
 
+#### Parameters
+* filter (string) - A list of query parameters specified as JSON text in the form of
+* pageSize (integer) - The list page size. The max allowed value is 256.
+* pageToken (string) - The list page token.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### transferJobs.create
 Creates a transfer job that runs periodically.
@@ -106,6 +122,21 @@ Creates a transfer job that runs periodically.
 google_storagetransfer.transferJobs.create({}, context)
 ```
 
+#### Parameters
+* body (object) - This resource represents the configuration of a transfer job that runs
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### transferJobs.get
 Gets a transfer job.

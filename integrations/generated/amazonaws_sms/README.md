@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 amazonaws_sms.CreateReplicationJob({}, context).then(data => {
   console.log(data);
 })

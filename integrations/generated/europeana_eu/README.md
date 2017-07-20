@@ -44,6 +44,14 @@ get the list of Europeana datasets
 europeana_eu.listDatasets({}, context)
 ```
 
+#### Parameters
+* wskey (string) - wskey
+* callback (string) - callback
+* edmDatasetName (string) - edmDatasetName
+* countryCode (string) - countryCode
+* status (string) - status
+* offset (string) - offset
+* pagesize (string) - pagesize
 
 ### openSearch
 basic search function following the OpenSearch specification
@@ -98,6 +106,12 @@ get the list of Europeana data providers
 europeana_eu.listProviders({}, context)
 ```
 
+#### Parameters
+* wskey (string) - wskey
+* callback (string) - callback
+* countryCode (string) - countryCode
+* offset (string) - offset
+* pagesize (string) - pagesize
 
 ### getSingleRecordJson
 get a single record in JSON format

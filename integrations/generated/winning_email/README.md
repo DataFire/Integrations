@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 winning_email.emailBooster({}, context).then(data => {
   console.log(data);
 })
@@ -38,6 +37,11 @@ With our API, you can access the same results available through the Winning Emai
 winning_email.emailBooster({}, context)
 ```
 
+#### Parameters
+* subject (string) - email subject
+* html (string) - html body
+* text (string) - plain text body
+* source (string) - raw source
 
 ### rateLimitStatus
 Check how many API queries you've used, and what your limit is.

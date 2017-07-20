@@ -21,7 +21,6 @@ let context = new datafire.Context({
   }
 })
 
-
 mozilla_kinto.get_changess({}, context).then(data => {
   console.log(data);
 })
@@ -99,6 +98,18 @@ mozilla_kinto.batch({
 mozilla_kinto.get_buckets({}, context)
 ```
 
+#### Parameters
+* _limit (integer)
+* _sort (array)
+* _token (string)
+* _since (integer)
+* _to (integer)
+* _before (integer)
+* id (string)
+* last_modified (integer)
+* _fields (array)
+* If-Match (string)
+* If-None-Match (string)
 
 ### get_changess
 
@@ -108,6 +119,18 @@ mozilla_kinto.get_buckets({}, context)
 mozilla_kinto.get_changess({}, context)
 ```
 
+#### Parameters
+* _limit (integer)
+* _sort (array)
+* _token (string)
+* _since (integer)
+* _to (integer)
+* _before (integer)
+* id (string)
+* last_modified (integer)
+* _fields (array)
+* If-Match (string)
+* If-None-Match (string)
 
 ### get_collections
 

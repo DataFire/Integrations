@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 amazonaws_mturk_requester.AcceptQualificationRequest({}, context).then(data => {
   console.log(data);
 })

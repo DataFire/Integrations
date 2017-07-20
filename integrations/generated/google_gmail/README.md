@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_gmail.users.drafts.list({}, context).then(data => {
   console.log(data);
 })

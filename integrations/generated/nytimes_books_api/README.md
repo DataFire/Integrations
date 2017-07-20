@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 nytimes_books_api.lists.best_sellers.history.json.get({}, context).then(data => {
   console.log(data);
 })
@@ -61,6 +60,14 @@ Best Seller History List
 nytimes_books_api.lists.best_sellers.history.json.get({}, context)
 ```
 
+#### Parameters
+* age-group (string) - The target age group for the best seller.
+* author (string) - The author of the best seller. The author field does not include additional contributors (see Data Structure for more details about the author and contributor fields).
+* contributor (string) - The author of the best seller, as well as other contributors such as the illustrator (to search or sort by author name only, use author instead).
+* isbn (string) - International Standard Book Number, 10 or 13 digits
+* price (string) - The publisher's list price of the best seller, including decimal point
+* publisher (string) - The standardized name of the publisher
+* title (string) - The title of the best seller
 
 ### lists.names.format.get
 Best Seller List Names

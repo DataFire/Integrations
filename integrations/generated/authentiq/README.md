@@ -25,7 +25,6 @@ let context = new datafire.Context({
   }
 })
 
-
 authentiq.authorize({}, context).then(data => {
   console.log(data);
 })

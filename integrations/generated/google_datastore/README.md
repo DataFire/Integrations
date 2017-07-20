@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_datastore.projects.allocateIds({}, context).then(data => {
   console.log(data);
 })

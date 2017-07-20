@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_ml.projects.models.versions.delete({}, context).then(data => {
   console.log(data);
 })

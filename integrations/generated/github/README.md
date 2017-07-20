@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 github.users.get({}, context).then(data => {
   console.log(data);
 })
@@ -65,6 +64,14 @@ Lists all the emojis available to use on GitHub.
 github.emojis.get({}, context)
 ```
 
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
 
 ### events.get
 List public events.
@@ -74,6 +81,14 @@ List public events.
 github.events.get({}, context)
 ```
 
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
 
 ### feeds.get
 List Feeds.
@@ -86,6 +101,14 @@ GitHub provides several timeline resources in Atom format. The Feeds API
 github.feeds.get({}, context)
 ```
 
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
 
 ### gists.get
 List the authenticated user's gists or if called anonymously, this will
@@ -97,6 +120,15 @@ return all public gists.
 github.gists.get({}, context)
 ```
 
+#### Parameters
+* since (string) - Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
 
 ### gists.post
 Create a gist.
@@ -125,6 +157,14 @@ List all public gists.
 github.gists.public.get({}, context)
 ```
 
+#### Parameters
+* since (string) - Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
 
 ### gists.starred.get
 List the authenticated user's starred gists.
@@ -134,6 +174,14 @@ List the authenticated user's starred gists.
 github.gists.starred.get({}, context)
 ```
 
+#### Parameters
+* since (string) - Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
 
 ### gists.id.delete
 Delete a gist.
@@ -388,6 +436,14 @@ List all templates available to pass as an option when creating a repository.
 github.gitignore.templates.get({}, context)
 ```
 
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
 
 ### gitignore.templates.language.get
 Get a single template.
@@ -555,6 +611,13 @@ Render a Markdown document in raw mode
 github.markdown.raw.post({}, context)
 ```
 
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
 
 ### meta.get
 This gives some information about GitHub.com, the service.
@@ -564,6 +627,13 @@ This gives some information about GitHub.com, the service.
 github.meta.get({}, context)
 ```
 
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
 
 ### networks.owner.repo.events.get
 List public events for a network of repositories.
@@ -597,6 +667,17 @@ List all notifications for the current user, grouped by repository.
 github.notifications.get({}, context)
 ```
 
+#### Parameters
+* all (boolean) - True to show notifications marked as read.
+* participating (boolean) - True to show only notifications in which the user is directly participating
+* since (string) - The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
 
 ### notifications.put
 Mark as read.
@@ -1071,6 +1152,13 @@ Note: Accessing this endpoint does not count against your rate limit.
 github.rate_limit.get({}, context)
 ```
 
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
 
 ### repos.owner.repo.delete
 Delete a Repository.
@@ -4276,6 +4364,15 @@ Link header to get the URL for the next page of repositories.
 github.repositories.get({}, context)
 ```
 
+#### Parameters
+* since (string) - The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
 
 ### search.code.get
 Search code.
@@ -4705,6 +4802,13 @@ Get the authenticated user.
 github.user.get({}, context)
 ```
 
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
 
 ### user.patch
 Update the authenticated user.
@@ -4760,6 +4864,14 @@ get other response format.
 github.user.emails.get({}, context)
 ```
 
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
 
 ### user.emails.post
 Add email address(es).
@@ -4790,6 +4902,14 @@ List the authenticated user's followers
 github.user.followers.get({}, context)
 ```
 
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
 
 ### user.following.get
 List who the authenticated user is following.
@@ -4799,6 +4919,13 @@ List who the authenticated user is following.
 github.user.following.get({}, context)
 ```
 
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
 
 ### user.following.username.delete
 Unfollow a user.
@@ -4906,6 +5033,14 @@ that you are authenticated through basic auth, or OAuth with the 'user', 'write:
 github.user.keys.get({}, context)
 ```
 
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
 
 ### user.keys.post
 Create a public key.
@@ -4972,6 +5107,14 @@ List public and private organizations for the authenticated user.
 github.user.orgs.get({}, context)
 ```
 
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
 
 ### user.repos.get
 List repositories for the authenticated user. Note that this does not include
@@ -4984,6 +5127,15 @@ user organizations and list organization repositories separately.
 github.user.repos.get({}, context)
 ```
 
+#### Parameters
+* type (string)
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
 
 ### user.repos.post
 Create a new repository for the authenticated user. OAuth users must supply
@@ -5016,6 +5168,15 @@ List repositories being starred by the authenticated user.
 github.user.starred.get({}, context)
 ```
 
+#### Parameters
+* direction (string) - Ignored without 'sort' parameter.
+* sort (string)
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
 
 ### user.starred.owner.repo.delete
 Unstar a repository
@@ -5088,6 +5249,14 @@ List repositories being watched by the authenticated user.
 github.user.subscriptions.get({}, context)
 ```
 
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
 
 ### user.subscriptions.owner.repo.delete
 Stop watching a repository
@@ -5160,6 +5329,14 @@ List all of the teams across all of the organizations to which the authenticated
 github.user.teams.get({}, context)
 ```
 
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
 
 ### users.get
 Get all users.
@@ -5173,6 +5350,15 @@ header to get the URL for the next page of users.
 github.users.get({}, context)
 ```
 
+#### Parameters
+* since (integer) - The integer ID of the last User that you've seen.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
 
 ### users.username.get
 Get a single user.

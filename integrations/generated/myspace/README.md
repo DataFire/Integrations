@@ -487,6 +487,12 @@ Retrieves all supported fields.
 myspace.1.0.mediaItems._supportedFields.get({}, context)
 ```
 
+#### Parameters
+* count (string) - Only returns the nearest multiple of 3 compared to the original value.
+* fields (string) - The following field names are supported. Bold fields are always returned.
+* msPrivacyLevel (string) - MySpace specific field. May be one of the following values:
+* format (string) - Determines the format of the response.
+* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
 
 ### stream.subscription._all.delete
 Deletes all subscriptions.
@@ -496,6 +502,8 @@ Deletes all subscriptions.
 myspace.stream.subscription._all.delete({}, context)
 ```
 
+#### Parameters
+* format (string) - Determines the format of the response.
 
 ### stream.subscription._all.get
 Retrieves all subscriptions.
@@ -505,6 +513,8 @@ Retrieves all subscriptions.
 myspace.stream.subscription._all.get({}, context)
 ```
 
+#### Parameters
+* format (string) - Determines the format of the response.
 
 ### stream.subscription.subscriptionId.delete
 Deletes a subscription.
@@ -696,6 +706,11 @@ Retrieves all supported fields.
 myspace.1.0.people._supportedFields.get({}, context)
 ```
 
+#### Parameters
+* count (string) - Only returns the nearest multiple of 3 compared to the original value.
+* fields (string) - The following field names are supported. Bold are default values.
+* format (string) - Determines the format of the response.
+* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
 
 ### 1.0.appdata.personId.selector.appId.delete
 Deletes a specified user's application data.
@@ -797,6 +812,12 @@ Retrieves all supported fields.
 myspace.1.0.groups._supportedFields.get({}, context)
 ```
 
+#### Parameters
+* count (string) - Only returns the nearest multiple of 3 compared to the original value.
+* fields (string) - The following field names are supported: id and title.
+* msPrivacyLevel (string) - MySpace specific field. May be one of the following values:
+* format (string) - Determines the format of the response.
+* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
 
 ### 1.0.albums.personId._self.albumId.put
 Update an Album.
@@ -871,6 +892,12 @@ Retrieves all supported fields.
 myspace.1.0.albums._supportedFields.get({}, context)
 ```
 
+#### Parameters
+* count (string) - Only returns the nearest multiple of 3 compared to the original value.
+* fields (string) - The following field names are supported. Bold are default values.
+* msPrivacyLevel (string) - MySpace specific field. May be one of the following values:
+* format (string) - Determines the format of the response.
+* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
 
 ### 1.0.activities.personId.selector.appId.get
 Retrieves activities created by an application.
@@ -902,6 +929,12 @@ Retrieves all supported object types.
 myspace.1.0.activities._supportedObjectTypes.get({}, context)
 ```
 
+#### Parameters
+* count (string) - Only returns the nearest multiple of 3 compared to the original value.
+* fields (string) - The following field names are supported.
+* format (string) - Determines the format of the response.
+* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+* updatedSince (string) - Indicates the date before which no activities should be returned.
 
 ### 1.0.activities._supportedVerbs.get
 Retrieves all supported verbs.
@@ -911,6 +944,12 @@ Retrieves all supported verbs.
 myspace.1.0.activities._supportedVerbs.get({}, context)
 ```
 
+#### Parameters
+* count (string) - Only returns the nearest multiple of 3 compared to the original value.
+* fields (string) - The following field names are supported.
+* format (string) - Determines the format of the response.
+* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+* updatedSince (string) - Indicates the date before which no activities should be returned.
 
 ### 1.0.activities._supportedFields.get
 Retrieves all supported fields.
@@ -920,6 +959,12 @@ Retrieves all supported fields.
 myspace.1.0.activities._supportedFields.get({}, context)
 ```
 
+#### Parameters
+* count (string) - Only returns the nearest multiple of 3 compared to the original value.
+* fields (string) - The following field names are supported.
+* format (string) - Determines the format of the response.
+* startIndex (string) - Indicates the index of the first item to retrieve from the query set.
+* updatedSince (string) - Indicates the date before which no activities should be returned.
 
 ### 1.0.activities.personId._self.post
 Creates an activity for the user.

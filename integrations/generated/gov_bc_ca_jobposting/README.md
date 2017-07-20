@@ -41,6 +41,13 @@ The job feed endpoint returns an array of job records that satisfy the supplied 
 gov_bc_ca_jobposting.jobs.post({}, context)
 ```
 
+#### Parameters
+* lastRequestDate (string) - The date of the last request. Only job postings changed or deleted after this time will be included in the response. Default is _today_ - 10 days.
+* region (integer) - The unique id of a region within B.C. Only job postings located within the specified region will be included in the response. If not specified, the data is not filtered by region.
+* city (string) - The name of a city within B.C. Only job postings located within the specified city will be included in the response. If not specified, the data is not filtered by city.
+* jobTypes (array) - ID values for types of job to filter on. Only job postings matching all specified values will be included in the response. If not specified, the data is not filtered by job type.
+* majorProjects (boolean) - When true, only include job postings that have a Major Project associated with them.  When false, only include job postings that do not have a Major Project associated with them. If not specified, the data is not filtered by major project, unless the MajorProjectID parameter is used.
+* majorProjectID (integer) - The unique id of a major project within the WorkBC Job Board database. When specified, only job postings associated with the specified major project will be included in the response. This parameter has no effect if the MajorProjects parameter is supplied with the value false. If not specified, the data is not filtered by major project, unless the MajorProjects parameter is used.
 
 ### majorProjects.get
 The Major Projects endpoint returns details of all of the

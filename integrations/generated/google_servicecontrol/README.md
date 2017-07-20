@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_servicecontrol.services.allocateQuota({}, context).then(data => {
   console.log(data);
 })

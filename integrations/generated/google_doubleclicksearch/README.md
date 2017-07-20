@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_doubleclicksearch.reports.generate({}, context).then(data => {
   console.log(data);
 })
@@ -155,6 +154,15 @@ Inserts a batch of new conversions into DoubleClick Search.
 google_doubleclicksearch.conversion.insert({}, context)
 ```
 
+#### Parameters
+* body (object) - A list of conversions.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### conversion.update
 Updates a batch of conversions in DoubleClick Search.
@@ -164,6 +172,15 @@ Updates a batch of conversions in DoubleClick Search.
 google_doubleclicksearch.conversion.update({}, context)
 ```
 
+#### Parameters
+* body (object) - A list of conversions.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### conversion.updateAvailability
 Updates the availabilities of a batch of floodlight activities in DoubleClick Search.
@@ -173,6 +190,15 @@ Updates the availabilities of a batch of floodlight activities in DoubleClick Se
 google_doubleclicksearch.conversion.updateAvailability({}, context)
 ```
 
+#### Parameters
+* empty (object) - The request to update availability.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### reports.request
 Inserts a report request into the reporting system.
@@ -182,6 +208,15 @@ Inserts a report request into the reporting system.
 google_doubleclicksearch.reports.request({}, context)
 ```
 
+#### Parameters
+* reportRequest (object) - A request object used to create a DoubleClick Search report.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### reports.generate
 Generates and returns a report immediately.
@@ -191,6 +226,15 @@ Generates and returns a report immediately.
 google_doubleclicksearch.reports.generate({}, context)
 ```
 
+#### Parameters
+* reportRequest (object) - A request object used to create a DoubleClick Search report.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### reports.get
 Polls for the status of a report request.

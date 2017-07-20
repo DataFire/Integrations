@@ -29,4 +29,6 @@ Create merchant order
 spectrocoin.createOrder({}, context)
 ```
 
+#### Parameters
+* body (object)
 

@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 brandlovers.order.orderId.get({}, context).then(data => {
   console.log(data);
 })

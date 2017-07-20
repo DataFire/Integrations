@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 import_schedule.extractor.get({}, context).then(data => {
   console.log(data);
 })

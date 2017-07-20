@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 netatmo.getthermostatsdata({}, context).then(data => {
   console.log(data);
 })
@@ -99,6 +98,10 @@ A device is identified by its _id (which is its mac address) and each device may
 netatmo.devicelist({}, context)
 ```
 
+#### Parameters
+* app_type (string) - Defines which device type will be returned by devicelist. It could be app_thermostat or app_station (by default if not provided)
+* device_id (string) - Specify a device_id if you want to retrieve only this device informations.
+* get_favorites (boolean) - When set to "true", the favorite devices of the user are returned. This flag is available only if the devices requested are Weather Stations.
 
 ### dropwebhook
 Dissociates a webhook from a user.
@@ -155,6 +158,9 @@ Returns information about users homes and cameras.
 netatmo.gethomedata({}, context)
 ```
 
+#### Parameters
+* home_id (string) - Specify if you're looking for the events of a specific Home.
+* size (integer) - Number of events to retrieve. Default is 30.
 
 ### getlasteventof
 Returns most recent events.
@@ -222,6 +228,8 @@ The method getstationsdata Returns data from a user Weather Stations (measures a
 netatmo.getstationsdata({}, context)
 ```
 
+#### Parameters
+* device_id (string) - Id of the device you want to retrieve information of
 
 ### getthermostatsdata
 The method getthermostatsdata returns information about user's thermostats such as their last measurements.
@@ -231,6 +239,8 @@ The method getthermostatsdata returns information about user's thermostats such 
 netatmo.getthermostatsdata({}, context)
 ```
 
+#### Parameters
+* device_id (string) - Id of the device you want to retrieve information of
 
 ### getthermstate
 The method getthermstate returns the last Thermostat measurements, its current weekly schedule, and, if present, its current manual temperature setpoint.

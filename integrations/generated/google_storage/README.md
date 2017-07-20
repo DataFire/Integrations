@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_storage.channels.stop({}, context).then(data => {
   console.log(data);
 })
@@ -1143,6 +1142,15 @@ Stop watching resources through this channel
 google_storage.channels.stop({}, context)
 ```
 
+#### Parameters
+* resource (object) - An notification channel used to watch for resource changes.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### projects.serviceAccount.get
 Get the email address of this project's GCS service account.

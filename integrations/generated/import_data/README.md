@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 import_data.extractor.extractorId.csv.latest.get({}, context).then(data => {
   console.log(data);
 })

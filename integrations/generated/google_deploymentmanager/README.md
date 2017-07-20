@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_deploymentmanager.deployments.list({}, context).then(data => {
   console.log(data);
 })

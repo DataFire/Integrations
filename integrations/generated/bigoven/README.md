@@ -22,7 +22,6 @@ let context = new datafire.Context({
   }
 })
 
-
 bigoven.Recipe_RecentViews({}, context).then(data => {
   console.log(data);
 })
@@ -94,6 +93,8 @@ Get the list of current, seasonal recipe collections. From here, you can use the
 bigoven.Collection_Collections({}, context)
 ```
 
+#### Parameters
+* test (string)
 
 ### Glossary_ByTerm
 Get food glossary article by term (e.g., asparagus). This editorial is (c) BigOven and MUST carry attribution and a link back to the glossary entry on BigOven.com.
@@ -373,6 +374,11 @@ POST an image as a new RecipeScan request
 bigoven.Recipe_Scan({}, context)
 ```
 
+#### Parameters
+* test (boolean)
+* devicetype (string)
+* lat (number)
+* lng (number)
 
 ### Recipe_Delete
 Delete a Recipe (you must be authenticated as an owner of the recipe)
@@ -697,6 +703,40 @@ Search for recipes. There are many parameters that you can apply. Starting with 
 bigoven.Recipe_RecipeSearch({}, context)
 ```
 
+#### Parameters
+* any_kw (string) - Search anywhere in the recipe for the keyword
+* folder (string) - Search in a specific folder name for the authenticated user
+* coll (integer) - Limit to a collection ID number
+* filter (string) - optionally set to either "myrecipes", "try", "favorites","added" to filter to just the authenticated user's recipe set
+* title_kw (string) - Search just in the recipe title for the keyword
+* userId (integer) - Set the target userid to search their public recipes
+* username (string) - Set the target username to search their public recipes
+* token (string)
+* photos (boolean) - if set to true, limit search results to photos only
+* boostmine (boolean) - if set to true, boost my own recipes in my folders so they show up high in the list (at the expense of other sort orders)
+* include_cat (string) - integer of the subcategory you'd like to limit searches to (see the /recipe/categories endpoint for available id numbers). For instance, 58 is "Main Dish &gt; Casseroles".
+* exclude_cat (string) - like include_cat, set this to an integer to exclude a specific category
+* include_primarycat (string) - csv indicating up to three top-level categories -- valid values are [appetizers,bread,breakfast,desserts,drinks,maindish,salads,sidedish,soups,marinades,other]
+* include_ing (string) - A CSV representing up to 3 ingredients to include, e.g., tomatoes,corn%20%starch,chicken
+* exclude_ing (string) - A CSV representing up to 3 ingredients to exclude  (Powersearch-capable plan required)
+* cuisine (string) - Limit to a specific cuisine. Cooks can enter anything free-form, but the few dozen preconfigured values are Afghan,African,American,American-South,Asian,Australian,Brazilian,Cajun,Canadian,Caribbean,Chinese,Croatian,Cuban,Dessert,Eastern European,English,French,German,Greek,Hawaiian,Hungarian,India,Indian,Irish,Italian,Japanese,Jewish,Korean,Latin,Mediterranean,Mexican,Middle Eastern,Moroccan,Polish,Russian,Scandanavian,Seafood,Southern,Southwestern,Spanish,Tex-Mex,Thai,Vegan,Vegetarian,Vietnamese
+* db (string)
+* userset (string) - If set to a given username, it'll force the search to filter to just that username
+* rpp (integer) - integer; results per page
+* pg (integer) - integer: the page number
+* vtn (integer) - when set to 1, limit to vegetarian (Powersearch-capable plan required)
+* vgn (integer) - when set to 1, limit to vegan (Powersearch-capable plan required)
+* chs (integer) - when set to 1, limit to contains-cheese (Powersearch-capable plan required)
+* glf (integer) - when set to 1, limit to gluten-free (Powersearch-capable plan required)
+* ntf (integer) - when set to 1, limit to nut-free (Powersearch-capable plan required)
+* dyf (integer) - when set to 1, limit to dairy-free (Powersearch-capable plan required)
+* sff (integer) - when set to 1, limit to seafood-free (Powersearch-capable plan required)
+* slf (integer) - when set to 1, limit to shellfish-free (Powersearch-capable plan required)
+* tnf (integer) - when set to 1, limit to tree-nut free (Powersearch-capable plan required)
+* wmf (integer) - when set to 1, limit to white-meat free (Powersearch-capable plan required)
+* rmf (integer) - when set to 1, limit to red-meat free (Powersearch-capable plan required)
+* cps (integer) - when set to 1, recipe contains pasta, set to 0 means contains no pasta (Powersearch-capable plan required)
+* champion (integer) - optional. When set to 1, this will limit search results to "best of" recipes as determined by various internal editorial and programmatic algorithms. For the most comprehensive results, don't include this parameter.
 
 ### Recipe_GetRandomRecipe
 Get a random, home-page-quality Recipe.
@@ -715,6 +755,9 @@ Get the recipe/comment tuples for those recipes with 4 or 5 star ratings
 bigoven.Recipe_Raves({}, context)
 ```
 
+#### Parameters
+* pg (integer) - page, starting with 1
+* rpp (integer) - results per page
 
 ### Recipe_RecentViews
 Get a list of recipes that the authenticated user has most recently viewed
@@ -724,4 +767,7 @@ Get a list of recipes that the authenticated user has most recently viewed
 bigoven.Recipe_RecentViews({}, context)
 ```
 
+#### Parameters
+* pg (integer) - Page number starting with 1
+* rpp (integer) - results per page
 

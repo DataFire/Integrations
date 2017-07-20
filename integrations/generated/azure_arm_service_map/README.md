@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 azure_arm_service_map.ClientGroups_Get({}, context).then(data => {
   console.log(data);
 })

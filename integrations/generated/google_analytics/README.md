@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_analytics.provisioning.createAccountTicket({}, context).then(data => {
   console.log(data);
 })
@@ -157,6 +156,16 @@ Lists account summaries (lightweight tree comprised of accounts/properties/profi
 google_analytics.management.accountSummaries.list({}, context)
 ```
 
+#### Parameters
+* max-results (integer) - The maximum number of account summaries to include in this response, where the largest acceptable value is 1000.
+* start-index (integer) - An index of the first entity to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### management.accounts.list
 Lists all accounts to which the user has access.
@@ -166,6 +175,16 @@ Lists all accounts to which the user has access.
 google_analytics.management.accounts.list({}, context)
 ```
 
+#### Parameters
+* max-results (integer) - The maximum number of accounts to include in this response.
+* start-index (integer) - An index of the first account to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### management.accountUserLinks.list
 Lists account-user links for a given account.
@@ -2062,6 +2081,16 @@ Lists segments to which the user has access.
 google_analytics.management.segments.list({}, context)
 ```
 
+#### Parameters
+* max-results (integer) - The maximum number of segments to include in this response.
+* start-index (integer) - An index of the first segment to retrieve. Use this parameter as a pagination mechanism along with the max-results parameter.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### metadata.columns.list
 Lists all columns for a report type
@@ -2091,4 +2120,13 @@ Creates an account ticket.
 google_analytics.provisioning.createAccountTicket({}, context)
 ```
 
+#### Parameters
+* body (object) - JSON template for an Analytics account ticket. The account ticket consists of the ticket ID and the basic information for the account, property and profile.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 

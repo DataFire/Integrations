@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_appengine.apps.locations.list({}, context).then(data => {
   console.log(data);
 })

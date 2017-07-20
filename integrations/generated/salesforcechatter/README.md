@@ -270,6 +270,8 @@ Gets news on a specified feed.
 salesforcechatter.chatter.feeds.news.me.feed_items.get({}, context)
 ```
 
+#### Parameters
+* page (string)
 
 ### chatter.feeds.news.me.feed_items.post
 Posts news on a specified feed.
@@ -279,6 +281,14 @@ Posts news on a specified feed.
 salesforcechatter.chatter.feeds.news.me.feed_items.post({}, context)
 ```
 
+#### Parameters
+* contentDocumentId (string)
+* fileName (string)
+* feedItemFileUpload (string)
+* desc (string)
+* text (string)
+* url (string)
+* urlName (string)
 
 ### chatter.feeds.news.userId.feed_items.get
 Gets news on a specified user's feed items.
@@ -425,6 +435,8 @@ Gets @mentions of the current user.
 salesforcechatter.chatter.feeds.to.me.feed_items.get({}, context)
 ```
 
+#### Parameters
+* page (string)
 
 ### chatter.feeds.to.me.feed_items.post
 Posts a @mention on the current user.
@@ -434,6 +446,14 @@ Posts a @mention on the current user.
 salesforcechatter.chatter.feeds.to.me.feed_items.post({}, context)
 ```
 
+#### Parameters
+* contentDocumentId (string)
+* fileName (string)
+* feedItemFileUpload (string)
+* desc (string)
+* text (string)
+* url (string)
+* urlName (string)
 
 ### chatter.feeds.to.userId.feed_items.get
 Gets @mentions on a specified user.
@@ -477,6 +497,8 @@ Gets profile feed of the current user.
 salesforcechatter.chatter.feeds.user_profile.me.feed_items.get({}, context)
 ```
 
+#### Parameters
+* page (string)
 
 ### chatter.feeds.user_profile.me.feed_items.post
 Posts a profile feed on the current user.
@@ -486,6 +508,14 @@ Posts a profile feed on the current user.
 salesforcechatter.chatter.feeds.user_profile.me.feed_items.post({}, context)
 ```
 
+#### Parameters
+* contentDocumentId (string)
+* fileName (string)
+* feedItemFileUpload (string)
+* desc (string)
+* text (string)
+* url (string)
+* urlName (string)
 
 ### chatter.feeds.user_profile.userId.feed_items.get
 Gets profile feed on a specified user.
@@ -529,6 +559,8 @@ Returns information on the current user.
 salesforcechatter.chatter.users.me.get({}, context)
 ```
 
+#### Parameters
+* page (integer)
 
 ### chatter.users.me.followers.get
 Returns information on followers of the current user.
@@ -538,6 +570,8 @@ Returns information on followers of the current user.
 salesforcechatter.chatter.users.me.followers.get({}, context)
 ```
 
+#### Parameters
+* page (integer)
 
 ### chatter.users.me.following.get
 Returns information on who the current user follows.
@@ -547,6 +581,8 @@ Returns information on who the current user follows.
 salesforcechatter.chatter.users.me.following.get({}, context)
 ```
 
+#### Parameters
+* page (integer)
 
 ### chatter.users.me.following.post
 Posts information on who the current user follows.
@@ -569,6 +605,8 @@ Returns information on groups the current user is in.
 salesforcechatter.chatter.users.me.groups.get({}, context)
 ```
 
+#### Parameters
+* page (integer)
 
 ### chatter.users.me.photo.get
 Returns information on the current user's photos.

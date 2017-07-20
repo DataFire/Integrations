@@ -97,6 +97,37 @@ Exports are generated asynchronously within SlideRoom.  To retrieve the export f
 slideroom.Application_RequestExportV2({}, context)
 ```
 
+#### Parameters
+* format (string)
+* roundType (string)
+* roundName (string)
+* tab.export (string)
+* pdf.includeForms (boolean)
+* pdf.includeReferences (boolean)
+* pdf.includeMedia (boolean)
+* pdf.includeApplicantAttachments (boolean)
+* pdf.includeOrganizationAttachments (boolean)
+* pdf.includeRatings (boolean)
+* pdf.includeFullPageMedia (boolean)
+* pdf.includeHighlights (boolean)
+* pdf.includeComments (boolean)
+* pdf.includeCommonApp (boolean)
+* zip.originalMedia (boolean)
+* zip.includeForms (boolean)
+* zip.includeReferences (boolean)
+* zip.includeMedia (boolean)
+* zip.includeApplicantAttachments (boolean)
+* zip.includeOrganizationAttachments (boolean)
+* zip.includeRatings (boolean)
+* zip.includeComments (boolean)
+* zip.includeCommonApp (boolean)
+* delivery.account (string)
+* delivery.folder (string)
+* since (integer)
+* pool (string)
+* status (string)
+* searchName (string)
+* email (string)
 
 ### Application_DeleteAttributesV2
 Deletes a custom attribute for an application.

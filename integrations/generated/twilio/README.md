@@ -21,7 +21,6 @@ let context = new datafire.Context({
   }
 })
 
-
 twilio.Accounts.AccountSid.Applications.ApplicationSid.json.delete({}, context).then(data => {
   console.log(data);
 })

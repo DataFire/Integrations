@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 facebook.video.picture.get({}, context).then(data => {
   console.log(data);
 })

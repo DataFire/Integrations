@@ -21,7 +21,6 @@ let context = new datafire.Context({
   }
 })
 
-
 trello.deleteActionsByIdAction({}, context).then(data => {
   console.log(data);
 })

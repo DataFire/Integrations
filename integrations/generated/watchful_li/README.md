@@ -29,6 +29,10 @@ Returns a list of audits
 watchful_li.getAudits({}, context)
 ```
 
+#### Parameters
+* limit (integer) - Number of object to return (max 100, default 25)
+* limitstart (integer) - Start of the return (default 0)
+* order (string) - ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
 
 ### CreateAudits
 Create a audit
@@ -87,6 +91,16 @@ Returns a list Extensions
 watchful_li.getExtensions({}, context)
 ```
 
+#### Parameters
+* ext_name (string) - Do a 'LIKE' search, you can also use '%'
+* siteids (string) - List of sites id separated by comma
+* ext_prefix (string) - Do a 'LIKE' search, you can also use '%'. technical name of the extension com_xxxx
+* version (string) - Do a 'LIKE' search, you can also use '%'
+* vUpdate (integer) - update available for this extension
+* fields (string) - Fields to return separate by comas: name,id
+* limit (integer) - Number of object to return (max 100, default 25)
+* limitstart (integer) - Start of the return (default 0)
+* order (string) - ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
 
 ### getFieldsExtensions
 Returns a list of fields
@@ -144,6 +158,8 @@ Returns a list of feedbacks
 watchful_li.getFeedbacks({}, context)
 ```
 
+#### Parameters
+* fields (string) - Fields to return separate by comas (es. name,id)
 
 ### createFeedbacks
 Create a feedback
@@ -175,6 +191,15 @@ Returns a list of logs
 watchful_li.logs.get({}, context)
 ```
 
+#### Parameters
+* log_type (string) - Type of the log
+* log_entry (string) - Do a 'LIKE' search, you can also use '%'
+* from (string) - Logs after this date, format YYYY-MM-DD HH:MM:SS
+* to (string) - Logs before this date, format YYYY-MM-DD HH:MM:SS
+* fields (string) - Fields to return separate by comas: name,id
+* limit (integer) - Number of object to return (max 100, default 25)
+* limitstart (integer) - Start of the return (default 0)
+* order (string) - ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
 
 ### getExportLogs
 Returns a file contain the list of logs
@@ -284,6 +309,22 @@ Returns a list of Sites
 watchful_li.getSites({}, context)
 ```
 
+#### Parameters
+* siteids (string) - List of sites id separated by comma
+* name (string) - Site name. Do a 'LIKE' search, you can also use '%'
+* access_url (string) - Access URL. Do a 'LIKE' search, you can also use '%'
+* j_version (string) - Joomla version. Do a 'LIKE' search, you can also use '%'
+* ip (string) - Ip address. Do a 'LIKE' search, you can also use '%'
+* jUpdate (integer) - Joomla core update status (1: update required, 0: update not required)
+* canUpdate (integer) - canUpdate
+* published (integer) - Is published
+* error (string) - Has errors
+* nbUpdates (string)
+* up (integer) - Is online
+* fields (string) - Fields to return separated by commas (e.g. name,id)
+* limit (integer) - Number of objects to return (max 100, default 25)
+* limitstart (integer) - Start of the return (default 0)
+* order (string) - ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
 
 ### createSite
 Create a site
@@ -709,6 +750,13 @@ Returns a list of tags
 watchful_li.tags.get({}, context)
 ```
 
+#### Parameters
+* name (string) - Do a 'LIKE' search, you can also use '%'
+* type (string) - Bootstrap color of the tag
+* fields (string) - Fields to return separate by comas: name,id
+* limit (integer) - Number of object to return (max 100, default 25)
+* limitstart (integer) - Start of the return (default 0)
+* order (string) - ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
 
 ### CreateTags
 Create a tag
@@ -808,6 +856,8 @@ Get list of versions
 watchful_li.getVersions({}, context)
 ```
 
+#### Parameters
+* fields (string) - Fields to return separate by comas: name,id
 
 ### getVersion
 Find a version by ID

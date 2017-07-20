@@ -87,6 +87,10 @@ Return's a list of all collections
 thenounproject.getAllCollections({}, context)
 ```
 
+#### Parameters
+* limit (integer) - Maximum number of results
+* offset (integer) - Number of results to displace or skip over
+* page (integer) - Number of results of limit length to displace or skip over
 
 ### getIconById
 Returns a single icon
@@ -122,6 +126,10 @@ Returns list of most recently uploaded icons
 thenounproject.getRecentIcons({}, context)
 ```
 
+#### Parameters
+* limit (integer) - Maximum number of results
+* offset (integer) - Number of results to displace or skip over
+* page (integer) - Number of results of limit length to displace or skip over
 
 ### getIconsByTerm
 Returns a list of icons

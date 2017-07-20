@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_classroom.invitations.create({}, context).then(data => {
   console.log(data);
 })
@@ -71,6 +70,25 @@ This method returns the following error codes:
 google_classroom.courses.list({}, context)
 ```
 
+#### Parameters
+* courseStates (array) - Restricts returned courses to those in one of the specified states
+* pageSize (integer) - Maximum number of items to return. Zero or unspecified indicates that the
+* teacherId (string) - Restricts returned courses to those having a teacher with the specified
+* studentId (string) - Restricts returned courses to those having a student with the specified
+* pageToken (string) - nextPageToken
+* access_token (string) - OAuth access token.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* alt (string) - Data format for response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### courses.create
 Creates a course.
@@ -94,6 +112,21 @@ already exists.
 google_classroom.courses.create({}, context)
 ```
 
+#### Parameters
+* body (object) - A Course in Classroom.
+* access_token (string) - OAuth access token.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* alt (string) - Data format for response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### courses.aliases.list
 Returns a list of aliases for a course.
@@ -1190,6 +1223,24 @@ This method returns the following error codes:
 google_classroom.invitations.list({}, context)
 ```
 
+#### Parameters
+* courseId (string) - Restricts returned invitations to those for a course with the specified
+* pageSize (integer) - Maximum number of items to return. Zero means no maximum.
+* userId (string) - Restricts returned invitations to those for a specific user. The identifier
+* pageToken (string) - nextPageToken
+* access_token (string) - OAuth access token.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* alt (string) - Data format for response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### invitations.create
 Creates an invitation. Only one invitation for a user and course may exist
@@ -1210,6 +1261,21 @@ already exists.
 google_classroom.invitations.create({}, context)
 ```
 
+#### Parameters
+* body (object) - An invitation to join a course.
+* access_token (string) - OAuth access token.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* alt (string) - Data format for response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
 
 ### invitations.delete
 Deletes an invitation.

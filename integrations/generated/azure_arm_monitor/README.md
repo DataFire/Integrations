@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 azure_arm_monitor.AutoscaleSettings_ListByResourceGroup({}, context).then(data => {
   console.log(data);
 })

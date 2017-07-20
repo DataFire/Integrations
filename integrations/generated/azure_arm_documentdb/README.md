@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 azure_arm_documentdb.DatabaseAccounts_CheckNameExists({}, context).then(data => {
   console.log(data);
 })

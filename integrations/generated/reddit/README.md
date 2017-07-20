@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 reddit.about.log.get({}, context).then(data => {
   console.log(data);
 })
@@ -64,6 +63,15 @@ This endpoint is a listing.
 reddit.sort.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
+* t (string) - one of (hour, day, week, month, year, all)
+* sort (string)
 
 ### wiki.page.get
 Return the content of a wiki page
@@ -76,6 +84,10 @@ If both v and v2 are given, show a diff of the two
 reddit.wiki.page.get({}, context)
 ```
 
+#### Parameters
+* page (string) - the name of an existing wiki page
+* v (string) - a wiki revision ID
+* v2 (string) - a wiki revision ID
 
 ### wiki.settings.page.post
 Update the permissions and visibility of wiki page
@@ -85,6 +97,11 @@ Update the permissions and visibility of wiki page
 reddit.wiki.settings.page.post({}, context)
 ```
 
+#### Parameters
+* listed (string) - boolean value
+* page (string) - the name of an existing wiki page
+* permlevel (string) - an integer
+* uh (string) - a modhash
 
 ### wiki.settings.page.get
 Retrieve the current permission settings for page
@@ -94,6 +111,8 @@ Retrieve the current permission settings for page
 reddit.wiki.settings.page.get({}, context)
 ```
 
+#### Parameters
+* page (string) - the name of an existing wiki page
 
 ### wiki.revisions.page.get
 Retrieve a list of revisions of this wiki page
@@ -105,6 +124,14 @@ This endpoint is a listing.
 reddit.wiki.revisions.page.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* page (string) - the name of an existing wiki page
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
 
 ### wiki.revisions.get
 Retrieve a list of recently changed wiki pages in this subreddit
@@ -114,6 +141,13 @@ Retrieve a list of recently changed wiki pages in this subreddit
 reddit.wiki.revisions.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
 
 ### wiki.pages.get
 Retrieve a list of wiki pages in this subreddit
@@ -134,6 +168,14 @@ This endpoint is a listing.
 reddit.wiki.discussions.page.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* page (string) - the name of an existing wiki page
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
 
 ### user.username.where.get
 This endpoint is a listing.
@@ -143,6 +185,17 @@ This endpoint is a listing.
 reddit.user.username.where.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* show (string) - one of (given)
+* sort (string) - one of (hot, new, top, controversial)
+* sr_detail (string) - (optional) expand subreddits
+* t (string) - one of (hour, day, week, month, year, all)
+* username (string) - the name of an existing user
+* where (string)
 
 ### user.username.about.get
 Return information about the user, including karma and gold status.
@@ -152,6 +205,8 @@ Return information about the user, including karma and gold status.
 reddit.user.username.about.get({}, context)
 ```
 
+#### Parameters
+* username (string) - the name of an existing user
 
 ### subreddits.where.get
 Get all subreddits.
@@ -168,6 +223,14 @@ This endpoint is a listing.
 reddit.subreddits.where.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
+* where (string)
 
 ### subreddits.search.get
 Search subreddits by title and description.
@@ -179,6 +242,15 @@ This endpoint is a listing.
 reddit.subreddits.search.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* q (string) - a search query
+* show (string) - (optional) the string all
+* sort (string) - one of (relevance, activity)
+* sr_detail (string) - (optional) expand subreddits
 
 ### subreddits.mine.where.get
 Get subreddits the user has a relationship with.
@@ -202,6 +274,14 @@ This endpoint is a listing.
 reddit.subreddits.mine.where.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
+* where (string)
 
 ### stylesheet.get
 Redirect to the subreddit's stylesheet if one exists.
@@ -226,6 +306,8 @@ Will 404 if there is not currently a sticky post in this subreddit.
 reddit.sticky.get({}, context)
 ```
 
+#### Parameters
+* num (string) - an integer between 1 and 2 (default: 1)
 
 ### sidebar.get
 Get the sidebar for the current subreddit
@@ -246,6 +328,20 @@ This endpoint is a listing.
 reddit.search.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* include_facets (string) - boolean value
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* q (string) - a string no longer than 512 characters
+* restrict_sr (string) - boolean value
+* show (string) - (optional) the string all
+* sort (string) - one of (relevance, hot, top, new, comments)
+* sr_detail (string) - (optional) expand subreddits
+* syntax (string) - one of (cloudsearch, lucene, plain)
+* t (string) - one of (hour, day, week, month, year, all)
+* type (string) - (optional) comma-delimited list of result types (sr, link)
 
 ### rules.get
 Get the rules for the current subreddit
@@ -267,6 +363,14 @@ This endpoint is a listing.
 reddit.related.article.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* article (string) - The base 36 ID of a Link
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
 
 ### random.get
 The Serendipity button
@@ -285,6 +389,16 @@ This endpoint is a listing.
 reddit.r.subreddit.sort.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
+* t (string) - one of (hour, day, week, month, year, all)
+* subreddit (string)
+* sort (string)
 
 ### r.subreddit.wiki.page.get
 Return the content of a wiki page
@@ -297,6 +411,11 @@ If both v and v2 are given, show a diff of the two
 reddit.r.subreddit.wiki.page.get({}, context)
 ```
 
+#### Parameters
+* page (string) - the name of an existing wiki page
+* v (string) - a wiki revision ID
+* v2 (string) - a wiki revision ID
+* subreddit (string)
 
 ### r.subreddit.wiki.settings.page.post
 Update the permissions and visibility of wiki page
@@ -306,6 +425,12 @@ Update the permissions and visibility of wiki page
 reddit.r.subreddit.wiki.settings.page.post({}, context)
 ```
 
+#### Parameters
+* listed (string) - boolean value
+* page (string) - the name of an existing wiki page
+* permlevel (string) - an integer
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.wiki.settings.page.get
 Retrieve the current permission settings for page
@@ -315,6 +440,9 @@ Retrieve the current permission settings for page
 reddit.r.subreddit.wiki.settings.page.get({}, context)
 ```
 
+#### Parameters
+* page (string) - the name of an existing wiki page
+* subreddit (string)
 
 ### r.subreddit.wiki.revisions.page.get
 Retrieve a list of revisions of this wiki page
@@ -326,6 +454,15 @@ This endpoint is a listing.
 reddit.r.subreddit.wiki.revisions.page.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* page (string) - the name of an existing wiki page
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
+* subreddit (string)
 
 ### r.subreddit.wiki.revisions.get
 Retrieve a list of recently changed wiki pages in this subreddit
@@ -335,6 +472,14 @@ Retrieve a list of recently changed wiki pages in this subreddit
 reddit.r.subreddit.wiki.revisions.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
+* subreddit (string)
 
 ### r.subreddit.wiki.pages.get
 Retrieve a list of wiki pages in this subreddit
@@ -344,6 +489,8 @@ Retrieve a list of wiki pages in this subreddit
 reddit.r.subreddit.wiki.pages.get({}, context)
 ```
 
+#### Parameters
+* subreddit (string)
 
 ### r.subreddit.wiki.discussions.page.get
 Retrieve a list of discussions about this wiki page
@@ -355,6 +502,15 @@ This endpoint is a listing.
 reddit.r.subreddit.wiki.discussions.page.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* page (string) - the name of an existing wiki page
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
+* subreddit (string)
 
 ### r.subreddit.stylesheet.get
 Redirect to the subreddit's stylesheet if one exists.
@@ -366,6 +522,8 @@ See also: /api/subreddit_stylesheet.
 reddit.r.subreddit.stylesheet.get({}, context)
 ```
 
+#### Parameters
+* subreddit (string)
 
 ### r.subreddit.sticky.get
 Redirect to one of the posts stickied in the current subreddit
@@ -379,6 +537,9 @@ Will 404 if there is not currently a sticky post in this subreddit.
 reddit.r.subreddit.sticky.get({}, context)
 ```
 
+#### Parameters
+* num (string) - an integer between 1 and 2 (default: 1)
+* subreddit (string)
 
 ### r.subreddit.sidebar.get
 Get the sidebar for the current subreddit
@@ -388,6 +549,8 @@ Get the sidebar for the current subreddit
 reddit.r.subreddit.sidebar.get({}, context)
 ```
 
+#### Parameters
+* subreddit (string)
 
 ### r.subreddit.search.get
 Search links page.
@@ -399,6 +562,21 @@ This endpoint is a listing.
 reddit.r.subreddit.search.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* include_facets (string) - boolean value
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* q (string) - a string no longer than 512 characters
+* restrict_sr (string) - boolean value
+* show (string) - (optional) the string all
+* sort (string) - one of (relevance, hot, top, new, comments)
+* sr_detail (string) - (optional) expand subreddits
+* syntax (string) - one of (cloudsearch, lucene, plain)
+* t (string) - one of (hour, day, week, month, year, all)
+* type (string) - (optional) comma-delimited list of result types (sr, link)
+* subreddit (string)
 
 ### r.subreddit.rules.get
 Get the rules for the current subreddit
@@ -408,6 +586,8 @@ Get the rules for the current subreddit
 reddit.r.subreddit.rules.get({}, context)
 ```
 
+#### Parameters
+* subreddit (string)
 
 ### r.subreddit.random.get
 The Serendipity button
@@ -417,6 +597,8 @@ The Serendipity button
 reddit.r.subreddit.random.get({}, context)
 ```
 
+#### Parameters
+* subreddit (string)
 
 ### r.subreddit.new.get
 This endpoint is a listing.
@@ -426,6 +608,14 @@ This endpoint is a listing.
 reddit.r.subreddit.new.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
+* subreddit (string)
 
 ### r.subreddit.hot.get
 This endpoint is a listing.
@@ -435,6 +625,14 @@ This endpoint is a listing.
 reddit.r.subreddit.hot.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
+* subreddit (string)
 
 ### r.subreddit.comments.article.get
 Get the comment tree for a given Link article.
@@ -455,6 +653,17 @@ See also: /api/morechildren and
 reddit.r.subreddit.comments.article.get({}, context)
 ```
 
+#### Parameters
+* article (string) - ID36 of a link
+* comment (string) - (optional) ID36 of a comment
+* context (string) - an integer between 0 and 8
+* depth (string) - (optional) an integer
+* limit (string) - (optional) an integer
+* showedits (string) - boolean value
+* showmore (string) - boolean value
+* sort (string) - one of (confidence, top, new, hot, controversial, old, random, qa)
+* sr_detail (string) - (optional) expand subreddits
+* subreddit (string)
 
 ### r.subreddit.api.wiki.revert.post
 Revert a wiki page to revision
@@ -464,6 +673,11 @@ Revert a wiki page to revision
 reddit.r.subreddit.api.wiki.revert.post({}, context)
 ```
 
+#### Parameters
+* page (string) - the name of an existing wiki page
+* revision (string) - a wiki revision ID
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.api.wiki.hide.post
 Toggle the public visibility of a wiki page revision
@@ -473,6 +687,11 @@ Toggle the public visibility of a wiki page revision
 reddit.r.subreddit.api.wiki.hide.post({}, context)
 ```
 
+#### Parameters
+* page (string) - the name of an existing wiki page
+* revision (string) - a wiki revision ID
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.api.wiki.edit.post
 Edit a wiki page
@@ -482,6 +701,13 @@ Edit a wiki page
 reddit.r.subreddit.api.wiki.edit.post({}, context)
 ```
 
+#### Parameters
+* content (string)
+* page (string) - the name of an existing page or a new page to create
+* previous (string) - the starting point revision for this edit
+* reason (string) - a string up to 256 characters long, consisting of printable characters.
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.api.wiki.alloweditor.act.post
 Allow/deny username to edit this wiki page
@@ -491,6 +717,12 @@ Allow/deny username to edit this wiki page
 reddit.r.subreddit.api.wiki.alloweditor.act.post({}, context)
 ```
 
+#### Parameters
+* act (string) - one of (del, add)
+* page (string) - the name of an existing wiki page
+* uh (string) - a modhash
+* username (string) - the name of an existing user
+* subreddit (string)
 
 ### r.subreddit.api.upload_sr_img.post
 Add or replace a subreddit image, custom header logo, custom mobile
@@ -536,6 +768,15 @@ See also: /api/delete_sr_img,
 reddit.r.subreddit.api.upload_sr_img.post({}, context)
 ```
 
+#### Parameters
+* file (string) - file upload with maximum size of 500 KiB
+* formid (string) - (optional) can be ignored
+* header (string) - an integer between 0 and 1
+* img_type (string) - one of png or jpg (default: png)
+* name (string) - a valid subreddit image name
+* uh (string) - a modhash
+* upload_type (string) - one of (img, header, icon, banner)
+* subreddit (string)
 
 ### r.subreddit.api.unfriend.post
 Remove a relationship between a user and another user or subreddit
@@ -568,6 +809,13 @@ Complement to POST_friend
 reddit.r.subreddit.api.unfriend.post({}, context)
 ```
 
+#### Parameters
+* container (string)
+* id (string) - fullname of a thing
+* name (string) - the name of an existing user
+* type (string) - one of (friend, enemy, moderator, moderator_invite, contributor, banned, muted, wikibanned, wikicontributor)
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.api.subreddit_stylesheet.post
 Update a subreddit's stylesheet.
@@ -579,6 +827,13 @@ op should be save to update the contents of the stylesheet.
 reddit.r.subreddit.api.subreddit_stylesheet.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* op (string) - one of (save, preview)
+* reason (string) - a string up to 256 characters long, consisting of printable characters.
+* stylesheet_contents (string) - the new stylesheet content
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.api.submit_text.get
 Get the submission text for the subreddit.
@@ -593,6 +848,8 @@ See also: /api/site_admin.
 reddit.r.subreddit.api.submit_text.get({}, context)
 ```
 
+#### Parameters
+* subreddit (string)
 
 ### r.subreddit.api.setpermissions.post
 
@@ -602,6 +859,13 @@ reddit.r.subreddit.api.submit_text.get({}, context)
 reddit.r.subreddit.api.setpermissions.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* name (string) - the name of an existing user
+* permissions (string)
+* type (string)
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.api.setflairenabled.post
 
@@ -611,6 +875,11 @@ reddit.r.subreddit.api.setpermissions.post({}, context)
 reddit.r.subreddit.api.setflairenabled.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* flair_enabled (string) - boolean value
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.api.selectflair.post
 
@@ -620,6 +889,14 @@ reddit.r.subreddit.api.setflairenabled.post({}, context)
 reddit.r.subreddit.api.selectflair.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* flair_template_id (string)
+* link (string) - a fullname of a link
+* name (string) - a user by name
+* text (string) - a string no longer than 64 characters
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.api.info.get
 Return a listing of things specified by their fullnames.
@@ -631,6 +908,10 @@ Only Links, Comments, and Subreddits are allowed.
 reddit.r.subreddit.api.info.get({}, context)
 ```
 
+#### Parameters
+* id (string) - A comma-separated list of thing fullnames
+* url (string) - a valid URL
+* subreddit (string)
 
 ### r.subreddit.api.friend.post
 Create a relationship between a user and another user or subreddit
@@ -657,6 +938,18 @@ Complement to POST_unfriend
 reddit.r.subreddit.api.friend.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* ban_message (string) - raw markdown text
+* ban_reason (string) - a string no longer than 100 characters
+* container (string)
+* duration (string) - an integer between 1 and 999
+* name (string) - the name of an existing user
+* note (string) - a string no longer than 300 characters
+* permissions (string)
+* type (string) - one of (friend, moderator, moderator_invite, contributor, banned, muted, wikibanned, wikicontributor)
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.api.flairtemplate.post
 
@@ -666,6 +959,15 @@ reddit.r.subreddit.api.friend.post({}, context)
 reddit.r.subreddit.api.flairtemplate.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* css_class (string) - a valid subreddit image name
+* flair_template_id (string)
+* flair_type (string) - one of (USER_FLAIR, LINK_FLAIR)
+* text (string) - a string no longer than 64 characters
+* text_editable (string) - boolean value
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.api.flairselector.post
 Return information about a users's flair options.
@@ -682,6 +984,10 @@ retrieve that user's flair.
 reddit.r.subreddit.api.flairselector.post({}, context)
 ```
 
+#### Parameters
+* link (string) - a fullname of a link
+* name (string) - a user by name
+* subreddit (string)
 
 ### r.subreddit.api.flairlist.get
 This endpoint is a listing.
@@ -691,6 +997,15 @@ This endpoint is a listing.
 reddit.r.subreddit.api.flairlist.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 1000)
+* name (string) - a user by name
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
+* subreddit (string)
 
 ### r.subreddit.api.flaircsv.post
 Change the flair of multiple users in the same subreddit with a
@@ -710,6 +1025,10 @@ applied, or a reason for the failure.
 reddit.r.subreddit.api.flaircsv.post({}, context)
 ```
 
+#### Parameters
+* flair_csv (string) - comma-seperated flair information
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.api.flairconfig.post
 
@@ -719,6 +1038,15 @@ reddit.r.subreddit.api.flaircsv.post({}, context)
 reddit.r.subreddit.api.flairconfig.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* flair_enabled (string) - boolean value
+* flair_position (string) - one of (left, right)
+* flair_self_assign_enabled (string) - boolean value
+* link_flair_position (string) - one of (`,left,right`)
+* link_flair_self_assign_enabled (string) - boolean value
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.api.flair.post
 
@@ -728,6 +1056,14 @@ reddit.r.subreddit.api.flairconfig.post({}, context)
 reddit.r.subreddit.api.flair.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* css_class (string) - a valid subreddit image name
+* link (string) - a fullname of a link
+* name (string) - a user by name
+* text (string) - a string no longer than 64 characters
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.api.deleteflairtemplate.post
 
@@ -737,6 +1073,11 @@ reddit.r.subreddit.api.flair.post({}, context)
 reddit.r.subreddit.api.deleteflairtemplate.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* flair_template_id (string)
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.api.deleteflair.post
 
@@ -746,6 +1087,11 @@ reddit.r.subreddit.api.deleteflairtemplate.post({}, context)
 reddit.r.subreddit.api.deleteflair.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* name (string) - a user by name
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.api.delete_sr_img.post
 Remove an image from the subreddit's custom image set.
@@ -763,6 +1109,11 @@ See also: /api/upload_sr_img.
 reddit.r.subreddit.api.delete_sr_img.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* img_name (string) - a valid subreddit image name
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.api.delete_sr_icon.post
 Remove the subreddit's custom mobile icon.
@@ -774,6 +1125,10 @@ See also: /api/upload_sr_img.
 reddit.r.subreddit.api.delete_sr_icon.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.api.delete_sr_header.post
 Remove the subreddit's custom header image.
@@ -787,6 +1142,10 @@ See also: /api/upload_sr_img.
 reddit.r.subreddit.api.delete_sr_header.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.api.delete_sr_banner.post
 Remove the subreddit's custom mobile banner.
@@ -798,6 +1157,10 @@ See also: /api/upload_sr_img.
 reddit.r.subreddit.api.delete_sr_banner.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.api.clearflairtemplates.post
 
@@ -807,6 +1170,11 @@ reddit.r.subreddit.api.delete_sr_banner.post({}, context)
 reddit.r.subreddit.api.clearflairtemplates.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* flair_type (string) - one of (USER_FLAIR, LINK_FLAIR)
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.api.accept_moderator_invite.post
 Accept an invite to moderate the specified subreddit.
@@ -822,6 +1190,10 @@ See also: /api/friend and
 reddit.r.subreddit.api.accept_moderator_invite.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* uh (string) - a modhash
+* subreddit (string)
 
 ### r.subreddit.about.where.get
 This endpoint is a listing.
@@ -831,6 +1203,16 @@ This endpoint is a listing.
 reddit.r.subreddit.about.where.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
+* user (string) - A valid, existing reddit username
+* subreddit (string)
+* where (string)
 
 ### r.subreddit.about.location.get
 Return a listing of posts relevant to moderators.
@@ -853,6 +1235,16 @@ This endpoint is a listing.
 reddit.r.subreddit.about.location.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* location (string)
+* only (string) - one of (links, comments)
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
+* subreddit (string)
 
 ### r.subreddit.about.log.get
 Get a list of recent moderation actions.
@@ -875,6 +1267,16 @@ This endpoint is a listing.
 reddit.r.subreddit.about.log.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 500)
+* mod (string) - (optional) a moderator filter
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
+* type (string) - one of (banuser, unbanuser, removelink, approvelink, removecomment, approvecomment, addmoderator, invitemoderator, uninvitemoderator, acceptmoderatorinvite, removemoderator, addcontributor, removecontributor, editsettings, editflair, distinguish, marknsfw, wikibanned, wikicontributor, wikiunbanned, wikipagelisted, removewikicontributor, wikirevise, wikipermlevel, ignorereports, unignorereports, setpermissions, setsuggestedsort, sticky, unsticky, setcontestmode, unsetcontestmode, lock, unlock, muteuser, unmuteuser, createrule, editrule, deleterule)
+* subreddit (string)
 
 ### r.subreddit.about.edit.get
 Get the current settings of a subreddit.
@@ -888,6 +1290,10 @@ display a form for editing the subreddit.
 reddit.r.subreddit.about.edit.get({}, context)
 ```
 
+#### Parameters
+* created (string) - one of (true, false)
+* location (string)
+* subreddit (string)
 
 ### r.subreddit.about.get
 Return information about the subreddit.
@@ -899,6 +1305,8 @@ Data includes the subscriber count, description, and header image.
 reddit.r.subreddit.about.get({}, context)
 ```
 
+#### Parameters
+* subreddit (string)
 
 ### prefs.where.get
 This endpoint is a listing.
@@ -908,6 +1316,14 @@ This endpoint is a listing.
 reddit.prefs.where.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
+* where (string)
 
 ### new.get
 This endpoint is a listing.
@@ -917,6 +1333,13 @@ This endpoint is a listing.
 reddit.new.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
 
 ### message.where.get
 This endpoint is a listing.
@@ -926,6 +1349,16 @@ This endpoint is a listing.
 reddit.message.where.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* mark (string) - one of (true, false)
+* mid (string)
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
+* where (string)
 
 ### live.thread.discussions.get
 Get a list of reddit submissions linking to this thread.
@@ -937,6 +1370,14 @@ This endpoint is a listing.
 reddit.live.thread.discussions.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
+* thread (string)
 
 ### live.thread.contributors.get
 Get a list of users that contribute to this thread.
@@ -949,6 +1390,8 @@ See also: /api/live/thread/invite_contributor, and
 reddit.live.thread.contributors.get({}, context)
 ```
 
+#### Parameters
+* thread (string)
 
 ### live.thread.about.get
 Get some basic information about the live thread.
@@ -960,6 +1403,8 @@ See also: /api/live/thread/edit.
 reddit.live.thread.about.get({}, context)
 ```
 
+#### Parameters
+* thread (string)
 
 ### live.thread.get
 Get a list of updates posted in this thread.
@@ -973,6 +1418,14 @@ This endpoint is a listing.
 reddit.live.thread.get({}, context)
 ```
 
+#### Parameters
+* after (string) - the ID of a single update. e.g. LiveUpdate_ff87068e-a126-11e3-9f93-12313b0b3603
+* before (string) - the ID of a single update. e.g. LiveUpdate_ff87068e-a126-11e3-9f93-12313b0b3603
+* count (string) - a positive integer (default: 0)
+* is_embed (string) - (internal use only)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* stylesr (string) - subreddit name
+* thread (string)
 
 ### hot.get
 This endpoint is a listing.
@@ -982,6 +1435,13 @@ This endpoint is a listing.
 reddit.hot.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
 
 ### duplicates.article.get
 Return a list of other submissions of the same URL
@@ -993,6 +1453,14 @@ This endpoint is a listing.
 reddit.duplicates.article.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* article (string) - The base 36 ID of a Link
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
 
 ### comments.article.get
 Get the comment tree for a given Link article.
@@ -1013,6 +1481,16 @@ See also: /api/morechildren and
 reddit.comments.article.get({}, context)
 ```
 
+#### Parameters
+* article (string) - ID36 of a link
+* comment (string) - (optional) ID36 of a comment
+* context (string) - an integer between 0 and 8
+* depth (string) - (optional) an integer
+* limit (string) - (optional) an integer
+* showedits (string) - boolean value
+* showmore (string) - boolean value
+* sort (string) - one of (confidence, top, new, hot, controversial, old, random, qa)
+* sr_detail (string) - (optional) expand subreddits
 
 ### captcha.iden.get
 Request a CAPTCHA image given an iden.
@@ -1035,6 +1513,8 @@ use /api/new_captcha.
 reddit.captcha.iden.get({}, context)
 ```
 
+#### Parameters
+* iden (string)
 
 ### by_id.names.get
 Get a listing of links by fullname.
@@ -1046,6 +1526,8 @@ names is a list of fullnames for links separated by commas or spaces.
 reddit.by_id.names.get({}, context)
 ```
 
+#### Parameters
+* names (string) - A comma-separated list of link fullnames
 
 ### api.subreddit_stylesheet.post
 Update a subreddit's stylesheet.
@@ -1057,6 +1539,13 @@ op should be save to update the contents of the stylesheet.
 reddit.api.subreddit_stylesheet.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* op (string) - one of (save, preview)
+* reason (string) - a string up to 256 characters long, consisting of printable characters.
+* stylesheet_contents (string) - the new stylesheet content
+* uh (string) - a modhash
+* subreddit (string)
 
 ### api.wiki.revert.post
 Revert a wiki page to revision
@@ -1066,6 +1555,10 @@ Revert a wiki page to revision
 reddit.api.wiki.revert.post({}, context)
 ```
 
+#### Parameters
+* page (string) - the name of an existing wiki page
+* revision (string) - a wiki revision ID
+* uh (string) - a modhash
 
 ### api.wiki.hide.post
 Toggle the public visibility of a wiki page revision
@@ -1075,6 +1568,10 @@ Toggle the public visibility of a wiki page revision
 reddit.api.wiki.hide.post({}, context)
 ```
 
+#### Parameters
+* page (string) - the name of an existing wiki page
+* revision (string) - a wiki revision ID
+* uh (string) - a modhash
 
 ### api.wiki.edit.post
 Edit a wiki page
@@ -1084,6 +1581,12 @@ Edit a wiki page
 reddit.api.wiki.edit.post({}, context)
 ```
 
+#### Parameters
+* content (string)
+* page (string) - the name of an existing page or a new page to create
+* previous (string) - the starting point revision for this edit
+* reason (string) - a string up to 256 characters long, consisting of printable characters.
+* uh (string) - a modhash
 
 ### api.wiki.alloweditor.act.post
 Allow/deny username to edit this wiki page
@@ -1093,6 +1596,11 @@ Allow/deny username to edit this wiki page
 reddit.api.wiki.alloweditor.act.post({}, context)
 ```
 
+#### Parameters
+* act (string) - one of (del, add)
+* page (string) - the name of an existing wiki page
+* uh (string) - a modhash
+* username (string) - the name of an existing user
 
 ### api.vote.post
 Cast a vote on a thing.
@@ -1113,6 +1621,10 @@ rules for more details on what constitutes vote cheating.
 reddit.api.vote.post({}, context)
 ```
 
+#### Parameters
+* dir (string) - vote direction. one of (1, 0, -1)
+* id (string) - fullname of a thing
+* uh (string) - a modhash
 
 ### api.v1.user.username.trophies.get
 Return a list of trophies for the a given user.
@@ -1122,6 +1634,9 @@ Return a list of trophies for the a given user.
 reddit.api.v1.user.username.trophies.get({}, context)
 ```
 
+#### Parameters
+* id (string) - A valid, existing reddit username
+* username (string)
 
 ### api.v1.scopes.get
 Retrieve descriptions of reddit's OAuth2 scopes.
@@ -1136,6 +1651,8 @@ the invalid scope(s).
 reddit.api.v1.scopes.get({}, context)
 ```
 
+#### Parameters
+* scopes (string) - (optional) An OAuth2 scope string
 
 ### api.v1.me.trophies.get
 Return a list of trophies for the current user.
@@ -1154,6 +1671,8 @@ reddit.api.v1.me.trophies.get(null, context)
 reddit.api.v1.me.prefs.patch({}, context)
 ```
 
+#### Parameters
+* This (string) - {
 
 ### api.v1.me.prefs.get
 Return the preference settings of the logged in user
@@ -1163,6 +1682,8 @@ Return the preference settings of the logged in user
 reddit.api.v1.me.prefs.get({}, context)
 ```
 
+#### Parameters
+* fields (string) - A comma-separated list of items from this set:
 
 ### api.v1.me.notifications.id.patch
 
@@ -1172,6 +1693,9 @@ reddit.api.v1.me.prefs.get({}, context)
 reddit.api.v1.me.notifications.id.patch({}, context)
 ```
 
+#### Parameters
+* This (string) - {
+* id (string)
 
 ### api.v1.me.notifications.get
 Get my notifications.
@@ -1181,6 +1705,11 @@ Get my notifications.
 reddit.api.v1.me.notifications.get({}, context)
 ```
 
+#### Parameters
+* count (string) - an integer between 0 and 1000 (default: 30)
+* end_date (string)
+* sort (string) - one of (new, old, None)
+* start_date (string)
 
 ### api.v1.me.karma.get
 Return a breakdown of subreddit karma.
@@ -1203,6 +1732,9 @@ note on that friend)
 reddit.api.v1.me.friends.username.put({}, context)
 ```
 
+#### Parameters
+* This (string) - {
+* username (string)
 
 ### api.v1.me.friends.username.get
 Get information about a specific 'friend', such as notes.
@@ -1212,6 +1744,9 @@ Get information about a specific 'friend', such as notes.
 reddit.api.v1.me.friends.username.get({}, context)
 ```
 
+#### Parameters
+* id (string) - A valid, existing reddit username
+* username (string)
 
 ### api.v1.me.friends.username.delete
 Stop being friends with a user.
@@ -1221,6 +1756,9 @@ Stop being friends with a user.
 reddit.api.v1.me.friends.username.delete({}, context)
 ```
 
+#### Parameters
+* id (string) - A valid, existing reddit username
+* username (string)
 
 ### api.v1.me.get
 Returns the identity of the user currently authenticated via OAuth.
@@ -1239,6 +1777,9 @@ reddit.api.v1.me.get(null, context)
 reddit.api.v1.gold.give.username.post({}, context)
 ```
 
+#### Parameters
+* months (string) - an integer between 1 and 36
+* username (string) - A valid, existing reddit username
 
 ### api.v1.gold.gild.fullname.post
 
@@ -1248,6 +1789,8 @@ reddit.api.v1.gold.give.username.post({}, context)
 reddit.api.v1.gold.gild.fullname.post({}, context)
 ```
 
+#### Parameters
+* fullname (string) - fullname of a thing
 
 ### api.username_available.get
 Check whether a username is available for registration.
@@ -1257,6 +1800,8 @@ Check whether a username is available for registration.
 reddit.api.username_available.get({}, context)
 ```
 
+#### Parameters
+* user (string) - a valid, unused, username
 
 ### api.upload_sr_img.post
 Add or replace a subreddit image, custom header logo, custom mobile
@@ -1302,6 +1847,14 @@ See also: /api/delete_sr_img,
 reddit.api.upload_sr_img.post({}, context)
 ```
 
+#### Parameters
+* file (string) - file upload with maximum size of 500 KiB
+* formid (string) - (optional) can be ignored
+* header (string) - an integer between 0 and 1
+* img_type (string) - one of png or jpg (default: png)
+* name (string) - a valid subreddit image name
+* uh (string) - a modhash
+* upload_type (string) - one of (img, header, icon, banner)
 
 ### api.unsave.post
 Unsave a link or comment.
@@ -1315,6 +1868,9 @@ See also: /api/save.
 reddit.api.unsave.post({}, context)
 ```
 
+#### Parameters
+* id (string) - fullname of a thing
+* uh (string) - a modhash
 
 ### api.unread_message.post
 
@@ -1324,6 +1880,9 @@ reddit.api.unsave.post({}, context)
 reddit.api.unread_message.post({}, context)
 ```
 
+#### Parameters
+* id (string) - A comma-separated list of thing fullnames
+* uh (string) - a modhash
 
 ### api.unmute_message_author.post
 For unmuting user via modmail.
@@ -1333,6 +1892,9 @@ For unmuting user via modmail.
 reddit.api.unmute_message_author.post({}, context)
 ```
 
+#### Parameters
+* id (string) - fullname of a thing
+* uh (string) - a modhash
 
 ### api.unmarknsfw.post
 Remove the NSFW marking from a link.
@@ -1344,6 +1906,9 @@ See also: /api/marknsfw.
 reddit.api.unmarknsfw.post({}, context)
 ```
 
+#### Parameters
+* id (string) - fullname of a thing
+* uh (string) - a modhash
 
 ### api.unlock.post
 Unlock a link.
@@ -1357,6 +1922,9 @@ See also: /api/lock.
 reddit.api.unlock.post({}, context)
 ```
 
+#### Parameters
+* id (string) - fullname of a link
+* uh (string) - a modhash
 
 ### api.unignore_reports.post
 Allow future reports on a thing to cause notifications.
@@ -1368,6 +1936,9 @@ See also: /api/ignore_reports.
 reddit.api.unignore_reports.post({}, context)
 ```
 
+#### Parameters
+* id (string) - fullname of a thing
+* uh (string) - a modhash
 
 ### api.unhide.post
 Unhide a link.
@@ -1379,6 +1950,9 @@ See also: /api/hide.
 reddit.api.unhide.post({}, context)
 ```
 
+#### Parameters
+* id (string) - A comma-separated list of link fullnames
+* uh (string) - a modhash
 
 ### api.unfriend.post
 Remove a relationship between a user and another user or subreddit
@@ -1411,6 +1985,12 @@ Complement to POST_friend
 reddit.api.unfriend.post({}, context)
 ```
 
+#### Parameters
+* container (string)
+* id (string) - fullname of a thing
+* name (string) - the name of an existing user
+* type (string) - one of (friend, enemy, moderator, moderator_invite, contributor, banned, muted, wikibanned, wikicontributor)
+* uh (string) - a modhash
 
 ### api.uncollapse_message.post
 Uncollapse a message
@@ -1422,6 +2002,9 @@ See also: /api/collapse_message
 reddit.api.uncollapse_message.post({}, context)
 ```
 
+#### Parameters
+* id (string) - A comma-separated list of thing fullnames
+* uh (string) - a modhash
 
 ### api.unblock_subreddit.post
 
@@ -1431,6 +2014,9 @@ reddit.api.uncollapse_message.post({}, context)
 reddit.api.unblock_subreddit.post({}, context)
 ```
 
+#### Parameters
+* id (string) - fullname of a thing
+* uh (string) - a modhash
 
 ### api.subscribe.post
 Subscribe to or unsubscribe from a subreddit.
@@ -1446,6 +2032,10 @@ See also: /subreddits/mine/.
 reddit.api.subscribe.post({}, context)
 ```
 
+#### Parameters
+* action (string) - one of (sub, unsub)
+* sr (string) - the name of a subreddit
+* uh (string) - a modhash
 
 ### api.subreddits_by_topic.get
 Return a list of subreddits that are relevant to a search query.
@@ -1455,6 +2045,8 @@ Return a list of subreddits that are relevant to a search query.
 reddit.api.subreddits_by_topic.get({}, context)
 ```
 
+#### Parameters
+* query (string) - a string no longer than 50 characters
 
 ### api.submit_text.get
 Get the submission text for the subreddit.
@@ -1489,6 +2081,19 @@ resubmit error occurs.
 reddit.api.submit.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* captcha (string) - the user's response to the CAPTCHA challenge
+* extension (string) - extension used for redirects
+* iden (string) - the identifier of the CAPTCHA challenge
+* kind (string) - one of (link, self)
+* resubmit (string) - boolean value
+* sendreplies (string) - boolean value
+* sr (string) - name of a subreddit
+* text (string) - raw markdown text
+* title (string) - title of the submission. up to 300 characters long
+* uh (string) - a modhash
+* url (string) - a valid URL
 
 ### api.store_visits.post
 Requires a subscription to reddit gold
@@ -1498,6 +2103,9 @@ Requires a subscription to reddit gold
 reddit.api.store_visits.post({}, context)
 ```
 
+#### Parameters
+* links (string) - A comma-separated list of link fullnames
+* uh (string) - a modhash
 
 ### api.site_admin.post
 Create or configure a subreddit.
@@ -1524,6 +2132,40 @@ See also: /about/edit.json.
 reddit.api.site_admin.post({}, context)
 ```
 
+#### Parameters
+* allow_top (string) - boolean value
+* api_type (string) - the string json
+* captcha (string) - the user's response to the CAPTCHA challenge
+* collapse_deleted_comments (string) - boolean value
+* comment_score_hide_mins (string) - an integer between 0 and 1440 (default: 0)
+* description (string) - raw markdown text
+* exclude_banned_modqueue (string) - boolean value
+* header-title (string) - a string no longer than 500 characters
+* hide_ads (string) - boolean value
+* iden (string) - the identifier of the CAPTCHA challenge
+* lang (string) - a valid IETF language tag (underscore separated)
+* link_type (string) - one of (any, link, self)
+* modmail_email_address (string)
+* modmail_email_enabled (string) - boolean value
+* name (string) - subreddit name
+* over_18 (string) - boolean value
+* public_description (string) - raw markdown text
+* public_traffic (string) - boolean value
+* show_media (string) - boolean value
+* spam_comments (string) - one of (low, high, all)
+* spam_links (string) - one of (low, high, all)
+* spam_selfposts (string) - one of (low, high, all)
+* sr (string) - fullname of a thing
+* submit_link_label (string) - a string no longer than 60 characters
+* submit_text (string) - raw markdown text
+* submit_text_label (string) - a string no longer than 60 characters
+* suggested_comment_sort (string) - one of (confidence, top, new, hot, controversial, old, random, qa)
+* title (string) - a string no longer than 100 characters
+* type (string) - one of (gold_restricted, archived, restricted, gold_only, employees_only, private, public)
+* uh (string) - a modhash
+* wiki_edit_age (string) - an integer greater than 0 (default: 0)
+* wiki_edit_karma (string) - an integer greater than 0 (default: 0)
+* wikimode (string) - one of (disabled, modonly, anyone)
 
 ### api.setpermissions.post
 
@@ -1533,6 +2175,12 @@ reddit.api.site_admin.post({}, context)
 reddit.api.setpermissions.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* name (string) - the name of an existing user
+* permissions (string)
+* type (string)
+* uh (string) - a modhash
 
 ### api.setflairenabled.post
 
@@ -1542,6 +2190,10 @@ reddit.api.setpermissions.post({}, context)
 reddit.api.setflairenabled.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* flair_enabled (string) - boolean value
+* uh (string) - a modhash
 
 ### api.set_suggested_sort.post
 Set a suggested sort for a link.
@@ -1556,6 +2208,11 @@ clears the default sort.
 reddit.api.set_suggested_sort.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* id (string)
+* sort (string) - one of (confidence, top, new, hot, controversial, old, random, qa, blank)
+* uh (string) - a modhash
 
 ### api.set_subreddit_sticky.post
 Set or unset a Link as the sticky in its subreddit.
@@ -1574,6 +2231,12 @@ the bottom-most slot will be used.
 reddit.api.set_subreddit_sticky.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* id (string)
+* num (string) - an integer between 1 and 2
+* state (string) - boolean value
+* uh (string) - a modhash
 
 ### api.set_contest_mode.post
 Set or unset "contest mode" for a link's comments.
@@ -1586,6 +2249,11 @@ disabling contest mode - true to enable, false to disable.
 reddit.api.set_contest_mode.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* id (string)
+* state (string) - boolean value
+* uh (string) - a modhash
 
 ### api.sendreplies.post
 Enable or disable inbox replies for a link or comment.
@@ -1598,6 +2266,10 @@ disabling inbox replies - true to enable, false to disable.
 reddit.api.sendreplies.post({}, context)
 ```
 
+#### Parameters
+* id (string) - fullname of a thing created by the user
+* state (string) - boolean value
+* uh (string) - a modhash
 
 ### api.selectflair.post
 
@@ -1607,6 +2279,13 @@ reddit.api.sendreplies.post({}, context)
 reddit.api.selectflair.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* flair_template_id (string)
+* link (string) - a fullname of a link
+* name (string) - a user by name
+* text (string) - a string no longer than 64 characters
+* uh (string) - a modhash
 
 ### api.search_reddit_names.post
 List subreddit names that begin with a query string.
@@ -1622,6 +2301,10 @@ If exact is true, only an exact match will be returned.
 reddit.api.search_reddit_names.post({}, context)
 ```
 
+#### Parameters
+* exact (string) - boolean value
+* include_over_18 (string) - boolean value
+* query (string) - a string up to 50 characters long, consisting of printable characters.
 
 ### api.saved_categories.get
 Get a list of categories in which things are currently saved.
@@ -1646,6 +2329,10 @@ See also: /api/unsave.
 reddit.api.save.post({}, context)
 ```
 
+#### Parameters
+* category (string) - a category name
+* id (string) - fullname of a thing
+* uh (string) - a modhash
 
 ### api.report.post
 Report a link, comment or message.
@@ -1661,6 +2348,13 @@ For links and comments, the thing is implicitly hidden as well (see
 reddit.api.report.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* other_reason (string) - a string no longer than 100 characters
+* reason (string) - a string no longer than 100 characters
+* site_reason (string) - a string no longer than 100 characters
+* thing_id (string) - fullname of a thing
+* uh (string) - a modhash
 
 ### api.remove.post
 Remove a link, comment, or modmail message.
@@ -1676,6 +2370,10 @@ See also: /api/approve.
 reddit.api.remove.post({}, context)
 ```
 
+#### Parameters
+* id (string) - fullname of a thing
+* spam (string) - boolean value
+* uh (string) - a modhash
 
 ### api.recommend.sr.srnames.get
 Return subreddits recommended for the given subreddit(s).
@@ -1688,6 +2386,9 @@ that appear in the optional omit param.
 reddit.api.recommend.sr.srnames.get({}, context)
 ```
 
+#### Parameters
+* omit (string) - comma-delimited list of subreddit names
+* srnames (string) - comma-delimited list of subreddit names
 
 ### api.read_message.post
 
@@ -1697,6 +2398,9 @@ reddit.api.recommend.sr.srnames.get({}, context)
 reddit.api.read_message.post({}, context)
 ```
 
+#### Parameters
+* id (string) - A comma-separated list of thing fullnames
+* uh (string) - a modhash
 
 ### api.read_all_messages.post
 Queue up marking all messages for a user as read.
@@ -1709,6 +2413,8 @@ the request.
 reddit.api.read_all_messages.post({}, context)
 ```
 
+#### Parameters
+* uh (string) - a modhash
 
 ### api.new_captcha.post
 Responds with an iden of a new CAPTCHA.
@@ -1724,6 +2430,8 @@ To request the CAPTCHA image for an iden, use
 reddit.api.new_captcha.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
 
 ### api.needs_captcha.get
 Check whether CAPTCHAs are needed for API methods that define the
@@ -1743,6 +2451,9 @@ For muting user via modmail.
 reddit.api.mute_message_author.post({}, context)
 ```
 
+#### Parameters
+* id (string) - fullname of a thing
+* uh (string) - a modhash
 
 ### api.multi.multipath.r.srname.put
 Add a subreddit to a multi.
@@ -1752,6 +2463,11 @@ Add a subreddit to a multi.
 reddit.api.multi.multipath.r.srname.put({}, context)
 ```
 
+#### Parameters
+* model (string) - json data:
+* multipath (string) - multireddit url path
+* srname (string) - subreddit name
+* uh (string) - a modhash
 
 ### api.multi.multipath.r.srname.get
 Get data about a subreddit in a multi.
@@ -1761,6 +2477,9 @@ Get data about a subreddit in a multi.
 reddit.api.multi.multipath.r.srname.get({}, context)
 ```
 
+#### Parameters
+* multipath (string) - multireddit url path
+* srname (string) - subreddit name
 
 ### api.multi.multipath.r.srname.delete
 Remove a subreddit from a multi.
@@ -1770,6 +2489,10 @@ Remove a subreddit from a multi.
 reddit.api.multi.multipath.r.srname.delete({}, context)
 ```
 
+#### Parameters
+* multipath (string) - multireddit url path
+* srname (string) - subreddit name
+* uh (string) - a modhash
 
 ### api.multi.multipath.description.put
 Change a multi's markdown description.
@@ -1779,6 +2502,10 @@ Change a multi's markdown description.
 reddit.api.multi.multipath.description.put({}, context)
 ```
 
+#### Parameters
+* model (string) - json data:
+* multipath (string) - multireddit url path
+* uh (string) - a modhash
 
 ### api.multi.multipath.description.get
 Get a multi's description.
@@ -1788,6 +2515,8 @@ Get a multi's description.
 reddit.api.multi.multipath.description.get({}, context)
 ```
 
+#### Parameters
+* multipath (string) - multireddit url path
 
 ### api.multi.multipath.put
 Create or update a multi.
@@ -1797,6 +2526,11 @@ Create or update a multi.
 reddit.api.multi.multipath.put({}, context)
 ```
 
+#### Parameters
+* expand_srs (string) - boolean value
+* model (string) - json data:
+* multipath (string) - multireddit url path
+* uh (string) - a modhash
 
 ### api.multi.multipath.post
 Create a multi. Responds with 409 Conflict if it already exists.
@@ -1806,6 +2540,11 @@ Create a multi. Responds with 409 Conflict if it already exists.
 reddit.api.multi.multipath.post({}, context)
 ```
 
+#### Parameters
+* expand_srs (string) - boolean value
+* model (string) - json data:
+* multipath (string) - multireddit url path
+* uh (string) - a modhash
 
 ### api.multi.multipath.get
 Fetch a multi's data and subreddit list by name.
@@ -1815,6 +2554,9 @@ Fetch a multi's data and subreddit list by name.
 reddit.api.multi.multipath.get({}, context)
 ```
 
+#### Parameters
+* expand_srs (string) - boolean value
+* multipath (string) - multireddit url path
 
 ### api.multi.multipath.delete
 Delete a multi.
@@ -1824,6 +2566,10 @@ Delete a multi.
 reddit.api.multi.multipath.delete({}, context)
 ```
 
+#### Parameters
+* expand_srs (string) - boolean value
+* multipath (string) - multireddit url path
+* uh (string) - a modhash
 
 ### api.multi.user.username.get
 Fetch a list of public multis belonging to username
@@ -1833,6 +2579,9 @@ Fetch a list of public multis belonging to username
 reddit.api.multi.user.username.get({}, context)
 ```
 
+#### Parameters
+* expand_srs (string) - boolean value
+* username (string) - A valid, existing reddit username
 
 ### api.multi.rename.post
 Rename a multi.
@@ -1842,6 +2591,11 @@ Rename a multi.
 reddit.api.multi.rename.post({}, context)
 ```
 
+#### Parameters
+* display_name (string) - a string no longer than 50 characters
+* from (string) - multireddit url path
+* to (string) - destination multireddit url path
+* uh (string) - a modhash
 
 ### api.multi.mine.get
 Fetch a list of multis belonging to the current user.
@@ -1851,6 +2605,8 @@ Fetch a list of multis belonging to the current user.
 reddit.api.multi.mine.get({}, context)
 ```
 
+#### Parameters
+* expand_srs (string) - boolean value
 
 ### api.multi.copy.post
 Copy a multi.
@@ -1865,6 +2621,11 @@ description.
 reddit.api.multi.copy.post({}, context)
 ```
 
+#### Parameters
+* display_name (string) - a string no longer than 50 characters
+* from (string) - multireddit url path
+* to (string) - destination multireddit url path
+* uh (string) - a modhash
 
 ### api.morechildren.get
 Retrieve additional comments omitted from a base comment tree.
@@ -1890,6 +2651,12 @@ Higher concurrency will result in an error being returned.
 reddit.api.morechildren.get({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* children (string) - a comma-delimited list of comment ID36s
+* id (string) - (optional) id of the associated MoreChildren object
+* link_id (string) - fullname of a thing
+* sort (string) - one of (confidence, top, new, hot, controversial, old, random, qa)
 
 ### api.marknsfw.post
 Mark a link NSFW.
@@ -1901,6 +2668,9 @@ See also: /api/unmarknsfw.
 reddit.api.marknsfw.post({}, context)
 ```
 
+#### Parameters
+* id (string) - fullname of a thing
+* uh (string) - a modhash
 
 ### api.lock.post
 Lock a link.
@@ -1914,6 +2684,9 @@ See also: /api/unlock.
 reddit.api.lock.post({}, context)
 ```
 
+#### Parameters
+* id (string) - fullname of a link
+* uh (string) - a modhash
 
 ### api.live.thread.update.post
 Post an update to the thread.
@@ -1928,6 +2701,11 @@ See also: /api/live/thread/strike_update, and
 reddit.api.live.thread.update.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* body (string) - raw markdown text
+* uh (string) - a modhash
+* thread (string)
 
 ### api.live.thread.strike_update.post
 Strike (mark incorrect and cross out) the content of an update.
@@ -1942,6 +2720,11 @@ See also: /api/live/thread/update.
 reddit.api.live.thread.strike_update.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* id (string) - the ID of a single update. e.g. LiveUpdate_ff87068e-a126-11e3-9f93-12313b0b3603
+* uh (string) - a modhash
+* thread (string)
 
 ### api.live.thread.set_contributor_permissions.post
 Change a contributor or contributor invite's permissions.
@@ -1956,6 +2739,13 @@ See also: /api/live/thread/invite_contributor and
 reddit.api.live.thread.set_contributor_permissions.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* name (string) - the name of an existing user
+* permissions (string) - permission description e.g. +update,+edit,-manage
+* type (string) - one of (liveupdate_contributor_invite, liveupdate_contributor)
+* uh (string) - a modhash
+* thread (string)
 
 ### api.live.thread.rm_contributor_invite.post
 Revoke an outstanding contributor invite.
@@ -1969,6 +2759,11 @@ See also: /api/live/thread/invite_contributor.
 reddit.api.live.thread.rm_contributor_invite.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* id (string) - fullname of a account
+* uh (string) - a modhash
+* thread (string)
 
 ### api.live.thread.rm_contributor.post
 Revoke another user's contributorship.
@@ -1982,6 +2777,11 @@ See also: /api/live/thread/invite_contributor.
 reddit.api.live.thread.rm_contributor.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* id (string) - fullname of a account
+* uh (string) - a modhash
+* thread (string)
 
 ### api.live.thread.report.post
 Report the thread for violating the rules of reddit.
@@ -1991,6 +2791,11 @@ Report the thread for violating the rules of reddit.
 reddit.api.live.thread.report.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* type (string) - one of (spam, vote-manipulation, personal-information, sexualizing-minors, site-breaking)
+* uh (string) - a modhash
+* thread (string)
 
 ### api.live.thread.leave_contributor.post
 Abdicate contributorship of the thread.
@@ -2003,6 +2808,10 @@ See also: /api/live/thread/accept_contributor_invite, and
 reddit.api.live.thread.leave_contributor.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* uh (string) - a modhash
+* thread (string)
 
 ### api.live.thread.invite_contributor.post
 Invite another user to contribute to the thread.
@@ -2018,6 +2827,13 @@ See also: /api/live/thread/accept_contributor_invite, and
 reddit.api.live.thread.invite_contributor.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* name (string) - the name of an existing user
+* permissions (string) - permission description e.g. +update,+edit,-manage
+* type (string) - one of (liveupdate_contributor_invite, liveupdate_contributor)
+* uh (string) - a modhash
+* thread (string)
 
 ### api.live.thread.edit.post
 Configure the thread.
@@ -2031,6 +2847,14 @@ See also: /live/thread/about.json.
 reddit.api.live.thread.edit.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* description (string) - raw markdown text
+* nsfw (string) - boolean value
+* resources (string) - raw markdown text
+* title (string) - a string no longer than 120 characters
+* uh (string) - a modhash
+* thread (string)
 
 ### api.live.thread.delete_update.post
 Delete an update from the thread.
@@ -2045,6 +2869,11 @@ See also: /api/live/thread/update.
 reddit.api.live.thread.delete_update.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* id (string) - the ID of a single update. e.g. LiveUpdate_ff87068e-a126-11e3-9f93-12313b0b3603
+* uh (string) - a modhash
+* thread (string)
 
 ### api.live.thread.close_thread.post
 Permanently close the thread, disallowing future updates.
@@ -2056,6 +2885,10 @@ Requires the close permission for this thread.
 reddit.api.live.thread.close_thread.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* uh (string) - a modhash
+* thread (string)
 
 ### api.live.thread.accept_contributor_invite.post
 Accept a pending invitation to contribute to the thread.
@@ -2067,6 +2900,10 @@ See also: /api/live/thread/leave_contributor.
 reddit.api.live.thread.accept_contributor_invite.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* uh (string) - a modhash
+* thread (string)
 
 ### api.live.create.post
 Create a new live thread.
@@ -2081,6 +2918,13 @@ can be posted with
 reddit.api.live.create.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* description (string) - raw markdown text
+* nsfw (string) - boolean value
+* resources (string) - raw markdown text
+* title (string) - a string no longer than 120 characters
+* uh (string) - a modhash
 
 ### api.leavemoderator.post
 Abdicate moderator status in a subreddit.
@@ -2092,6 +2936,9 @@ See also: /api/friend.
 reddit.api.leavemoderator.post({}, context)
 ```
 
+#### Parameters
+* id (string) - fullname of a thing
+* uh (string) - a modhash
 
 ### api.leavecontributor.post
 Abdicate approved submitter status in a subreddit.
@@ -2103,6 +2950,9 @@ See also: /api/friend.
 reddit.api.leavecontributor.post({}, context)
 ```
 
+#### Parameters
+* id (string) - fullname of a thing
+* uh (string) - a modhash
 
 ### api.info.get
 Return a listing of things specified by their fullnames.
@@ -2114,6 +2964,9 @@ Only Links, Comments, and Subreddits are allowed.
 reddit.api.info.get({}, context)
 ```
 
+#### Parameters
+* id (string) - A comma-separated list of thing fullnames
+* url (string) - a valid URL
 
 ### api.ignore_reports.post
 Prevent future reports on a thing from causing notifications.
@@ -2129,6 +2982,9 @@ See also: /api/unignore_reports.
 reddit.api.ignore_reports.post({}, context)
 ```
 
+#### Parameters
+* id (string) - fullname of a thing
+* uh (string) - a modhash
 
 ### api.hide.post
 Hide a link.
@@ -2142,6 +2998,9 @@ See also: /api/unhide.
 reddit.api.hide.post({}, context)
 ```
 
+#### Parameters
+* id (string) - A comma-separated list of link fullnames
+* uh (string) - a modhash
 
 ### api.friend.post
 Create a relationship between a user and another user or subreddit
@@ -2168,6 +3027,17 @@ Complement to POST_unfriend
 reddit.api.friend.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* ban_message (string) - raw markdown text
+* ban_reason (string) - a string no longer than 100 characters
+* container (string)
+* duration (string) - an integer between 1 and 999
+* name (string) - the name of an existing user
+* note (string) - a string no longer than 300 characters
+* permissions (string)
+* type (string) - one of (friend, moderator, moderator_invite, contributor, banned, muted, wikibanned, wikicontributor)
+* uh (string) - a modhash
 
 ### api.flairtemplate.post
 
@@ -2177,6 +3047,14 @@ reddit.api.friend.post({}, context)
 reddit.api.flairtemplate.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* css_class (string) - a valid subreddit image name
+* flair_template_id (string)
+* flair_type (string) - one of (USER_FLAIR, LINK_FLAIR)
+* text (string) - a string no longer than 64 characters
+* text_editable (string) - boolean value
+* uh (string) - a modhash
 
 ### api.flairselector.post
 Return information about a users's flair options.
@@ -2193,6 +3071,9 @@ retrieve that user's flair.
 reddit.api.flairselector.post({}, context)
 ```
 
+#### Parameters
+* link (string) - a fullname of a link
+* name (string) - a user by name
 
 ### api.flairlist.get
 This endpoint is a listing.
@@ -2202,6 +3083,14 @@ This endpoint is a listing.
 reddit.api.flairlist.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 1000)
+* name (string) - a user by name
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
 
 ### api.flaircsv.post
 Change the flair of multiple users in the same subreddit with a
@@ -2221,6 +3110,9 @@ applied, or a reason for the failure.
 reddit.api.flaircsv.post({}, context)
 ```
 
+#### Parameters
+* flair_csv (string) - comma-seperated flair information
+* uh (string) - a modhash
 
 ### api.flairconfig.post
 
@@ -2230,6 +3122,14 @@ reddit.api.flaircsv.post({}, context)
 reddit.api.flairconfig.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* flair_enabled (string) - boolean value
+* flair_position (string) - one of (left, right)
+* flair_self_assign_enabled (string) - boolean value
+* link_flair_position (string) - one of (`,left,right`)
+* link_flair_self_assign_enabled (string) - boolean value
+* uh (string) - a modhash
 
 ### api.flair.post
 
@@ -2239,6 +3139,13 @@ reddit.api.flairconfig.post({}, context)
 reddit.api.flair.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* css_class (string) - a valid subreddit image name
+* link (string) - a fullname of a link
+* name (string) - a user by name
+* text (string) - a string no longer than 64 characters
+* uh (string) - a modhash
 
 ### api.editusertext.post
 Edit the body text of a comment or self-post.
@@ -2248,6 +3155,11 @@ Edit the body text of a comment or self-post.
 reddit.api.editusertext.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* text (string) - raw markdown text
+* thing_id (string) - fullname of a thing created by the user
+* uh (string) - a modhash
 
 ### api.distinguish.post
 Distinguish a thing's author with a sigil.
@@ -2273,6 +3185,11 @@ in their inbox.
 reddit.api.distinguish.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* how (string) - one of (yes, no, admin, special)
+* id (string) - fullname of a thing
+* uh (string) - a modhash
 
 ### api.deleteflairtemplate.post
 
@@ -2282,6 +3199,10 @@ reddit.api.distinguish.post({}, context)
 reddit.api.deleteflairtemplate.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* flair_template_id (string)
+* uh (string) - a modhash
 
 ### api.deleteflair.post
 
@@ -2291,6 +3212,10 @@ reddit.api.deleteflairtemplate.post({}, context)
 reddit.api.deleteflair.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* name (string) - a user by name
+* uh (string) - a modhash
 
 ### api.delete_sr_img.post
 Remove an image from the subreddit's custom image set.
@@ -2308,6 +3233,10 @@ See also: /api/upload_sr_img.
 reddit.api.delete_sr_img.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* img_name (string) - a valid subreddit image name
+* uh (string) - a modhash
 
 ### api.delete_sr_icon.post
 Remove the subreddit's custom mobile icon.
@@ -2319,6 +3248,9 @@ See also: /api/upload_sr_img.
 reddit.api.delete_sr_icon.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* uh (string) - a modhash
 
 ### api.delete_sr_header.post
 Remove the subreddit's custom header image.
@@ -2332,6 +3264,9 @@ See also: /api/upload_sr_img.
 reddit.api.delete_sr_header.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* uh (string) - a modhash
 
 ### api.delete_sr_banner.post
 Remove the subreddit's custom mobile banner.
@@ -2343,6 +3278,9 @@ See also: /api/upload_sr_img.
 reddit.api.delete_sr_banner.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* uh (string) - a modhash
 
 ### api.del.post
 Delete a Link or Comment.
@@ -2352,6 +3290,9 @@ Delete a Link or Comment.
 reddit.api.del.post({}, context)
 ```
 
+#### Parameters
+* id (string) - fullname of a thing created by the user
+* uh (string) - a modhash
 
 ### api.compose.post
 Handles message composition under /message/compose.
@@ -2361,6 +3302,15 @@ Handles message composition under /message/compose.
 reddit.api.compose.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* captcha (string) - the user's response to the CAPTCHA challenge
+* from_sr (string) - subreddit name
+* iden (string) - the identifier of the CAPTCHA challenge
+* subject (string) - a string no longer than 100 characters
+* text (string) - raw markdown text
+* to (string) - the name of an existing user
+* uh (string) - a modhash
 
 ### api.comment.post
 Submit a new comment or reply to a message.
@@ -2383,6 +3333,11 @@ To start a new message thread, use /api/compose.
 reddit.api.comment.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* text (string) - raw markdown text
+* thing_id (string) - fullname of parent thing
+* uh (string) - a modhash
 
 ### api.collapse_message.post
 Collapse a message
@@ -2394,6 +3349,9 @@ See also: /api/uncollapse_message
 reddit.api.collapse_message.post({}, context)
 ```
 
+#### Parameters
+* id (string) - A comma-separated list of thing fullnames
+* uh (string) - a modhash
 
 ### api.clearflairtemplates.post
 
@@ -2403,6 +3361,10 @@ reddit.api.collapse_message.post({}, context)
 reddit.api.clearflairtemplates.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* flair_type (string) - one of (USER_FLAIR, LINK_FLAIR)
+* uh (string) - a modhash
 
 ### api.block.post
 For blocking via inbox.
@@ -2412,6 +3374,9 @@ For blocking via inbox.
 reddit.api.block.post({}, context)
 ```
 
+#### Parameters
+* id (string) - fullname of a thing
+* uh (string) - a modhash
 
 ### api.approve.post
 Approve a link or comment.
@@ -2426,6 +3391,9 @@ See also: /api/remove.
 reddit.api.approve.post({}, context)
 ```
 
+#### Parameters
+* id (string) - fullname of a thing
+* uh (string) - a modhash
 
 ### api.accept_moderator_invite.post
 Accept an invite to moderate the specified subreddit.
@@ -2441,6 +3409,9 @@ See also: /api/friend and
 reddit.api.accept_moderator_invite.post({}, context)
 ```
 
+#### Parameters
+* api_type (string) - the string json
+* uh (string) - a modhash
 
 ### about.where.get
 This endpoint is a listing.
@@ -2450,6 +3421,15 @@ This endpoint is a listing.
 reddit.about.where.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
+* user (string) - A valid, existing reddit username
+* where (string)
 
 ### about.location.get
 Return a listing of posts relevant to moderators.
@@ -2472,6 +3452,15 @@ This endpoint is a listing.
 reddit.about.location.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 100)
+* location (string)
+* only (string) - one of (links, comments)
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
 
 ### about.log.get
 Get a list of recent moderation actions.
@@ -2494,4 +3483,13 @@ This endpoint is a listing.
 reddit.about.log.get({}, context)
 ```
 
+#### Parameters
+* after (string) - fullname of a thing
+* before (string) - fullname of a thing
+* count (string) - a positive integer (default: 0)
+* limit (string) - the maximum number of items desired (default: 25, maximum: 500)
+* mod (string) - (optional) a moderator filter
+* show (string) - (optional) the string all
+* sr_detail (string) - (optional) expand subreddits
+* type (string) - one of (banuser, unbanuser, removelink, approvelink, removecomment, approvecomment, addmoderator, invitemoderator, uninvitemoderator, acceptmoderatorinvite, removemoderator, addcontributor, removecontributor, editsettings, editflair, distinguish, marknsfw, wikibanned, wikicontributor, wikiunbanned, wikipagelisted, removewikicontributor, wikirevise, wikipermlevel, ignorereports, unignorereports, setpermissions, setsuggestedsort, sticky, unsticky, setcontestmode, unsetcontestmode, lock, unlock, muteuser, unmuteuser, createrule, editrule, deleterule)
 

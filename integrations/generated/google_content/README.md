@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_content.shippingsettings.custombatch({}, context).then(data => {
   console.log(data);
 })
@@ -64,6 +63,14 @@ Returns information about the authenticated user.
 google_content.accounts.authinfo({}, context)
 ```
 
+#### Parameters
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### accounts.custombatch
 Retrieves, inserts, updates, and deletes multiple Merchant Center (sub-)accounts in a single request.
@@ -73,6 +80,16 @@ Retrieves, inserts, updates, and deletes multiple Merchant Center (sub-)accounts
 google_content.accounts.custombatch({}, context)
 ```
 
+#### Parameters
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### accountstatuses.custombatch
 
@@ -82,6 +99,15 @@ google_content.accounts.custombatch({}, context)
 google_content.accountstatuses.custombatch({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### accounttax.custombatch
 Retrieves and updates tax settings of multiple accounts in a single request.
@@ -91,6 +117,16 @@ Retrieves and updates tax settings of multiple accounts in a single request.
 google_content.accounttax.custombatch({}, context)
 ```
 
+#### Parameters
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### datafeeds.custombatch
 
@@ -100,6 +136,16 @@ google_content.accounttax.custombatch({}, context)
 google_content.datafeeds.custombatch({}, context)
 ```
 
+#### Parameters
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### datafeedstatuses.custombatch
 
@@ -109,6 +155,15 @@ google_content.datafeeds.custombatch({}, context)
 google_content.datafeedstatuses.custombatch({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### inventory.custombatch
 Updates price and availability for multiple products or stores in a single request. This operation does not update the expiration date of the products. This method can only be called for non-multi-client accounts.
@@ -118,6 +173,16 @@ Updates price and availability for multiple products or stores in a single reque
 google_content.inventory.custombatch({}, context)
 ```
 
+#### Parameters
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### orders.custombatch
 Retrieves or modifies multiple orders in a single request. This method can only be called for non-multi-client accounts.
@@ -127,6 +192,15 @@ Retrieves or modifies multiple orders in a single request. This method can only 
 google_content.orders.custombatch({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### products.custombatch
 Retrieves, inserts, and deletes multiple products in a single request. This method can only be called for non-multi-client accounts.
@@ -136,6 +210,16 @@ Retrieves, inserts, and deletes multiple products in a single request. This meth
 google_content.products.custombatch({}, context)
 ```
 
+#### Parameters
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### productstatuses.custombatch
 Gets the statuses of multiple products in a single request. This method can only be called for non-multi-client accounts.
@@ -145,6 +229,15 @@ Gets the statuses of multiple products in a single request. This method can only
 google_content.productstatuses.custombatch({}, context)
 ```
 
+#### Parameters
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### shippingsettings.custombatch
 Retrieves and updates the shipping settings of multiple accounts in a single request.
@@ -154,6 +247,16 @@ Retrieves and updates the shipping settings of multiple accounts in a single req
 google_content.shippingsettings.custombatch({}, context)
 ```
 
+#### Parameters
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### accounts.list
 Lists the sub-accounts in your Merchant Center account. This method can only be called for multi-client accounts.

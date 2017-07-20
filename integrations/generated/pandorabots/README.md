@@ -20,7 +20,6 @@ let context = new datafire.Context({
   }
 })
 
-
 pandorabots.atalkBot({}, context).then(data => {
   console.log(data);
 })

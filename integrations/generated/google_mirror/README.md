@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 google_mirror.timeline.insert({}, context).then(data => {
   console.log(data);
 })
@@ -89,6 +88,14 @@ Retrieves a list of contacts for the authenticated user.
 google_mirror.contacts.list({}, context)
 ```
 
+#### Parameters
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### contacts.insert
 Inserts a new contact.
@@ -98,6 +105,15 @@ Inserts a new contact.
 google_mirror.contacts.insert({}, context)
 ```
 
+#### Parameters
+* body (object) - A person or group that can be used as a creator or a contact.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### contacts.delete
 Deletes a contact.
@@ -189,6 +205,14 @@ Retrieves a list of locations for the user.
 google_mirror.locations.list({}, context)
 ```
 
+#### Parameters
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### locations.get
 Gets a single location by ID.
@@ -238,6 +262,14 @@ Retrieves a list of subscriptions for the authenticated user and service.
 google_mirror.subscriptions.list({}, context)
 ```
 
+#### Parameters
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### subscriptions.insert
 Creates a new subscription.
@@ -247,6 +279,15 @@ Creates a new subscription.
 google_mirror.subscriptions.insert({}, context)
 ```
 
+#### Parameters
+* body (object) - A subscription to events on a collection.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### subscriptions.delete
 Deletes a subscription.
@@ -297,6 +338,21 @@ Retrieves a list of timeline items for the authenticated user.
 google_mirror.timeline.list({}, context)
 ```
 
+#### Parameters
+* bundleId (string) - If provided, only items with the given bundleId will be returned.
+* includeDeleted (boolean) - If true, tombstone records for deleted items will be returned.
+* maxResults (integer) - The maximum number of items to include in the response, used for paging.
+* orderBy (string) - Controls the order in which timeline items are returned.
+* pageToken (string) - Token for the page of results to return.
+* pinnedOnly (boolean) - If true, only pinned items will be returned.
+* sourceItemId (string) - If provided, only items with the given sourceItemId will be returned.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### timeline.insert
 Inserts a new item into the timeline.
@@ -306,6 +362,15 @@ Inserts a new item into the timeline.
 google_mirror.timeline.insert({}, context)
 ```
 
+#### Parameters
+* body (object) - Each item in the user's timeline is represented as a TimelineItem JSON structure, described below.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
 
 ### timeline.delete
 Deletes a timeline item.

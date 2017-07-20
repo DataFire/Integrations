@@ -24,7 +24,6 @@ let context = new datafire.Context({
   }
 })
 
-
 motaword.getProjects({}, context).then(data => {
   console.log(data);
 })
@@ -124,6 +123,9 @@ Get a list of your projects
 motaword.getProjects({}, context)
 ```
 
+#### Parameters
+* page (integer)
+* per_page (integer)
 
 ### createProject
 Create a new project
