@@ -2,6 +2,7 @@ let iterate = require('./iterate-integrations');
 let async = require('async');
 let request = require('request');
 let fs = require('fs');
+let args = require('yargs').argv;
 let logos = {};
 
 const OUTDIR = __dirname + '/../logos';
@@ -16,7 +17,7 @@ iterate(function(dir, name, integ) {
   if (!logo) return;
   console.log(name);
   logos[name] = logo.url;
-});
+}, name => !args.name || args.name === name);
 
 async.series(Object.keys(logos).map(name => {
   return function(acb) {
