@@ -1,1294 +1,631 @@
 # @datafire/azure_arm_intune
+
+Client library for IntuneResourceManagementClient
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/azure_arm_intune
+```
+
+```js
+let datafire = require('datafire');
+let azure_arm_intune = require('@datafire/azure_arm_intune').actions;
+let context = new datafire.Context();
+
+azure_arm_intune.GetLocations({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Microsoft.Intune Resource provider Api features in the swagger-2.0 specification
 
-## Operation: GetLocations
+## Actions
+### GetLocations
 Returns location for user tenant.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.GetLocations({
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LocationCollection"
-}
-```
-## Operation: GetLocationByHostName
+
+#### Parameters
+* api-version (string) **required** - Service Api Version.
+
+### GetLocationByHostName
 Returns location for given tenant.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.GetLocationByHostName({
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Location"
-}
-```
-## Operation: Android_GetAppForMAMPolicy
+
+#### Parameters
+* api-version (string) **required** - Service Api Version.
+
+### Android_GetAppForMAMPolicy
 Get apps for an AndroidMAMPolicy.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "policyName": {
-      "type": "string",
-      "description": "Unique name for the policy"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "$select": {
-      "type": "string",
-      "description": "select specific fields in entity."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "policyName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.Android_GetAppForMAMPolicy({
+  "hostName": "",
+  "policyName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApplicationCollection"
-}
-```
-## Operation: Android_GetMAMPolicies
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* policyName (string) **required** - Unique name for the policy
+* api-version (string) **required** - Service Api Version.
+* $filter (string) - The filter to apply on the operation.
+* $top (integer)
+* $select (string) - select specific fields in entity.
+
+### Android_GetMAMPolicies
 Returns Intune Android policies.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "$select": {
-      "type": "string",
-      "description": "select specific fields in entity."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.Android_GetMAMPolicies({
+  "hostName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AndroidMAMPolicyCollection"
-}
-```
-## Operation: Android_DeleteMAMPolicy
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* api-version (string) **required** - Service Api Version.
+* $filter (string) - The filter to apply on the operation.
+* $top (integer)
+* $select (string) - select specific fields in entity.
+
+### Android_DeleteMAMPolicy
 Delete Android Policy
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "policyName": {
-      "type": "string",
-      "description": "Unique name for the policy"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "policyName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.Android_DeleteMAMPolicy({
+  "hostName": "",
+  "policyName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Android_GetMAMPolicyByName
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* policyName (string) **required** - Unique name for the policy
+* api-version (string) **required** - Service Api Version.
+
+### Android_GetMAMPolicyByName
 Returns AndroidMAMPolicy with given name.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "policyName": {
-      "type": "string",
-      "description": "Unique name for the policy"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    },
-    "$select": {
-      "type": "string",
-      "description": "select specific fields in entity."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "policyName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.Android_GetMAMPolicyByName({
+  "hostName": "",
+  "policyName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AndroidMAMPolicy"
-}
-```
-## Operation: Android_PatchMAMPolicy
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* policyName (string) **required** - Unique name for the policy
+* api-version (string) **required** - Service Api Version.
+* $select (string) - select specific fields in entity.
+
+### Android_PatchMAMPolicy
 Patch AndroidMAMPolicy.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "policyName": {
-      "type": "string",
-      "description": "Unique name for the policy"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/AndroidMAMPolicy"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "policyName",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_intune.Android_PatchMAMPolicy({
+  "hostName": "",
+  "policyName": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AndroidMAMPolicy"
-}
-```
-## Operation: Android_CreateOrUpdateMAMPolicy
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* policyName (string) **required** - Unique name for the policy
+* api-version (string) **required** - Service Api Version.
+* parameters (undefined) **required** - Android Policy entity for Intune MAM.
+
+### Android_CreateOrUpdateMAMPolicy
 Creates or updates AndroidMAMPolicy.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "policyName": {
-      "type": "string",
-      "description": "Unique name for the policy"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/AndroidMAMPolicy"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "policyName",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_intune.Android_CreateOrUpdateMAMPolicy({
+  "hostName": "",
+  "policyName": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AndroidMAMPolicy"
-}
-```
-## Operation: Android_DeleteAppForMAMPolicy
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* policyName (string) **required** - Unique name for the policy
+* api-version (string) **required** - Service Api Version.
+* parameters (undefined) **required** - Android Policy entity for Intune MAM.
+
+### Android_DeleteAppForMAMPolicy
 Delete App for Android Policy
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "policyName": {
-      "type": "string",
-      "description": "Unique name for the policy"
-    },
-    "appName": {
-      "type": "string",
-      "description": "application unique Name"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "policyName",
-    "appName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.Android_DeleteAppForMAMPolicy({
+  "hostName": "",
+  "policyName": "",
+  "appName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Android_AddAppForMAMPolicy
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* policyName (string) **required** - Unique name for the policy
+* appName (string) **required** - application unique Name
+* api-version (string) **required** - Service Api Version.
+
+### Android_AddAppForMAMPolicy
 Add app to an AndroidMAMPolicy.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "policyName": {
-      "type": "string",
-      "description": "Unique name for the policy"
-    },
-    "appName": {
-      "type": "string",
-      "description": "application unique Name"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/MAMPolicyAppIdOrGroupIdPayload"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "policyName",
-    "appName",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_intune.Android_AddAppForMAMPolicy({
+  "hostName": "",
+  "policyName": "",
+  "appName": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Android_GetGroupsForMAMPolicy
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* policyName (string) **required** - Unique name for the policy
+* appName (string) **required** - application unique Name
+* api-version (string) **required** - Service Api Version.
+* parameters (undefined) **required** - MAM Policy request body for properties Intune MAM.
+
+### Android_GetGroupsForMAMPolicy
 Returns groups for a given AndroidMAMPolicy.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "policyName": {
-      "type": "string",
-      "description": "policy name for the tenant"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "policyName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.Android_GetGroupsForMAMPolicy({
+  "hostName": "",
+  "policyName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GroupsCollection"
-}
-```
-## Operation: Android_DeleteGroupForMAMPolicy
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* policyName (string) **required** - policy name for the tenant
+* api-version (string) **required** - Service Api Version.
+
+### Android_DeleteGroupForMAMPolicy
 Delete Group for Android Policy
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "policyName": {
-      "type": "string",
-      "description": "Unique name for the policy"
-    },
-    "groupId": {
-      "type": "string",
-      "description": "application unique Name"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "policyName",
-    "groupId",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.Android_DeleteGroupForMAMPolicy({
+  "hostName": "",
+  "policyName": "",
+  "groupId": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Android_AddGroupForMAMPolicy
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* policyName (string) **required** - Unique name for the policy
+* groupId (string) **required** - application unique Name
+* api-version (string) **required** - Service Api Version.
+
+### Android_AddGroupForMAMPolicy
 Add group to an AndroidMAMPolicy.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "policyName": {
-      "type": "string",
-      "description": "Unique name for the policy"
-    },
-    "groupId": {
-      "type": "string",
-      "description": "group Id"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/MAMPolicyAppIdOrGroupIdPayload"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "policyName",
-    "groupId",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_intune.Android_AddGroupForMAMPolicy({
+  "hostName": "",
+  "policyName": "",
+  "groupId": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: GetApps
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* policyName (string) **required** - Unique name for the policy
+* groupId (string) **required** - group Id
+* api-version (string) **required** - Service Api Version.
+* parameters (undefined) **required** - MAM Policy request body for properties Intune MAM.
+
+### GetApps
 Returns Intune Manageable apps.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "$select": {
-      "type": "string",
-      "description": "select specific fields in entity."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.GetApps({
+  "hostName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApplicationCollection"
-}
-```
-## Operation: GetMAMFlaggedUsers
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* api-version (string) **required** - Service Api Version.
+* $filter (string) - The filter to apply on the operation.
+* $top (integer)
+* $select (string) - select specific fields in entity.
+
+### GetMAMFlaggedUsers
 Returns Intune flagged user collection
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "$select": {
-      "type": "string",
-      "description": "select specific fields in entity."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.GetMAMFlaggedUsers({
+  "hostName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/FlaggedUserCollection"
-}
-```
-## Operation: GetMAMFlaggedUserByName
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* api-version (string) **required** - Service Api Version.
+* $filter (string) - The filter to apply on the operation.
+* $top (integer)
+* $select (string) - select specific fields in entity.
+
+### GetMAMFlaggedUserByName
 Returns Intune flagged user details
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "userName": {
-      "type": "string",
-      "description": "Flagged userName"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    },
-    "$select": {
-      "type": "string",
-      "description": "select specific fields in entity."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "userName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.GetMAMFlaggedUserByName({
+  "hostName": "",
+  "userName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/FlaggedUser"
-}
-```
-## Operation: GetMAMUserFlaggedEnrolledApps
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* userName (string) **required** - Flagged userName
+* api-version (string) **required** - Service Api Version.
+* $select (string) - select specific fields in entity.
+
+### GetMAMUserFlaggedEnrolledApps
 Returns Intune flagged enrolled app collection for the User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "userName": {
-      "type": "string",
-      "description": "User name for the tenant"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "$select": {
-      "type": "string",
-      "description": "select specific fields in entity."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "userName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.GetMAMUserFlaggedEnrolledApps({
+  "hostName": "",
+  "userName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/FlaggedEnrolledAppCollection"
-}
-```
-## Operation: Ios_GetMAMPolicies
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* userName (string) **required** - User name for the tenant
+* api-version (string) **required** - Service Api Version.
+* $filter (string) - The filter to apply on the operation.
+* $top (integer)
+* $select (string) - select specific fields in entity.
+
+### Ios_GetMAMPolicies
 Returns Intune iOSPolicies.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "$select": {
-      "type": "string",
-      "description": "select specific fields in entity."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.Ios_GetMAMPolicies({
+  "hostName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/IOSMAMPolicyCollection"
-}
-```
-## Operation: Ios_DeleteMAMPolicy
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* api-version (string) **required** - Service Api Version.
+* $filter (string) - The filter to apply on the operation.
+* $top (integer)
+* $select (string) - select specific fields in entity.
+
+### Ios_DeleteMAMPolicy
 Delete Ios Policy
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "policyName": {
-      "type": "string",
-      "description": "Unique name for the policy"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "policyName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.Ios_DeleteMAMPolicy({
+  "hostName": "",
+  "policyName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Ios_GetMAMPolicyByName
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* policyName (string) **required** - Unique name for the policy
+* api-version (string) **required** - Service Api Version.
+
+### Ios_GetMAMPolicyByName
 Returns Intune iOS policies.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "policyName": {
-      "type": "string",
-      "description": "Unique name for the policy"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    },
-    "$select": {
-      "type": "string",
-      "description": "select specific fields in entity."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "policyName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.Ios_GetMAMPolicyByName({
+  "hostName": "",
+  "policyName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/iOSMAMPolicy"
-}
-```
-## Operation: Ios_PatchMAMPolicy
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* policyName (string) **required** - Unique name for the policy
+* api-version (string) **required** - Service Api Version.
+* $select (string) - select specific fields in entity.
+
+### Ios_PatchMAMPolicy
  patch an iOSMAMPolicy.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "policyName": {
-      "type": "string",
-      "description": "Unique name for the policy"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/iOSMAMPolicy"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "policyName",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_intune.Ios_PatchMAMPolicy({
+  "hostName": "",
+  "policyName": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/iOSMAMPolicy"
-}
-```
-## Operation: Ios_CreateOrUpdateMAMPolicy
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* policyName (string) **required** - Unique name for the policy
+* api-version (string) **required** - Service Api Version.
+* parameters (undefined) **required** - iOS Policy entity for Intune MAM.
+
+### Ios_CreateOrUpdateMAMPolicy
 Creates or updates iOSMAMPolicy.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "policyName": {
-      "type": "string",
-      "description": "Unique name for the policy"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/iOSMAMPolicy"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "policyName",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_intune.Ios_CreateOrUpdateMAMPolicy({
+  "hostName": "",
+  "policyName": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/iOSMAMPolicy"
-}
-```
-## Operation: Ios_GetAppForMAMPolicy
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* policyName (string) **required** - Unique name for the policy
+* api-version (string) **required** - Service Api Version.
+* parameters (undefined) **required** - iOS Policy entity for Intune MAM.
+
+### Ios_GetAppForMAMPolicy
 Get apps for an iOSMAMPolicy.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "policyName": {
-      "type": "string",
-      "description": "Unique name for the policy"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "$select": {
-      "type": "string",
-      "description": "select specific fields in entity."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "policyName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.Ios_GetAppForMAMPolicy({
+  "hostName": "",
+  "policyName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApplicationCollection"
-}
-```
-## Operation: Ios_DeleteAppForMAMPolicy
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* policyName (string) **required** - Unique name for the policy
+* api-version (string) **required** - Service Api Version.
+* $filter (string) - The filter to apply on the operation.
+* $top (integer)
+* $select (string) - select specific fields in entity.
+
+### Ios_DeleteAppForMAMPolicy
 Delete App for Ios Policy
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "policyName": {
-      "type": "string",
-      "description": "Unique name for the policy"
-    },
-    "appName": {
-      "type": "string",
-      "description": "application unique Name"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "policyName",
-    "appName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.Ios_DeleteAppForMAMPolicy({
+  "hostName": "",
+  "policyName": "",
+  "appName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Ios_AddAppForMAMPolicy
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* policyName (string) **required** - Unique name for the policy
+* appName (string) **required** - application unique Name
+* api-version (string) **required** - Service Api Version.
+
+### Ios_AddAppForMAMPolicy
 Add app to an iOSMAMPolicy.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "policyName": {
-      "type": "string",
-      "description": "Unique name for the policy"
-    },
-    "appName": {
-      "type": "string",
-      "description": "application unique Name"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/MAMPolicyAppIdOrGroupIdPayload"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "policyName",
-    "appName",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_intune.Ios_AddAppForMAMPolicy({
+  "hostName": "",
+  "policyName": "",
+  "appName": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Ios_GetGroupsForMAMPolicy
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* policyName (string) **required** - Unique name for the policy
+* appName (string) **required** - application unique Name
+* api-version (string) **required** - Service Api Version.
+* parameters (undefined) **required** - MAM Policy request body for properties Intune MAM.
+
+### Ios_GetGroupsForMAMPolicy
 Returns groups for a given iOSMAMPolicy.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "policyName": {
-      "type": "string",
-      "description": "policy name for the tenant"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "policyName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.Ios_GetGroupsForMAMPolicy({
+  "hostName": "",
+  "policyName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GroupsCollection"
-}
-```
-## Operation: Ios_DeleteGroupForMAMPolicy
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* policyName (string) **required** - policy name for the tenant
+* api-version (string) **required** - Service Api Version.
+
+### Ios_DeleteGroupForMAMPolicy
 Delete Group for iOS Policy
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "policyName": {
-      "type": "string",
-      "description": "Unique name for the policy"
-    },
-    "groupId": {
-      "type": "string",
-      "description": "application unique Name"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "policyName",
-    "groupId",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.Ios_DeleteGroupForMAMPolicy({
+  "hostName": "",
+  "policyName": "",
+  "groupId": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Ios_AddGroupForMAMPolicy
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* policyName (string) **required** - Unique name for the policy
+* groupId (string) **required** - application unique Name
+* api-version (string) **required** - Service Api Version.
+
+### Ios_AddGroupForMAMPolicy
 Add group to an iOSMAMPolicy.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "policyName": {
-      "type": "string",
-      "description": "Unique name for the policy"
-    },
-    "groupId": {
-      "type": "string",
-      "description": "group Id"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/MAMPolicyAppIdOrGroupIdPayload"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "policyName",
-    "groupId",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_intune.Ios_AddGroupForMAMPolicy({
+  "hostName": "",
+  "policyName": "",
+  "groupId": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: GetOperationResults
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* policyName (string) **required** - Unique name for the policy
+* groupId (string) **required** - group Id
+* api-version (string) **required** - Service Api Version.
+* parameters (undefined) **required** - MAM Policy request body for properties Intune MAM.
+
+### GetOperationResults
 Returns operationResults.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "$select": {
-      "type": "string",
-      "description": "select specific fields in entity."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.GetOperationResults({
+  "hostName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OperationResultCollection"
-}
-```
-## Operation: GetMAMStatuses
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* api-version (string) **required** - Service Api Version.
+* $filter (string) - The filter to apply on the operation.
+* $top (integer)
+* $select (string) - select specific fields in entity.
+
+### GetMAMStatuses
 Returns Intune Tenant level statuses.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.GetMAMStatuses({
+  "hostName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/StatusesDefault"
-}
-```
-## Operation: GetMAMUserDevices
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* api-version (string) **required** - Service Api Version.
+
+### GetMAMUserDevices
 Get devices for a user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "userName": {
-      "type": "string",
-      "description": "user unique Name"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "$select": {
-      "type": "string",
-      "description": "select specific fields in entity."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "userName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.GetMAMUserDevices({
+  "hostName": "",
+  "userName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeviceCollection"
-}
-```
-## Operation: GetMAMUserDeviceByDeviceName
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* userName (string) **required** - user unique Name
+* api-version (string) **required** - Service Api Version.
+* $filter (string) - The filter to apply on the operation.
+* $top (integer)
+* $select (string) - select specific fields in entity.
+
+### GetMAMUserDeviceByDeviceName
 Get a unique device for a user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "userName": {
-      "type": "string",
-      "description": "unique user name"
-    },
-    "deviceName": {
-      "type": "string",
-      "description": "device name"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    },
-    "$select": {
-      "type": "string",
-      "description": "select specific fields in entity."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "userName",
-    "deviceName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.GetMAMUserDeviceByDeviceName({
+  "hostName": "",
+  "userName": "",
+  "deviceName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Device"
-}
-```
-## Operation: WipeMAMUserDevice
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* userName (string) **required** - unique user name
+* deviceName (string) **required** - device name
+* api-version (string) **required** - Service Api Version.
+* $select (string) - select specific fields in entity.
+
+### WipeMAMUserDevice
 Wipe a device for a user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hostName": {
-      "type": "string",
-      "description": "Location hostName for the tenant"
-    },
-    "userName": {
-      "type": "string",
-      "description": "unique user name"
-    },
-    "deviceName": {
-      "type": "string",
-      "description": "device name"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Service Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hostName",
-    "userName",
-    "deviceName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_intune.WipeMAMUserDevice({
+  "hostName": "",
+  "userName": "",
+  "deviceName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WipeDeviceOperationResult"
-}
-```
+
+#### Parameters
+* hostName (string) **required** - Location hostName for the tenant
+* userName (string) **required** - unique user name
+* deviceName (string) **required** - device name
+* api-version (string) **required** - Service Api Version.
+

@@ -1,78 +1,65 @@
 # @datafire/authentiq
+
+Client library for Authentiq Connect
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/authentiq
+```
+
+```js
+let datafire = require('datafire');
+let authentiq = require('@datafire/authentiq').actions;
+
+let account = {
+  client_registration_token: "",
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    authentiq: account,
+  }
+})
+
+
+authentiq.authorize({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Authentiq Connect OAuth 2.0 and OpenID Connect API reference.
 Learn about [Authentiq ID](https://www.authentiq.com/) or check out the [Authentiq Connect](https://developers.authentiq.com) developer documentation.
 
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+authentiq.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+authentiq.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: authorize
+
+
+### authorize
 Start a session with Authentiq Connect and authenticate a user.
 
 Example:
@@ -90,88 +77,41 @@ See also:
   - [OIDC Error Authentication response](http://openid.net/specs/openid-connect-core-1_0.html#AuthError)
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "client_id": {
-      "type": "string",
-      "description": "A client ID obtained from the [Dashboard](https://dashboard.authentiq.com/).\n"
-    },
-    "response_type": {
-      "type": "string",
-      "description": "The OIDC response type to use for this authentication flow. Valid choices are `code`, `id_token`, `token`, `token id_token`, `code id_token` `code token` and `code token id_token`, but a client can be configured with a more restricted set.\n"
-    },
-    "scope": {
-      "type": "string",
-      "description": "The space-separated identity claims to request from the end-user. Always include `openid` as a scope for compatibility with OIDC.\n"
-    },
-    "redirect_uri": {
-      "type": "string",
-      "description": "The location to redirect to after (un)successful authentication. See OIDC for the parameters passed in the query string (`response_mode=query`) or as fragments (`response_mode=fragment`). Unless the client is in test-mode this must be one of the registered redirect URLs.\n"
-    },
-    "state": {
-      "type": "string",
-      "description": "An opaque string that will be passed back to the redirect URL and therefore can be used to communicate client side state and prevent CSRF attacks.\n"
-    },
-    "response_mode": {
-      "type": "string",
-      "description": "Whether to append parameters to the redirect URL in the query string (`query`) or as fragments (`fragment`). This option usually has a sensible default for each of the response types.\n"
-    },
-    "nonce": {
-      "type": "string",
-      "description": "An nonce provided by the client (and opaque to Authentiq Connect) that will be included in any ID Token generated for this session. Clients should use the nonce to mitigate replay attacks.\n"
-    },
-    "display": {
-      "type": "string",
-      "description": "The authentication display mode, which can be one of `page`, `popup` or `modal`. Defaults to `page`.\n"
-    },
-    "prompt": {
-      "type": "string",
-      "description": "Space-delimited, case sensitive list of ASCII string values that specifies whether the Authorization Server prompts the End-User for reauthentication and consent. The supported values are: `none`, `login`, `consent`. If `consent` the end-user is asked to (re)confirm what claims they share. Use `none` to check for an active session.\n"
-    },
-    "max_age": {
-      "type": "integer",
-      "description": "Specifies the allowable elapsed time in seconds since the last time the end-user was actively authenticated.\n"
-    },
-    "ui_locales": {
-      "type": "string",
-      "description": "Specifies the preferred language to use on the authorization page, as a space-separated list of BCP47 language tags. Ignored at the moment.\n"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "client_id",
-    "response_type",
-    "scope",
-    "redirect_uri",
-    "state"
-  ]
-}
+
+```js
+authentiq.authorize({
+  "client_id": "",
+  "response_type": "",
+  "scope": "",
+  "redirect_uri": "",
+  "state": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: client
+
+#### Parameters
+* client_id (string) **required** - A client ID obtained from the [Dashboard](https://dashboard.authentiq.com/).
+* response_type (string) **required** - The OIDC response type to use for this authentication flow. Valid choices are `code`, `id_token`, `token`, `token id_token`, `code id_token` `code token` and `code token id_token`, but a client can be configured with a more restricted set.
+* scope (string) **required** - The space-separated identity claims to request from the end-user. Always include `openid` as a scope for compatibility with OIDC.
+* redirect_uri (string) **required** - The location to redirect to after (un)successful authentication. See OIDC for the parameters passed in the query string (`response_mode=query`) or as fragments (`response_mode=fragment`). Unless the client is in test-mode this must be one of the registered redirect URLs.
+* state (string) **required** - An opaque string that will be passed back to the redirect URL and therefore can be used to communicate client side state and prevent CSRF attacks.
+* response_mode (string) - Whether to append parameters to the redirect URL in the query string (`query`) or as fragments (`fragment`). This option usually has a sensible default for each of the response types.
+* nonce (string) - An nonce provided by the client (and opaque to Authentiq Connect) that will be included in any ID Token generated for this session. Clients should use the nonce to mitigate replay attacks.
+* display (string) - The authentication display mode, which can be one of `page`, `popup` or `modal`. Defaults to `page`.
+* prompt (string) - Space-delimited, case sensitive list of ASCII string values that specifies whether the Authorization Server prompts the End-User for reauthentication and consent. The supported values are: `none`, `login`, `consent`. If `consent` the end-user is asked to (re)confirm what claims they share. Use `none` to check for an active session.
+* max_age (integer) - Specifies the allowable elapsed time in seconds since the last time the end-user was actively authenticated.
+* ui_locales (string) - Specifies the preferred language to use on the authorization page, as a space-separated list of BCP47 language tags. Ignored at the moment.
+
+### client
 Retrieve a list of clients.
 
 
-### Input Schema
-```json
-{}
+
+```js
+authentiq.client(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Client"
-  },
-  "type": "array"
-}
-```
-## Operation: createClient
+
+
+### createClient
 Register a new client with this Authentiq Connect provider.
 
 This endpoint is compatible with [OIDC's Client Registration](http://openid.net/specs/openid-connect-registration-1_0.html) extension.
@@ -180,112 +120,67 @@ See also:
 - [OIDC Client Registration Endpoint](http://openid.net/specs/openid-connect-registration-1_0.html#ClientRegistration)
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Client"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+authentiq.createClient({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: clientClient_id
+
+#### Parameters
+* body (undefined) **required** - Client object
+
+### clientClient_id
 Delete a previously registered client.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "client_id": {
-      "type": "string",
-      "description": "Client identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "client_id"
-  ]
-}
+
+```js
+authentiq.clientClient_id({
+  "client_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getClient
+
+#### Parameters
+* client_id (string) **required** - Client identifier
+
+### getClient
 Retrieve the configuration of a previously registered client.
 
 See also:
 - [OIDC Client Configuration Endpoint](http://openid.net/specs/openid-connect-registration-1_0.html#ClientConfigurationEndpoint)
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "client_id": {
-      "type": "string",
-      "description": "Client identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "client_id"
-  ]
-}
+
+```js
+authentiq.getClient({
+  "client_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Client"
-}
-```
-## Operation: updateClient
+
+#### Parameters
+* client_id (string) **required** - Client identifier
+
+### updateClient
 Update the configuration of a previously registered client.
 
 See also:
 - [OIDC Client Configuration Endpoint](http://openid.net/specs/openid-connect-registration-1_0.html#ClientConfigurationEndpoint)
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "client_id": {
-      "type": "string",
-      "description": "Client identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/Client"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "client_id",
-    "body"
-  ]
-}
+
+```js
+authentiq.updateClient({
+  "client_id": "",
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Client"
-}
-```
-## Operation: token
+
+#### Parameters
+* client_id (string) **required** - Client identifier
+* body (undefined) **required** - Client object
+
+### token
 Exchange en authorization code for an ID Token or Access Token.
 
 This endpoint supports both `client_secret_post` and `client_secret_basic` authenticatino methods, as specified by the client's `token_endpoint_auth_method`.
@@ -296,70 +191,38 @@ See also:
   - [OIDC Token Error response](http://openid.net/specs/openid-connect-core-1_0.html#TokenError)
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Authorization": {
-      "type": "string",
-      "description": "HTTP Basic authorization header.\n"
-    },
-    "client_id": {
-      "type": "string",
-      "description": "The registered client ID.\n"
-    },
-    "client_secret": {
-      "type": "string",
-      "format": "password",
-      "description": "The registered client ID secret.\n"
-    },
-    "grant_type": {
-      "type": "string",
-      "description": "The authorization grant type, must be `authorization_code`.\n"
-    },
-    "code": {
-      "type": "string",
-      "description": "The authorization code previously obtained from the Authentication endpoint.\n"
-    },
-    "redirect_uri": {
-      "type": "string",
-      "description": "The redirect URL that was used previously with the Authentication endpoint.\n"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "client_id",
-    "client_secret",
-    "grant_type",
-    "code",
-    "redirect_uri"
-  ]
-}
+
+```js
+authentiq.token({
+  "client_id": "",
+  "client_secret": "",
+  "grant_type": "",
+  "code": "",
+  "redirect_uri": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Token"
-}
-```
-## Operation: userInfo
+
+#### Parameters
+* Authorization (string) - HTTP Basic authorization header.
+* client_id (string) **required** - The registered client ID.
+* client_secret (string) **required** - The registered client ID secret.
+* grant_type (string) **required** - The authorization grant type, must be `authorization_code`.
+* code (string) **required** - The authorization code previously obtained from the Authentication endpoint.
+* redirect_uri (string) **required** - The redirect URL that was used previously with the Authentication endpoint.
+
+### userInfo
 Use this endpoint to retrieve a user's profile in case you've not already obtained enough details from the ID Token via the Token Endpoint.
  See also:
  - [OIDC UserInfo endpoint](http://openid.net/specs/openid-connect-core-1_0.html#UserInfo)
 
 
-### Input Schema
-```json
-{}
+
+```js
+authentiq.userInfo(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserInfo"
-}
-```
-## Operation: authorizeIframe
+
+
+### authorizeIframe
 An OpenID Connect Session Management iframe to facilitate e.g. single sign-on or remote logouts.
 
 The iframe implements the OIDC postMessage-based [change notification protocol](http://openid.net/specs/openid-connect-session-1_0.html#ChangeNotification) via which a client can receive notifications about session state changes.
@@ -368,23 +231,13 @@ See also:
 - [OIDC OP iframe](http://openid.net/specs/openid-connect-session-1_0.html#OPiframe)
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "client_id": {
-      "type": "string",
-      "description": "Client identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "client_id"
-  ]
-}
+
+```js
+authentiq.authorizeIframe({
+  "client_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* client_id (string) **required** - Client identifier
+

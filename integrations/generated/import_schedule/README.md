@@ -1,88 +1,83 @@
 # @datafire/import_schedule
 
+Client library for import.io
 
-## Operation: extractor.get
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/import_schedule
+```
+
+```js
+let datafire = require('datafire');
+let import_schedule = require('@datafire/import_schedule').actions;
+
+let account = {
+  api_key: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    import_schedule: account,
+  }
+})
+
+
+import_schedule.extractor.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
+
+
+## Actions
+### extractor.get
 Get the list of schedules for all your extractors
 
-### Input Schema
-```json
-{}
+
+```js
+import_schedule.extractor.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Schedule"
-}
-```
-## Operation: extractor.post
+
+
+### extractor.post
 Schedule and extractor to run at a specific time
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Schedule Request Body": {
-      "$ref": "#/definitions/ScheduleRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Schedule Request Body"
-  ]
-}
+
+```js
+import_schedule.extractor.post({
+  "Schedule Request Body": {
+    "extractorId": "",
+    "interval": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Schedule"
-}
-```
-## Operation: extractor.extractorId.delete
+
+#### Parameters
+* Schedule Request Body (object) **required**
+
+### extractor.extractorId.delete
 Delete an existing schedule
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "extractorId": {
-      "type": "string",
-      "description": "the id of the extractor with a schedule"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "extractorId"
-  ]
-}
+
+```js
+import_schedule.extractor.extractorId.delete({
+  "extractorId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: extractor.extractorId.get
+
+#### Parameters
+* extractorId (string) **required** - the id of the extractor with a schedule
+
+### extractor.extractorId.get
 Get the schedule of a particular extractor
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "extractorId": {
-      "type": "string",
-      "description": "the id of the extractor with a schedule"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "extractorId"
-  ]
-}
+
+```js
+import_schedule.extractor.extractorId.get({
+  "extractorId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Schedule"
-}
-```
+
+#### Parameters
+* extractorId (string) **required** - the id of the extractor with a schedule
+

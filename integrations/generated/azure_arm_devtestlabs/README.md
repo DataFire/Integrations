@@ -1,2471 +1,1173 @@
 # @datafire/azure_arm_devtestlabs
+
+Client library for DevTestLabsClient
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/azure_arm_devtestlabs
+```
+
+```js
+let datafire = require('datafire');
+let azure_arm_devtestlabs = require('@datafire/azure_arm_devtestlabs').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    azure_arm_devtestlabs: account,
+  }
+})
+
+
+azure_arm_devtestlabs.Lab_ListBySubscription({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 The DevTest Labs Client.
 
-## Operation: Lab_ListBySubscription
+## Actions
+### Lab_ListBySubscription
 List labs in a subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The maximum number of resources to return from the operation."
-    },
-    "$orderBy": {
-      "type": "string",
-      "description": "The ordering expression for the results, using OData notation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Lab_ListBySubscription({
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ResponseWithContinuation[Lab]"
-}
-```
-## Operation: Lab_ListByResourceGroup
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* $filter (string) - The filter to apply on the operation.
+* $top (integer) - The maximum number of resources to return from the operation.
+* $orderBy (string) - The ordering expression for the results, using OData notation.
+* api-version (string) **required** - Client API version.
+
+### Lab_ListByResourceGroup
 List labs in a resource group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The maximum number of resources to return from the operation."
-    },
-    "$orderBy": {
-      "type": "string",
-      "description": "The ordering expression for the results, using OData notation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Lab_ListByResourceGroup({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ResponseWithContinuation[Lab]"
-}
-```
-## Operation: ArtifactSource_List
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* $filter (string) - The filter to apply on the operation.
+* $top (integer) - The maximum number of resources to return from the operation.
+* $orderBy (string) - The ordering expression for the results, using OData notation.
+* api-version (string) **required** - Client API version.
+
+### ArtifactSource_List
 List artifact sources in a given lab.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The maximum number of resources to return from the operation."
-    },
-    "$orderBy": {
-      "type": "string",
-      "description": "The ordering expression for the results, using OData notation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.ArtifactSource_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ResponseWithContinuation[ArtifactSource]"
-}
-```
-## Operation: Artifact_List
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* $filter (string) - The filter to apply on the operation.
+* $top (integer) - The maximum number of resources to return from the operation.
+* $orderBy (string) - The ordering expression for the results, using OData notation.
+* api-version (string) **required** - Client API version.
+
+### Artifact_List
 List artifacts in a given artifact source.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "artifactSourceName": {
-      "type": "string",
-      "description": "The name of the artifact source."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The maximum number of resources to return from the operation."
-    },
-    "$orderBy": {
-      "type": "string",
-      "description": "The ordering expression for the results, using OData notation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "artifactSourceName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Artifact_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "artifactSourceName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ResponseWithContinuation[Artifact]"
-}
-```
-## Operation: Artifact_GetResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* artifactSourceName (string) **required** - The name of the artifact source.
+* $filter (string) - The filter to apply on the operation.
+* $top (integer) - The maximum number of resources to return from the operation.
+* $orderBy (string) - The ordering expression for the results, using OData notation.
+* api-version (string) **required** - Client API version.
+
+### Artifact_GetResource
 Get artifact.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "artifactSourceName": {
-      "type": "string",
-      "description": "The name of the artifact source."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the artifact."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "artifactSourceName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Artifact_GetResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "artifactSourceName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Artifact"
-}
-```
-## Operation: Artifact_GenerateArmTemplate
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* artifactSourceName (string) **required** - The name of the artifact source.
+* name (string) **required** - The name of the artifact.
+* api-version (string) **required** - Client API version.
+
+### Artifact_GenerateArmTemplate
 Generates an ARM template for the given artifact, uploads the required files to a storage account, and validates the generated artifact.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "artifactSourceName": {
-      "type": "string",
-      "description": "The name of the artifact source."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the artifact."
-    },
-    "generateArmTemplateRequest": {
-      "$ref": "#/definitions/GenerateArmTemplateRequest"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "artifactSourceName",
-    "name",
-    "generateArmTemplateRequest",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Artifact_GenerateArmTemplate({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "artifactSourceName": "",
+  "name": "",
+  "generateArmTemplateRequest": {},
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ArmTemplateInfo"
-}
-```
-## Operation: ArtifactSource_DeleteResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* artifactSourceName (string) **required** - The name of the artifact source.
+* name (string) **required** - The name of the artifact.
+* generateArmTemplateRequest (object) **required** - Parameters for generating an ARM template for deploying artifacts.
+* api-version (string) **required** - Client API version.
+
+### ArtifactSource_DeleteResource
 Delete artifact source.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the artifact source."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.ArtifactSource_DeleteResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ArtifactSource_GetResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the artifact source.
+* api-version (string) **required** - Client API version.
+
+### ArtifactSource_GetResource
 Get artifact source.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the artifact source."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.ArtifactSource_GetResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ArtifactSource"
-}
-```
-## Operation: ArtifactSource_PatchResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the artifact source.
+* api-version (string) **required** - Client API version.
+
+### ArtifactSource_PatchResource
 Modify properties of artifact sources.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the artifact source."
-    },
-    "artifactSource": {
-      "$ref": "#/definitions/ArtifactSource"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "artifactSource",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.ArtifactSource_PatchResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "artifactSource": {},
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ArtifactSource"
-}
-```
-## Operation: ArtifactSource_CreateOrUpdateResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the artifact source.
+* artifactSource (object) **required** - Properties of an artifact source.
+* api-version (string) **required** - Client API version.
+
+### ArtifactSource_CreateOrUpdateResource
 Create or replace an existing artifact source.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the artifact source."
-    },
-    "artifactSource": {
-      "$ref": "#/definitions/ArtifactSource"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "artifactSource",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.ArtifactSource_CreateOrUpdateResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "artifactSource": {},
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ArtifactSource"
-}
-```
-## Operation: Cost_GetResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the artifact source.
+* artifactSource (object) **required** - Properties of an artifact source.
+* api-version (string) **required** - Client API version.
+
+### Cost_GetResource
 Get cost.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the cost."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Cost_GetResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Cost"
-}
-```
-## Operation: CustomImage_List
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the cost.
+* api-version (string) **required** - Client API version.
+
+### CustomImage_List
 List custom images in a given lab.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The maximum number of resources to return from the operation."
-    },
-    "$orderBy": {
-      "type": "string",
-      "description": "The ordering expression for the results, using OData notation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.CustomImage_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ResponseWithContinuation[CustomImage]"
-}
-```
-## Operation: CustomImage_DeleteResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* $filter (string) - The filter to apply on the operation.
+* $top (integer) - The maximum number of resources to return from the operation.
+* $orderBy (string) - The ordering expression for the results, using OData notation.
+* api-version (string) **required** - Client API version.
+
+### CustomImage_DeleteResource
 Delete custom image. This operation can take a while to complete.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the custom image."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.CustomImage_DeleteResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: CustomImage_GetResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the custom image.
+* api-version (string) **required** - Client API version.
+
+### CustomImage_GetResource
 Get custom image.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the custom image."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.CustomImage_GetResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CustomImage"
-}
-```
-## Operation: CustomImage_CreateOrUpdateResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the custom image.
+* api-version (string) **required** - Client API version.
+
+### CustomImage_CreateOrUpdateResource
 Create or replace an existing custom image. This operation can take a while to complete.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the custom image."
-    },
-    "customImage": {
-      "$ref": "#/definitions/CustomImage"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "customImage",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.CustomImage_CreateOrUpdateResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "customImage": {},
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CustomImage"
-}
-```
-## Operation: Formula_List
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the custom image.
+* customImage (object) **required** - A custom image.
+* api-version (string) **required** - Client API version.
+
+### Formula_List
 List formulas in a given lab.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The maximum number of resources to return from the operation."
-    },
-    "$orderBy": {
-      "type": "string",
-      "description": "The ordering expression for the results, using OData notation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Formula_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ResponseWithContinuation[Formula]"
-}
-```
-## Operation: Formula_DeleteResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* $filter (string) - The filter to apply on the operation.
+* $top (integer) - The maximum number of resources to return from the operation.
+* $orderBy (string) - The ordering expression for the results, using OData notation.
+* api-version (string) **required** - Client API version.
+
+### Formula_DeleteResource
 Delete formula.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the formula."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Formula_DeleteResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Formula_GetResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the formula.
+* api-version (string) **required** - Client API version.
+
+### Formula_GetResource
 Get formula.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the formula."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Formula_GetResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Formula"
-}
-```
-## Operation: Formula_CreateOrUpdateResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the formula.
+* api-version (string) **required** - Client API version.
+
+### Formula_CreateOrUpdateResource
 Create or replace an existing Formula. This operation can take a while to complete.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the formula."
-    },
-    "formula": {
-      "$ref": "#/definitions/Formula"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "formula",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Formula_CreateOrUpdateResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "formula": {},
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Formula"
-}
-```
-## Operation: GalleryImage_List
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the formula.
+* formula (object) **required** - A formula.
+* api-version (string) **required** - Client API version.
+
+### GalleryImage_List
 List gallery images in a given lab.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The maximum number of resources to return from the operation."
-    },
-    "$orderBy": {
-      "type": "string",
-      "description": "The ordering expression for the results, using OData notation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.GalleryImage_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ResponseWithContinuation[GalleryImage]"
-}
-```
-## Operation: PolicySet_EvaluatePolicies
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* $filter (string) - The filter to apply on the operation.
+* $top (integer) - The maximum number of resources to return from the operation.
+* $orderBy (string) - The ordering expression for the results, using OData notation.
+* api-version (string) **required** - Client API version.
+
+### PolicySet_EvaluatePolicies
 Evaluates Lab Policy.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the policy set."
-    },
-    "evaluatePoliciesRequest": {
-      "$ref": "#/definitions/EvaluatePoliciesRequest"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "evaluatePoliciesRequest",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.PolicySet_EvaluatePolicies({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "evaluatePoliciesRequest": {},
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/EvaluatePoliciesResponse"
-}
-```
-## Operation: Policy_List
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the policy set.
+* evaluatePoliciesRequest (object) **required** - Request body for evaluating a policy set.
+* api-version (string) **required** - Client API version.
+
+### Policy_List
 List policies in a given policy set.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "policySetName": {
-      "type": "string",
-      "description": "The name of the policy set."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The maximum number of resources to return from the operation."
-    },
-    "$orderBy": {
-      "type": "string",
-      "description": "The ordering expression for the results, using OData notation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "policySetName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Policy_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "policySetName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ResponseWithContinuation[Policy]"
-}
-```
-## Operation: Policy_DeleteResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* policySetName (string) **required** - The name of the policy set.
+* $filter (string) - The filter to apply on the operation.
+* $top (integer) - The maximum number of resources to return from the operation.
+* $orderBy (string) - The ordering expression for the results, using OData notation.
+* api-version (string) **required** - Client API version.
+
+### Policy_DeleteResource
 Delete policy.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "policySetName": {
-      "type": "string",
-      "description": "The name of the policy set."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the policy."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "policySetName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Policy_DeleteResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "policySetName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Policy_GetResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* policySetName (string) **required** - The name of the policy set.
+* name (string) **required** - The name of the policy.
+* api-version (string) **required** - Client API version.
+
+### Policy_GetResource
 Get policy.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "policySetName": {
-      "type": "string",
-      "description": "The name of the policy set."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the policy."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "policySetName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Policy_GetResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "policySetName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Policy"
-}
-```
-## Operation: Policy_PatchResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* policySetName (string) **required** - The name of the policy set.
+* name (string) **required** - The name of the policy.
+* api-version (string) **required** - Client API version.
+
+### Policy_PatchResource
 Modify properties of policies.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "policySetName": {
-      "type": "string",
-      "description": "The name of the policy set."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the policy."
-    },
-    "policy": {
-      "$ref": "#/definitions/Policy"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "policySetName",
-    "name",
-    "policy",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Policy_PatchResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "policySetName": "",
+  "name": "",
+  "policy": {},
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Policy"
-}
-```
-## Operation: Policy_CreateOrUpdateResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* policySetName (string) **required** - The name of the policy set.
+* name (string) **required** - The name of the policy.
+* policy (object) **required** - A Policy.
+* api-version (string) **required** - Client API version.
+
+### Policy_CreateOrUpdateResource
 Create or replace an existing policy.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "policySetName": {
-      "type": "string",
-      "description": "The name of the policy set."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the policy."
-    },
-    "policy": {
-      "$ref": "#/definitions/Policy"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "policySetName",
-    "name",
-    "policy",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Policy_CreateOrUpdateResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "policySetName": "",
+  "name": "",
+  "policy": {},
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Policy"
-}
-```
-## Operation: Schedule_List
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* policySetName (string) **required** - The name of the policy set.
+* name (string) **required** - The name of the policy.
+* policy (object) **required** - A Policy.
+* api-version (string) **required** - Client API version.
+
+### Schedule_List
 List schedules in a given lab.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The maximum number of resources to return from the operation."
-    },
-    "$orderBy": {
-      "type": "string",
-      "description": "The ordering expression for the results, using OData notation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Schedule_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ResponseWithContinuation[Schedule]"
-}
-```
-## Operation: Schedule_DeleteResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* $filter (string) - The filter to apply on the operation.
+* $top (integer) - The maximum number of resources to return from the operation.
+* $orderBy (string) - The ordering expression for the results, using OData notation.
+* api-version (string) **required** - Client API version.
+
+### Schedule_DeleteResource
 Delete schedule.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the schedule."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Schedule_DeleteResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Schedule_GetResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the schedule.
+* api-version (string) **required** - Client API version.
+
+### Schedule_GetResource
 Get schedule.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the schedule."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Schedule_GetResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Schedule"
-}
-```
-## Operation: Schedule_PatchResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the schedule.
+* api-version (string) **required** - Client API version.
+
+### Schedule_PatchResource
 Modify properties of schedules.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the schedule."
-    },
-    "schedule": {
-      "$ref": "#/definitions/Schedule"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "schedule",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Schedule_PatchResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "schedule": {},
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Schedule"
-}
-```
-## Operation: Schedule_CreateOrUpdateResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the schedule.
+* schedule (object) **required** - A schedule.
+* api-version (string) **required** - Client API version.
+
+### Schedule_CreateOrUpdateResource
 Create or replace an existing schedule.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the schedule."
-    },
-    "schedule": {
-      "$ref": "#/definitions/Schedule"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "schedule",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Schedule_CreateOrUpdateResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "schedule": {},
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Schedule"
-}
-```
-## Operation: Schedule_Execute
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the schedule.
+* schedule (object) **required** - A schedule.
+* api-version (string) **required** - Client API version.
+
+### Schedule_Execute
 Execute a schedule. This operation can take a while to complete.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the schedule."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Schedule_Execute({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: VirtualMachine_List
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the schedule.
+* api-version (string) **required** - Client API version.
+
+### VirtualMachine_List
 List virtual machines in a given lab.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The maximum number of resources to return from the operation."
-    },
-    "$orderBy": {
-      "type": "string",
-      "description": "The ordering expression for the results, using OData notation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.VirtualMachine_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ResponseWithContinuation[LabVirtualMachine]"
-}
-```
-## Operation: VirtualMachine_DeleteResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* $filter (string) - The filter to apply on the operation.
+* $top (integer) - The maximum number of resources to return from the operation.
+* $orderBy (string) - The ordering expression for the results, using OData notation.
+* api-version (string) **required** - Client API version.
+
+### VirtualMachine_DeleteResource
 Delete virtual machine. This operation can take a while to complete.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the virtual Machine."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.VirtualMachine_DeleteResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: VirtualMachine_GetResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the virtual Machine.
+* api-version (string) **required** - Client API version.
+
+### VirtualMachine_GetResource
 Get virtual machine.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the virtual Machine."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.VirtualMachine_GetResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LabVirtualMachine"
-}
-```
-## Operation: VirtualMachine_PatchResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the virtual Machine.
+* api-version (string) **required** - Client API version.
+
+### VirtualMachine_PatchResource
 Modify properties of virtual machines.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the virtual Machine."
-    },
-    "labVirtualMachine": {
-      "$ref": "#/definitions/LabVirtualMachine"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "labVirtualMachine",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.VirtualMachine_PatchResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "labVirtualMachine": {},
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LabVirtualMachine"
-}
-```
-## Operation: VirtualMachine_CreateOrUpdateResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the virtual Machine.
+* labVirtualMachine (object) **required** - A virtual machine.
+* api-version (string) **required** - Client API version.
+
+### VirtualMachine_CreateOrUpdateResource
 Create or replace an existing Virtual Machine. This operation can take a while to complete.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the virtual Machine."
-    },
-    "labVirtualMachine": {
-      "$ref": "#/definitions/LabVirtualMachine"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "labVirtualMachine",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.VirtualMachine_CreateOrUpdateResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "labVirtualMachine": {},
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LabVirtualMachine"
-}
-```
-## Operation: VirtualMachine_ApplyArtifacts
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the virtual Machine.
+* labVirtualMachine (object) **required** - A virtual machine.
+* api-version (string) **required** - Client API version.
+
+### VirtualMachine_ApplyArtifacts
 Apply artifacts to Lab VM. This operation can take a while to complete.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the virtual Machine."
-    },
-    "applyArtifactsRequest": {
-      "$ref": "#/definitions/ApplyArtifactsRequest"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "applyArtifactsRequest",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.VirtualMachine_ApplyArtifacts({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "applyArtifactsRequest": {},
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: VirtualMachine_Start
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the virtual Machine.
+* applyArtifactsRequest (object) **required** - Request body for applying artifacts to a virtual machine.
+* api-version (string) **required** - Client API version.
+
+### VirtualMachine_Start
 Start a Lab VM. This operation can take a while to complete.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the virtual Machine."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.VirtualMachine_Start({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: VirtualMachine_Stop
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the virtual Machine.
+* api-version (string) **required** - Client API version.
+
+### VirtualMachine_Stop
 Stop a Lab VM. This operation can take a while to complete.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the virtual Machine."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.VirtualMachine_Stop({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: VirtualNetwork_List
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the virtual Machine.
+* api-version (string) **required** - Client API version.
+
+### VirtualNetwork_List
 List virtual networks in a given lab.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The maximum number of resources to return from the operation."
-    },
-    "$orderBy": {
-      "type": "string",
-      "description": "The ordering expression for the results, using OData notation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.VirtualNetwork_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ResponseWithContinuation[VirtualNetwork]"
-}
-```
-## Operation: VirtualNetwork_DeleteResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* $filter (string) - The filter to apply on the operation.
+* $top (integer) - The maximum number of resources to return from the operation.
+* $orderBy (string) - The ordering expression for the results, using OData notation.
+* api-version (string) **required** - Client API version.
+
+### VirtualNetwork_DeleteResource
 Delete virtual network. This operation can take a while to complete.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the virtual network."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.VirtualNetwork_DeleteResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: VirtualNetwork_GetResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the virtual network.
+* api-version (string) **required** - Client API version.
+
+### VirtualNetwork_GetResource
 Get virtual network.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the virtual network."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.VirtualNetwork_GetResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/VirtualNetwork"
-}
-```
-## Operation: VirtualNetwork_PatchResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the virtual network.
+* api-version (string) **required** - Client API version.
+
+### VirtualNetwork_PatchResource
 Modify properties of virtual networks.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the virtual network."
-    },
-    "virtualNetwork": {
-      "$ref": "#/definitions/VirtualNetwork"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "virtualNetwork",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.VirtualNetwork_PatchResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "virtualNetwork": {},
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/VirtualNetwork"
-}
-```
-## Operation: VirtualNetwork_CreateOrUpdateResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the virtual network.
+* virtualNetwork (object) **required** - A virtual network.
+* api-version (string) **required** - Client API version.
+
+### VirtualNetwork_CreateOrUpdateResource
 Create or replace an existing virtual network. This operation can take a while to complete.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "labName": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the virtual network."
-    },
-    "virtualNetwork": {
-      "$ref": "#/definitions/VirtualNetwork"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "labName",
-    "name",
-    "virtualNetwork",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.VirtualNetwork_CreateOrUpdateResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "labName": "",
+  "name": "",
+  "virtualNetwork": {},
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/VirtualNetwork"
-}
-```
-## Operation: Lab_DeleteResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* labName (string) **required** - The name of the lab.
+* name (string) **required** - The name of the virtual network.
+* virtualNetwork (object) **required** - A virtual network.
+* api-version (string) **required** - Client API version.
+
+### Lab_DeleteResource
 Delete lab. This operation can take a while to complete.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Lab_DeleteResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Lab_GetResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* name (string) **required** - The name of the lab.
+* api-version (string) **required** - Client API version.
+
+### Lab_GetResource
 Get lab.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Lab_GetResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Lab"
-}
-```
-## Operation: Lab_PatchResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* name (string) **required** - The name of the lab.
+* api-version (string) **required** - Client API version.
+
+### Lab_PatchResource
 Modify properties of labs.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "lab": {
-      "$ref": "#/definitions/Lab"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "name",
-    "lab",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Lab_PatchResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "name": "",
+  "lab": {},
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Lab"
-}
-```
-## Operation: Lab_CreateOrUpdateResource
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* name (string) **required** - The name of the lab.
+* lab (object) **required** - A lab.
+* api-version (string) **required** - Client API version.
+
+### Lab_CreateOrUpdateResource
 Create or replace an existing Lab. This operation can take a while to complete.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "lab": {
-      "$ref": "#/definitions/Lab"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "name",
-    "lab",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Lab_CreateOrUpdateResource({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "name": "",
+  "lab": {},
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Lab"
-}
-```
-## Operation: Lab_CreateEnvironment
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* name (string) **required** - The name of the lab.
+* lab (object) **required** - A lab.
+* api-version (string) **required** - Client API version.
+
+### Lab_CreateEnvironment
 Create virtual machines in a Lab. This operation can take a while to complete.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "labVirtualMachine": {
-      "$ref": "#/definitions/LabVirtualMachine"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "name",
-    "labVirtualMachine",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Lab_CreateEnvironment({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "name": "",
+  "labVirtualMachine": {},
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Lab_GenerateUploadUri
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* name (string) **required** - The name of the lab.
+* labVirtualMachine (object) **required** - A virtual machine.
+* api-version (string) **required** - Client API version.
+
+### Lab_GenerateUploadUri
 Generate a URI for uploading custom disk images to a Lab.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "generateUploadUriParameter": {
-      "$ref": "#/definitions/GenerateUploadUriParameter"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "name",
-    "generateUploadUriParameter",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Lab_GenerateUploadUri({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "name": "",
+  "generateUploadUriParameter": {},
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GenerateUploadUriResponse"
-}
-```
-## Operation: Lab_ListVhds
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* name (string) **required** - The name of the lab.
+* generateUploadUriParameter (object) **required** - Properties for generating an upload URI.
+* api-version (string) **required** - Client API version.
+
+### Lab_ListVhds
 List disk images available for custom image creation.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the lab."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_devtestlabs.Lab_ListVhds({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ResponseWithContinuation[LabVhd]"
-}
-```
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription ID.
+* resourceGroupName (string) **required** - The name of the resource group.
+* name (string) **required** - The name of the lab.
+* api-version (string) **required** - Client API version.
+

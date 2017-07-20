@@ -1,424 +1,221 @@
 # @datafire/azure_arm_machinelearning_commitmentplans
+
+Client library for Azure ML Commitment Plans Management Client
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/azure_arm_machinelearning_commitmentplans
+```
+
+```js
+let datafire = require('datafire');
+let azure_arm_machinelearning_commitmentplans = require('@datafire/azure_arm_machinelearning_commitmentplans').actions;
+let context = new datafire.Context();
+
+azure_arm_machinelearning_commitmentplans.CommitmentPlans_List({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 These APIs allow end users to operate on Azure Machine Learning Commitment Plans resources and their child Commitment Association resources. They support CRUD operations for commitment plans, get and list operations for commitment associations, moving commitment associations between commitment plans, and retrieving commitment plan usage history.
 
-## Operation: CommitmentPlans_List
+## Actions
+### CommitmentPlans_List
 Retrieve all Azure ML commitment plans in a subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure Subscription ID."
-    },
-    "$skipToken": {
-      "type": "string",
-      "description": "Continuation token for pagination."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The version of the Microsoft.MachineLearning resource provider API to use."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_machinelearning_commitmentplans.CommitmentPlans_List({
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CommitmentPlanListResult"
-}
-```
-## Operation: CommitmentPlans_ListInResourceGroup
+
+#### Parameters
+* subscriptionId (string) **required** - Azure Subscription ID.
+* $skipToken (string) - Continuation token for pagination.
+* api-version (string) **required** - The version of the Microsoft.MachineLearning resource provider API to use.
+
+### CommitmentPlans_ListInResourceGroup
 Retrieve all Azure ML commitment plans in a resource group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure Subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "$skipToken": {
-      "type": "string",
-      "description": "Continuation token for pagination."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The version of the Microsoft.MachineLearning resource provider API to use."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_machinelearning_commitmentplans.CommitmentPlans_ListInResourceGroup({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CommitmentPlanListResult"
-}
-```
-## Operation: CommitmentPlans_Remove
+
+#### Parameters
+* subscriptionId (string) **required** - Azure Subscription ID.
+* resourceGroupName (string) **required** - The resource group name.
+* $skipToken (string) - Continuation token for pagination.
+* api-version (string) **required** - The version of the Microsoft.MachineLearning resource provider API to use.
+
+### CommitmentPlans_Remove
 Remove an existing Azure ML commitment plan.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure Subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "commitmentPlanName": {
-      "type": "string",
-      "description": "The Azure ML commitment plan name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The version of the Microsoft.MachineLearning resource provider API to use."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "commitmentPlanName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_machinelearning_commitmentplans.CommitmentPlans_Remove({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "commitmentPlanName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: CommitmentPlans_Get
+
+#### Parameters
+* subscriptionId (string) **required** - Azure Subscription ID.
+* resourceGroupName (string) **required** - The resource group name.
+* commitmentPlanName (string) **required** - The Azure ML commitment plan name.
+* api-version (string) **required** - The version of the Microsoft.MachineLearning resource provider API to use.
+
+### CommitmentPlans_Get
 Retrieve an Azure ML commitment plan by its subscription, resource group and name.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure Subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "commitmentPlanName": {
-      "type": "string",
-      "description": "The Azure ML commitment plan name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The version of the Microsoft.MachineLearning resource provider API to use."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "commitmentPlanName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_machinelearning_commitmentplans.CommitmentPlans_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "commitmentPlanName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CommitmentPlan"
-}
-```
-## Operation: CommitmentPlans_Patch
+
+#### Parameters
+* subscriptionId (string) **required** - Azure Subscription ID.
+* resourceGroupName (string) **required** - The resource group name.
+* commitmentPlanName (string) **required** - The Azure ML commitment plan name.
+* api-version (string) **required** - The version of the Microsoft.MachineLearning resource provider API to use.
+
+### CommitmentPlans_Patch
 Patch an existing Azure ML commitment plan resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "patchPayload": {
-      "$ref": "#/definitions/CommitmentPlanPatchPayload"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure Subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "commitmentPlanName": {
-      "type": "string",
-      "description": "The Azure ML commitment plan name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The version of the Microsoft.MachineLearning resource provider API to use."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "patchPayload",
-    "subscriptionId",
-    "resourceGroupName",
-    "commitmentPlanName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_machinelearning_commitmentplans.CommitmentPlans_Patch({
+  "patchPayload": {},
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "commitmentPlanName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CommitmentPlan"
-}
-```
-## Operation: CommitmentPlans_CreateOrUpdate
+
+#### Parameters
+* patchPayload (object) **required** - The properties of a commitment plan which may be updated via PATCH.
+* subscriptionId (string) **required** - Azure Subscription ID.
+* resourceGroupName (string) **required** - The resource group name.
+* commitmentPlanName (string) **required** - The Azure ML commitment plan name.
+* api-version (string) **required** - The version of the Microsoft.MachineLearning resource provider API to use.
+
+### CommitmentPlans_CreateOrUpdate
 Create a new Azure ML commitment plan resource or updates an existing one.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "createOrUpdatePayload": {
-      "$ref": "#/definitions/CommitmentPlan"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure Subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "commitmentPlanName": {
-      "type": "string",
-      "description": "The Azure ML commitment plan name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The version of the Microsoft.MachineLearning resource provider API to use."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "createOrUpdatePayload",
-    "subscriptionId",
-    "resourceGroupName",
-    "commitmentPlanName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_machinelearning_commitmentplans.CommitmentPlans_CreateOrUpdate({
+  "createOrUpdatePayload": {},
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "commitmentPlanName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CommitmentPlan"
-}
-```
-## Operation: CommitmentAssociations_List
+
+#### Parameters
+* createOrUpdatePayload (object) **required** - An Azure ML commitment plan resource.
+* subscriptionId (string) **required** - Azure Subscription ID.
+* resourceGroupName (string) **required** - The resource group name.
+* commitmentPlanName (string) **required** - The Azure ML commitment plan name.
+* api-version (string) **required** - The version of the Microsoft.MachineLearning resource provider API to use.
+
+### CommitmentAssociations_List
 Get all commitment associations for a parent commitment plan.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure Subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "commitmentPlanName": {
-      "type": "string",
-      "description": "The Azure ML commitment plan name."
-    },
-    "$skipToken": {
-      "type": "string",
-      "description": "Continuation token for pagination."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The version of the Microsoft.MachineLearning resource provider API to use."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "commitmentPlanName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_machinelearning_commitmentplans.CommitmentAssociations_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "commitmentPlanName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CommitmentAssociationListResult"
-}
-```
-## Operation: CommitmentAssociations_Get
+
+#### Parameters
+* subscriptionId (string) **required** - Azure Subscription ID.
+* resourceGroupName (string) **required** - The resource group name.
+* commitmentPlanName (string) **required** - The Azure ML commitment plan name.
+* $skipToken (string) - Continuation token for pagination.
+* api-version (string) **required** - The version of the Microsoft.MachineLearning resource provider API to use.
+
+### CommitmentAssociations_Get
 Get a commitment association.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure Subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "commitmentPlanName": {
-      "type": "string",
-      "description": "The Azure ML commitment plan name."
-    },
-    "commitmentAssociationName": {
-      "type": "string",
-      "description": "The commitment association name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The version of the Microsoft.MachineLearning resource provider API to use."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "commitmentPlanName",
-    "commitmentAssociationName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_machinelearning_commitmentplans.CommitmentAssociations_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "commitmentPlanName": "",
+  "commitmentAssociationName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CommitmentAssociation"
-}
-```
-## Operation: CommitmentAssociations_Move
+
+#### Parameters
+* subscriptionId (string) **required** - Azure Subscription ID.
+* resourceGroupName (string) **required** - The resource group name.
+* commitmentPlanName (string) **required** - The Azure ML commitment plan name.
+* commitmentAssociationName (string) **required** - The commitment association name.
+* api-version (string) **required** - The version of the Microsoft.MachineLearning resource provider API to use.
+
+### CommitmentAssociations_Move
 Re-parent a commitment association from one commitment plan to another.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure Subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "commitmentPlanName": {
-      "type": "string",
-      "description": "The Azure ML commitment plan name."
-    },
-    "commitmentAssociationName": {
-      "type": "string",
-      "description": "The commitment association name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The version of the Microsoft.MachineLearning resource provider API to use."
-    },
-    "movePayload": {
-      "$ref": "#/definitions/MoveCommitmentAssociationRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "commitmentPlanName",
-    "commitmentAssociationName",
-    "api-version",
-    "movePayload"
-  ]
-}
+
+```js
+azure_arm_machinelearning_commitmentplans.CommitmentAssociations_Move({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "commitmentPlanName": "",
+  "commitmentAssociationName": "",
+  "api-version": "",
+  "movePayload": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CommitmentAssociation"
-}
-```
-## Operation: UsageHistory_List
+
+#### Parameters
+* subscriptionId (string) **required** - Azure Subscription ID.
+* resourceGroupName (string) **required** - The resource group name.
+* commitmentPlanName (string) **required** - The Azure ML commitment plan name.
+* commitmentAssociationName (string) **required** - The commitment association name.
+* api-version (string) **required** - The version of the Microsoft.MachineLearning resource provider API to use.
+* movePayload (object) **required** - Specifies the destination Azure ML commitment plan for a move operation.
+
+### UsageHistory_List
 Retrieve the usage history for an Azure ML commitment plan.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure Subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "commitmentPlanName": {
-      "type": "string",
-      "description": "The Azure ML commitment plan name."
-    },
-    "$skipToken": {
-      "type": "string",
-      "description": "Continuation token for pagination."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The version of the Microsoft.MachineLearning resource provider API to use."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "commitmentPlanName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_machinelearning_commitmentplans.UsageHistory_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "commitmentPlanName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PlanUsageHistoryListResult"
-}
-```
+
+#### Parameters
+* subscriptionId (string) **required** - Azure Subscription ID.
+* resourceGroupName (string) **required** - The resource group name.
+* commitmentPlanName (string) **required** - The Azure ML commitment plan name.
+* $skipToken (string) - Continuation token for pagination.
+* api-version (string) **required** - The version of the Microsoft.MachineLearning resource provider API to use.
+

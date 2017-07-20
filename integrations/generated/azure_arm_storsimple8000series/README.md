@@ -1,939 +1,474 @@
 # @datafire/azure_arm_storsimple8000series
 
+Client library for StorSimple8000SeriesManagementClient
 
-## Operation: Operations_List
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/azure_arm_storsimple8000series
+```
+
+```js
+let datafire = require('datafire');
+let azure_arm_storsimple8000series = require('@datafire/azure_arm_storsimple8000series').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    azure_arm_storsimple8000series: account,
+  }
+})
+
+
+azure_arm_storsimple8000series.Operations_List({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
+
+
+## Actions
+### Operations_List
 Lists all of the available REST API operations of the Microsoft.Storsimple provider
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_storsimple8000series.Operations_List({
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AvailableProviderOperationList"
-}
-```
-## Operation: Managers_List
+
+#### Parameters
+* api-version (string) **required** - The api version
+
+### Managers_List
 Retrieves all the managers in a subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_storsimple8000series.Managers_List({
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ManagerList"
-}
-```
-## Operation: Managers_ListByResourceGroup
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id
+* api-version (string) **required** - The api version
+
+### Managers_ListByResourceGroup
 Retrieves all the managers in a resource group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id"
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_storsimple8000series.Managers_ListByResourceGroup({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ManagerList"
-}
-```
-## Operation: Managers_Delete
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id
+* resourceGroupName (string) **required** - The resource group name
+* api-version (string) **required** - The api version
+
+### Managers_Delete
 Deletes the manager.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id"
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name"
-    },
-    "managerName": {
-      "type": "string",
-      "description": "The manager name",
-      "maxLength": 50,
-      "minLength": 2
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "managerName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_storsimple8000series.Managers_Delete({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "managerName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Managers_Get
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id
+* resourceGroupName (string) **required** - The resource group name
+* managerName (string) **required** - The manager name
+* api-version (string) **required** - The api version
+
+### Managers_Get
 Returns the properties of the specified manager name.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id"
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name"
-    },
-    "managerName": {
-      "type": "string",
-      "description": "The manager name",
-      "maxLength": 50,
-      "minLength": 2
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "managerName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_storsimple8000series.Managers_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "managerName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Manager"
-}
-```
-## Operation: Managers_CreateOrUpdate
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id
+* resourceGroupName (string) **required** - The resource group name
+* managerName (string) **required** - The manager name
+* api-version (string) **required** - The api version
+
+### Managers_CreateOrUpdate
 Creates or updates the manager.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "parameters": {
-      "$ref": "#/definitions/Manager"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id"
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name"
-    },
-    "managerName": {
-      "type": "string",
-      "description": "The manager name",
-      "maxLength": 50,
-      "minLength": 2
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "parameters",
-    "subscriptionId",
-    "resourceGroupName",
-    "managerName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_storsimple8000series.Managers_CreateOrUpdate({
+  "parameters": {},
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "managerName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Manager"
-}
-```
-## Operation: Devices_Configure
+
+#### Parameters
+* parameters (object) **required** - The StorSimple Manager
+* subscriptionId (string) **required** - The subscription id
+* resourceGroupName (string) **required** - The resource group name
+* managerName (string) **required** - The manager name
+* api-version (string) **required** - The api version
+
+### Devices_Configure
 Complete minimal setup before using the device.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "parameters": {
-      "$ref": "#/definitions/ConfigureDeviceRequest"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id"
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name"
-    },
-    "managerName": {
-      "type": "string",
-      "description": "The manager name",
-      "maxLength": 50,
-      "minLength": 2
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
+
+```js
+azure_arm_storsimple8000series.Devices_Configure({
+  "parameters": {
+    "properties": {
+      "friendlyName": "",
+      "currentDeviceName": "",
+      "timeZone": ""
     }
   },
-  "additionalProperties": false,
-  "required": [
-    "parameters",
-    "subscriptionId",
-    "resourceGroupName",
-    "managerName",
-    "api-version"
-  ]
-}
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "managerName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Devices_ListByManager
+
+#### Parameters
+* parameters (object) **required** - Mandatory device configuration request
+* subscriptionId (string) **required** - The subscription id
+* resourceGroupName (string) **required** - The resource group name
+* managerName (string) **required** - The manager name
+* api-version (string) **required** - The api version
+
+### Devices_ListByManager
 Returns the list of devices for the specified manager.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id"
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name"
-    },
-    "managerName": {
-      "type": "string",
-      "description": "The manager name",
-      "maxLength": 50,
-      "minLength": 2
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
-    },
-    "$expand": {
-      "type": "string",
-      "description": "Specify $expand=details to populate additional fields related to the device."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "managerName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_storsimple8000series.Devices_ListByManager({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "managerName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeviceList"
-}
-```
-## Operation: Devices_Delete
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id
+* resourceGroupName (string) **required** - The resource group name
+* managerName (string) **required** - The manager name
+* api-version (string) **required** - The api version
+* $expand (string) - Specify $expand=details to populate additional fields related to the device.
+
+### Devices_Delete
 Deletes the device.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deviceName": {
-      "type": "string",
-      "description": "The device name."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id"
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name"
-    },
-    "managerName": {
-      "type": "string",
-      "description": "The manager name",
-      "maxLength": 50,
-      "minLength": 2
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "deviceName",
-    "subscriptionId",
-    "resourceGroupName",
-    "managerName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_storsimple8000series.Devices_Delete({
+  "deviceName": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "managerName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Devices_Get
+
+#### Parameters
+* deviceName (string) **required** - The device name.
+* subscriptionId (string) **required** - The subscription id
+* resourceGroupName (string) **required** - The resource group name
+* managerName (string) **required** - The manager name
+* api-version (string) **required** - The api version
+
+### Devices_Get
 Returns the properties of the specified device.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deviceName": {
-      "type": "string",
-      "description": "The device name."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id"
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name"
-    },
-    "managerName": {
-      "type": "string",
-      "description": "The manager name",
-      "maxLength": 50,
-      "minLength": 2
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
-    },
-    "$expand": {
-      "type": "string",
-      "description": "Specify $expand=details to populate additional fields related to the device."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "deviceName",
-    "subscriptionId",
-    "resourceGroupName",
-    "managerName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_storsimple8000series.Devices_Get({
+  "deviceName": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "managerName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Device"
-}
-```
-## Operation: Devices_Update
+
+#### Parameters
+* deviceName (string) **required** - The device name.
+* subscriptionId (string) **required** - The subscription id
+* resourceGroupName (string) **required** - The resource group name
+* managerName (string) **required** - The manager name
+* api-version (string) **required** - The api version
+* $expand (string) - Specify $expand=details to populate additional fields related to the device.
+
+### Devices_Update
 Patches the device.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deviceName": {
-      "type": "string",
-      "description": "The device Name."
-    },
-    "parameters": {
-      "$ref": "#/definitions/DevicePatch"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id"
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name"
-    },
-    "managerName": {
-      "type": "string",
-      "description": "The manager name",
-      "maxLength": 50,
-      "minLength": 2
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
-    }
+
+```js
+azure_arm_storsimple8000series.Devices_Update({
+  "deviceName": "",
+  "parameters": {
+    "properties": {}
   },
-  "additionalProperties": false,
-  "required": [
-    "deviceName",
-    "parameters",
-    "subscriptionId",
-    "resourceGroupName",
-    "managerName",
-    "api-version"
-  ]
-}
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "managerName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Device"
-}
-```
-## Operation: Devices_Deactivate
+
+#### Parameters
+* deviceName (string) **required** - The device Name.
+* parameters (object) **required** - Represents the patch request for the device.
+* subscriptionId (string) **required** - The subscription id
+* resourceGroupName (string) **required** - The resource group name
+* managerName (string) **required** - The manager name
+* api-version (string) **required** - The api version
+
+### Devices_Deactivate
 Deactivates the device.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deviceName": {
-      "type": "string",
-      "description": "The device name."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id"
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name"
-    },
-    "managerName": {
-      "type": "string",
-      "description": "The manager name",
-      "maxLength": 50,
-      "minLength": 2
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "deviceName",
-    "subscriptionId",
-    "resourceGroupName",
-    "managerName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_storsimple8000series.Devices_Deactivate({
+  "deviceName": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "managerName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Managers_GetDevicePublicEncryptionKey
+
+#### Parameters
+* deviceName (string) **required** - The device name.
+* subscriptionId (string) **required** - The subscription id
+* resourceGroupName (string) **required** - The resource group name
+* managerName (string) **required** - The manager name
+* api-version (string) **required** - The api version
+
+### Managers_GetDevicePublicEncryptionKey
 Returns the public encryption key of the device.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deviceName": {
-      "type": "string",
-      "description": "The device name."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id"
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name"
-    },
-    "managerName": {
-      "type": "string",
-      "description": "The manager name",
-      "maxLength": 50,
-      "minLength": 2
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "deviceName",
-    "subscriptionId",
-    "resourceGroupName",
-    "managerName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_storsimple8000series.Managers_GetDevicePublicEncryptionKey({
+  "deviceName": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "managerName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PublicKey"
-}
-```
-## Operation: Managers_GetEncryptionSettings
+
+#### Parameters
+* deviceName (string) **required** - The device name.
+* subscriptionId (string) **required** - The subscription id
+* resourceGroupName (string) **required** - The resource group name
+* managerName (string) **required** - The manager name
+* api-version (string) **required** - The api version
+
+### Managers_GetEncryptionSettings
 Returns the encryption settings of the manager.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id"
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name"
-    },
-    "managerName": {
-      "type": "string",
-      "description": "The manager name",
-      "maxLength": 50,
-      "minLength": 2
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "managerName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_storsimple8000series.Managers_GetEncryptionSettings({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "managerName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/EncryptionSettings"
-}
-```
-## Operation: Managers_DeleteExtendedInfo
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id
+* resourceGroupName (string) **required** - The resource group name
+* managerName (string) **required** - The manager name
+* api-version (string) **required** - The api version
+
+### Managers_DeleteExtendedInfo
 Deletes the extended info of the manager.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id"
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name"
-    },
-    "managerName": {
-      "type": "string",
-      "description": "The manager name",
-      "maxLength": 50,
-      "minLength": 2
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "managerName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_storsimple8000series.Managers_DeleteExtendedInfo({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "managerName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Managers_GetExtendedInfo
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id
+* resourceGroupName (string) **required** - The resource group name
+* managerName (string) **required** - The manager name
+* api-version (string) **required** - The api version
+
+### Managers_GetExtendedInfo
 Returns the extended information of the specified manager name.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id"
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name"
-    },
-    "managerName": {
-      "type": "string",
-      "description": "The manager name",
-      "maxLength": 50,
-      "minLength": 2
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "managerName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_storsimple8000series.Managers_GetExtendedInfo({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "managerName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ManagerExtendedInfo"
-}
-```
-## Operation: Managers_UpdateExtendedInfo
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id
+* resourceGroupName (string) **required** - The resource group name
+* managerName (string) **required** - The manager name
+* api-version (string) **required** - The api version
+
+### Managers_UpdateExtendedInfo
 Updates the extended info of the manager.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "parameters": {
-      "$ref": "#/definitions/ManagerExtendedInfo"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id"
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name"
-    },
-    "managerName": {
-      "type": "string",
-      "description": "The manager name",
-      "maxLength": 50,
-      "minLength": 2
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "Pass the ETag of ExtendedInfo fetched from GET call"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "parameters",
-    "subscriptionId",
-    "resourceGroupName",
-    "managerName",
-    "api-version",
-    "If-Match"
-  ]
-}
+
+```js
+azure_arm_storsimple8000series.Managers_UpdateExtendedInfo({
+  "parameters": {},
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "managerName": "",
+  "api-version": "",
+  "If-Match": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ManagerExtendedInfo"
-}
-```
-## Operation: Managers_CreateExtendedInfo
+
+#### Parameters
+* parameters (object) **required** - The extended info of the manager.
+* subscriptionId (string) **required** - The subscription id
+* resourceGroupName (string) **required** - The resource group name
+* managerName (string) **required** - The manager name
+* api-version (string) **required** - The api version
+* If-Match (string) **required** - Pass the ETag of ExtendedInfo fetched from GET call
+
+### Managers_CreateExtendedInfo
 Creates the extended info of the manager.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "parameters": {
-      "$ref": "#/definitions/ManagerExtendedInfo"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id"
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name"
-    },
-    "managerName": {
-      "type": "string",
-      "description": "The manager name",
-      "maxLength": 50,
-      "minLength": 2
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "parameters",
-    "subscriptionId",
-    "resourceGroupName",
-    "managerName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_storsimple8000series.Managers_CreateExtendedInfo({
+  "parameters": {},
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "managerName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ManagerExtendedInfo"
-}
-```
-## Operation: Managers_GetActivationKey
+
+#### Parameters
+* parameters (object) **required** - The extended info of the manager.
+* subscriptionId (string) **required** - The subscription id
+* resourceGroupName (string) **required** - The resource group name
+* managerName (string) **required** - The manager name
+* api-version (string) **required** - The api version
+
+### Managers_GetActivationKey
 Returns the activation key of the manager.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id"
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name"
-    },
-    "managerName": {
-      "type": "string",
-      "description": "The manager name",
-      "maxLength": 50,
-      "minLength": 2
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "managerName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_storsimple8000series.Managers_GetActivationKey({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "managerName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Key"
-}
-```
-## Operation: Managers_GetPrivateEncryptionKey
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id
+* resourceGroupName (string) **required** - The resource group name
+* managerName (string) **required** - The manager name
+* api-version (string) **required** - The api version
+
+### Managers_GetPrivateEncryptionKey
 Returns the symmetric encrypted private encryption key of the manager.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id"
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name"
-    },
-    "managerName": {
-      "type": "string",
-      "description": "The manager name",
-      "maxLength": 50,
-      "minLength": 2
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "managerName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_storsimple8000series.Managers_GetPrivateEncryptionKey({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "managerName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SymmetricEncryptedSecret"
-}
-```
-## Operation: Managers_GetPublicEncryptionKey
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id
+* resourceGroupName (string) **required** - The resource group name
+* managerName (string) **required** - The manager name
+* api-version (string) **required** - The api version
+
+### Managers_GetPublicEncryptionKey
 Returns the symmetric encrypted public encryption key of the manager.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id"
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name"
-    },
-    "managerName": {
-      "type": "string",
-      "description": "The manager name",
-      "maxLength": 50,
-      "minLength": 2
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "managerName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_storsimple8000series.Managers_GetPublicEncryptionKey({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "managerName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SymmetricEncryptedSecret"
-}
-```
-## Operation: Managers_RegenerateActivationKey
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id
+* resourceGroupName (string) **required** - The resource group name
+* managerName (string) **required** - The manager name
+* api-version (string) **required** - The api version
+
+### Managers_RegenerateActivationKey
 Re-generates and returns the activation key of the manager.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id"
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name"
-    },
-    "managerName": {
-      "type": "string",
-      "description": "The manager name",
-      "maxLength": 50,
-      "minLength": 2
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The api version"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "managerName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_storsimple8000series.Managers_RegenerateActivationKey({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "managerName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Key"
-}
-```
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id
+* resourceGroupName (string) **required** - The resource group name
+* managerName (string) **required** - The manager name
+* api-version (string) **required** - The api version
+

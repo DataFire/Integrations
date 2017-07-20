@@ -1,256 +1,97 @@
 # @datafire/google_urlshortener
+
+Client library for URL Shortener
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/google_urlshortener
+```
+
+```js
+let datafire = require('datafire');
+let google_urlshortener = require('@datafire/google_urlshortener').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    google_urlshortener: account,
+  }
+})
+
+
+google_urlshortener.url.list({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Lets you create, inspect, and manage goo.gl short URLs
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+google_urlshortener.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+google_urlshortener.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: url.get
+
+
+### url.get
 Expands a short URL or gets creation time and analytics.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "shortUrl": {
-      "type": "string",
-      "description": "The short URL, including the protocol."
-    },
-    "projection": {
-      "type": "string",
-      "description": "Additional information to return.",
-      "enum": [
-        "ANALYTICS_CLICKS",
-        "ANALYTICS_TOP_STRINGS",
-        "FULL"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "shortUrl"
-  ]
-}
+
+```js
+google_urlshortener.url.get({
+  "shortUrl": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Url"
-}
-```
-## Operation: url.insert
+
+#### Parameters
+* shortUrl (string) **required** - The short URL, including the protocol.
+* projection (string) - Additional information to return.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### url.insert
 Creates a new short URL.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Url"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_urlshortener.url.insert({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Url"
-}
-```
-## Operation: url.list
+
+
+### url.list
 Retrieves a list of URLs shortened by a user.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "projection": {
-      "type": "string",
-      "description": "Additional information to return.",
-      "enum": [
-        "ANALYTICS_CLICKS",
-        "FULL"
-      ]
-    },
-    "start-token": {
-      "type": "string",
-      "description": "Token for requesting successive pages of results."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_urlshortener.url.list({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UrlHistory"
-}
-```
+
+

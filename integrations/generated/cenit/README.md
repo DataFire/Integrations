@@ -1,774 +1,474 @@
 # @datafire/cenit
+
+Client library for Cenit IO - REST API Specification
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/cenit
+```
+
+```js
+let datafire = require('datafire');
+let cenit = require('@datafire/cenit').actions;
+
+let account = {
+  X-User-Access-Key: "",
+  X-User-Access-Token: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    cenit: account,
+  }
+})
+
+
+cenit.setup.connection.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Cenit IO is an Open Platform for Data and Business Integration (iPaaS)
 
 
-## Operation: setup.connection.get
+## Actions
+### setup.connection.get
 Returns a list of connections you've previously created. The connections are returned in sorted order, with the most recent connection appearing first.
 
-### Input Schema
-```json
-{}
+
+```js
+cenit.setup.connection.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/connection"
-  },
-  "type": "array"
-}
-```
-## Operation: setup.connection.post
+
+
+### setup.connection.post
 Creates or updates the specified connection by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
 
-### Input Schema
-```json
-{}
+
+```js
+cenit.setup.connection.post(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/connection"
-}
-```
-## Operation: setup.connection.id.delete
+
+
+### setup.connection.id.delete
 Permanently deletes a connection. It cannot be undone.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Connection ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cenit.setup.connection.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: setup.connection.id.get
+
+#### Parameters
+* id (string) **required** - Connection ID
+
+### setup.connection.id.get
 Retrieves the details of an existing connection. You need only supply the unique connection identifier that was returned upon connection creation.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Connection ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cenit.setup.connection.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/connection"
-}
-```
-## Operation: setup.connection_role.get
+
+#### Parameters
+* id (string) **required** - Connection ID
+
+### setup.connection_role.get
 Returns a list of connection roles you've previously created. The connection roles are returned in sorted order, with the most recent connection role appearing first.
 
-### Input Schema
-```json
-{}
+
+```js
+cenit.setup.connection_role.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/connection_role"
-  },
-  "type": "array"
-}
-```
-## Operation: setup.connection_role.post
+
+
+### setup.connection_role.post
 Creates or updates the specified connection role by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
 
-### Input Schema
-```json
-{}
+
+```js
+cenit.setup.connection_role.post(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/connection_role"
-}
-```
-## Operation: setup.connection_role.id.delete
+
+
+### setup.connection_role.id.delete
 Deletes the specified connection role.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Connection role ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cenit.setup.connection_role.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: setup.connection_role.id.get
+
+#### Parameters
+* id (string) **required** - Connection role ID
+
+### setup.connection_role.id.get
 Returns a connection role
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Connection role ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cenit.setup.connection_role.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/connection_role"
-}
-```
-## Operation: setup.data_type.get
+
+#### Parameters
+* id (string) **required** - Connection role ID
+
+### setup.data_type.get
 Returns a list of data types you've previously created. The data types are returned in sorted order, with the most recent DataType appearing first.
 
-### Input Schema
-```json
-{}
+
+```js
+cenit.setup.data_type.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/data_type"
-  },
-  "type": "array"
-}
-```
-## Operation: setup.data_type.post
+
+
+### setup.data_type.post
 Creates or updates the specified data type by setting the values of the parameters passed. Any parameters not provided will be left unchanged.
 
-### Input Schema
-```json
-{}
+
+```js
+cenit.setup.data_type.post(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/data_type"
-}
-```
-## Operation: setup.data_type.id.delete
+
+
+### setup.data_type.id.delete
 Deletes the specified data type.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "data type ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cenit.setup.data_type.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: setup.data_type.id.get
+
+#### Parameters
+* id (string) **required** - data type ID
+
+### setup.data_type.id.get
 Retrieves the details of an existing data type. You need only supply the unique data  type identifier that was returned upon DataType creation.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "data type ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cenit.setup.data_type.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/data_type"
-}
-```
-## Operation: setup.flow.get
+
+#### Parameters
+* id (string) **required** - data type ID
+
+### setup.flow.get
 Returns a list of flows you've previously created. The flows are returned in sorted order, with the most recent flow appearing first.
 
-### Input Schema
-```json
-{}
+
+```js
+cenit.setup.flow.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/flow"
-  },
-  "type": "array"
-}
-```
-## Operation: setup.flow.post
+
+
+### setup.flow.post
 Creates or updates the specified flow. Any parameters not provided will be left unchanged.
 
-### Input Schema
-```json
-{}
+
+```js
+cenit.setup.flow.post(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/flow"
-}
-```
-## Operation: setup.flow.id.delete
+
+
+### setup.flow.id.delete
 Deletes the specified flow.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Flow ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cenit.setup.flow.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: setup.flow.id.get
+
+#### Parameters
+* id (string) **required** - Flow ID
+
+### setup.flow.id.get
 Retrieves the details of an existing flow. You need only supply the unique flow identifier that was returned upon flow creation.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Flow ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cenit.setup.flow.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/flow"
-}
-```
-## Operation: setup.namespace.get
+
+#### Parameters
+* id (string) **required** - Flow ID
+
+### setup.namespace.get
 Returns a list of namespaces you've previously created. The namespaces are returned in sorted order, with the most recent namespace appearing first.
 
-### Input Schema
-```json
-{}
+
+```js
+cenit.setup.namespace.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/namespace"
-  },
-  "type": "array"
-}
-```
-## Operation: setup.namespace.post
+
+
+### setup.namespace.post
 Creates or updates the specified namespace. Any parameters not provided will be left unchanged.
 
-### Input Schema
-```json
-{}
+
+```js
+cenit.setup.namespace.post(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/namespace"
-}
-```
-## Operation: setup.namespace.id.delete
+
+
+### setup.namespace.id.delete
 Deletes the specified namespace.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Namespace ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cenit.setup.namespace.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: setup.namespace.id.get
+
+#### Parameters
+* id (string) **required** - Namespace ID.
+
+### setup.namespace.id.get
 Retrieves the details of an existing namespace. You need only supply the unique webhook namespace that was returned upon namespace creation.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Namespace ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cenit.setup.namespace.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/namespace"
-}
-```
-## Operation: setup.observer.get
+
+#### Parameters
+* id (string) **required** - Namespace ID.
+
+### setup.observer.get
 Returns a list of events you've previously created. The events are returned in sorted order, with the most recent event appearing first.
 
-### Input Schema
-```json
-{}
+
+```js
+cenit.setup.observer.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/observer"
-  },
-  "type": "array"
-}
-```
-## Operation: setup.observer.post
+
+
+### setup.observer.post
 Creates or updates the specified event observer. Any parameters not provided will be left unchanged.
 
-### Input Schema
-```json
-{}
+
+```js
+cenit.setup.observer.post(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/observer"
-}
-```
-## Operation: setup.observer.id.delete
+
+
+### setup.observer.id.delete
 Deletes the specified event observer.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Observer ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cenit.setup.observer.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: setup.observer.id.get
+
+#### Parameters
+* id (string) **required** - Observer ID
+
+### setup.observer.id.get
 Retrieves the details of an existing event. You need only supply the unique event identifier that was returned upon event creation.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Observer ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cenit.setup.observer.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/observer"
-}
-```
-## Operation: setup.scheduler.get
+
+#### Parameters
+* id (string) **required** - Observer ID
+
+### setup.scheduler.get
 Returns a list of schedulers you've previously created. The schedulers are returned in sorted order, with the most recent scheduler appearing first.
 
-### Input Schema
-```json
-{}
+
+```js
+cenit.setup.scheduler.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/scheduler"
-  },
-  "type": "array"
-}
-```
-## Operation: setup.scheduler.post
+
+
+### setup.scheduler.post
 Creates or updates the specified scheduler. Any parameters not provided will be left unchanged.
 
-### Input Schema
-```json
-{}
+
+```js
+cenit.setup.scheduler.post(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/scheduler"
-}
-```
-## Operation: setup.scheduler.id.delete
+
+
+### setup.scheduler.id.delete
 Deletes the specified scheduler.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Scheduler ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cenit.setup.scheduler.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: setup.scheduler.id.get
+
+#### Parameters
+* id (string) **required** - Scheduler ID
+
+### setup.scheduler.id.get
 Retrieves the details of an existing scheduler. You need only supply the unique scheduler identifier that was returned upon scheduler creation.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Scheduler ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cenit.setup.scheduler.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/scheduler"
-}
-```
-## Operation: setup.schema.get
+
+#### Parameters
+* id (string) **required** - Scheduler ID
+
+### setup.schema.get
 Returns a list of schemas you've previously created. The schemas are returned in sorted order, with the most recent schema appearing first.
 
-### Input Schema
-```json
-{}
+
+```js
+cenit.setup.schema.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/schema"
-  },
-  "type": "array"
-}
-```
-## Operation: setup.schema.post
+
+
+### setup.schema.post
 Creates or updates the specified schema. Any parameters not provided will be left unchanged.
 
-### Input Schema
-```json
-{}
+
+```js
+cenit.setup.schema.post(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/schema"
-}
-```
-## Operation: setup.schema.id.delete
+
+
+### setup.schema.id.delete
 Deletes the specified schema.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Schema ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cenit.setup.schema.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: setup.schema.id.get
+
+#### Parameters
+* id (string) **required** - Schema ID
+
+### setup.schema.id.get
 Retrieves the details of an existing schema. You need only supply the unique schema identifier that was returned upon schema creation.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Schema ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cenit.setup.schema.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/schema"
-}
-```
-## Operation: setup.translator.get
+
+#### Parameters
+* id (string) **required** - Schema ID
+
+### setup.translator.get
 Returns a list of translators you've previously created. The translators are returned in sorted order, with the most recent translator appearing first.
 
-### Input Schema
-```json
-{}
+
+```js
+cenit.setup.translator.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/translator"
-  },
-  "type": "array"
-}
-```
-## Operation: setup.translator.post
+
+
+### setup.translator.post
 Creates or updates the specified translator. Any parameters not provided will be left unchanged.
 
-### Input Schema
-```json
-{}
+
+```js
+cenit.setup.translator.post(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/translator"
-}
-```
-## Operation: setup.translator.id.delete
+
+
+### setup.translator.id.delete
 Deletes the specified translator.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Translator ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cenit.setup.translator.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: setup.translator.id.get
+
+#### Parameters
+* id (string) **required** - Translator ID.
+
+### setup.translator.id.get
 Retrieves the details of an existing translator. You need only supply the unique translator identifier that was returned upon translator creation.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Translator ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cenit.setup.translator.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/translator"
-}
-```
-## Operation: setup.webhook.get
+
+#### Parameters
+* id (string) **required** - Translator ID.
+
+### setup.webhook.get
 Returns a list of webhooks you've previously created. The webhooks are returned in sorted order, with the most recent webhook appearing first.
 
-### Input Schema
-```json
-{}
+
+```js
+cenit.setup.webhook.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/webhook"
-  },
-  "type": "array"
-}
-```
-## Operation: setup.webhook.post
+
+
+### setup.webhook.post
 Creates or updates the specified webhook. Any parameters not provided will be left unchanged.
 
-### Input Schema
-```json
-{}
+
+```js
+cenit.setup.webhook.post(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/webhook"
-}
-```
-## Operation: setup.webhook.id.delete
+
+
+### setup.webhook.id.delete
 Deletes the specified webhook.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Webhook ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cenit.setup.webhook.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: setup.webhook.id.get
+
+#### Parameters
+* id (string) **required** - Webhook ID.
+
+### setup.webhook.id.get
 Retrieves the details of an existing webhook. You need only supply the unique webhook identifier that was returned upon webhook creation.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Webhook ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cenit.setup.webhook.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/webhook"
-}
-```
+
+#### Parameters
+* id (string) **required** - Webhook ID.
+

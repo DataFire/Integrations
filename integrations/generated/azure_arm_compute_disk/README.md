@@ -1,637 +1,327 @@
 # @datafire/azure_arm_compute_disk
+
+Client library for DiskResourceProviderClient
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/azure_arm_compute_disk
+```
+
+```js
+let datafire = require('datafire');
+let azure_arm_compute_disk = require('@datafire/azure_arm_compute_disk').actions;
+let context = new datafire.Context();
+
+azure_arm_compute_disk.Disks_List({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 The Disk Resource Provider Client.
 
-## Operation: Disks_List
+## Actions
+### Disks_List
 Lists all the disks under a subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_compute_disk.Disks_List({
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DiskList"
-}
-```
-## Operation: Snapshots_List
+
+#### Parameters
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client Api Version.
+
+### Snapshots_List
 Lists snapshots under a subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_compute_disk.Snapshots_List({
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SnapshotList"
-}
-```
-## Operation: Disks_ListByResourceGroup
+
+#### Parameters
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client Api Version.
+
+### Disks_ListByResourceGroup
 Lists all the disks under a resource group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_compute_disk.Disks_ListByResourceGroup({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DiskList"
-}
-```
-## Operation: Disks_Delete
+
+#### Parameters
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* api-version (string) **required** - Client Api Version.
+
+### Disks_Delete
 Deletes a disk.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "diskName": {
-      "type": "string",
-      "description": "The name of the disk within the given subscription and resource group."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "diskName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_compute_disk.Disks_Delete({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "diskName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OperationStatusResponse"
-}
-```
-## Operation: Disks_Get
+
+#### Parameters
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* diskName (string) **required** - The name of the disk within the given subscription and resource group.
+* api-version (string) **required** - Client Api Version.
+
+### Disks_Get
 Gets information about a disk.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "diskName": {
-      "type": "string",
-      "description": "The name of the disk within the given subscription and resource group."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "diskName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_compute_disk.Disks_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "diskName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Disk"
-}
-```
-## Operation: Disks_Update
+
+#### Parameters
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* diskName (string) **required** - The name of the disk within the given subscription and resource group.
+* api-version (string) **required** - Client Api Version.
+
+### Disks_Update
 Updates (patches) a disk.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "diskName": {
-      "type": "string",
-      "description": "The name of the disk within the given subscription and resource group."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "disk": {
-      "$ref": "#/definitions/DiskUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "diskName",
-    "api-version",
-    "disk"
-  ]
-}
+
+```js
+azure_arm_compute_disk.Disks_Update({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "diskName": "",
+  "api-version": "",
+  "disk": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Disk"
-}
-```
-## Operation: Disks_CreateOrUpdate
+
+#### Parameters
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* diskName (string) **required** - The name of the disk within the given subscription and resource group.
+* api-version (string) **required** - Client Api Version.
+* disk (undefined) **required** - Disk update resource.
+
+### Disks_CreateOrUpdate
 Creates or updates a disk.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "diskName": {
-      "type": "string",
-      "description": "The name of the disk within the given subscription and resource group."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "disk": {
-      "$ref": "#/definitions/Disk"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "diskName",
-    "api-version",
-    "disk"
-  ]
-}
+
+```js
+azure_arm_compute_disk.Disks_CreateOrUpdate({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "diskName": "",
+  "api-version": "",
+  "disk": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Disk"
-}
-```
-## Operation: Disks_GrantAccess
+
+#### Parameters
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* diskName (string) **required** - The name of the disk within the given subscription and resource group.
+* api-version (string) **required** - Client Api Version.
+* disk (undefined) **required** - Disk resource.
+
+### Disks_GrantAccess
 Grants access to a disk.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "diskName": {
-      "type": "string",
-      "description": "The name of the disk within the given subscription and resource group."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "grantAccessData": {
-      "$ref": "#/definitions/GrantAccessData"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "diskName",
-    "api-version",
-    "grantAccessData"
-  ]
-}
+
+```js
+azure_arm_compute_disk.Disks_GrantAccess({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "diskName": "",
+  "api-version": "",
+  "grantAccessData": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccessUri"
-}
-```
-## Operation: Disks_RevokeAccess
+
+#### Parameters
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* diskName (string) **required** - The name of the disk within the given subscription and resource group.
+* api-version (string) **required** - Client Api Version.
+* grantAccessData (undefined) **required** - Data used for requesting a SAS.
+
+### Disks_RevokeAccess
 Revokes access to a disk.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "diskName": {
-      "type": "string",
-      "description": "The name of the disk within the given subscription and resource group."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "diskName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_compute_disk.Disks_RevokeAccess({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "diskName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OperationStatusResponse"
-}
-```
-## Operation: Snapshots_ListByResourceGroup
+
+#### Parameters
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* diskName (string) **required** - The name of the disk within the given subscription and resource group.
+* api-version (string) **required** - Client Api Version.
+
+### Snapshots_ListByResourceGroup
 Lists snapshots under a resource group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_compute_disk.Snapshots_ListByResourceGroup({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SnapshotList"
-}
-```
-## Operation: Snapshots_Delete
+
+#### Parameters
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* api-version (string) **required** - Client Api Version.
+
+### Snapshots_Delete
 Deletes a snapshot.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "snapshotName": {
-      "type": "string",
-      "description": "The name of the snapshot within the given subscription and resource group."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "snapshotName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_compute_disk.Snapshots_Delete({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "snapshotName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OperationStatusResponse"
-}
-```
-## Operation: Snapshots_Get
+
+#### Parameters
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* snapshotName (string) **required** - The name of the snapshot within the given subscription and resource group.
+* api-version (string) **required** - Client Api Version.
+
+### Snapshots_Get
 Gets information about a snapshot.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "snapshotName": {
-      "type": "string",
-      "description": "The name of the snapshot within the given subscription and resource group."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "snapshotName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_compute_disk.Snapshots_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "snapshotName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Snapshot"
-}
-```
-## Operation: Snapshots_Update
+
+#### Parameters
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* snapshotName (string) **required** - The name of the snapshot within the given subscription and resource group.
+* api-version (string) **required** - Client Api Version.
+
+### Snapshots_Update
 Updates (patches) a snapshot.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "snapshotName": {
-      "type": "string",
-      "description": "The name of the snapshot within the given subscription and resource group."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "snapshot": {
-      "$ref": "#/definitions/SnapshotUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "snapshotName",
-    "api-version",
-    "snapshot"
-  ]
-}
+
+```js
+azure_arm_compute_disk.Snapshots_Update({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "snapshotName": "",
+  "api-version": "",
+  "snapshot": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Snapshot"
-}
-```
-## Operation: Snapshots_CreateOrUpdate
+
+#### Parameters
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* snapshotName (string) **required** - The name of the snapshot within the given subscription and resource group.
+* api-version (string) **required** - Client Api Version.
+* snapshot (undefined) **required** - Snapshot update resource.
+
+### Snapshots_CreateOrUpdate
 Creates or updates a snapshot.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "snapshotName": {
-      "type": "string",
-      "description": "The name of the snapshot within the given subscription and resource group."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "snapshot": {
-      "$ref": "#/definitions/Snapshot"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "snapshotName",
-    "api-version",
-    "snapshot"
-  ]
-}
+
+```js
+azure_arm_compute_disk.Snapshots_CreateOrUpdate({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "snapshotName": "",
+  "api-version": "",
+  "snapshot": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Snapshot"
-}
-```
-## Operation: Snapshots_GrantAccess
+
+#### Parameters
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* snapshotName (string) **required** - The name of the snapshot within the given subscription and resource group.
+* api-version (string) **required** - Client Api Version.
+* snapshot (undefined) **required** - Snapshot resource.
+
+### Snapshots_GrantAccess
 Grants access to a snapshot.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "snapshotName": {
-      "type": "string",
-      "description": "The name of the snapshot within the given subscription and resource group."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "grantAccessData": {
-      "$ref": "#/definitions/GrantAccessData"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "snapshotName",
-    "api-version",
-    "grantAccessData"
-  ]
-}
+
+```js
+azure_arm_compute_disk.Snapshots_GrantAccess({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "snapshotName": "",
+  "api-version": "",
+  "grantAccessData": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccessUri"
-}
-```
-## Operation: Snapshots_RevokeAccess
+
+#### Parameters
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* snapshotName (string) **required** - The name of the snapshot within the given subscription and resource group.
+* api-version (string) **required** - Client Api Version.
+* grantAccessData (undefined) **required** - Data used for requesting a SAS.
+
+### Snapshots_RevokeAccess
 Revokes access to a snapshot.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "snapshotName": {
-      "type": "string",
-      "description": "The name of the snapshot within the given subscription and resource group."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "snapshotName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_compute_disk.Snapshots_RevokeAccess({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "snapshotName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OperationStatusResponse"
-}
-```
+
+#### Parameters
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* snapshotName (string) **required** - The name of the snapshot within the given subscription and resource group.
+* api-version (string) **required** - Client Api Version.
+

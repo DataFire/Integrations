@@ -1,970 +1,616 @@
 # @datafire/waag
+
+Client library for CitySDK Linked Data
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/waag
+```
+
+```js
+let datafire = require('datafire');
+let waag = require('@datafire/waag').actions;
+let context = new datafire.Context();
+
+waag.layers.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 An API for the distribution and annotation of open data, for small cities and big metropolitan areas.
 
-## Operation: layers.get
+## Actions
+### layers.get
 Return all layers
 
-### Input Schema
-```json
-{}
+
+```js
+waag.layers.get(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: layers.post
+
+
+### layers.post
 Create new layer
 
-### Input Schema
-```json
-{}
+
+```js
+waag.layers.post(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: layers.layer.delete
+
+
+### layers.layer.delete
 Delete a layer
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "layer": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "layer"
-  ]
-}
+
+```js
+waag.layers.layer.delete({
+  "layer": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: layers.layer.get
+
+#### Parameters
+* layer (string) **required**
+
+### layers.layer.get
 Return single layer
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "layer": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "layer"
-  ]
-}
+
+```js
+waag.layers.layer.get({
+  "layer": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: layers.layer.patch
+
+#### Parameters
+* layer (string) **required**
+
+### layers.layer.patch
 Edit a layer
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "layer": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "layer"
-  ]
-}
+
+```js
+waag.layers.layer.patch({
+  "layer": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: layers.layer.context.get
+
+#### Parameters
+* layer (string) **required**
+
+### layers.layer.context.get
 Return JSON-LD context of single layer
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "layer": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "layer"
-  ]
-}
+
+```js
+waag.layers.layer.context.get({
+  "layer": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: layers.layer.context.put
+
+#### Parameters
+* layer (string) **required**
+
+### layers.layer.context.put
 Overwrite JSON-LD context of single layer
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "layer": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "layer"
-  ]
-}
+
+```js
+waag.layers.layer.context.put({
+  "layer": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: layers.layer.fields.get
+
+#### Parameters
+* layer (string) **required**
+
+### layers.layer.fields.get
 Return all fields of single layer
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "layer": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "layer"
-  ]
-}
+
+```js
+waag.layers.layer.fields.get({
+  "layer": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: layers.layer.fields.post
+
+#### Parameters
+* layer (string) **required**
+
+### layers.layer.fields.post
 Create new field for single layer
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "layer": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "layer"
-  ]
-}
+
+```js
+waag.layers.layer.fields.post({
+  "layer": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: layers.layer.fields.field.delete
+
+#### Parameters
+* layer (string) **required**
+
+### layers.layer.fields.field.delete
 Delete a single field on single layer
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "layer": {
-      "type": "string"
-    },
-    "field": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "layer",
-    "field"
-  ]
-}
+
+```js
+waag.layers.layer.fields.field.delete({
+  "layer": "",
+  "field": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: layers.layer.fields.field.get
+
+#### Parameters
+* layer (string) **required**
+* field (string) **required**
+
+### layers.layer.fields.field.get
 Return single field of single layer
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "layer": {
-      "type": "string"
-    },
-    "field": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "layer",
-    "field"
-  ]
-}
+
+```js
+waag.layers.layer.fields.field.get({
+  "layer": "",
+  "field": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: layers.layer.fields.field.patch
+
+#### Parameters
+* layer (string) **required**
+* field (string) **required**
+
+### layers.layer.fields.field.patch
 Edit single field on single layer
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "layer": {
-      "type": "string"
-    },
-    "field": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "layer",
-    "field"
-  ]
-}
+
+```js
+waag.layers.layer.fields.field.patch({
+  "layer": "",
+  "field": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: layers.layer.fields.field.put
+
+#### Parameters
+* layer (string) **required**
+* field (string) **required**
+
+### layers.layer.fields.field.put
 Overwrite single field on single layer
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "layer": {
-      "type": "string"
-    },
-    "field": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "layer",
-    "field"
-  ]
-}
+
+```js
+waag.layers.layer.fields.field.put({
+  "layer": "",
+  "field": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: layers.layer.objects.delete
+
+#### Parameters
+* layer (string) **required**
+* field (string) **required**
+
+### layers.layer.objects.delete
 Delete all objects from a single layer
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "layer": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "layer"
-  ]
-}
+
+```js
+waag.layers.layer.objects.delete({
+  "layer": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: layers.layer.objects.get
+
+#### Parameters
+* layer (string) **required**
+
+### layers.layer.objects.get
 Return all objects with data on single layer
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "layer": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "layer"
-  ]
-}
+
+```js
+waag.layers.layer.objects.get({
+  "layer": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: layers.layer.objects.patch
+
+#### Parameters
+* layer (string) **required**
+
+### layers.layer.objects.patch
 Edit one or more objects and data on single layer
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "layer": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "layer"
-  ]
-}
+
+```js
+waag.layers.layer.objects.patch({
+  "layer": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: layers.layer.objects.post
+
+#### Parameters
+* layer (string) **required**
+
+### layers.layer.objects.post
 Create one or more objects with data on single layer, or add data to existing objects (or a combination thereof)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "layer": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "layer"
-  ]
-}
+
+```js
+waag.layers.layer.objects.post({
+  "layer": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: layers.layer.objects.cdk_id.get
+
+#### Parameters
+* layer (string) **required**
+
+### layers.layer.objects.cdk_id.get
 Return metadata of single layer about single object, e.g. the date the data was added/modified, etc.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "layer": {
-      "type": "string"
-    },
-    "cdk_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "layer",
-    "cdk_id"
-  ]
-}
+
+```js
+waag.layers.layer.objects.cdk_id.get({
+  "layer": "",
+  "cdk_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: layers.layer.owners.get
+
+#### Parameters
+* layer (string) **required**
+* cdk_id (string) **required**
+
+### layers.layer.owners.get
 Return all owners associated with single layer
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "layer": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "layer"
-  ]
-}
+
+```js
+waag.layers.layer.owners.get({
+  "layer": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ngsi10.contextEntities.entity.get
+
+#### Parameters
+* layer (string) **required**
+
+### ngsi10.contextEntities.entity.get
 Return single context entity
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "entity": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "entity"
-  ]
-}
+
+```js
+waag.ngsi10.contextEntities.entity.get({
+  "entity": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ngsi10.contextEntities.entity.attributes.put
+
+#### Parameters
+* entity (string) **required**
+
+### ngsi10.contextEntities.entity.attributes.put
 Update attributes for single context entity
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "entity": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "entity"
-  ]
-}
+
+```js
+waag.ngsi10.contextEntities.entity.attributes.put({
+  "entity": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ngsi10.contextEntities.entity.attributes.attribute.get
+
+#### Parameters
+* entity (string) **required**
+
+### ngsi10.contextEntities.entity.attributes.attribute.get
 Return single context entity attribute
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "entity": {
-      "type": "string"
-    },
-    "attribute": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "entity",
-    "attribute"
-  ]
-}
+
+```js
+waag.ngsi10.contextEntities.entity.attributes.attribute.get({
+  "entity": "",
+  "attribute": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ngsi10.contextEntityTypes.cetype.get
+
+#### Parameters
+* entity (string) **required**
+* attribute (string) **required**
+
+### ngsi10.contextEntityTypes.cetype.get
 Return objects of particular type
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cetype": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cetype"
-  ]
-}
+
+```js
+waag.ngsi10.contextEntityTypes.cetype.get({
+  "cetype": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ngsi10.contextEntityTypes.cetype.attributes.attribute.get
+
+#### Parameters
+* cetype (string) **required**
+
+### ngsi10.contextEntityTypes.cetype.attributes.attribute.get
 Return objects of particular type
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cetype": {
-      "type": "string"
-    },
-    "attribute": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cetype",
-    "attribute"
-  ]
-}
+
+```js
+waag.ngsi10.contextEntityTypes.cetype.attributes.attribute.get({
+  "cetype": "",
+  "attribute": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ngsi10.queryContext.post
+
+#### Parameters
+* cetype (string) **required**
+* attribute (string) **required**
+
+### ngsi10.queryContext.post
 Query context broker for contextElements
 
-### Input Schema
-```json
-{}
+
+```js
+waag.ngsi10.queryContext.post(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ngsi10.subscribeContext.post
+
+
+### ngsi10.subscribeContext.post
 Create a new context subscription
 
-### Input Schema
-```json
-{}
+
+```js
+waag.ngsi10.subscribeContext.post(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ngsi10.unsubscribeContext.post
+
+
+### ngsi10.unsubscribeContext.post
 Delete a context subscription
 
-### Input Schema
-```json
-{}
+
+```js
+waag.ngsi10.unsubscribeContext.post(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ngsi10.updateContext.post
+
+
+### ngsi10.updateContext.post
 Add or update NGSI contextElements
 
-### Input Schema
-```json
-{}
+
+```js
+waag.ngsi10.updateContext.post(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ngsi10.updateContextSubscription.post
+
+
+### ngsi10.updateContextSubscription.post
 Update/edit a context subscription
 
-### Input Schema
-```json
-{}
+
+```js
+waag.ngsi10.updateContextSubscription.post(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: objects.get
+
+
+### objects.get
 Return all objects
 
-### Input Schema
-```json
-{}
+
+```js
+waag.objects.get(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: objects.cdk_id.delete
+
+
+### objects.cdk_id.delete
 Delete a single object
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cdk_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cdk_id"
-  ]
-}
+
+```js
+waag.objects.cdk_id.delete({
+  "cdk_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: objects.cdk_id.get
+
+#### Parameters
+* cdk_id (string) **required**
+
+### objects.cdk_id.get
 Get a single object
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cdk_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cdk_id"
-  ]
-}
+
+```js
+waag.objects.cdk_id.get({
+  "cdk_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: objects.cdk_id.patch
+
+#### Parameters
+* cdk_id (string) **required**
+
+### objects.cdk_id.patch
 Edit a single object
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cdk_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cdk_id"
-  ]
-}
+
+```js
+waag.objects.cdk_id.patch({
+  "cdk_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: objects.cdk_id.layers.get
+
+#### Parameters
+* cdk_id (string) **required**
+
+### objects.cdk_id.layers.get
 Get all layers that contain data of single object
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cdk_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cdk_id"
-  ]
-}
+
+```js
+waag.objects.cdk_id.layers.get({
+  "cdk_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: objects.cdk_id.layers.layer.delete
+
+#### Parameters
+* cdk_id (string) **required**
+
+### objects.cdk_id.layers.layer.delete
 Remove data on layer from single object
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cdk_id": {
-      "type": "string"
-    },
-    "layer": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cdk_id",
-    "layer"
-  ]
-}
+
+```js
+waag.objects.cdk_id.layers.layer.delete({
+  "cdk_id": "",
+  "layer": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: objects.cdk_id.layers.layer.get
+
+#### Parameters
+* cdk_id (string) **required**
+* layer (string) **required**
+
+### objects.cdk_id.layers.layer.get
 Return all data on single layer of single object
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cdk_id": {
-      "type": "string"
-    },
-    "layer": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cdk_id",
-    "layer"
-  ]
-}
+
+```js
+waag.objects.cdk_id.layers.layer.get({
+  "cdk_id": "",
+  "layer": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: objects.cdk_id.layers.layer.patch
+
+#### Parameters
+* cdk_id (string) **required**
+* layer (string) **required**
+
+### objects.cdk_id.layers.layer.patch
 Update data on layer to single object
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cdk_id": {
-      "type": "string"
-    },
-    "layer": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cdk_id",
-    "layer"
-  ]
-}
+
+```js
+waag.objects.cdk_id.layers.layer.patch({
+  "cdk_id": "",
+  "layer": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: objects.cdk_id.layers.layer.post
+
+#### Parameters
+* cdk_id (string) **required**
+* layer (string) **required**
+
+### objects.cdk_id.layers.layer.post
 Add data on layer to single object
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cdk_id": {
-      "type": "string"
-    },
-    "layer": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cdk_id",
-    "layer"
-  ]
-}
+
+```js
+waag.objects.cdk_id.layers.layer.post({
+  "cdk_id": "",
+  "layer": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: objects.cdk_id.layers.layer.put
+
+#### Parameters
+* cdk_id (string) **required**
+* layer (string) **required**
+
+### objects.cdk_id.layers.layer.put
 Overwrite data on layer to single object
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cdk_id": {
-      "type": "string"
-    },
-    "layer": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cdk_id",
-    "layer"
-  ]
-}
+
+```js
+waag.objects.cdk_id.layers.layer.put({
+  "cdk_id": "",
+  "layer": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: owners.get
+
+#### Parameters
+* cdk_id (string) **required**
+* layer (string) **required**
+
+### owners.get
 Return all owners
 
-### Input Schema
-```json
-{}
+
+```js
+waag.owners.get(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: owners.post
+
+
+### owners.post
 Create new owner
 
-### Input Schema
-```json
-{}
+
+```js
+waag.owners.post(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: owners.owner.delete
+
+
+### owners.owner.delete
 Delete owner - and all layers and data belonging to this owner
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner"
-  ]
-}
+
+```js
+waag.owners.owner.delete({
+  "owner": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: owners.owner.get
+
+#### Parameters
+* owner (string) **required**
+
+### owners.owner.get
 Get a single owner
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner"
-  ]
-}
+
+```js
+waag.owners.owner.get({
+  "owner": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: owners.owner.patch
+
+#### Parameters
+* owner (string) **required**
+
+### owners.owner.patch
 Edit an owner
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner"
-  ]
-}
+
+```js
+waag.owners.owner.patch({
+  "owner": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: owners.owner.layers.get
+
+#### Parameters
+* owner (string) **required**
+
+### owners.owner.layers.get
 Return all layers belonging to a single owner
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner"
-  ]
-}
+
+```js
+waag.owners.owner.layers.get({
+  "owner": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: session.delete
+
+#### Parameters
+* owner (string) **required**
+
+### session.delete
 Close session
 
-### Input Schema
-```json
-{}
+
+```js
+waag.session.delete(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: session.get
+
+
+### session.get
 Return a session key
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Login name."
-    },
-    "password": {
-      "type": "string",
-      "description": "Login password."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "password"
-  ]
-}
+
+```js
+waag.session.get({
+  "name": "",
+  "password": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* name (string) **required** - Login name.
+* password (string) **required** - Login password.
+

@@ -1,140 +1,93 @@
 # @datafire/azure_arm_insights
 
+Client library for InsightsManagementClient
 
-## Operation: LogProfiles_List
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/azure_arm_insights
+```
+
+```js
+let datafire = require('datafire');
+let azure_arm_insights = require('@datafire/azure_arm_insights').actions;
+let context = new datafire.Context();
+
+azure_arm_insights.LogProfiles_List({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
+
+
+## Actions
+### LogProfiles_List
 List the log profiles.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The Azure subscription Id."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_insights.LogProfiles_List({
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LogProfileCollection"
-}
-```
-## Operation: LogProfiles_Delete
+
+#### Parameters
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - The Azure subscription Id.
+
+### LogProfiles_Delete
 Deletes the log profile.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "logProfileName": {
-      "type": "string",
-      "description": "The name of the log profile."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The Azure subscription Id."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "logProfileName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_insights.LogProfiles_Delete({
+  "logProfileName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: LogProfiles_Get
+
+#### Parameters
+* logProfileName (string) **required** - The name of the log profile.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - The Azure subscription Id.
+
+### LogProfiles_Get
 Gets the log profile.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "logProfileName": {
-      "type": "string",
-      "description": "The name of the log profile."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The Azure subscription Id."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "logProfileName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_insights.LogProfiles_Get({
+  "logProfileName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LogProfileResource"
-}
-```
-## Operation: LogProfiles_CreateOrUpdate
+
+#### Parameters
+* logProfileName (string) **required** - The name of the log profile.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - The Azure subscription Id.
+
+### LogProfiles_CreateOrUpdate
 Create or update a log profile in Azure Monitoring REST API.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "logProfileName": {
-      "type": "string",
-      "description": "The name of the log profile."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/LogProfileResource"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The Azure subscription Id."
-    }
+
+```js
+azure_arm_insights.LogProfiles_CreateOrUpdate({
+  "logProfileName": "",
+  "api-version": "",
+  "parameters": {
+    "properties": null
   },
-  "additionalProperties": false,
-  "required": [
-    "logProfileName",
-    "api-version",
-    "parameters",
-    "subscriptionId"
-  ]
-}
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LogProfileResource"
-}
-```
+
+#### Parameters
+* logProfileName (string) **required** - The name of the log profile.
+* api-version (string) **required** - Client Api Version.
+* parameters (object) **required** - The log profile resource.
+* subscriptionId (string) **required** - The Azure subscription Id.
+

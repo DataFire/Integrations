@@ -1,627 +1,351 @@
 # @datafire/wealthport
+
+Client library for Wealthport
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/wealthport
+```
+
+```js
+let datafire = require('datafire');
+let wealthport = require('@datafire/wealthport').actions;
+
+let account = {
+  Using HTTP Header: "",
+  Using URL Query Parameter: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    wealthport: account,
+  }
+})
+
+
+wealthport.createSource({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Wealthport provides a simple, lightweight and open Web API based on the Open API 2.0 standard (<a href="https://www.openapis.org" target="_blank">https://www.openapis.org</a>). Our APIs offer a variety of operations related to managing Sources, Folders, Orders and Recipes. There are operations to submit and track Jobs, upload and download data files and many more.
 
-## Operation: retrieveFolders
+## Actions
+### retrieveFolders
 Retrieves all Folders in the Data Inventory.
 
-### Input Schema
-```json
-{}
+
+```js
+wealthport.retrieveFolders(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Existing_Folder"
-  },
-  "type": "array"
-}
-```
-## Operation: createFolder
+
+
+### createFolder
 Creates the specified Folder in the Data Inventory.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Folder_Request"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+wealthport.createFolder({}, context)
 ```
-### Output Schema
-```json
-{
-  "format": "url",
-  "type": "string"
-}
-```
-## Operation: deleteFolder
+
+
+### deleteFolder
 Deletes the specified Folder and all contained Sources from the Data Inventory.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Folder ID of the Folder to delete, including any Sources contained"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+wealthport.deleteFolder({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: retrieveFolder
+
+#### Parameters
+* id (string) **required** - Folder ID of the Folder to delete, including any Sources contained
+
+### retrieveFolder
 Retrieves the specified Folder.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Folder ID of the Folder to retrieve"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+wealthport.retrieveFolder({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Existing_Folder"
-}
-```
-## Operation: updateFolder
+
+#### Parameters
+* id (string) **required** - Folder ID of the Folder to retrieve
+
+### updateFolder
 Updates the specified Folder.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Folder_Request"
-    },
-    "id": {
-      "type": "string",
-      "description": "Folder ID of the Folder to update"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+wealthport.updateFolder({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteFolderSources
+
+#### Parameters
+* body (object) - Represents a folder to be created or updated.
+* id (string) **required** - Folder ID of the Folder to update
+
+### deleteFolderSources
 Deletes all Sources in the specified Folder.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Folder ID of the Folder to delete all Sources from"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+wealthport.deleteFolderSources({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: retrieveFolderSources
+
+#### Parameters
+* id (string) **required** - Folder ID of the Folder to delete all Sources from
+
+### retrieveFolderSources
 Retrieves all Sources of the specified Folder.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Folder ID of the Folder to retrieve its Sources from"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+wealthport.retrieveFolderSources({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Existing_Source"
-}
-```
-## Operation: getResult
+
+#### Parameters
+* id (string) **required** - Folder ID of the Folder to retrieve its Sources from
+
+### getResult
 Returns the result of a finished Job.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Job ID of the job to retrieve its result"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+wealthport.getResult({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: getStatus
+
+#### Parameters
+* id (string) **required** - Job ID of the job to retrieve its result
+
+### getStatus
 Retrieves the status of a Job.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Job ID of the job to retrieve its status"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+wealthport.getStatus({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: retrieveOrders
+
+#### Parameters
+* id (string) **required** - Job ID of the job to retrieve its status
+
+### retrieveOrders
 Retrieves all previously submitted Orders.
 
-### Input Schema
-```json
-{}
+
+```js
+wealthport.retrieveOrders(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Existing_Order"
-  },
-  "type": "array"
-}
-```
-## Operation: createOrder
+
+
+### createOrder
 Creates a new Order to be submitted.<p>Orders reference one or more Sources, e.g. uploaded files, as well as one or more Folders (which again can contain Sources).The Recipe describes what to do with the referenced sources and where to publish the processing result to.</p>
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Order_Request"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+wealthport.createOrder({}, context)
 ```
-### Output Schema
-```json
-{
-  "format": "url",
-  "type": "string"
-}
-```
-## Operation: deleteOrder
+
+
+### deleteOrder
 Deletes the specified Order.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Order ID of the order to delete"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+wealthport.deleteOrder({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: retrieveOrder
+
+#### Parameters
+* id (string) **required** - Order ID of the order to delete
+
+### retrieveOrder
 Retrieves the specified Order.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Order ID of the order to retrieve"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+wealthport.retrieveOrder({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Existing_Order"
-}
-```
-## Operation: updateOrder
+
+#### Parameters
+* id (string) **required** - Order ID of the order to retrieve
+
+### updateOrder
 Updates the specified Order.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Order_Request"
-    },
-    "id": {
-      "type": "string",
-      "description": "Order ID of the order to update"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+wealthport.updateOrder({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: submitOrder
+
+#### Parameters
+* body (object) - Represents an order to be created or updated.
+* id (string) **required** - Order ID of the order to update
+
+### submitOrder
 Submits the specified Order for processing and launches a corresponding job.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Order ID of the order to submit for processing"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+wealthport.submitOrder({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: retrieveRecipes
+
+#### Parameters
+* id (string) **required** - Order ID of the order to submit for processing
+
+### retrieveRecipes
 Retrieves all available Recipes.
 
-### Input Schema
-```json
-{}
+
+```js
+wealthport.retrieveRecipes(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Existing_Recipe"
-  },
-  "type": "array"
-}
-```
-## Operation: retrieveRecipe
+
+
+### retrieveRecipe
 Retrieves the specified Recipe.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Recipe ID of the recipe to retrieve"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+wealthport.retrieveRecipe({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Existing_Recipe"
-}
-```
-## Operation: retrieveInstructions
+
+#### Parameters
+* id (string) **required** - Recipe ID of the recipe to retrieve
+
+### retrieveInstructions
 Retrieves the instructions of the specified Recipe.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Recipe ID of the recipe whose instructions to retrieve"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+wealthport.retrieveInstructions({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: updateInstructions
+
+#### Parameters
+* id (string) **required** - Recipe ID of the recipe whose instructions to retrieve
+
+### updateInstructions
 Updates the instructions of the specified Recipe.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Recipe ID of the recipe whose instructions to update"
-    },
-    "body": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+wealthport.updateInstructions({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: retrieveSources
+
+#### Parameters
+* id (string) **required** - Recipe ID of the recipe whose instructions to update
+* body (string)
+
+### retrieveSources
 Retrieves all Sources stored in the Data Inventory.
 
-### Input Schema
-```json
-{}
+
+```js
+wealthport.retrieveSources(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Existing_Source"
-  },
-  "type": "array"
-}
-```
-## Operation: createSource
+
+
+### createSource
 Creates the specified Source.<p>Sources are either uploaded files or a reference to a database. They are referenced in orders to specify which data needs processing.</p><p>Most clients should probably use the Upload File API which implicitly creates a new source on successful file upload.</p>
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Source_Request"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+wealthport.createSource({}, context)
 ```
-### Output Schema
-```json
-{
-  "format": "url",
-  "type": "string"
-}
-```
-## Operation: getUploadUrl
+
+
+### getUploadUrl
 Initiates a file upload and returns the URL where to upload the file to.<p>Calling this API generates a secure, unique and time-restricted URL where the file can be uploaded to. The URL is available in the <pre>Location</pre> HTTP header of the response. The temporal validity of the URL is available in the <pre>Cache-Control</pre> HTTP header of the response.Clients may perform a <pre>HTTP PUT</pre> request on the URL to upload the file using a form where a file <pre>sample.csv</pre> is passed as property <pre>file=sample.csv</pre>. For security reasons, clients must pass all HTTP headers as returned by the <pre>X-WP-Upload-Headers</pre> in the response, together with their values. This procedure ensures a secure, encrypted file upload.</p><p>Note that calling this API automatically generates a Source, there is no need to call the Create Source API.</p>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Name of the source to create. The name must correspond to the exact file name of the file being uploaded."
-    },
-    "source": {
-      "type": "string",
-      "description": "Existing source ID to create a new version from"
-    },
-    "folder": {
-      "type": "string",
-      "description": "Folder ID where to upload source to"
-    },
-    "contentType": {
-      "type": "string",
-      "description": "MIME type of the source file"
-    },
-    "encoding": {
-      "type": "string",
-      "description": "Encoding of the source file"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+wealthport.getUploadUrl({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: deleteSource
+
+#### Parameters
+* name (string) **required** - Name of the source to create. The name must correspond to the exact file name of the file being uploaded.
+* source (string) - Existing source ID to create a new version from
+* folder (string) - Folder ID where to upload source to
+* contentType (string) - MIME type of the source file
+* encoding (string) - Encoding of the source file
+
+### deleteSource
 Deletes the specified Source.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Source ID of the Source to delete"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+wealthport.deleteSource({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: retrieveSource
+
+#### Parameters
+* id (string) **required** - Source ID of the Source to delete
+
+### retrieveSource
 Retrieves the specified Source.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Source ID of the source to retrieve"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+wealthport.retrieveSource({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Existing_Source"
-}
-```
-## Operation: updateSource
+
+#### Parameters
+* id (string) **required** - Source ID of the source to retrieve
+
+### updateSource
 Updates the specified Source.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Source_Request"
-    },
-    "id": {
-      "type": "string",
-      "description": "Source ID of Source to update"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+wealthport.updateSource({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getDownloadUrl
+
+#### Parameters
+* body (object) - Represents a source to be created or updated.
+* id (string) **required** - Source ID of Source to update
+
+### getDownloadUrl
 Initiates a file download and returns the URL where to download the file from.<p>Calling this API generates a secure, unique and time-restricted URL where the file can be downloaded from. The URL is available in the <pre>Location</pre> HTTP header of the response. The time restriction of the URL is availablein the <pre>Cache-Control</pre> HTTP header of the response.Clients may perform a <pre>HTTP GET</pre> request on the URL to download the file.</p>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Source ID of file to download"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+wealthport.getDownloadUrl({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
+
+#### Parameters
+* id (string) **required** - Source ID of file to download
+

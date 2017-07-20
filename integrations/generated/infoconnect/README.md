@@ -1,475 +1,213 @@
 # @datafire/infoconnect
+
+Client library for Infoconnect
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/infoconnect
+```
+
+```js
+let datafire = require('datafire');
+let infoconnect = require('@datafire/infoconnect').actions;
+let context = new datafire.Context();
+
+infoconnect.v1.companies.id.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Search our rich and robust data on companies and people. Utilize our fuzzy matching to power your new app or website with Infoconnect from Infogroup Targeting Solutions.
 
-## Operation: v1.companies.id.get
+## Actions
+### v1.companies.id.get
 Retrieves details of the Company identified by the resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "A nine to ten digit Infogroup identification number. A number referencing the company assigned by Infogroup. This number will always refer to a single company and the reference will never change, unless the resource is permanently removed. Requesting a record by {id} will always return zero or one response."
-    },
-    "resourcetype": {
-      "type": "string",
-      "description": "Identifies the resource type for the response. The default value basic returns a base resource type that is valid across all methods; the resource type parameter is not needed to produce this response. To get a more detailed response set the resource type parameter to enhanced. To retrieve resources with Id's only, set the resource type parameter to core.",
-      "enum": [
-        "basic",
-        "enhanced",
-        "core"
-      ]
-    },
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type.",
-      "enum": [
-        "application/json",
-        "application/xml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "Content-Type"
-  ]
-}
+
+```js
+infoconnect.v1.companies.id.get({
+  "id": "",
+  "Content-Type": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v1.companies.get
+
+#### Parameters
+* id (string) **required** - A nine to ten digit Infogroup identification number. A number referencing the company assigned by Infogroup. This number will always refer to a single company and the reference will never change, unless the resource is permanently removed. Requesting a record by {id} will always return zero or one response.
+* resourcetype (string) - Identifies the resource type for the response. The default value basic returns a base resource type that is valid across all methods; the resource type parameter is not needed to produce this response. To get a more detailed response set the resource type parameter to enhanced. To retrieve resources with Id's only, set the resource type parameter to core.
+* Content-Type (string) **required** - The content type.
+
+### v1.companies.get
 Retrieves lists of companies.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourcetype": {
-      "type": "string",
-      "description": "Identifies the resource type for the response. The default value basic returns a base resource type that is valid across all methods; the resource type parameter is not needed to produce this response. To get a more detailed response set the resource type parameter to enhanced. To retrieve resources with Id's only, set the resource type parameter to core.",
-      "enum": [
-        "basic",
-        "enhanced",
-        "core"
-      ]
-    },
-    "city": {
-      "type": "string",
-      "description": "Filters through the Companies collection by city name."
-    },
-    "companyname": {
-      "type": "string",
-      "description": "Filters through the Companies collection and returns resources by company name."
-    },
-    "ein": {
-      "type": "string",
-      "description": "Filters through the Companies collection and returns resources with an Employer Identification Number (EIN)."
-    },
-    "email": {
-      "type": "string",
-      "description": "Filters through the Companies collection and returns resources with a case-insensitive email address match at the level."
-    },
-    "firstname": {
-      "type": "string",
-      "description": "Filters through the Companies collection by the primary contact's first name."
-    },
-    "lastname": {
-      "type": "string",
-      "description": "Filters through the Companies collection by the primary contact's last name."
-    },
-    "phone": {
-      "type": "string",
-      "description": "Filters through the Companies collection and returns resources with an ten-digit phone number match."
-    },
-    "postalcode": {
-      "type": "string",
-      "description": "Filters through the Companies collection by ZIP code or Postal code."
-    },
-    "stateprovince": {
-      "type": "string",
-      "description": "Filters through the Companies collection by State or Province abbreviation."
-    },
-    "limit": {
-      "type": "integer",
-      "description": "Number of responses to return. If used, must be a number between 1 and 10. Default is 10."
-    },
-    "offset": {
-      "type": "integer",
-      "description": "Number of responses to be skipped for generating the output. If used, must be a number between 0-100 minus limit. Default is 0."
-    },
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type.",
-      "enum": [
-        "application/json",
-        "application/xml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Content-Type"
-  ]
-}
+
+```js
+infoconnect.v1.companies.get({
+  "Content-Type": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v1.companies.search.post
+
+#### Parameters
+* resourcetype (string) - Identifies the resource type for the response. The default value basic returns a base resource type that is valid across all methods; the resource type parameter is not needed to produce this response. To get a more detailed response set the resource type parameter to enhanced. To retrieve resources with Id's only, set the resource type parameter to core.
+* city (string) - Filters through the Companies collection by city name.
+* companyname (string) - Filters through the Companies collection and returns resources by company name.
+* ein (string) - Filters through the Companies collection and returns resources with an Employer Identification Number (EIN).
+* email (string) - Filters through the Companies collection and returns resources with a case-insensitive email address match at the level.
+* firstname (string) - Filters through the Companies collection by the primary contact's first name.
+* lastname (string) - Filters through the Companies collection by the primary contact's last name.
+* phone (string) - Filters through the Companies collection and returns resources with an ten-digit phone number match.
+* postalcode (string) - Filters through the Companies collection by ZIP code or Postal code.
+* stateprovince (string) - Filters through the Companies collection by State or Province abbreviation.
+* limit (integer) - Number of responses to return. If used, must be a number between 1 and 10. Default is 10.
+* offset (integer) - Number of responses to be skipped for generating the output. If used, must be a number between 0-100 minus limit. Default is 0.
+* Content-Type (string) **required** - The content type.
+
+### v1.companies.search.post
 Retrieves details of resources matching a given set of search fields that are submitted along with the request.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type.",
-      "enum": [
-        "application/json",
-        "application/xml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Content-Type"
-  ]
-}
+
+```js
+infoconnect.v1.companies.search.post({
+  "Content-Type": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v1.companies.counts.post
+
+#### Parameters
+* Content-Type (string) **required** - The content type.
+
+### v1.companies.counts.post
 Retrieves counts on resources matching a given set of search fields that are submitted along with the request.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type.",
-      "enum": [
-        "application/json",
-        "application/xml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Content-Type"
-  ]
-}
+
+```js
+infoconnect.v1.companies.counts.post({
+  "Content-Type": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v1.people.id.get
+
+#### Parameters
+* Content-Type (string) **required** - The content type.
+
+### v1.people.id.get
 Retrieves details of the individual identified by the resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "A twelve digit Infogroup identification number. A number referencing the individual assigned by Infogroup. This number will always refer to a single individual and the reference will never change, unless the resource is permanently removed. Requesting a record by {id} will always return zero or one response."
-    },
-    "resourcetype": {
-      "type": "string",
-      "description": "Identifies the resource type for the response. The default value basic returns a base resource type that is valid across all methods; the resource type parameter is not needed to produce this response. To get a more detailed response set the resource type parameter to enhanced. To retrieve resources with Id's only, set the resource type parameter to core. Additional ResourceTypes are Core, LifeStyle and TargetReady.",
-      "enum": [
-        "basic",
-        "enhanced",
-        "core",
-        "LifeStyle",
-        "TargetReady"
-      ]
-    },
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type.",
-      "enum": [
-        "application/json",
-        "application/xml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "Content-Type"
-  ]
-}
+
+```js
+infoconnect.v1.people.id.get({
+  "id": "",
+  "Content-Type": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v1.people.get
+
+#### Parameters
+* id (string) **required** - A twelve digit Infogroup identification number. A number referencing the individual assigned by Infogroup. This number will always refer to a single individual and the reference will never change, unless the resource is permanently removed. Requesting a record by {id} will always return zero or one response.
+* resourcetype (string) - Identifies the resource type for the response. The default value basic returns a base resource type that is valid across all methods; the resource type parameter is not needed to produce this response. To get a more detailed response set the resource type parameter to enhanced. To retrieve resources with Id's only, set the resource type parameter to core. Additional ResourceTypes are Core, LifeStyle and TargetReady.
+* Content-Type (string) **required** - The content type.
+
+### v1.people.get
 Retrieves lists of people.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourcetype": {
-      "type": "string",
-      "description": "Identifies the resource type for the response. The default value basic returns a base resource type that is valid across all methods; the resource type parameter is not needed to produce this response. To get a more detailed response set the resource type parameter to enhanced. To retrieve resources with Id's only, set the resource type parameter to core. Additional ResourceTypes are Core, LifeStyle and TargetReady.",
-      "enum": [
-        "basic",
-        "enhanced",
-        "core",
-        "LifeStyle",
-        "TargetReady"
-      ]
-    },
-    "city": {
-      "type": "string",
-      "description": "Filters through the People collection by city name."
-    },
-    "email": {
-      "type": "string",
-      "description": "Filters through the People collection and returns resources with a case-insensitive email address match at the level."
-    },
-    "emailsha1upper": {
-      "type": "string",
-      "description": "Filters through the People collection and returns resources with a case-insensitive email address match at the level. If used, must be a SHA1 hashed upper case email address."
-    },
-    "includehistoricalemail": {
-      "type": "boolean",
-      "description": "IncludeHistoricalEmail can only be used in combination with Email or EmailSha1Upper. IncludeHistoricalEmail is used to retrieve historical records. Including this limits the ResourceType to Basic only. These records do not have an Id therefore cannot be used to return an Enhanced ResourceType. If used, must be True or False. Default is False."
-    },
-    "firstname": {
-      "type": "string",
-      "description": "Filters through the People collection by the primary contact's first name."
-    },
-    "lastname": {
-      "type": "string",
-      "description": "Filters through the People collection by the primary contact's last name."
-    },
-    "phone": {
-      "type": "string",
-      "description": "Filters through the People collection and returns resources with an ten-digit phone number match."
-    },
-    "postalcode": {
-      "type": "string",
-      "description": "Filters through the People collection by ZIP code or Postal code."
-    },
-    "stateprovince": {
-      "type": "string",
-      "description": "Filters through the People collection by State or Province abbreviation."
-    },
-    "limit": {
-      "type": "integer",
-      "description": "Number of responses to return. If used, must be a number between 1 and 10. Default is 10."
-    },
-    "offset": {
-      "type": "integer",
-      "description": "Number of responses to be skipped for generating the output. If used, must be a number between 0-100 minus limit. Default is 0."
-    },
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type.",
-      "enum": [
-        "application/json",
-        "application/xml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Content-Type"
-  ]
-}
+
+```js
+infoconnect.v1.people.get({
+  "Content-Type": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v1.people.search.post
+
+#### Parameters
+* resourcetype (string) - Identifies the resource type for the response. The default value basic returns a base resource type that is valid across all methods; the resource type parameter is not needed to produce this response. To get a more detailed response set the resource type parameter to enhanced. To retrieve resources with Id's only, set the resource type parameter to core. Additional ResourceTypes are Core, LifeStyle and TargetReady.
+* city (string) - Filters through the People collection by city name.
+* email (string) - Filters through the People collection and returns resources with a case-insensitive email address match at the level.
+* emailsha1upper (string) - Filters through the People collection and returns resources with a case-insensitive email address match at the level. If used, must be a SHA1 hashed upper case email address.
+* includehistoricalemail (boolean) - IncludeHistoricalEmail can only be used in combination with Email or EmailSha1Upper. IncludeHistoricalEmail is used to retrieve historical records. Including this limits the ResourceType to Basic only. These records do not have an Id therefore cannot be used to return an Enhanced ResourceType. If used, must be True or False. Default is False.
+* firstname (string) - Filters through the People collection by the primary contact's first name.
+* lastname (string) - Filters through the People collection by the primary contact's last name.
+* phone (string) - Filters through the People collection and returns resources with an ten-digit phone number match.
+* postalcode (string) - Filters through the People collection by ZIP code or Postal code.
+* stateprovince (string) - Filters through the People collection by State or Province abbreviation.
+* limit (integer) - Number of responses to return. If used, must be a number between 1 and 10. Default is 10.
+* offset (integer) - Number of responses to be skipped for generating the output. If used, must be a number between 0-100 minus limit. Default is 0.
+* Content-Type (string) **required** - The content type.
+
+### v1.people.search.post
 Retrieves details of resources matching a given set of search fields that are submitted along with the request.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type.",
-      "enum": [
-        "application/json",
-        "application/xml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Content-Type"
-  ]
-}
+
+```js
+infoconnect.v1.people.search.post({
+  "Content-Type": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v1.people.counts.post
+
+#### Parameters
+* Content-Type (string) **required** - The content type.
+
+### v1.people.counts.post
 Retrieves counts on resources matching a given set of search fields that are submitted along with the request.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type.",
-      "enum": [
-        "application/json",
-        "application/xml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Content-Type"
-  ]
-}
+
+```js
+infoconnect.v1.people.counts.post({
+  "Content-Type": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v3.match.post
+
+#### Parameters
+* Content-Type (string) **required** - The content type.
+
+### v3.match.post
 Matching and data append for partial name and address.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type.",
-      "enum": [
-        "application/json",
-        "application/xml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Content-Type"
-  ]
-}
+
+```js
+infoconnect.v3.match.post({
+  "Content-Type": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v3.multiplematch.post
+
+#### Parameters
+* Content-Type (string) **required** - The content type.
+
+### v3.multiplematch.post
 Multiple matching and data append for partial name and address.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type.",
-      "enum": [
-        "application/json",
-        "application/xml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Content-Type"
-  ]
-}
+
+```js
+infoconnect.v3.multiplematch.post({
+  "Content-Type": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v1.sics.id.get
+
+#### Parameters
+* Content-Type (string) **required** - The content type.
+
+### v1.sics.id.get
 Retrieves details of Standard Identification Classification (SIC) code.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "A two, four, or six numeric Standard Identification Classification (SIC) code."
-    },
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type.",
-      "enum": [
-        "application/json",
-        "application/xml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "Content-Type"
-  ]
-}
+
+```js
+infoconnect.v1.sics.id.get({
+  "id": "",
+  "Content-Type": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v1.sics.get
+
+#### Parameters
+* id (string) **required** - A two, four, or six numeric Standard Identification Classification (SIC) code.
+* Content-Type (string) **required** - The content type.
+
+### v1.sics.get
 Retrieves details of Standard Identification Classification (SIC) code.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "keyword": {
-      "type": "string",
-      "description": "By SIC description. Example \"barber\"."
-    },
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type.",
-      "enum": [
-        "application/json",
-        "application/xml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "keyword",
-    "Content-Type"
-  ]
-}
+
+```js
+infoconnect.v1.sics.get({
+  "keyword": "",
+  "Content-Type": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* keyword (string) **required** - By SIC description. Example "barber".
+* Content-Type (string) **required** - The content type.
+

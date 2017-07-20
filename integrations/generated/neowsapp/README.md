@@ -1,4 +1,23 @@
 # @datafire/neowsapp
+
+Client library for NeoWs - (Near Earth Object Web Service)
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/neowsapp
+```
+
+```js
+let datafire = require('datafire');
+let neowsapp = require('@datafire/neowsapp').actions;
+let context = new datafire.Context();
+
+neowsapp.browseNearEarthObjects({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 A web service for near earth objects. All the data is from the  <a href="http://neo.jpl.nasa.gov/" target="_blank">NASA JPL Asteroid team</a>. 
 
  
@@ -9,130 +28,59 @@ NeoWs is proud to power AsteroidTracker on <a href="https://itunes.apple.com/us/
 
 Follow us on <a href="https://twitter.com/AsteroidTracker" target="_blank">Twitter</a>
 
-## Operation: retrieveNearEarthObjectFeed
+## Actions
+### retrieveNearEarthObjectFeed
 Get a list of Near Earth Objects within a date range, The max range in one query is 7 days
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "start_date": {
-      "type": "string",
-      "description": "Start of date range search, format: yyyy-MM-dd - (ex: 2015-04-28)"
-    },
-    "end_date": {
-      "type": "string",
-      "description": "End of date range search, format: yyyy-MM-dd - (ex: 2015-04-28). If left off search will extends 7 days from start_date"
-    },
-    "detailed": {
-      "type": "boolean",
-      "description": "detailed"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "end_date"
-  ]
-}
+
+```js
+neowsapp.retrieveNearEarthObjectFeed({
+  "end_date": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NearEarthObjectList"
-}
-```
-## Operation: retrieveNEOFeedToday
+
+#### Parameters
+* start_date (string) - Start of date range search, format: yyyy-MM-dd - (ex: 2015-04-28)
+* end_date (string) **required** - End of date range search, format: yyyy-MM-dd - (ex: 2015-04-28). If left off search will extends 7 days from start_date
+* detailed (boolean) - detailed
+
+### retrieveNEOFeedToday
 Get a list of Near Earth Objects for today
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "detailed": {
-      "type": "boolean",
-      "description": "detailed"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+neowsapp.retrieveNEOFeedToday({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NearEarthObjectList"
-}
-```
-## Operation: browseNearEarthObjects
+
+
+### browseNearEarthObjects
 Retieve a paginated list of Near Earth Objects
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "page"
-    },
-    "size": {
-      "type": "integer",
-      "format": "int32",
-      "description": "size"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+neowsapp.browseNearEarthObjects({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NearEarthObject"
-}
-```
-## Operation: retrieveNearEarthObjectById
+
+
+### retrieveNearEarthObjectById
 Retieve a Near Earth Objects with a given id
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "asteroid_id": {
-      "type": "string",
-      "description": "ID of Near Earth Object - (ex: 3729835)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "asteroid_id"
-  ]
-}
+
+```js
+neowsapp.retrieveNearEarthObjectById({
+  "asteroid_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NearEarthObject"
-}
-```
-## Operation: retrieveCurrentNeoStatistics
+
+#### Parameters
+* asteroid_id (string) **required** - ID of Near Earth Object - (ex: 3729835)
+
+### retrieveCurrentNeoStatistics
 retrieveCurrentNeoStatistics
 
-### Input Schema
-```json
-{}
+
+```js
+neowsapp.retrieveCurrentNeoStatistics(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Statistics"
-}
-```
+
+

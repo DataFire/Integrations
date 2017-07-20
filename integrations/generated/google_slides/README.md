@@ -1,447 +1,158 @@
 # @datafire/google_slides
+
+Client library for Google Slides
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/google_slides
+```
+
+```js
+let datafire = require('datafire');
+let google_slides = require('@datafire/google_slides').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    google_slides: account,
+  }
+})
+
+
+google_slides.presentations.create({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 An API for creating and editing Google Slides presentations.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+google_slides.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+google_slides.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: presentations.create
+
+
+### presentations.create
 Creates a new presentation using the title given in the request. Other
 fields in the request are ignored.
 Returns the created presentation.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Presentation"
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_slides.presentations.create({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Presentation"
-}
-```
-## Operation: presentations.get
+
+
+### presentations.get
 Gets the latest version of the specified presentation.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "presentationId": {
-      "type": "string",
-      "description": "The ID of the presentation to retrieve."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "presentationId"
-  ]
-}
+
+```js
+google_slides.presentations.get({
+  "presentationId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Presentation"
-}
-```
-## Operation: presentations.pages.get
+
+#### Parameters
+* presentationId (string) **required** - The ID of the presentation to retrieve.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+
+### presentations.pages.get
 Gets the latest version of the specified page in the presentation.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "presentationId": {
-      "type": "string",
-      "description": "The ID of the presentation to retrieve."
-    },
-    "pageObjectId": {
-      "type": "string",
-      "description": "The object ID of the page to retrieve."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "presentationId",
-    "pageObjectId"
-  ]
-}
+
+```js
+google_slides.presentations.pages.get({
+  "presentationId": "",
+  "pageObjectId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Page"
-}
-```
-## Operation: presentations.pages.getThumbnail
+
+#### Parameters
+* presentationId (string) **required** - The ID of the presentation to retrieve.
+* pageObjectId (string) **required** - The object ID of the page to retrieve.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+
+### presentations.pages.getThumbnail
 Generates a thumbnail of the latest version of the specified page in the
 presentation and returns a URL to the thumbnail image.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "pageObjectId": {
-      "type": "string",
-      "description": "The object ID of the page whose thumbnail to retrieve."
-    },
-    "presentationId": {
-      "type": "string",
-      "description": "The ID of the presentation to retrieve."
-    },
-    "thumbnailProperties.mimeType": {
-      "type": "string",
-      "description": "The optional mime type of the thumbnail image.\n\nIf you don't specify the mime type, the default mime type will be PNG.",
-      "enum": [
-        "PNG"
-      ]
-    },
-    "thumbnailProperties.thumbnailSize": {
-      "type": "string",
-      "description": "The optional thumbnail image size.\n\nIf you don't specify the size, the server chooses a default size of the\nimage.",
-      "enum": [
-        "THUMBNAIL_SIZE_UNSPECIFIED",
-        "LARGE"
-      ]
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "pageObjectId",
-    "presentationId"
-  ]
-}
+
+```js
+google_slides.presentations.pages.getThumbnail({
+  "pageObjectId": "",
+  "presentationId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Thumbnail"
-}
-```
-## Operation: presentations.batchUpdate
+
+#### Parameters
+* pageObjectId (string) **required** - The object ID of the page whose thumbnail to retrieve.
+* presentationId (string) **required** - The ID of the presentation to retrieve.
+* thumbnailProperties.mimeType (string) - The optional mime type of the thumbnail image.
+* thumbnailProperties.thumbnailSize (string) - The optional thumbnail image size.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### presentations.batchUpdate
 Applies one or more updates to the presentation.
 
 Each request is validated before
@@ -464,89 +175,27 @@ collaborators, the presentation should reflect your changes. In any case,
 the updates in your request are guaranteed to be applied together
 atomically.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "presentationId": {
-      "type": "string",
-      "description": "The presentation to apply the updates to."
-    },
-    "body": {
-      "$ref": "#/definitions/BatchUpdatePresentationRequest"
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "presentationId"
-  ]
-}
+
+```js
+google_slides.presentations.batchUpdate({
+  "presentationId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BatchUpdatePresentationResponse"
-}
-```
+
+#### Parameters
+* presentationId (string) **required** - The presentation to apply the updates to.
+* body (object) - Request message for PresentationsService.BatchUpdatePresentation.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+

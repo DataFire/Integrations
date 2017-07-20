@@ -1,516 +1,271 @@
 # @datafire/azure_arm_documentdb
+
+Client library for DocumentDB
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/azure_arm_documentdb
+```
+
+```js
+let datafire = require('datafire');
+let azure_arm_documentdb = require('@datafire/azure_arm_documentdb').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    azure_arm_documentdb: account,
+  }
+})
+
+
+azure_arm_documentdb.DatabaseAccounts_CheckNameExists({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Azure DocumentDB Database Service Resource Provider REST API
 
-## Operation: DatabaseAccounts_CheckNameExists
+## Actions
+### DatabaseAccounts_CheckNameExists
 Checks that the Azure DocumentDB account name already exists. A valid account name may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "accountName": {
-      "type": "string",
-      "description": "DocumentDB database account name.",
-      "maxLength": 50,
-      "minLength": 3
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "accountName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_documentdb.DatabaseAccounts_CheckNameExists({
+  "accountName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: DatabaseAccounts_List
+
+#### Parameters
+* accountName (string) **required** - DocumentDB database account name.
+* api-version (string) **required** - Version of the API to be used with the client request. The current version is 2015-04-08.
+
+### DatabaseAccounts_List
 Lists all the Azure DocumentDB database accounts available under the subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure subscription ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_documentdb.DatabaseAccounts_List({
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DatabaseAccountsListResult"
-}
-```
-## Operation: DatabaseAccounts_ListByResourceGroup
+
+#### Parameters
+* api-version (string) **required** - Version of the API to be used with the client request. The current version is 2015-04-08.
+* subscriptionId (string) **required** - Azure subscription ID.
+
+### DatabaseAccounts_ListByResourceGroup
 Lists all the Azure DocumentDB database accounts available under the given resource group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of an Azure resource group.",
-      "pattern": "^[-\\w\\._\\(\\)]+$",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure subscription ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_documentdb.DatabaseAccounts_ListByResourceGroup({
+  "resourceGroupName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DatabaseAccountsListResult"
-}
-```
-## Operation: DatabaseAccounts_Delete
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of an Azure resource group.
+* api-version (string) **required** - Version of the API to be used with the client request. The current version is 2015-04-08.
+* subscriptionId (string) **required** - Azure subscription ID.
+
+### DatabaseAccounts_Delete
 Deletes an existing Azure DocumentDB database account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of an Azure resource group.",
-      "pattern": "^[-\\w\\._\\(\\)]+$",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "accountName": {
-      "type": "string",
-      "description": "DocumentDB database account name.",
-      "maxLength": 50,
-      "minLength": 3
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "accountName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_documentdb.DatabaseAccounts_Delete({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: DatabaseAccounts_Get
+
+#### Parameters
+* subscriptionId (string) **required** - Azure subscription ID.
+* resourceGroupName (string) **required** - Name of an Azure resource group.
+* accountName (string) **required** - DocumentDB database account name.
+* api-version (string) **required** - Version of the API to be used with the client request. The current version is 2015-04-08.
+
+### DatabaseAccounts_Get
 Retrieves the properties of an existing Azure DocumentDB database account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of an Azure resource group.",
-      "pattern": "^[-\\w\\._\\(\\)]+$",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "accountName": {
-      "type": "string",
-      "description": "DocumentDB database account name.",
-      "maxLength": 50,
-      "minLength": 3
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "accountName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_documentdb.DatabaseAccounts_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DatabaseAccount"
-}
-```
-## Operation: DatabaseAccounts_Patch
+
+#### Parameters
+* subscriptionId (string) **required** - Azure subscription ID.
+* resourceGroupName (string) **required** - Name of an Azure resource group.
+* accountName (string) **required** - DocumentDB database account name.
+* api-version (string) **required** - Version of the API to be used with the client request. The current version is 2015-04-08.
+
+### DatabaseAccounts_Patch
 Patches the properties of an existing Azure DocumentDB database account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of an Azure resource group.",
-      "pattern": "^[-\\w\\._\\(\\)]+$",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "accountName": {
-      "type": "string",
-      "description": "DocumentDB database account name.",
-      "maxLength": 50,
-      "minLength": 3
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
-    },
-    "updateParameters": {
-      "$ref": "#/definitions/DatabaseAccountPatchParameters"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "accountName",
-    "api-version",
-    "updateParameters"
-  ]
-}
+
+```js
+azure_arm_documentdb.DatabaseAccounts_Patch({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": "",
+  "updateParameters": {
+    "tags": {}
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DatabaseAccount"
-}
-```
-## Operation: DatabaseAccounts_CreateOrUpdate
+
+#### Parameters
+* subscriptionId (string) **required** - Azure subscription ID.
+* resourceGroupName (string) **required** - Name of an Azure resource group.
+* accountName (string) **required** - DocumentDB database account name.
+* api-version (string) **required** - Version of the API to be used with the client request. The current version is 2015-04-08.
+* updateParameters (object) **required** - Parameters for patching Azure DocumentDB database account properties.
+
+### DatabaseAccounts_CreateOrUpdate
 Creates or updates an Azure DocumentDB database account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of an Azure resource group.",
-      "pattern": "^[-\\w\\._\\(\\)]+$",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "accountName": {
-      "type": "string",
-      "description": "DocumentDB database account name.",
-      "maxLength": 50,
-      "minLength": 3
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
-    },
-    "createUpdateParameters": {
-      "$ref": "#/definitions/DatabaseAccountCreateUpdateParameters"
+
+```js
+azure_arm_documentdb.DatabaseAccounts_CreateOrUpdate({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": "",
+  "createUpdateParameters": {
+    "properties": {
+      "locations": [],
+      "databaseAccountOfferType": ""
     }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "accountName",
-    "api-version",
-    "createUpdateParameters"
-  ]
-}
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DatabaseAccount"
-}
-```
-## Operation: DatabaseAccounts_FailoverPriorityChange
+
+#### Parameters
+* subscriptionId (string) **required** - Azure subscription ID.
+* resourceGroupName (string) **required** - Name of an Azure resource group.
+* accountName (string) **required** - DocumentDB database account name.
+* api-version (string) **required** - Version of the API to be used with the client request. The current version is 2015-04-08.
+* createUpdateParameters (object) **required** - Parameters to create and update DocumentDB database accounts.
+
+### DatabaseAccounts_FailoverPriorityChange
 Changes the failover priority for the Azure DocumentDB database account. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of an Azure resource group.",
-      "pattern": "^[-\\w\\._\\(\\)]+$",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "accountName": {
-      "type": "string",
-      "description": "DocumentDB database account name.",
-      "maxLength": 50,
-      "minLength": 3
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
-    },
-    "failoverParameters": {
-      "$ref": "#/definitions/FailoverPolicies"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "accountName",
-    "api-version",
-    "failoverParameters"
-  ]
-}
+
+```js
+azure_arm_documentdb.DatabaseAccounts_FailoverPriorityChange({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": "",
+  "failoverParameters": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: DatabaseAccounts_ListConnectionStrings
+
+#### Parameters
+* subscriptionId (string) **required** - Azure subscription ID.
+* resourceGroupName (string) **required** - Name of an Azure resource group.
+* accountName (string) **required** - DocumentDB database account name.
+* api-version (string) **required** - Version of the API to be used with the client request. The current version is 2015-04-08.
+* failoverParameters (undefined) **required** - The list of new failover policies for the failover priority change.
+
+### DatabaseAccounts_ListConnectionStrings
 Lists the connection strings for the specified Azure DocumentDB database account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of an Azure resource group.",
-      "pattern": "^[-\\w\\._\\(\\)]+$",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "accountName": {
-      "type": "string",
-      "description": "DocumentDB database account name.",
-      "maxLength": 50,
-      "minLength": 3
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "accountName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_documentdb.DatabaseAccounts_ListConnectionStrings({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DatabaseAccountListConnectionStringsResult"
-}
-```
-## Operation: DatabaseAccounts_ListKeys
+
+#### Parameters
+* subscriptionId (string) **required** - Azure subscription ID.
+* resourceGroupName (string) **required** - Name of an Azure resource group.
+* accountName (string) **required** - DocumentDB database account name.
+* api-version (string) **required** - Version of the API to be used with the client request. The current version is 2015-04-08.
+
+### DatabaseAccounts_ListKeys
 Lists the access keys for the specified Azure DocumentDB database account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of an Azure resource group.",
-      "pattern": "^[-\\w\\._\\(\\)]+$",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "accountName": {
-      "type": "string",
-      "description": "DocumentDB database account name.",
-      "maxLength": 50,
-      "minLength": 3
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "accountName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_documentdb.DatabaseAccounts_ListKeys({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DatabaseAccountListKeysResult"
-}
-```
-## Operation: DatabaseAccounts_ListReadOnlyKeys
+
+#### Parameters
+* subscriptionId (string) **required** - Azure subscription ID.
+* resourceGroupName (string) **required** - Name of an Azure resource group.
+* accountName (string) **required** - DocumentDB database account name.
+* api-version (string) **required** - Version of the API to be used with the client request. The current version is 2015-04-08.
+
+### DatabaseAccounts_ListReadOnlyKeys
 Lists the read-only access keys for the specified Azure DocumentDB database account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of an Azure resource group.",
-      "pattern": "^[-\\w\\._\\(\\)]+$",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "accountName": {
-      "type": "string",
-      "description": "DocumentDB database account name.",
-      "maxLength": 50,
-      "minLength": 3
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "accountName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_documentdb.DatabaseAccounts_ListReadOnlyKeys({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DatabaseAccountListReadOnlyKeysResult"
-}
-```
-## Operation: DatabaseAccounts_RegenerateKey
+
+#### Parameters
+* subscriptionId (string) **required** - Azure subscription ID.
+* resourceGroupName (string) **required** - Name of an Azure resource group.
+* accountName (string) **required** - DocumentDB database account name.
+* api-version (string) **required** - Version of the API to be used with the client request. The current version is 2015-04-08.
+
+### DatabaseAccounts_RegenerateKey
 Regenerates an access key for the specified Azure DocumentDB database account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure subscription ID."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of an Azure resource group.",
-      "pattern": "^[-\\w\\._\\(\\)]+$",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "accountName": {
-      "type": "string",
-      "description": "DocumentDB database account name.",
-      "maxLength": 50,
-      "minLength": 3
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request. The current version is 2015-04-08."
-    },
-    "keyToRegenerate": {
-      "$ref": "#/definitions/DatabaseAccountRegenerateKeyParameters"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "accountName",
-    "api-version",
-    "keyToRegenerate"
-  ]
-}
+
+```js
+azure_arm_documentdb.DatabaseAccounts_RegenerateKey({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": "",
+  "keyToRegenerate": {
+    "keyKind": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* subscriptionId (string) **required** - Azure subscription ID.
+* resourceGroupName (string) **required** - Name of an Azure resource group.
+* accountName (string) **required** - DocumentDB database account name.
+* api-version (string) **required** - Version of the API to be used with the client request. The current version is 2015-04-08.
+* keyToRegenerate (object) **required** - Parameters to regenerate the keys within the database account.
+

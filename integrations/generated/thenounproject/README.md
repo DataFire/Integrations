@@ -1,387 +1,195 @@
 # @datafire/thenounproject
+
+Client library for The Noun Project
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/thenounproject
+```
+
+```js
+let datafire = require('datafire');
+let thenounproject = require('@datafire/thenounproject').actions;
+let context = new datafire.Context();
+
+thenounproject.getRecentIcons({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Icons for Everything
 
-## Operation: getCollectionById
+## Actions
+### getCollectionById
 Returns a single collection
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Collection id"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+thenounproject.getCollectionById({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCollectionIconsById
+
+#### Parameters
+* id (integer) **required** - Collection id
+
+### getCollectionIconsById
 Returns a list of icons associated with a collection
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Collection id"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum number of results"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of results to displace or skip over"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of results of limit length to displace or skip over"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+thenounproject.getCollectionIconsById({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCollectionBySlug
+
+#### Parameters
+* id (integer) **required** - Collection id
+* limit (integer) - Maximum number of results
+* offset (integer) - Number of results to displace or skip over
+* page (integer) - Number of results of limit length to displace or skip over
+
+### getCollectionBySlug
 Returns a single collection
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "slug": {
-      "type": "string",
-      "description": "Collection slug"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "slug"
-  ]
-}
+
+```js
+thenounproject.getCollectionBySlug({
+  "slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCollectionIconsBySlug
+
+#### Parameters
+* slug (string) **required** - Collection slug
+
+### getCollectionIconsBySlug
 Returns a list of icons associated with a collection
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "slug": {
-      "type": "string",
-      "description": "Collection slug"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum number of results"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of results to displace or skip over"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of results of limit length to displace or skip over"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "slug"
-  ]
-}
+
+```js
+thenounproject.getCollectionIconsBySlug({
+  "slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getAllCollections
+
+#### Parameters
+* slug (string) **required** - Collection slug
+* limit (integer) - Maximum number of results
+* offset (integer) - Number of results to displace or skip over
+* page (integer) - Number of results of limit length to displace or skip over
+
+### getAllCollections
 Return's a list of all collections
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum number of results"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of results to displace or skip over"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of results of limit length to displace or skip over"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+thenounproject.getAllCollections({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getIconById
+
+
+### getIconById
 Returns a single icon
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Icon id"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+thenounproject.getIconById({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getIconByTerm
+
+#### Parameters
+* id (integer) **required** - Icon id
+
+### getIconByTerm
 Returns a single icon
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "term": {
-      "type": "string",
-      "description": "Icon term"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "term"
-  ]
-}
+
+```js
+thenounproject.getIconByTerm({
+  "term": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getRecentIcons
+
+#### Parameters
+* term (string) **required** - Icon term
+
+### getRecentIcons
 Returns list of most recently uploaded icons
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum number of results"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of results to displace or skip over"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of results of limit length to displace or skip over"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+thenounproject.getRecentIcons({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getIconsByTerm
+
+
+### getIconsByTerm
 Returns a list of icons
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "term": {
-      "type": "string",
-      "description": "Icon term"
-    },
-    "limit_to_public_domain": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Limit results to public domain icons only"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum number of results"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of results to displace or skip over"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of results of limit length to displace or skip over"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "term"
-  ]
-}
+
+```js
+thenounproject.getIconsByTerm({
+  "term": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getApiQuotaStatus
+
+#### Parameters
+* term (string) **required** - Icon term
+* limit_to_public_domain (integer) - Limit results to public domain icons only
+* limit (integer) - Maximum number of results
+* offset (integer) - Number of results to displace or skip over
+* page (integer) - Number of results of limit length to displace or skip over
+
+### getApiQuotaStatus
 Returns current oauth usage and limits
 
-### Input Schema
-```json
-{}
+
+```js
+thenounproject.getApiQuotaStatus(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getUserCollections
+
+
+### getUserCollections
 Returns a list of collections associated with a user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "User id"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id"
-  ]
-}
+
+```js
+thenounproject.getUserCollections({
+  "user_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getUserCollection
+
+#### Parameters
+* user_id (integer) **required** - User id
+
+### getUserCollection
 Returns a single collection associated with a user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "User id"
-    },
-    "slug": {
-      "type": "string",
-      "description": "Collection slug"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id",
-    "slug"
-  ]
-}
+
+```js
+thenounproject.getUserCollection({
+  "user_id": 0,
+  "slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getUserUploadsWithUser
+
+#### Parameters
+* user_id (integer) **required** - User id
+* slug (string) **required** - Collection slug
+
+### getUserUploadsWithUser
 Returns a list of uploads associated with a user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "Username"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum number of results"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of results to displace or skip over"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of results of limit length to displace or skip over"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+thenounproject.getUserUploadsWithUser({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* username (string) **required** - Username
+* limit (integer) - Maximum number of results
+* offset (integer) - Number of results to displace or skip over
+* page (integer) - Number of results of limit length to displace or skip over
+

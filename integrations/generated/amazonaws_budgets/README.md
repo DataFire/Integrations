@@ -1,692 +1,473 @@
 # @datafire/amazonaws_budgets
+
+Client library for AWS Budgets
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/amazonaws_budgets
+```
+
+```js
+let datafire = require('datafire');
+let amazonaws_budgets = require('@datafire/amazonaws_budgets').actions;
+
+let account = {
+  hmac: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    amazonaws_budgets: account,
+  }
+})
+
+
+amazonaws_budgets.CreateBudget({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 All public APIs for AWS Budgets
 
-## Operation: CreateBudget
+## Actions
+### CreateBudget
 Create a new budget
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CreateBudgetRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
+
+```js
+amazonaws_budgets.CreateBudget({
+  "body": {
+    "AccountId": "",
+    "Budget": {
+      "BudgetName": "",
+      "BudgetLimit": {
+        "Amount": "",
+        "Unit": ""
+      },
+      "CostTypes": {
+        "IncludeTax": true,
+        "IncludeSubscription": true,
+        "UseBlended": true
+      },
+      "TimeUnit": "",
+      "TimePeriod": {
+        "Start": "",
+        "End": ""
+      },
+      "BudgetType": ""
     }
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CreateBudgetResponse"
-}
-```
-## Operation: CreateNotification
+
+#### Parameters
+* body (object) **required** - Request of CreateBudget
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### CreateNotification
 Create a new Notification with subscribers for a budget
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CreateNotificationRequest"
+
+```js
+amazonaws_budgets.CreateNotification({
+  "body": {
+    "AccountId": "",
+    "BudgetName": "",
+    "Notification": {
+      "NotificationType": "",
+      "ComparisonOperator": "",
+      "Threshold": 0
     },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+    "Subscribers": []
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CreateNotificationResponse"
-}
-```
-## Operation: CreateSubscriber
+
+#### Parameters
+* body (object) **required** - Request of CreateNotification
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### CreateSubscriber
 Create a new Subscriber for a notification
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CreateSubscriberRequest"
+
+```js
+amazonaws_budgets.CreateSubscriber({
+  "body": {
+    "AccountId": "",
+    "BudgetName": "",
+    "Notification": {
+      "NotificationType": "",
+      "ComparisonOperator": "",
+      "Threshold": 0
     },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
+    "Subscriber": {
+      "SubscriptionType": "",
+      "Address": ""
     }
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CreateSubscriberResponse"
-}
-```
-## Operation: DeleteBudget
+
+#### Parameters
+* body (object) **required** - Request of CreateSubscriber
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DeleteBudget
 Delete a budget and related notifications
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeleteBudgetRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_budgets.DeleteBudget({
+  "body": {
+    "AccountId": "",
+    "BudgetName": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeleteBudgetResponse"
-}
-```
-## Operation: DeleteNotification
+
+#### Parameters
+* body (object) **required** - Request of DeleteBudget
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DeleteNotification
 Delete a notification and related subscribers
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeleteNotificationRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
+
+```js
+amazonaws_budgets.DeleteNotification({
+  "body": {
+    "AccountId": "",
+    "BudgetName": "",
+    "Notification": {
+      "NotificationType": "",
+      "ComparisonOperator": "",
+      "Threshold": 0
     }
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeleteNotificationResponse"
-}
-```
-## Operation: DeleteSubscriber
+
+#### Parameters
+* body (object) **required** - Request of DeleteNotification
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DeleteSubscriber
 Delete a Subscriber for a notification
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeleteSubscriberRequest"
+
+```js
+amazonaws_budgets.DeleteSubscriber({
+  "body": {
+    "AccountId": "",
+    "BudgetName": "",
+    "Notification": {
+      "NotificationType": "",
+      "ComparisonOperator": "",
+      "Threshold": 0
     },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
+    "Subscriber": {
+      "SubscriptionType": "",
+      "Address": ""
     }
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeleteSubscriberResponse"
-}
-```
-## Operation: DescribeBudget
+
+#### Parameters
+* body (object) **required** - Request of DeleteSubscriber
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeBudget
 Get a single budget
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeBudgetRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_budgets.DescribeBudget({
+  "body": {
+    "AccountId": "",
+    "BudgetName": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeBudgetResponse"
-}
-```
-## Operation: DescribeBudgets
+
+#### Parameters
+* body (object) **required** - Request of DescribeBudget
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeBudgets
 Get all budgets for an account
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeBudgetsRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_budgets.DescribeBudgets({
+  "body": {
+    "AccountId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeBudgetsResponse"
-}
-```
-## Operation: DescribeNotificationsForBudget
+
+#### Parameters
+* body (object) **required** - Request of DescribeBudgets
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeNotificationsForBudget
 Get notifications of a budget
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeNotificationsForBudgetRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_budgets.DescribeNotificationsForBudget({
+  "body": {
+    "AccountId": "",
+    "BudgetName": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeNotificationsForBudgetResponse"
-}
-```
-## Operation: DescribeSubscribersForNotification
+
+#### Parameters
+* body (object) **required** - Request of DescribeNotificationsForBudget
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeSubscribersForNotification
 Get subscribers of a notification
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeSubscribersForNotificationRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
+
+```js
+amazonaws_budgets.DescribeSubscribersForNotification({
+  "body": {
+    "AccountId": "",
+    "BudgetName": "",
+    "Notification": {
+      "NotificationType": "",
+      "ComparisonOperator": "",
+      "Threshold": 0
     }
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeSubscribersForNotificationResponse"
-}
-```
-## Operation: UpdateBudget
+
+#### Parameters
+* body (object) **required** - Request of DescribeSubscribersForNotification
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateBudget
 Update the information of a budget already created
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateBudgetRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
+
+```js
+amazonaws_budgets.UpdateBudget({
+  "body": {
+    "AccountId": "",
+    "NewBudget": {
+      "BudgetName": "",
+      "BudgetLimit": {
+        "Amount": "",
+        "Unit": ""
+      },
+      "CostTypes": {
+        "IncludeTax": true,
+        "IncludeSubscription": true,
+        "UseBlended": true
+      },
+      "TimeUnit": "",
+      "TimePeriod": {
+        "Start": "",
+        "End": ""
+      },
+      "BudgetType": ""
     }
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdateBudgetResponse"
-}
-```
-## Operation: UpdateNotification
+
+#### Parameters
+* body (object) **required** - Request of UpdateBudget
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateNotification
 Update the information about a notification already created
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateNotificationRequest"
+
+```js
+amazonaws_budgets.UpdateNotification({
+  "body": {
+    "AccountId": "",
+    "BudgetName": "",
+    "OldNotification": {
+      "NotificationType": "",
+      "ComparisonOperator": "",
+      "Threshold": 0
     },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
+    "NewNotification": {
+      "NotificationType": "",
+      "ComparisonOperator": "",
+      "Threshold": 0
     }
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdateNotificationResponse"
-}
-```
-## Operation: UpdateSubscriber
+
+#### Parameters
+* body (object) **required** - Request of UpdateNotification
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateSubscriber
 Update a subscriber
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateSubscriberRequest"
+
+```js
+amazonaws_budgets.UpdateSubscriber({
+  "body": {
+    "AccountId": "",
+    "BudgetName": "",
+    "Notification": {
+      "NotificationType": "",
+      "ComparisonOperator": "",
+      "Threshold": 0
     },
-    "Action": {
-      "type": "string"
+    "OldSubscriber": {
+      "SubscriptionType": "",
+      "Address": ""
     },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
+    "NewSubscriber": {
+      "SubscriptionType": "",
+      "Address": ""
     }
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdateSubscriberResponse"
-}
-```
+
+#### Parameters
+* body (object) **required** - Request of UpdateSubscriber
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+

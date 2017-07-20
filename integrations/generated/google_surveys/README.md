@@ -1,707 +1,249 @@
 # @datafire/google_surveys
+
+Client library for Surveys
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/google_surveys
+```
+
+```js
+let datafire = require('datafire');
+let google_surveys = require('@datafire/google_surveys').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    google_surveys: account,
+  }
+})
+
+
+google_surveys.surveys.insert({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Creates and conducts surveys, lists the surveys that an authenticated user owns, and retrieves survey results and information about specified surveys.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+google_surveys.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+google_surveys.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: mobileapppanels.list
+
+
+### mobileapppanels.list
 Lists the MobileAppPanels available to the authenticated user.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "maxResults": {
-      "type": "integer"
-    },
-    "startIndex": {
-      "type": "integer"
-    },
-    "token": {
-      "type": "string"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_surveys.mobileapppanels.list({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MobileAppPanelsListResponse"
-}
-```
-## Operation: mobileapppanels.get
+
+
+### mobileapppanels.get
 Retrieves a MobileAppPanel that is available to the authenticated user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "panelId": {
-      "type": "string",
-      "description": "External URL ID for the panel."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "panelId"
-  ]
-}
+
+```js
+google_surveys.mobileapppanels.get({
+  "panelId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MobileAppPanel"
-}
-```
-## Operation: mobileapppanels.update
+
+#### Parameters
+* panelId (string) **required** - External URL ID for the panel.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### mobileapppanels.update
 Updates a MobileAppPanel. Currently the only property that can be updated is the owners property.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "panelId": {
-      "type": "string",
-      "description": "External URL ID for the panel."
-    },
-    "body": {
-      "$ref": "#/definitions/MobileAppPanel"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "panelId"
-  ]
-}
+
+```js
+google_surveys.mobileapppanels.update({
+  "panelId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MobileAppPanel"
-}
-```
-## Operation: surveys.list
+
+#### Parameters
+* panelId (string) **required** - External URL ID for the panel.
+* body (object) - Representation of an individual pre-defined panel object defining a targeted audience of opinion rewards mobile app users.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### surveys.list
 Lists the surveys owned by the authenticated user.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "maxResults": {
-      "type": "integer"
-    },
-    "startIndex": {
-      "type": "integer"
-    },
-    "token": {
-      "type": "string"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_surveys.surveys.list({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SurveysListResponse"
-}
-```
-## Operation: surveys.insert
+
+
+### surveys.insert
 Creates a survey.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Survey"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_surveys.surveys.insert({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Survey"
-}
-```
-## Operation: surveys.start
+
+
+### surveys.start
 Begins running a survey.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceId": {
-      "type": "string"
-    },
-    "body": {
-      "$ref": "#/definitions/SurveysStartRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceId"
-  ]
-}
+
+```js
+google_surveys.surveys.start({
+  "resourceId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SurveysStartResponse"
-}
-```
-## Operation: surveys.stop
+
+#### Parameters
+* resourceId (string) **required**
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### surveys.stop
 Stops a running survey.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceId": {
-      "type": "string"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceId"
-  ]
-}
+
+```js
+google_surveys.surveys.stop({
+  "resourceId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SurveysStopResponse"
-}
-```
-## Operation: surveys.delete
+
+#### Parameters
+* resourceId (string) **required**
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### surveys.delete
 Removes a survey from view in all user GET requests.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "surveyUrlId": {
-      "type": "string",
-      "description": "External URL ID for the survey."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "surveyUrlId"
-  ]
-}
+
+```js
+google_surveys.surveys.delete({
+  "surveyUrlId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SurveysDeleteResponse"
-}
-```
-## Operation: surveys.get
+
+#### Parameters
+* surveyUrlId (string) **required** - External URL ID for the survey.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### surveys.get
 Retrieves information about the specified survey.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "surveyUrlId": {
-      "type": "string",
-      "description": "External URL ID for the survey."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "surveyUrlId"
-  ]
-}
+
+```js
+google_surveys.surveys.get({
+  "surveyUrlId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Survey"
-}
-```
-## Operation: surveys.update
+
+#### Parameters
+* surveyUrlId (string) **required** - External URL ID for the survey.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### surveys.update
 Updates a survey. Currently the only property that can be updated is the owners property.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "surveyUrlId": {
-      "type": "string",
-      "description": "External URL ID for the survey."
-    },
-    "body": {
-      "$ref": "#/definitions/Survey"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "surveyUrlId"
-  ]
-}
+
+```js
+google_surveys.surveys.update({
+  "surveyUrlId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Survey"
-}
-```
-## Operation: results.get
+
+#### Parameters
+* surveyUrlId (string) **required** - External URL ID for the survey.
+* body (object) - Representation of an individual survey object.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### results.get
 Retrieves any survey results that have been produced so far. Results are formatted as an Excel file. You must add "?alt=media" to the URL as an argument to get results.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "surveyUrlId": {
-      "type": "string",
-      "description": "External URL ID for the survey."
-    },
-    "body": {
-      "$ref": "#/definitions/ResultsGetRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "surveyUrlId"
-  ]
-}
+
+```js
+google_surveys.results.get({
+  "surveyUrlId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SurveyResults"
-}
-```
+
+#### Parameters
+* surveyUrlId (string) **required** - External URL ID for the survey.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+

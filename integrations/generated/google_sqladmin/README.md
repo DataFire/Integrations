@@ -1,2631 +1,967 @@
 # @datafire/google_sqladmin
+
+Client library for Cloud SQL Administration
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/google_sqladmin
+```
+
+```js
+let datafire = require('datafire');
+let google_sqladmin = require('@datafire/google_sqladmin').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    google_sqladmin: account,
+  }
+})
+
+
+google_sqladmin.flags.list({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Creates and configures Cloud SQL instances, which provide fully-managed MySQL databases.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+google_sqladmin.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+google_sqladmin.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: flags.list
+
+
+### flags.list
 List all available database flags for Google Cloud SQL instances.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "databaseVersion": {
-      "type": "string",
-      "description": "Database version for flag retrieval. Flags are specific to the database version."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_sqladmin.flags.list({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/FlagsListResponse"
-}
-```
-## Operation: instances.list
+
+
+### instances.list
 Lists instances under a given project in the alphabetical order of the instance name.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project for which to list Cloud SQL instances."
-    },
-    "filter": {
-      "type": "string",
-      "description": "A filter expression for filtering listed instances."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of results to return per response."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "A previously-returned page token representing part of the larger set of results to view."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project"
-  ]
-}
+
+```js
+google_sqladmin.instances.list({
+  "project": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/InstancesListResponse"
-}
-```
-## Operation: instances.insert
+
+#### Parameters
+* project (string) **required** - Project ID of the project for which to list Cloud SQL instances.
+* filter (string) - A filter expression for filtering listed instances.
+* maxResults (integer) - The maximum number of results to return per response.
+* pageToken (string) - A previously-returned page token representing part of the larger set of results to view.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### instances.insert
 Creates a new Cloud SQL instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project to which the newly created Cloud SQL instances should belong."
-    },
-    "body": {
-      "$ref": "#/definitions/DatabaseInstance"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project"
-  ]
-}
+
+```js
+google_sqladmin.instances.insert({
+  "project": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: instances.delete
+
+#### Parameters
+* project (string) **required** - Project ID of the project to which the newly created Cloud SQL instances should belong.
+* body (object) - A Cloud SQL instance resource.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### instances.delete
 Deletes a Cloud SQL instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance to be deleted."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL instance ID. This does not include the project ID."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.instances.delete({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: instances.get
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance to be deleted.
+* instance (string) **required** - Cloud SQL instance ID. This does not include the project ID.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### instances.get
 Retrieves a resource containing information about a Cloud SQL instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Database instance ID. This does not include the project ID."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.instances.get({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DatabaseInstance"
-}
-```
-## Operation: instances.patch
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* instance (string) **required** - Database instance ID. This does not include the project ID.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### instances.patch
 Updates settings of a Cloud SQL instance. Caution: This is not a partial update, so you must include values for all the settings that you want to retain. For partial updates, use patch.. This method supports patch semantics.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL instance ID. This does not include the project ID."
-    },
-    "body": {
-      "$ref": "#/definitions/DatabaseInstance"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.instances.patch({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: instances.update
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* instance (string) **required** - Cloud SQL instance ID. This does not include the project ID.
+* body (object) - A Cloud SQL instance resource.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### instances.update
 Updates settings of a Cloud SQL instance. Caution: This is not a partial update, so you must include values for all the settings that you want to retain. For partial updates, use patch.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL instance ID. This does not include the project ID."
-    },
-    "body": {
-      "$ref": "#/definitions/DatabaseInstance"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.instances.update({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: backupRuns.list
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* instance (string) **required** - Cloud SQL instance ID. This does not include the project ID.
+* body (object) - A Cloud SQL instance resource.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### backupRuns.list
 Lists all backup runs associated with a given instance and configuration in the reverse chronological order of the enqueued time.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL instance ID. This does not include the project ID."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "Maximum number of backup runs per response."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "A previously-returned page token representing part of the larger set of results to view."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.backupRuns.list({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BackupRunsListResponse"
-}
-```
-## Operation: backupRuns.insert
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* instance (string) **required** - Cloud SQL instance ID. This does not include the project ID.
+* maxResults (integer) - Maximum number of backup runs per response.
+* pageToken (string) - A previously-returned page token representing part of the larger set of results to view.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### backupRuns.insert
 Creates a new backup run on demand. This method is applicable only to Second Generation instances.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL instance ID. This does not include the project ID."
-    },
-    "body": {
-      "$ref": "#/definitions/BackupRun"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.backupRuns.insert({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: backupRuns.delete
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* instance (string) **required** - Cloud SQL instance ID. This does not include the project ID.
+* body (object) - A database instance backup run resource.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### backupRuns.delete
 Deletes the backup taken by a backup run.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL instance ID. This does not include the project ID."
-    },
-    "id": {
-      "type": "string",
-      "description": "The ID of the Backup Run to delete. To find a Backup Run ID, use the list method."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance",
-    "id"
-  ]
-}
+
+```js
+google_sqladmin.backupRuns.delete({
+  "project": "",
+  "instance": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: backupRuns.get
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* instance (string) **required** - Cloud SQL instance ID. This does not include the project ID.
+* id (string) **required** - The ID of the Backup Run to delete. To find a Backup Run ID, use the list method.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### backupRuns.get
 Retrieves a resource containing information about a backup run.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL instance ID. This does not include the project ID."
-    },
-    "id": {
-      "type": "string",
-      "description": "The ID of this Backup Run."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance",
-    "id"
-  ]
-}
+
+```js
+google_sqladmin.backupRuns.get({
+  "project": "",
+  "instance": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BackupRun"
-}
-```
-## Operation: instances.clone
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* instance (string) **required** - Cloud SQL instance ID. This does not include the project ID.
+* id (string) **required** - The ID of this Backup Run.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### instances.clone
 Creates a Cloud SQL instance as a clone of the source instance. The API is not ready for Second Generation instances yet.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the source as well as the clone Cloud SQL instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "The ID of the Cloud SQL instance to be cloned (source). This does not include the project ID."
-    },
-    "body": {
-      "$ref": "#/definitions/InstancesCloneRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.instances.clone({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: sslCerts.createEphemeral
+
+#### Parameters
+* project (string) **required** - Project ID of the source as well as the clone Cloud SQL instance.
+* instance (string) **required** - The ID of the Cloud SQL instance to be cloned (source). This does not include the project ID.
+* body (object) - Database instance clone request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### sslCerts.createEphemeral
 Generates a short-lived X509 certificate containing the provided public key and signed by a private key specific to the target instance. Users may use the certificate to authenticate as themselves when connecting to the database.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the Cloud SQL project."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL instance ID. This does not include the project ID."
-    },
-    "body": {
-      "$ref": "#/definitions/SslCertsCreateEphemeralRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.sslCerts.createEphemeral({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SslCert"
-}
-```
-## Operation: databases.list
+
+#### Parameters
+* project (string) **required** - Project ID of the Cloud SQL project.
+* instance (string) **required** - Cloud SQL instance ID. This does not include the project ID.
+* body (object) - SslCerts create ephemeral certificate request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### databases.list
 Lists databases in the specified Cloud SQL instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project for which to list Cloud SQL instances."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL instance ID. This does not include the project ID."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.databases.list({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DatabasesListResponse"
-}
-```
-## Operation: databases.insert
+
+#### Parameters
+* project (string) **required** - Project ID of the project for which to list Cloud SQL instances.
+* instance (string) **required** - Cloud SQL instance ID. This does not include the project ID.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### databases.insert
 Inserts a resource containing information about a database inside a Cloud SQL instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Database instance ID. This does not include the project ID."
-    },
-    "body": {
-      "$ref": "#/definitions/Database"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.databases.insert({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: databases.delete
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* instance (string) **required** - Database instance ID. This does not include the project ID.
+* body (object) - A database resource inside a Cloud SQL instance.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### databases.delete
 Deletes a database from a Cloud SQL instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Database instance ID. This does not include the project ID."
-    },
-    "database": {
-      "type": "string",
-      "description": "Name of the database to be deleted in the instance."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance",
-    "database"
-  ]
-}
+
+```js
+google_sqladmin.databases.delete({
+  "project": "",
+  "instance": "",
+  "database": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: databases.get
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* instance (string) **required** - Database instance ID. This does not include the project ID.
+* database (string) **required** - Name of the database to be deleted in the instance.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### databases.get
 Retrieves a resource containing information about a database inside a Cloud SQL instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Database instance ID. This does not include the project ID."
-    },
-    "database": {
-      "type": "string",
-      "description": "Name of the database in the instance."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance",
-    "database"
-  ]
-}
+
+```js
+google_sqladmin.databases.get({
+  "project": "",
+  "instance": "",
+  "database": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Database"
-}
-```
-## Operation: databases.patch
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* instance (string) **required** - Database instance ID. This does not include the project ID.
+* database (string) **required** - Name of the database in the instance.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### databases.patch
 Updates a resource containing information about a database inside a Cloud SQL instance. This method supports patch semantics.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Database instance ID. This does not include the project ID."
-    },
-    "database": {
-      "type": "string",
-      "description": "Name of the database to be updated in the instance."
-    },
-    "body": {
-      "$ref": "#/definitions/Database"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance",
-    "database"
-  ]
-}
+
+```js
+google_sqladmin.databases.patch({
+  "project": "",
+  "instance": "",
+  "database": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: databases.update
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* instance (string) **required** - Database instance ID. This does not include the project ID.
+* database (string) **required** - Name of the database to be updated in the instance.
+* body (object) - A database resource inside a Cloud SQL instance.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### databases.update
 Updates a resource containing information about a database inside a Cloud SQL instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Database instance ID. This does not include the project ID."
-    },
-    "database": {
-      "type": "string",
-      "description": "Name of the database to be updated in the instance."
-    },
-    "body": {
-      "$ref": "#/definitions/Database"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance",
-    "database"
-  ]
-}
+
+```js
+google_sqladmin.databases.update({
+  "project": "",
+  "instance": "",
+  "database": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: instances.export
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* instance (string) **required** - Database instance ID. This does not include the project ID.
+* database (string) **required** - Name of the database to be updated in the instance.
+* body (object) - A database resource inside a Cloud SQL instance.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### instances.export
 Exports data from a Cloud SQL instance to a Google Cloud Storage bucket as a MySQL dump file.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance to be exported."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL instance ID. This does not include the project ID."
-    },
-    "body": {
-      "$ref": "#/definitions/InstancesExportRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.instances.export({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: instances.failover
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance to be exported.
+* instance (string) **required** - Cloud SQL instance ID. This does not include the project ID.
+* body (object) - Database instance export request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### instances.failover
 Failover the instance to its failover replica instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "ID of the project that contains the read replica."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL instance ID. This does not include the project ID."
-    },
-    "body": {
-      "$ref": "#/definitions/InstancesFailoverRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.instances.failover({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: instances.import
+
+#### Parameters
+* project (string) **required** - ID of the project that contains the read replica.
+* instance (string) **required** - Cloud SQL instance ID. This does not include the project ID.
+* body (object) - Instance failover request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### instances.import
 Imports data into a Cloud SQL instance from a MySQL dump file in Google Cloud Storage.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL instance ID. This does not include the project ID."
-    },
-    "body": {
-      "$ref": "#/definitions/InstancesImportRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.instances.import({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: instances.promoteReplica
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* instance (string) **required** - Cloud SQL instance ID. This does not include the project ID.
+* body (object) - Database instance import request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### instances.promoteReplica
 Promotes the read replica instance to be a stand-alone Cloud SQL instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "ID of the project that contains the read replica."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL read replica instance name."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.instances.promoteReplica({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: instances.resetSslConfig
+
+#### Parameters
+* project (string) **required** - ID of the project that contains the read replica.
+* instance (string) **required** - Cloud SQL read replica instance name.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### instances.resetSslConfig
 Deletes all client certificates and generates a new server SSL certificate for the instance. The changes will not take effect until the instance is restarted. Existing instances without a server certificate will need to call this once to set a server certificate.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL instance ID. This does not include the project ID."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.instances.resetSslConfig({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: instances.restart
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* instance (string) **required** - Cloud SQL instance ID. This does not include the project ID.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### instances.restart
 Restarts a Cloud SQL instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance to be restarted."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL instance ID. This does not include the project ID."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.instances.restart({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: instances.restoreBackup
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance to be restarted.
+* instance (string) **required** - Cloud SQL instance ID. This does not include the project ID.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### instances.restoreBackup
 Restores a backup of a Cloud SQL instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL instance ID. This does not include the project ID."
-    },
-    "body": {
-      "$ref": "#/definitions/InstancesRestoreBackupRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.instances.restoreBackup({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: sslCerts.list
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* instance (string) **required** - Cloud SQL instance ID. This does not include the project ID.
+* body (object) - Database instance restore backup request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### sslCerts.list
 Lists all of the current SSL certificates for the instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project for which to list Cloud SQL instances."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL instance ID. This does not include the project ID."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.sslCerts.list({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SslCertsListResponse"
-}
-```
-## Operation: sslCerts.insert
+
+#### Parameters
+* project (string) **required** - Project ID of the project for which to list Cloud SQL instances.
+* instance (string) **required** - Cloud SQL instance ID. This does not include the project ID.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### sslCerts.insert
 Creates an SSL certificate and returns it along with the private key and server certificate authority. The new certificate will not be usable until the instance is restarted.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project to which the newly created Cloud SQL instances should belong."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL instance ID. This does not include the project ID."
-    },
-    "body": {
-      "$ref": "#/definitions/SslCertsInsertRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.sslCerts.insert({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SslCertsInsertResponse"
-}
-```
-## Operation: sslCerts.delete
+
+#### Parameters
+* project (string) **required** - Project ID of the project to which the newly created Cloud SQL instances should belong.
+* instance (string) **required** - Cloud SQL instance ID. This does not include the project ID.
+* body (object) - SslCerts insert request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### sslCerts.delete
 Deletes the SSL certificate. The change will not take effect until the instance is restarted.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance to be deleted."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL instance ID. This does not include the project ID."
-    },
-    "sha1Fingerprint": {
-      "type": "string",
-      "description": "Sha1 FingerPrint."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance",
-    "sha1Fingerprint"
-  ]
-}
+
+```js
+google_sqladmin.sslCerts.delete({
+  "project": "",
+  "instance": "",
+  "sha1Fingerprint": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: sslCerts.get
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance to be deleted.
+* instance (string) **required** - Cloud SQL instance ID. This does not include the project ID.
+* sha1Fingerprint (string) **required** - Sha1 FingerPrint.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### sslCerts.get
 Retrieves a particular SSL certificate. Does not include the private key (required for usage). The private key must be saved from the response to initial creation.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL instance ID. This does not include the project ID."
-    },
-    "sha1Fingerprint": {
-      "type": "string",
-      "description": "Sha1 FingerPrint."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance",
-    "sha1Fingerprint"
-  ]
-}
+
+```js
+google_sqladmin.sslCerts.get({
+  "project": "",
+  "instance": "",
+  "sha1Fingerprint": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SslCert"
-}
-```
-## Operation: instances.startReplica
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* instance (string) **required** - Cloud SQL instance ID. This does not include the project ID.
+* sha1Fingerprint (string) **required** - Sha1 FingerPrint.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### instances.startReplica
 Starts the replication in the read replica instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "ID of the project that contains the read replica."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL read replica instance name."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.instances.startReplica({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: instances.stopReplica
+
+#### Parameters
+* project (string) **required** - ID of the project that contains the read replica.
+* instance (string) **required** - Cloud SQL read replica instance name.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### instances.stopReplica
 Stops the replication in the read replica instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "ID of the project that contains the read replica."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL read replica instance name."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.instances.stopReplica({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: instances.truncateLog
+
+#### Parameters
+* project (string) **required** - ID of the project that contains the read replica.
+* instance (string) **required** - Cloud SQL read replica instance name.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### instances.truncateLog
 Truncate MySQL general and slow query log tables
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the Cloud SQL project."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL instance ID. This does not include the project ID."
-    },
-    "body": {
-      "$ref": "#/definitions/InstancesTruncateLogRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.instances.truncateLog({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: users.delete
+
+#### Parameters
+* project (string) **required** - Project ID of the Cloud SQL project.
+* instance (string) **required** - Cloud SQL instance ID. This does not include the project ID.
+* body (object) - Instance truncate log request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### users.delete
 Deletes a user from a Cloud SQL instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Database instance ID. This does not include the project ID."
-    },
-    "host": {
-      "type": "string",
-      "description": "Host of the user in the instance."
-    },
-    "name": {
-      "type": "string",
-      "description": "Name of the user in the instance."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance",
-    "host",
-    "name"
-  ]
-}
+
+```js
+google_sqladmin.users.delete({
+  "project": "",
+  "instance": "",
+  "host": "",
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: users.list
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* instance (string) **required** - Database instance ID. This does not include the project ID.
+* host (string) **required** - Host of the user in the instance.
+* name (string) **required** - Name of the user in the instance.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### users.list
 Lists users in the specified Cloud SQL instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Database instance ID. This does not include the project ID."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.users.list({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UsersListResponse"
-}
-```
-## Operation: users.insert
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* instance (string) **required** - Database instance ID. This does not include the project ID.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### users.insert
 Creates a new user in a Cloud SQL instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Database instance ID. This does not include the project ID."
-    },
-    "body": {
-      "$ref": "#/definitions/User"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.users.insert({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: users.update
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* instance (string) **required** - Database instance ID. This does not include the project ID.
+* body (object) - A Cloud SQL user resource.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### users.update
 Updates an existing user in a Cloud SQL instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Database instance ID. This does not include the project ID."
-    },
-    "host": {
-      "type": "string",
-      "description": "Host of the user in the instance."
-    },
-    "name": {
-      "type": "string",
-      "description": "Name of the user in the instance."
-    },
-    "body": {
-      "$ref": "#/definitions/User"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance",
-    "host",
-    "name"
-  ]
-}
+
+```js
+google_sqladmin.users.update({
+  "project": "",
+  "instance": "",
+  "host": "",
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: operations.list
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* instance (string) **required** - Database instance ID. This does not include the project ID.
+* host (string) **required** - Host of the user in the instance.
+* name (string) **required** - Name of the user in the instance.
+* body (object) - A Cloud SQL user resource.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### operations.list
 Lists all instance operations that have been performed on the given Cloud SQL instance in the reverse chronological order of the start time.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "instance": {
-      "type": "string",
-      "description": "Cloud SQL instance ID. This does not include the project ID."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "Maximum number of operations per response."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "A previously-returned page token representing part of the larger set of results to view."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "instance"
-  ]
-}
+
+```js
+google_sqladmin.operations.list({
+  "project": "",
+  "instance": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OperationsListResponse"
-}
-```
-## Operation: operations.get
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* instance (string) **required** - Cloud SQL instance ID. This does not include the project ID.
+* maxResults (integer) - Maximum number of operations per response.
+* pageToken (string) - A previously-returned page token representing part of the larger set of results to view.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### operations.get
 Retrieves an instance operation that has been performed on an instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project that contains the instance."
-    },
-    "operation": {
-      "type": "string",
-      "description": "Instance operation ID."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project",
-    "operation"
-  ]
-}
+
+```js
+google_sqladmin.operations.get({
+  "project": "",
+  "operation": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: tiers.list
+
+#### Parameters
+* project (string) **required** - Project ID of the project that contains the instance.
+* operation (string) **required** - Instance operation ID.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### tiers.list
 Lists all available service tiers for Google Cloud SQL, for example D1, D2. For related information, see Pricing.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "Project ID of the project for which to list tiers."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project"
-  ]
-}
+
+```js
+google_sqladmin.tiers.list({
+  "project": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TiersListResponse"
-}
-```
+
+#### Parameters
+* project (string) **required** - Project ID of the project for which to list tiers.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+

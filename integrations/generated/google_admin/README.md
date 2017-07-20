@@ -1,468 +1,178 @@
 # @datafire/google_admin
+
+Client library for Admin Reports
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/google_admin
+```
+
+```js
+let datafire = require('datafire');
+let google_admin = require('@datafire/google_admin').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    google_admin: account,
+  }
+})
+
+
+google_admin.channels.stop({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Fetches reports for the administrators of G Suite customers about the usage, collaboration, security, and risk for their users.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+google_admin.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+google_admin.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: activities.list
+
+
+### activities.list
 Retrieves a list of activities for a specific customer and application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "userKey": {
-      "type": "string",
-      "description": "Represents the profile id or the user email for which the data should be filtered. When 'all' is specified as the userKey, it returns usageReports for all users."
-    },
-    "applicationName": {
-      "type": "string",
-      "description": "Application name for which the events are to be retrieved."
-    },
-    "actorIpAddress": {
-      "type": "string",
-      "description": "IP Address of host where the event was performed. Supports both IPv4 and IPv6 addresses."
-    },
-    "customerId": {
-      "type": "string",
-      "description": "Represents the customer for which the data is to be fetched."
-    },
-    "endTime": {
-      "type": "string",
-      "description": "Return events which occurred at or before this time."
-    },
-    "eventName": {
-      "type": "string",
-      "description": "Name of the event being queried."
-    },
-    "filters": {
-      "type": "string",
-      "description": "Event parameters in the form [parameter1 name][operator][parameter1 value],[parameter2 name][operator][parameter2 value],..."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "Number of activity records to be shown in each page.",
-      "maximum": 1000,
-      "minimum": 1
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "Token to specify next page."
-    },
-    "startTime": {
-      "type": "string",
-      "description": "Return events which occurred at or after this time."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "userKey",
-    "applicationName"
-  ]
-}
+
+```js
+google_admin.activities.list({
+  "userKey": "",
+  "applicationName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Activities"
-}
-```
-## Operation: activities.watch
+
+#### Parameters
+* userKey (string) **required** - Represents the profile id or the user email for which the data should be filtered. When 'all' is specified as the userKey, it returns usageReports for all users.
+* applicationName (string) **required** - Application name for which the events are to be retrieved.
+* actorIpAddress (string) - IP Address of host where the event was performed. Supports both IPv4 and IPv6 addresses.
+* customerId (string) - Represents the customer for which the data is to be fetched.
+* endTime (string) - Return events which occurred at or before this time.
+* eventName (string) - Name of the event being queried.
+* filters (string) - Event parameters in the form [parameter1 name][operator][parameter1 value],[parameter2 name][operator][parameter2 value],...
+* maxResults (integer) - Number of activity records to be shown in each page.
+* pageToken (string) - Token to specify next page.
+* startTime (string) - Return events which occurred at or after this time.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### activities.watch
 Push changes to activities
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "userKey": {
-      "type": "string",
-      "description": "Represents the profile id or the user email for which the data should be filtered. When 'all' is specified as the userKey, it returns usageReports for all users."
-    },
-    "applicationName": {
-      "type": "string",
-      "description": "Application name for which the events are to be retrieved."
-    },
-    "actorIpAddress": {
-      "type": "string",
-      "description": "IP Address of host where the event was performed. Supports both IPv4 and IPv6 addresses."
-    },
-    "customerId": {
-      "type": "string",
-      "description": "Represents the customer for which the data is to be fetched."
-    },
-    "endTime": {
-      "type": "string",
-      "description": "Return events which occurred at or before this time."
-    },
-    "eventName": {
-      "type": "string",
-      "description": "Name of the event being queried."
-    },
-    "filters": {
-      "type": "string",
-      "description": "Event parameters in the form [parameter1 name][operator][parameter1 value],[parameter2 name][operator][parameter2 value],..."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "Number of activity records to be shown in each page.",
-      "maximum": 1000,
-      "minimum": 1
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "Token to specify next page."
-    },
-    "startTime": {
-      "type": "string",
-      "description": "Return events which occurred at or after this time."
-    },
-    "resource": {
-      "$ref": "#/definitions/Channel"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "userKey",
-    "applicationName"
-  ]
-}
+
+```js
+google_admin.activities.watch({
+  "userKey": "",
+  "applicationName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Channel"
-}
-```
-## Operation: channels.stop
+
+#### Parameters
+* userKey (string) **required** - Represents the profile id or the user email for which the data should be filtered. When 'all' is specified as the userKey, it returns usageReports for all users.
+* applicationName (string) **required** - Application name for which the events are to be retrieved.
+* actorIpAddress (string) - IP Address of host where the event was performed. Supports both IPv4 and IPv6 addresses.
+* customerId (string) - Represents the customer for which the data is to be fetched.
+* endTime (string) - Return events which occurred at or before this time.
+* eventName (string) - Name of the event being queried.
+* filters (string) - Event parameters in the form [parameter1 name][operator][parameter1 value],[parameter2 name][operator][parameter2 value],...
+* maxResults (integer) - Number of activity records to be shown in each page.
+* pageToken (string) - Token to specify next page.
+* startTime (string) - Return events which occurred at or after this time.
+* resource (object) - An notification channel used to watch for resource changes.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### channels.stop
 Stop watching resources through this channel
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "resource": {
-      "$ref": "#/definitions/Channel"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_admin.channels.stop({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: customerUsageReports.get
+
+
+### customerUsageReports.get
 Retrieves a report which is a collection of properties / statistics for a specific customer.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "date": {
-      "type": "string",
-      "description": "Represents the date in yyyy-mm-dd format for which the data is to be fetched."
-    },
-    "customerId": {
-      "type": "string",
-      "description": "Represents the customer for which the data is to be fetched."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "Token to specify next page."
-    },
-    "parameters": {
-      "type": "string",
-      "description": "Represents the application name, parameter name pairs to fetch in csv as app_name1:param_name1, app_name2:param_name2."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "date"
-  ]
-}
+
+```js
+google_admin.customerUsageReports.get({
+  "date": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UsageReports"
-}
-```
-## Operation: userUsageReport.get
+
+#### Parameters
+* date (string) **required** - Represents the date in yyyy-mm-dd format for which the data is to be fetched.
+* customerId (string) - Represents the customer for which the data is to be fetched.
+* pageToken (string) - Token to specify next page.
+* parameters (string) - Represents the application name, parameter name pairs to fetch in csv as app_name1:param_name1, app_name2:param_name2.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### userUsageReport.get
 Retrieves a report which is a collection of properties / statistics for a set of users.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "userKey": {
-      "type": "string",
-      "description": "Represents the profile id or the user email for which the data should be filtered."
-    },
-    "date": {
-      "type": "string",
-      "description": "Represents the date in yyyy-mm-dd format for which the data is to be fetched."
-    },
-    "customerId": {
-      "type": "string",
-      "description": "Represents the customer for which the data is to be fetched."
-    },
-    "filters": {
-      "type": "string",
-      "description": "Represents the set of filters including parameter operator value."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "Maximum number of results to return. Maximum allowed is 1000",
-      "maximum": 1000
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "Token to specify next page."
-    },
-    "parameters": {
-      "type": "string",
-      "description": "Represents the application name, parameter name pairs to fetch in csv as app_name1:param_name1, app_name2:param_name2."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "userKey",
-    "date"
-  ]
-}
+
+```js
+google_admin.userUsageReport.get({
+  "userKey": "",
+  "date": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UsageReports"
-}
-```
+
+#### Parameters
+* userKey (string) **required** - Represents the profile id or the user email for which the data should be filtered.
+* date (string) **required** - Represents the date in yyyy-mm-dd format for which the data is to be fetched.
+* customerId (string) - Represents the customer for which the data is to be fetched.
+* filters (string) - Represents the set of filters including parameter operator value.
+* maxResults (integer) - Maximum number of results to return. Maximum allowed is 1000
+* pageToken (string) - Token to specify next page.
+* parameters (string) - Represents the application name, parameter name pairs to fetch in csv as app_name1:param_name1, app_name2:param_name2.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+

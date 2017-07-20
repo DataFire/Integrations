@@ -1,3925 +1,1416 @@
 # @datafire/google_androidpublisher
+
+Client library for Google Play Developer
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/google_androidpublisher
+```
+
+```js
+let datafire = require('datafire');
+let google_androidpublisher = require('@datafire/google_androidpublisher').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    google_androidpublisher: account,
+  }
+})
+
+
+google_androidpublisher.inappproducts.batch({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Lets Android application developers access their Google Play accounts.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+google_androidpublisher.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+google_androidpublisher.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: inappproducts.batch
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/InappproductsBatchRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+### inappproducts.batch
+
+
+
+```js
+google_androidpublisher.inappproducts.batch({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/InappproductsBatchResponse"
-}
-```
-## Operation: edits.insert
+
+
+### edits.insert
 Creates a new edit for an app, populated with the app's current state.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "body": {
-      "$ref": "#/definitions/AppEdit"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName"
-  ]
-}
+
+```js
+google_androidpublisher.edits.insert({
+  "packageName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AppEdit"
-}
-```
-## Operation: edits.delete
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* body (object) - Represents an edit of an app. An edit allows clients to make multiple changes before committing them in one operation.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.delete
 Deletes an edit for an app. Creating a new edit will automatically delete any of your previous edits so this method need only be called if you want to preemptively abandon an edit.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId"
-  ]
-}
+
+```js
+google_androidpublisher.edits.delete({
+  "packageName": "",
+  "editId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: edits.get
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.get
 Returns information about the edit specified. Calls will fail if the edit is no long active (e.g. has been deleted, superseded or expired).
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId"
-  ]
-}
+
+```js
+google_androidpublisher.edits.get({
+  "packageName": "",
+  "editId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AppEdit"
-}
-```
-## Operation: edits.apks.list
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.apks.list
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId"
-  ]
-}
+
+```js
+google_androidpublisher.edits.apks.list({
+  "packageName": "",
+  "editId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApksListResponse"
-}
-```
-## Operation: edits.apks.upload
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.apks.upload
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId"
-  ]
-}
+
+```js
+google_androidpublisher.edits.apks.upload({
+  "packageName": "",
+  "editId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Apk"
-}
-```
-## Operation: edits.apks.addexternallyhosted
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.apks.addexternallyhosted
 Creates a new APK without uploading the APK itself to Google Play, instead hosting the APK at a specified URL. This function is only available to enterprises using Google Play for Work whose application is configured to restrict distribution to the enterprise domain.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "body": {
-      "$ref": "#/definitions/ApksAddExternallyHostedRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId"
-  ]
-}
+
+```js
+google_androidpublisher.edits.apks.addexternallyhosted({
+  "packageName": "",
+  "editId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApksAddExternallyHostedResponse"
-}
-```
-## Operation: edits.deobfuscationfiles.upload
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.deobfuscationfiles.upload
 Uploads the deobfuscation file of the specified APK. If a deobfuscation file already exists, it will be replaced.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier of the Android app for which the deobfuscatiuon files are being uploaded; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "apkVersionCode": {
-      "type": "integer",
-      "description": "The version code of the APK whose deobfuscation file is being uploaded."
-    },
-    "deobfuscationFileType": {
-      "type": "string",
-      "enum": [
-        "proguard"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "apkVersionCode",
-    "deobfuscationFileType"
-  ]
-}
+
+```js
+google_androidpublisher.edits.deobfuscationfiles.upload({
+  "packageName": "",
+  "editId": "",
+  "apkVersionCode": 0,
+  "deobfuscationFileType": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeobfuscationFilesUploadResponse"
-}
-```
-## Operation: edits.expansionfiles.get
+
+#### Parameters
+* packageName (string) **required** - Unique identifier of the Android app for which the deobfuscatiuon files are being uploaded; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* apkVersionCode (integer) **required** - The version code of the APK whose deobfuscation file is being uploaded.
+* deobfuscationFileType (string) **required**
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.expansionfiles.get
 Fetches the Expansion File configuration for the APK specified.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "apkVersionCode": {
-      "type": "integer",
-      "description": "The version code of the APK whose Expansion File configuration is being read or modified."
-    },
-    "expansionFileType": {
-      "type": "string",
-      "enum": [
-        "main",
-        "patch"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "apkVersionCode",
-    "expansionFileType"
-  ]
-}
+
+```js
+google_androidpublisher.edits.expansionfiles.get({
+  "packageName": "",
+  "editId": "",
+  "apkVersionCode": 0,
+  "expansionFileType": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ExpansionFile"
-}
-```
-## Operation: edits.expansionfiles.patch
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* apkVersionCode (integer) **required** - The version code of the APK whose Expansion File configuration is being read or modified.
+* expansionFileType (string) **required**
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.expansionfiles.patch
 Updates the APK's Expansion File configuration to reference another APK's Expansion Files. To add a new Expansion File use the Upload method. This method supports patch semantics.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "apkVersionCode": {
-      "type": "integer",
-      "description": "The version code of the APK whose Expansion File configuration is being read or modified."
-    },
-    "expansionFileType": {
-      "type": "string",
-      "enum": [
-        "main",
-        "patch"
-      ]
-    },
-    "body": {
-      "$ref": "#/definitions/ExpansionFile"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "apkVersionCode",
-    "expansionFileType"
-  ]
-}
+
+```js
+google_androidpublisher.edits.expansionfiles.patch({
+  "packageName": "",
+  "editId": "",
+  "apkVersionCode": 0,
+  "expansionFileType": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ExpansionFile"
-}
-```
-## Operation: edits.expansionfiles.upload
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* apkVersionCode (integer) **required** - The version code of the APK whose Expansion File configuration is being read or modified.
+* expansionFileType (string) **required**
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.expansionfiles.upload
 Uploads and attaches a new Expansion File to the APK specified.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "apkVersionCode": {
-      "type": "integer",
-      "description": "The version code of the APK whose Expansion File configuration is being read or modified."
-    },
-    "expansionFileType": {
-      "type": "string",
-      "enum": [
-        "main",
-        "patch"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "apkVersionCode",
-    "expansionFileType"
-  ]
-}
+
+```js
+google_androidpublisher.edits.expansionfiles.upload({
+  "packageName": "",
+  "editId": "",
+  "apkVersionCode": 0,
+  "expansionFileType": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ExpansionFilesUploadResponse"
-}
-```
-## Operation: edits.expansionfiles.update
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* apkVersionCode (integer) **required** - The version code of the APK whose Expansion File configuration is being read or modified.
+* expansionFileType (string) **required**
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.expansionfiles.update
 Updates the APK's Expansion File configuration to reference another APK's Expansion Files. To add a new Expansion File use the Upload method.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "apkVersionCode": {
-      "type": "integer",
-      "description": "The version code of the APK whose Expansion File configuration is being read or modified."
-    },
-    "expansionFileType": {
-      "type": "string",
-      "enum": [
-        "main",
-        "patch"
-      ]
-    },
-    "body": {
-      "$ref": "#/definitions/ExpansionFile"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "apkVersionCode",
-    "expansionFileType"
-  ]
-}
+
+```js
+google_androidpublisher.edits.expansionfiles.update({
+  "packageName": "",
+  "editId": "",
+  "apkVersionCode": 0,
+  "expansionFileType": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ExpansionFile"
-}
-```
-## Operation: edits.apklistings.deleteall
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* apkVersionCode (integer) **required** - The version code of the APK whose Expansion File configuration is being read or modified.
+* expansionFileType (string) **required**
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.apklistings.deleteall
 Deletes all the APK-specific localized listings for a specified APK.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "apkVersionCode": {
-      "type": "integer",
-      "description": "The APK version code whose APK-specific listings should be read or modified."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "apkVersionCode"
-  ]
-}
+
+```js
+google_androidpublisher.edits.apklistings.deleteall({
+  "packageName": "",
+  "editId": "",
+  "apkVersionCode": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: edits.apklistings.list
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* apkVersionCode (integer) **required** - The APK version code whose APK-specific listings should be read or modified.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.apklistings.list
 Lists all the APK-specific localized listings for a specified APK.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "apkVersionCode": {
-      "type": "integer",
-      "description": "The APK version code whose APK-specific listings should be read or modified."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "apkVersionCode"
-  ]
-}
+
+```js
+google_androidpublisher.edits.apklistings.list({
+  "packageName": "",
+  "editId": "",
+  "apkVersionCode": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApkListingsListResponse"
-}
-```
-## Operation: edits.apklistings.delete
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* apkVersionCode (integer) **required** - The APK version code whose APK-specific listings should be read or modified.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.apklistings.delete
 Deletes the APK-specific localized listing for a specified APK and language code.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "apkVersionCode": {
-      "type": "integer",
-      "description": "The APK version code whose APK-specific listings should be read or modified."
-    },
-    "language": {
-      "type": "string",
-      "description": "The language code (a BCP-47 language tag) of the APK-specific localized listing to read or modify. For example, to select Austrian German, pass \"de-AT\"."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "apkVersionCode",
-    "language"
-  ]
-}
+
+```js
+google_androidpublisher.edits.apklistings.delete({
+  "packageName": "",
+  "editId": "",
+  "apkVersionCode": 0,
+  "language": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: edits.apklistings.get
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* apkVersionCode (integer) **required** - The APK version code whose APK-specific listings should be read or modified.
+* language (string) **required** - The language code (a BCP-47 language tag) of the APK-specific localized listing to read or modify. For example, to select Austrian German, pass "de-AT".
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.apklistings.get
 Fetches the APK-specific localized listing for a specified APK and language code.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "apkVersionCode": {
-      "type": "integer",
-      "description": "The APK version code whose APK-specific listings should be read or modified."
-    },
-    "language": {
-      "type": "string",
-      "description": "The language code (a BCP-47 language tag) of the APK-specific localized listing to read or modify. For example, to select Austrian German, pass \"de-AT\"."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "apkVersionCode",
-    "language"
-  ]
-}
+
+```js
+google_androidpublisher.edits.apklistings.get({
+  "packageName": "",
+  "editId": "",
+  "apkVersionCode": 0,
+  "language": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApkListing"
-}
-```
-## Operation: edits.apklistings.patch
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* apkVersionCode (integer) **required** - The APK version code whose APK-specific listings should be read or modified.
+* language (string) **required** - The language code (a BCP-47 language tag) of the APK-specific localized listing to read or modify. For example, to select Austrian German, pass "de-AT".
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.apklistings.patch
 Updates or creates the APK-specific localized listing for a specified APK and language code. This method supports patch semantics.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "apkVersionCode": {
-      "type": "integer",
-      "description": "The APK version code whose APK-specific listings should be read or modified."
-    },
-    "language": {
-      "type": "string",
-      "description": "The language code (a BCP-47 language tag) of the APK-specific localized listing to read or modify. For example, to select Austrian German, pass \"de-AT\"."
-    },
-    "body": {
-      "$ref": "#/definitions/ApkListing"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "apkVersionCode",
-    "language"
-  ]
-}
+
+```js
+google_androidpublisher.edits.apklistings.patch({
+  "packageName": "",
+  "editId": "",
+  "apkVersionCode": 0,
+  "language": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApkListing"
-}
-```
-## Operation: edits.apklistings.update
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* apkVersionCode (integer) **required** - The APK version code whose APK-specific listings should be read or modified.
+* language (string) **required** - The language code (a BCP-47 language tag) of the APK-specific localized listing to read or modify. For example, to select Austrian German, pass "de-AT".
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.apklistings.update
 Updates or creates the APK-specific localized listing for a specified APK and language code.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "apkVersionCode": {
-      "type": "integer",
-      "description": "The APK version code whose APK-specific listings should be read or modified."
-    },
-    "language": {
-      "type": "string",
-      "description": "The language code (a BCP-47 language tag) of the APK-specific localized listing to read or modify. For example, to select Austrian German, pass \"de-AT\"."
-    },
-    "body": {
-      "$ref": "#/definitions/ApkListing"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "apkVersionCode",
-    "language"
-  ]
-}
+
+```js
+google_androidpublisher.edits.apklistings.update({
+  "packageName": "",
+  "editId": "",
+  "apkVersionCode": 0,
+  "language": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApkListing"
-}
-```
-## Operation: edits.details.get
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* apkVersionCode (integer) **required** - The APK version code whose APK-specific listings should be read or modified.
+* language (string) **required** - The language code (a BCP-47 language tag) of the APK-specific localized listing to read or modify. For example, to select Austrian German, pass "de-AT".
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.details.get
 Fetches app details for this edit. This includes the default language and developer support contact information.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId"
-  ]
-}
+
+```js
+google_androidpublisher.edits.details.get({
+  "packageName": "",
+  "editId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AppDetails"
-}
-```
-## Operation: edits.details.patch
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.details.patch
 Updates app details for this edit. This method supports patch semantics.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "body": {
-      "$ref": "#/definitions/AppDetails"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId"
-  ]
-}
+
+```js
+google_androidpublisher.edits.details.patch({
+  "packageName": "",
+  "editId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AppDetails"
-}
-```
-## Operation: edits.details.update
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.details.update
 Updates app details for this edit.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "body": {
-      "$ref": "#/definitions/AppDetails"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId"
-  ]
-}
+
+```js
+google_androidpublisher.edits.details.update({
+  "packageName": "",
+  "editId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AppDetails"
-}
-```
-## Operation: edits.listings.deleteall
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.listings.deleteall
 Deletes all localized listings from an edit.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId"
-  ]
-}
+
+```js
+google_androidpublisher.edits.listings.deleteall({
+  "packageName": "",
+  "editId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: edits.listings.list
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.listings.list
 Returns all of the localized store listings attached to this edit.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId"
-  ]
-}
+
+```js
+google_androidpublisher.edits.listings.list({
+  "packageName": "",
+  "editId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListingsListResponse"
-}
-```
-## Operation: edits.listings.delete
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.listings.delete
 Deletes the specified localized store listing from an edit.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "language": {
-      "type": "string",
-      "description": "The language code (a BCP-47 language tag) of the localized listing to read or modify. For example, to select Austrian German, pass \"de-AT\"."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "language"
-  ]
-}
+
+```js
+google_androidpublisher.edits.listings.delete({
+  "packageName": "",
+  "editId": "",
+  "language": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: edits.listings.get
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* language (string) **required** - The language code (a BCP-47 language tag) of the localized listing to read or modify. For example, to select Austrian German, pass "de-AT".
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.listings.get
 Fetches information about a localized store listing.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "language": {
-      "type": "string",
-      "description": "The language code (a BCP-47 language tag) of the localized listing to read or modify. For example, to select Austrian German, pass \"de-AT\"."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "language"
-  ]
-}
+
+```js
+google_androidpublisher.edits.listings.get({
+  "packageName": "",
+  "editId": "",
+  "language": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Listing"
-}
-```
-## Operation: edits.listings.patch
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* language (string) **required** - The language code (a BCP-47 language tag) of the localized listing to read or modify. For example, to select Austrian German, pass "de-AT".
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.listings.patch
 Creates or updates a localized store listing. This method supports patch semantics.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "language": {
-      "type": "string",
-      "description": "The language code (a BCP-47 language tag) of the localized listing to read or modify. For example, to select Austrian German, pass \"de-AT\"."
-    },
-    "body": {
-      "$ref": "#/definitions/Listing"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "language"
-  ]
-}
+
+```js
+google_androidpublisher.edits.listings.patch({
+  "packageName": "",
+  "editId": "",
+  "language": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Listing"
-}
-```
-## Operation: edits.listings.update
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* language (string) **required** - The language code (a BCP-47 language tag) of the localized listing to read or modify. For example, to select Austrian German, pass "de-AT".
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.listings.update
 Creates or updates a localized store listing.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "language": {
-      "type": "string",
-      "description": "The language code (a BCP-47 language tag) of the localized listing to read or modify. For example, to select Austrian German, pass \"de-AT\"."
-    },
-    "body": {
-      "$ref": "#/definitions/Listing"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "language"
-  ]
-}
+
+```js
+google_androidpublisher.edits.listings.update({
+  "packageName": "",
+  "editId": "",
+  "language": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Listing"
-}
-```
-## Operation: edits.images.deleteall
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* language (string) **required** - The language code (a BCP-47 language tag) of the localized listing to read or modify. For example, to select Austrian German, pass "de-AT".
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.images.deleteall
 Deletes all images for the specified language and image type.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "language": {
-      "type": "string",
-      "description": "The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass \"de-AT\"."
-    },
-    "imageType": {
-      "type": "string",
-      "enum": [
-        "featureGraphic",
-        "icon",
-        "phoneScreenshots",
-        "promoGraphic",
-        "sevenInchScreenshots",
-        "tenInchScreenshots",
-        "tvBanner",
-        "tvScreenshots",
-        "wearScreenshots"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "language",
-    "imageType"
-  ]
-}
+
+```js
+google_androidpublisher.edits.images.deleteall({
+  "packageName": "",
+  "editId": "",
+  "language": "",
+  "imageType": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ImagesDeleteAllResponse"
-}
-```
-## Operation: edits.images.list
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* language (string) **required** - The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass "de-AT".
+* imageType (string) **required**
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.images.list
 Lists all images for the specified language and image type.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "language": {
-      "type": "string",
-      "description": "The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass \"de-AT\"."
-    },
-    "imageType": {
-      "type": "string",
-      "enum": [
-        "featureGraphic",
-        "icon",
-        "phoneScreenshots",
-        "promoGraphic",
-        "sevenInchScreenshots",
-        "tenInchScreenshots",
-        "tvBanner",
-        "tvScreenshots",
-        "wearScreenshots"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "language",
-    "imageType"
-  ]
-}
+
+```js
+google_androidpublisher.edits.images.list({
+  "packageName": "",
+  "editId": "",
+  "language": "",
+  "imageType": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ImagesListResponse"
-}
-```
-## Operation: edits.images.upload
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* language (string) **required** - The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass "de-AT".
+* imageType (string) **required**
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.images.upload
 Uploads a new image and adds it to the list of images for the specified language and image type.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "language": {
-      "type": "string",
-      "description": "The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass \"de-AT\"."
-    },
-    "imageType": {
-      "type": "string",
-      "enum": [
-        "featureGraphic",
-        "icon",
-        "phoneScreenshots",
-        "promoGraphic",
-        "sevenInchScreenshots",
-        "tenInchScreenshots",
-        "tvBanner",
-        "tvScreenshots",
-        "wearScreenshots"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "language",
-    "imageType"
-  ]
-}
+
+```js
+google_androidpublisher.edits.images.upload({
+  "packageName": "",
+  "editId": "",
+  "language": "",
+  "imageType": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ImagesUploadResponse"
-}
-```
-## Operation: edits.images.delete
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* language (string) **required** - The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass "de-AT".
+* imageType (string) **required**
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.images.delete
 Deletes the image (specified by id) from the edit.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "language": {
-      "type": "string",
-      "description": "The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass \"de-AT\"."
-    },
-    "imageType": {
-      "type": "string",
-      "enum": [
-        "featureGraphic",
-        "icon",
-        "phoneScreenshots",
-        "promoGraphic",
-        "sevenInchScreenshots",
-        "tenInchScreenshots",
-        "tvBanner",
-        "tvScreenshots",
-        "wearScreenshots"
-      ]
-    },
-    "imageId": {
-      "type": "string",
-      "description": "Unique identifier an image within the set of images attached to this edit."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "language",
-    "imageType",
-    "imageId"
-  ]
-}
+
+```js
+google_androidpublisher.edits.images.delete({
+  "packageName": "",
+  "editId": "",
+  "language": "",
+  "imageType": "",
+  "imageId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: edits.testers.get
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* language (string) **required** - The language code (a BCP-47 language tag) of the localized listing whose images are to read or modified. For example, to select Austrian German, pass "de-AT".
+* imageType (string) **required**
+* imageId (string) **required** - Unique identifier an image within the set of images attached to this edit.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.testers.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "track": {
-      "type": "string",
-      "enum": [
-        "alpha",
-        "beta",
-        "production",
-        "rollout"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "track"
-  ]
-}
+
+```js
+google_androidpublisher.edits.testers.get({
+  "packageName": "",
+  "editId": "",
+  "track": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Testers"
-}
-```
-## Operation: edits.testers.patch
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* track (string) **required**
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.testers.patch
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "track": {
-      "type": "string",
-      "enum": [
-        "alpha",
-        "beta",
-        "production",
-        "rollout"
-      ]
-    },
-    "body": {
-      "$ref": "#/definitions/Testers"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "track"
-  ]
-}
+
+```js
+google_androidpublisher.edits.testers.patch({
+  "packageName": "",
+  "editId": "",
+  "track": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Testers"
-}
-```
-## Operation: edits.testers.update
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* track (string) **required**
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.testers.update
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "track": {
-      "type": "string",
-      "enum": [
-        "alpha",
-        "beta",
-        "production",
-        "rollout"
-      ]
-    },
-    "body": {
-      "$ref": "#/definitions/Testers"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "track"
-  ]
-}
+
+```js
+google_androidpublisher.edits.testers.update({
+  "packageName": "",
+  "editId": "",
+  "track": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Testers"
-}
-```
-## Operation: edits.tracks.list
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* track (string) **required**
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.tracks.list
 Lists all the track configurations for this edit.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId"
-  ]
-}
+
+```js
+google_androidpublisher.edits.tracks.list({
+  "packageName": "",
+  "editId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TracksListResponse"
-}
-```
-## Operation: edits.tracks.get
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.tracks.get
 Fetches the track configuration for the specified track type. Includes the APK version codes that are in this track.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "track": {
-      "type": "string",
-      "description": "The track type to read or modify.",
-      "enum": [
-        "alpha",
-        "beta",
-        "production",
-        "rollout"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "track"
-  ]
-}
+
+```js
+google_androidpublisher.edits.tracks.get({
+  "packageName": "",
+  "editId": "",
+  "track": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Track"
-}
-```
-## Operation: edits.tracks.patch
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* track (string) **required** - The track type to read or modify.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.tracks.patch
 Updates the track configuration for the specified track type. When halted, the rollout track cannot be updated without adding new APKs, and adding new APKs will cause it to resume. This method supports patch semantics.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "track": {
-      "type": "string",
-      "description": "The track type to read or modify.",
-      "enum": [
-        "alpha",
-        "beta",
-        "production",
-        "rollout"
-      ]
-    },
-    "body": {
-      "$ref": "#/definitions/Track"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "track"
-  ]
-}
+
+```js
+google_androidpublisher.edits.tracks.patch({
+  "packageName": "",
+  "editId": "",
+  "track": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Track"
-}
-```
-## Operation: edits.tracks.update
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* track (string) **required** - The track type to read or modify.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.tracks.update
 Updates the track configuration for the specified track type. When halted, the rollout track cannot be updated without adding new APKs, and adding new APKs will cause it to resume.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "track": {
-      "type": "string",
-      "description": "The track type to read or modify.",
-      "enum": [
-        "alpha",
-        "beta",
-        "production",
-        "rollout"
-      ]
-    },
-    "body": {
-      "$ref": "#/definitions/Track"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId",
-    "track"
-  ]
-}
+
+```js
+google_androidpublisher.edits.tracks.update({
+  "packageName": "",
+  "editId": "",
+  "track": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Track"
-}
-```
-## Operation: edits.commit
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* track (string) **required** - The track type to read or modify.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.commit
 Commits/applies the changes made in this edit back to the app.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId"
-  ]
-}
+
+```js
+google_androidpublisher.edits.commit({
+  "packageName": "",
+  "editId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AppEdit"
-}
-```
-## Operation: edits.validate
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### edits.validate
 Checks that the edit can be successfully committed. The edit's changes are not applied to the live app.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app that is being updated; for example, \"com.spiffygame\"."
-    },
-    "editId": {
-      "type": "string",
-      "description": "Unique identifier for this edit."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "editId"
-  ]
-}
+
+```js
+google_androidpublisher.edits.validate({
+  "packageName": "",
+  "editId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AppEdit"
-}
-```
-## Operation: entitlements.list
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+* editId (string) **required** - Unique identifier for this edit.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### entitlements.list
 Lists the user's current inapp item or subscription entitlements
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "The package name of the application the inapp product was sold in (for example, 'com.some.thing')."
-    },
-    "maxResults": {
-      "type": "integer"
-    },
-    "productId": {
-      "type": "string",
-      "description": "The product id of the inapp product (for example, 'sku1'). This can be used to restrict the result set."
-    },
-    "startIndex": {
-      "type": "integer"
-    },
-    "token": {
-      "type": "string"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName"
-  ]
-}
+
+```js
+google_androidpublisher.entitlements.list({
+  "packageName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/EntitlementsListResponse"
-}
-```
-## Operation: inappproducts.list
+
+#### Parameters
+* packageName (string) **required** - The package name of the application the inapp product was sold in (for example, 'com.some.thing').
+* maxResults (integer)
+* productId (string) - The product id of the inapp product (for example, 'sku1'). This can be used to restrict the result set.
+* startIndex (integer)
+* token (string)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### inappproducts.list
 List all the in-app products for an Android app, both subscriptions and managed in-app products..
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app with in-app products; for example, \"com.spiffygame\"."
-    },
-    "maxResults": {
-      "type": "integer"
-    },
-    "startIndex": {
-      "type": "integer"
-    },
-    "token": {
-      "type": "string"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName"
-  ]
-}
+
+```js
+google_androidpublisher.inappproducts.list({
+  "packageName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/InappproductsListResponse"
-}
-```
-## Operation: inappproducts.insert
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app with in-app products; for example, "com.spiffygame".
+* maxResults (integer)
+* startIndex (integer)
+* token (string)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### inappproducts.insert
 Creates a new in-app product for an app.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app; for example, \"com.spiffygame\"."
-    },
-    "autoConvertMissingPrices": {
-      "type": "boolean",
-      "description": "If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on the default price. Defaults to false."
-    },
-    "body": {
-      "$ref": "#/definitions/InAppProduct"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName"
-  ]
-}
+
+```js
+google_androidpublisher.inappproducts.insert({
+  "packageName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/InAppProduct"
-}
-```
-## Operation: inappproducts.delete
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app; for example, "com.spiffygame".
+* autoConvertMissingPrices (boolean) - If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on the default price. Defaults to false.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### inappproducts.delete
 Delete an in-app product for an app.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app with the in-app product; for example, \"com.spiffygame\"."
-    },
-    "sku": {
-      "type": "string",
-      "description": "Unique identifier for the in-app product."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "sku"
-  ]
-}
+
+```js
+google_androidpublisher.inappproducts.delete({
+  "packageName": "",
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: inappproducts.get
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app with the in-app product; for example, "com.spiffygame".
+* sku (string) **required** - Unique identifier for the in-app product.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### inappproducts.get
 Returns information about the in-app product specified.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string"
-    },
-    "sku": {
-      "type": "string",
-      "description": "Unique identifier for the in-app product."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "sku"
-  ]
-}
+
+```js
+google_androidpublisher.inappproducts.get({
+  "packageName": "",
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/InAppProduct"
-}
-```
-## Operation: inappproducts.patch
+
+#### Parameters
+* packageName (string) **required**
+* sku (string) **required** - Unique identifier for the in-app product.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### inappproducts.patch
 Updates the details of an in-app product. This method supports patch semantics.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app with the in-app product; for example, \"com.spiffygame\"."
-    },
-    "sku": {
-      "type": "string",
-      "description": "Unique identifier for the in-app product."
-    },
-    "autoConvertMissingPrices": {
-      "type": "boolean",
-      "description": "If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on the default price. Defaults to false."
-    },
-    "body": {
-      "$ref": "#/definitions/InAppProduct"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "sku"
-  ]
-}
+
+```js
+google_androidpublisher.inappproducts.patch({
+  "packageName": "",
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/InAppProduct"
-}
-```
-## Operation: inappproducts.update
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app with the in-app product; for example, "com.spiffygame".
+* sku (string) **required** - Unique identifier for the in-app product.
+* autoConvertMissingPrices (boolean) - If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on the default price. Defaults to false.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### inappproducts.update
 Updates the details of an in-app product.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app with the in-app product; for example, \"com.spiffygame\"."
-    },
-    "sku": {
-      "type": "string",
-      "description": "Unique identifier for the in-app product."
-    },
-    "autoConvertMissingPrices": {
-      "type": "boolean",
-      "description": "If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on the default price. Defaults to false."
-    },
-    "body": {
-      "$ref": "#/definitions/InAppProduct"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "sku"
-  ]
-}
+
+```js
+google_androidpublisher.inappproducts.update({
+  "packageName": "",
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/InAppProduct"
-}
-```
-## Operation: purchases.products.get
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app with the in-app product; for example, "com.spiffygame".
+* sku (string) **required** - Unique identifier for the in-app product.
+* autoConvertMissingPrices (boolean) - If true the prices for all regions targeted by the parent app that don't have a price specified for this in-app product will be auto converted to the target currency based on the default price. Defaults to false.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### purchases.products.get
 Checks the purchase and consumption status of an inapp item.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "The package name of the application the inapp product was sold in (for example, 'com.some.thing')."
-    },
-    "productId": {
-      "type": "string",
-      "description": "The inapp product SKU (for example, 'com.some.thing.inapp1')."
-    },
-    "token": {
-      "type": "string",
-      "description": "The token provided to the user's device when the inapp product was purchased."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "productId",
-    "token"
-  ]
-}
+
+```js
+google_androidpublisher.purchases.products.get({
+  "packageName": "",
+  "productId": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProductPurchase"
-}
-```
-## Operation: purchases.subscriptions.get
+
+#### Parameters
+* packageName (string) **required** - The package name of the application the inapp product was sold in (for example, 'com.some.thing').
+* productId (string) **required** - The inapp product SKU (for example, 'com.some.thing.inapp1').
+* token (string) **required** - The token provided to the user's device when the inapp product was purchased.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### purchases.subscriptions.get
 Checks whether a user's subscription purchase is valid and returns its expiry time.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "The package name of the application for which this subscription was purchased (for example, 'com.some.thing')."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The purchased subscription ID (for example, 'monthly001')."
-    },
-    "token": {
-      "type": "string",
-      "description": "The token provided to the user's device when the subscription was purchased."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "subscriptionId",
-    "token"
-  ]
-}
+
+```js
+google_androidpublisher.purchases.subscriptions.get({
+  "packageName": "",
+  "subscriptionId": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SubscriptionPurchase"
-}
-```
-## Operation: purchases.subscriptions.cancel
+
+#### Parameters
+* packageName (string) **required** - The package name of the application for which this subscription was purchased (for example, 'com.some.thing').
+* subscriptionId (string) **required** - The purchased subscription ID (for example, 'monthly001').
+* token (string) **required** - The token provided to the user's device when the subscription was purchased.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### purchases.subscriptions.cancel
 Cancels a user's subscription purchase. The subscription remains valid until its expiration time.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "The package name of the application for which this subscription was purchased (for example, 'com.some.thing')."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The purchased subscription ID (for example, 'monthly001')."
-    },
-    "token": {
-      "type": "string",
-      "description": "The token provided to the user's device when the subscription was purchased."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "subscriptionId",
-    "token"
-  ]
-}
+
+```js
+google_androidpublisher.purchases.subscriptions.cancel({
+  "packageName": "",
+  "subscriptionId": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: purchases.subscriptions.defer
+
+#### Parameters
+* packageName (string) **required** - The package name of the application for which this subscription was purchased (for example, 'com.some.thing').
+* subscriptionId (string) **required** - The purchased subscription ID (for example, 'monthly001').
+* token (string) **required** - The token provided to the user's device when the subscription was purchased.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### purchases.subscriptions.defer
 Defers a user's subscription purchase until a specified future expiration time.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "The package name of the application for which this subscription was purchased (for example, 'com.some.thing')."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The purchased subscription ID (for example, 'monthly001')."
-    },
-    "token": {
-      "type": "string",
-      "description": "The token provided to the user's device when the subscription was purchased."
-    },
-    "body": {
-      "$ref": "#/definitions/SubscriptionPurchasesDeferRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "subscriptionId",
-    "token"
-  ]
-}
+
+```js
+google_androidpublisher.purchases.subscriptions.defer({
+  "packageName": "",
+  "subscriptionId": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SubscriptionPurchasesDeferResponse"
-}
-```
-## Operation: purchases.subscriptions.refund
+
+#### Parameters
+* packageName (string) **required** - The package name of the application for which this subscription was purchased (for example, 'com.some.thing').
+* subscriptionId (string) **required** - The purchased subscription ID (for example, 'monthly001').
+* token (string) **required** - The token provided to the user's device when the subscription was purchased.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### purchases.subscriptions.refund
 Refunds a user's subscription purchase, but the subscription remains valid until its expiration time and it will continue to recur.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "The package name of the application for which this subscription was purchased (for example, 'com.some.thing')."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The purchased subscription ID (for example, 'monthly001')."
-    },
-    "token": {
-      "type": "string",
-      "description": "The token provided to the user's device when the subscription was purchased."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "subscriptionId",
-    "token"
-  ]
-}
+
+```js
+google_androidpublisher.purchases.subscriptions.refund({
+  "packageName": "",
+  "subscriptionId": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: purchases.subscriptions.revoke
+
+#### Parameters
+* packageName (string) **required** - The package name of the application for which this subscription was purchased (for example, 'com.some.thing').
+* subscriptionId (string) **required** - The purchased subscription ID (for example, 'monthly001').
+* token (string) **required** - The token provided to the user's device when the subscription was purchased.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### purchases.subscriptions.revoke
 Refunds and immediately revokes a user's subscription purchase. Access to the subscription will be terminated immediately and it will stop recurring.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "The package name of the application for which this subscription was purchased (for example, 'com.some.thing')."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The purchased subscription ID (for example, 'monthly001')."
-    },
-    "token": {
-      "type": "string",
-      "description": "The token provided to the user's device when the subscription was purchased."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "subscriptionId",
-    "token"
-  ]
-}
+
+```js
+google_androidpublisher.purchases.subscriptions.revoke({
+  "packageName": "",
+  "subscriptionId": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: purchases.voidedpurchases.list
+
+#### Parameters
+* packageName (string) **required** - The package name of the application for which this subscription was purchased (for example, 'com.some.thing').
+* subscriptionId (string) **required** - The purchased subscription ID (for example, 'monthly001').
+* token (string) **required** - The token provided to the user's device when the subscription was purchased.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### purchases.voidedpurchases.list
 Lists the purchases that were cancelled, refunded or charged-back.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "The package name of the application for which voided purchases need to be returned (for example, 'com.some.thing')."
-    },
-    "endTime": {
-      "type": "string",
-      "description": "The time, in milliseconds since the Epoch, of the newest voided in-app product purchase that you want to see in the response. The value of this parameter cannot be greater than the current time and is ignored if a pagination token is set. Default value is current time."
-    },
-    "maxResults": {
-      "type": "integer"
-    },
-    "startIndex": {
-      "type": "integer"
-    },
-    "startTime": {
-      "type": "string",
-      "description": "The time, in milliseconds since the Epoch, of the oldest voided in-app product purchase that you want to see in the response. The value of this parameter cannot be older than 30 days and is ignored if a pagination token is set. Default value is current time minus 30 days."
-    },
-    "token": {
-      "type": "string"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName"
-  ]
-}
+
+```js
+google_androidpublisher.purchases.voidedpurchases.list({
+  "packageName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/VoidedPurchasesListResponse"
-}
-```
-## Operation: reviews.list
+
+#### Parameters
+* packageName (string) **required** - The package name of the application for which voided purchases need to be returned (for example, 'com.some.thing').
+* endTime (string) - The time, in milliseconds since the Epoch, of the newest voided in-app product purchase that you want to see in the response. The value of this parameter cannot be greater than the current time and is ignored if a pagination token is set. Default value is current time.
+* maxResults (integer)
+* startIndex (integer)
+* startTime (string) - The time, in milliseconds since the Epoch, of the oldest voided in-app product purchase that you want to see in the response. The value of this parameter cannot be older than 30 days and is ignored if a pagination token is set. Default value is current time minus 30 days.
+* token (string)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### reviews.list
 Returns a list of reviews. Only reviews from last week will be returned.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app for which we want reviews; for example, \"com.spiffygame\"."
-    },
-    "maxResults": {
-      "type": "integer"
-    },
-    "startIndex": {
-      "type": "integer"
-    },
-    "token": {
-      "type": "string"
-    },
-    "translationLanguage": {
-      "type": "string"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName"
-  ]
-}
+
+```js
+google_androidpublisher.reviews.list({
+  "packageName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ReviewsListResponse"
-}
-```
-## Operation: reviews.get
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app for which we want reviews; for example, "com.spiffygame".
+* maxResults (integer)
+* startIndex (integer)
+* token (string)
+* translationLanguage (string)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### reviews.get
 Returns a single review.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app for which we want reviews; for example, \"com.spiffygame\"."
-    },
-    "reviewId": {
-      "type": "string"
-    },
-    "translationLanguage": {
-      "type": "string"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "reviewId"
-  ]
-}
+
+```js
+google_androidpublisher.reviews.get({
+  "packageName": "",
+  "reviewId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Review"
-}
-```
-## Operation: reviews.reply
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app for which we want reviews; for example, "com.spiffygame".
+* reviewId (string) **required**
+* translationLanguage (string)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### reviews.reply
 Reply to a single review, or update an existing reply.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "packageName": {
-      "type": "string",
-      "description": "Unique identifier for the Android app for which we want reviews; for example, \"com.spiffygame\"."
-    },
-    "reviewId": {
-      "type": "string"
-    },
-    "body": {
-      "$ref": "#/definitions/ReviewsReplyRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "packageName",
-    "reviewId"
-  ]
-}
+
+```js
+google_androidpublisher.reviews.reply({
+  "packageName": "",
+  "reviewId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ReviewsReplyResponse"
-}
-```
+
+#### Parameters
+* packageName (string) **required** - Unique identifier for the Android app for which we want reviews; for example, "com.spiffygame".
+* reviewId (string) **required**
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+

@@ -1,4291 +1,2131 @@
 # @datafire/amazonaws_ssm
+
+Client library for Amazon Simple Systems Manager (SSM)
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/amazonaws_ssm
+```
+
+```js
+let datafire = require('datafire');
+let amazonaws_ssm = require('@datafire/amazonaws_ssm').actions;
+
+let account = {
+  hmac: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    amazonaws_ssm: account,
+  }
+})
+
+
+amazonaws_ssm.AddTagsToResource({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 <fullname>Amazon EC2 Systems Manager</fullname> <p>Amazon EC2 Systems Manager is a collection of capabilities that helps you automate management tasks such as collecting system inventory, applying operating system (OS) patches, automating the creation of Amazon Machine Images (AMIs), and configuring operating systems (OSs) and applications at scale. Systems Manager lets you remotely and securely manage the configuration of your managed instances. A <i>managed instance</i> is any Amazon EC2 instance or on-premises machine in your hybrid environment that has been configured for Systems Manager.</p> <p>This reference is intended to be used with the <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/">Amazon EC2 Systems Manager User Guide</a>.</p> <p>To get started, verify prerequisites and configure managed instances. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Systems Manager Prerequisites</a>.</p>
 
-## Operation: AddTagsToResource
+## Actions
+### AddTagsToResource
 <p>Adds or overwrites one or more tags for the specified resource. Tags are metadata that you assign to your managed instances. Tags enable you to categorize your managed instances in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. For example, you could define a set of tags for your account's managed instances that helps you track each instance's owner and stack level. For example: Key=Owner and Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and Value=Production, Pre-Production, or Test. Each resource can have a maximum of 10 tags. </p> <p>We recommend that you devise a set of tag keys that meets your needs for each resource type. Using a consistent set of tag keys makes it easier for you to manage your resources. You can search and filter the resources based on the tags you add. Tags don't have any semantic meaning to Amazon EC2 and are interpreted strictly as a string of characters. </p> <p>For more information about tags, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Amazon EC2 Resources</a> in the <i>Amazon EC2 User Guide</i>.</p>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/AddTagsToResourceRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.AddTagsToResource({
+  "body": {
+    "ResourceType": "",
+    "ResourceId": "",
+    "Tags": []
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AddTagsToResourceResult"
-}
-```
-## Operation: CancelCommand
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### CancelCommand
 Attempts to cancel the command specified by the Command ID. There is no guarantee that the command will be terminated and the underlying process stopped.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CancelCommandRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.CancelCommand({
+  "body": {
+    "CommandId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CancelCommandResult"
-}
-```
-## Operation: CreateActivation
+
+#### Parameters
+* body (object) **required** - <p/>
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### CreateActivation
 Registers your on-premises server or virtual machine with Amazon EC2 so that you can manage these resources using Run Command. An on-premises server or virtual machine that has been registered with EC2 is called a managed instance. For more information about activations, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html">Setting Up Systems Manager in Hybrid Environments</a>.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CreateActivationRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.CreateActivation({
+  "body": {
+    "IamRole": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CreateActivationResult"
-}
-```
-## Operation: CreateAssociation
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### CreateAssociation
 <p>Associates the specified Systems Manager document with the specified instances or targets.</p> <p>When you associate a document with one or more instances using instance IDs or tags, the SSM Agent running on the instance processes the document and configures the instance as specified.</p> <p>If you associate a document with an instance that already has an associated document, the system throws the AssociationAlreadyExists exception.</p>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CreateAssociationRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.CreateAssociation({
+  "body": {
+    "Name": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CreateAssociationResult"
-}
-```
-## Operation: CreateAssociationBatch
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### CreateAssociationBatch
 <p>Associates the specified Systems Manager document with the specified instances or targets.</p> <p>When you associate a document with one or more instances using instance IDs or tags, the SSM Agent running on the instance processes the document and configures the instance as specified.</p> <p>If you associate a document with an instance that already has an associated document, the system throws the AssociationAlreadyExists exception.</p>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CreateAssociationBatchRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.CreateAssociationBatch({
+  "body": {
+    "Entries": []
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CreateAssociationBatchResult"
-}
-```
-## Operation: CreateDocument
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### CreateDocument
 <p>Creates a Systems Manager document.</p> <p>After you create a document, you can use CreateAssociation to associate it with one or more running instances.</p>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CreateDocumentRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.CreateDocument({
+  "body": {
+    "Content": "",
+    "Name": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CreateDocumentResult"
-}
-```
-## Operation: CreateMaintenanceWindow
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### CreateMaintenanceWindow
 Creates a new Maintenance Window.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CreateMaintenanceWindowRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.CreateMaintenanceWindow({
+  "body": {
+    "Name": "",
+    "Schedule": "",
+    "Duration": 0,
+    "Cutoff": 0,
+    "AllowUnassociatedTargets": true
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CreateMaintenanceWindowResult"
-}
-```
-## Operation: CreatePatchBaseline
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### CreatePatchBaseline
 Creates a patch baseline.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CreatePatchBaselineRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.CreatePatchBaseline({
+  "body": {
+    "Name": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CreatePatchBaselineResult"
-}
-```
-## Operation: DeleteActivation
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DeleteActivation
 Deletes an activation. You are not required to delete an activation. If you delete an activation, you can no longer use it to register additional managed instances. Deleting an activation does not de-register managed instances. You must manually de-register managed instances.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeleteActivationRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DeleteActivation({
+  "body": {
+    "ActivationId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeleteActivationResult"
-}
-```
-## Operation: DeleteAssociation
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DeleteAssociation
 <p>Disassociates the specified Systems Manager document from the specified instance.</p> <p>When you disassociate a document from an instance, it does not change the configuration of the instance. To change the configuration state of an instance after you disassociate a document, you must create a new document with the desired configuration and associate it with the instance.</p>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeleteAssociationRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_ssm.DeleteAssociation({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeleteAssociationResult"
-}
-```
-## Operation: DeleteDocument
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DeleteDocument
 <p>Deletes the Systems Manager document and all instance associations to the document.</p> <p>Before you delete the document, we recommend that you use <a>DeleteAssociation</a> to disassociate all instances that are associated with the document.</p>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeleteDocumentRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DeleteDocument({
+  "body": {
+    "Name": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeleteDocumentResult"
-}
-```
-## Operation: DeleteMaintenanceWindow
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DeleteMaintenanceWindow
 Deletes a Maintenance Window.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeleteMaintenanceWindowRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DeleteMaintenanceWindow({
+  "body": {
+    "WindowId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeleteMaintenanceWindowResult"
-}
-```
-## Operation: DeleteParameter
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DeleteParameter
 Delete a parameter from the system.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeleteParameterRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DeleteParameter({
+  "body": {
+    "Name": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeleteParameterResult"
-}
-```
-## Operation: DeletePatchBaseline
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DeletePatchBaseline
 Deletes a patch baseline.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeletePatchBaselineRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DeletePatchBaseline({
+  "body": {
+    "BaselineId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeletePatchBaselineResult"
-}
-```
-## Operation: DeregisterManagedInstance
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DeregisterManagedInstance
 Removes the server or virtual machine from the list of registered servers. You can reregister the instance again at any time. If you don’t plan to use Run Command on the server, we suggest uninstalling the SSM Agent first.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeregisterManagedInstanceRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DeregisterManagedInstance({
+  "body": {
+    "InstanceId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeregisterManagedInstanceResult"
-}
-```
-## Operation: DeregisterPatchBaselineForPatchGroup
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DeregisterPatchBaselineForPatchGroup
 Removes a patch group from a patch baseline.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeregisterPatchBaselineForPatchGroupRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DeregisterPatchBaselineForPatchGroup({
+  "body": {
+    "BaselineId": "",
+    "PatchGroup": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeregisterPatchBaselineForPatchGroupResult"
-}
-```
-## Operation: DeregisterTargetFromMaintenanceWindow
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DeregisterTargetFromMaintenanceWindow
 Removes a target from a Maintenance Window.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeregisterTargetFromMaintenanceWindowRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DeregisterTargetFromMaintenanceWindow({
+  "body": {
+    "WindowId": "",
+    "WindowTargetId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeregisterTargetFromMaintenanceWindowResult"
-}
-```
-## Operation: DeregisterTaskFromMaintenanceWindow
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DeregisterTaskFromMaintenanceWindow
 Removes a task from a Maintenance Window.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeregisterTaskFromMaintenanceWindowRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DeregisterTaskFromMaintenanceWindow({
+  "body": {
+    "WindowId": "",
+    "WindowTaskId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeregisterTaskFromMaintenanceWindowResult"
-}
-```
-## Operation: DescribeActivations
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeActivations
 Details about the activation, including: the date and time the activation was created, the expiration date, the IAM role assigned to the instances in the activation, and the number of instances activated by this registration.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeActivationsRequest"
-    },
-    "MaxResults": {
-      "type": "string",
-      "description": "Pagination limit"
-    },
-    "NextToken": {
-      "type": "string",
-      "description": "Pagination token"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_ssm.DescribeActivations({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeActivationsResult"
-}
-```
-## Operation: DescribeAssociation
+
+#### Parameters
+* body (object) **required**
+* MaxResults (string) - Pagination limit
+* NextToken (string) - Pagination token
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeAssociation
 Describes the associations for the specified Systems Manager document or instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeAssociationRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_ssm.DescribeAssociation({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeAssociationResult"
-}
-```
-## Operation: DescribeAutomationExecutions
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeAutomationExecutions
 Provides details about all active and terminated Automation executions.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeAutomationExecutionsRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_ssm.DescribeAutomationExecutions({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeAutomationExecutionsResult"
-}
-```
-## Operation: DescribeAvailablePatches
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeAvailablePatches
 Lists all patches that could possibly be included in a patch baseline.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeAvailablePatchesRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_ssm.DescribeAvailablePatches({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeAvailablePatchesResult"
-}
-```
-## Operation: DescribeDocument
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeDocument
 Describes the specified SSM document.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeDocumentRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DescribeDocument({
+  "body": {
+    "Name": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeDocumentResult"
-}
-```
-## Operation: DescribeDocumentPermission
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeDocumentPermission
 Describes the permissions for a Systems Manager document. If you created the document, you are the owner. If a document is shared, it can either be shared privately (by specifying a user’s AWS account ID) or publicly (<i>All</i>). 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeDocumentPermissionRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DescribeDocumentPermission({
+  "body": {
+    "Name": "",
+    "PermissionType": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeDocumentPermissionResponse"
-}
-```
-## Operation: DescribeEffectiveInstanceAssociations
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeEffectiveInstanceAssociations
 All associations for the instance(s).
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeEffectiveInstanceAssociationsRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DescribeEffectiveInstanceAssociations({
+  "body": {
+    "InstanceId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeEffectiveInstanceAssociationsResult"
-}
-```
-## Operation: DescribeEffectivePatchesForPatchBaseline
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeEffectivePatchesForPatchBaseline
 Retrieves the current effective patches (the patch and the approval state) for the specified patch baseline.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeEffectivePatchesForPatchBaselineRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DescribeEffectivePatchesForPatchBaseline({
+  "body": {
+    "BaselineId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeEffectivePatchesForPatchBaselineResult"
-}
-```
-## Operation: DescribeInstanceAssociationsStatus
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeInstanceAssociationsStatus
 The status of the associations for the instance(s).
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeInstanceAssociationsStatusRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DescribeInstanceAssociationsStatus({
+  "body": {
+    "InstanceId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeInstanceAssociationsStatusResult"
-}
-```
-## Operation: DescribeInstanceInformation
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeInstanceInformation
 Describes one or more of your instances. You can use this to get information about instances like the operating system platform, the SSM Agent version (Linux), status etc. If you specify one or more instance IDs, it returns information for those instances. If you do not specify instance IDs, it returns information for all your instances. If you specify an instance ID that is not valid or an instance that you do not own, you receive an error. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeInstanceInformationRequest"
-    },
-    "MaxResults": {
-      "type": "string",
-      "description": "Pagination limit"
-    },
-    "NextToken": {
-      "type": "string",
-      "description": "Pagination token"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_ssm.DescribeInstanceInformation({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeInstanceInformationResult"
-}
-```
-## Operation: DescribeInstancePatchStates
+
+#### Parameters
+* body (object) **required**
+* MaxResults (string) - Pagination limit
+* NextToken (string) - Pagination token
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeInstancePatchStates
 Retrieves the high-level patch state of one or more instances.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeInstancePatchStatesRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DescribeInstancePatchStates({
+  "body": {
+    "InstanceIds": []
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeInstancePatchStatesResult"
-}
-```
-## Operation: DescribeInstancePatchStatesForPatchGroup
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeInstancePatchStatesForPatchGroup
 Retrieves the high-level patch state for the instances in the specified patch group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeInstancePatchStatesForPatchGroupRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DescribeInstancePatchStatesForPatchGroup({
+  "body": {
+    "PatchGroup": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeInstancePatchStatesForPatchGroupResult"
-}
-```
-## Operation: DescribeInstancePatches
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeInstancePatches
 Retrieves information about the patches on the specified instance and their state relative to the patch baseline being used for the instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeInstancePatchesRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DescribeInstancePatches({
+  "body": {
+    "InstanceId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeInstancePatchesResult"
-}
-```
-## Operation: DescribeMaintenanceWindowExecutionTaskInvocations
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeMaintenanceWindowExecutionTaskInvocations
 Retrieves the individual task executions (one per target) for a particular task executed as part of a Maintenance Window execution.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeMaintenanceWindowExecutionTaskInvocationsRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DescribeMaintenanceWindowExecutionTaskInvocations({
+  "body": {
+    "WindowExecutionId": "",
+    "TaskId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeMaintenanceWindowExecutionTaskInvocationsResult"
-}
-```
-## Operation: DescribeMaintenanceWindowExecutionTasks
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeMaintenanceWindowExecutionTasks
 For a given Maintenance Window execution, lists the tasks that were executed.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeMaintenanceWindowExecutionTasksRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DescribeMaintenanceWindowExecutionTasks({
+  "body": {
+    "WindowExecutionId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeMaintenanceWindowExecutionTasksResult"
-}
-```
-## Operation: DescribeMaintenanceWindowExecutions
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeMaintenanceWindowExecutions
 Lists the executions of a Maintenance Window (meaning, information about when the Maintenance Window was scheduled to be active and information about tasks registered and run with the Maintenance Window).
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeMaintenanceWindowExecutionsRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DescribeMaintenanceWindowExecutions({
+  "body": {
+    "WindowId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeMaintenanceWindowExecutionsResult"
-}
-```
-## Operation: DescribeMaintenanceWindowTargets
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeMaintenanceWindowTargets
 Lists the targets registered with the Maintenance Window.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeMaintenanceWindowTargetsRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DescribeMaintenanceWindowTargets({
+  "body": {
+    "WindowId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeMaintenanceWindowTargetsResult"
-}
-```
-## Operation: DescribeMaintenanceWindowTasks
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeMaintenanceWindowTasks
 Lists the tasks in a Maintenance Window.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeMaintenanceWindowTasksRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DescribeMaintenanceWindowTasks({
+  "body": {
+    "WindowId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeMaintenanceWindowTasksResult"
-}
-```
-## Operation: DescribeMaintenanceWindows
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeMaintenanceWindows
 Retrieves the Maintenance Windows in an AWS account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeMaintenanceWindowsRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_ssm.DescribeMaintenanceWindows({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeMaintenanceWindowsResult"
-}
-```
-## Operation: DescribeParameters
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeParameters
 Get information about a parameter.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeParametersRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_ssm.DescribeParameters({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeParametersResult"
-}
-```
-## Operation: DescribePatchBaselines
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribePatchBaselines
 Lists the patch baselines in your AWS account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribePatchBaselinesRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_ssm.DescribePatchBaselines({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribePatchBaselinesResult"
-}
-```
-## Operation: DescribePatchGroupState
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribePatchGroupState
 Returns high-level aggregated patch compliance state for a patch group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribePatchGroupStateRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.DescribePatchGroupState({
+  "body": {
+    "PatchGroup": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribePatchGroupStateResult"
-}
-```
-## Operation: DescribePatchGroups
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribePatchGroups
 Lists all patch groups that have been registered with patch baselines.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribePatchGroupsRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_ssm.DescribePatchGroups({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribePatchGroupsResult"
-}
-```
-## Operation: GetAutomationExecution
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetAutomationExecution
 Get detailed information about a particular Automation execution.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetAutomationExecutionRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.GetAutomationExecution({
+  "body": {
+    "AutomationExecutionId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetAutomationExecutionResult"
-}
-```
-## Operation: GetCommandInvocation
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetCommandInvocation
 Returns detailed information about command execution for an invocation or plugin. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetCommandInvocationRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.GetCommandInvocation({
+  "body": {
+    "CommandId": "",
+    "InstanceId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetCommandInvocationResult"
-}
-```
-## Operation: GetDefaultPatchBaseline
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetDefaultPatchBaseline
 Retrieves the default patch baseline.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetDefaultPatchBaselineRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_ssm.GetDefaultPatchBaseline({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetDefaultPatchBaselineResult"
-}
-```
-## Operation: GetDeployablePatchSnapshotForInstance
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetDeployablePatchSnapshotForInstance
 Retrieves the current snapshot for the patch baseline the instance uses. This API is primarily used by the AWS-ApplyPatchBaseline Systems Manager document. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetDeployablePatchSnapshotForInstanceRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.GetDeployablePatchSnapshotForInstance({
+  "body": {
+    "InstanceId": "",
+    "SnapshotId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetDeployablePatchSnapshotForInstanceResult"
-}
-```
-## Operation: GetDocument
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetDocument
 Gets the contents of the specified SSM document.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetDocumentRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.GetDocument({
+  "body": {
+    "Name": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetDocumentResult"
-}
-```
-## Operation: GetInventory
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetInventory
 Query inventory information.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetInventoryRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_ssm.GetInventory({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetInventoryResult"
-}
-```
-## Operation: GetInventorySchema
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetInventorySchema
 Return a list of inventory type names for the account, or return a list of attribute names for a specific Inventory item type. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetInventorySchemaRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_ssm.GetInventorySchema({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetInventorySchemaResult"
-}
-```
-## Operation: GetMaintenanceWindow
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetMaintenanceWindow
 Retrieves a Maintenance Window.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetMaintenanceWindowRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.GetMaintenanceWindow({
+  "body": {
+    "WindowId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetMaintenanceWindowResult"
-}
-```
-## Operation: GetMaintenanceWindowExecution
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetMaintenanceWindowExecution
 Retrieves details about a specific task executed as part of a Maintenance Window execution.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetMaintenanceWindowExecutionRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.GetMaintenanceWindowExecution({
+  "body": {
+    "WindowExecutionId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetMaintenanceWindowExecutionResult"
-}
-```
-## Operation: GetMaintenanceWindowExecutionTask
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetMaintenanceWindowExecutionTask
 Retrieves the details about a specific task executed as part of a Maintenance Window execution.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetMaintenanceWindowExecutionTaskRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.GetMaintenanceWindowExecutionTask({
+  "body": {
+    "WindowExecutionId": "",
+    "TaskId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetMaintenanceWindowExecutionTaskResult"
-}
-```
-## Operation: GetParameterHistory
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetParameterHistory
 Query a list of all parameters used by the AWS account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetParameterHistoryRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.GetParameterHistory({
+  "body": {
+    "Name": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetParameterHistoryResult"
-}
-```
-## Operation: GetParameters
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetParameters
 Get details of a parameter.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetParametersRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.GetParameters({
+  "body": {
+    "Names": []
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetParametersResult"
-}
-```
-## Operation: GetPatchBaseline
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetPatchBaseline
 Retrieves information about a patch baseline.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetPatchBaselineRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.GetPatchBaseline({
+  "body": {
+    "BaselineId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetPatchBaselineResult"
-}
-```
-## Operation: GetPatchBaselineForPatchGroup
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetPatchBaselineForPatchGroup
 Retrieves the patch baseline that should be used for the specified patch group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetPatchBaselineForPatchGroupRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.GetPatchBaselineForPatchGroup({
+  "body": {
+    "PatchGroup": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetPatchBaselineForPatchGroupResult"
-}
-```
-## Operation: ListAssociations
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ListAssociations
 Lists the associations for the specified Systems Manager document or instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListAssociationsRequest"
-    },
-    "MaxResults": {
-      "type": "string",
-      "description": "Pagination limit"
-    },
-    "NextToken": {
-      "type": "string",
-      "description": "Pagination token"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_ssm.ListAssociations({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListAssociationsResult"
-}
-```
-## Operation: ListCommandInvocations
+
+#### Parameters
+* body (object) **required**
+* MaxResults (string) - Pagination limit
+* NextToken (string) - Pagination token
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ListCommandInvocations
 An invocation is copy of a command sent to a specific instance. A command can apply to one or more instances. A command invocation applies to one instance. For example, if a user executes SendCommand against three instances, then a command invocation is created for each requested instance ID. ListCommandInvocations provide status about command execution.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListCommandInvocationsRequest"
-    },
-    "MaxResults": {
-      "type": "string",
-      "description": "Pagination limit"
-    },
-    "NextToken": {
-      "type": "string",
-      "description": "Pagination token"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_ssm.ListCommandInvocations({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListCommandInvocationsResult"
-}
-```
-## Operation: ListCommands
+
+#### Parameters
+* body (object) **required**
+* MaxResults (string) - Pagination limit
+* NextToken (string) - Pagination token
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ListCommands
 Lists the commands requested by users of the AWS account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListCommandsRequest"
-    },
-    "MaxResults": {
-      "type": "string",
-      "description": "Pagination limit"
-    },
-    "NextToken": {
-      "type": "string",
-      "description": "Pagination token"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_ssm.ListCommands({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListCommandsResult"
-}
-```
-## Operation: ListDocumentVersions
+
+#### Parameters
+* body (object) **required**
+* MaxResults (string) - Pagination limit
+* NextToken (string) - Pagination token
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ListDocumentVersions
 List all versions for a document.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListDocumentVersionsRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.ListDocumentVersions({
+  "body": {
+    "Name": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListDocumentVersionsResult"
-}
-```
-## Operation: ListDocuments
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ListDocuments
 Describes one or more of your SSM documents.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListDocumentsRequest"
-    },
-    "MaxResults": {
-      "type": "string",
-      "description": "Pagination limit"
-    },
-    "NextToken": {
-      "type": "string",
-      "description": "Pagination token"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_ssm.ListDocuments({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListDocumentsResult"
-}
-```
-## Operation: ListInventoryEntries
+
+#### Parameters
+* body (object) **required**
+* MaxResults (string) - Pagination limit
+* NextToken (string) - Pagination token
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ListInventoryEntries
 A list of inventory items returned by the request.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListInventoryEntriesRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.ListInventoryEntries({
+  "body": {
+    "InstanceId": "",
+    "TypeName": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListInventoryEntriesResult"
-}
-```
-## Operation: ListTagsForResource
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ListTagsForResource
 Returns a list of the tags assigned to the specified resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListTagsForResourceRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.ListTagsForResource({
+  "body": {
+    "ResourceType": "",
+    "ResourceId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListTagsForResourceResult"
-}
-```
-## Operation: ModifyDocumentPermission
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ModifyDocumentPermission
 Shares a Systems Manager document publicly or privately. If you share a document privately, you must specify the AWS user account IDs for those people who can use the document. If you share a document publicly, you must specify <i>All</i> as the account ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ModifyDocumentPermissionRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.ModifyDocumentPermission({
+  "body": {
+    "Name": "",
+    "PermissionType": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ModifyDocumentPermissionResponse"
-}
-```
-## Operation: PutInventory
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### PutInventory
 Bulk update custom inventory items on one more instance. The request adds an inventory item, if it doesn't already exist, or updates an inventory item, if it does exist.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/PutInventoryRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.PutInventory({
+  "body": {
+    "InstanceId": "",
+    "Items": []
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PutInventoryResult"
-}
-```
-## Operation: PutParameter
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### PutParameter
 Add one or more paramaters to the system.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/PutParameterRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.PutParameter({
+  "body": {
+    "Name": "",
+    "Value": "",
+    "Type": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PutParameterResult"
-}
-```
-## Operation: RegisterDefaultPatchBaseline
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### RegisterDefaultPatchBaseline
 Defines the default patch baseline.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/RegisterDefaultPatchBaselineRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.RegisterDefaultPatchBaseline({
+  "body": {
+    "BaselineId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RegisterDefaultPatchBaselineResult"
-}
-```
-## Operation: RegisterPatchBaselineForPatchGroup
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### RegisterPatchBaselineForPatchGroup
 Registers a patch baseline for a patch group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/RegisterPatchBaselineForPatchGroupRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.RegisterPatchBaselineForPatchGroup({
+  "body": {
+    "BaselineId": "",
+    "PatchGroup": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RegisterPatchBaselineForPatchGroupResult"
-}
-```
-## Operation: RegisterTargetWithMaintenanceWindow
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### RegisterTargetWithMaintenanceWindow
 Registers a target with a Maintenance Window.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/RegisterTargetWithMaintenanceWindowRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.RegisterTargetWithMaintenanceWindow({
+  "body": {
+    "WindowId": "",
+    "ResourceType": "",
+    "Targets": []
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RegisterTargetWithMaintenanceWindowResult"
-}
-```
-## Operation: RegisterTaskWithMaintenanceWindow
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### RegisterTaskWithMaintenanceWindow
 Adds a new task to a Maintenance Window.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/RegisterTaskWithMaintenanceWindowRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.RegisterTaskWithMaintenanceWindow({
+  "body": {
+    "WindowId": "",
+    "Targets": [],
+    "TaskArn": "",
+    "ServiceRoleArn": "",
+    "TaskType": "",
+    "MaxConcurrency": "",
+    "MaxErrors": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RegisterTaskWithMaintenanceWindowResult"
-}
-```
-## Operation: RemoveTagsFromResource
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### RemoveTagsFromResource
 Removes all tags from the specified resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/RemoveTagsFromResourceRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.RemoveTagsFromResource({
+  "body": {
+    "ResourceType": "",
+    "ResourceId": "",
+    "TagKeys": []
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RemoveTagsFromResourceResult"
-}
-```
-## Operation: SendCommand
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### SendCommand
 Executes commands on one or more remote instances.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/SendCommandRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.SendCommand({
+  "body": {
+    "DocumentName": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SendCommandResult"
-}
-```
-## Operation: StartAutomationExecution
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### StartAutomationExecution
 Initiates execution of an Automation document.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/StartAutomationExecutionRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.StartAutomationExecution({
+  "body": {
+    "DocumentName": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/StartAutomationExecutionResult"
-}
-```
-## Operation: StopAutomationExecution
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### StopAutomationExecution
 Stop an Automation that is currently executing.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/StopAutomationExecutionRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.StopAutomationExecution({
+  "body": {
+    "AutomationExecutionId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/StopAutomationExecutionResult"
-}
-```
-## Operation: UpdateAssociation
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateAssociation
 Updates an association. You can only update the document version, schedule, parameters, and Amazon S3 output of an association.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateAssociationRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.UpdateAssociation({
+  "body": {
+    "AssociationId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdateAssociationResult"
-}
-```
-## Operation: UpdateAssociationStatus
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateAssociationStatus
 Updates the status of the Systems Manager document associated with the specified instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateAssociationStatusRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
+
+```js
+amazonaws_ssm.UpdateAssociationStatus({
+  "body": {
+    "Name": "",
+    "InstanceId": "",
+    "AssociationStatus": {
+      "Date": "",
+      "Name": "",
+      "Message": ""
     }
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdateAssociationStatusResult"
-}
-```
-## Operation: UpdateDocument
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateDocument
 The document you want to update.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateDocumentRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.UpdateDocument({
+  "body": {
+    "Content": "",
+    "Name": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdateDocumentResult"
-}
-```
-## Operation: UpdateDocumentDefaultVersion
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateDocumentDefaultVersion
 Set the default version of a document. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateDocumentDefaultVersionRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.UpdateDocumentDefaultVersion({
+  "body": {
+    "Name": "",
+    "DocumentVersion": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdateDocumentDefaultVersionResult"
-}
-```
-## Operation: UpdateMaintenanceWindow
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateMaintenanceWindow
 Updates an existing Maintenance Window. Only specified parameters are modified.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateMaintenanceWindowRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.UpdateMaintenanceWindow({
+  "body": {
+    "WindowId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdateMaintenanceWindowResult"
-}
-```
-## Operation: UpdateManagedInstanceRole
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateManagedInstanceRole
 Assigns or changes an Amazon Identity and Access Management (IAM) role to the managed instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateManagedInstanceRoleRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.UpdateManagedInstanceRole({
+  "body": {
+    "InstanceId": "",
+    "IamRole": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdateManagedInstanceRoleResult"
-}
-```
-## Operation: UpdatePatchBaseline
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdatePatchBaseline
 Modifies an existing patch baseline. Fields not specified in the request are left unchanged.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdatePatchBaselineRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_ssm.UpdatePatchBaseline({
+  "body": {
+    "BaselineId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdatePatchBaselineResult"
-}
-```
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+

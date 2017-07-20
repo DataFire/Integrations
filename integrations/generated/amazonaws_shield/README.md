@@ -1,480 +1,257 @@
 # @datafire/amazonaws_shield
+
+Client library for AWS Shield
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/amazonaws_shield
+```
+
+```js
+let datafire = require('datafire');
+let amazonaws_shield = require('@datafire/amazonaws_shield').actions;
+
+let account = {
+  hmac: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    amazonaws_shield: account,
+  }
+})
+
+
+amazonaws_shield.CreateProtection({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 <fullname>AWS Shield Advanced</fullname> <p>This is the <i>AWS Shield Advanced API Reference</i>. This guide is for developers who need detailed information about the AWS Shield Advanced API actions, data types, and errors. For detailed information about AWS WAF and AWS Shield Advanced features and an overview of how to use the AWS WAF and AWS Shield Advanced APIs, see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF and AWS Shield Developer Guide</a>.</p>
 
-## Operation: CreateProtection
+## Actions
+### CreateProtection
 Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, or an Amazon Route 53 hosted zone.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CreateProtectionRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_shield.CreateProtection({
+  "body": {
+    "Name": "",
+    "ResourceArn": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CreateProtectionResponse"
-}
-```
-## Operation: CreateSubscription
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### CreateSubscription
 Activates AWS Shield Advanced for an account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CreateSubscriptionRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_shield.CreateSubscription({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CreateSubscriptionResponse"
-}
-```
-## Operation: DeleteProtection
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DeleteProtection
 Deletes an AWS Shield Advanced <a>Protection</a>.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeleteProtectionRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_shield.DeleteProtection({
+  "body": {
+    "ProtectionId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeleteProtectionResponse"
-}
-```
-## Operation: DeleteSubscription
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DeleteSubscription
 Removes AWS Shield Advanced from an account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeleteSubscriptionRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_shield.DeleteSubscription({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeleteSubscriptionResponse"
-}
-```
-## Operation: DescribeAttack
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeAttack
 Describes the details of a DDoS attack. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeAttackRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_shield.DescribeAttack({
+  "body": {
+    "AttackId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeAttackResponse"
-}
-```
-## Operation: DescribeProtection
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeProtection
 Lists the details of a <a>Protection</a> object.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeProtectionRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_shield.DescribeProtection({
+  "body": {
+    "ProtectionId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeProtectionResponse"
-}
-```
-## Operation: DescribeSubscription
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeSubscription
 Provides details about the AWS Shield Advanced subscription for an account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeSubscriptionRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_shield.DescribeSubscription({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeSubscriptionResponse"
-}
-```
-## Operation: ListAttacks
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ListAttacks
 Returns all ongoing DDoS attacks or all DDoS attacks during a specified time period.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListAttacksRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_shield.ListAttacks({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListAttacksResponse"
-}
-```
-## Operation: ListProtections
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ListProtections
 Lists all <a>Protection</a> objects for the account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListProtectionsRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_shield.ListProtections({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListProtectionsResponse"
-}
-```
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+

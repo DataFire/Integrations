@@ -1,450 +1,172 @@
 # @datafire/google_appengine
+
+Client library for Google App Engine Admin
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/google_appengine
+```
+
+```js
+let datafire = require('datafire');
+let google_appengine = require('@datafire/google_appengine').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    google_appengine: account,
+  }
+})
+
+
+google_appengine.apps.locations.list({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 The App Engine Admin API enables developers to provision and manage their App Engine applications.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+google_appengine.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+google_appengine.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: apps.locations.list
+
+
+### apps.locations.list
 Lists information about the supported locations for this service.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "appsId": {
-      "type": "string",
-      "description": "Part of `name`. The resource that owns the locations collection, if applicable."
-    },
-    "filter": {
-      "type": "string",
-      "description": "The standard list filter."
-    },
-    "pageSize": {
-      "type": "integer",
-      "description": "The standard list page size."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The standard list page token."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "appsId"
-  ]
-}
+
+```js
+google_appengine.apps.locations.list({
+  "appsId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListLocationsResponse"
-}
-```
-## Operation: apps.locations.get
+
+#### Parameters
+* appsId (string) **required** - Part of `name`. The resource that owns the locations collection, if applicable.
+* filter (string) - The standard list filter.
+* pageSize (integer) - The standard list page size.
+* pageToken (string) - The standard list page token.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### apps.locations.get
 Get information about a location.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "appsId": {
-      "type": "string",
-      "description": "Part of `name`. Resource name for the location."
-    },
-    "locationsId": {
-      "type": "string",
-      "description": "Part of `name`. See documentation of `appsId`."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "appsId",
-    "locationsId"
-  ]
-}
+
+```js
+google_appengine.apps.locations.get({
+  "appsId": "",
+  "locationsId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Location"
-}
-```
-## Operation: apps.operations.list
+
+#### Parameters
+* appsId (string) **required** - Part of `name`. Resource name for the location.
+* locationsId (string) **required** - Part of `name`. See documentation of `appsId`.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### apps.operations.list
 Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name binding below allows API services to override the binding to use different resource name schemes, such as users/*/operations.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "appsId": {
-      "type": "string",
-      "description": "Part of `name`. The name of the operation collection."
-    },
-    "filter": {
-      "type": "string",
-      "description": "The standard list filter."
-    },
-    "pageSize": {
-      "type": "integer",
-      "description": "The standard list page size."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The standard list page token."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "appsId"
-  ]
-}
+
+```js
+google_appengine.apps.operations.list({
+  "appsId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListOperationsResponse"
-}
-```
-## Operation: apps.operations.get
+
+#### Parameters
+* appsId (string) **required** - Part of `name`. The name of the operation collection.
+* filter (string) - The standard list filter.
+* pageSize (integer) - The standard list page size.
+* pageToken (string) - The standard list page token.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### apps.operations.get
 Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "appsId": {
-      "type": "string",
-      "description": "Part of `name`. The name of the operation resource."
-    },
-    "operationsId": {
-      "type": "string",
-      "description": "Part of `name`. See documentation of `appsId`."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "appsId",
-    "operationsId"
-  ]
-}
+
+```js
+google_appengine.apps.operations.get({
+  "appsId": "",
+  "operationsId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
+
+#### Parameters
+* appsId (string) **required** - Part of `name`. The name of the operation resource.
+* operationsId (string) **required** - Part of `name`. See documentation of `appsId`.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+

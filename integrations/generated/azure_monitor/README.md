@@ -1,37 +1,52 @@
 # @datafire/azure_monitor
 
+Client library for MonitorClient
 
-## Operation: UsageMetrics_List
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/azure_monitor
+```
+
+```js
+let datafire = require('datafire');
+let azure_monitor = require('@datafire/azure_monitor').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    azure_monitor: account,
+  }
+})
+
+
+azure_monitor.UsageMetrics_List({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
+
+
+## Actions
+### UsageMetrics_List
 The List operation lists the usage metrics for the resource.<br>**WARNING**: This operation will be *deprecated* in the next release.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceUri": {
-      "type": "string",
-      "description": "The identifier of the resource."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version. NOTE: This is not a client property, it must be explicit in the call and there is no default value."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation.<br>**WARNING**: $filter not documented since the operation will be deprecated in the next release."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceUri",
-    "api-version"
-  ]
-}
+
+```js
+azure_monitor.UsageMetrics_List({
+  "resourceUri": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UsageMetricCollection"
-}
-```
+
+#### Parameters
+* resourceUri (string) **required** - The identifier of the resource.
+* api-version (string) **required** - Client Api Version. NOTE: This is not a client property, it must be explicit in the call and there is no default value.
+* $filter (string) - The filter to apply on the operation.<br>**WARNING**: $filter not documented since the operation will be deprecated in the next release.
+

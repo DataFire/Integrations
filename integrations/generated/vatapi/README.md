@@ -1,310 +1,176 @@
 # @datafire/vatapi
+
+Client library for VAT API
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/vatapi
+```
+
+```js
+let datafire = require('datafire');
+let vatapi = require('@datafire/vatapi').actions;
+
+let account = {
+  apikey: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    vatapi: account,
+  }
+})
+
+
+vatapi.vat_rates({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 A developer friendly API to help your business achieve VAT compliance
 
-## Operation: country_code_check
+## Actions
+### country_code_check
 Retrieve a countries VAT rates by its 2 digit country code
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Response-Type": {
-      "type": "string",
-      "description": "The default response type is application/json if you would like to receive an XML response then set this to XML"
-    },
-    "code": {
-      "type": "string",
-      "description": "The 2 digit country code"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "code"
-  ]
-}
+
+```js
+vatapi.country_code_check({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Country_Code_Check"
-}
-```
-## Operation: currency_conversion
+
+#### Parameters
+* Response-Type (string) - The default response type is application/json if you would like to receive an XML response then set this to XML
+* code (string) **required** - The 2 digit country code
+
+### currency_conversion
 Convert a currency
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Response-Type": {
-      "type": "string",
-      "description": "The default response type is application/json if you would like to receive an XML response then set this to XML"
-    },
-    "currency_from": {
-      "type": "string",
-      "description": "The currency code you are converting from"
-    },
-    "currency_to": {
-      "type": "string",
-      "description": "The currency code you are converting to"
-    },
-    "amount": {
-      "type": "integer",
-      "description": "Optional, an amount you are wanting to convert. Leave blank to just get the current rate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "currency_from",
-    "currency_to"
-  ]
-}
+
+```js
+vatapi.currency_conversion({
+  "currency_from": "",
+  "currency_to": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Currency_Conversion"
-}
-```
-## Operation: create_invoice
+
+#### Parameters
+* Response-Type (string) - The default response type is application/json if you would like to receive an XML response then set this to XML
+* currency_from (string) **required** - The currency code you are converting from
+* currency_to (string) **required** - The currency code you are converting to
+* amount (integer) - Optional, an amount you are wanting to convert. Leave blank to just get the current rate
+
+### create_invoice
 Create a VAT invoice
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Response-Type": {
-      "type": "string",
-      "description": "The default response type is application/json if you would like to receive an XML response then set this to XML"
-    },
-    "body": {
-      "$ref": "#/definitions/Invoice_Data"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+vatapi.create_invoice({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Create_Invoice"
-}
-```
-## Operation: invoice_delete
+
+#### Parameters
+* Response-Type (string) - The default response type is application/json if you would like to receive an XML response then set this to XML
+* body (undefined) **required**
+
+### invoice_delete
 Delete an invoice
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Response-Type": {
-      "type": "string",
-      "description": "The default response type is application/json if you would like to receive an XML response then set this to XML"
-    },
-    "id": {
-      "type": "integer",
-      "description": "Enter an invoice id"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+vatapi.invoice_delete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: get_invoice
+
+#### Parameters
+* Response-Type (string) - The default response type is application/json if you would like to receive an XML response then set this to XML
+* id (integer) **required** - Enter an invoice id
+
+### get_invoice
 Retrieve an invoice
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Response-Type": {
-      "type": "string",
-      "description": "The default response type is application/json if you would like to receive an XML response then set this to XML"
-    },
-    "id": {
-      "type": "integer",
-      "description": "Enter the invoice id"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+vatapi.get_invoice({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Retrieve_Invoice"
-}
-```
-## Operation: invoice_update
+
+#### Parameters
+* Response-Type (string) - The default response type is application/json if you would like to receive an XML response then set this to XML
+* id (integer) **required** - Enter the invoice id
+
+### invoice_update
 Update an existing invoice
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Response-Type": {
-      "type": "string",
-      "description": "The default response type is application/json if you would like to receive an XML response then set this to XML"
-    },
-    "id": {
-      "type": "integer",
-      "description": "Enter an invoice id"
-    },
-    "body": {
-      "$ref": "#/definitions/Update_Invoice_Array"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "body"
-  ]
-}
+
+```js
+vatapi.invoice_update({
+  "id": 0,
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Update_Invoice"
-}
-```
-## Operation: ip_check
+
+#### Parameters
+* Response-Type (string) - The default response type is application/json if you would like to receive an XML response then set this to XML
+* id (integer) **required** - Enter an invoice id
+* body (undefined) **required**
+
+### ip_check
 Retrieve a countries VAT rates from an IP address
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Response-Type": {
-      "type": "string",
-      "description": "The default response type is application/json if you would like to receive an XML response then set this to XML"
-    },
-    "address": {
-      "type": "string",
-      "description": "The IP address to search against"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "address"
-  ]
-}
+
+```js
+vatapi.ip_check({
+  "address": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/IP_Check"
-}
-```
-## Operation: vat_number_validate
+
+#### Parameters
+* Response-Type (string) - The default response type is application/json if you would like to receive an XML response then set this to XML
+* address (string) **required** - The IP address to search against
+
+### vat_number_validate
 <p>We highly recommend if you are able, to check a VAT number on your end first to save wasted API lookups. It maybe that your customer has simply entered the wrong format. <a href='http://www.braemoor.co.uk/software/vat.shtml' target='_blank'>Heres a client side way to check the format using Javascript</a></p>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Response-Type": {
-      "type": "string",
-      "description": "The default response type is application/json if you would like to receive an XML response then set this to XML"
-    },
-    "vatid": {
-      "type": "string",
-      "description": "The VAT number to validate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vatid"
-  ]
-}
+
+```js
+vatapi.vat_number_validate({
+  "vatid": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: convert_price
+
+#### Parameters
+* Response-Type (string) - The default response type is application/json if you would like to receive an XML response then set this to XML
+* vatid (string) **required** - The VAT number to validate
+
+### convert_price
 Convert a price to or from VAT price.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Response-Type": {
-      "type": "string",
-      "description": "The default response type is application/json if you would like to receive an XML response then set this to XML"
-    },
-    "code": {
-      "type": "string",
-      "description": "The 2 digit country code"
-    },
-    "country_rate": {
-      "type": "string",
-      "description": "The VAT rate to get the price for. Default: standard"
-    },
-    "price": {
-      "type": "integer",
-      "description": "The price you want converting"
-    },
-    "type": {
-      "type": "string",
-      "description": "Optional, if the price is including VAT set the type to 'incl'. Otherwise the default is assumed as excluding VAT already, 'excl'"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "code",
-    "price"
-  ]
-}
+
+```js
+vatapi.convert_price({
+  "code": "",
+  "price": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Convert_Price"
-}
-```
-## Operation: vat_rates
+
+#### Parameters
+* Response-Type (string) - The default response type is application/json if you would like to receive an XML response then set this to XML
+* code (string) **required** - The 2 digit country code
+* country_rate (string) - The VAT rate to get the price for. Default: standard
+* price (integer) **required** - The price you want converting
+* type (string) - Optional, if the price is including VAT set the type to 'incl'. Otherwise the default is assumed as excluding VAT already, 'excl'
+
+### vat_rates
 Retrieve all current EU VAT rates
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "Response-Type": {
-      "type": "string",
-      "description": "The default response type is application/json if you would like to receive an XML response then set this to XML"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+vatapi.vat_rates({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Vat_Rates"
-}
-```
+
+

@@ -1,125 +1,98 @@
 # @datafire/magick_nu
+
+Client library for Tradeworks
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/magick_nu
+```
+
+```js
+let datafire = require('datafire');
+let magick_nu = require('@datafire/magick_nu').actions;
+let context = new datafire.Context();
+
+magick_nu.getStrategiesStrategyIdStrategyId({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Authentication is required to access all methods of the API. Enter username and password.
                 Credentials are automatically set as you type.
 
-## Operation: getStrategiesStrategyIdStrategyId
+## Actions
+### getStrategiesStrategyIdStrategyId
 Get Strategy by ID
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "strategyId": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "strategyId"
-  ]
-}
+
+```js
+magick_nu.getStrategiesStrategyIdStrategyId({
+  "strategyId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getStrategiesTemplates
+
+#### Parameters
+* strategyId (string) **required**
+
+### getStrategiesTemplates
 Get all Template Strategies
 
-### Input Schema
-```json
-{}
+
+```js
+magick_nu.getStrategiesTemplates(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postTradingAccounts
+
+
+### postTradingAccounts
 Add a Trading Account
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/TradingAccount"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+magick_nu.postTradingAccounts({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postUsers
+
+#### Parameters
+* body (undefined) **required**
+
+### postUsers
 Create a new Tradeworks User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UserDTO"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+magick_nu.postUsers({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getUsersEmailEmail
+
+#### Parameters
+* body (undefined) **required**
+
+### getUsersEmailEmail
 Check if email is available
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "email": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "email"
-  ]
-}
+
+```js
+magick_nu.getUsersEmailEmail({
+  "email": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getUsersUsernameUsername
+
+#### Parameters
+* email (string) **required**
+
+### getUsersUsernameUsername
 Check if username is available
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+magick_nu.getUsersUsernameUsername({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* username (string) **required**
+

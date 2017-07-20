@@ -1,1063 +1,548 @@
 # @datafire/amazonaws_cloudhsm
+
+Client library for Amazon CloudHSM
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/amazonaws_cloudhsm
+```
+
+```js
+let datafire = require('datafire');
+let amazonaws_cloudhsm = require('@datafire/amazonaws_cloudhsm').actions;
+
+let account = {
+  hmac: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    amazonaws_cloudhsm: account,
+  }
+})
+
+
+amazonaws_cloudhsm.AddTagsToResource({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 <fullname>AWS CloudHSM Service</fullname>
 
-## Operation: AddTagsToResource
+## Actions
+### AddTagsToResource
 <p>Adds or overwrites one or more tags for the specified AWS CloudHSM resource.</p> <p>Each tag consists of a key and a value. Tag keys must be unique to each resource.</p>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/AddTagsToResourceRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_cloudhsm.AddTagsToResource({
+  "body": {
+    "ResourceArn": "",
+    "TagList": []
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AddTagsToResourceResponse"
-}
-```
-## Operation: CreateHapg
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### CreateHapg
 Creates a high-availability partition group. A high-availability partition group is a group of partitions that spans multiple physical HSMs.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CreateHapgRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_cloudhsm.CreateHapg({
+  "body": {
+    "Label": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CreateHapgResponse"
-}
-```
-## Operation: CreateHsm
+
+#### Parameters
+* body (object) **required** - Contains the inputs for the <a>CreateHapgRequest</a> action.
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### CreateHsm
 <p>Creates an uninitialized HSM instance.</p> <p>There is an upfront fee charged for each HSM instance that you create with the <a>CreateHsm</a> operation. If you accidentally provision an HSM and want to request a refund, delete the instance using the <a>DeleteHsm</a> operation, go to the <a href="https://console.aws.amazon.com/support/home#/">AWS Support Center</a>, create a new case, and select <b>Account and Billing Support</b>.</p> <important> <p>It can take up to 20 minutes to create and provision an HSM. You can monitor the status of the HSM with the <a>DescribeHsm</a> operation. The HSM is ready to be initialized when the status changes to <code>RUNNING</code>.</p> </important>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CreateHsmRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_cloudhsm.CreateHsm({
+  "body": {
+    "SubnetId": "",
+    "SshKey": "",
+    "IamRoleArn": "",
+    "SubscriptionType": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CreateHsmResponse"
-}
-```
-## Operation: CreateLunaClient
+
+#### Parameters
+* body (object) **required** - Contains the inputs for the <a>CreateHsm</a> operation.
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### CreateLunaClient
 Creates an HSM client.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CreateLunaClientRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_cloudhsm.CreateLunaClient({
+  "body": {
+    "Certificate": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CreateLunaClientResponse"
-}
-```
-## Operation: DeleteHapg
+
+#### Parameters
+* body (object) **required** - Contains the inputs for the <a>CreateLunaClient</a> action.
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DeleteHapg
 Deletes a high-availability partition group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeleteHapgRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_cloudhsm.DeleteHapg({
+  "body": {
+    "HapgArn": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeleteHapgResponse"
-}
-```
-## Operation: DeleteHsm
+
+#### Parameters
+* body (object) **required** - Contains the inputs for the <a>DeleteHapg</a> action.
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DeleteHsm
 Deletes an HSM. After completion, this operation cannot be undone and your key material cannot be recovered.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeleteHsmRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_cloudhsm.DeleteHsm({
+  "body": {
+    "HsmArn": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeleteHsmResponse"
-}
-```
-## Operation: DeleteLunaClient
+
+#### Parameters
+* body (object) **required** - Contains the inputs for the <a>DeleteHsm</a> operation.
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DeleteLunaClient
 Deletes a client.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeleteLunaClientRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_cloudhsm.DeleteLunaClient({
+  "body": {
+    "ClientArn": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeleteLunaClientResponse"
-}
-```
-## Operation: DescribeHapg
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeHapg
 Retrieves information about a high-availability partition group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeHapgRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_cloudhsm.DescribeHapg({
+  "body": {
+    "HapgArn": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeHapgResponse"
-}
-```
-## Operation: DescribeHsm
+
+#### Parameters
+* body (object) **required** - Contains the inputs for the <a>DescribeHapg</a> action.
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeHsm
 Retrieves information about an HSM. You can identify the HSM by its ARN or its serial number.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeHsmRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_cloudhsm.DescribeHsm({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeHsmResponse"
-}
-```
-## Operation: DescribeLunaClient
+
+#### Parameters
+* body (object) **required** - Contains the inputs for the <a>DescribeHsm</a> operation. 
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### DescribeLunaClient
 Retrieves information about an HSM client.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DescribeLunaClientRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_cloudhsm.DescribeLunaClient({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DescribeLunaClientResponse"
-}
-```
-## Operation: GetConfig
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetConfig
 Gets the configuration files necessary to connect to all high availability partition groups the client is associated with.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetConfigRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_cloudhsm.GetConfig({
+  "body": {
+    "ClientArn": "",
+    "ClientVersion": "",
+    "HapgList": []
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetConfigResponse"
-}
-```
-## Operation: ListAvailableZones
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ListAvailableZones
 Lists the Availability Zones that have available AWS CloudHSM capacity.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListAvailableZonesRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_cloudhsm.ListAvailableZones({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListAvailableZonesResponse"
-}
-```
-## Operation: ListHapgs
+
+#### Parameters
+* body (object) **required** - Contains the inputs for the <a>ListAvailableZones</a> action.
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ListHapgs
 <p>Lists the high-availability partition groups for the account.</p> <p>This operation supports pagination with the use of the <i>NextToken</i> member. If more results are available, the <i>NextToken</i> member of the response contains a token that you pass in the next call to <a>ListHapgs</a> to retrieve the next set of items.</p>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListHapgsRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_cloudhsm.ListHapgs({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListHapgsResponse"
-}
-```
-## Operation: ListHsms
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ListHsms
 <p>Retrieves the identifiers of all of the HSMs provisioned for the current customer.</p> <p>This operation supports pagination with the use of the <i>NextToken</i> member. If more results are available, the <i>NextToken</i> member of the response contains a token that you pass in the next call to <a>ListHsms</a> to retrieve the next set of items.</p>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListHsmsRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_cloudhsm.ListHsms({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListHsmsResponse"
-}
-```
-## Operation: ListLunaClients
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ListLunaClients
 <p>Lists all of the clients.</p> <p>This operation supports pagination with the use of the <i>NextToken</i> member. If more results are available, the <i>NextToken</i> member of the response contains a token that you pass in the next call to <a>ListLunaClients</a> to retrieve the next set of items.</p>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListLunaClientsRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_cloudhsm.ListLunaClients({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListLunaClientsResponse"
-}
-```
-## Operation: ListTagsForResource
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ListTagsForResource
 Returns a list of all tags for the specified AWS CloudHSM resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListTagsForResourceRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_cloudhsm.ListTagsForResource({
+  "body": {
+    "ResourceArn": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListTagsForResourceResponse"
-}
-```
-## Operation: ModifyHapg
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ModifyHapg
 Modifies an existing high-availability partition group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ModifyHapgRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_cloudhsm.ModifyHapg({
+  "body": {
+    "HapgArn": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ModifyHapgResponse"
-}
-```
-## Operation: ModifyHsm
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ModifyHsm
 <p>Modifies an HSM.</p> <important> <p>This operation can result in the HSM being offline for up to 15 minutes while the AWS CloudHSM service is reconfigured. If you are modifying a production HSM, you should ensure that your AWS CloudHSM service is configured for high availability, and consider executing this operation during a maintenance window.</p> </important>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ModifyHsmRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_cloudhsm.ModifyHsm({
+  "body": {
+    "HsmArn": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ModifyHsmResponse"
-}
-```
-## Operation: ModifyLunaClient
+
+#### Parameters
+* body (object) **required** - Contains the inputs for the <a>ModifyHsm</a> operation.
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ModifyLunaClient
 <p>Modifies the certificate used by the client.</p> <p>This action can potentially start a workflow to install the new certificate on the client's HSMs.</p>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ModifyLunaClientRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_cloudhsm.ModifyLunaClient({
+  "body": {
+    "ClientArn": "",
+    "Certificate": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ModifyLunaClientResponse"
-}
-```
-## Operation: RemoveTagsFromResource
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### RemoveTagsFromResource
 <p>Removes one or more tags from the specified AWS CloudHSM resource.</p> <p>To remove a tag, specify only the tag key to remove (not the value). To overwrite the value for an existing tag, use <a>AddTagsToResource</a>.</p>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/RemoveTagsFromResourceRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_cloudhsm.RemoveTagsFromResource({
+  "body": {
+    "ResourceArn": "",
+    "TagKeyList": []
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RemoveTagsFromResourceResponse"
-}
-```
+
+#### Parameters
+* body (object) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+

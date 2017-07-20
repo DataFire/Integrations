@@ -1,4 +1,37 @@
 # @datafire/medium
+
+Client library for Medium.com
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/medium
+```
+
+```js
+let datafire = require('datafire');
+let medium = require('@datafire/medium').actions;
+
+let account = {
+  BearerToken: "",
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    medium: account,
+  }
+})
+
+
+medium.me.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Medium’s unofficial API documentation using OpenAPI specification.
 
 # Official API
@@ -7,114 +40,52 @@ Official API document can also be viewed for most up to date API spec at [https:
 Developer Blog - [Welcome to the Medium API](https://medium.com/blog/welcome-to-the-medium-api-3418f956552)
 
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+medium.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+medium.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: me.get
+
+
+### me.get
 Returns details of the user who has granted permission to the application.
 
-### Input Schema
-```json
-{}
+
+```js
+medium.me.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserResponse"
-}
-```
-## Operation: publications.publicationId.contributors.get
+
+
+### publications.publicationId.contributors.get
 This endpoint returns a list of contributors for a given publication. In other words, a list of Medium users who are allowed to publish under a publication, as well as a description of their exact role in the publication (for now, either an editor or a writer).
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "publicationId": {
-      "type": "string",
-      "description": "A unique identifier for the publication."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "publicationId"
-  ]
-}
+
+```js
+medium.publications.publicationId.contributors.get({
+  "publicationId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ContibutorResponse"
-}
-```
-## Operation: publications.publicationId.posts.post
+
+#### Parameters
+* publicationId (string) **required** - A unique identifier for the publication.
+
+### publications.publicationId.posts.post
 creating a post and associating it with a publication on Medium. The request also shows this association, considering posts a collection of resources under a publication
 
 There are additional rules around publishing that each request to this API must respect:
@@ -123,83 +94,51 @@ There are additional rules around publishing that each request to this API must 
   - If the authenticated user is neither a 'writer' nor an 'editor', they are not allowed to create any posts in a publication.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "publicationId": {
-      "type": "string",
-      "description": "Here publicationId is the id of the publication the post is being created under. The publicationId can be acquired from the API for listing user’s publications."
-    },
-    "body": {
-      "$ref": "#/definitions/Post"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "publicationId",
-    "body"
-  ]
-}
+
+```js
+medium.publications.publicationId.posts.post({
+  "publicationId": "",
+  "body": {
+    "title": "",
+    "contentFormat": "",
+    "content": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PostDetails"
-}
-```
-## Operation: users.authorId.posts.post
+
+#### Parameters
+* publicationId (string) **required** - Here publicationId is the id of the publication the post is being created under. The publicationId can be acquired from the API for listing user’s publications.
+* body (object) **required**
+
+### users.authorId.posts.post
 Creates a post on the authenticated user’s profile.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "authorId": {
-      "type": "string",
-      "description": "authorId is the user id of the authenticated user."
-    },
-    "body": {
-      "$ref": "#/definitions/Post"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "authorId",
-    "body"
-  ]
-}
+
+```js
+medium.users.authorId.posts.post({
+  "authorId": "",
+  "body": {
+    "title": "",
+    "contentFormat": "",
+    "content": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PostDetails"
-}
-```
-## Operation: users.userId.publications.get
+
+#### Parameters
+* authorId (string) **required** - authorId is the user id of the authenticated user.
+* body (object) **required**
+
+### users.userId.publications.get
 Returns a full list of publications that the user is related to in some way. This includes all publications the user is subscribed to, writes to, or edits.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "userId": {
-      "type": "string",
-      "description": "A unique identifier for the user."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "userId"
-  ]
-}
+
+```js
+medium.users.userId.publications.get({
+  "userId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PublicationResponse"
-}
-```
+
+#### Parameters
+* userId (string) **required** - A unique identifier for the user.
+

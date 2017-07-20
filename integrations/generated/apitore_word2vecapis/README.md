@@ -1,177 +1,104 @@
 # @datafire/apitore_word2vecapis
+
+Client library for Word2Vec APIs
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/apitore_word2vecapis
+```
+
+```js
+let datafire = require('datafire');
+let apitore_word2vecapis = require('@datafire/apitore_word2vecapis').actions;
+let context = new datafire.Context();
+
+apitore_word2vecapis.analogyUsingGET({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Word2Vec.<BR />[Endpoint] https://api.apitore.com/api/8
 
-## Operation: analogyUsingGET
+## Actions
+### analogyUsingGET
 Word2Vec JaWikipedia 2016-9-15 dump.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response">word2vec-response</a><BR />&nbsp; Class: com.apitore.banana.response.word2vec.AnalogyResponseEntity<BR />
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access Token"
-    },
-    "positives": {
-      "type": "string",
-      "description": "positive1 positive2 ...[space separated strings]"
-    },
-    "negatives": {
-      "type": "string",
-      "description": "negative1 negative2 ...[space separated strings]"
-    },
-    "num": {
-      "type": "integer",
-      "format": "int32",
-      "description": "num [max 10, default 1]"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "positives"
-  ]
-}
+
+```js
+apitore_word2vecapis.analogyUsingGET({
+  "access_token": "",
+  "positives": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AnalogyResponseEntity"
-}
-```
-## Operation: distanceUsingGET_1
+
+#### Parameters
+* access_token (string) **required** - Access Token
+* positives (string) **required** - positive1 positive2 ...[space separated strings]
+* negatives (string) - negative1 negative2 ...[space separated strings]
+* num (integer) - num [max 10, default 1]
+
+### distanceUsingGET_1
 Word2Vec JaWikipedia 2016-9-15 dump.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response">word2vec-response</a><BR />&nbsp; Class: com.apitore.banana.response.word2vec.DistanceResponseEntity<BR />
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access Token"
-    },
-    "word": {
-      "type": "string",
-      "description": "word"
-    },
-    "num": {
-      "type": "integer",
-      "format": "int32",
-      "description": "num [max 10, default 1]"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "word"
-  ]
-}
+
+```js
+apitore_word2vecapis.distanceUsingGET_1({
+  "access_token": "",
+  "word": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DistanceResponseEntity"
-}
-```
-## Operation: similarityUsingGET
+
+#### Parameters
+* access_token (string) **required** - Access Token
+* word (string) **required** - word
+* num (integer) - num [max 10, default 1]
+
+### similarityUsingGET
 Word2Vec JaWikipedia 2016-9-15 dump.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response">word2vec-response</a><BR />&nbsp; Class: com.apitore.banana.response.word2vec.SimilarityResponseEntity<BR />
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access Token"
-    },
-    "word1": {
-      "type": "string",
-      "description": "word1"
-    },
-    "word2": {
-      "type": "string",
-      "description": "word2"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "word1",
-    "word2"
-  ]
-}
+
+```js
+apitore_word2vecapis.similarityUsingGET({
+  "access_token": "",
+  "word1": "",
+  "word2": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SimilarityResponseEntity"
-}
-```
-## Operation: vec_distanceUsingGET
+
+#### Parameters
+* access_token (string) **required** - Access Token
+* word1 (string) **required** - word1
+* word2 (string) **required** - word2
+
+### vec_distanceUsingGET
 Word2Vec JaWikipedia 2016-9-15 dump.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response">word2vec-response</a><BR />&nbsp; Class: com.apitore.banana.response.word2vec.DistanceResponseEntity<BR />
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access Token"
-    },
-    "vector": {
-      "type": "array",
-      "description": "vector [length 200]"
-    },
-    "num": {
-      "type": "integer",
-      "format": "int32",
-      "description": "num [max 10, default 1]"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "vector"
-  ]
-}
+
+```js
+apitore_word2vecapis.vec_distanceUsingGET({
+  "access_token": "",
+  "vector": []
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/VectorDistanceResponseEntity"
-}
-```
-## Operation: wordvectorUsingGET_1
+
+#### Parameters
+* access_token (string) **required** - Access Token
+* vector (array) **required** - vector [length 200]
+* num (integer) - num [max 10, default 1]
+
+### wordvectorUsingGET_1
 Word2Vec JaWikipedia 2016-9-15 dump.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/word2vec-response">word2vec-response</a><BR />&nbsp; Class: com.apitore.banana.response.word2vec.WordVectorResponseEntity<BR />
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access Token"
-    },
-    "word": {
-      "type": "string",
-      "description": "word"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "word"
-  ]
-}
+
+```js
+apitore_word2vecapis.wordvectorUsingGET_1({
+  "access_token": "",
+  "word": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WordVectorResponseEntity"
-}
-```
+
+#### Parameters
+* access_token (string) **required** - Access Token
+* word (string) **required** - word
+

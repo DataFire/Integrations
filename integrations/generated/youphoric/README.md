@@ -1,111 +1,71 @@
 # @datafire/youphoric
+
+Client library for Youphoric
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/youphoric
+```
+
+```js
+let datafire = require('datafire');
+let youphoric = require('@datafire/youphoric').actions;
+let context = new datafire.Context();
+
+youphoric.register.php_.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Youphoric SMS API allows you to create and launch SMS-based apps quickly to reach Smart subscribers in the Philippines. 
 
-## Operation: register.php_.get
+## Actions
+### register.php_.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "client": {
-      "type": "string"
-    },
-    "FirstName": {
-      "type": "string",
-      "description": "First Name"
-    },
-    "LastName": {
-      "type": "string",
-      "description": "Last Name"
-    },
-    "MiddleName": {
-      "type": "string",
-      "description": "Middle Name"
-    },
-    "Street": {
-      "type": "string",
-      "description": "Street"
-    },
-    "Barangay": {
-      "type": "string",
-      "description": "Barangay"
-    },
-    "CityTown": {
-      "type": "string",
-      "description": "City or Town"
-    },
-    "Province": {
-      "type": "string",
-      "description": "Province"
-    },
-    "ZipCode": {
-      "type": "string",
-      "description": "Zip or Postal Code"
-    },
-    "username": {
-      "type": "string",
-      "description": "Username"
-    },
-    "password": {
-      "description": "Password"
-    },
-    "email": {
-      "type": "string",
-      "description": "Email"
-    },
-    "contactno": {
-      "type": "string",
-      "description": "Mobile or Telephone"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "client",
-    "FirstName",
-    "LastName",
-    "username",
-    "password",
-    "email",
-    "contactno"
-  ]
-}
+
+```js
+youphoric.register.php_.get({
+  "client": "",
+  "FirstName": "",
+  "LastName": "",
+  "username": "",
+  "password": null,
+  "email": "",
+  "contactno": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: mt.php_.post
+
+#### Parameters
+* client (string) **required**
+* FirstName (string) **required** - First Name
+* LastName (string) **required** - Last Name
+* MiddleName (string) - Middle Name
+* Street (string) - Street
+* Barangay (string) - Barangay
+* CityTown (string) - City or Town
+* Province (string) - Province
+* ZipCode (string) - Zip or Postal Code
+* username (string) **required** - Username
+* password (undefined) **required** - Password
+* email (string) **required** - Email
+* contactno (string) **required** - Mobile or Telephone
+
+### mt.php_.post
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "from": {
-      "type": "string",
-      "description": "Characters limit 11"
-    },
-    "to": {
-      "type": "string",
-      "description": "Mobile Number."
-    },
-    "text": {
-      "type": "string",
-      "description": "Text Message"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "from",
-    "to",
-    "text"
-  ]
-}
+
+```js
+youphoric.mt.php_.post({
+  "from": "",
+  "to": "",
+  "text": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* from (string) **required** - Characters limit 11
+* to (string) **required** - Mobile Number.
+* text (string) **required** - Text Message
+

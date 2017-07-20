@@ -1,321 +1,207 @@
 # @datafire/healthcare_gov
 
+Client library for Healthcare
 
-## Operation: api.articles.json.get
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/healthcare_gov
+```
+
+```js
+let datafire = require('datafire');
+let healthcare_gov = require('@datafire/healthcare_gov').actions;
+let context = new datafire.Context();
+
+healthcare_gov.api.articles.json.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
+
+
+## Actions
+### api.articles.json.get
 Returns pages content.
 
-### Input Schema
-```json
-{}
+
+```js
+healthcare_gov.api.articles.json.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/articlesList"
-}
-```
-## Operation: api.blog.json.get
+
+
+### api.blog.json.get
 Returns pages content.
 
-### Input Schema
-```json
-{}
+
+```js
+healthcare_gov.api.blog.json.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/blogList"
-}
-```
-## Operation: api.glossary.json.get
+
+
+### api.glossary.json.get
 Returns pages content.
 
-### Input Schema
-```json
-{}
+
+```js
+healthcare_gov.api.glossary.json.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/glossaryList"
-}
-```
-## Operation: api.questions.json.get
+
+
+### api.questions.json.get
 Returns pages content.
 
-### Input Schema
-```json
-{}
+
+```js
+healthcare_gov.api.questions.json.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/questionsList"
-}
-```
-## Operation: api.states.json.get
+
+
+### api.states.json.get
 Returns pages content.
 
-### Input Schema
-```json
-{}
+
+```js
+healthcare_gov.api.states.json.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/statesList"
-}
-```
-## Operation: api.topics.json.get
+
+
+### api.topics.json.get
 Returns pages content.
 
-### Input Schema
-```json
-{}
+
+```js
+healthcare_gov.api.topics.json.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/topicsList"
-}
-```
-## Operation: blog.pageName.json.get
+
+
+### blog.pageName.json.get
 Returns pages content.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "pageName": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "pageName"
-  ]
-}
+
+```js
+healthcare_gov.blog.pageName.json.get({
+  "pageName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/blogPage"
-}
-```
-## Operation: es.blog.pageName.json.get
+
+#### Parameters
+* pageName (string) **required**
+
+### es.blog.pageName.json.get
 Returns pages content.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "pageName": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "pageName"
-  ]
-}
+
+```js
+healthcare_gov.es.blog.pageName.json.get({
+  "pageName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/blogPage"
-}
-```
-## Operation: es.glossary.pageName.json.get
+
+#### Parameters
+* pageName (string) **required**
+
+### es.glossary.pageName.json.get
 Returns pages content.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "pageName": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "pageName"
-  ]
-}
+
+```js
+healthcare_gov.es.glossary.pageName.json.get({
+  "pageName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/glossaryPage"
-}
-```
-## Operation: es.question.pageName.json.get
+
+#### Parameters
+* pageName (string) **required**
+
+### es.question.pageName.json.get
 Returns pages content.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "pageName": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "pageName"
-  ]
-}
+
+```js
+healthcare_gov.es.question.pageName.json.get({
+  "pageName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/questionPage"
-}
-```
-## Operation: es.pageName.json.get
+
+#### Parameters
+* pageName (string) **required**
+
+### es.pageName.json.get
 Returns pages content.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "pageName": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "pageName"
-  ]
-}
+
+```js
+healthcare_gov.es.pageName.json.get({
+  "pageName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/page"
-}
-```
-## Operation: es.stateName.json.get
+
+#### Parameters
+* pageName (string) **required**
+
+### es.stateName.json.get
 Returns pages content.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "stateName": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "stateName"
-  ]
-}
+
+```js
+healthcare_gov.es.stateName.json.get({
+  "stateName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/statePage"
-}
-```
-## Operation: glossary.pageName.json.get
+
+#### Parameters
+* stateName (string) **required**
+
+### glossary.pageName.json.get
 Returns pages content.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "pageName": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "pageName"
-  ]
-}
+
+```js
+healthcare_gov.glossary.pageName.json.get({
+  "pageName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/glossaryPage"
-}
-```
-## Operation: question.pageName.json.get
+
+#### Parameters
+* pageName (string) **required**
+
+### question.pageName.json.get
 Returns pages content.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "pageName": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "pageName"
-  ]
-}
+
+```js
+healthcare_gov.question.pageName.json.get({
+  "pageName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/questionPage"
-}
-```
-## Operation: pageName.json.get
+
+#### Parameters
+* pageName (string) **required**
+
+### pageName.json.get
 Returns pages content.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "pageName": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "pageName"
-  ]
-}
+
+```js
+healthcare_gov.pageName.json.get({
+  "pageName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/page"
-}
-```
-## Operation: stateName.json.get
+
+#### Parameters
+* pageName (string) **required**
+
+### stateName.json.get
 Returns pages content.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "stateName": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "stateName"
-  ]
-}
+
+```js
+healthcare_gov.stateName.json.get({
+  "stateName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/statePage"
-}
-```
+
+#### Parameters
+* stateName (string) **required**
+

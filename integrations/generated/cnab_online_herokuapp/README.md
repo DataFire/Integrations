@@ -1,130 +1,76 @@
 # @datafire/cnab_online_herokuapp
+
+Client library for Cnab Online
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/cnab_online_herokuapp
+```
+
+```js
+let datafire = require('datafire');
+let cnab_online_herokuapp = require('@datafire/cnab_online_herokuapp').actions;
+let context = new datafire.Context();
+
+cnab_online_herokuapp.file.post({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Processe arquivos de retorno CNAB
 
-## Operation: file.post
+## Actions
+### file.post
 Processa um arquivo CNAB para obter informações sobre o mesmo. Retorna um ID temporário para o mesmo.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "file": {
-      "type": "string",
-      "description": "Arquivo CNAB"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "file"
-  ]
-}
+
+```js
+cnab_online_herokuapp.file.post({
+  "file": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/File"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: file.fileId.get
+
+#### Parameters
+* file (string) **required** - Arquivo CNAB
+
+### file.fileId.get
 Retorna as informações básicas de um arquivo previamente processado
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "fileId": {
-      "type": "string",
-      "description": "ID Temporário gerado no endpoint file"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "fileId"
-  ]
-}
+
+```js
+cnab_online_herokuapp.file.fileId.get({
+  "fileId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/File"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: file.fileId.lines.get
+
+#### Parameters
+* fileId (string) **required** - ID Temporário gerado no endpoint file
+
+### file.fileId.lines.get
 Retorna todas as linhas e seus respectivos campos (de forma não processada, apenas indicando os campos reconhecidos)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "fileId": {
-      "type": "string",
-      "description": "ID Temporário gerado no endpoint file"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "fileId"
-  ]
-}
+
+```js
+cnab_online_herokuapp.file.fileId.lines.get({
+  "fileId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/Line"
-      },
-      "type": "array"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: file.fileId.occurrences.get
+
+#### Parameters
+* fileId (string) **required** - ID Temporário gerado no endpoint file
+
+### file.fileId.occurrences.get
 Retorna as informações de baixa de boletos e outros tipos de ocorrências
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "fileId": {
-      "type": "string",
-      "description": "ID Temporário gerado no endpoint file"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "fileId"
-  ]
-}
+
+```js
+cnab_online_herokuapp.file.fileId.occurrences.get({
+  "fileId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/Occurrence"
-      },
-      "type": "array"
-    }
-  },
-  "type": "object"
-}
-```
+
+#### Parameters
+* fileId (string) **required** - ID Temporário gerado no endpoint file
+

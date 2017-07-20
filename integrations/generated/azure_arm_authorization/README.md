@@ -1,728 +1,383 @@
 # @datafire/azure_arm_authorization
+
+Client library for AuthorizationManagementClient
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/azure_arm_authorization
+```
+
+```js
+let datafire = require('datafire');
+let azure_arm_authorization = require('@datafire/azure_arm_authorization').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    azure_arm_authorization: account,
+  }
+})
+
+
+azure_arm_authorization.ProviderOperationsMetadata_List({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Role based access control provides you a way to apply granular level policy administration down to individual resources or resource groups. These operations enable you to manage role definitions and role assignments. A role definition describes the set of actions that can be performed on resources. A role assignment grants access to Azure Active Directory users.
 
-## Operation: ProviderOperationsMetadata_List
+## Actions
+### ProviderOperationsMetadata_List
 Gets provider operations metadata for all resource providers.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The API version to use for this operation."
-    },
-    "$expand": {
-      "type": "string",
-      "description": "Specifies whether to expand the values."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_authorization.ProviderOperationsMetadata_List({
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProviderOperationsMetadataListResult"
-}
-```
-## Operation: ProviderOperationsMetadata_Get
+
+#### Parameters
+* api-version (string) **required** - The API version to use for this operation.
+* $expand (string) - Specifies whether to expand the values.
+
+### ProviderOperationsMetadata_Get
 Gets provider operations metadata for the specified resource provider.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceProviderNamespace": {
-      "type": "string",
-      "description": "The namespace of the resource provider."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version to use for the operation."
-    },
-    "$expand": {
-      "type": "string",
-      "description": "Specifies whether to expand the values."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceProviderNamespace",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_authorization.ProviderOperationsMetadata_Get({
+  "resourceProviderNamespace": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProviderOperationsMetadata"
-}
-```
-## Operation: ClassicAdministrators_List
+
+#### Parameters
+* resourceProviderNamespace (string) **required** - The namespace of the resource provider.
+* api-version (string) **required** - The API version to use for the operation.
+* $expand (string) - Specifies whether to expand the values.
+
+### ClassicAdministrators_List
 Gets service administrator, account administrator, and co-administrators for the subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The API version to use for this operation."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The ID of the target subscription."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_authorization.ClassicAdministrators_List({
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ClassicAdministratorListResult"
-}
-```
-## Operation: RoleAssignments_List
+
+#### Parameters
+* api-version (string) **required** - The API version to use for this operation.
+* subscriptionId (string) **required** - The ID of the target subscription.
+
+### RoleAssignments_List
 Gets all role assignments for the subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation. Use $filter=atScope() to return all role assignments at or above the scope. Use $filter=principalId eq {id} to return all role assignments at, above or below the scope for the specified principal."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version to use for this operation."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The ID of the target subscription."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_authorization.RoleAssignments_List({
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RoleAssignmentListResult"
-}
-```
-## Operation: RoleAssignments_ListForResourceGroup
+
+#### Parameters
+* $filter (string) - The filter to apply on the operation. Use $filter=atScope() to return all role assignments at or above the scope. Use $filter=principalId eq {id} to return all role assignments at, above or below the scope for the specified principal.
+* api-version (string) **required** - The API version to use for this operation.
+* subscriptionId (string) **required** - The ID of the target subscription.
+
+### RoleAssignments_ListForResourceGroup
 Gets role assignments for a resource group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation. Use $filter=atScope() to return all role assignments at or above the scope. Use $filter=principalId eq {id} to return all role assignments at, above or below the scope for the specified principal."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version to use for this operation."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The ID of the target subscription."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_authorization.RoleAssignments_ListForResourceGroup({
+  "resourceGroupName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RoleAssignmentListResult"
-}
-```
-## Operation: Permissions_ListForResourceGroup
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* $filter (string) - The filter to apply on the operation. Use $filter=atScope() to return all role assignments at or above the scope. Use $filter=principalId eq {id} to return all role assignments at, above or below the scope for the specified principal.
+* api-version (string) **required** - The API version to use for this operation.
+* subscriptionId (string) **required** - The ID of the target subscription.
+
+### Permissions_ListForResourceGroup
 Gets all permissions the caller has for a resource group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group to get the permissions for. The name is case insensitive."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version to use for this operation."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The ID of the target subscription."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_authorization.Permissions_ListForResourceGroup({
+  "resourceGroupName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PermissionGetResult"
-}
-```
-## Operation: Permissions_ListForResource
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group to get the permissions for. The name is case insensitive.
+* api-version (string) **required** - The API version to use for this operation.
+* subscriptionId (string) **required** - The ID of the target subscription.
+
+### Permissions_ListForResource
 Gets all permissions the caller has for a resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group containing the resource. The name is case insensitive."
-    },
-    "resourceProviderNamespace": {
-      "type": "string",
-      "description": "The namespace of the resource provider."
-    },
-    "parentResourcePath": {
-      "type": "string",
-      "description": "The parent resource identity."
-    },
-    "resourceType": {
-      "type": "string",
-      "description": "The resource type of the resource."
-    },
-    "resourceName": {
-      "type": "string",
-      "description": "The name of the resource to get the permissions for."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version to use for this operation."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The ID of the target subscription."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "resourceProviderNamespace",
-    "parentResourcePath",
-    "resourceType",
-    "resourceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_authorization.Permissions_ListForResource({
+  "resourceGroupName": "",
+  "resourceProviderNamespace": "",
+  "parentResourcePath": "",
+  "resourceType": "",
+  "resourceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PermissionGetResult"
-}
-```
-## Operation: RoleAssignments_ListForResource
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group containing the resource. The name is case insensitive.
+* resourceProviderNamespace (string) **required** - The namespace of the resource provider.
+* parentResourcePath (string) **required** - The parent resource identity.
+* resourceType (string) **required** - The resource type of the resource.
+* resourceName (string) **required** - The name of the resource to get the permissions for.
+* api-version (string) **required** - The API version to use for this operation.
+* subscriptionId (string) **required** - The ID of the target subscription.
+
+### RoleAssignments_ListForResource
 Gets role assignments for a resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "resourceProviderNamespace": {
-      "type": "string",
-      "description": "The namespace of the resource provider."
-    },
-    "parentResourcePath": {
-      "type": "string",
-      "description": "The parent resource identity."
-    },
-    "resourceType": {
-      "type": "string",
-      "description": "The resource type of the resource."
-    },
-    "resourceName": {
-      "type": "string",
-      "description": "The name of the resource to get role assignments for."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation. Use $filter=atScope() to return all role assignments at or above the scope. Use $filter=principalId eq {id} to return all role assignments at, above or below the scope for the specified principal."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version to use for this operation."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The ID of the target subscription."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "resourceProviderNamespace",
-    "parentResourcePath",
-    "resourceType",
-    "resourceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_authorization.RoleAssignments_ListForResource({
+  "resourceGroupName": "",
+  "resourceProviderNamespace": "",
+  "parentResourcePath": "",
+  "resourceType": "",
+  "resourceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RoleAssignmentListResult"
-}
-```
-## Operation: RoleAssignments_DeleteById
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* resourceProviderNamespace (string) **required** - The namespace of the resource provider.
+* parentResourcePath (string) **required** - The parent resource identity.
+* resourceType (string) **required** - The resource type of the resource.
+* resourceName (string) **required** - The name of the resource to get role assignments for.
+* $filter (string) - The filter to apply on the operation. Use $filter=atScope() to return all role assignments at or above the scope. Use $filter=principalId eq {id} to return all role assignments at, above or below the scope for the specified principal.
+* api-version (string) **required** - The API version to use for this operation.
+* subscriptionId (string) **required** - The ID of the target subscription.
+
+### RoleAssignments_DeleteById
 Deletes a role assignment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "roleAssignmentId": {
-      "type": "string",
-      "description": "The ID of the role assignment to delete."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version to use for this operation."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "roleAssignmentId",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_authorization.RoleAssignments_DeleteById({
+  "roleAssignmentId": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RoleAssignment"
-}
-```
-## Operation: RoleAssignments_GetById
+
+#### Parameters
+* roleAssignmentId (string) **required** - The ID of the role assignment to delete.
+* api-version (string) **required** - The API version to use for this operation.
+
+### RoleAssignments_GetById
 Gets a role assignment by ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "roleAssignmentId": {
-      "type": "string",
-      "description": "The ID of the role assignment to get."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version to use for this operation."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "roleAssignmentId",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_authorization.RoleAssignments_GetById({
+  "roleAssignmentId": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RoleAssignment"
-}
-```
-## Operation: RoleAssignments_CreateById
+
+#### Parameters
+* roleAssignmentId (string) **required** - The ID of the role assignment to get.
+* api-version (string) **required** - The API version to use for this operation.
+
+### RoleAssignments_CreateById
 Creates a role assignment by ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "roleAssignmentId": {
-      "type": "string",
-      "description": "The ID of the role assignment to create."
-    },
-    "parameters": {
-      "$ref": "#/definitions/RoleAssignmentCreateParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version to use for this operation."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "roleAssignmentId",
-    "parameters",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_authorization.RoleAssignments_CreateById({
+  "roleAssignmentId": "",
+  "parameters": null,
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RoleAssignment"
-}
-```
-## Operation: RoleDefinitions_GetById
+
+#### Parameters
+* roleAssignmentId (string) **required** - The ID of the role assignment to create.
+* parameters (undefined) **required** - Role assignment create parameters.
+* api-version (string) **required** - The API version to use for this operation.
+
+### RoleDefinitions_GetById
 Gets a role definition by ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "roleDefinitionId": {
-      "type": "string",
-      "description": "The fully qualified role definition ID to get."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version to use for this operation."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "roleDefinitionId",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_authorization.RoleDefinitions_GetById({
+  "roleDefinitionId": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RoleDefinition"
-}
-```
-## Operation: RoleAssignments_ListForScope
+
+#### Parameters
+* roleDefinitionId (string) **required** - The fully qualified role definition ID to get.
+* api-version (string) **required** - The API version to use for this operation.
+
+### RoleAssignments_ListForScope
 Gets role assignments for a scope.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "scope": {
-      "type": "string",
-      "description": "The scope of the role assignments."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation. Use $filter=atScope() to return all role assignments at or above the scope. Use $filter=principalId eq {id} to return all role assignments at, above or below the scope for the specified principal."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version to use for this operation."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "scope",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_authorization.RoleAssignments_ListForScope({
+  "scope": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RoleAssignmentListResult"
-}
-```
-## Operation: RoleAssignments_Delete
+
+#### Parameters
+* scope (string) **required** - The scope of the role assignments.
+* $filter (string) - The filter to apply on the operation. Use $filter=atScope() to return all role assignments at or above the scope. Use $filter=principalId eq {id} to return all role assignments at, above or below the scope for the specified principal.
+* api-version (string) **required** - The API version to use for this operation.
+
+### RoleAssignments_Delete
 Deletes a role assignment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "scope": {
-      "type": "string",
-      "description": "The scope of the role assignment to delete."
-    },
-    "roleAssignmentName": {
-      "type": "string",
-      "description": "The name of the role assignment to delete."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version to use for this operation."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "scope",
-    "roleAssignmentName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_authorization.RoleAssignments_Delete({
+  "scope": "",
+  "roleAssignmentName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RoleAssignment"
-}
-```
-## Operation: RoleAssignments_Get
+
+#### Parameters
+* scope (string) **required** - The scope of the role assignment to delete.
+* roleAssignmentName (string) **required** - The name of the role assignment to delete.
+* api-version (string) **required** - The API version to use for this operation.
+
+### RoleAssignments_Get
 Get the specified role assignment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "scope": {
-      "type": "string",
-      "description": "The scope of the role assignment."
-    },
-    "roleAssignmentName": {
-      "type": "string",
-      "description": "The name of the role assignment to get."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version to use for this operation."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "scope",
-    "roleAssignmentName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_authorization.RoleAssignments_Get({
+  "scope": "",
+  "roleAssignmentName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RoleAssignment"
-}
-```
-## Operation: RoleAssignments_Create
+
+#### Parameters
+* scope (string) **required** - The scope of the role assignment.
+* roleAssignmentName (string) **required** - The name of the role assignment to get.
+* api-version (string) **required** - The API version to use for this operation.
+
+### RoleAssignments_Create
 Creates a role assignment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "scope": {
-      "type": "string",
-      "description": "The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource."
-    },
-    "roleAssignmentName": {
-      "type": "string",
-      "description": "The name of the role assignment to create. It can be any valid GUID."
-    },
-    "parameters": {
-      "$ref": "#/definitions/RoleAssignmentCreateParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version to use for this operation."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "scope",
-    "roleAssignmentName",
-    "parameters",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_authorization.RoleAssignments_Create({
+  "scope": "",
+  "roleAssignmentName": "",
+  "parameters": null,
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RoleAssignment"
-}
-```
-## Operation: RoleDefinitions_List
+
+#### Parameters
+* scope (string) **required** - The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
+* roleAssignmentName (string) **required** - The name of the role assignment to create. It can be any valid GUID.
+* parameters (undefined) **required** - Role assignment create parameters.
+* api-version (string) **required** - The API version to use for this operation.
+
+### RoleDefinitions_List
 Get all role definitions that are applicable at scope and above.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "scope": {
-      "type": "string",
-      "description": "The scope of the role definition."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation. Use atScopeAndBelow filter to search below the given scope as well."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version to use for this operation."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "scope",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_authorization.RoleDefinitions_List({
+  "scope": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RoleDefinitionListResult"
-}
-```
-## Operation: RoleDefinitions_Delete
+
+#### Parameters
+* scope (string) **required** - The scope of the role definition.
+* $filter (string) - The filter to apply on the operation. Use atScopeAndBelow filter to search below the given scope as well.
+* api-version (string) **required** - The API version to use for this operation.
+
+### RoleDefinitions_Delete
 Deletes a role definition.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "scope": {
-      "type": "string",
-      "description": "The scope of the role definition."
-    },
-    "roleDefinitionId": {
-      "type": "string",
-      "description": "The ID of the role definition to delete."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version to use for this operation."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "scope",
-    "roleDefinitionId",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_authorization.RoleDefinitions_Delete({
+  "scope": "",
+  "roleDefinitionId": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RoleDefinition"
-}
-```
-## Operation: RoleDefinitions_Get
+
+#### Parameters
+* scope (string) **required** - The scope of the role definition.
+* roleDefinitionId (string) **required** - The ID of the role definition to delete.
+* api-version (string) **required** - The API version to use for this operation.
+
+### RoleDefinitions_Get
 Get role definition by name (GUID).
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "scope": {
-      "type": "string",
-      "description": "The scope of the role definition."
-    },
-    "roleDefinitionId": {
-      "type": "string",
-      "description": "The ID of the role definition."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version to use for this operation."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "scope",
-    "roleDefinitionId",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_authorization.RoleDefinitions_Get({
+  "scope": "",
+  "roleDefinitionId": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RoleDefinition"
-}
-```
-## Operation: RoleDefinitions_CreateOrUpdate
+
+#### Parameters
+* scope (string) **required** - The scope of the role definition.
+* roleDefinitionId (string) **required** - The ID of the role definition.
+* api-version (string) **required** - The API version to use for this operation.
+
+### RoleDefinitions_CreateOrUpdate
 Creates or updates a role definition.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "scope": {
-      "type": "string",
-      "description": "The scope of the role definition."
-    },
-    "roleDefinitionId": {
-      "type": "string",
-      "description": "The ID of the role definition."
-    },
-    "roleDefinition": {
-      "$ref": "#/definitions/RoleDefinition"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version to use for this operation."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "scope",
-    "roleDefinitionId",
-    "roleDefinition",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_authorization.RoleDefinitions_CreateOrUpdate({
+  "scope": "",
+  "roleDefinitionId": "",
+  "roleDefinition": null,
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RoleDefinition"
-}
-```
+
+#### Parameters
+* scope (string) **required** - The scope of the role definition.
+* roleDefinitionId (string) **required** - The ID of the role definition.
+* roleDefinition (undefined) **required** - Role definition.
+* api-version (string) **required** - The API version to use for this operation.
+

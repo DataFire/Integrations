@@ -1,1156 +1,465 @@
 # @datafire/wordnik
+
+Client library for Wordnik
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/wordnik
+```
+
+```js
+let datafire = require('datafire');
+let wordnik = require('@datafire/wordnik').actions;
+
+let account = {
+  api_key: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    wordnik: account,
+  }
+})
+
+
+wordnik.getWordOfTheDay({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Wordnik is the world's biggest online English dictionary, by number of words
 
 
-## Operation: getApiTokenStatus
+## Actions
+### getApiTokenStatus
 Returns usage statistics for the API account.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "api_key": {
-      "type": "string",
-      "description": "Wordnik authentication token"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+wordnik.getApiTokenStatus({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApiTokenStatus"
-}
-```
-## Operation: authenticate
+
+
+### authenticate
 Authenticates a User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "A confirmed Wordnik username"
-    },
-    "password": {
-      "type": "string",
-      "description": "The user's password"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "password"
-  ]
-}
+
+```js
+wordnik.authenticate({
+  "username": "",
+  "password": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthenticationToken"
-}
-```
-## Operation: authenticatePost
+
+#### Parameters
+* username (string) **required** - A confirmed Wordnik username
+* password (string) **required** - The user's password
+
+### authenticatePost
 Authenticates a user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "A confirmed Wordnik username"
-    },
-    "body": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "body"
-  ]
-}
+
+```js
+wordnik.authenticatePost({
+  "username": "",
+  "body": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthenticationToken"
-}
-```
-## Operation: getLoggedInUser
+
+#### Parameters
+* username (string) **required** - A confirmed Wordnik username
+* body (string) **required**
+
+### getLoggedInUser
 Requires a valid auth_token to be set.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "auth_token": {
-      "type": "string",
-      "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "auth_token"
-  ]
-}
+
+```js
+wordnik.getLoggedInUser({
+  "auth_token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/User"
-}
-```
-## Operation: getWordListsForLoggedInUser
+
+#### Parameters
+* auth_token (string) **required** - The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)
+
+### getWordListsForLoggedInUser
 Fetches WordList objects for the logged-in user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "auth_token": {
-      "type": "string",
-      "description": "auth_token of logged-in user"
-    },
-    "skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Results to skip"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum number of results to return"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "auth_token"
-  ]
-}
+
+```js
+wordnik.getWordListsForLoggedInUser({
+  "auth_token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/WordList"
-  },
-  "type": "array"
-}
-```
-## Operation: getWord
+
+#### Parameters
+* auth_token (string) **required** - auth_token of logged-in user
+* skip (integer) - Results to skip
+* limit (integer) - Maximum number of results to return
+
+### getWord
 Given a word as a string, returns the WordObject that represents it
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "word": {
-      "type": "string",
-      "description": "String value of WordObject to return"
-    },
-    "useCanonical": {
-      "type": "string",
-      "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
-    },
-    "includeSuggestions": {
-      "type": "string",
-      "description": "Return suggestions (for correct spelling, case variants, etc.)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "word"
-  ]
-}
+
+```js
+wordnik.getWord({
+  "word": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WordObject"
-}
-```
-## Operation: getAudio
+
+#### Parameters
+* word (string) **required** - String value of WordObject to return
+* useCanonical (string) - If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested.
+* includeSuggestions (string) - Return suggestions (for correct spelling, case variants, etc.)
+
+### getAudio
 The metadata includes a time-expiring fileUrl which allows reading the audio file directly from the API.  Currently only audio pronunciations from the American Heritage Dictionary in mp3 format are supported.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "word": {
-      "type": "string",
-      "description": "Word to get audio for."
-    },
-    "useCanonical": {
-      "type": "string",
-      "description": "Use the canonical form of the word"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum number of results to return"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "word"
-  ]
-}
+
+```js
+wordnik.getAudio({
+  "word": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/AudioFile"
-  },
-  "type": "array"
-}
-```
-## Operation: getDefinitions
+
+#### Parameters
+* word (string) **required** - Word to get audio for.
+* useCanonical (string) - Use the canonical form of the word
+* limit (integer) - Maximum number of results to return
+
+### getDefinitions
 Return definitions for a word
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "word": {
-      "type": "string",
-      "description": "Word to return definitions for"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum number of results to return"
-    },
-    "partOfSpeech": {
-      "type": "string",
-      "description": "CSV list of part-of-speech types"
-    },
-    "includeRelated": {
-      "type": "string",
-      "description": "Return related words with definitions"
-    },
-    "sourceDictionaries": {
-      "type": "array",
-      "description": "Source dictionary to return definitions from.  If 'all' is received, results are returned from all sources. If multiple values are received (e.g. 'century,wiktionary'), results are returned from the first specified dictionary that has definitions. If left blank, results are returned from the first dictionary that has definitions. By default, dictionaries are searched in this order: ahd, wiktionary, webster, century, wordnet"
-    },
-    "useCanonical": {
-      "type": "string",
-      "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
-    },
-    "includeTags": {
-      "type": "string",
-      "description": "Return a closed set of XML tags in response"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "word"
-  ]
-}
+
+```js
+wordnik.getDefinitions({
+  "word": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Definition"
-  },
-  "type": "array"
-}
-```
-## Operation: getEtymologies
+
+#### Parameters
+* word (string) **required** - Word to return definitions for
+* limit (integer) - Maximum number of results to return
+* partOfSpeech (string) - CSV list of part-of-speech types
+* includeRelated (string) - Return related words with definitions
+* sourceDictionaries (array) - Source dictionary to return definitions from.  If 'all' is received, results are returned from all sources. If multiple values are received (e.g. 'century,wiktionary'), results are returned from the first specified dictionary that has definitions. If left blank, results are returned from the first dictionary that has definitions. By default, dictionaries are searched in this order: ahd, wiktionary, webster, century, wordnet
+* useCanonical (string) - If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested.
+* includeTags (string) - Return a closed set of XML tags in response
+
+### getEtymologies
 Fetches etymology data
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "word": {
-      "type": "string",
-      "description": "Word to return"
-    },
-    "useCanonical": {
-      "type": "string",
-      "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "word"
-  ]
-}
+
+```js
+wordnik.getEtymologies({
+  "word": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "type": "string"
-  },
-  "type": "array"
-}
-```
-## Operation: getExamples
+
+#### Parameters
+* word (string) **required** - Word to return
+* useCanonical (string) - If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested.
+
+### getExamples
 Returns examples for a word
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "word": {
-      "type": "string",
-      "description": "Word to return examples for"
-    },
-    "includeDuplicates": {
-      "type": "string",
-      "description": "Show duplicate examples from different sources"
-    },
-    "useCanonical": {
-      "type": "string",
-      "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
-    },
-    "skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Results to skip"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum number of results to return"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "word"
-  ]
-}
+
+```js
+wordnik.getExamples({
+  "word": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ExampleSearchResults"
-}
-```
-## Operation: getWordFrequency
+
+#### Parameters
+* word (string) **required** - Word to return examples for
+* includeDuplicates (string) - Show duplicate examples from different sources
+* useCanonical (string) - If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested.
+* skip (integer) - Results to skip
+* limit (integer) - Maximum number of results to return
+
+### getWordFrequency
 Returns word usage over time
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "word": {
-      "type": "string",
-      "description": "Word to return"
-    },
-    "useCanonical": {
-      "type": "string",
-      "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
-    },
-    "startYear": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Starting Year"
-    },
-    "endYear": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Ending Year"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "word"
-  ]
-}
+
+```js
+wordnik.getWordFrequency({
+  "word": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/FrequencySummary"
-}
-```
-## Operation: getHyphenation
+
+#### Parameters
+* word (string) **required** - Word to return
+* useCanonical (string) - If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested.
+* startYear (integer) - Starting Year
+* endYear (integer) - Ending Year
+
+### getHyphenation
 Returns syllable information for a word
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "word": {
-      "type": "string",
-      "description": "Word to get syllables for"
-    },
-    "useCanonical": {
-      "type": "string",
-      "description": "If true will try to return a correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
-    },
-    "sourceDictionary": {
-      "type": "string",
-      "description": "Get from a single dictionary. Valid options: ahd, century, wiktionary, webster, and wordnet."
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum number of results to return"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "word"
-  ]
-}
+
+```js
+wordnik.getHyphenation({
+  "word": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Syllable"
-  },
-  "type": "array"
-}
-```
-## Operation: getPhrases
+
+#### Parameters
+* word (string) **required** - Word to get syllables for
+* useCanonical (string) - If true will try to return a correct word root ('cats' -> 'cat'). If false returns exactly what was requested.
+* sourceDictionary (string) - Get from a single dictionary. Valid options: ahd, century, wiktionary, webster, and wordnet.
+* limit (integer) - Maximum number of results to return
+
+### getPhrases
 Fetches bi-gram phrases for a word
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "word": {
-      "type": "string",
-      "description": "Word to fetch phrases for"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum number of results to return"
-    },
-    "wlmi": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Minimum WLMI for the phrase"
-    },
-    "useCanonical": {
-      "type": "string",
-      "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "word"
-  ]
-}
+
+```js
+wordnik.getPhrases({
+  "word": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Bigram"
-  },
-  "type": "array"
-}
-```
-## Operation: getTextPronunciations
+
+#### Parameters
+* word (string) **required** - Word to fetch phrases for
+* limit (integer) - Maximum number of results to return
+* wlmi (integer) - Minimum WLMI for the phrase
+* useCanonical (string) - If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested.
+
+### getTextPronunciations
 Returns text pronunciations for a given word
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "word": {
-      "type": "string",
-      "description": "Word to get pronunciations for"
-    },
-    "useCanonical": {
-      "type": "string",
-      "description": "If true will try to return a correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
-    },
-    "sourceDictionary": {
-      "type": "string",
-      "description": "Get from a single dictionary"
-    },
-    "typeFormat": {
-      "type": "string",
-      "description": "Text pronunciation type"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum number of results to return"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "word"
-  ]
-}
+
+```js
+wordnik.getTextPronunciations({
+  "word": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/TextPron"
-  },
-  "type": "array"
-}
-```
-## Operation: getRelatedWords
+
+#### Parameters
+* word (string) **required** - Word to get pronunciations for
+* useCanonical (string) - If true will try to return a correct word root ('cats' -> 'cat'). If false returns exactly what was requested.
+* sourceDictionary (string) - Get from a single dictionary
+* typeFormat (string) - Text pronunciation type
+* limit (integer) - Maximum number of results to return
+
+### getRelatedWords
 Given a word as a string, returns relationships from the Word Graph
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "word": {
-      "type": "string",
-      "description": "Word to fetch relationships for"
-    },
-    "useCanonical": {
-      "type": "string",
-      "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
-    },
-    "relationshipTypes": {
-      "type": "string",
-      "description": "Limits the total results per type of relationship type"
-    },
-    "limitPerRelationshipType": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Restrict to the supplied relationship types"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "word"
-  ]
-}
+
+```js
+wordnik.getRelatedWords({
+  "word": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Related"
-  },
-  "type": "array"
-}
-```
-## Operation: getTopExample
+
+#### Parameters
+* word (string) **required** - Word to fetch relationships for
+* useCanonical (string) - If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested.
+* relationshipTypes (string) - Limits the total results per type of relationship type
+* limitPerRelationshipType (integer) - Restrict to the supplied relationship types
+
+### getTopExample
 Returns a top example for a word
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "word": {
-      "type": "string",
-      "description": "Word to fetch examples for"
-    },
-    "useCanonical": {
-      "type": "string",
-      "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "word"
-  ]
-}
+
+```js
+wordnik.getTopExample({
+  "word": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Example"
-}
-```
-## Operation: deleteWordList
+
+#### Parameters
+* word (string) **required** - Word to fetch examples for
+* useCanonical (string) - If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested.
+
+### deleteWordList
 Deletes an existing WordList
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "permalink": {
-      "type": "string",
-      "description": "ID of WordList to delete"
-    },
-    "auth_token": {
-      "type": "string",
-      "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "permalink",
-    "auth_token"
-  ]
-}
+
+```js
+wordnik.deleteWordList({
+  "permalink": "",
+  "auth_token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getWordListByPermalink
+
+#### Parameters
+* permalink (string) **required** - ID of WordList to delete
+* auth_token (string) **required** - The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)
+
+### getWordListByPermalink
 Fetches a WordList by ID
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "permalink": {
-      "type": "string",
-      "description": "permalink of WordList to fetch"
-    },
-    "auth_token": {
-      "type": "string",
-      "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "permalink",
-    "auth_token"
-  ]
-}
+
+```js
+wordnik.getWordListByPermalink({
+  "permalink": "",
+  "auth_token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WordList"
-}
-```
-## Operation: updateWordList
+
+#### Parameters
+* permalink (string) **required** - permalink of WordList to fetch
+* auth_token (string) **required** - The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)
+
+### updateWordList
 Updates an existing WordList
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "permalink": {
-      "type": "string",
-      "description": "permalink of WordList to update"
-    },
-    "body": {
-      "$ref": "#/definitions/WordList"
-    },
-    "auth_token": {
-      "type": "string",
-      "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "permalink",
-    "auth_token"
-  ]
-}
+
+```js
+wordnik.updateWordList({
+  "permalink": "",
+  "auth_token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteWordsFromWordList
+
+#### Parameters
+* permalink (string) **required** - permalink of WordList to update
+* body (undefined)
+* auth_token (string) **required** - The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)
+
+### deleteWordsFromWordList
 Removes words from a WordList
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "permalink": {
-      "type": "string",
-      "description": "permalink of WordList to use"
-    },
-    "body": {
-      "items": {
-        "$ref": "#/definitions/StringValue"
-      },
-      "type": "array"
-    },
-    "auth_token": {
-      "type": "string",
-      "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "permalink",
-    "auth_token"
-  ]
-}
+
+```js
+wordnik.deleteWordsFromWordList({
+  "permalink": "",
+  "auth_token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getWordListWords
+
+#### Parameters
+* permalink (string) **required** - permalink of WordList to use
+* body (array)
+* auth_token (string) **required** - The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)
+
+### getWordListWords
 Fetches words in a WordList
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "permalink": {
-      "type": "string",
-      "description": "ID of WordList to use"
-    },
-    "sortBy": {
-      "type": "string",
-      "description": "Field to sort by"
-    },
-    "sortOrder": {
-      "type": "string",
-      "description": "Direction to sort"
-    },
-    "skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Results to skip"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum number of results to return"
-    },
-    "auth_token": {
-      "type": "string",
-      "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "permalink",
-    "auth_token"
-  ]
-}
+
+```js
+wordnik.getWordListWords({
+  "permalink": "",
+  "auth_token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/WordListWord"
-  },
-  "type": "array"
-}
-```
-## Operation: addWordsToWordList
+
+#### Parameters
+* permalink (string) **required** - ID of WordList to use
+* sortBy (string) - Field to sort by
+* sortOrder (string) - Direction to sort
+* skip (integer) - Results to skip
+* limit (integer) - Maximum number of results to return
+* auth_token (string) **required** - The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)
+
+### addWordsToWordList
 Adds words to a WordList
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "permalink": {
-      "type": "string",
-      "description": "permalink of WordList to user"
-    },
-    "body": {
-      "items": {
-        "$ref": "#/definitions/StringValue"
-      },
-      "type": "array"
-    },
-    "auth_token": {
-      "type": "string",
-      "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "permalink",
-    "auth_token"
-  ]
-}
+
+```js
+wordnik.addWordsToWordList({
+  "permalink": "",
+  "auth_token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: createWordList
+
+#### Parameters
+* permalink (string) **required** - permalink of WordList to user
+* body (array)
+* auth_token (string) **required** - The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)
+
+### createWordList
 Creates a WordList.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/WordList"
-    },
-    "auth_token": {
-      "type": "string",
-      "description": "The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "auth_token"
-  ]
-}
+
+```js
+wordnik.createWordList({
+  "auth_token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WordList"
-}
-```
-## Operation: getRandomWord
+
+#### Parameters
+* body (undefined)
+* auth_token (string) **required** - The auth token of the logged-in user, obtained by calling /account.{format}/authenticate/{username} (described above)
+
+### getRandomWord
 Returns a single random WordObject
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "hasDictionaryDef": {
-      "type": "string",
-      "description": "Only return words with dictionary definitions"
-    },
-    "includePartOfSpeech": {
-      "type": "string",
-      "description": "CSV part-of-speech values to include"
-    },
-    "excludePartOfSpeech": {
-      "type": "string",
-      "description": "CSV part-of-speech values to exclude"
-    },
-    "minCorpusCount": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Minimum corpus frequency for terms"
-    },
-    "maxCorpusCount": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum corpus frequency for terms"
-    },
-    "minDictionaryCount": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Minimum dictionary count"
-    },
-    "maxDictionaryCount": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum dictionary count"
-    },
-    "minLength": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Minimum word length"
-    },
-    "maxLength": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum word length"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+wordnik.getRandomWord({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WordObject"
-}
-```
-## Operation: getRandomWords
+
+
+### getRandomWords
 Returns an array of random WordObjects
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "hasDictionaryDef": {
-      "type": "string",
-      "description": "Only return words with dictionary definitions"
-    },
-    "includePartOfSpeech": {
-      "type": "string",
-      "description": "CSV part-of-speech values to include"
-    },
-    "excludePartOfSpeech": {
-      "type": "string",
-      "description": "CSV part-of-speech values to exclude"
-    },
-    "minCorpusCount": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Minimum corpus frequency for terms"
-    },
-    "maxCorpusCount": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum corpus frequency for terms"
-    },
-    "minDictionaryCount": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Minimum dictionary count"
-    },
-    "maxDictionaryCount": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum dictionary count"
-    },
-    "minLength": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Minimum word length"
-    },
-    "maxLength": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum word length"
-    },
-    "sortBy": {
-      "type": "string",
-      "description": "Attribute to sort by"
-    },
-    "sortOrder": {
-      "type": "string",
-      "description": "Sort direction"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum number of results to return"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+wordnik.getRandomWords({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/WordObject"
-  },
-  "type": "array"
-}
-```
-## Operation: reverseDictionary
+
+
+### reverseDictionary
 Reverse dictionary search
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "query": {
-      "type": "string",
-      "description": "Search term"
-    },
-    "findSenseForWord": {
-      "type": "string",
-      "description": "Restricts words and finds closest sense"
-    },
-    "includeSourceDictionaries": {
-      "type": "string",
-      "description": "Only include these comma-delimited source dictionaries"
-    },
-    "excludeSourceDictionaries": {
-      "type": "string",
-      "description": "Exclude these comma-delimited source dictionaries"
-    },
-    "includePartOfSpeech": {
-      "type": "string",
-      "description": "Only include these comma-delimited parts of speech"
-    },
-    "excludePartOfSpeech": {
-      "type": "string",
-      "description": "Exclude these comma-delimited parts of speech"
-    },
-    "minCorpusCount": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Minimum corpus frequency for terms"
-    },
-    "maxCorpusCount": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum corpus frequency for terms"
-    },
-    "minLength": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Minimum word length"
-    },
-    "maxLength": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum word length"
-    },
-    "expandTerms": {
-      "type": "string",
-      "description": "Expand terms"
-    },
-    "includeTags": {
-      "type": "string",
-      "description": "Return a closed set of XML tags in response"
-    },
-    "sortBy": {
-      "type": "string",
-      "description": "Attribute to sort by"
-    },
-    "sortOrder": {
-      "type": "string",
-      "description": "Sort direction"
-    },
-    "skip": {
-      "type": "string",
-      "description": "Results to skip"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum number of results to return"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "query"
-  ]
-}
+
+```js
+wordnik.reverseDictionary({
+  "query": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DefinitionSearchResults"
-}
-```
-## Operation: searchWords
+
+#### Parameters
+* query (string) **required** - Search term
+* findSenseForWord (string) - Restricts words and finds closest sense
+* includeSourceDictionaries (string) - Only include these comma-delimited source dictionaries
+* excludeSourceDictionaries (string) - Exclude these comma-delimited source dictionaries
+* includePartOfSpeech (string) - Only include these comma-delimited parts of speech
+* excludePartOfSpeech (string) - Exclude these comma-delimited parts of speech
+* minCorpusCount (integer) - Minimum corpus frequency for terms
+* maxCorpusCount (integer) - Maximum corpus frequency for terms
+* minLength (integer) - Minimum word length
+* maxLength (integer) - Maximum word length
+* expandTerms (string) - Expand terms
+* includeTags (string) - Return a closed set of XML tags in response
+* sortBy (string) - Attribute to sort by
+* sortOrder (string) - Sort direction
+* skip (string) - Results to skip
+* limit (integer) - Maximum number of results to return
+
+### searchWords
 Searches words
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "query": {
-      "type": "string",
-      "description": "Search query"
-    },
-    "caseSensitive": {
-      "type": "string",
-      "description": "Search case sensitive"
-    },
-    "includePartOfSpeech": {
-      "type": "string",
-      "description": "Only include these comma-delimited parts of speech"
-    },
-    "excludePartOfSpeech": {
-      "type": "string",
-      "description": "Exclude these comma-delimited parts of speech"
-    },
-    "minCorpusCount": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Minimum corpus frequency for terms"
-    },
-    "maxCorpusCount": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum corpus frequency for terms"
-    },
-    "minDictionaryCount": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Minimum number of dictionary entries for words returned"
-    },
-    "maxDictionaryCount": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum dictionary definition count"
-    },
-    "minLength": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Minimum word length"
-    },
-    "maxLength": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum word length"
-    },
-    "skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Results to skip"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum number of results to return"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "query"
-  ]
-}
+
+```js
+wordnik.searchWords({
+  "query": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WordSearchResults"
-}
-```
-## Operation: getWordOfTheDay
+
+#### Parameters
+* query (string) **required** - Search query
+* caseSensitive (string) - Search case sensitive
+* includePartOfSpeech (string) - Only include these comma-delimited parts of speech
+* excludePartOfSpeech (string) - Exclude these comma-delimited parts of speech
+* minCorpusCount (integer) - Minimum corpus frequency for terms
+* maxCorpusCount (integer) - Maximum corpus frequency for terms
+* minDictionaryCount (integer) - Minimum number of dictionary entries for words returned
+* maxDictionaryCount (integer) - Maximum dictionary definition count
+* minLength (integer) - Minimum word length
+* maxLength (integer) - Maximum word length
+* skip (integer) - Results to skip
+* limit (integer) - Maximum number of results to return
+
+### getWordOfTheDay
 Returns a specific WordOfTheDay
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "date": {
-      "type": "string",
-      "description": "Fetches by date in yyyy-MM-dd"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+wordnik.getWordOfTheDay({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WordOfTheDay"
-}
-```
+
+

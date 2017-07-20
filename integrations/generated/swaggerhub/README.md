@@ -1,4 +1,32 @@
 # @datafire/swaggerhub
+
+Client library for SwaggerHub Registry
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/swaggerhub
+```
+
+```js
+let datafire = require('datafire');
+let swaggerhub = require('@datafire/swaggerhub').actions;
+
+let account = {
+  TokenSecured: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    swaggerhub: account,
+  }
+})
+
+
+swaggerhub.searchDomains({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 # Introduction
 This is the registry API for SwaggerHub. It allows you to access, manage, and update your APIs and Domains in SwaggerHub bypassing the Web application.
 
@@ -6,2577 +34,1235 @@ This is the registry API for SwaggerHub. It allows you to access, manage, and up
 Use your personal API Key: you may find it by visiting the   [API Key page](https://app.swaggerhub.com/settings/apiKey).
 
 
-## Operation: searchApis
+## Actions
+### searchApis
 Retrieves a list of currently defined APIs in APIs.json format
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "query": {
-      "type": "string",
-      "description": "free text query to match"
-    },
-    "state": {
-      "type": "string",
-      "description": "matches against published state",
-      "enum": [
-        "ALL",
-        "PUBLISHED"
-      ]
-    },
-    "tag": {
-      "type": "array",
-      "description": "matches against tags associated with an API"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "page to return"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "number of results per page"
-    },
-    "sort": {
-      "type": "string",
-      "description": "sort criteria",
-      "enum": [
-        "NAME",
-        "UPDATED"
-      ]
-    },
-    "order": {
-      "type": "string",
-      "description": "sort order",
-      "enum": [
-        "ASC",
-        "DESC"
-      ]
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+swaggerhub.searchApis({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApisJson"
-}
-```
-## Operation: getApiTemplates
+
+
+### getApiTemplates
 Retrieves list of apis templates
 
-### Input Schema
-```json
-{}
+
+```js
+swaggerhub.getApiTemplates(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TemplateCatalog"
-}
-```
-## Operation: getOwnerApis
+
+
+### getOwnerApis
 Retrieves an APIs.json listing of all APIs defined for this owner
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "page to return"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "number of results per page"
-    },
-    "sort": {
-      "type": "string",
-      "description": "sort criteria",
-      "enum": [
-        "NAME",
-        "UPDATED"
-      ]
-    },
-    "order": {
-      "type": "string",
-      "description": "sort order",
-      "enum": [
-        "ASC",
-        "DESC"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner"
-  ]
-}
+
+```js
+swaggerhub.getOwnerApis({
+  "owner": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApisJson"
-}
-```
-## Operation: updateOwner
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* page (integer) - page to return
+* limit (integer) - number of results per page
+* sort (string) - sort criteria
+* order (string) - sort order
+
+### updateOwner
 Updates owner
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "newNameToken": {
-      "type": "string",
-      "description": "Token for updating owner name"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "newNameToken"
-  ]
-}
+
+```js
+swaggerhub.updateOwner({
+  "owner": "",
+  "newNameToken": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteApi
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* newNameToken (string) **required** - Token for updating owner name
+
+### deleteApi
 Deletes the specified API
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api"
-  ]
-}
+
+```js
+swaggerhub.deleteApi({
+  "owner": "",
+  "api": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getApiVersions
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+
+### getApiVersions
 Retrieves an APIs.json listing for all API versions for this owner and API
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api"
-  ]
-}
+
+```js
+swaggerhub.getApiVersions({
+  "owner": "",
+  "api": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApisJson"
-}
-```
-## Operation: saveDefinition
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+
+### saveDefinition
 Saves the provided Swagger definition; the owner must match the token owner. The version will be extracted from the Swagger definitions itself.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "isPrivate": {
-      "type": "boolean",
-      "description": "Defines whether the API has to be private"
-    },
-    "version": {
-      "type": "string",
-      "description": "api version"
-    },
-    "definition": {
-      "type": "string"
-    },
-    "force": {
-      "type": "boolean",
-      "description": "force update"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "definition"
-  ]
-}
+
+```js
+swaggerhub.saveDefinition({
+  "owner": "",
+  "api": "",
+  "definition": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteCollaboration
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* isPrivate (boolean) - Defines whether the API has to be private
+* version (string) - api version
+* definition (string) **required**
+* force (boolean) - force update
+
+### deleteCollaboration
 Deletes API's collaboration
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api"
-  ]
-}
+
+```js
+swaggerhub.deleteCollaboration({
+  "owner": "",
+  "api": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCollaboration
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+
+### getCollaboration
 Gets API's collaboration
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "expandTeams": {
-      "type": "boolean"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api"
-  ]
-}
+
+```js
+swaggerhub.getCollaboration({
+  "owner": "",
+  "api": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Collaboration"
-}
-```
-## Operation: updateCollaboration
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* expandTeams (boolean)
+
+### updateCollaboration
 Updates API's collaboration
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/Collaboration"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api"
-  ]
-}
+
+```js
+swaggerhub.updateCollaboration({
+  "owner": "",
+  "api": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: renameApi
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* body (object)
+
+### renameApi
 Renames API
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "newName": {
-      "type": "string",
-      "description": "New name"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "newName"
-  ]
-}
+
+```js
+swaggerhub.renameApi({
+  "owner": "",
+  "api": "",
+  "newName": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: saveApiDefinitionByTemplate
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* newName (string) **required** - New name
+
+### saveApiDefinitionByTemplate
 Creates API by template
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "isPrivate": {
-      "type": "boolean",
-      "description": "Defines whether the API has to be private"
-    },
-    "template": {
-      "type": "string",
-      "description": "Template id"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "template"
-  ]
-}
+
+```js
+swaggerhub.saveApiDefinitionByTemplate({
+  "owner": "",
+  "api": "",
+  "template": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: transferApi
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* isPrivate (boolean) - Defines whether the API has to be private
+* template (string) **required** - Template id
+
+### transferApi
 transfers api to another owner
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "newOwner": {
-      "type": "string",
-      "description": "New owner"
-    },
-    "transferIntegrations": {
-      "type": "boolean",
-      "description": "Transfer integrations"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "newOwner"
-  ]
-}
+
+```js
+swaggerhub.transferApi({
+  "owner": "",
+  "api": "",
+  "newOwner": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {},
-  "type": "object"
-}
-```
-## Operation: deleteApiVersion
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* newOwner (string) **required** - New owner
+* transferIntegrations (boolean) - Transfer integrations
+
+### deleteApiVersion
 Deletes a particular version of the specified API
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "version"
-  ]
-}
+
+```js
+swaggerhub.deleteApiVersion({
+  "owner": "",
+  "api": "",
+  "version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getDefinition
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* version (string) **required** - version identifier
+
+### getDefinition
 Retrieves the Swagger definition for the specified API and version
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "version"
-  ]
-}
+
+```js
+swaggerhub.getDefinition({
+  "owner": "",
+  "api": "",
+  "version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {},
-  "type": "object"
-}
-```
-## Operation: bumpApi
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* version (string) **required** - version identifier
+
+### bumpApi
 Adds API version.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "isPrivate": {
-      "type": "boolean",
-      "description": "Defines whether the API has to be private"
-    },
-    "newVersion": {
-      "type": "string",
-      "description": "New api version"
-    },
-    "force": {
-      "type": "boolean",
-      "description": "force update"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "version",
-    "newVersion"
-  ]
-}
+
+```js
+swaggerhub.bumpApi({
+  "owner": "",
+  "api": "",
+  "version": "",
+  "newVersion": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getApiComments
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* version (string) **required** - version identifier
+* isPrivate (boolean) - Defines whether the API has to be private
+* newVersion (string) **required** - New api version
+* force (boolean) - force update
+
+### getApiComments
 Returns the list of comments for the specified API
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "version"
-  ]
-}
+
+```js
+swaggerhub.getApiComments({
+  "owner": "",
+  "api": "",
+  "version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/ClosableComment"
-  },
-  "type": "array"
-}
-```
-## Operation: addApiComment
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* version (string) **required** - version identifier
+
+### addApiComment
 Adds a new comment to the specified API
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/NewComment"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "version",
-    "body"
-  ]
-}
+
+```js
+swaggerhub.addApiComment({
+  "owner": "",
+  "api": "",
+  "version": "",
+  "body": {
+    "body": "",
+    "position": 0
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ClosableComment"
-}
-```
-## Operation: updateApiComments
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* version (string) **required** - version identifier
+* body (object) **required**
+
+### updateApiComments
 Updates passed batch of comments
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/CommentsBatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "version",
-    "body"
-  ]
-}
+
+```js
+swaggerhub.updateApiComments({
+  "owner": "",
+  "api": "",
+  "version": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteApiComment
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* version (string) **required** - version identifier
+* body (object) **required**
+
+### deleteApiComment
 Deletes specified comment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "comment": {
-      "type": "string",
-      "description": "comment identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "version",
-    "comment"
-  ]
-}
+
+```js
+swaggerhub.deleteApiComment({
+  "owner": "",
+  "api": "",
+  "version": "",
+  "comment": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateApiComment
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* version (string) **required** - version identifier
+* comment (string) **required** - comment identifier
+
+### updateApiComment
 Updates specified comment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "comment": {
-      "type": "string",
-      "description": "comment identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/ClosableCommentPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "version",
-    "comment"
-  ]
-}
+
+```js
+swaggerhub.updateApiComment({
+  "owner": "",
+  "api": "",
+  "version": "",
+  "comment": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ClosableComment"
-}
-```
-## Operation: addApiCommentReply
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* version (string) **required** - version identifier
+* comment (string) **required** - comment identifier
+* body (undefined)
+
+### addApiCommentReply
 Adds a new reply to the specified comment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "comment": {
-      "type": "string",
-      "description": "comment identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/NewReply"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "version",
-    "comment",
-    "body"
-  ]
-}
+
+```js
+swaggerhub.addApiCommentReply({
+  "owner": "",
+  "api": "",
+  "version": "",
+  "comment": "",
+  "body": {
+    "body": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Comment"
-  },
-  "type": "array"
-}
-```
-## Operation: deleteApiCommentReply
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* version (string) **required** - version identifier
+* comment (string) **required** - comment identifier
+* body (object) **required**
+
+### deleteApiCommentReply
 Deletes specified comment reply
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "comment": {
-      "type": "string",
-      "description": "comment identifier"
-    },
-    "reply": {
-      "type": "string",
-      "description": "reply identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "version",
-    "comment",
-    "reply"
-  ]
-}
+
+```js
+swaggerhub.deleteApiCommentReply({
+  "owner": "",
+  "api": "",
+  "version": "",
+  "comment": "",
+  "reply": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateApiCommentReply
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* version (string) **required** - version identifier
+* comment (string) **required** - comment identifier
+* reply (string) **required** - reply identifier
+
+### updateApiCommentReply
 Updates specified comment reply
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "comment": {
-      "type": "string",
-      "description": "comment identifier"
-    },
-    "reply": {
-      "type": "string",
-      "description": "reply identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/CommentPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "version",
-    "comment",
-    "reply"
-  ]
-}
+
+```js
+swaggerhub.updateApiCommentReply({
+  "owner": "",
+  "api": "",
+  "version": "",
+  "comment": "",
+  "reply": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Comment"
-}
-```
-## Operation: setApiCommentStatus
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* version (string) **required** - version identifier
+* comment (string) **required** - comment identifier
+* reply (string) **required** - reply identifier
+* body (object)
+
+### setApiCommentStatus
 Updates status to the specified comment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "comment": {
-      "type": "string",
-      "description": "comment identifier"
-    },
-    "status": {
-      "type": "string",
-      "description": "comment status",
-      "enum": [
-        "OPEN",
-        "RESOLVED"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "version",
-    "comment",
-    "status"
-  ]
-}
+
+```js
+swaggerhub.setApiCommentStatus({
+  "owner": "",
+  "api": "",
+  "version": "",
+  "comment": "",
+  "status": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteDraftApi
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* version (string) **required** - version identifier
+* comment (string) **required** - comment identifier
+* status (string) **required** - comment status
+
+### deleteDraftApi
 Deletes a particular version of the specified API
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "version"
-  ]
-}
+
+```js
+swaggerhub.deleteDraftApi({
+  "owner": "",
+  "api": "",
+  "version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getDraft
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* version (string) **required** - version identifier
+
+### getDraft
 Retrieves the draft for the specified API and version
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "version"
-  ]
-}
+
+```js
+swaggerhub.getDraft({
+  "owner": "",
+  "api": "",
+  "version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {},
-  "type": "object"
-}
-```
-## Operation: saveDraft
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* version (string) **required** - version identifier
+
+### saveDraft
 Saves the provided draft for a swagger definition.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "definition": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "version",
-    "definition"
-  ]
-}
+
+```js
+swaggerhub.saveDraft({
+  "owner": "",
+  "api": "",
+  "version": "",
+  "definition": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: forkApi
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* version (string) **required** - version identifier
+* definition (string) **required**
+
+### forkApi
 Forks the provided Swagger definition.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "isPrivate": {
-      "type": "boolean",
-      "description": "Defines whether the API has to be private"
-    },
-    "newSpec": {
-      "$ref": "#/definitions/SpecId"
-    },
-    "force": {
-      "type": "boolean",
-      "description": "force update"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "version",
-    "newSpec"
-  ]
-}
+
+```js
+swaggerhub.forkApi({
+  "owner": "",
+  "api": "",
+  "version": "",
+  "newSpec": {
+    "name": "",
+    "owner": "",
+    "version": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: compareApis
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* version (string) **required** - version identifier
+* isPrivate (boolean) - Defines whether the API has to be private
+* newSpec (object) **required**
+* force (boolean) - force update
+
+### compareApis
 Compares two APIs
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "method": {
-      "type": "string",
-      "description": "The method to use for comparing two APIs.\n* FULL - Full line-by-line text comparison of the two APIs\n* LOGICAL - Compares if the two API's are logically equivalent. Ignores non-structural fields like descriptions, examples etc. Also ignores order when not important.\n* STRUCTURAL - Like LOGICAL but also compares non-structural fields\n",
-      "enum": [
-        "FULL",
-        "LOGICAL",
-        "STRUCTURAL"
-      ]
-    },
-    "otherApiPath": {
-      "type": "string",
-      "description": "URL to external API or path to internal API"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "version",
-    "method",
-    "otherApiPath"
-  ]
-}
+
+```js
+swaggerhub.compareApis({
+  "owner": "",
+  "api": "",
+  "version": "",
+  "method": "",
+  "otherApiPath": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Comparison"
-}
-```
-## Operation: compareApisFromFile
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* version (string) **required** - version identifier
+* method (string) **required** - The method to use for comparing two APIs.
+* otherApiPath (string) **required** - URL to external API or path to internal API
+
+### compareApisFromFile
 Compares two APIs
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "method": {
-      "type": "string",
-      "description": "The method to use for comparing two APIs.\n* FULL - Full line-by-line text comparison of the two APIs\n* LOGICAL - Compares if the two API's are logically equivalent. Ignores non-structural fields like descriptions, examples etc. Also ignores order when not important.\n* STRUCTURAL - Like LOGICAL but also compares non-structural fields\n",
-      "enum": [
-        "FULL",
-        "LOGICAL",
-        "STRUCTURAL"
-      ]
-    },
-    "definition": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "version",
-    "method",
-    "definition"
-  ]
-}
+
+```js
+swaggerhub.compareApisFromFile({
+  "owner": "",
+  "api": "",
+  "version": "",
+  "method": "",
+  "definition": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Comparison"
-}
-```
-## Operation: getJsonDefinition
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* version (string) **required** - version identifier
+* method (string) **required** - The method to use for comparing two APIs.
+* definition (string) **required**
+
+### getJsonDefinition
 Retrieves the Swagger definition for the specified API and version in JSON format
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "version"
-  ]
-}
+
+```js
+swaggerhub.getJsonDefinition({
+  "owner": "",
+  "api": "",
+  "version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {},
-  "type": "object"
-}
-```
-## Operation: getYamlDefinition
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* version (string) **required** - version identifier
+
+### getYamlDefinition
 Retrieves the Swagger definition for the specified API and version in YAML format
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "api": {
-      "type": "string",
-      "description": "API identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "api",
-    "version"
-  ]
-}
+
+```js
+swaggerhub.getYamlDefinition({
+  "owner": "",
+  "api": "",
+  "version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {},
-  "type": "object"
-}
-```
-## Operation: searchDomains
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* api (string) **required** - API identifier
+* version (string) **required** - version identifier
+
+### searchDomains
 Retrieves a list of currently defined domains in APIs.json format
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "query": {
-      "type": "string",
-      "description": "free text query to match"
-    },
-    "state": {
-      "type": "string",
-      "description": "matches against published state",
-      "enum": [
-        "ALL",
-        "PUBLISHED"
-      ]
-    },
-    "tag": {
-      "type": "array",
-      "description": "matches against tags associated with a domain"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "page to return"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "number of results per page"
-    },
-    "sort": {
-      "type": "string",
-      "description": "sort criteria",
-      "enum": [
-        "NAME",
-        "UPDATED"
-      ]
-    },
-    "order": {
-      "type": "string",
-      "description": "sort order",
-      "enum": [
-        "ASC",
-        "DESC"
-      ]
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+swaggerhub.searchDomains({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApisJson"
-}
-```
-## Operation: getDomainTemplates
+
+
+### getDomainTemplates
 Retrieves list of domains templates
 
-### Input Schema
-```json
-{}
+
+```js
+swaggerhub.getDomainTemplates(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TemplateCatalog"
-}
-```
-## Operation: getOwnerDomains
+
+
+### getOwnerDomains
 Retrieves an APIs.json listing of all domains defined for this owner
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "page to return"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "number of results per page"
-    },
-    "sort": {
-      "type": "string",
-      "description": "sort criteria",
-      "enum": [
-        "NAME",
-        "UPDATED"
-      ]
-    },
-    "order": {
-      "type": "string",
-      "description": "sort order",
-      "enum": [
-        "ASC",
-        "DESC"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner"
-  ]
-}
+
+```js
+swaggerhub.getOwnerDomains({
+  "owner": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApisJson"
-}
-```
-## Operation: getOwnerReferences
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* page (integer) - page to return
+* limit (integer) - number of results per page
+* sort (string) - sort criteria
+* order (string) - sort order
+
+### getOwnerReferences
 Retrieves an APIs.json listing of entries referensing owner domains
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner"
-  ]
-}
+
+```js
+swaggerhub.getOwnerReferences({
+  "owner": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApisJson"
-}
-```
-## Operation: deleteDomain
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+
+### deleteDomain
 Deletes the specified domain
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "force": {
-      "type": "boolean",
-      "description": "force update"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain"
-  ]
-}
+
+```js
+swaggerhub.deleteDomain({
+  "owner": "",
+  "domain": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getDomainVersions
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* force (boolean) - force update
+
+### getDomainVersions
 Retrieves an APIs.json listing for all domain versions for this owner and domain
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain"
-  ]
-}
+
+```js
+swaggerhub.getDomainVersions({
+  "owner": "",
+  "domain": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApisJson"
-}
-```
-## Operation: saveDomainDefinition
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+
+### saveDomainDefinition
 Saves the provided Swagger definition of a domain
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "isPrivate": {
-      "type": "boolean",
-      "description": "Defines whether the API has to be private"
-    },
-    "version": {
-      "type": "string",
-      "description": "domain version"
-    },
-    "definition": {
-      "type": "string"
-    },
-    "force": {
-      "type": "boolean",
-      "description": "force update"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "version"
-  ]
-}
+
+```js
+swaggerhub.saveDomainDefinition({
+  "owner": "",
+  "domain": "",
+  "version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: renameDomain
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* isPrivate (boolean) - Defines whether the API has to be private
+* version (string) **required** - domain version
+* definition (string)
+* force (boolean) - force update
+
+### renameDomain
 Renames domain
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "newName": {
-      "type": "string",
-      "description": "New name"
-    },
-    "force": {
-      "type": "boolean",
-      "description": "force update"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "newName"
-  ]
-}
+
+```js
+swaggerhub.renameDomain({
+  "owner": "",
+  "domain": "",
+  "newName": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: transferDomain
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* newName (string) **required** - New name
+* force (boolean) - force update
+
+### transferDomain
 transfers domain to another owner
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "newOwner": {
-      "type": "string",
-      "description": "New owner"
-    },
-    "force": {
-      "type": "boolean",
-      "description": "force update"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "newOwner"
-  ]
-}
+
+```js
+swaggerhub.transferDomain({
+  "owner": "",
+  "domain": "",
+  "newOwner": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {},
-  "type": "object"
-}
-```
-## Operation: deleteDomainVersion
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* newOwner (string) **required** - New owner
+* force (boolean) - force update
+
+### deleteDomainVersion
 Deletes a particular version of the specified domain
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "force": {
-      "type": "boolean",
-      "description": "force update"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "version"
-  ]
-}
+
+```js
+swaggerhub.deleteDomainVersion({
+  "owner": "",
+  "domain": "",
+  "version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getDomainDefinition
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* version (string) **required** - version identifier
+* force (boolean) - force update
+
+### getDomainDefinition
 Retrieves the Swagger definition for the specified domain and version
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "version"
-  ]
-}
+
+```js
+swaggerhub.getDomainDefinition({
+  "owner": "",
+  "domain": "",
+  "version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {},
-  "type": "object"
-}
-```
-## Operation: bumpDomain
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* version (string) **required** - version identifier
+
+### bumpDomain
 Adds domain version.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "isPrivate": {
-      "type": "boolean",
-      "description": "Defines whether the API has to be private"
-    },
-    "newVersion": {
-      "type": "string",
-      "description": "New domain version"
-    },
-    "force": {
-      "type": "boolean",
-      "description": "force update"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "version",
-    "newVersion"
-  ]
-}
+
+```js
+swaggerhub.bumpDomain({
+  "owner": "",
+  "domain": "",
+  "version": "",
+  "newVersion": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getDomainComments
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* version (string) **required** - version identifier
+* isPrivate (boolean) - Defines whether the API has to be private
+* newVersion (string) **required** - New domain version
+* force (boolean) - force update
+
+### getDomainComments
 Returns the list of comments for the specified domain
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "version"
-  ]
-}
+
+```js
+swaggerhub.getDomainComments({
+  "owner": "",
+  "domain": "",
+  "version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/ClosableComment"
-  },
-  "type": "array"
-}
-```
-## Operation: addDomainComment
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* version (string) **required** - version identifier
+
+### addDomainComment
 Adds a new comment to the specified domain
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/NewComment"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "version",
-    "body"
-  ]
-}
+
+```js
+swaggerhub.addDomainComment({
+  "owner": "",
+  "domain": "",
+  "version": "",
+  "body": {
+    "body": "",
+    "position": 0
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ClosableComment"
-}
-```
-## Operation: updateDomainComments
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* version (string) **required** - version identifier
+* body (object) **required**
+
+### updateDomainComments
 Updates passed batch of comments
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/CommentsBatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "version",
-    "body"
-  ]
-}
+
+```js
+swaggerhub.updateDomainComments({
+  "owner": "",
+  "domain": "",
+  "version": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteDomainComment
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* version (string) **required** - version identifier
+* body (object) **required**
+
+### deleteDomainComment
 Deletes specified comment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "comment": {
-      "type": "string",
-      "description": "comment identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "version",
-    "comment"
-  ]
-}
+
+```js
+swaggerhub.deleteDomainComment({
+  "owner": "",
+  "domain": "",
+  "version": "",
+  "comment": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateDomainComment
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* version (string) **required** - version identifier
+* comment (string) **required** - comment identifier
+
+### updateDomainComment
 Updates specified comment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "comment": {
-      "type": "string",
-      "description": "comment identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/ClosableCommentPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "version",
-    "comment"
-  ]
-}
+
+```js
+swaggerhub.updateDomainComment({
+  "owner": "",
+  "domain": "",
+  "version": "",
+  "comment": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ClosableComment"
-}
-```
-## Operation: addDomainCommentReply
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* version (string) **required** - version identifier
+* comment (string) **required** - comment identifier
+* body (undefined)
+
+### addDomainCommentReply
 Adds a new reply to the specified comment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "comment": {
-      "type": "string",
-      "description": "comment identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/NewReply"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "version",
-    "comment",
-    "body"
-  ]
-}
+
+```js
+swaggerhub.addDomainCommentReply({
+  "owner": "",
+  "domain": "",
+  "version": "",
+  "comment": "",
+  "body": {
+    "body": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Comment"
-  },
-  "type": "array"
-}
-```
-## Operation: deleteDomainCommentReply
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* version (string) **required** - version identifier
+* comment (string) **required** - comment identifier
+* body (object) **required**
+
+### deleteDomainCommentReply
 Deletes specified comment reply
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "comment": {
-      "type": "string",
-      "description": "comment identifier"
-    },
-    "reply": {
-      "type": "string",
-      "description": "reply identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "version",
-    "comment",
-    "reply"
-  ]
-}
+
+```js
+swaggerhub.deleteDomainCommentReply({
+  "owner": "",
+  "domain": "",
+  "version": "",
+  "comment": "",
+  "reply": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateDomainCommentReply
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* version (string) **required** - version identifier
+* comment (string) **required** - comment identifier
+* reply (string) **required** - reply identifier
+
+### updateDomainCommentReply
 Updates specified comment reply
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "comment": {
-      "type": "string",
-      "description": "comment identifier"
-    },
-    "reply": {
-      "type": "string",
-      "description": "reply identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/CommentPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "version",
-    "comment",
-    "reply"
-  ]
-}
+
+```js
+swaggerhub.updateDomainCommentReply({
+  "owner": "",
+  "domain": "",
+  "version": "",
+  "comment": "",
+  "reply": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Comment"
-}
-```
-## Operation: setDomainCommentStatus
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* version (string) **required** - version identifier
+* comment (string) **required** - comment identifier
+* reply (string) **required** - reply identifier
+* body (object)
+
+### setDomainCommentStatus
 Updates status to the specified comment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "comment": {
-      "type": "string",
-      "description": "comment identifier"
-    },
-    "status": {
-      "type": "string",
-      "description": "comment status",
-      "enum": [
-        "OPEN",
-        "RESOLVED"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "version",
-    "comment",
-    "status"
-  ]
-}
+
+```js
+swaggerhub.setDomainCommentStatus({
+  "owner": "",
+  "domain": "",
+  "version": "",
+  "comment": "",
+  "status": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteDraftDomain
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* version (string) **required** - version identifier
+* comment (string) **required** - comment identifier
+* status (string) **required** - comment status
+
+### deleteDraftDomain
 Deletes a particular version of the specified Domain
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "version"
-  ]
-}
+
+```js
+swaggerhub.deleteDraftDomain({
+  "owner": "",
+  "domain": "",
+  "version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getDraftDomain
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* version (string) **required** - version identifier
+
+### getDraftDomain
 Retrieves the draft for the specified domain
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "version"
-  ]
-}
+
+```js
+swaggerhub.getDraftDomain({
+  "owner": "",
+  "domain": "",
+  "version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {},
-  "type": "object"
-}
-```
-## Operation: saveDraftDomain
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* version (string) **required** - version identifier
+
+### saveDraftDomain
 Saves the provided draft for a domain definition.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "definition": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "version"
-  ]
-}
+
+```js
+swaggerhub.saveDraftDomain({
+  "owner": "",
+  "domain": "",
+  "version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: forkDomain
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* version (string) **required** - version identifier
+* definition (string)
+
+### forkDomain
 Forks the provided domain definition.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "isPrivate": {
-      "type": "boolean",
-      "description": "Defines whether the API has to be private"
-    },
-    "newSpec": {
-      "$ref": "#/definitions/SpecId"
-    },
-    "force": {
-      "type": "boolean",
-      "description": "force update"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "version",
-    "newSpec"
-  ]
-}
+
+```js
+swaggerhub.forkDomain({
+  "owner": "",
+  "domain": "",
+  "version": "",
+  "newSpec": {
+    "name": "",
+    "owner": "",
+    "version": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: saveDomainDefinitionByTemplate
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* version (string) **required** - version identifier
+* isPrivate (boolean) - Defines whether the API has to be private
+* newSpec (object) **required**
+* force (boolean) - force update
+
+### saveDomainDefinitionByTemplate
 Creates Domain by template
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    },
-    "isPrivate": {
-      "type": "boolean",
-      "description": "Defines whether the API has to be private"
-    },
-    "template": {
-      "type": "string",
-      "description": "Template id"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "version",
-    "template"
-  ]
-}
+
+```js
+swaggerhub.saveDomainDefinitionByTemplate({
+  "owner": "",
+  "domain": "",
+  "version": "",
+  "template": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getDomainJsonDefinition
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* version (string) **required** - version identifier
+* isPrivate (boolean) - Defines whether the API has to be private
+* template (string) **required** - Template id
+
+### getDomainJsonDefinition
 Retrieves the definition for the specified domain and version in JSON format
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "version"
-  ]
-}
+
+```js
+swaggerhub.getDomainJsonDefinition({
+  "owner": "",
+  "domain": "",
+  "version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {},
-  "type": "object"
-}
-```
-## Operation: getDomainYamlDefinition
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* version (string) **required** - version identifier
+
+### getDomainYamlDefinition
 Retrieves the definition for the specified domain and version in YAML format
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "API owner identifier"
-    },
-    "domain": {
-      "type": "string",
-      "description": "domain identifier"
-    },
-    "version": {
-      "type": "string",
-      "description": "version identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "domain",
-    "version"
-  ]
-}
+
+```js
+swaggerhub.getDomainYamlDefinition({
+  "owner": "",
+  "domain": "",
+  "version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {},
-  "type": "object"
-}
-```
-## Operation: getAvailablePlugins
+
+#### Parameters
+* owner (string) **required** - API owner identifier
+* domain (string) **required** - domain identifier
+* version (string) **required** - version identifier
+
+### getAvailablePlugins
 Retrieves a list of all available plugins (ignore system plugins)
 
-### Input Schema
-```json
-{}
+
+```js
+swaggerhub.getAvailablePlugins(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/PluginDefinition"
-  },
-  "type": "array"
-}
-```
-## Operation: removePluginConfiguration
+
+
+### removePluginConfiguration
 Deletes the provided Plugin configuration
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "pluginConfiguration": {
-      "$ref": "#/definitions/PluginConfiguration"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "pluginConfiguration"
-  ]
-}
+
+```js
+swaggerhub.removePluginConfiguration({
+  "pluginConfiguration": {
+    "definitionId": "",
+    "lifecycles": [],
+    "name": "",
+    "objectId": "",
+    "ownerName": "",
+    "path": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getPlugins
+
+#### Parameters
+* pluginConfiguration (object) **required**
+
+### getPlugins
 Retrieves a list of enabled plugin configurations
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "objectId": {
-      "type": "string",
-      "description": "plugin configuration objectId"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "page to return"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "number of results per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "objectId"
-  ]
-}
+
+```js
+swaggerhub.getPlugins({
+  "objectId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/PluginConfiguration"
-  },
-  "type": "array"
-}
-```
-## Operation: addPluginConfiguration
+
+#### Parameters
+* objectId (string) **required** - plugin configuration objectId
+* page (integer) - page to return
+* limit (integer) - number of results per page
+
+### addPluginConfiguration
 Saves the provided Plugin configuration
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "pluginConfiguration": {
-      "$ref": "#/definitions/PluginConfiguration"
-    },
-    "trigger": {
-      "type": "boolean",
-      "description": "if true, also execute plugin"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "pluginConfiguration"
-  ]
-}
+
+```js
+swaggerhub.addPluginConfiguration({
+  "pluginConfiguration": {
+    "definitionId": "",
+    "lifecycles": [],
+    "name": "",
+    "objectId": "",
+    "ownerName": "",
+    "path": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updatePluginConfiguration
+
+#### Parameters
+* pluginConfiguration (object) **required**
+* trigger (boolean) - if true, also execute plugin
+
+### updatePluginConfiguration
 Updated the provided Plugin configuration
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "pluginConfiguration": {
-      "$ref": "#/definitions/PluginConfiguration"
-    },
-    "trigger": {
-      "type": "boolean",
-      "description": "if true, also execute plugin"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "pluginConfiguration"
-  ]
-}
+
+```js
+swaggerhub.updatePluginConfiguration({
+  "pluginConfiguration": {
+    "definitionId": "",
+    "lifecycles": [],
+    "name": "",
+    "objectId": "",
+    "ownerName": "",
+    "path": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: triggerPluginConfiguration
+
+#### Parameters
+* pluginConfiguration (object) **required**
+* trigger (boolean) - if true, also execute plugin
+
+### triggerPluginConfiguration
 triggers execution of plugin configuration identified by id
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "plugin configuration id"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+swaggerhub.triggerPluginConfiguration({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: buildConfigurationSchema
+
+#### Parameters
+* id (string) **required** - plugin configuration id
+
+### buildConfigurationSchema
 Get configuration schema for the provided Plugin configuration
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "pluginConfiguration": {
-      "$ref": "#/definitions/PluginConfiguration"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "pluginConfiguration"
-  ]
-}
+
+```js
+swaggerhub.buildConfigurationSchema({
+  "pluginConfiguration": {
+    "definitionId": "",
+    "lifecycles": [],
+    "name": "",
+    "objectId": "",
+    "ownerName": "",
+    "path": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {},
-  "type": "object"
-}
-```
-## Operation: getApiTokenByCredentials
+
+#### Parameters
+* pluginConfiguration (object) **required**
+
+### getApiTokenByCredentials
 Retrieves an API token valid for the user identified by user object in body
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "$ref": "#/definitions/UserCredentials"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+swaggerhub.getApiTokenByCredentials({
+  "user": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccessToken"
-}
-```
+
+#### Parameters
+* user (object) **required**
+

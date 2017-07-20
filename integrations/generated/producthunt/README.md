@@ -1,119 +1,76 @@
 # @datafire/producthunt
 
+Client library for Product Hunt
 
-## Operation: oauthCallback
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/producthunt
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
+
+```js
+let datafire = require('datafire');
+let producthunt = require('@datafire/producthunt').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    producthunt: account,
   }
-}
-```
-## Operation: oauthRefresh
+})
 
 
-### Input Schema
-```json
-{}
+producthunt.categories.category.posts.get({}, context).then(data => {
+  console.log(data);
+})
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: users.username.get
+
+## Description
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "username": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: categories.category.posts.get
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "category": {
-      "type": "string"
-    },
-    "days_ago": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
+```js
+producthunt.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
+
+
+```js
+producthunt.oauthRefresh(null, context)
 ```
+
+
+### users.username.get
+
+
+
+```js
+producthunt.users.username.get({}, context)
+```
+
+
+### categories.category.posts.get
+
+
+
+```js
+producthunt.categories.category.posts.get({}, context)
+```
+
+

@@ -1,168 +1,91 @@
 # @datafire/google_container
+
+Client library for Google Container Engine
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/google_container
+```
+
+```js
+let datafire = require('datafire');
+let google_container = require('@datafire/google_container').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    google_container: account,
+  }
+})
+
+
+google_container.projects.zones.clusters.list({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 The Google Container Engine API is used for building and managing container based applications, powered by the open source Kubernetes technology.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+google_container.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+google_container.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: projects.zones.clusters.list
+
+
+### projects.zones.clusters.list
 Lists all clusters owned by a project in either the specified zone or all
 zones.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840)."
-    },
-    "zone": {
-      "type": "string",
-      "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides, or \"-\" for all zones."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "zone"
-  ]
-}
+
+```js
+google_container.projects.zones.clusters.list({
+  "projectId": "",
+  "zone": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListClustersResponse"
-}
-```
-## Operation: projects.zones.clusters.create
+
+#### Parameters
+* projectId (string) **required** - The Google Developers Console [project ID or project
+* zone (string) **required** - The name of the Google Compute Engine
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.zones.clusters.create
 Creates a cluster, consisting of the specified number and type of Google
 Compute Engine instances.
 
@@ -177,98 +100,33 @@ cluster.
 Finally, an entry is added to the project's global metadata indicating
 which CIDR range is being used by the cluster.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CreateClusterRequest"
-    },
-    "projectId": {
-      "type": "string",
-      "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840)."
-    },
-    "zone": {
-      "type": "string",
-      "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "zone"
-  ]
-}
+
+```js
+google_container.projects.zones.clusters.create({
+  "projectId": "",
+  "zone": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: projects.zones.clusters.delete
+
+#### Parameters
+* body (object) - CreateClusterRequest creates a cluster.
+* projectId (string) **required** - The Google Developers Console [project ID or project
+* zone (string) **required** - The name of the Google Compute Engine
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.zones.clusters.delete
 Deletes the cluster, including the Kubernetes endpoint and all worker
 nodes.
 
@@ -279,1573 +137,495 @@ Other Google Compute Engine resources that might be in use by the cluster
 (e.g. load balancer resources) will not be deleted if they weren't present
 at the initial create time.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "clusterId": {
-      "type": "string",
-      "description": "The name of the cluster to delete."
-    },
-    "projectId": {
-      "type": "string",
-      "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840)."
-    },
-    "zone": {
-      "type": "string",
-      "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "clusterId",
-    "projectId",
-    "zone"
-  ]
-}
+
+```js
+google_container.projects.zones.clusters.delete({
+  "clusterId": "",
+  "projectId": "",
+  "zone": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: projects.zones.clusters.get
+
+#### Parameters
+* clusterId (string) **required** - The name of the cluster to delete.
+* projectId (string) **required** - The Google Developers Console [project ID or project
+* zone (string) **required** - The name of the Google Compute Engine
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.zones.clusters.get
 Gets the details of a specific cluster.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "clusterId": {
-      "type": "string",
-      "description": "The name of the cluster to retrieve."
-    },
-    "projectId": {
-      "type": "string",
-      "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840)."
-    },
-    "zone": {
-      "type": "string",
-      "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "clusterId",
-    "projectId",
-    "zone"
-  ]
-}
+
+```js
+google_container.projects.zones.clusters.get({
+  "clusterId": "",
+  "projectId": "",
+  "zone": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Cluster"
-}
-```
-## Operation: projects.zones.clusters.update
+
+#### Parameters
+* clusterId (string) **required** - The name of the cluster to retrieve.
+* projectId (string) **required** - The Google Developers Console [project ID or project
+* zone (string) **required** - The name of the Google Compute Engine
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.zones.clusters.update
 Updates the settings of a specific cluster.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateClusterRequest"
-    },
-    "clusterId": {
-      "type": "string",
-      "description": "The name of the cluster to upgrade."
-    },
-    "projectId": {
-      "type": "string",
-      "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840)."
-    },
-    "zone": {
-      "type": "string",
-      "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "clusterId",
-    "projectId",
-    "zone"
-  ]
-}
+
+```js
+google_container.projects.zones.clusters.update({
+  "clusterId": "",
+  "projectId": "",
+  "zone": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: projects.zones.clusters.legacyAbac
+
+#### Parameters
+* body (object) - UpdateClusterRequest updates the settings of a cluster.
+* clusterId (string) **required** - The name of the cluster to upgrade.
+* projectId (string) **required** - The Google Developers Console [project ID or project
+* zone (string) **required** - The name of the Google Compute Engine
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.zones.clusters.legacyAbac
 Enables or disables the ABAC authorization mechanism on a cluster.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/SetLegacyAbacRequest"
-    },
-    "clusterId": {
-      "type": "string",
-      "description": "The name of the cluster to update."
-    },
-    "projectId": {
-      "type": "string",
-      "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840)."
-    },
-    "zone": {
-      "type": "string",
-      "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "clusterId",
-    "projectId",
-    "zone"
-  ]
-}
+
+```js
+google_container.projects.zones.clusters.legacyAbac({
+  "clusterId": "",
+  "projectId": "",
+  "zone": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: projects.zones.clusters.nodePools.list
+
+#### Parameters
+* body (object) - SetLegacyAbacRequest enables or disables the ABAC authorization mechanism for
+* clusterId (string) **required** - The name of the cluster to update.
+* projectId (string) **required** - The Google Developers Console [project ID or project
+* zone (string) **required** - The name of the Google Compute Engine
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.zones.clusters.nodePools.list
 Lists the node pools for a cluster.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "clusterId": {
-      "type": "string",
-      "description": "The name of the cluster."
-    },
-    "projectId": {
-      "type": "string",
-      "description": "The Google Developers Console [project ID or project\nnumber](https://developers.google.com/console/help/new/#projectnumber)."
-    },
-    "zone": {
-      "type": "string",
-      "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "clusterId",
-    "projectId",
-    "zone"
-  ]
-}
+
+```js
+google_container.projects.zones.clusters.nodePools.list({
+  "clusterId": "",
+  "projectId": "",
+  "zone": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListNodePoolsResponse"
-}
-```
-## Operation: projects.zones.clusters.nodePools.create
+
+#### Parameters
+* clusterId (string) **required** - The name of the cluster.
+* projectId (string) **required** - The Google Developers Console [project ID or project
+* zone (string) **required** - The name of the Google Compute Engine
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.zones.clusters.nodePools.create
 Creates a node pool for a cluster.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CreateNodePoolRequest"
-    },
-    "clusterId": {
-      "type": "string",
-      "description": "The name of the cluster."
-    },
-    "projectId": {
-      "type": "string",
-      "description": "The Google Developers Console [project ID or project\nnumber](https://developers.google.com/console/help/new/#projectnumber)."
-    },
-    "zone": {
-      "type": "string",
-      "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "clusterId",
-    "projectId",
-    "zone"
-  ]
-}
+
+```js
+google_container.projects.zones.clusters.nodePools.create({
+  "clusterId": "",
+  "projectId": "",
+  "zone": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: projects.zones.clusters.nodePools.delete
+
+#### Parameters
+* body (object) - CreateNodePoolRequest creates a node pool for a cluster.
+* clusterId (string) **required** - The name of the cluster.
+* projectId (string) **required** - The Google Developers Console [project ID or project
+* zone (string) **required** - The name of the Google Compute Engine
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.zones.clusters.nodePools.delete
 Deletes a node pool from a cluster.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "clusterId": {
-      "type": "string",
-      "description": "The name of the cluster."
-    },
-    "nodePoolId": {
-      "type": "string",
-      "description": "The name of the node pool to delete."
-    },
-    "projectId": {
-      "type": "string",
-      "description": "The Google Developers Console [project ID or project\nnumber](https://developers.google.com/console/help/new/#projectnumber)."
-    },
-    "zone": {
-      "type": "string",
-      "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "clusterId",
-    "nodePoolId",
-    "projectId",
-    "zone"
-  ]
-}
+
+```js
+google_container.projects.zones.clusters.nodePools.delete({
+  "clusterId": "",
+  "nodePoolId": "",
+  "projectId": "",
+  "zone": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: projects.zones.clusters.nodePools.get
+
+#### Parameters
+* clusterId (string) **required** - The name of the cluster.
+* nodePoolId (string) **required** - The name of the node pool to delete.
+* projectId (string) **required** - The Google Developers Console [project ID or project
+* zone (string) **required** - The name of the Google Compute Engine
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.zones.clusters.nodePools.get
 Retrieves the node pool requested.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "clusterId": {
-      "type": "string",
-      "description": "The name of the cluster."
-    },
-    "nodePoolId": {
-      "type": "string",
-      "description": "The name of the node pool."
-    },
-    "projectId": {
-      "type": "string",
-      "description": "The Google Developers Console [project ID or project\nnumber](https://developers.google.com/console/help/new/#projectnumber)."
-    },
-    "zone": {
-      "type": "string",
-      "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "clusterId",
-    "nodePoolId",
-    "projectId",
-    "zone"
-  ]
-}
+
+```js
+google_container.projects.zones.clusters.nodePools.get({
+  "clusterId": "",
+  "nodePoolId": "",
+  "projectId": "",
+  "zone": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NodePool"
-}
-```
-## Operation: projects.zones.clusters.nodePools.setManagement
+
+#### Parameters
+* clusterId (string) **required** - The name of the cluster.
+* nodePoolId (string) **required** - The name of the node pool.
+* projectId (string) **required** - The Google Developers Console [project ID or project
+* zone (string) **required** - The name of the Google Compute Engine
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.zones.clusters.nodePools.setManagement
 Sets the NodeManagement options for a node pool.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/SetNodePoolManagementRequest"
-    },
-    "clusterId": {
-      "type": "string",
-      "description": "The name of the cluster to update."
-    },
-    "nodePoolId": {
-      "type": "string",
-      "description": "The name of the node pool to update."
-    },
-    "projectId": {
-      "type": "string",
-      "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840)."
-    },
-    "zone": {
-      "type": "string",
-      "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "clusterId",
-    "nodePoolId",
-    "projectId",
-    "zone"
-  ]
-}
+
+```js
+google_container.projects.zones.clusters.nodePools.setManagement({
+  "clusterId": "",
+  "nodePoolId": "",
+  "projectId": "",
+  "zone": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: projects.zones.clusters.nodePools.rollback
+
+#### Parameters
+* body (object) - SetNodePoolManagementRequest sets the node management properties of a node
+* clusterId (string) **required** - The name of the cluster to update.
+* nodePoolId (string) **required** - The name of the node pool to update.
+* projectId (string) **required** - The Google Developers Console [project ID or project
+* zone (string) **required** - The name of the Google Compute Engine
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.zones.clusters.nodePools.rollback
 Roll back the previously Aborted or Failed NodePool upgrade.
 This will be an no-op if the last upgrade successfully completed.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/RollbackNodePoolUpgradeRequest"
-    },
-    "clusterId": {
-      "type": "string",
-      "description": "The name of the cluster to rollback."
-    },
-    "nodePoolId": {
-      "type": "string",
-      "description": "The name of the node pool to rollback."
-    },
-    "projectId": {
-      "type": "string",
-      "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840)."
-    },
-    "zone": {
-      "type": "string",
-      "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "clusterId",
-    "nodePoolId",
-    "projectId",
-    "zone"
-  ]
-}
+
+```js
+google_container.projects.zones.clusters.nodePools.rollback({
+  "clusterId": "",
+  "nodePoolId": "",
+  "projectId": "",
+  "zone": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: projects.zones.clusters.resourceLabels
+
+#### Parameters
+* body (object) - RollbackNodePoolUpgradeRequest rollbacks the previously Aborted or Failed
+* clusterId (string) **required** - The name of the cluster to rollback.
+* nodePoolId (string) **required** - The name of the node pool to rollback.
+* projectId (string) **required** - The Google Developers Console [project ID or project
+* zone (string) **required** - The name of the Google Compute Engine
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.zones.clusters.resourceLabels
 Sets labels on a cluster.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/SetLabelsRequest"
-    },
-    "clusterId": {
-      "type": "string",
-      "description": "The name of the cluster."
-    },
-    "projectId": {
-      "type": "string",
-      "description": "The Google Developers Console [project ID or project\nnumber](https://developers.google.com/console/help/new/#projectnumber)."
-    },
-    "zone": {
-      "type": "string",
-      "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "clusterId",
-    "projectId",
-    "zone"
-  ]
-}
+
+```js
+google_container.projects.zones.clusters.resourceLabels({
+  "clusterId": "",
+  "projectId": "",
+  "zone": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: projects.zones.clusters.setMasterAuth
+
+#### Parameters
+* body (object) - SetLabelsRequest sets the Google Cloud Platform labels on a Google Container
+* clusterId (string) **required** - The name of the cluster.
+* projectId (string) **required** - The Google Developers Console [project ID or project
+* zone (string) **required** - The name of the Google Compute Engine
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.zones.clusters.setMasterAuth
 Used to set master auth materials. Currently supports :-
 Changing the admin password of a specific cluster.
 This can be either via password generation or explicitly set the password.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/SetMasterAuthRequest"
-    },
-    "clusterId": {
-      "type": "string",
-      "description": "The name of the cluster to upgrade."
-    },
-    "projectId": {
-      "type": "string",
-      "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840)."
-    },
-    "zone": {
-      "type": "string",
-      "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "clusterId",
-    "projectId",
-    "zone"
-  ]
-}
+
+```js
+google_container.projects.zones.clusters.setMasterAuth({
+  "clusterId": "",
+  "projectId": "",
+  "zone": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: projects.zones.operations.list
+
+#### Parameters
+* body (object) - SetMasterAuthRequest updates the admin password of a cluster.
+* clusterId (string) **required** - The name of the cluster to upgrade.
+* projectId (string) **required** - The Google Developers Console [project ID or project
+* zone (string) **required** - The name of the Google Compute Engine
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.zones.operations.list
 Lists all operations in a project in a specific zone or all zones.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840)."
-    },
-    "zone": {
-      "type": "string",
-      "description": "The name of the Google Compute Engine [zone](/compute/docs/zones#available)\nto return operations for, or `-` for all zones."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "zone"
-  ]
-}
+
+```js
+google_container.projects.zones.operations.list({
+  "projectId": "",
+  "zone": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListOperationsResponse"
-}
-```
-## Operation: projects.zones.operations.get
+
+#### Parameters
+* projectId (string) **required** - The Google Developers Console [project ID or project
+* zone (string) **required** - The name of the Google Compute Engine [zone](/compute/docs/zones#available)
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.zones.operations.get
 Gets the specified operation.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "operationId": {
-      "type": "string",
-      "description": "The server-assigned `name` of the operation."
-    },
-    "projectId": {
-      "type": "string",
-      "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840)."
-    },
-    "zone": {
-      "type": "string",
-      "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the cluster\nresides."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "operationId",
-    "projectId",
-    "zone"
-  ]
-}
+
+```js
+google_container.projects.zones.operations.get({
+  "operationId": "",
+  "projectId": "",
+  "zone": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: projects.zones.operations.cancel
+
+#### Parameters
+* operationId (string) **required** - The server-assigned `name` of the operation.
+* projectId (string) **required** - The Google Developers Console [project ID or project
+* zone (string) **required** - The name of the Google Compute Engine
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.zones.operations.cancel
 Cancels the specified operation.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CancelOperationRequest"
-    },
-    "operationId": {
-      "type": "string",
-      "description": "The server-assigned `name` of the operation."
-    },
-    "projectId": {
-      "type": "string",
-      "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840)."
-    },
-    "zone": {
-      "type": "string",
-      "description": "The name of the Google Compute Engine\n[zone](/compute/docs/zones#available) in which the operation resides."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "operationId",
-    "projectId",
-    "zone"
-  ]
-}
+
+```js
+google_container.projects.zones.operations.cancel({
+  "operationId": "",
+  "projectId": "",
+  "zone": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Empty"
-}
-```
-## Operation: projects.zones.getServerconfig
+
+#### Parameters
+* body (object) - CancelOperationRequest cancels a single operation.
+* operationId (string) **required** - The server-assigned `name` of the operation.
+* projectId (string) **required** - The Google Developers Console [project ID or project
+* zone (string) **required** - The name of the Google Compute Engine
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.zones.getServerconfig
 Returns configuration info about the Container Engine service.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "The Google Developers Console [project ID or project\nnumber](https://support.google.com/cloud/answer/6158840)."
-    },
-    "zone": {
-      "type": "string",
-      "description": "The name of the Google Compute Engine [zone](/compute/docs/zones#available)\nto return operations for."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "zone"
-  ]
-}
+
+```js
+google_container.projects.zones.getServerconfig({
+  "projectId": "",
+  "zone": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ServerConfig"
-}
-```
+
+#### Parameters
+* projectId (string) **required** - The Google Developers Console [project ID or project
+* zone (string) **required** - The name of the Google Compute Engine [zone](/compute/docs/zones#available)
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+

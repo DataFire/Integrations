@@ -1,53 +1,45 @@
 # @datafire/deutschebahn_betriebsstellen
+
+Client library for Betriebsstellen
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/deutschebahn_betriebsstellen
+```
+
+```js
+let datafire = require('datafire');
+let deutschebahn_betriebsstellen = require('@datafire/deutschebahn_betriebsstellen').actions;
+let context = new datafire.Context();
+
+deutschebahn_betriebsstellen.betriebsstellen.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 This REST-API enables you to query station and stop infos
 
-## Operation: betriebsstellen.get
+## Actions
+### betriebsstellen.get
 Get all station and stop infos
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "A station name or part of it"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+deutschebahn_betriebsstellen.betriebsstellen.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/StationList"
-}
-```
-## Operation: betriebsstellen.abbrev.get
+
+
+### betriebsstellen.abbrev.get
 Get information about a specific station or stop by abbrevation
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "abbrev": {
-      "type": "string",
-      "description": "Station or stop abbrevation"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "abbrev"
-  ]
-}
+
+```js
+deutschebahn_betriebsstellen.betriebsstellen.abbrev.get({
+  "abbrev": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Station"
-}
-```
+
+#### Parameters
+* abbrev (string) **required** - Station or stop abbrevation
+

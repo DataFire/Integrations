@@ -1,1195 +1,547 @@
 # @datafire/azure_arm_servermanagement
+
+Client library for ServerManagement
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/azure_arm_servermanagement
+```
+
+```js
+let datafire = require('datafire');
+let azure_arm_servermanagement = require('@datafire/azure_arm_servermanagement').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    azure_arm_servermanagement: account,
+  }
+})
+
+
+azure_arm_servermanagement.Gateway_List({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 REST API for Azure Server Management Service.
 
-## Operation: Gateway_List
+## Actions
+### Gateway_List
 Returns gateways in a subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_servermanagement.Gateway_List({
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GatewayResources"
-}
-```
-## Operation: Node_List
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+
+### Node_List
 Lists nodes in a subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_servermanagement.Node_List({
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NodeResources"
-}
-```
-## Operation: Gateway_ListForResourceGroup
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+
+### Gateway_ListForResourceGroup
 Returns gateways in a resource group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName"
-  ]
-}
+
+```js
+azure_arm_servermanagement.Gateway_ListForResourceGroup({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GatewayResources"
-}
-```
-## Operation: Gateway_Delete
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+
+### Gateway_Delete
 Deletes a gateway from a resource group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    },
-    "gatewayName": {
-      "type": "string",
-      "description": "The gateway name (256 characters maximum).",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 256,
-      "minLength": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "gatewayName"
-  ]
-}
+
+```js
+azure_arm_servermanagement.Gateway_Delete({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "gatewayName": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Gateway_Get
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+* gatewayName (string) **required** - The gateway name (256 characters maximum).
+
+### Gateway_Get
 Gets a gateway.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    },
-    "gatewayName": {
-      "type": "string",
-      "description": "The gateway name (256 characters maximum)",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "$expand": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.",
-      "enum": [
-        "status",
-        "download"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "gatewayName"
-  ]
-}
+
+```js
+azure_arm_servermanagement.Gateway_Get({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "gatewayName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GatewayResource"
-}
-```
-## Operation: Gateway_Update
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+* gatewayName (string) **required** - The gateway name (256 characters maximum)
+* $expand (string) - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Gateway_Update
 Updates a gateway belonging to a resource group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    },
-    "gatewayName": {
-      "type": "string",
-      "description": "The gateway name (256 characters maximum).",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "GatewayParameters": {
-      "$ref": "#/definitions/GatewayParameters"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "gatewayName",
-    "GatewayParameters"
-  ]
-}
+
+```js
+azure_arm_servermanagement.Gateway_Update({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "gatewayName": "",
+  "GatewayParameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GatewayResource"
-}
-```
-## Operation: Gateway_Create
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+* gatewayName (string) **required** - The gateway name (256 characters maximum).
+* GatewayParameters (undefined) **required** - Collection of parameters for operations on a gateway resource.
+
+### Gateway_Create
 Creates or updates a ManagementService gateway.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    },
-    "gatewayName": {
-      "type": "string",
-      "description": "The gateway name (256 characters maximum).",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "GatewayParameters": {
-      "$ref": "#/definitions/GatewayParameters"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "gatewayName",
-    "GatewayParameters"
-  ]
-}
+
+```js
+azure_arm_servermanagement.Gateway_Create({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "gatewayName": "",
+  "GatewayParameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GatewayResource"
-}
-```
-## Operation: Gateway_GetProfile
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+* gatewayName (string) **required** - The gateway name (256 characters maximum).
+* GatewayParameters (undefined) **required** - Collection of parameters for operations on a gateway resource.
+
+### Gateway_GetProfile
 Gets a gateway profile.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    },
-    "gatewayName": {
-      "type": "string",
-      "description": "The gateway name (256 characters maximum).",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 256,
-      "minLength": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "gatewayName"
-  ]
-}
+
+```js
+azure_arm_servermanagement.Gateway_GetProfile({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "gatewayName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GatewayProfile"
-}
-```
-## Operation: Gateway_RegenerateProfile
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+* gatewayName (string) **required** - The gateway name (256 characters maximum).
+
+### Gateway_RegenerateProfile
 Regenerate a gateway's profile
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    },
-    "gatewayName": {
-      "type": "string",
-      "description": "The gateway name (256 characters maximum).",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 256,
-      "minLength": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "gatewayName"
-  ]
-}
+
+```js
+azure_arm_servermanagement.Gateway_RegenerateProfile({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "gatewayName": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Gateway_Upgrade
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+* gatewayName (string) **required** - The gateway name (256 characters maximum).
+
+### Gateway_Upgrade
 Upgrades a gateway.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    },
-    "gatewayName": {
-      "type": "string",
-      "description": "The gateway name (256 characters maximum).",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 256,
-      "minLength": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "gatewayName"
-  ]
-}
+
+```js
+azure_arm_servermanagement.Gateway_Upgrade({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "gatewayName": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Node_ListForResourceGroup
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+* gatewayName (string) **required** - The gateway name (256 characters maximum).
+
+### Node_ListForResourceGroup
 Lists nodes in a resource group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName"
-  ]
-}
+
+```js
+azure_arm_servermanagement.Node_ListForResourceGroup({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NodeResources"
-}
-```
-## Operation: Node_Delete
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+
+### Node_Delete
 deletes a management node
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    },
-    "nodeName": {
-      "type": "string",
-      "description": "The node name (256 characters maximum).",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 256,
-      "minLength": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "nodeName"
-  ]
-}
+
+```js
+azure_arm_servermanagement.Node_Delete({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "nodeName": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Node_Get
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+* nodeName (string) **required** - The node name (256 characters maximum).
+
+### Node_Get
 Gets a management node.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    },
-    "nodeName": {
-      "type": "string",
-      "description": "The node name (256 characters maximum).",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 256,
-      "minLength": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "nodeName"
-  ]
-}
+
+```js
+azure_arm_servermanagement.Node_Get({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "nodeName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NodeResource"
-}
-```
-## Operation: Node_Update
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+* nodeName (string) **required** - The node name (256 characters maximum).
+
+### Node_Update
 Updates a management node.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    },
-    "nodeName": {
-      "type": "string",
-      "description": "The node name (256 characters maximum).",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "NodeParameters": {
-      "$ref": "#/definitions/NodeParameters"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "nodeName",
-    "NodeParameters"
-  ]
-}
+
+```js
+azure_arm_servermanagement.Node_Update({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "nodeName": "",
+  "NodeParameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NodeResource"
-}
-```
-## Operation: Node_Create
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+* nodeName (string) **required** - The node name (256 characters maximum).
+* NodeParameters (undefined) **required** - Parameter collection for operations on arm node resource.
+
+### Node_Create
 Creates or updates a management node.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    },
-    "nodeName": {
-      "type": "string",
-      "description": "The node name (256 characters maximum).",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "GatewayParameters": {
-      "$ref": "#/definitions/NodeParameters"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "nodeName",
-    "GatewayParameters"
-  ]
-}
+
+```js
+azure_arm_servermanagement.Node_Create({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "nodeName": "",
+  "GatewayParameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NodeResource"
-}
-```
-## Operation: Session_Delete
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+* nodeName (string) **required** - The node name (256 characters maximum).
+* GatewayParameters (undefined) **required** - Parameter collection for operations on arm node resource.
+
+### Session_Delete
 Deletes a session for a node.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    },
-    "nodeName": {
-      "type": "string",
-      "description": "The node name (256 characters maximum).",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "session": {
-      "type": "string",
-      "description": "The sessionId from the user."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "nodeName",
-    "session"
-  ]
-}
+
+```js
+azure_arm_servermanagement.Session_Delete({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "nodeName": "",
+  "session": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Session_Get
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+* nodeName (string) **required** - The node name (256 characters maximum).
+* session (string) **required** - The sessionId from the user.
+
+### Session_Get
 Gets a session for a node.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    },
-    "nodeName": {
-      "type": "string",
-      "description": "The node name (256 characters maximum).",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "session": {
-      "type": "string",
-      "description": "The sessionId from the user."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "nodeName",
-    "session"
-  ]
-}
+
+```js
+azure_arm_servermanagement.Session_Get({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "nodeName": "",
+  "session": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SessionResource"
-}
-```
-## Operation: Session_Create
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+* nodeName (string) **required** - The node name (256 characters maximum).
+* session (string) **required** - The sessionId from the user.
+
+### Session_Create
 Creates a session for a node.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    },
-    "nodeName": {
-      "type": "string",
-      "description": "The node name (256 characters maximum).",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "session": {
-      "type": "string",
-      "description": "The sessionId from the user."
-    },
-    "SessionParameters": {
-      "$ref": "#/definitions/SessionParameters"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "nodeName",
-    "session",
-    "SessionParameters"
-  ]
-}
+
+```js
+azure_arm_servermanagement.Session_Create({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "nodeName": "",
+  "session": "",
+  "SessionParameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SessionResource"
-}
-```
-## Operation: PowerShell_ListSession
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+* nodeName (string) **required** - The node name (256 characters maximum).
+* session (string) **required** - The sessionId from the user.
+* SessionParameters (undefined) **required** - Parameter collection for creation and other operations on sessions.
+
+### PowerShell_ListSession
 Gets a list of the active sessions.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    },
-    "nodeName": {
-      "type": "string",
-      "description": "The node name (256 characters maximum).",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "session": {
-      "type": "string",
-      "description": "The sessionId from the user."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "nodeName",
-    "session"
-  ]
-}
+
+```js
+azure_arm_servermanagement.PowerShell_ListSession({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "nodeName": "",
+  "session": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PowerShellSessionResources"
-}
-```
-## Operation: PowerShell_GetCommandStatus
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+* nodeName (string) **required** - The node name (256 characters maximum).
+* session (string) **required** - The sessionId from the user.
+
+### PowerShell_GetCommandStatus
 Gets the status of a command.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    },
-    "nodeName": {
-      "type": "string",
-      "description": "The node name (256 characters maximum).",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "session": {
-      "type": "string",
-      "description": "The sessionId from the user."
-    },
-    "pssession": {
-      "type": "string",
-      "description": "The PowerShell sessionId from the user."
-    },
-    "$expand": {
-      "type": "string",
-      "description": "Gets current output from an ongoing call.",
-      "enum": [
-        "output"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "nodeName",
-    "session",
-    "pssession"
-  ]
-}
+
+```js
+azure_arm_servermanagement.PowerShell_GetCommandStatus({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "nodeName": "",
+  "session": "",
+  "pssession": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PowerShellCommandStatus"
-}
-```
-## Operation: PowerShell_UpdateCommand
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+* nodeName (string) **required** - The node name (256 characters maximum).
+* session (string) **required** - The sessionId from the user.
+* pssession (string) **required** - The PowerShell sessionId from the user.
+* $expand (string) - Gets current output from an ongoing call.
+
+### PowerShell_UpdateCommand
 Updates a running PowerShell command with more data.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    },
-    "nodeName": {
-      "type": "string",
-      "description": "The node name (256 characters maximum).",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "session": {
-      "type": "string",
-      "description": "The sessionId from the user."
-    },
-    "pssession": {
-      "type": "string",
-      "description": "The PowerShell sessionId from the user."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "nodeName",
-    "session",
-    "pssession"
-  ]
-}
+
+```js
+azure_arm_servermanagement.PowerShell_UpdateCommand({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "nodeName": "",
+  "session": "",
+  "pssession": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PowerShellCommandResults"
-}
-```
-## Operation: PowerShell_CreateSession
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+* nodeName (string) **required** - The node name (256 characters maximum).
+* session (string) **required** - The sessionId from the user.
+* pssession (string) **required** - The PowerShell sessionId from the user.
+
+### PowerShell_CreateSession
 Creates a PowerShell session.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    },
-    "nodeName": {
-      "type": "string",
-      "description": "The node name (256 characters maximum).",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "session": {
-      "type": "string",
-      "description": "The sessionId from the user."
-    },
-    "pssession": {
-      "type": "string",
-      "description": "The PowerShell sessionId from the user."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "nodeName",
-    "session",
-    "pssession"
-  ]
-}
+
+```js
+azure_arm_servermanagement.PowerShell_CreateSession({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "nodeName": "",
+  "session": "",
+  "pssession": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PowerShellSessionResource"
-}
-```
-## Operation: PowerShell_CancelCommand
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+* nodeName (string) **required** - The node name (256 characters maximum).
+* session (string) **required** - The sessionId from the user.
+* pssession (string) **required** - The PowerShell sessionId from the user.
+
+### PowerShell_CancelCommand
 Cancels a PowerShell command.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    },
-    "nodeName": {
-      "type": "string",
-      "description": "The node name (256 characters maximum).",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "session": {
-      "type": "string",
-      "description": "The sessionId from the user."
-    },
-    "pssession": {
-      "type": "string",
-      "description": "The PowerShell sessionId from the user."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "nodeName",
-    "session",
-    "pssession"
-  ]
-}
+
+```js
+azure_arm_servermanagement.PowerShell_CancelCommand({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "nodeName": "",
+  "session": "",
+  "pssession": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PowerShellCommandResults"
-}
-```
-## Operation: PowerShell_InvokeCommand
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+* nodeName (string) **required** - The node name (256 characters maximum).
+* session (string) **required** - The sessionId from the user.
+* pssession (string) **required** - The PowerShell sessionId from the user.
+
+### PowerShell_InvokeCommand
 Creates a PowerShell script and invokes it.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    },
-    "nodeName": {
-      "type": "string",
-      "description": "The node name (256 characters maximum).",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "session": {
-      "type": "string",
-      "description": "The sessionId from the user."
-    },
-    "pssession": {
-      "type": "string",
-      "description": "The PowerShell sessionId from the user."
-    },
-    "PowerShellCommandParameters": {
-      "$ref": "#/definitions/PowerShellCommandParameters"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "nodeName",
-    "session",
-    "pssession",
-    "PowerShellCommandParameters"
-  ]
-}
+
+```js
+azure_arm_servermanagement.PowerShell_InvokeCommand({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "nodeName": "",
+  "session": "",
+  "pssession": "",
+  "PowerShellCommandParameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PowerShellCommandResults"
-}
-```
-## Operation: PowerShell_TabCompletion
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+* nodeName (string) **required** - The node name (256 characters maximum).
+* session (string) **required** - The sessionId from the user.
+* pssession (string) **required** - The PowerShell sessionId from the user.
+* PowerShellCommandParameters (undefined) **required** - The parameters to a PowerShell script execution command.
+
+### PowerShell_TabCompletion
 Gets tab completion values for a command.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name uniquely identifies the resource group within the user subscriptionId.",
-      "pattern": "[a-zA-Z0-9]+",
-      "minLength": 3
-    },
-    "nodeName": {
-      "type": "string",
-      "description": "The node name (256 characters maximum).",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "session": {
-      "type": "string",
-      "description": "The sessionId from the user."
-    },
-    "pssession": {
-      "type": "string",
-      "description": "The PowerShell sessionId from the user."
-    },
-    "PowerShellTabCompletionParamters": {
-      "$ref": "#/definitions/PowerShellTabCompletionParameters"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "nodeName",
-    "session",
-    "pssession",
-    "PowerShellTabCompletionParamters"
-  ]
-}
+
+```js
+azure_arm_servermanagement.PowerShell_TabCompletion({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "nodeName": "",
+  "session": "",
+  "pssession": "",
+  "PowerShellTabCompletionParamters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PowerShellTabCompletionResults"
-}
-```
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client API Version.
+* resourceGroupName (string) **required** - The resource group name uniquely identifies the resource group within the user subscriptionId.
+* nodeName (string) **required** - The node name (256 characters maximum).
+* session (string) **required** - The sessionId from the user.
+* pssession (string) **required** - The PowerShell sessionId from the user.
+* PowerShellTabCompletionParamters (undefined) **required** - Collection of parameters for PowerShell tab completion.
+

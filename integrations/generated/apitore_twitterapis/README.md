@@ -1,128 +1,73 @@
 # @datafire/apitore_twitterapis
+
+Client library for Twitter APIs
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/apitore_twitterapis
+```
+
+```js
+let datafire = require('datafire');
+let apitore_twitterapis = require('@datafire/apitore_twitterapis').actions;
+let context = new datafire.Context();
+
+apitore_twitterapis.myTimelineUsingGET({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Call Twitter APIs.<BR />[Endpoint] https://api.apitore.com/api/23
 
-## Operation: myTimelineUsingGET
+## Actions
+### myTimelineUsingGET
 Get my timeline tweets.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/twitter-response">twitter-response</a><BR />&nbsp; Class: com.apitore.banana.response.twitter.TwitterResponseEntity<BR />
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access Token"
-    },
-    "sinceId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Get after this id."
-    },
-    "maxId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Get before this id."
-    },
-    "iter": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Numof requests. Return up to 200 x iter tweets."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token"
-  ]
-}
+
+```js
+apitore_twitterapis.myTimelineUsingGET({
+  "access_token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TwitterResponseEntity"
-}
-```
-## Operation: myTweetUsingGET
+
+#### Parameters
+* access_token (string) **required** - Access Token
+* sinceId (integer) - Get after this id.
+* maxId (integer) - Get before this id.
+* iter (integer) - Numof requests. Return up to 200 x iter tweets.
+
+### myTweetUsingGET
 Get my tweets.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/twitter-response">twitter-response</a><BR />&nbsp; Class: com.apitore.banana.response.twitter.TwitterResponseEntity<BR />
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access Token"
-    },
-    "sinceId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Get after this id."
-    },
-    "maxId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Get before this id."
-    },
-    "iter": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Numof requests. Return up to 200 x iter tweets."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token"
-  ]
-}
+
+```js
+apitore_twitterapis.myTweetUsingGET({
+  "access_token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TwitterResponseEntity"
-}
-```
-## Operation: searchUsingGET
+
+#### Parameters
+* access_token (string) **required** - Access Token
+* sinceId (integer) - Get after this id.
+* maxId (integer) - Get before this id.
+* iter (integer) - Numof requests. Return up to 200 x iter tweets.
+
+### searchUsingGET
 Tweets search API.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/twitter-response">twitter-response</a><BR />&nbsp; Class: com.apitore.banana.response.twitter.TwitterResponseEntity<BR />
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access Token"
-    },
-    "q": {
-      "type": "string",
-      "description": "Search query"
-    },
-    "sinceId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Search after this id."
-    },
-    "maxId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Search before this id."
-    },
-    "iter": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Numof search requests. Return up to 100 x iter tweets."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "q"
-  ]
-}
+
+```js
+apitore_twitterapis.searchUsingGET({
+  "access_token": "",
+  "q": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TwitterResponseEntity"
-}
-```
+
+#### Parameters
+* access_token (string) **required** - Access Token
+* q (string) **required** - Search query
+* sinceId (integer) - Search after this id.
+* maxId (integer) - Search before this id.
+* iter (integer) - Numof search requests. Return up to 100 x iter tweets.
+

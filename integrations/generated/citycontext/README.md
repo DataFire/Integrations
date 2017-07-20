@@ -1,89 +1,73 @@
 # @datafire/citycontext
+
+Client library for City Context
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/citycontext
+```
+
+```js
+let datafire = require('datafire');
+let citycontext = require('@datafire/citycontext').actions;
+
+let account = {
+  user_key: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    citycontext: account,
+  }
+})
+
+
+citycontext.byPoint({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 City Context provides a straightforward API to access UK Open Data: crime statistics, schools, demographics and more.
 
-## Operation: byPoint
+## Actions
+### byPoint
 Query by coordinates (SRID 4326 - decimal degrees)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "lat": {
-      "type": "number",
-      "format": "float",
-      "description": "Latitude"
-    },
-    "lon": {
-      "type": "number",
-      "format": "float",
-      "description": "Longitude"
-    },
-    "school_search_radius": {
-      "type": "integer",
-      "description": "Search radius for schools, in metres, between 100 and 4000"
-    },
-    "park_search_radius": {
-      "type": "integer",
-      "description": "Search radius for parks, in metres, between 100 and 2000"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "lat",
-    "lon"
-  ]
-}
+
+```js
+citycontext.byPoint({
+  "lat": 0,
+  "lon": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PointInfo"
-}
-```
-## Operation: byPostcode
+
+#### Parameters
+* lat (number) **required** - Latitude
+* lon (number) **required** - Longitude
+* school_search_radius (integer) - Search radius for schools, in metres, between 100 and 4000
+* park_search_radius (integer) - Search radius for parks, in metres, between 100 and 2000
+
+### byPostcode
 Query by postcode
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "postcode": {
-      "type": "string",
-      "description": "Postcode"
-    },
-    "school_search_radius": {
-      "type": "integer",
-      "description": "Search radius for schools, in metres, between 100 and 4000"
-    },
-    "park_search_radius": {
-      "type": "integer",
-      "description": "Search radius for parks, in metres, between 100 and 2000"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "postcode"
-  ]
-}
+
+```js
+citycontext.byPostcode({
+  "postcode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PointInfo"
-}
-```
-## Operation: usage
+
+#### Parameters
+* postcode (string) **required** - Postcode
+* school_search_radius (integer) - Search radius for schools, in metres, between 100 and 4000
+* park_search_radius (integer) - Search radius for parks, in metres, between 100 and 2000
+
+### usage
 Get usage in current month
 
-### Input Schema
-```json
-{}
+
+```js
+citycontext.usage(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Usage"
-}
-```
+
+

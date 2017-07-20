@@ -1,4 +1,32 @@
 # @datafire/appveyor
+
+Client library for AppVeyor
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/appveyor
+```
+
+```js
+let datafire = require('datafire');
+let appveyor = require('@datafire/appveyor').actions;
+
+let account = {
+  apiToken: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    appveyor: account,
+  }
+})
+
+
+appveyor.encryptValue({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 AppVeyor is a hosted continuous integration service which runs on Microsoft
 Windows.  The AppVeyor REST API provides a RESTful way to interact with the
 AppVeyor service.  This includes managing projects, builds, deployments,
@@ -19,1258 +47,660 @@ typically reset to their default values.  So although most fields are not
 technically required, they should usually be specified in practice.
 
 
-## Operation: encryptValue
+## Actions
+### encryptValue
 Encrypt a value for use in StoredValue.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/EncryptRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+appveyor.encryptValue({
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: getBuildLog
+
+#### Parameters
+* body (object) **required**
+
+### getBuildLog
 Download build log
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "jobId": {
-      "type": "string",
-      "description": "Build ID (`jobId` property of `BuildJob`)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "jobId"
-  ]
-}
+
+```js
+appveyor.getBuildLog({
+  "jobId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "file"
-}
-```
-## Operation: startBuild
+
+#### Parameters
+* jobId (string) **required** - Build ID (`jobId` property of `BuildJob`)
+
+### startBuild
 Start build of branch most recent commit
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/BuildStartRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+appveyor.startBuild({
+  "body": {
+    "accountName": "",
+    "projectSlug": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Build"
-}
-```
-## Operation: cancelBuild
+
+#### Parameters
+* body (object) **required**
+
+### cancelBuild
 Cancel build
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "accountName": {
-      "type": "string",
-      "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
-      "minLength": 1
-    },
-    "projectSlug": {
-      "type": "string",
-      "description": "Project Slug"
-    },
-    "buildVersion": {
-      "type": "string",
-      "description": "Build Version (`version` property of `Build`)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "accountName",
-    "projectSlug",
-    "buildVersion"
-  ]
-}
+
+```js
+appveyor.cancelBuild({
+  "accountName": "",
+  "projectSlug": "",
+  "buildVersion": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCollaborators
+
+#### Parameters
+* accountName (string) **required** - AppVeyor account name (`accountName` property of `UserAccount`)
+* projectSlug (string) **required** - Project Slug
+* buildVersion (string) **required** - Build Version (`version` property of `Build`)
+
+### getCollaborators
 Get collaborators
 
-### Input Schema
-```json
-{}
+
+```js
+appveyor.getCollaborators(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/UserAccount"
-  },
-  "type": "array"
-}
-```
-## Operation: addCollaborator
+
+
+### addCollaborator
 Add collaborator
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CollaboratorAddition"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+appveyor.addCollaborator({
+  "body": {
+    "email": "",
+    "roleId": 0
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateCollaborator
+
+#### Parameters
+* body (object) **required** - Technically `roleId` has default value 0 and is not required, but
+
+### updateCollaborator
 Update collaborator
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CollaboratorUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+appveyor.updateCollaborator({
+  "body": {
+    "userId": 0,
+    "roleId": 0
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteCollaborator
+
+#### Parameters
+* body (object) **required** - Technically `userId` and `roleId` have default value 0 and are not
+
+### deleteCollaborator
 Delete collaborator
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "userId": {
-      "type": "integer",
-      "description": "User ID",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "userId"
-  ]
-}
+
+```js
+appveyor.deleteCollaborator({
+  "userId": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCollaborator
+
+#### Parameters
+* userId (integer) **required** - User ID
+
+### getCollaborator
 Get collaborator
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "userId": {
-      "type": "integer",
-      "description": "User ID",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "userId"
-  ]
-}
+
+```js
+appveyor.getCollaborator({
+  "userId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserAccountRolesResults"
-}
-```
-## Operation: startDeployment
+
+#### Parameters
+* userId (integer) **required** - User ID
+
+### startDeployment
 Start deployment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeploymentStartRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+appveyor.startDeployment({
+  "body": {
+    "environmentName": "",
+    "accountName": "",
+    "projectSlug": "",
+    "buildVersion": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Deployment"
-}
-```
-## Operation: cancelDeployment
+
+#### Parameters
+* body (object) **required**
+
+### cancelDeployment
 Cancel deployment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeploymentCancellation"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+appveyor.cancelDeployment({
+  "body": {
+    "deploymentId": 0
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getDeployment
+
+#### Parameters
+* body (object) **required**
+
+### getDeployment
 Get deployment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deploymentId": {
-      "type": "integer",
-      "description": "Deployment ID (`deploymentId` property of `Deployment`)",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "deploymentId"
-  ]
-}
+
+```js
+appveyor.getDeployment({
+  "deploymentId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectDeployment"
-}
-```
-## Operation: getEnvironments
+
+#### Parameters
+* deploymentId (integer) **required** - Deployment ID (`deploymentId` property of `Deployment`)
+
+### getEnvironments
 Get environments
 
-### Input Schema
-```json
-{}
+
+```js
+appveyor.getEnvironments(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/DeploymentEnvironmentLookupModel"
-  },
-  "type": "array"
-}
-```
-## Operation: addEnvironment
+
+
+### addEnvironment
 Add environment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeploymentEnvironmentAddition"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+appveyor.addEnvironment({
+  "body": {
+    "name": "",
+    "provider": "",
+    "settings": {}
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeploymentEnvironmentWithSettings"
-}
-```
-## Operation: updateEnvironment
+
+#### Parameters
+* body (object) **required**
+
+### updateEnvironment
 Update environment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeploymentEnvironmentWithSettings"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+appveyor.updateEnvironment({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeploymentEnvironmentWithSettings"
-}
-```
-## Operation: deleteEnvironment
+
+#### Parameters
+* body (undefined) **required**
+
+### deleteEnvironment
 Delete environment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deploymentEnvironmentId": {
-      "type": "integer",
-      "description": "Deployment Environment ID (`deploymentEnvironmentId` property of `DeploymentEnvironment`)\n",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "deploymentEnvironmentId"
-  ]
-}
+
+```js
+appveyor.deleteEnvironment({
+  "deploymentEnvironmentId": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getEnvironmentDeployments
+
+#### Parameters
+* deploymentEnvironmentId (integer) **required** - Deployment Environment ID (`deploymentEnvironmentId` property of `DeploymentEnvironment`)
+
+### getEnvironmentDeployments
 Get environment deployments
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deploymentEnvironmentId": {
-      "type": "integer",
-      "description": "Deployment Environment ID (`deploymentEnvironmentId` property of `DeploymentEnvironment`)\n",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "deploymentEnvironmentId"
-  ]
-}
+
+```js
+appveyor.getEnvironmentDeployments({
+  "deploymentEnvironmentId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeploymentEnvironmentDeploymentsResults"
-}
-```
-## Operation: getEnvironmentSettings
+
+#### Parameters
+* deploymentEnvironmentId (integer) **required** - Deployment Environment ID (`deploymentEnvironmentId` property of `DeploymentEnvironment`)
+
+### getEnvironmentSettings
 Get environment settings
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deploymentEnvironmentId": {
-      "type": "integer",
-      "description": "Deployment Environment ID (`deploymentEnvironmentId` property of `DeploymentEnvironment`)\n",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "deploymentEnvironmentId"
-  ]
-}
+
+```js
+appveyor.getEnvironmentSettings({
+  "deploymentEnvironmentId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeploymentEnvironmentSettingsResults"
-}
-```
-## Operation: getProjects
+
+#### Parameters
+* deploymentEnvironmentId (integer) **required** - Deployment Environment ID (`deploymentEnvironmentId` property of `DeploymentEnvironment`)
+
+### getProjects
 Get projects
 
-### Input Schema
-```json
-{}
+
+```js
+appveyor.getProjects(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Project"
-  },
-  "type": "array"
-}
-```
-## Operation: addProject
+
+
+### addProject
 Add project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ProjectAddition"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+appveyor.addProject({
+  "body": {
+    "repositoryProvider": "",
+    "repositoryName": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Project"
-}
-```
-## Operation: updateProject
+
+#### Parameters
+* body (object) **required** - `repositoryAuthentication` is only used for git, mercurial, subversion `repositoryProvider`.
+
+### updateProject
 Update project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ProjectWithConfiguration"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+appveyor.updateProject({
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getPublicProjectStatusBadge
+
+#### Parameters
+* body (object) **required**
+
+### getPublicProjectStatusBadge
 Get status badge image for a project with a public repository
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "branch": {
-      "type": "string",
-      "description": "Repository Branch",
-      "minLength": 1
-    },
-    "svg": {
-      "type": "boolean",
-      "description": "Return an SVG image instead of PNG?  Exclusive with `retina`."
-    },
-    "retina": {
-      "type": "boolean",
-      "description": "Return a larger image suitable for retina displays?  Exclusive with `svg`."
-    },
-    "passingText": {
-      "type": "string",
-      "description": "Text to show in badge when build is passing.",
-      "minLength": 1
-    },
-    "failingText": {
-      "type": "string",
-      "description": "Text to show in badge when build is failing.",
-      "minLength": 1
-    },
-    "pendingText": {
-      "type": "string",
-      "description": "Text to show in badge when build is pending.",
-      "minLength": 1
-    },
-    "badgeRepoProvider": {
-      "type": "string",
-      "description": "Repository provider supported for badges",
-      "enum": [
-        "bitBucket",
-        "gitHub"
-      ]
-    },
-    "repoAccountName": {
-      "type": "string",
-      "description": "Account name with repository provider",
-      "minLength": 1
-    },
-    "repoSlug": {
-      "type": "string",
-      "description": "Slug (URL component) of repository.",
-      "minLength": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "badgeRepoProvider",
-    "repoAccountName",
-    "repoSlug"
-  ]
-}
+
+```js
+appveyor.getPublicProjectStatusBadge({
+  "badgeRepoProvider": "",
+  "repoAccountName": "",
+  "repoSlug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "file"
-}
-```
-## Operation: getProjectStatusBadge
+
+#### Parameters
+* branch (string) - Repository Branch
+* svg (boolean) - Return an SVG image instead of PNG?  Exclusive with `retina`.
+* retina (boolean) - Return a larger image suitable for retina displays?  Exclusive with `svg`.
+* passingText (string) - Text to show in badge when build is passing.
+* failingText (string) - Text to show in badge when build is failing.
+* pendingText (string) - Text to show in badge when build is pending.
+* badgeRepoProvider (string) **required** - Repository provider supported for badges
+* repoAccountName (string) **required** - Account name with repository provider
+* repoSlug (string) **required** - Slug (URL component) of repository.
+
+### getProjectStatusBadge
 Get project status badge image
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "svg": {
-      "type": "boolean",
-      "description": "Return an SVG image instead of PNG?  Exclusive with `retina`."
-    },
-    "retina": {
-      "type": "boolean",
-      "description": "Return a larger image suitable for retina displays?  Exclusive with `svg`."
-    },
-    "passingText": {
-      "type": "string",
-      "description": "Text to show in badge when build is passing.",
-      "minLength": 1
-    },
-    "failingText": {
-      "type": "string",
-      "description": "Text to show in badge when build is failing.",
-      "minLength": 1
-    },
-    "pendingText": {
-      "type": "string",
-      "description": "Text to show in badge when build is pending.",
-      "minLength": 1
-    },
-    "webhookId": {
-      "type": "string",
-      "description": "Project webhook ID (`webhookId` from `ProjectWithConfiguration`)",
-      "minLength": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "webhookId"
-  ]
-}
+
+```js
+appveyor.getProjectStatusBadge({
+  "webhookId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "file"
-}
-```
-## Operation: getProjectBranchStatusBadge
+
+#### Parameters
+* svg (boolean) - Return an SVG image instead of PNG?  Exclusive with `retina`.
+* retina (boolean) - Return a larger image suitable for retina displays?  Exclusive with `svg`.
+* passingText (string) - Text to show in badge when build is passing.
+* failingText (string) - Text to show in badge when build is failing.
+* pendingText (string) - Text to show in badge when build is pending.
+* webhookId (string) **required** - Project webhook ID (`webhookId` from `ProjectWithConfiguration`)
+
+### getProjectBranchStatusBadge
 Get project branch status badge image
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "svg": {
-      "type": "boolean",
-      "description": "Return an SVG image instead of PNG?  Exclusive with `retina`."
-    },
-    "retina": {
-      "type": "boolean",
-      "description": "Return a larger image suitable for retina displays?  Exclusive with `svg`."
-    },
-    "passingText": {
-      "type": "string",
-      "description": "Text to show in badge when build is passing.",
-      "minLength": 1
-    },
-    "failingText": {
-      "type": "string",
-      "description": "Text to show in badge when build is failing.",
-      "minLength": 1
-    },
-    "pendingText": {
-      "type": "string",
-      "description": "Text to show in badge when build is pending.",
-      "minLength": 1
-    },
-    "webhookId": {
-      "type": "string",
-      "description": "Project webhook ID (`webhookId` from `ProjectWithConfiguration`)",
-      "minLength": 1
-    },
-    "buildBranch": {
-      "type": "string",
-      "description": "Build Branch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "webhookId",
-    "buildBranch"
-  ]
-}
+
+```js
+appveyor.getProjectBranchStatusBadge({
+  "webhookId": "",
+  "buildBranch": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "file"
-}
-```
-## Operation: deleteProject
+
+#### Parameters
+* svg (boolean) - Return an SVG image instead of PNG?  Exclusive with `retina`.
+* retina (boolean) - Return a larger image suitable for retina displays?  Exclusive with `svg`.
+* passingText (string) - Text to show in badge when build is passing.
+* failingText (string) - Text to show in badge when build is failing.
+* pendingText (string) - Text to show in badge when build is pending.
+* webhookId (string) **required** - Project webhook ID (`webhookId` from `ProjectWithConfiguration`)
+* buildBranch (string) **required** - Build Branch
+
+### deleteProject
 Delete project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "accountName": {
-      "type": "string",
-      "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
-      "minLength": 1
-    },
-    "projectSlug": {
-      "type": "string",
-      "description": "Project Slug"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "accountName",
-    "projectSlug"
-  ]
-}
+
+```js
+appveyor.deleteProject({
+  "accountName": "",
+  "projectSlug": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getProjectLastBuild
+
+#### Parameters
+* accountName (string) **required** - AppVeyor account name (`accountName` property of `UserAccount`)
+* projectSlug (string) **required** - Project Slug
+
+### getProjectLastBuild
 Get project last build
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "accountName": {
-      "type": "string",
-      "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
-      "minLength": 1
-    },
-    "projectSlug": {
-      "type": "string",
-      "description": "Project Slug"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "accountName",
-    "projectSlug"
-  ]
-}
+
+```js
+appveyor.getProjectLastBuild({
+  "accountName": "",
+  "projectSlug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectBuildResults"
-}
-```
-## Operation: getProjectLastBuildBranch
+
+#### Parameters
+* accountName (string) **required** - AppVeyor account name (`accountName` property of `UserAccount`)
+* projectSlug (string) **required** - Project Slug
+
+### getProjectLastBuildBranch
 Get project last branch build
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "accountName": {
-      "type": "string",
-      "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
-      "minLength": 1
-    },
-    "projectSlug": {
-      "type": "string",
-      "description": "Project Slug"
-    },
-    "buildBranch": {
-      "type": "string",
-      "description": "Build Branch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "accountName",
-    "projectSlug",
-    "buildBranch"
-  ]
-}
+
+```js
+appveyor.getProjectLastBuildBranch({
+  "accountName": "",
+  "projectSlug": "",
+  "buildBranch": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectBuildResults"
-}
-```
-## Operation: getProjectBuildByVersion
+
+#### Parameters
+* accountName (string) **required** - AppVeyor account name (`accountName` property of `UserAccount`)
+* projectSlug (string) **required** - Project Slug
+* buildBranch (string) **required** - Build Branch
+
+### getProjectBuildByVersion
 Get project build by version
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "accountName": {
-      "type": "string",
-      "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
-      "minLength": 1
-    },
-    "projectSlug": {
-      "type": "string",
-      "description": "Project Slug"
-    },
-    "buildVersion": {
-      "type": "string",
-      "description": "Build Version (`version` property of `Build`)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "accountName",
-    "projectSlug",
-    "buildVersion"
-  ]
-}
+
+```js
+appveyor.getProjectBuildByVersion({
+  "accountName": "",
+  "projectSlug": "",
+  "buildVersion": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectBuildResults"
-}
-```
-## Operation: deleteProjectBuildCache
+
+#### Parameters
+* accountName (string) **required** - AppVeyor account name (`accountName` property of `UserAccount`)
+* projectSlug (string) **required** - Project Slug
+* buildVersion (string) **required** - Build Version (`version` property of `Build`)
+
+### deleteProjectBuildCache
 Delete project build cache
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "accountName": {
-      "type": "string",
-      "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
-      "minLength": 1
-    },
-    "projectSlug": {
-      "type": "string",
-      "description": "Project Slug"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "accountName",
-    "projectSlug"
-  ]
-}
+
+```js
+appveyor.deleteProjectBuildCache({
+  "accountName": "",
+  "projectSlug": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getProjectDeployments
+
+#### Parameters
+* accountName (string) **required** - AppVeyor account name (`accountName` property of `UserAccount`)
+* projectSlug (string) **required** - Project Slug
+
+### getProjectDeployments
 Get project deployments
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "accountName": {
-      "type": "string",
-      "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
-      "minLength": 1
-    },
-    "projectSlug": {
-      "type": "string",
-      "description": "Project Slug"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "accountName",
-    "projectSlug"
-  ]
-}
+
+```js
+appveyor.getProjectDeployments({
+  "accountName": "",
+  "projectSlug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectDeploymentsResults"
-}
-```
-## Operation: getProjectHistory
+
+#### Parameters
+* accountName (string) **required** - AppVeyor account name (`accountName` property of `UserAccount`)
+* projectSlug (string) **required** - Project Slug
+
+### getProjectHistory
 Get project history
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recordsNumber": {
-      "type": "integer",
-      "description": "Number of results to include in the response.",
-      "minimum": 0
-    },
-    "startBuildId": {
-      "type": "integer",
-      "description": "Maximum `buildId` to include in the results (exclusive).",
-      "minimum": 0
-    },
-    "branch": {
-      "type": "string",
-      "description": "Repository Branch",
-      "minLength": 1
-    },
-    "accountName": {
-      "type": "string",
-      "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
-      "minLength": 1
-    },
-    "projectSlug": {
-      "type": "string",
-      "description": "Project Slug"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recordsNumber",
-    "accountName",
-    "projectSlug"
-  ]
-}
+
+```js
+appveyor.getProjectHistory({
+  "recordsNumber": 0,
+  "accountName": "",
+  "projectSlug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectHistory"
-}
-```
-## Operation: getProjectSettings
+
+#### Parameters
+* recordsNumber (integer) **required** - Number of results to include in the response.
+* startBuildId (integer) - Maximum `buildId` to include in the results (exclusive).
+* branch (string) - Repository Branch
+* accountName (string) **required** - AppVeyor account name (`accountName` property of `UserAccount`)
+* projectSlug (string) **required** - Project Slug
+
+### getProjectSettings
 Get project settings
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "accountName": {
-      "type": "string",
-      "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
-      "minLength": 1
-    },
-    "projectSlug": {
-      "type": "string",
-      "description": "Project Slug"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "accountName",
-    "projectSlug"
-  ]
-}
+
+```js
+appveyor.getProjectSettings({
+  "accountName": "",
+  "projectSlug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectSettingsResults"
-}
-```
-## Operation: updateProjectBuildNumber
+
+#### Parameters
+* accountName (string) **required** - AppVeyor account name (`accountName` property of `UserAccount`)
+* projectSlug (string) **required** - Project Slug
+
+### updateProjectBuildNumber
 Update project build number
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ProjectBuildNumberUpdate"
-    },
-    "accountName": {
-      "type": "string",
-      "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
-      "minLength": 1
-    },
-    "projectSlug": {
-      "type": "string",
-      "description": "Project Slug"
-    }
+
+```js
+appveyor.updateProjectBuildNumber({
+  "body": {
+    "nextBuildNumber": 0
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "accountName",
-    "projectSlug"
-  ]
-}
+  "accountName": "",
+  "projectSlug": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getProjectSettingsYaml
+
+#### Parameters
+* body (object) **required**
+* accountName (string) **required** - AppVeyor account name (`accountName` property of `UserAccount`)
+* projectSlug (string) **required** - Project Slug
+
+### getProjectSettingsYaml
 Get project settings in YAML
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "accountName": {
-      "type": "string",
-      "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
-      "minLength": 1
-    },
-    "projectSlug": {
-      "type": "string",
-      "description": "Project Slug"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "accountName",
-    "projectSlug"
-  ]
-}
+
+```js
+appveyor.getProjectSettingsYaml({
+  "accountName": "",
+  "projectSlug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: updateProjectSettingsYaml
+
+#### Parameters
+* accountName (string) **required** - AppVeyor account name (`accountName` property of `UserAccount`)
+* projectSlug (string) **required** - Project Slug
+
+### updateProjectSettingsYaml
 Update project settings in YAML
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "format": "binary",
-      "type": "string"
-    },
-    "accountName": {
-      "type": "string",
-      "description": "AppVeyor account name (`accountName` property of `UserAccount`)",
-      "minLength": 1
-    },
-    "projectSlug": {
-      "type": "string",
-      "description": "Project Slug"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "accountName",
-    "projectSlug"
-  ]
-}
+
+```js
+appveyor.updateProjectSettingsYaml({
+  "body": "",
+  "accountName": "",
+  "projectSlug": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getRoles
+
+#### Parameters
+* body (string) **required**
+* accountName (string) **required** - AppVeyor account name (`accountName` property of `UserAccount`)
+* projectSlug (string) **required** - Project Slug
+
+### getRoles
 Get roles
 
-### Input Schema
-```json
-{}
+
+```js
+appveyor.getRoles(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Role"
-  },
-  "type": "array"
-}
-```
-## Operation: addRole
+
+
+### addRole
 Add role
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/RoleAddition"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+appveyor.addRole({
+  "body": {
+    "name": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RoleWithGroups"
-}
-```
-## Operation: updateRole
+
+#### Parameters
+* body (object) **required**
+
+### updateRole
 Update role
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/RoleWithGroups"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+appveyor.updateRole({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RoleWithGroups"
-}
-```
-## Operation: deleteRole
+
+#### Parameters
+* body (undefined) **required**
+
+### deleteRole
 Delete role
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "roleId": {
-      "type": "integer",
-      "description": "Role ID",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "roleId"
-  ]
-}
+
+```js
+appveyor.deleteRole({
+  "roleId": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getRole
+
+#### Parameters
+* roleId (integer) **required** - Role ID
+
+### getRole
 Get role
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "roleId": {
-      "type": "integer",
-      "description": "Role ID",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "roleId"
-  ]
-}
+
+```js
+appveyor.getRole({
+  "roleId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RoleWithGroups"
-}
-```
-## Operation: getUsers
+
+#### Parameters
+* roleId (integer) **required** - Role ID
+
+### getUsers
 Get users
 
-### Input Schema
-```json
-{}
+
+```js
+appveyor.getUsers(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/UserAccount"
-  },
-  "type": "array"
-}
-```
-## Operation: addUser
+
+
+### addUser
 Add user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UserAddition"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+appveyor.addUser({
+  "body": {
+    "fullName": "",
+    "email": "",
+    "roleId": 0
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateUser
+
+#### Parameters
+* body (object) **required**
+
+### updateUser
 Update user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UserAccount"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+appveyor.updateUser({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteUser
+
+#### Parameters
+* body (undefined) **required**
+
+### deleteUser
 Delete user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "userId": {
-      "type": "integer",
-      "description": "User ID",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "userId"
-  ]
-}
+
+```js
+appveyor.deleteUser({
+  "userId": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getUser
+
+#### Parameters
+* userId (integer) **required** - User ID
+
+### getUser
 Get user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "userId": {
-      "type": "integer",
-      "description": "User ID",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "userId"
-  ]
-}
+
+```js
+appveyor.getUser({
+  "userId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserAccountRolesResults"
-}
-```
+
+#### Parameters
+* userId (integer) **required** - User ID
+

@@ -1,13376 +1,5762 @@
 # @datafire/gitlab
+
+Client library for Gitlab
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/gitlab
+```
+
+```js
+let datafire = require('datafire');
+let gitlab = require('@datafire/gitlab').actions;
+
+let account = {
+  private_token_header: "",
+  private_token_query: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    gitlab: account,
+  }
+})
+
+
+gitlab.getV3Users({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 The platform for modern developers
 GitLab unifies issues, code review, CI and CD into a single UI
 
-## Operation: getV3ApplicationSettings
+## Actions
+### getV3ApplicationSettings
 Get the current application settings
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.getV3ApplicationSettings(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApplicationSetting"
-}
-```
-## Operation: putV3ApplicationSettings
+
+
+### putV3ApplicationSettings
 Modify application settings
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "default_branch_protection": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Determine if developers can push to master",
-      "enum": [
-        0,
-        1,
-        2
-      ]
-    },
-    "default_project_visibility": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The default project visibility",
-      "enum": [
-        0,
-        10,
-        20
-      ]
-    },
-    "default_snippet_visibility": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The default snippet visibility",
-      "enum": [
-        0,
-        10,
-        20
-      ]
-    },
-    "default_group_visibility": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The default group visibility",
-      "enum": [
-        0,
-        10,
-        20
-      ]
-    },
-    "restricted_visibility_levels": {
-      "type": "array",
-      "description": "Selected levels cannot be used by non-admin users for projects or snippets. If the public level is restricted, user profiles are only visible to logged in users."
-    },
-    "import_sources": {
-      "type": "array",
-      "description": "Enabled sources for code import during project creation. OmniAuth must be configured for GitHub, Bitbucket, and GitLab.com",
-      "enum": [
-        "github",
-        "bitbucket",
-        "gitlab",
-        "google_code",
-        "fogbugz",
-        "git",
-        "gitlab_project"
-      ]
-    },
-    "disabled_oauth_sign_in_sources": {
-      "type": "array",
-      "description": "Disable certain OAuth sign-in sources"
-    },
-    "enabled_git_access_protocol": {
-      "type": "string",
-      "description": "Allow only the selected protocols to be used for Git access.",
-      "enum": [
-        "ssh",
-        "http",
-        "nil"
-      ]
-    },
-    "gravatar_enabled": {
-      "type": "boolean",
-      "description": "Flag indicating if the Gravatar service is enabled"
-    },
-    "default_projects_limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The maximum number of personal projects"
-    },
-    "max_attachment_size": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum attachment size in MB"
-    },
-    "session_expire_delay": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Session duration in minutes. GitLab restart is required to apply changes."
-    },
-    "user_oauth_applications": {
-      "type": "boolean",
-      "description": "Allow users to register any application to use GitLab as an OAuth provider"
-    },
-    "user_default_external": {
-      "type": "boolean",
-      "description": "Newly registered users will by default be external"
-    },
-    "signup_enabled": {
-      "type": "boolean",
-      "description": "Flag indicating if sign up is enabled"
-    },
-    "send_user_confirmation_email": {
-      "type": "boolean",
-      "description": "Send confirmation email on sign-up"
-    },
-    "domain_whitelist": {
-      "type": "string",
-      "description": "ONLY users with e-mail addresses that match these domain(s) will be able to sign-up. Wildcards allowed. Use separate lines for multiple entries. Ex: domain.com, *.domain.com"
-    },
-    "domain_blacklist_enabled": {
-      "type": "boolean",
-      "description": "Enable domain blacklist for sign ups"
-    },
-    "domain_blacklist": {
-      "type": "string",
-      "description": "Users with e-mail addresses that match these domain(s) will NOT be able to sign-up. Wildcards allowed. Use separate lines for multiple entries. Ex: domain.com, *.domain.com"
-    },
-    "after_sign_up_text": {
-      "type": "string",
-      "description": "Text shown after sign up"
-    },
-    "signin_enabled": {
-      "type": "boolean",
-      "description": "Flag indicating if sign in is enabled"
-    },
-    "require_two_factor_authentication": {
-      "type": "boolean",
-      "description": "Require all users to setup Two-factor authentication"
-    },
-    "two_factor_grace_period": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Amount of time (in hours) that users are allowed to skip forced configuration of two-factor authentication"
-    },
-    "home_page_url": {
-      "type": "string",
-      "description": "We will redirect non-logged in users to this page"
-    },
-    "after_sign_out_path": {
-      "type": "string",
-      "description": "We will redirect users to this page after they sign out"
-    },
-    "sign_in_text": {
-      "type": "string",
-      "description": "The sign in text of the GitLab application"
-    },
-    "help_page_text": {
-      "type": "string",
-      "description": "Custom text displayed on the help page"
-    },
-    "shared_runners_enabled": {
-      "type": "boolean",
-      "description": "Enable shared runners for new projects"
-    },
-    "shared_runners_text": {
-      "type": "string",
-      "description": "Shared runners text "
-    },
-    "max_artifacts_size": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Set the maximum file size each build's artifacts can have"
-    },
-    "container_registry_token_expire_delay": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Authorization token duration (minutes)"
-    },
-    "metrics_enabled": {
-      "type": "boolean",
-      "description": "Enable the InfluxDB metrics"
-    },
-    "metrics_host": {
-      "type": "string",
-      "description": "The InfluxDB host"
-    },
-    "metrics_port": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The UDP port to use for connecting to InfluxDB"
-    },
-    "metrics_pool_size": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The amount of InfluxDB connections to open"
-    },
-    "metrics_timeout": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The amount of seconds after which an InfluxDB connection will time out"
-    },
-    "metrics_method_call_threshold": {
-      "type": "integer",
-      "format": "int32",
-      "description": "A method call is only tracked when it takes longer to complete than the given amount of milliseconds."
-    },
-    "metrics_sample_interval": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The sampling interval in seconds"
-    },
-    "metrics_packet_size": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The amount of points to store in a single UDP packet"
-    },
-    "sidekiq_throttling_enabled": {
-      "type": "boolean",
-      "description": "Enable Sidekiq Job Throttling"
-    },
-    "sidekiq_throttling_queus": {
-      "type": "array",
-      "description": "Choose which queues you wish to throttle"
-    },
-    "sidekiq_throttling_factor": {
-      "type": "number",
-      "format": "float",
-      "description": "The factor by which the queues should be throttled. A value between 0.0 and 1.0, exclusive."
-    },
-    "recaptcha_enabled": {
-      "type": "boolean",
-      "description": "Helps prevent bots from creating accounts"
-    },
-    "recaptcha_site_key": {
-      "type": "string",
-      "description": "Generate site key at http://www.google.com/recaptcha"
-    },
-    "recaptcha_private_key": {
-      "type": "string",
-      "description": "Generate private key at http://www.google.com/recaptcha"
-    },
-    "akismet_enabled": {
-      "type": "boolean",
-      "description": "Helps prevent bots from creating issues"
-    },
-    "akismet_api_key": {
-      "type": "string",
-      "description": "Generate API key at http://www.akismet.com"
-    },
-    "admin_notification_email": {
-      "type": "string",
-      "description": "Abuse reports will be sent to this address if it is set. Abuse reports are always available in the admin area."
-    },
-    "sentry_enabled": {
-      "type": "boolean",
-      "description": "Sentry is an error reporting and logging tool which is currently not shipped with GitLab, get it here: https://getsentry.com"
-    },
-    "sentry_dsn": {
-      "type": "string",
-      "description": "Sentry Data Source Name"
-    },
-    "repository_storage": {
-      "type": "string",
-      "description": "Storage paths for new projects"
-    },
-    "repository_checks_enabled": {
-      "type": "boolean",
-      "description": "GitLab will periodically run 'git fsck' in all project and wiki repositories to look for silent disk corruption issues."
-    },
-    "koding_enabled": {
-      "type": "boolean",
-      "description": "Enable Koding"
-    },
-    "koding_url": {
-      "type": "string",
-      "description": "The Koding team URL"
-    },
-    "plantuml_enabled": {
-      "type": "boolean",
-      "description": "Enable PlantUML"
-    },
-    "plantuml_url": {
-      "type": "string",
-      "description": "The PlantUML server URL"
-    },
-    "version_check_enabled": {
-      "type": "boolean",
-      "description": "Let GitLab inform you when an update is available."
-    },
-    "email_author_in_body": {
-      "type": "boolean",
-      "description": "Some email servers do not support overriding the email sender name. Enable this option to include the name of the author of the issue, merge request or comment in the email body instead."
-    },
-    "html_emails_enabled": {
-      "type": "boolean",
-      "description": "By default GitLab sends emails in HTML and plain text formats so mail clients can choose what format to use. Disable this option if you only want to send emails in plain text format."
-    },
-    "housekeeping_enabled": {
-      "type": "boolean",
-      "description": "Enable automatic repository housekeeping (git repack, git gc)"
-    },
-    "housekeeping_bitmaps_enabled": {
-      "type": "boolean",
-      "description": "Creating pack file bitmaps makes housekeeping take a little longer but bitmaps should accelerate 'git clone' performance."
-    },
-    "housekeeping_incremental_repack_period": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of Git pushes after which an incremental 'git repack' is run."
-    },
-    "housekeeping_full_repack_period": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of Git pushes after which a full 'git repack' is run."
-    },
-    "housekeeping_gc_period": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of Git pushes after which 'git gc' is run."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "domain_blacklist",
-    "two_factor_grace_period",
-    "shared_runners_text",
-    "metrics_host",
-    "metrics_port",
-    "metrics_pool_size",
-    "metrics_timeout",
-    "metrics_method_call_threshold",
-    "metrics_sample_interval",
-    "metrics_packet_size",
-    "sidekiq_throttling_queus",
-    "sidekiq_throttling_factor",
-    "recaptcha_site_key",
-    "recaptcha_private_key",
-    "akismet_api_key",
-    "sentry_dsn",
-    "koding_url",
-    "plantuml_url",
-    "housekeeping_bitmaps_enabled",
-    "housekeeping_incremental_repack_period",
-    "housekeeping_full_repack_period",
-    "housekeeping_gc_period"
-  ]
-}
+
+```js
+gitlab.putV3ApplicationSettings({
+  "domain_blacklist": "",
+  "two_factor_grace_period": 0,
+  "shared_runners_text": "",
+  "metrics_host": "",
+  "metrics_port": 0,
+  "metrics_pool_size": 0,
+  "metrics_timeout": 0,
+  "metrics_method_call_threshold": 0,
+  "metrics_sample_interval": 0,
+  "metrics_packet_size": 0,
+  "sidekiq_throttling_queus": [],
+  "sidekiq_throttling_factor": 0,
+  "recaptcha_site_key": "",
+  "recaptcha_private_key": "",
+  "akismet_api_key": "",
+  "sentry_dsn": "",
+  "koding_url": "",
+  "plantuml_url": "",
+  "housekeeping_bitmaps_enabled": true,
+  "housekeeping_incremental_repack_period": 0,
+  "housekeeping_full_repack_period": 0,
+  "housekeeping_gc_period": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApplicationSetting"
-}
-```
-## Operation: postV3CiLint
+
+#### Parameters
+* default_branch_protection (integer) - Determine if developers can push to master
+* default_project_visibility (integer) - The default project visibility
+* default_snippet_visibility (integer) - The default snippet visibility
+* default_group_visibility (integer) - The default group visibility
+* restricted_visibility_levels (array) - Selected levels cannot be used by non-admin users for projects or snippets. If the public level is restricted, user profiles are only visible to logged in users.
+* import_sources (array) - Enabled sources for code import during project creation. OmniAuth must be configured for GitHub, Bitbucket, and GitLab.com
+* disabled_oauth_sign_in_sources (array) - Disable certain OAuth sign-in sources
+* enabled_git_access_protocol (string) - Allow only the selected protocols to be used for Git access.
+* gravatar_enabled (boolean) - Flag indicating if the Gravatar service is enabled
+* default_projects_limit (integer) - The maximum number of personal projects
+* max_attachment_size (integer) - Maximum attachment size in MB
+* session_expire_delay (integer) - Session duration in minutes. GitLab restart is required to apply changes.
+* user_oauth_applications (boolean) - Allow users to register any application to use GitLab as an OAuth provider
+* user_default_external (boolean) - Newly registered users will by default be external
+* signup_enabled (boolean) - Flag indicating if sign up is enabled
+* send_user_confirmation_email (boolean) - Send confirmation email on sign-up
+* domain_whitelist (string) - ONLY users with e-mail addresses that match these domain(s) will be able to sign-up. Wildcards allowed. Use separate lines for multiple entries. Ex: domain.com, *.domain.com
+* domain_blacklist_enabled (boolean) - Enable domain blacklist for sign ups
+* domain_blacklist (string) **required** - Users with e-mail addresses that match these domain(s) will NOT be able to sign-up. Wildcards allowed. Use separate lines for multiple entries. Ex: domain.com, *.domain.com
+* after_sign_up_text (string) - Text shown after sign up
+* signin_enabled (boolean) - Flag indicating if sign in is enabled
+* require_two_factor_authentication (boolean) - Require all users to setup Two-factor authentication
+* two_factor_grace_period (integer) **required** - Amount of time (in hours) that users are allowed to skip forced configuration of two-factor authentication
+* home_page_url (string) - We will redirect non-logged in users to this page
+* after_sign_out_path (string) - We will redirect users to this page after they sign out
+* sign_in_text (string) - The sign in text of the GitLab application
+* help_page_text (string) - Custom text displayed on the help page
+* shared_runners_enabled (boolean) - Enable shared runners for new projects
+* shared_runners_text (string) **required** - Shared runners text 
+* max_artifacts_size (integer) - Set the maximum file size each build's artifacts can have
+* container_registry_token_expire_delay (integer) - Authorization token duration (minutes)
+* metrics_enabled (boolean) - Enable the InfluxDB metrics
+* metrics_host (string) **required** - The InfluxDB host
+* metrics_port (integer) **required** - The UDP port to use for connecting to InfluxDB
+* metrics_pool_size (integer) **required** - The amount of InfluxDB connections to open
+* metrics_timeout (integer) **required** - The amount of seconds after which an InfluxDB connection will time out
+* metrics_method_call_threshold (integer) **required** - A method call is only tracked when it takes longer to complete than the given amount of milliseconds.
+* metrics_sample_interval (integer) **required** - The sampling interval in seconds
+* metrics_packet_size (integer) **required** - The amount of points to store in a single UDP packet
+* sidekiq_throttling_enabled (boolean) - Enable Sidekiq Job Throttling
+* sidekiq_throttling_queus (array) **required** - Choose which queues you wish to throttle
+* sidekiq_throttling_factor (number) **required** - The factor by which the queues should be throttled. A value between 0.0 and 1.0, exclusive.
+* recaptcha_enabled (boolean) - Helps prevent bots from creating accounts
+* recaptcha_site_key (string) **required** - Generate site key at http://www.google.com/recaptcha
+* recaptcha_private_key (string) **required** - Generate private key at http://www.google.com/recaptcha
+* akismet_enabled (boolean) - Helps prevent bots from creating issues
+* akismet_api_key (string) **required** - Generate API key at http://www.akismet.com
+* admin_notification_email (string) - Abuse reports will be sent to this address if it is set. Abuse reports are always available in the admin area.
+* sentry_enabled (boolean) - Sentry is an error reporting and logging tool which is currently not shipped with GitLab, get it here: https://getsentry.com
+* sentry_dsn (string) **required** - Sentry Data Source Name
+* repository_storage (string) - Storage paths for new projects
+* repository_checks_enabled (boolean) - GitLab will periodically run 'git fsck' in all project and wiki repositories to look for silent disk corruption issues.
+* koding_enabled (boolean) - Enable Koding
+* koding_url (string) **required** - The Koding team URL
+* plantuml_enabled (boolean) - Enable PlantUML
+* plantuml_url (string) **required** - The PlantUML server URL
+* version_check_enabled (boolean) - Let GitLab inform you when an update is available.
+* email_author_in_body (boolean) - Some email servers do not support overriding the email sender name. Enable this option to include the name of the author of the issue, merge request or comment in the email body instead.
+* html_emails_enabled (boolean) - By default GitLab sends emails in HTML and plain text formats so mail clients can choose what format to use. Disable this option if you only want to send emails in plain text format.
+* housekeeping_enabled (boolean) - Enable automatic repository housekeeping (git repack, git gc)
+* housekeeping_bitmaps_enabled (boolean) **required** - Creating pack file bitmaps makes housekeeping take a little longer but bitmaps should accelerate 'git clone' performance.
+* housekeeping_incremental_repack_period (integer) **required** - Number of Git pushes after which an incremental 'git repack' is run.
+* housekeeping_full_repack_period (integer) **required** - Number of Git pushes after which a full 'git repack' is run.
+* housekeeping_gc_period (integer) **required** - Number of Git pushes after which 'git gc' is run.
+
+### postV3CiLint
 Validation of .gitlab-ci.yml content
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "content": {
-      "type": "string",
-      "description": "Content of .gitlab-ci.yml"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "content"
-  ]
-}
+
+```js
+gitlab.postV3CiLint({
+  "content": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3DeployKeys
+
+#### Parameters
+* content (string) **required** - Content of .gitlab-ci.yml
+
+### getV3DeployKeys
 
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.getV3DeployKeys(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3Dockerfiles
+
+
+### getV3Dockerfiles
 This feature was introduced in GitLab 8.15. This endpoint is deprecated and will be removed in GitLab 9.0.
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.getV3Dockerfiles(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TemplatesList"
-}
-```
-## Operation: getV3DockerfilesName
+
+
+### getV3DockerfilesName
 This feature was introduced in GitLab 8.15. This endpoint is deprecated and will be removed in GitLab 9.0.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of the template"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+gitlab.getV3DockerfilesName({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Template"
-}
-```
-## Operation: getV3Gitignores
+
+#### Parameters
+* name (string) **required** - The name of the template
+
+### getV3Gitignores
 This feature was introduced in GitLab 8.8. This endpoint is deprecated and will be removed in GitLab 9.0.
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.getV3Gitignores(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TemplatesList"
-}
-```
-## Operation: getV3GitignoresName
+
+
+### getV3GitignoresName
 This feature was introduced in GitLab 8.8. This endpoint is deprecated and will be removed in GitLab 9.0.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of the template"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+gitlab.getV3GitignoresName({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Template"
-}
-```
-## Operation: getV3GitlabCiYmls
+
+#### Parameters
+* name (string) **required** - The name of the template
+
+### getV3GitlabCiYmls
 This feature was introduced in GitLab 8.9. This endpoint is deprecated and will be removed in GitLab 9.0.
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.getV3GitlabCiYmls(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TemplatesList"
-}
-```
-## Operation: getV3GitlabCiYmlsName
+
+
+### getV3GitlabCiYmlsName
 This feature was introduced in GitLab 8.9. This endpoint is deprecated and will be removed in GitLab 9.0.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of the template"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+gitlab.getV3GitlabCiYmlsName({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Template"
-}
-```
-## Operation: getV3Groups
+
+#### Parameters
+* name (string) **required** - The name of the template
+
+### getV3Groups
 Get a groups list
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "statistics": {
-      "type": "boolean",
-      "description": "Include project statistics"
-    },
-    "skip_groups": {
-      "type": "array",
-      "description": "Array of group ids to exclude from list"
-    },
-    "all_available": {
-      "type": "boolean",
-      "description": "Show all group that you have access to"
-    },
-    "search": {
-      "type": "string",
-      "description": "Search for a specific group"
-    },
-    "order_by": {
-      "type": "string",
-      "description": "Order by name or path",
-      "enum": [
-        "name",
-        "path"
-      ]
-    },
-    "sort": {
-      "type": "string",
-      "description": "Sort by asc (ascending) or desc (descending)",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+gitlab.getV3Groups({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Group"
-}
-```
-## Operation: postV3Groups
+
+
+### postV3Groups
 Create a group. Available only for users who can create groups.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of the group"
-    },
-    "path": {
-      "type": "string",
-      "description": "The path of the group"
-    },
-    "description": {
-      "type": "string",
-      "description": "The description of the group"
-    },
-    "visibility_level": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The visibility level of the group"
-    },
-    "lfs_enabled": {
-      "type": "boolean",
-      "description": "Enable/disable LFS for the projects in this group"
-    },
-    "request_access_enabled": {
-      "type": "boolean",
-      "description": "Allow users to request member access"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "path"
-  ]
-}
+
+```js
+gitlab.postV3Groups({
+  "name": "",
+  "path": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Group"
-}
-```
-## Operation: getV3GroupsOwned
+
+#### Parameters
+* name (string) **required** - The name of the group
+* path (string) **required** - The path of the group
+* description (string) - The description of the group
+* visibility_level (integer) - The visibility level of the group
+* lfs_enabled (boolean) - Enable/disable LFS for the projects in this group
+* request_access_enabled (boolean) - Allow users to request member access
+
+### getV3GroupsOwned
 Get list of owned groups for authenticated user
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    },
-    "statistics": {
-      "type": "boolean",
-      "description": "Include project statistics"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+gitlab.getV3GroupsOwned({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Group"
-}
-```
-## Operation: deleteV3GroupsId
+
+
+### deleteV3GroupsId
 Remove a group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a group"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.deleteV3GroupsId({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3GroupsId
+
+#### Parameters
+* id (string) **required** - The ID of a group
+
+### getV3GroupsId
 Get a single group, with containing projects.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a group"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3GroupsId({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GroupDetail"
-}
-```
-## Operation: putV3GroupsId
+
+#### Parameters
+* id (string) **required** - The ID of a group
+
+### putV3GroupsId
 Update a group. Available only for users who can administrate groups.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a group"
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the group"
-    },
-    "path": {
-      "type": "string",
-      "description": "The path of the group"
-    },
-    "description": {
-      "type": "string",
-      "description": "The description of the group"
-    },
-    "visibility_level": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The visibility level of the group"
-    },
-    "lfs_enabled": {
-      "type": "boolean",
-      "description": "Enable/disable LFS for the projects in this group"
-    },
-    "request_access_enabled": {
-      "type": "boolean",
-      "description": "Allow users to request member access"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3GroupsId({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Group"
-}
-```
-## Operation: getV3GroupsIdAccessRequests
+
+#### Parameters
+* id (string) **required** - The ID of a group
+* name (string) - The name of the group
+* path (string) - The path of the group
+* description (string) - The description of the group
+* visibility_level (integer) - The visibility level of the group
+* lfs_enabled (boolean) - Enable/disable LFS for the projects in this group
+* request_access_enabled (boolean) - Allow users to request member access
+
+### getV3GroupsIdAccessRequests
 This feature was introduced in GitLab 8.11.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The group ID"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3GroupsIdAccessRequests({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccessRequester"
-}
-```
-## Operation: postV3GroupsIdAccessRequests
+
+#### Parameters
+* id (string) **required** - The group ID
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### postV3GroupsIdAccessRequests
 This feature was introduced in GitLab 8.11.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The group ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.postV3GroupsIdAccessRequests({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccessRequester"
-}
-```
-## Operation: deleteV3GroupsIdAccessRequestsUserId
+
+#### Parameters
+* id (string) **required** - The group ID
+
+### deleteV3GroupsIdAccessRequestsUserId
 This feature was introduced in GitLab 8.11.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The group ID"
-    },
-    "user_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The user ID of the access requester"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "user_id"
-  ]
-}
+
+```js
+gitlab.deleteV3GroupsIdAccessRequestsUserId({
+  "id": "",
+  "user_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3GroupsIdAccessRequestsUserIdApprove
+
+#### Parameters
+* id (string) **required** - The group ID
+* user_id (integer) **required** - The user ID of the access requester
+
+### putV3GroupsIdAccessRequestsUserIdApprove
 This feature was introduced in GitLab 8.11.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The group ID"
-    },
-    "user_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The user ID of the access requester"
-    },
-    "access_level": {
-      "type": "integer",
-      "format": "int32",
-      "description": "A valid access level (defaults: `30`, developer access level)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "user_id"
-  ]
-}
+
+```js
+gitlab.putV3GroupsIdAccessRequestsUserIdApprove({
+  "id": "",
+  "user_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Member"
-}
-```
-## Operation: getV3GroupsIdIssues
+
+#### Parameters
+* id (string) **required** - The group ID
+* user_id (integer) **required** - The user ID of the access requester
+* access_level (integer) - A valid access level (defaults: `30`, developer access level)
+
+### getV3GroupsIdIssues
 Get a list of group issues
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a group"
-    },
-    "state": {
-      "type": "string",
-      "description": "Return opened, closed, or all issues",
-      "enum": [
-        "opened",
-        "closed",
-        "all"
-      ]
-    },
-    "labels": {
-      "type": "string",
-      "description": "Comma-separated list of label names"
-    },
-    "milestone": {
-      "type": "string",
-      "description": "Return issues for a specific milestone"
-    },
-    "order_by": {
-      "type": "string",
-      "description": "Return issues ordered by `created_at` or `updated_at` fields.",
-      "enum": [
-        "created_at",
-        "updated_at"
-      ]
-    },
-    "sort": {
-      "type": "string",
-      "description": "Return issues sorted in `asc` or `desc` order.",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3GroupsIdIssues({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Issue"
-}
-```
-## Operation: getV3GroupsIdMembers
+
+#### Parameters
+* id (string) **required** - The ID of a group
+* state (string) - Return opened, closed, or all issues
+* labels (string) - Comma-separated list of label names
+* milestone (string) - Return issues for a specific milestone
+* order_by (string) - Return issues ordered by `created_at` or `updated_at` fields.
+* sort (string) - Return issues sorted in `asc` or `desc` order.
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### getV3GroupsIdMembers
 Gets a list of group or project members viewable by the authenticated user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The group ID"
-    },
-    "query": {
-      "type": "string",
-      "description": "A query string to search for members"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3GroupsIdMembers({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Member"
-}
-```
-## Operation: postV3GroupsIdMembers
+
+#### Parameters
+* id (string) **required** - The group ID
+* query (string) - A query string to search for members
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### postV3GroupsIdMembers
 Adds a member to a group or project.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The group ID"
-    },
-    "user_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The user ID of the new member"
-    },
-    "access_level": {
-      "type": "integer",
-      "format": "int32",
-      "description": "A valid access level (defaults: `30`, developer access level)"
-    },
-    "expires_at": {
-      "type": "string",
-      "format": "date-time",
-      "description": "Date string in the format YEAR-MONTH-DAY"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "user_id",
-    "access_level"
-  ]
-}
+
+```js
+gitlab.postV3GroupsIdMembers({
+  "id": "",
+  "user_id": 0,
+  "access_level": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Member"
-}
-```
-## Operation: deleteV3GroupsIdMembersUserId
+
+#### Parameters
+* id (string) **required** - The group ID
+* user_id (integer) **required** - The user ID of the new member
+* access_level (integer) **required** - A valid access level (defaults: `30`, developer access level)
+* expires_at (string) - Date string in the format YEAR-MONTH-DAY
+
+### deleteV3GroupsIdMembersUserId
 Removes a user from a group or project.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The group ID"
-    },
-    "user_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The user ID of the member"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "user_id"
-  ]
-}
+
+```js
+gitlab.deleteV3GroupsIdMembersUserId({
+  "id": "",
+  "user_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3GroupsIdMembersUserId
+
+#### Parameters
+* id (string) **required** - The group ID
+* user_id (integer) **required** - The user ID of the member
+
+### getV3GroupsIdMembersUserId
 Gets a member of a group or project.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The group ID"
-    },
-    "user_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The user ID of the member"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "user_id"
-  ]
-}
+
+```js
+gitlab.getV3GroupsIdMembersUserId({
+  "id": "",
+  "user_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Member"
-}
-```
-## Operation: putV3GroupsIdMembersUserId
+
+#### Parameters
+* id (string) **required** - The group ID
+* user_id (integer) **required** - The user ID of the member
+
+### putV3GroupsIdMembersUserId
 Updates a member of a group or project.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The group ID"
-    },
-    "user_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The user ID of the new member"
-    },
-    "access_level": {
-      "type": "integer",
-      "format": "int32",
-      "description": "A valid access level"
-    },
-    "expires_at": {
-      "type": "string",
-      "format": "date-time",
-      "description": "Date string in the format YEAR-MONTH-DAY"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "user_id",
-    "access_level"
-  ]
-}
+
+```js
+gitlab.putV3GroupsIdMembersUserId({
+  "id": "",
+  "user_id": 0,
+  "access_level": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Member"
-}
-```
-## Operation: getV3GroupsIdNotificationSettings
+
+#### Parameters
+* id (string) **required** - The group ID
+* user_id (integer) **required** - The user ID of the new member
+* access_level (integer) **required** - A valid access level
+* expires_at (string) - Date string in the format YEAR-MONTH-DAY
+
+### getV3GroupsIdNotificationSettings
 This feature was introduced in GitLab 8.12
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The group ID or project ID or project NAMESPACE/PROJECT_NAME"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3GroupsIdNotificationSettings({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NotificationSetting"
-}
-```
-## Operation: putV3GroupsIdNotificationSettings
+
+#### Parameters
+* id (string) **required** - The group ID or project ID or project NAMESPACE/PROJECT_NAME
+
+### putV3GroupsIdNotificationSettings
 This feature was introduced in GitLab 8.12
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The group ID or project ID or project NAMESPACE/PROJECT_NAME"
-    },
-    "level": {
-      "type": "string",
-      "description": "The group notification level"
-    },
-    "new_note": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "new_issue": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "reopen_issue": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "close_issue": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "reassign_issue": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "new_merge_request": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "reopen_merge_request": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "close_merge_request": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "reassign_merge_request": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "merge_merge_request": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "failed_pipeline": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "success_pipeline": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3GroupsIdNotificationSettings({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NotificationSetting"
-}
-```
-## Operation: getV3GroupsIdProjects
+
+#### Parameters
+* id (string) **required** - The group ID or project ID or project NAMESPACE/PROJECT_NAME
+* level (string) - The group notification level
+* new_note (boolean) - Enable/disable this notification
+* new_issue (boolean) - Enable/disable this notification
+* reopen_issue (boolean) - Enable/disable this notification
+* close_issue (boolean) - Enable/disable this notification
+* reassign_issue (boolean) - Enable/disable this notification
+* new_merge_request (boolean) - Enable/disable this notification
+* reopen_merge_request (boolean) - Enable/disable this notification
+* close_merge_request (boolean) - Enable/disable this notification
+* reassign_merge_request (boolean) - Enable/disable this notification
+* merge_merge_request (boolean) - Enable/disable this notification
+* failed_pipeline (boolean) - Enable/disable this notification
+* success_pipeline (boolean) - Enable/disable this notification
+
+### getV3GroupsIdProjects
 Get a list of projects in this group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a group"
-    },
-    "archived": {
-      "type": "boolean",
-      "description": "Limit by archived status"
-    },
-    "visibility": {
-      "type": "string",
-      "description": "Limit by visibility",
-      "enum": [
-        "public",
-        "internal",
-        "private"
-      ]
-    },
-    "search": {
-      "type": "string",
-      "description": "Return list of authorized projects matching the search criteria"
-    },
-    "order_by": {
-      "type": "string",
-      "description": "Return projects ordered by field",
-      "enum": [
-        "id",
-        "name",
-        "path",
-        "created_at",
-        "updated_at",
-        "last_activity_at"
-      ]
-    },
-    "sort": {
-      "type": "string",
-      "description": "Return projects sorted in ascending and descending order",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "simple": {
-      "type": "boolean",
-      "description": "Return only the ID, URL, name, and path of each project"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3GroupsIdProjects({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Project"
-}
-```
-## Operation: postV3GroupsIdProjectsProjectId
+
+#### Parameters
+* id (string) **required** - The ID of a group
+* archived (boolean) - Limit by archived status
+* visibility (string) - Limit by visibility
+* search (string) - Return list of authorized projects matching the search criteria
+* order_by (string) - Return projects ordered by field
+* sort (string) - Return projects sorted in ascending and descending order
+* simple (boolean) - Return only the ID, URL, name, and path of each project
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### postV3GroupsIdProjectsProjectId
 Transfer a project to the group namespace. Available only for admin.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a group"
-    },
-    "project_id": {
-      "type": "string",
-      "description": "The ID or path of the project"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "project_id"
-  ]
-}
+
+```js
+gitlab.postV3GroupsIdProjectsProjectId({
+  "id": "",
+  "project_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GroupDetail"
-}
-```
-## Operation: getV3Hooks
+
+#### Parameters
+* id (string) **required** - The ID of a group
+* project_id (string) **required** - The ID or path of the project
+
+### getV3Hooks
 Get the list of system hooks
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.getV3Hooks(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Hook"
-}
-```
-## Operation: postV3Hooks
+
+
+### postV3Hooks
 Create a new system hook
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "url": {
-      "type": "string",
-      "description": "The URL to send the request to"
-    },
-    "token": {
-      "type": "string",
-      "description": "The token used to validate payloads"
-    },
-    "push_events": {
-      "type": "boolean",
-      "description": "Trigger hook on push events"
-    },
-    "tag_push_events": {
-      "type": "boolean",
-      "description": "Trigger hook on tag push events"
-    },
-    "enable_ssl_verification": {
-      "type": "boolean",
-      "description": "Do SSL verification when triggering the hook"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "url"
-  ]
-}
+
+```js
+gitlab.postV3Hooks({
+  "url": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Hook"
-}
-```
-## Operation: deleteV3HooksId
+
+#### Parameters
+* url (string) **required** - The URL to send the request to
+* token (string) - The token used to validate payloads
+* push_events (boolean) - Trigger hook on push events
+* tag_push_events (boolean) - Trigger hook on tag push events
+* enable_ssl_verification (boolean) - Do SSL verification when triggering the hook
+
+### deleteV3HooksId
 Delete a hook
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the system hook"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.deleteV3HooksId({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Hook"
-}
-```
-## Operation: getV3HooksId
+
+#### Parameters
+* id (integer) **required** - The ID of the system hook
+
+### getV3HooksId
 Test a hook
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the system hook"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3HooksId({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Hook"
-}
-```
-## Operation: postV3InternalAllowed
+
+#### Parameters
+* id (integer) **required** - The ID of the system hook
+
+### postV3InternalAllowed
 
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.postV3InternalAllowed(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3InternalBroadcastMessage
 
 
-### Input Schema
-```json
-{}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3InternalCheck
+### getV3InternalBroadcastMessage
 
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.getV3InternalBroadcastMessage(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3InternalDiscover
 
 
-### Input Schema
-```json
-{}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: postV3InternalLfsAuthenticate
+### getV3InternalCheck
 
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.getV3InternalCheck(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3InternalMergeRequestUrls
 
 
-### Input Schema
-```json
-{}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: postV3InternalTwoFactorRecoveryCodes
+### getV3InternalDiscover
 
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.getV3InternalDiscover(null, context)
 ```
-### Output Schema
-```json
-{}
+
+
+### postV3InternalLfsAuthenticate
+
+
+
+```js
+gitlab.postV3InternalLfsAuthenticate(null, context)
 ```
-## Operation: getV3Issues
+
+
+### getV3InternalMergeRequestUrls
+
+
+
+```js
+gitlab.getV3InternalMergeRequestUrls(null, context)
+```
+
+
+### postV3InternalTwoFactorRecoveryCodes
+
+
+
+```js
+gitlab.postV3InternalTwoFactorRecoveryCodes(null, context)
+```
+
+
+### getV3Issues
 Get currently authenticated user's issues
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "state": {
-      "type": "string",
-      "description": "Return opened, closed, or all issues",
-      "enum": [
-        "opened",
-        "closed",
-        "all"
-      ]
-    },
-    "labels": {
-      "type": "string",
-      "description": "Comma-separated list of label names"
-    },
-    "milestone": {
-      "type": "string",
-      "description": "Return issues for a specific milestone"
-    },
-    "order_by": {
-      "type": "string",
-      "description": "Return issues ordered by `created_at` or `updated_at` fields.",
-      "enum": [
-        "created_at",
-        "updated_at"
-      ]
-    },
-    "sort": {
-      "type": "string",
-      "description": "Return issues sorted in `asc` or `desc` order.",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+gitlab.getV3Issues({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Issue"
-}
-```
-## Operation: getV3KeysId
+
+
+### getV3KeysId
 Get single ssh key by id. Only available to admin users
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3KeysId({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SSHKeyWithUser"
-}
-```
-## Operation: getV3Licenses
+
+#### Parameters
+* id (integer) **required**
+
+### getV3Licenses
 This feature was introduced in GitLab 8.7. This endpoint is deprecated and will be removed in GitLab 9.0.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "popular": {
-      "type": "boolean",
-      "description": "If passed, returns only popular licenses"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+gitlab.getV3Licenses({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RepoLicense"
-}
-```
-## Operation: getV3LicensesName
+
+
+### getV3LicensesName
 This feature was introduced in GitLab 8.7. This endpoint is deprecated and will be removed in GitLab 9.0.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of the template"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+gitlab.getV3LicensesName({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RepoLicense"
-}
-```
-## Operation: getV3Namespaces
+
+#### Parameters
+* name (string) **required** - The name of the template
+
+### getV3Namespaces
 Get a namespaces list
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "search": {
-      "type": "string",
-      "description": "Search query for namespaces"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+gitlab.getV3Namespaces({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Namespace"
-}
-```
-## Operation: getV3NotificationSettings
+
+
+### getV3NotificationSettings
 This feature was introduced in GitLab 8.12
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.getV3NotificationSettings(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GlobalNotificationSetting"
-}
-```
-## Operation: putV3NotificationSettings
+
+
+### putV3NotificationSettings
 This feature was introduced in GitLab 8.12
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "level": {
-      "type": "string",
-      "description": "The global notification level"
-    },
-    "notification_email": {
-      "type": "string",
-      "description": "The email address to send notifications"
-    },
-    "new_note": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "new_issue": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "reopen_issue": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "close_issue": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "reassign_issue": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "new_merge_request": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "reopen_merge_request": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "close_merge_request": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "reassign_merge_request": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "merge_merge_request": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "failed_pipeline": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "success_pipeline": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+gitlab.putV3NotificationSettings({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GlobalNotificationSetting"
-}
-```
-## Operation: getV3Projects
+
+
+### getV3Projects
 Get a projects list for authenticated user
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "order_by": {
-      "type": "string",
-      "description": "Return projects ordered by field",
-      "enum": [
-        "id",
-        "name",
-        "path",
-        "created_at",
-        "updated_at",
-        "last_activity_at"
-      ]
-    },
-    "sort": {
-      "type": "string",
-      "description": "Return projects sorted in ascending and descending order",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "archived": {
-      "type": "boolean",
-      "description": "Limit by archived status"
-    },
-    "visibility": {
-      "type": "string",
-      "description": "Limit by visibility",
-      "enum": [
-        "public",
-        "internal",
-        "private"
-      ]
-    },
-    "search": {
-      "type": "string",
-      "description": "Return list of authorized projects matching the search criteria"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    },
-    "simple": {
-      "type": "boolean",
-      "description": "Return only the ID, URL, name, and path of each project"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+gitlab.getV3Projects({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BasicProjectDetails"
-}
-```
-## Operation: postV3Projects
+
+
+### postV3Projects
 Create new project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of the project"
-    },
-    "path": {
-      "type": "string",
-      "description": "The path of the repository"
-    },
-    "description": {
-      "type": "string",
-      "description": "The description of the project"
-    },
-    "issues_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if the issue tracker is enabled"
-    },
-    "merge_requests_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if merge requests are enabled"
-    },
-    "wiki_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if the wiki is enabled"
-    },
-    "builds_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if builds are enabled"
-    },
-    "snippets_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if snippets are enabled"
-    },
-    "shared_runners_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if shared runners are enabled for that project"
-    },
-    "container_registry_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if the container registry is enabled for that project"
-    },
-    "lfs_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if Git LFS is enabled for that project"
-    },
-    "public": {
-      "type": "boolean",
-      "description": "Create a public project. The same as visibility_level = 20."
-    },
-    "visibility_level": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Create a public project. The same as visibility_level = 20.",
-      "enum": [
-        0,
-        10,
-        20
-      ]
-    },
-    "public_builds": {
-      "type": "boolean",
-      "description": "Perform public builds"
-    },
-    "request_access_enabled": {
-      "type": "boolean",
-      "description": "Allow users to request member access"
-    },
-    "only_allow_merge_if_build_succeeds": {
-      "type": "boolean",
-      "description": "Only allow to merge if builds succeed"
-    },
-    "only_allow_merge_if_all_discussions_are_resolved": {
-      "type": "boolean",
-      "description": "Only allow to merge if all discussions are resolved"
-    },
-    "namespace_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Namespace ID for the new project. Default to the user namespace."
-    },
-    "import_url": {
-      "type": "string",
-      "description": "URL from which the project is imported"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+gitlab.postV3Projects({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Project"
-}
-```
-## Operation: getV3ProjectsAll
+
+#### Parameters
+* name (string) **required** - The name of the project
+* path (string) - The path of the repository
+* description (string) - The description of the project
+* issues_enabled (boolean) - Flag indication if the issue tracker is enabled
+* merge_requests_enabled (boolean) - Flag indication if merge requests are enabled
+* wiki_enabled (boolean) - Flag indication if the wiki is enabled
+* builds_enabled (boolean) - Flag indication if builds are enabled
+* snippets_enabled (boolean) - Flag indication if snippets are enabled
+* shared_runners_enabled (boolean) - Flag indication if shared runners are enabled for that project
+* container_registry_enabled (boolean) - Flag indication if the container registry is enabled for that project
+* lfs_enabled (boolean) - Flag indication if Git LFS is enabled for that project
+* public (boolean) - Create a public project. The same as visibility_level = 20.
+* visibility_level (integer) - Create a public project. The same as visibility_level = 20.
+* public_builds (boolean) - Perform public builds
+* request_access_enabled (boolean) - Allow users to request member access
+* only_allow_merge_if_build_succeeds (boolean) - Only allow to merge if builds succeed
+* only_allow_merge_if_all_discussions_are_resolved (boolean) - Only allow to merge if all discussions are resolved
+* namespace_id (integer) - Namespace ID for the new project. Default to the user namespace.
+* import_url (string) - URL from which the project is imported
+
+### getV3ProjectsAll
 Get all projects for admin user
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "order_by": {
-      "type": "string",
-      "description": "Return projects ordered by field",
-      "enum": [
-        "id",
-        "name",
-        "path",
-        "created_at",
-        "updated_at",
-        "last_activity_at"
-      ]
-    },
-    "sort": {
-      "type": "string",
-      "description": "Return projects sorted in ascending and descending order",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "archived": {
-      "type": "boolean",
-      "description": "Limit by archived status"
-    },
-    "visibility": {
-      "type": "string",
-      "description": "Limit by visibility",
-      "enum": [
-        "public",
-        "internal",
-        "private"
-      ]
-    },
-    "search": {
-      "type": "string",
-      "description": "Return list of authorized projects matching the search criteria"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    },
-    "simple": {
-      "type": "boolean",
-      "description": "Return only the ID, URL, name, and path of each project"
-    },
-    "statistics": {
-      "type": "boolean",
-      "description": "Include project statistics"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+gitlab.getV3ProjectsAll({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BasicProjectDetails"
-}
-```
-## Operation: postV3ProjectsForkId
+
+
+### postV3ProjectsForkId
 Fork new project for the current user or provided namespace.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "namespace": {
-      "type": "string",
-      "description": "The ID or name of the namespace that the project will be forked into"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsForkId({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Project"
-}
-```
-## Operation: getV3ProjectsOwned
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* namespace (string) - The ID or name of the namespace that the project will be forked into
+
+### getV3ProjectsOwned
 Get an owned projects list for authenticated user
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "order_by": {
-      "type": "string",
-      "description": "Return projects ordered by field",
-      "enum": [
-        "id",
-        "name",
-        "path",
-        "created_at",
-        "updated_at",
-        "last_activity_at"
-      ]
-    },
-    "sort": {
-      "type": "string",
-      "description": "Return projects sorted in ascending and descending order",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "archived": {
-      "type": "boolean",
-      "description": "Limit by archived status"
-    },
-    "visibility": {
-      "type": "string",
-      "description": "Limit by visibility",
-      "enum": [
-        "public",
-        "internal",
-        "private"
-      ]
-    },
-    "search": {
-      "type": "string",
-      "description": "Return list of authorized projects matching the search criteria"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    },
-    "simple": {
-      "type": "boolean",
-      "description": "Return only the ID, URL, name, and path of each project"
-    },
-    "statistics": {
-      "type": "boolean",
-      "description": "Include project statistics"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+gitlab.getV3ProjectsOwned({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BasicProjectDetails"
-}
-```
-## Operation: getV3ProjectsSearchQuery
+
+
+### getV3ProjectsSearchQuery
 Search for projects the current user has access to
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "query": {
-      "type": "string",
-      "description": "The project name to be searched"
-    },
-    "order_by": {
-      "type": "string",
-      "description": "Return projects ordered by field",
-      "enum": [
-        "id",
-        "name",
-        "path",
-        "created_at",
-        "updated_at",
-        "last_activity_at"
-      ]
-    },
-    "sort": {
-      "type": "string",
-      "description": "Return projects sorted in ascending and descending order",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "query"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsSearchQuery({
+  "query": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Project"
-}
-```
-## Operation: getV3ProjectsStarred
+
+#### Parameters
+* query (string) **required** - The project name to be searched
+* order_by (string) - Return projects ordered by field
+* sort (string) - Return projects sorted in ascending and descending order
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### getV3ProjectsStarred
 Gets starred project for the authenticated user
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "order_by": {
-      "type": "string",
-      "description": "Return projects ordered by field",
-      "enum": [
-        "id",
-        "name",
-        "path",
-        "created_at",
-        "updated_at",
-        "last_activity_at"
-      ]
-    },
-    "sort": {
-      "type": "string",
-      "description": "Return projects sorted in ascending and descending order",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "archived": {
-      "type": "boolean",
-      "description": "Limit by archived status"
-    },
-    "visibility": {
-      "type": "string",
-      "description": "Limit by visibility",
-      "enum": [
-        "public",
-        "internal",
-        "private"
-      ]
-    },
-    "search": {
-      "type": "string",
-      "description": "Return list of authorized projects matching the search criteria"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    },
-    "simple": {
-      "type": "boolean",
-      "description": "Return only the ID, URL, name, and path of each project"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+gitlab.getV3ProjectsStarred({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BasicProjectDetails"
-}
-```
-## Operation: postV3ProjectsUserUserId
+
+
+### postV3ProjectsUserUserId
 Create new project for a specified user. Only available to admin users.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of the project"
-    },
-    "user_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a user"
-    },
-    "default_branch": {
-      "type": "string",
-      "description": "The default branch of the project"
-    },
-    "description": {
-      "type": "string",
-      "description": "The description of the project"
-    },
-    "issues_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if the issue tracker is enabled"
-    },
-    "merge_requests_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if merge requests are enabled"
-    },
-    "wiki_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if the wiki is enabled"
-    },
-    "builds_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if builds are enabled"
-    },
-    "snippets_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if snippets are enabled"
-    },
-    "shared_runners_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if shared runners are enabled for that project"
-    },
-    "container_registry_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if the container registry is enabled for that project"
-    },
-    "lfs_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if Git LFS is enabled for that project"
-    },
-    "public": {
-      "type": "boolean",
-      "description": "Create a public project. The same as visibility_level = 20."
-    },
-    "visibility_level": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Create a public project. The same as visibility_level = 20.",
-      "enum": [
-        0,
-        10,
-        20
-      ]
-    },
-    "public_builds": {
-      "type": "boolean",
-      "description": "Perform public builds"
-    },
-    "request_access_enabled": {
-      "type": "boolean",
-      "description": "Allow users to request member access"
-    },
-    "only_allow_merge_if_build_succeeds": {
-      "type": "boolean",
-      "description": "Only allow to merge if builds succeed"
-    },
-    "only_allow_merge_if_all_discussions_are_resolved": {
-      "type": "boolean",
-      "description": "Only allow to merge if all discussions are resolved"
-    },
-    "namespace_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Namespace ID for the new project. Default to the user namespace."
-    },
-    "import_url": {
-      "type": "string",
-      "description": "URL from which the project is imported"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "user_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsUserUserId({
+  "name": "",
+  "user_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Project"
-}
-```
-## Operation: getV3ProjectsVisible
+
+#### Parameters
+* name (string) **required** - The name of the project
+* user_id (integer) **required** - The ID of a user
+* default_branch (string) - The default branch of the project
+* description (string) - The description of the project
+* issues_enabled (boolean) - Flag indication if the issue tracker is enabled
+* merge_requests_enabled (boolean) - Flag indication if merge requests are enabled
+* wiki_enabled (boolean) - Flag indication if the wiki is enabled
+* builds_enabled (boolean) - Flag indication if builds are enabled
+* snippets_enabled (boolean) - Flag indication if snippets are enabled
+* shared_runners_enabled (boolean) - Flag indication if shared runners are enabled for that project
+* container_registry_enabled (boolean) - Flag indication if the container registry is enabled for that project
+* lfs_enabled (boolean) - Flag indication if Git LFS is enabled for that project
+* public (boolean) - Create a public project. The same as visibility_level = 20.
+* visibility_level (integer) - Create a public project. The same as visibility_level = 20.
+* public_builds (boolean) - Perform public builds
+* request_access_enabled (boolean) - Allow users to request member access
+* only_allow_merge_if_build_succeeds (boolean) - Only allow to merge if builds succeed
+* only_allow_merge_if_all_discussions_are_resolved (boolean) - Only allow to merge if all discussions are resolved
+* namespace_id (integer) - Namespace ID for the new project. Default to the user namespace.
+* import_url (string) - URL from which the project is imported
+
+### getV3ProjectsVisible
 Get a list of visible projects for authenticated user
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "order_by": {
-      "type": "string",
-      "description": "Return projects ordered by field",
-      "enum": [
-        "id",
-        "name",
-        "path",
-        "created_at",
-        "updated_at",
-        "last_activity_at"
-      ]
-    },
-    "sort": {
-      "type": "string",
-      "description": "Return projects sorted in ascending and descending order",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "archived": {
-      "type": "boolean",
-      "description": "Limit by archived status"
-    },
-    "visibility": {
-      "type": "string",
-      "description": "Limit by visibility",
-      "enum": [
-        "public",
-        "internal",
-        "private"
-      ]
-    },
-    "search": {
-      "type": "string",
-      "description": "Return list of authorized projects matching the search criteria"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    },
-    "simple": {
-      "type": "boolean",
-      "description": "Return only the ID, URL, name, and path of each project"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+gitlab.getV3ProjectsVisible({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BasicProjectDetails"
-}
-```
-## Operation: deleteV3ProjectsId
+
+
+### deleteV3ProjectsId
 Remove a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsId({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+
+### getV3ProjectsId
 Get a single project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsId({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectWithAccess"
-}
-```
-## Operation: putV3ProjectsId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+
+### putV3ProjectsId
 Update an existing project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the project"
-    },
-    "default_branch": {
-      "type": "string",
-      "description": "The default branch of the project"
-    },
-    "path": {
-      "type": "string",
-      "description": "The path of the repository"
-    },
-    "description": {
-      "type": "string",
-      "description": "The description of the project"
-    },
-    "issues_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if the issue tracker is enabled"
-    },
-    "merge_requests_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if merge requests are enabled"
-    },
-    "wiki_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if the wiki is enabled"
-    },
-    "builds_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if builds are enabled"
-    },
-    "snippets_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if snippets are enabled"
-    },
-    "shared_runners_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if shared runners are enabled for that project"
-    },
-    "container_registry_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if the container registry is enabled for that project"
-    },
-    "lfs_enabled": {
-      "type": "boolean",
-      "description": "Flag indication if Git LFS is enabled for that project"
-    },
-    "public": {
-      "type": "boolean",
-      "description": "Create a public project. The same as visibility_level = 20."
-    },
-    "visibility_level": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Create a public project. The same as visibility_level = 20.",
-      "enum": [
-        0,
-        10,
-        20
-      ]
-    },
-    "public_builds": {
-      "type": "boolean",
-      "description": "Perform public builds"
-    },
-    "request_access_enabled": {
-      "type": "boolean",
-      "description": "Allow users to request member access"
-    },
-    "only_allow_merge_if_build_succeeds": {
-      "type": "boolean",
-      "description": "Only allow to merge if builds succeed"
-    },
-    "only_allow_merge_if_all_discussions_are_resolved": {
-      "type": "boolean",
-      "description": "Only allow to merge if all discussions are resolved"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsId({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Project"
-}
-```
-## Operation: v3.projects.id._ref.ref._trigger.builds.post
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* name (string) - The name of the project
+* default_branch (string) - The default branch of the project
+* path (string) - The path of the repository
+* description (string) - The description of the project
+* issues_enabled (boolean) - Flag indication if the issue tracker is enabled
+* merge_requests_enabled (boolean) - Flag indication if merge requests are enabled
+* wiki_enabled (boolean) - Flag indication if the wiki is enabled
+* builds_enabled (boolean) - Flag indication if builds are enabled
+* snippets_enabled (boolean) - Flag indication if snippets are enabled
+* shared_runners_enabled (boolean) - Flag indication if shared runners are enabled for that project
+* container_registry_enabled (boolean) - Flag indication if the container registry is enabled for that project
+* lfs_enabled (boolean) - Flag indication if Git LFS is enabled for that project
+* public (boolean) - Create a public project. The same as visibility_level = 20.
+* visibility_level (integer) - Create a public project. The same as visibility_level = 20.
+* public_builds (boolean) - Perform public builds
+* request_access_enabled (boolean) - Allow users to request member access
+* only_allow_merge_if_build_succeeds (boolean) - Only allow to merge if builds succeed
+* only_allow_merge_if_all_discussions_are_resolved (boolean) - Only allow to merge if all discussions are resolved
+
+### v3.projects.id._ref.ref._trigger.builds.post
 Trigger a GitLab project build
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "ref": {
-      "type": "string",
-      "description": "The commit sha or name of a branch or tag"
-    },
-    "token": {
-      "type": "string",
-      "description": "The unique token of trigger"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "ref",
-    "token"
-  ]
-}
+
+```js
+gitlab.v3.projects.id._ref.ref._trigger.builds.post({
+  "id": "",
+  "ref": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TriggerRequest"
-}
-```
-## Operation: getV3ProjectsIdAccessRequests
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* ref (string) **required** - The commit sha or name of a branch or tag
+* token (string) **required** - The unique token of trigger
+
+### getV3ProjectsIdAccessRequests
 This feature was introduced in GitLab 8.11.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdAccessRequests({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccessRequester"
-}
-```
-## Operation: postV3ProjectsIdAccessRequests
+
+#### Parameters
+* id (string) **required** - The project ID
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### postV3ProjectsIdAccessRequests
 This feature was introduced in GitLab 8.11.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdAccessRequests({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccessRequester"
-}
-```
-## Operation: deleteV3ProjectsIdAccessRequestsUserId
+
+#### Parameters
+* id (string) **required** - The project ID
+
+### deleteV3ProjectsIdAccessRequestsUserId
 This feature was introduced in GitLab 8.11.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "user_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The user ID of the access requester"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "user_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdAccessRequestsUserId({
+  "id": "",
+  "user_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdAccessRequestsUserIdApprove
+
+#### Parameters
+* id (string) **required** - The project ID
+* user_id (integer) **required** - The user ID of the access requester
+
+### putV3ProjectsIdAccessRequestsUserIdApprove
 This feature was introduced in GitLab 8.11.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "user_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The user ID of the access requester"
-    },
-    "access_level": {
-      "type": "integer",
-      "format": "int32",
-      "description": "A valid access level (defaults: `30`, developer access level)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "user_id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdAccessRequestsUserIdApprove({
+  "id": "",
+  "user_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Member"
-}
-```
-## Operation: postV3ProjectsIdArchive
+
+#### Parameters
+* id (string) **required** - The project ID
+* user_id (integer) **required** - The user ID of the access requester
+* access_level (integer) - A valid access level (defaults: `30`, developer access level)
+
+### postV3ProjectsIdArchive
 Archive a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdArchive({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Project"
-}
-```
-## Operation: getV3ProjectsIdBoards
+
+#### Parameters
+* id (string) **required** - The ID of a project
+
+### getV3ProjectsIdBoards
 This feature was introduced in 8.13
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdBoards({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Board"
-}
-```
-## Operation: getV3ProjectsIdBoardsBoardIdLists
+
+#### Parameters
+* id (string) **required** - The ID of a project
+
+### getV3ProjectsIdBoardsBoardIdLists
 Does not include `backlog` and `done` lists. This feature was introduced in 8.13
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "board_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a board"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "board_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdBoardsBoardIdLists({
+  "id": "",
+  "board_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/List"
-}
-```
-## Operation: postV3ProjectsIdBoardsBoardIdLists
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* board_id (integer) **required** - The ID of a board
+
+### postV3ProjectsIdBoardsBoardIdLists
 This feature was introduced in 8.13
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "board_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a board"
-    },
-    "label_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of an existing label"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "board_id",
-    "label_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdBoardsBoardIdLists({
+  "id": "",
+  "board_id": 0,
+  "label_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/List"
-}
-```
-## Operation: deleteV3ProjectsIdBoardsBoardIdListsListId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* board_id (integer) **required** - The ID of a board
+* label_id (integer) **required** - The ID of an existing label
+
+### deleteV3ProjectsIdBoardsBoardIdListsListId
 This feature was introduced in 8.13
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "board_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a board"
-    },
-    "list_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a board list"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "board_id",
-    "list_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdBoardsBoardIdListsListId({
+  "id": "",
+  "board_id": 0,
+  "list_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/List"
-}
-```
-## Operation: getV3ProjectsIdBoardsBoardIdListsListId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* board_id (integer) **required** - The ID of a board
+* list_id (integer) **required** - The ID of a board list
+
+### getV3ProjectsIdBoardsBoardIdListsListId
 This feature was introduced in 8.13
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "board_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a board"
-    },
-    "list_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a list"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "board_id",
-    "list_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdBoardsBoardIdListsListId({
+  "id": "",
+  "board_id": 0,
+  "list_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/List"
-}
-```
-## Operation: putV3ProjectsIdBoardsBoardIdListsListId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* board_id (integer) **required** - The ID of a board
+* list_id (integer) **required** - The ID of a list
+
+### putV3ProjectsIdBoardsBoardIdListsListId
 This feature was introduced in 8.13
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "board_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a board"
-    },
-    "list_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a list"
-    },
-    "position": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The position of the list"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "board_id",
-    "list_id",
-    "position"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdBoardsBoardIdListsListId({
+  "id": "",
+  "board_id": 0,
+  "list_id": 0,
+  "position": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/List"
-}
-```
-## Operation: getV3ProjectsIdBuilds
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* board_id (integer) **required** - The ID of a board
+* list_id (integer) **required** - The ID of a list
+* position (integer) **required** - The position of the list
+
+### getV3ProjectsIdBuilds
 Get a project builds
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "scope": {
-      "type": "string",
-      "description": "The scope of builds to show",
-      "enum": [
-        "pending",
-        "running",
-        "failed",
-        "success",
-        "canceled"
-      ]
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdBuilds({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Build"
-}
-```
-## Operation: getV3ProjectsIdBuildsArtifactsRefNameDownload
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* scope (string) - The scope of builds to show
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### getV3ProjectsIdBuildsArtifactsRefNameDownload
 This feature was introduced in GitLab 8.10
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "ref_name": {
-      "type": "string",
-      "description": "The ref from repository"
-    },
-    "job": {
-      "type": "string",
-      "description": "The name for the build"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "ref_name",
-    "job"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdBuildsArtifactsRefNameDownload({
+  "id": "",
+  "ref_name": "",
+  "job": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdBuildsBuildId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* ref_name (string) **required** - The ref from repository
+* job (string) **required** - The name for the build
+
+### getV3ProjectsIdBuildsBuildId
 Get a specific build of a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "build_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a build"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "build_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdBuildsBuildId({
+  "id": "",
+  "build_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Build"
-}
-```
-## Operation: getV3ProjectsIdBuildsBuildIdArtifacts
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* build_id (integer) **required** - The ID of a build
+
+### getV3ProjectsIdBuildsBuildIdArtifacts
 This feature was introduced in GitLab 8.5
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "build_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a build"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "build_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdBuildsBuildIdArtifacts({
+  "id": "",
+  "build_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postV3ProjectsIdBuildsBuildIdArtifactsKeep
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* build_id (integer) **required** - The ID of a build
+
+### postV3ProjectsIdBuildsBuildIdArtifactsKeep
 Keep the artifacts to prevent them from being deleted
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "build_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a build"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "build_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdBuildsBuildIdArtifactsKeep({
+  "id": "",
+  "build_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Build"
-}
-```
-## Operation: postV3ProjectsIdBuildsBuildIdCancel
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* build_id (integer) **required** - The ID of a build
+
+### postV3ProjectsIdBuildsBuildIdCancel
 Cancel a specific build of a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "build_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a build"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "build_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdBuildsBuildIdCancel({
+  "id": "",
+  "build_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Build"
-}
-```
-## Operation: postV3ProjectsIdBuildsBuildIdErase
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* build_id (integer) **required** - The ID of a build
+
+### postV3ProjectsIdBuildsBuildIdErase
 Erase build (remove artifacts and build trace)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "build_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a build"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "build_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdBuildsBuildIdErase({
+  "id": "",
+  "build_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Build"
-}
-```
-## Operation: postV3ProjectsIdBuildsBuildIdPlay
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* build_id (integer) **required** - The ID of a build
+
+### postV3ProjectsIdBuildsBuildIdPlay
 This feature was added in GitLab 8.11
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "build_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a Build"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "build_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdBuildsBuildIdPlay({
+  "id": "",
+  "build_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Build"
-}
-```
-## Operation: postV3ProjectsIdBuildsBuildIdRetry
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* build_id (integer) **required** - The ID of a Build
+
+### postV3ProjectsIdBuildsBuildIdRetry
 Retry a specific build of a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "build_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a build"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "build_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdBuildsBuildIdRetry({
+  "id": "",
+  "build_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Build"
-}
-```
-## Operation: getV3ProjectsIdBuildsBuildIdTrace
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* build_id (integer) **required** - The ID of a build
+
+### getV3ProjectsIdBuildsBuildIdTrace
 Get a trace of a specific build of a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "build_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a build"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "build_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdBuildsBuildIdTrace({
+  "id": "",
+  "build_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdDeployKeys
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* build_id (integer) **required** - The ID of a build
+
+### getV3ProjectsIdDeployKeys
 Get a specific project's deploy keys
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of the project"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdDeployKeys({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SSHKey"
-}
-```
-## Operation: postV3ProjectsIdDeployKeys
+
+#### Parameters
+* id (string) **required** - The ID of the project
+
+### postV3ProjectsIdDeployKeys
 Add new deploy key to currently authenticated user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of the project"
-    },
-    "key": {
-      "type": "string",
-      "description": "The new deploy key"
-    },
-    "title": {
-      "type": "string",
-      "description": "The name of the deploy key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "key",
-    "title"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdDeployKeys({
+  "id": "",
+  "key": "",
+  "title": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SSHKey"
-}
-```
-## Operation: deleteV3ProjectsIdDeployKeysKeyId
+
+#### Parameters
+* id (string) **required** - The ID of the project
+* key (string) **required** - The new deploy key
+* title (string) **required** - The name of the deploy key
+
+### deleteV3ProjectsIdDeployKeysKeyId
 Delete deploy key for a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of the project"
-    },
-    "key_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the deploy key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "key_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdDeployKeysKeyId({
+  "id": "",
+  "key_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SSHKey"
-}
-```
-## Operation: getV3ProjectsIdDeployKeysKeyId
+
+#### Parameters
+* id (string) **required** - The ID of the project
+* key_id (integer) **required** - The ID of the deploy key
+
+### getV3ProjectsIdDeployKeysKeyId
 Get single deploy key
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of the project"
-    },
-    "key_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the deploy key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "key_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdDeployKeysKeyId({
+  "id": "",
+  "key_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SSHKey"
-}
-```
-## Operation: deleteV3ProjectsIdDeployKeysKeyIdDisable
+
+#### Parameters
+* id (string) **required** - The ID of the project
+* key_id (integer) **required** - The ID of the deploy key
+
+### deleteV3ProjectsIdDeployKeysKeyIdDisable
 This feature was added in GitLab 8.11
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of the project"
-    },
-    "key_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the deploy key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "key_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdDeployKeysKeyIdDisable({
+  "id": "",
+  "key_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SSHKey"
-}
-```
-## Operation: postV3ProjectsIdDeployKeysKeyIdEnable
+
+#### Parameters
+* id (string) **required** - The ID of the project
+* key_id (integer) **required** - The ID of the deploy key
+
+### postV3ProjectsIdDeployKeysKeyIdEnable
 This feature was added in GitLab 8.11
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of the project"
-    },
-    "key_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the deploy key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "key_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdDeployKeysKeyIdEnable({
+  "id": "",
+  "key_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SSHKey"
-}
-```
-## Operation: getV3ProjectsIdDeployments
+
+#### Parameters
+* id (string) **required** - The ID of the project
+* key_id (integer) **required** - The ID of the deploy key
+
+### getV3ProjectsIdDeployments
 This feature was introduced in GitLab 8.11.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdDeployments({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Deployment"
-}
-```
-## Operation: getV3ProjectsIdDeploymentsDeploymentId
+
+#### Parameters
+* id (string) **required** - The project ID
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### getV3ProjectsIdDeploymentsDeploymentId
 This feature was introduced in GitLab 8.11.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "deployment_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The deployment ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "deployment_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdDeploymentsDeploymentId({
+  "id": "",
+  "deployment_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Deployment"
-}
-```
-## Operation: getV3ProjectsIdEnvironments
+
+#### Parameters
+* id (string) **required** - The project ID
+* deployment_id (integer) **required** - The deployment ID
+
+### getV3ProjectsIdEnvironments
 This feature was introduced in GitLab 8.11.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdEnvironments({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Environment"
-}
-```
-## Operation: postV3ProjectsIdEnvironments
+
+#### Parameters
+* id (string) **required** - The project ID
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### postV3ProjectsIdEnvironments
 This feature was introduced in GitLab 8.11.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the environment to be created"
-    },
-    "external_url": {
-      "type": "string",
-      "description": "URL on which this deployment is viewable"
-    },
-    "slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "name"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdEnvironments({
+  "id": "",
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Environment"
-}
-```
-## Operation: deleteV3ProjectsIdEnvironmentsEnvironmentId
+
+#### Parameters
+* id (string) **required** - The project ID
+* name (string) **required** - The name of the environment to be created
+* external_url (string) - URL on which this deployment is viewable
+* slug (string)
+
+### deleteV3ProjectsIdEnvironmentsEnvironmentId
 This feature was introduced in GitLab 8.11.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "environment_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The environment ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "environment_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdEnvironmentsEnvironmentId({
+  "id": "",
+  "environment_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Environment"
-}
-```
-## Operation: putV3ProjectsIdEnvironmentsEnvironmentId
+
+#### Parameters
+* id (string) **required** - The project ID
+* environment_id (integer) **required** - The environment ID
+
+### putV3ProjectsIdEnvironmentsEnvironmentId
 This feature was introduced in GitLab 8.11.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "environment_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The environment ID"
-    },
-    "name": {
-      "type": "string",
-      "description": "The new environment name"
-    },
-    "external_url": {
-      "type": "string",
-      "description": "The new URL on which this deployment is viewable"
-    },
-    "slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "environment_id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdEnvironmentsEnvironmentId({
+  "id": "",
+  "environment_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Environment"
-}
-```
-## Operation: getV3ProjectsIdEvents
+
+#### Parameters
+* id (string) **required** - The project ID
+* environment_id (integer) **required** - The environment ID
+* name (string) - The new environment name
+* external_url (string) - The new URL on which this deployment is viewable
+* slug (string)
+
+### getV3ProjectsIdEvents
 Get events for a single project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdEvents({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Event"
-}
-```
-## Operation: deleteV3ProjectsIdFork
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### deleteV3ProjectsIdFork
 Remove a forked_from relationship
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdFork({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postV3ProjectsIdForkForkedFromId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+
+### postV3ProjectsIdForkForkedFromId
 Mark this project as forked from another
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "forked_from_id": {
-      "type": "string",
-      "description": "The ID of the project it was forked from"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "forked_from_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdForkForkedFromId({
+  "id": "",
+  "forked_from_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdHooks
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* forked_from_id (string) **required** - The ID of the project it was forked from
+
+### getV3ProjectsIdHooks
 Get project hooks
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdHooks({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectHook"
-}
-```
-## Operation: postV3ProjectsIdHooks
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### postV3ProjectsIdHooks
 Add hook to project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "url": {
-      "type": "string",
-      "description": "The URL to send the request to"
-    },
-    "push_events": {
-      "type": "boolean",
-      "description": "Trigger hook on push events"
-    },
-    "issues_events": {
-      "type": "boolean",
-      "description": "Trigger hook on issues events"
-    },
-    "merge_requests_events": {
-      "type": "boolean",
-      "description": "Trigger hook on merge request events"
-    },
-    "tag_push_events": {
-      "type": "boolean",
-      "description": "Trigger hook on tag push events"
-    },
-    "note_events": {
-      "type": "boolean",
-      "description": "Trigger hook on note(comment) events"
-    },
-    "build_events": {
-      "type": "boolean",
-      "description": "Trigger hook on build events"
-    },
-    "pipeline_events": {
-      "type": "boolean",
-      "description": "Trigger hook on pipeline events"
-    },
-    "wiki_page_events": {
-      "type": "boolean",
-      "description": "Trigger hook on wiki events"
-    },
-    "enable_ssl_verification": {
-      "type": "boolean",
-      "description": "Do SSL verification when triggering the hook"
-    },
-    "token": {
-      "type": "string",
-      "description": "Secret token to validate received payloads; this will not be returned in the response"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "url"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdHooks({
+  "id": "",
+  "url": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectHook"
-}
-```
-## Operation: deleteV3ProjectsIdHooksHookId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* url (string) **required** - The URL to send the request to
+* push_events (boolean) - Trigger hook on push events
+* issues_events (boolean) - Trigger hook on issues events
+* merge_requests_events (boolean) - Trigger hook on merge request events
+* tag_push_events (boolean) - Trigger hook on tag push events
+* note_events (boolean) - Trigger hook on note(comment) events
+* build_events (boolean) - Trigger hook on build events
+* pipeline_events (boolean) - Trigger hook on pipeline events
+* wiki_page_events (boolean) - Trigger hook on wiki events
+* enable_ssl_verification (boolean) - Do SSL verification when triggering the hook
+* token (string) - Secret token to validate received payloads; this will not be returned in the response
+
+### deleteV3ProjectsIdHooksHookId
 Deletes project hook
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "hook_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the hook to delete"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "hook_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdHooksHookId({
+  "id": "",
+  "hook_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectHook"
-}
-```
-## Operation: getV3ProjectsIdHooksHookId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* hook_id (integer) **required** - The ID of the hook to delete
+
+### getV3ProjectsIdHooksHookId
 Get a project hook
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "hook_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project hook"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "hook_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdHooksHookId({
+  "id": "",
+  "hook_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectHook"
-}
-```
-## Operation: putV3ProjectsIdHooksHookId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* hook_id (integer) **required** - The ID of a project hook
+
+### putV3ProjectsIdHooksHookId
 Update an existing project hook
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "hook_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the hook to update"
-    },
-    "url": {
-      "type": "string",
-      "description": "The URL to send the request to"
-    },
-    "push_events": {
-      "type": "boolean",
-      "description": "Trigger hook on push events"
-    },
-    "issues_events": {
-      "type": "boolean",
-      "description": "Trigger hook on issues events"
-    },
-    "merge_requests_events": {
-      "type": "boolean",
-      "description": "Trigger hook on merge request events"
-    },
-    "tag_push_events": {
-      "type": "boolean",
-      "description": "Trigger hook on tag push events"
-    },
-    "note_events": {
-      "type": "boolean",
-      "description": "Trigger hook on note(comment) events"
-    },
-    "build_events": {
-      "type": "boolean",
-      "description": "Trigger hook on build events"
-    },
-    "pipeline_events": {
-      "type": "boolean",
-      "description": "Trigger hook on pipeline events"
-    },
-    "wiki_page_events": {
-      "type": "boolean",
-      "description": "Trigger hook on wiki events"
-    },
-    "enable_ssl_verification": {
-      "type": "boolean",
-      "description": "Do SSL verification when triggering the hook"
-    },
-    "token": {
-      "type": "string",
-      "description": "Secret token to validate received payloads; this will not be returned in the response"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "hook_id",
-    "url"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdHooksHookId({
+  "id": "",
+  "hook_id": 0,
+  "url": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectHook"
-}
-```
-## Operation: getV3ProjectsIdIssues
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* hook_id (integer) **required** - The ID of the hook to update
+* url (string) **required** - The URL to send the request to
+* push_events (boolean) - Trigger hook on push events
+* issues_events (boolean) - Trigger hook on issues events
+* merge_requests_events (boolean) - Trigger hook on merge request events
+* tag_push_events (boolean) - Trigger hook on tag push events
+* note_events (boolean) - Trigger hook on note(comment) events
+* build_events (boolean) - Trigger hook on build events
+* pipeline_events (boolean) - Trigger hook on pipeline events
+* wiki_page_events (boolean) - Trigger hook on wiki events
+* enable_ssl_verification (boolean) - Do SSL verification when triggering the hook
+* token (string) - Secret token to validate received payloads; this will not be returned in the response
+
+### getV3ProjectsIdIssues
 Get a list of project issues
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "state": {
-      "type": "string",
-      "description": "Return opened, closed, or all issues",
-      "enum": [
-        "opened",
-        "closed",
-        "all"
-      ]
-    },
-    "iid": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Return the issue having the given `iid`"
-    },
-    "labels": {
-      "type": "string",
-      "description": "Comma-separated list of label names"
-    },
-    "milestone": {
-      "type": "string",
-      "description": "Return issues for a specific milestone"
-    },
-    "order_by": {
-      "type": "string",
-      "description": "Return issues ordered by `created_at` or `updated_at` fields.",
-      "enum": [
-        "created_at",
-        "updated_at"
-      ]
-    },
-    "sort": {
-      "type": "string",
-      "description": "Return issues sorted in `asc` or `desc` order.",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdIssues({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Issue"
-}
-```
-## Operation: postV3ProjectsIdIssues
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* state (string) - Return opened, closed, or all issues
+* iid (integer) - Return the issue having the given `iid`
+* labels (string) - Comma-separated list of label names
+* milestone (string) - Return issues for a specific milestone
+* order_by (string) - Return issues ordered by `created_at` or `updated_at` fields.
+* sort (string) - Return issues sorted in `asc` or `desc` order.
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### postV3ProjectsIdIssues
 Create a new project issue
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "title": {
-      "type": "string",
-      "description": "The title of an issue"
-    },
-    "created_at": {
-      "type": "string",
-      "format": "date-time",
-      "description": "Date time when the issue was created. Available only for admins and project owners."
-    },
-    "merge_request_for_resolving_discussions": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The IID of a merge request for which to resolve discussions"
-    },
-    "description": {
-      "type": "string",
-      "description": "The description of an issue"
-    },
-    "assignee_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a user to assign issue"
-    },
-    "milestone_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a milestone to assign issue"
-    },
-    "labels": {
-      "type": "string",
-      "description": "Comma-separated list of label names"
-    },
-    "due_date": {
-      "type": "string",
-      "description": "Date time string in the format YEAR-MONTH-DAY"
-    },
-    "confidential": {
-      "type": "boolean",
-      "description": "Boolean parameter if the issue should be confidential"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "title"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdIssues({
+  "id": "",
+  "title": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Issue"
-}
-```
-## Operation: deleteV3ProjectsIdIssuesIssueId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* title (string) **required** - The title of an issue
+* created_at (string) - Date time when the issue was created. Available only for admins and project owners.
+* merge_request_for_resolving_discussions (integer) - The IID of a merge request for which to resolve discussions
+* description (string) - The description of an issue
+* assignee_id (integer) - The ID of a user to assign issue
+* milestone_id (integer) - The ID of a milestone to assign issue
+* labels (string) - Comma-separated list of label names
+* due_date (string) - Date time string in the format YEAR-MONTH-DAY
+* confidential (boolean) - Boolean parameter if the issue should be confidential
+
+### deleteV3ProjectsIdIssuesIssueId
 Delete a project issue
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "issue_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project issue"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "issue_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdIssuesIssueId({
+  "id": "",
+  "issue_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdIssuesIssueId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* issue_id (integer) **required** - The ID of a project issue
+
+### getV3ProjectsIdIssuesIssueId
 Get a single project issue
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "issue_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project issue"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "issue_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdIssuesIssueId({
+  "id": "",
+  "issue_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Issue"
-}
-```
-## Operation: putV3ProjectsIdIssuesIssueId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* issue_id (integer) **required** - The ID of a project issue
+
+### putV3ProjectsIdIssuesIssueId
 Update an existing issue
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "issue_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project issue"
-    },
-    "title": {
-      "type": "string",
-      "description": "The title of an issue"
-    },
-    "updated_at": {
-      "type": "string",
-      "format": "date-time",
-      "description": "Date time when the issue was updated. Available only for admins and project owners."
-    },
-    "state_event": {
-      "type": "string",
-      "description": "State of the issue",
-      "enum": [
-        "reopen",
-        "close"
-      ]
-    },
-    "description": {
-      "type": "string",
-      "description": "The description of an issue"
-    },
-    "assignee_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a user to assign issue"
-    },
-    "milestone_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a milestone to assign issue"
-    },
-    "labels": {
-      "type": "string",
-      "description": "Comma-separated list of label names"
-    },
-    "due_date": {
-      "type": "string",
-      "description": "Date time string in the format YEAR-MONTH-DAY"
-    },
-    "confidential": {
-      "type": "boolean",
-      "description": "Boolean parameter if the issue should be confidential"
-    },
-    "created_at": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "issue_id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdIssuesIssueId({
+  "id": "",
+  "issue_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Issue"
-}
-```
-## Operation: postV3ProjectsIdIssuesIssueIdAddSpentTime
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* issue_id (integer) **required** - The ID of a project issue
+* title (string) - The title of an issue
+* updated_at (string) - Date time when the issue was updated. Available only for admins and project owners.
+* state_event (string) - State of the issue
+* description (string) - The description of an issue
+* assignee_id (integer) - The ID of a user to assign issue
+* milestone_id (integer) - The ID of a milestone to assign issue
+* labels (string) - Comma-separated list of label names
+* due_date (string) - Date time string in the format YEAR-MONTH-DAY
+* confidential (boolean) - Boolean parameter if the issue should be confidential
+* created_at (string)
+
+### postV3ProjectsIdIssuesIssueIdAddSpentTime
 Add spent time for a project issue
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "issue_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project issue"
-    },
-    "duration": {
-      "type": "string",
-      "description": "The duration to be parsed"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "issue_id",
-    "duration"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdIssuesIssueIdAddSpentTime({
+  "id": "",
+  "issue_id": 0,
+  "duration": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdIssuesIssueIdAwardEmoji
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* issue_id (integer) **required** - The ID of a project issue
+* duration (string) **required** - The duration to be parsed
+
+### getV3ProjectsIdIssuesIssueIdAwardEmoji
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "issue_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of an Issue, Merge Request or Snippet"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "issue_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdIssuesIssueIdAwardEmoji({
+  "id": "",
+  "issue_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: postV3ProjectsIdIssuesIssueIdAwardEmoji
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* issue_id (integer) **required** - The ID of an Issue, Merge Request or Snippet
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### postV3ProjectsIdIssuesIssueIdAwardEmoji
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of a award_emoji (without colons)"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "issue_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "id",
-    "issue_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdIssuesIssueIdAwardEmoji({
+  "name": "",
+  "id": 0,
+  "issue_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: deleteV3ProjectsIdIssuesIssueIdAwardEmojiAwardId
+
+#### Parameters
+* name (string) **required** - The name of a award_emoji (without colons)
+* id (integer) **required**
+* issue_id (integer) **required**
+
+### deleteV3ProjectsIdIssuesIssueIdAwardEmojiAwardId
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "award_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of an award emoji"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "issue_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "award_id",
-    "id",
-    "issue_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdIssuesIssueIdAwardEmojiAwardId({
+  "award_id": 0,
+  "id": 0,
+  "issue_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: getV3ProjectsIdIssuesIssueIdAwardEmojiAwardId
+
+#### Parameters
+* award_id (integer) **required** - The ID of an award emoji
+* id (integer) **required**
+* issue_id (integer) **required**
+
+### getV3ProjectsIdIssuesIssueIdAwardEmojiAwardId
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "award_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the award"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "issue_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "award_id",
-    "id",
-    "issue_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdIssuesIssueIdAwardEmojiAwardId({
+  "award_id": 0,
+  "id": 0,
+  "issue_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: postV3ProjectsIdIssuesIssueIdMove
+
+#### Parameters
+* award_id (integer) **required** - The ID of the award
+* id (integer) **required**
+* issue_id (integer) **required**
+
+### postV3ProjectsIdIssuesIssueIdMove
 Move an existing issue
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "issue_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project issue"
-    },
-    "to_project_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the new project"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "issue_id",
-    "to_project_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdIssuesIssueIdMove({
+  "id": "",
+  "issue_id": 0,
+  "to_project_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Issue"
-}
-```
-## Operation: getV3ProjectsIdIssuesIssueIdNotesNoteIdAwardEmoji
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* issue_id (integer) **required** - The ID of a project issue
+* to_project_id (integer) **required** - The ID of the new project
+
+### getV3ProjectsIdIssuesIssueIdNotesNoteIdAwardEmoji
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "issue_id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "note_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "issue_id",
-    "note_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdIssuesIssueIdNotesNoteIdAwardEmoji({
+  "id": 0,
+  "issue_id": 0,
+  "note_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: postV3ProjectsIdIssuesIssueIdNotesNoteIdAwardEmoji
+
+#### Parameters
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+* id (integer) **required**
+* issue_id (integer) **required**
+* note_id (integer) **required**
+
+### postV3ProjectsIdIssuesIssueIdNotesNoteIdAwardEmoji
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of a award_emoji (without colons)"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "issue_id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "note_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "id",
-    "issue_id",
-    "note_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdIssuesIssueIdNotesNoteIdAwardEmoji({
+  "name": "",
+  "id": 0,
+  "issue_id": 0,
+  "note_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: deleteV3ProjectsIdIssuesIssueIdNotesNoteIdAwardEmojiAwardId
+
+#### Parameters
+* name (string) **required** - The name of a award_emoji (without colons)
+* id (integer) **required**
+* issue_id (integer) **required**
+* note_id (integer) **required**
+
+### deleteV3ProjectsIdIssuesIssueIdNotesNoteIdAwardEmojiAwardId
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "award_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of an award emoji"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "issue_id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "note_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "award_id",
-    "id",
-    "issue_id",
-    "note_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdIssuesIssueIdNotesNoteIdAwardEmojiAwardId({
+  "award_id": 0,
+  "id": 0,
+  "issue_id": 0,
+  "note_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: getV3ProjectsIdIssuesIssueIdNotesNoteIdAwardEmojiAwardId
+
+#### Parameters
+* award_id (integer) **required** - The ID of an award emoji
+* id (integer) **required**
+* issue_id (integer) **required**
+* note_id (integer) **required**
+
+### getV3ProjectsIdIssuesIssueIdNotesNoteIdAwardEmojiAwardId
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "award_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the award"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "issue_id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "note_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "award_id",
-    "id",
-    "issue_id",
-    "note_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdIssuesIssueIdNotesNoteIdAwardEmojiAwardId({
+  "award_id": 0,
+  "id": 0,
+  "issue_id": 0,
+  "note_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: postV3ProjectsIdIssuesIssueIdResetSpentTime
+
+#### Parameters
+* award_id (integer) **required** - The ID of the award
+* id (integer) **required**
+* issue_id (integer) **required**
+* note_id (integer) **required**
+
+### postV3ProjectsIdIssuesIssueIdResetSpentTime
 Reset spent time for a project issue
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "issue_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project issue"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "issue_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdIssuesIssueIdResetSpentTime({
+  "id": "",
+  "issue_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postV3ProjectsIdIssuesIssueIdResetTimeEstimate
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* issue_id (integer) **required** - The ID of a project issue
+
+### postV3ProjectsIdIssuesIssueIdResetTimeEstimate
 Reset the time estimate for a project issue
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "issue_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project issue"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "issue_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdIssuesIssueIdResetTimeEstimate({
+  "id": "",
+  "issue_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postV3ProjectsIdIssuesIssueIdTimeEstimate
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* issue_id (integer) **required** - The ID of a project issue
+
+### postV3ProjectsIdIssuesIssueIdTimeEstimate
 Set a time estimate for a project issue
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "issue_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project issue"
-    },
-    "duration": {
-      "type": "string",
-      "description": "The duration to be parsed"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "issue_id",
-    "duration"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdIssuesIssueIdTimeEstimate({
+  "id": "",
+  "issue_id": 0,
+  "duration": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdIssuesIssueIdTimeStats
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* issue_id (integer) **required** - The ID of a project issue
+* duration (string) **required** - The duration to be parsed
+
+### getV3ProjectsIdIssuesIssueIdTimeStats
 Show time stats for a project issue
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "issue_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project issue"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "issue_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdIssuesIssueIdTimeStats({
+  "id": "",
+  "issue_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postV3ProjectsIdIssuesIssueIdTodo
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* issue_id (integer) **required** - The ID of a project issue
+
+### postV3ProjectsIdIssuesIssueIdTodo
 Create a todo on an issuable
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "issue_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of an issuable"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "issue_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdIssuesIssueIdTodo({
+  "id": "",
+  "issue_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Todo"
-}
-```
-## Operation: getV3ProjectsIdIssuesNoteableIdNotes
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* issue_id (integer) **required** - The ID of an issuable
+
+### getV3ProjectsIdIssuesNoteableIdNotes
 Get a list of project +noteable+ notes
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "noteable_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the noteable"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "noteable_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdIssuesNoteableIdNotes({
+  "id": "",
+  "noteable_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Note"
-}
-```
-## Operation: postV3ProjectsIdIssuesNoteableIdNotes
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* noteable_id (integer) **required** - The ID of the noteable
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### postV3ProjectsIdIssuesNoteableIdNotes
 Create a new +noteable+ note
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "noteable_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the noteable"
-    },
-    "body": {
-      "type": "string",
-      "description": "The content of a note"
-    },
-    "created_at": {
-      "type": "string",
-      "description": "The creation date of the note"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "noteable_id",
-    "body"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdIssuesNoteableIdNotes({
+  "id": "",
+  "noteable_id": 0,
+  "body": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Note"
-}
-```
-## Operation: deleteV3ProjectsIdIssuesNoteableIdNotesNoteId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* noteable_id (integer) **required** - The ID of the noteable
+* body (string) **required** - The content of a note
+* created_at (string) - The creation date of the note
+
+### deleteV3ProjectsIdIssuesNoteableIdNotesNoteId
 Delete a +noteable+ note
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "noteable_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the noteable"
-    },
-    "note_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a note"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "noteable_id",
-    "note_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdIssuesNoteableIdNotesNoteId({
+  "id": "",
+  "noteable_id": 0,
+  "note_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Note"
-}
-```
-## Operation: getV3ProjectsIdIssuesNoteableIdNotesNoteId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* noteable_id (integer) **required** - The ID of the noteable
+* note_id (integer) **required** - The ID of a note
+
+### getV3ProjectsIdIssuesNoteableIdNotesNoteId
 Get a single +noteable+ note
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "note_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a note"
-    },
-    "noteable_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the noteable"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "note_id",
-    "noteable_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdIssuesNoteableIdNotesNoteId({
+  "id": "",
+  "note_id": 0,
+  "noteable_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Note"
-}
-```
-## Operation: putV3ProjectsIdIssuesNoteableIdNotesNoteId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* note_id (integer) **required** - The ID of a note
+* noteable_id (integer) **required** - The ID of the noteable
+
+### putV3ProjectsIdIssuesNoteableIdNotesNoteId
 Update an existing +noteable+ note
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "noteable_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the noteable"
-    },
-    "note_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a note"
-    },
-    "body": {
-      "type": "string",
-      "description": "The content of a note"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "noteable_id",
-    "note_id",
-    "body"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdIssuesNoteableIdNotesNoteId({
+  "id": "",
+  "noteable_id": 0,
+  "note_id": 0,
+  "body": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Note"
-}
-```
-## Operation: deleteV3ProjectsIdIssuesSubscribableIdSubscription
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* noteable_id (integer) **required** - The ID of the noteable
+* note_id (integer) **required** - The ID of a note
+* body (string) **required** - The content of a note
+
+### deleteV3ProjectsIdIssuesSubscribableIdSubscription
 Unsubscribe from a resource
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "subscribable_id": {
-      "type": "string",
-      "description": "The ID of a resource"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "subscribable_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdIssuesSubscribableIdSubscription({
+  "id": "",
+  "subscribable_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Issue"
-}
-```
-## Operation: postV3ProjectsIdIssuesSubscribableIdSubscription
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* subscribable_id (string) **required** - The ID of a resource
+
+### postV3ProjectsIdIssuesSubscribableIdSubscription
 Subscribe to a resource
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "subscribable_id": {
-      "type": "string",
-      "description": "The ID of a resource"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "subscribable_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdIssuesSubscribableIdSubscription({
+  "id": "",
+  "subscribable_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Issue"
-}
-```
-## Operation: getV3ProjectsIdKeys
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* subscribable_id (string) **required** - The ID of a resource
+
+### getV3ProjectsIdKeys
 Get a specific project's deploy keys
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of the project"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdKeys({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SSHKey"
-}
-```
-## Operation: postV3ProjectsIdKeys
+
+#### Parameters
+* id (string) **required** - The ID of the project
+
+### postV3ProjectsIdKeys
 Add new deploy key to currently authenticated user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of the project"
-    },
-    "key": {
-      "type": "string",
-      "description": "The new deploy key"
-    },
-    "title": {
-      "type": "string",
-      "description": "The name of the deploy key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "key",
-    "title"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdKeys({
+  "id": "",
+  "key": "",
+  "title": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SSHKey"
-}
-```
-## Operation: deleteV3ProjectsIdKeysKeyId
+
+#### Parameters
+* id (string) **required** - The ID of the project
+* key (string) **required** - The new deploy key
+* title (string) **required** - The name of the deploy key
+
+### deleteV3ProjectsIdKeysKeyId
 Delete deploy key for a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of the project"
-    },
-    "key_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the deploy key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "key_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdKeysKeyId({
+  "id": "",
+  "key_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SSHKey"
-}
-```
-## Operation: getV3ProjectsIdKeysKeyId
+
+#### Parameters
+* id (string) **required** - The ID of the project
+* key_id (integer) **required** - The ID of the deploy key
+
+### getV3ProjectsIdKeysKeyId
 Get single deploy key
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of the project"
-    },
-    "key_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the deploy key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "key_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdKeysKeyId({
+  "id": "",
+  "key_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SSHKey"
-}
-```
-## Operation: deleteV3ProjectsIdKeysKeyIdDisable
+
+#### Parameters
+* id (string) **required** - The ID of the project
+* key_id (integer) **required** - The ID of the deploy key
+
+### deleteV3ProjectsIdKeysKeyIdDisable
 This feature was added in GitLab 8.11
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of the project"
-    },
-    "key_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the deploy key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "key_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdKeysKeyIdDisable({
+  "id": "",
+  "key_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SSHKey"
-}
-```
-## Operation: postV3ProjectsIdKeysKeyIdEnable
+
+#### Parameters
+* id (string) **required** - The ID of the project
+* key_id (integer) **required** - The ID of the deploy key
+
+### postV3ProjectsIdKeysKeyIdEnable
 This feature was added in GitLab 8.11
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of the project"
-    },
-    "key_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the deploy key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "key_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdKeysKeyIdEnable({
+  "id": "",
+  "key_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SSHKey"
-}
-```
-## Operation: deleteV3ProjectsIdLabels
+
+#### Parameters
+* id (string) **required** - The ID of the project
+* key_id (integer) **required** - The ID of the deploy key
+
+### deleteV3ProjectsIdLabels
 Delete an existing label
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the label to be deleted"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "name"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdLabels({
+  "id": "",
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Label"
-}
-```
-## Operation: getV3ProjectsIdLabels
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* name (string) **required** - The name of the label to be deleted
+
+### getV3ProjectsIdLabels
 Get all labels of the project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdLabels({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Label"
-}
-```
-## Operation: postV3ProjectsIdLabels
+
+#### Parameters
+* id (string) **required** - The ID of a project
+
+### postV3ProjectsIdLabels
 Create a new label
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the label to be created"
-    },
-    "color": {
-      "type": "string",
-      "description": "The color of the label given in 6-digit hex notation with leading '#' sign (e.g. #FFAABB)"
-    },
-    "description": {
-      "type": "string",
-      "description": "The description of label to be created"
-    },
-    "priority": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The priority of the label"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "name",
-    "color"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdLabels({
+  "id": "",
+  "name": "",
+  "color": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Label"
-}
-```
-## Operation: putV3ProjectsIdLabels
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* name (string) **required** - The name of the label to be created
+* color (string) **required** - The color of the label given in 6-digit hex notation with leading '#' sign (e.g. #FFAABB)
+* description (string) - The description of label to be created
+* priority (integer) - The priority of the label
+
+### putV3ProjectsIdLabels
 Update an existing label. At least one optional parameter is required.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the label to be updated"
-    },
-    "new_name": {
-      "type": "string",
-      "description": "The new name of the label"
-    },
-    "color": {
-      "type": "string",
-      "description": "The new color of the label given in 6-digit hex notation with leading '#' sign (e.g. #FFAABB)"
-    },
-    "description": {
-      "type": "string",
-      "description": "The new description of label"
-    },
-    "priority": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The priority of the label"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "name"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdLabels({
+  "id": "",
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Label"
-}
-```
-## Operation: deleteV3ProjectsIdLabelsSubscribableIdSubscription
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* name (string) **required** - The name of the label to be updated
+* new_name (string) - The new name of the label
+* color (string) - The new color of the label given in 6-digit hex notation with leading '#' sign (e.g. #FFAABB)
+* description (string) - The new description of label
+* priority (integer) - The priority of the label
+
+### deleteV3ProjectsIdLabelsSubscribableIdSubscription
 Unsubscribe from a resource
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "subscribable_id": {
-      "type": "string",
-      "description": "The ID of a resource"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "subscribable_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdLabelsSubscribableIdSubscription({
+  "id": "",
+  "subscribable_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Label"
-}
-```
-## Operation: postV3ProjectsIdLabelsSubscribableIdSubscription
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* subscribable_id (string) **required** - The ID of a resource
+
+### postV3ProjectsIdLabelsSubscribableIdSubscription
 Subscribe to a resource
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "subscribable_id": {
-      "type": "string",
-      "description": "The ID of a resource"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "subscribable_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdLabelsSubscribableIdSubscription({
+  "id": "",
+  "subscribable_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Label"
-}
-```
-## Operation: getV3ProjectsIdMembers
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* subscribable_id (string) **required** - The ID of a resource
+
+### getV3ProjectsIdMembers
 Gets a list of group or project members viewable by the authenticated user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "query": {
-      "type": "string",
-      "description": "A query string to search for members"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMembers({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Member"
-}
-```
-## Operation: postV3ProjectsIdMembers
+
+#### Parameters
+* id (string) **required** - The project ID
+* query (string) - A query string to search for members
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### postV3ProjectsIdMembers
 Adds a member to a group or project.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "user_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The user ID of the new member"
-    },
-    "access_level": {
-      "type": "integer",
-      "format": "int32",
-      "description": "A valid access level (defaults: `30`, developer access level)"
-    },
-    "expires_at": {
-      "type": "string",
-      "format": "date-time",
-      "description": "Date string in the format YEAR-MONTH-DAY"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "user_id",
-    "access_level"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdMembers({
+  "id": "",
+  "user_id": 0,
+  "access_level": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Member"
-}
-```
-## Operation: deleteV3ProjectsIdMembersUserId
+
+#### Parameters
+* id (string) **required** - The project ID
+* user_id (integer) **required** - The user ID of the new member
+* access_level (integer) **required** - A valid access level (defaults: `30`, developer access level)
+* expires_at (string) - Date string in the format YEAR-MONTH-DAY
+
+### deleteV3ProjectsIdMembersUserId
 Removes a user from a group or project.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "user_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The user ID of the member"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "user_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdMembersUserId({
+  "id": "",
+  "user_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdMembersUserId
+
+#### Parameters
+* id (string) **required** - The project ID
+* user_id (integer) **required** - The user ID of the member
+
+### getV3ProjectsIdMembersUserId
 Gets a member of a group or project.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "user_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The user ID of the member"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "user_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMembersUserId({
+  "id": "",
+  "user_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Member"
-}
-```
-## Operation: putV3ProjectsIdMembersUserId
+
+#### Parameters
+* id (string) **required** - The project ID
+* user_id (integer) **required** - The user ID of the member
+
+### putV3ProjectsIdMembersUserId
 Updates a member of a group or project.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "user_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The user ID of the new member"
-    },
-    "access_level": {
-      "type": "integer",
-      "format": "int32",
-      "description": "A valid access level"
-    },
-    "expires_at": {
-      "type": "string",
-      "format": "date-time",
-      "description": "Date string in the format YEAR-MONTH-DAY"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "user_id",
-    "access_level"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdMembersUserId({
+  "id": "",
+  "user_id": 0,
+  "access_level": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Member"
-}
-```
-## Operation: getV3ProjectsIdMergeRequestMergeRequestId
+
+#### Parameters
+* id (string) **required** - The project ID
+* user_id (integer) **required** - The user ID of the new member
+* access_level (integer) **required** - A valid access level
+* expires_at (string) - Date string in the format YEAR-MONTH-DAY
+
+### getV3ProjectsIdMergeRequestMergeRequestId
 This endpoint is deprecated and will be removed in GitLab 9.0.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a merge request"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMergeRequestMergeRequestId({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MergeRequest"
-}
-```
-## Operation: putV3ProjectsIdMergeRequestMergeRequestId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* merge_request_id (integer) **required** - The ID of a merge request
+
+### putV3ProjectsIdMergeRequestMergeRequestId
 Update a merge request
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "title": {
-      "type": "string",
-      "description": "The title of the merge request"
-    },
-    "target_branch": {
-      "type": "string",
-      "description": "The target branch"
-    },
-    "state_event": {
-      "type": "string",
-      "description": "Status of the merge request",
-      "enum": [
-        "close",
-        "reopen",
-        "merge"
-      ]
-    },
-    "description": {
-      "type": "string",
-      "description": "The description of the merge request"
-    },
-    "assignee_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a user to assign the merge request"
-    },
-    "milestone_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a milestone to assign the merge request"
-    },
-    "labels": {
-      "type": "string",
-      "description": "Comma-separated list of label names"
-    },
-    "remove_source_branch": {
-      "type": "boolean",
-      "description": "Remove source branch when merging"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdMergeRequestMergeRequestId({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MergeRequest"
-}
-```
-## Operation: postV3ProjectsIdMergeRequestMergeRequestIdCancelMergeWhenBuildSucceeds
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* title (string) - The title of the merge request
+* target_branch (string) - The target branch
+* state_event (string) - Status of the merge request
+* description (string) - The description of the merge request
+* assignee_id (integer) - The ID of a user to assign the merge request
+* milestone_id (integer) - The ID of a milestone to assign the merge request
+* labels (string) - Comma-separated list of label names
+* remove_source_branch (boolean) - Remove source branch when merging
+* merge_request_id (integer) **required**
+
+### postV3ProjectsIdMergeRequestMergeRequestIdCancelMergeWhenBuildSucceeds
 Cancel merge if "Merge When Pipeline Succeeds" is enabled
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdMergeRequestMergeRequestIdCancelMergeWhenBuildSucceeds({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MergeRequest"
-}
-```
-## Operation: getV3ProjectsIdMergeRequestMergeRequestIdChanges
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* merge_request_id (integer) **required**
+
+### getV3ProjectsIdMergeRequestMergeRequestIdChanges
 Show the merge request changes
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMergeRequestMergeRequestIdChanges({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MergeRequestChanges"
-}
-```
-## Operation: getV3ProjectsIdMergeRequestMergeRequestIdClosesIssues
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* merge_request_id (integer) **required**
+
+### getV3ProjectsIdMergeRequestMergeRequestIdClosesIssues
 List issues that will be closed on merge
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMergeRequestMergeRequestIdClosesIssues({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MRNote"
-}
-```
-## Operation: getV3ProjectsIdMergeRequestMergeRequestIdComments
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+* merge_request_id (integer) **required**
+
+### getV3ProjectsIdMergeRequestMergeRequestIdComments
 Duplicate. DEPRECATED and WILL BE REMOVED in 9.0
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMergeRequestMergeRequestIdComments({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MRNote"
-}
-```
-## Operation: postV3ProjectsIdMergeRequestMergeRequestIdComments
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+* merge_request_id (integer) **required**
+
+### postV3ProjectsIdMergeRequestMergeRequestIdComments
 Duplicate. DEPRECATED and WILL BE REMOVED in 9.0
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "note": {
-      "type": "string",
-      "description": "The text of the comment"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "note",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdMergeRequestMergeRequestIdComments({
+  "id": "",
+  "note": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MRNote"
-}
-```
-## Operation: getV3ProjectsIdMergeRequestMergeRequestIdCommits
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* note (string) **required** - The text of the comment
+* merge_request_id (integer) **required**
+
+### getV3ProjectsIdMergeRequestMergeRequestIdCommits
 Get the commits of a merge request
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMergeRequestMergeRequestIdCommits({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RepoCommit"
-}
-```
-## Operation: putV3ProjectsIdMergeRequestMergeRequestIdMerge
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* merge_request_id (integer) **required**
+
+### putV3ProjectsIdMergeRequestMergeRequestIdMerge
 Merge a merge request
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "merge_commit_message": {
-      "type": "string",
-      "description": "Custom merge commit message"
-    },
-    "should_remove_source_branch": {
-      "type": "boolean",
-      "description": "When true, the source branch will be deleted if possible"
-    },
-    "merge_when_build_succeeds": {
-      "type": "boolean",
-      "description": "When true, this merge request will be merged when the pipeline succeeds"
-    },
-    "sha": {
-      "type": "string",
-      "description": "When present, must have the HEAD SHA of the source branch"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdMergeRequestMergeRequestIdMerge({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MergeRequest"
-}
-```
-## Operation: deleteV3ProjectsIdMergeRequestSubscribableIdSubscription
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* merge_commit_message (string) - Custom merge commit message
+* should_remove_source_branch (boolean) - When true, the source branch will be deleted if possible
+* merge_when_build_succeeds (boolean) - When true, this merge request will be merged when the pipeline succeeds
+* sha (string) - When present, must have the HEAD SHA of the source branch
+* merge_request_id (integer) **required**
+
+### deleteV3ProjectsIdMergeRequestSubscribableIdSubscription
 Unsubscribe from a resource
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "subscribable_id": {
-      "type": "string",
-      "description": "The ID of a resource"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "subscribable_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdMergeRequestSubscribableIdSubscription({
+  "id": "",
+  "subscribable_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MergeRequest"
-}
-```
-## Operation: postV3ProjectsIdMergeRequestSubscribableIdSubscription
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* subscribable_id (string) **required** - The ID of a resource
+
+### postV3ProjectsIdMergeRequestSubscribableIdSubscription
 Subscribe to a resource
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "subscribable_id": {
-      "type": "string",
-      "description": "The ID of a resource"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "subscribable_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdMergeRequestSubscribableIdSubscription({
+  "id": "",
+  "subscribable_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MergeRequest"
-}
-```
-## Operation: getV3ProjectsIdMergeRequests
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* subscribable_id (string) **required** - The ID of a resource
+
+### getV3ProjectsIdMergeRequests
 List merge requests
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "state": {
-      "type": "string",
-      "description": "Return opened, closed, merged, or all merge requests",
-      "enum": [
-        "opened",
-        "closed",
-        "merged",
-        "all"
-      ]
-    },
-    "order_by": {
-      "type": "string",
-      "description": "Return merge requests ordered by `created_at` or `updated_at` fields.",
-      "enum": [
-        "created_at",
-        "updated_at"
-      ]
-    },
-    "sort": {
-      "type": "string",
-      "description": "Return merge requests sorted in `asc` or `desc` order.",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "iid": {
-      "type": "array",
-      "description": "The IID of the merge requests"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMergeRequests({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MergeRequest"
-}
-```
-## Operation: postV3ProjectsIdMergeRequests
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* state (string) - Return opened, closed, merged, or all merge requests
+* order_by (string) - Return merge requests ordered by `created_at` or `updated_at` fields.
+* sort (string) - Return merge requests sorted in `asc` or `desc` order.
+* iid (array) - The IID of the merge requests
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### postV3ProjectsIdMergeRequests
 Create a merge request
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "title": {
-      "type": "string",
-      "description": "The title of the merge request"
-    },
-    "source_branch": {
-      "type": "string",
-      "description": "The source branch"
-    },
-    "target_branch": {
-      "type": "string",
-      "description": "The target branch"
-    },
-    "target_project_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The target project of the merge request defaults to the :id of the project"
-    },
-    "description": {
-      "type": "string",
-      "description": "The description of the merge request"
-    },
-    "assignee_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a user to assign the merge request"
-    },
-    "milestone_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a milestone to assign the merge request"
-    },
-    "labels": {
-      "type": "string",
-      "description": "Comma-separated list of label names"
-    },
-    "remove_source_branch": {
-      "type": "boolean",
-      "description": "Remove source branch when merging"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "title",
-    "source_branch",
-    "target_branch"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdMergeRequests({
+  "id": "",
+  "title": "",
+  "source_branch": "",
+  "target_branch": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MergeRequest"
-}
-```
-## Operation: deleteV3ProjectsIdMergeRequestsMergeRequestId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* title (string) **required** - The title of the merge request
+* source_branch (string) **required** - The source branch
+* target_branch (string) **required** - The target branch
+* target_project_id (integer) - The target project of the merge request defaults to the :id of the project
+* description (string) - The description of the merge request
+* assignee_id (integer) - The ID of a user to assign the merge request
+* milestone_id (integer) - The ID of a milestone to assign the merge request
+* labels (string) - Comma-separated list of label names
+* remove_source_branch (boolean) - Remove source branch when merging
+
+### deleteV3ProjectsIdMergeRequestsMergeRequestId
 Delete a merge request
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a merge request"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdMergeRequestsMergeRequestId({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdMergeRequestsMergeRequestId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* merge_request_id (integer) **required** - The ID of a merge request
+
+### getV3ProjectsIdMergeRequestsMergeRequestId
 Get a single merge request
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMergeRequestsMergeRequestId({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MergeRequest"
-}
-```
-## Operation: putV3ProjectsIdMergeRequestsMergeRequestId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* merge_request_id (integer) **required**
+
+### putV3ProjectsIdMergeRequestsMergeRequestId
 Update a merge request
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "title": {
-      "type": "string",
-      "description": "The title of the merge request"
-    },
-    "target_branch": {
-      "type": "string",
-      "description": "The target branch"
-    },
-    "state_event": {
-      "type": "string",
-      "description": "Status of the merge request",
-      "enum": [
-        "close",
-        "reopen",
-        "merge"
-      ]
-    },
-    "description": {
-      "type": "string",
-      "description": "The description of the merge request"
-    },
-    "assignee_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a user to assign the merge request"
-    },
-    "milestone_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a milestone to assign the merge request"
-    },
-    "labels": {
-      "type": "string",
-      "description": "Comma-separated list of label names"
-    },
-    "remove_source_branch": {
-      "type": "boolean",
-      "description": "Remove source branch when merging"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdMergeRequestsMergeRequestId({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MergeRequest"
-}
-```
-## Operation: postV3ProjectsIdMergeRequestsMergeRequestIdAddSpentTime
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* title (string) - The title of the merge request
+* target_branch (string) - The target branch
+* state_event (string) - Status of the merge request
+* description (string) - The description of the merge request
+* assignee_id (integer) - The ID of a user to assign the merge request
+* milestone_id (integer) - The ID of a milestone to assign the merge request
+* labels (string) - Comma-separated list of label names
+* remove_source_branch (boolean) - Remove source branch when merging
+* merge_request_id (integer) **required**
+
+### postV3ProjectsIdMergeRequestsMergeRequestIdAddSpentTime
 Add spent time for a project merge_request
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project merge_request"
-    },
-    "duration": {
-      "type": "string",
-      "description": "The duration to be parsed"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id",
-    "duration"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdMergeRequestsMergeRequestIdAddSpentTime({
+  "id": "",
+  "merge_request_id": 0,
+  "duration": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdMergeRequestsMergeRequestIdAwardEmoji
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* merge_request_id (integer) **required** - The ID of a project merge_request
+* duration (string) **required** - The duration to be parsed
+
+### getV3ProjectsIdMergeRequestsMergeRequestIdAwardEmoji
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of an Issue, Merge Request or Snippet"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMergeRequestsMergeRequestIdAwardEmoji({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: postV3ProjectsIdMergeRequestsMergeRequestIdAwardEmoji
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* merge_request_id (integer) **required** - The ID of an Issue, Merge Request or Snippet
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### postV3ProjectsIdMergeRequestsMergeRequestIdAwardEmoji
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of a award_emoji (without colons)"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdMergeRequestsMergeRequestIdAwardEmoji({
+  "name": "",
+  "id": 0,
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: deleteV3ProjectsIdMergeRequestsMergeRequestIdAwardEmojiAwardId
+
+#### Parameters
+* name (string) **required** - The name of a award_emoji (without colons)
+* id (integer) **required**
+* merge_request_id (integer) **required**
+
+### deleteV3ProjectsIdMergeRequestsMergeRequestIdAwardEmojiAwardId
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "award_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of an award emoji"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "award_id",
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdMergeRequestsMergeRequestIdAwardEmojiAwardId({
+  "award_id": 0,
+  "id": 0,
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: getV3ProjectsIdMergeRequestsMergeRequestIdAwardEmojiAwardId
+
+#### Parameters
+* award_id (integer) **required** - The ID of an award emoji
+* id (integer) **required**
+* merge_request_id (integer) **required**
+
+### getV3ProjectsIdMergeRequestsMergeRequestIdAwardEmojiAwardId
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "award_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the award"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "award_id",
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMergeRequestsMergeRequestIdAwardEmojiAwardId({
+  "award_id": 0,
+  "id": 0,
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: postV3ProjectsIdMergeRequestsMergeRequestIdCancelMergeWhenBuildSucceeds
+
+#### Parameters
+* award_id (integer) **required** - The ID of the award
+* id (integer) **required**
+* merge_request_id (integer) **required**
+
+### postV3ProjectsIdMergeRequestsMergeRequestIdCancelMergeWhenBuildSucceeds
 Cancel merge if "Merge When Pipeline Succeeds" is enabled
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdMergeRequestsMergeRequestIdCancelMergeWhenBuildSucceeds({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MergeRequest"
-}
-```
-## Operation: getV3ProjectsIdMergeRequestsMergeRequestIdChanges
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* merge_request_id (integer) **required**
+
+### getV3ProjectsIdMergeRequestsMergeRequestIdChanges
 Show the merge request changes
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMergeRequestsMergeRequestIdChanges({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MergeRequestChanges"
-}
-```
-## Operation: getV3ProjectsIdMergeRequestsMergeRequestIdClosesIssues
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* merge_request_id (integer) **required**
+
+### getV3ProjectsIdMergeRequestsMergeRequestIdClosesIssues
 List issues that will be closed on merge
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMergeRequestsMergeRequestIdClosesIssues({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MRNote"
-}
-```
-## Operation: getV3ProjectsIdMergeRequestsMergeRequestIdComments
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+* merge_request_id (integer) **required**
+
+### getV3ProjectsIdMergeRequestsMergeRequestIdComments
 Duplicate. DEPRECATED and WILL BE REMOVED in 9.0
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMergeRequestsMergeRequestIdComments({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MRNote"
-}
-```
-## Operation: postV3ProjectsIdMergeRequestsMergeRequestIdComments
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+* merge_request_id (integer) **required**
+
+### postV3ProjectsIdMergeRequestsMergeRequestIdComments
 Duplicate. DEPRECATED and WILL BE REMOVED in 9.0
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "note": {
-      "type": "string",
-      "description": "The text of the comment"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "note",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdMergeRequestsMergeRequestIdComments({
+  "id": "",
+  "note": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MRNote"
-}
-```
-## Operation: getV3ProjectsIdMergeRequestsMergeRequestIdCommits
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* note (string) **required** - The text of the comment
+* merge_request_id (integer) **required**
+
+### getV3ProjectsIdMergeRequestsMergeRequestIdCommits
 Get the commits of a merge request
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMergeRequestsMergeRequestIdCommits({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RepoCommit"
-}
-```
-## Operation: putV3ProjectsIdMergeRequestsMergeRequestIdMerge
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* merge_request_id (integer) **required**
+
+### putV3ProjectsIdMergeRequestsMergeRequestIdMerge
 Merge a merge request
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "merge_commit_message": {
-      "type": "string",
-      "description": "Custom merge commit message"
-    },
-    "should_remove_source_branch": {
-      "type": "boolean",
-      "description": "When true, the source branch will be deleted if possible"
-    },
-    "merge_when_build_succeeds": {
-      "type": "boolean",
-      "description": "When true, this merge request will be merged when the pipeline succeeds"
-    },
-    "sha": {
-      "type": "string",
-      "description": "When present, must have the HEAD SHA of the source branch"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdMergeRequestsMergeRequestIdMerge({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MergeRequest"
-}
-```
-## Operation: getV3ProjectsIdMergeRequestsMergeRequestIdNotesNoteIdAwardEmoji
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* merge_commit_message (string) - Custom merge commit message
+* should_remove_source_branch (boolean) - When true, the source branch will be deleted if possible
+* merge_when_build_succeeds (boolean) - When true, this merge request will be merged when the pipeline succeeds
+* sha (string) - When present, must have the HEAD SHA of the source branch
+* merge_request_id (integer) **required**
+
+### getV3ProjectsIdMergeRequestsMergeRequestIdNotesNoteIdAwardEmoji
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "note_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id",
-    "note_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMergeRequestsMergeRequestIdNotesNoteIdAwardEmoji({
+  "id": 0,
+  "merge_request_id": 0,
+  "note_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: postV3ProjectsIdMergeRequestsMergeRequestIdNotesNoteIdAwardEmoji
+
+#### Parameters
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+* id (integer) **required**
+* merge_request_id (integer) **required**
+* note_id (integer) **required**
+
+### postV3ProjectsIdMergeRequestsMergeRequestIdNotesNoteIdAwardEmoji
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of a award_emoji (without colons)"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "note_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "id",
-    "merge_request_id",
-    "note_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdMergeRequestsMergeRequestIdNotesNoteIdAwardEmoji({
+  "name": "",
+  "id": 0,
+  "merge_request_id": 0,
+  "note_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: deleteV3ProjectsIdMergeRequestsMergeRequestIdNotesNoteIdAwardEmojiAwardId
+
+#### Parameters
+* name (string) **required** - The name of a award_emoji (without colons)
+* id (integer) **required**
+* merge_request_id (integer) **required**
+* note_id (integer) **required**
+
+### deleteV3ProjectsIdMergeRequestsMergeRequestIdNotesNoteIdAwardEmojiAwardId
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "award_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of an award emoji"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "note_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "award_id",
-    "id",
-    "merge_request_id",
-    "note_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdMergeRequestsMergeRequestIdNotesNoteIdAwardEmojiAwardId({
+  "award_id": 0,
+  "id": 0,
+  "merge_request_id": 0,
+  "note_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: getV3ProjectsIdMergeRequestsMergeRequestIdNotesNoteIdAwardEmojiAwardId
+
+#### Parameters
+* award_id (integer) **required** - The ID of an award emoji
+* id (integer) **required**
+* merge_request_id (integer) **required**
+* note_id (integer) **required**
+
+### getV3ProjectsIdMergeRequestsMergeRequestIdNotesNoteIdAwardEmojiAwardId
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "award_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the award"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "note_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "award_id",
-    "id",
-    "merge_request_id",
-    "note_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMergeRequestsMergeRequestIdNotesNoteIdAwardEmojiAwardId({
+  "award_id": 0,
+  "id": 0,
+  "merge_request_id": 0,
+  "note_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: postV3ProjectsIdMergeRequestsMergeRequestIdResetSpentTime
+
+#### Parameters
+* award_id (integer) **required** - The ID of the award
+* id (integer) **required**
+* merge_request_id (integer) **required**
+* note_id (integer) **required**
+
+### postV3ProjectsIdMergeRequestsMergeRequestIdResetSpentTime
 Reset spent time for a project merge_request
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project merge_request"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdMergeRequestsMergeRequestIdResetSpentTime({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postV3ProjectsIdMergeRequestsMergeRequestIdResetTimeEstimate
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* merge_request_id (integer) **required** - The ID of a project merge_request
+
+### postV3ProjectsIdMergeRequestsMergeRequestIdResetTimeEstimate
 Reset the time estimate for a project merge_request
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project merge_request"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdMergeRequestsMergeRequestIdResetTimeEstimate({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postV3ProjectsIdMergeRequestsMergeRequestIdTimeEstimate
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* merge_request_id (integer) **required** - The ID of a project merge_request
+
+### postV3ProjectsIdMergeRequestsMergeRequestIdTimeEstimate
 Set a time estimate for a project merge_request
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project merge_request"
-    },
-    "duration": {
-      "type": "string",
-      "description": "The duration to be parsed"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id",
-    "duration"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdMergeRequestsMergeRequestIdTimeEstimate({
+  "id": "",
+  "merge_request_id": 0,
+  "duration": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdMergeRequestsMergeRequestIdTimeStats
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* merge_request_id (integer) **required** - The ID of a project merge_request
+* duration (string) **required** - The duration to be parsed
+
+### getV3ProjectsIdMergeRequestsMergeRequestIdTimeStats
 Show time stats for a project merge_request
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project merge_request"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMergeRequestsMergeRequestIdTimeStats({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postV3ProjectsIdMergeRequestsMergeRequestIdTodo
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* merge_request_id (integer) **required** - The ID of a project merge_request
+
+### postV3ProjectsIdMergeRequestsMergeRequestIdTodo
 Create a todo on an issuable
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of an issuable"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdMergeRequestsMergeRequestIdTodo({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Todo"
-}
-```
-## Operation: getV3ProjectsIdMergeRequestsMergeRequestIdVersions
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* merge_request_id (integer) **required** - The ID of an issuable
+
+### getV3ProjectsIdMergeRequestsMergeRequestIdVersions
 This feature was introduced in GitLab 8.12.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a merge request"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMergeRequestsMergeRequestIdVersions({
+  "id": "",
+  "merge_request_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MergeRequestDiff"
-}
-```
-## Operation: getV3ProjectsIdMergeRequestsMergeRequestIdVersionsVersionId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* merge_request_id (integer) **required** - The ID of a merge request
+
+### getV3ProjectsIdMergeRequestsMergeRequestIdVersionsVersionId
 This feature was introduced in GitLab 8.12.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "merge_request_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a merge request"
-    },
-    "version_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a merge request diff version"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "merge_request_id",
-    "version_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMergeRequestsMergeRequestIdVersionsVersionId({
+  "id": "",
+  "merge_request_id": 0,
+  "version_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MergeRequestDiffFull"
-}
-```
-## Operation: getV3ProjectsIdMergeRequestsNoteableIdNotes
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* merge_request_id (integer) **required** - The ID of a merge request
+* version_id (integer) **required** - The ID of a merge request diff version
+
+### getV3ProjectsIdMergeRequestsNoteableIdNotes
 Get a list of project +noteable+ notes
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "noteable_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the noteable"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "noteable_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMergeRequestsNoteableIdNotes({
+  "id": "",
+  "noteable_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Note"
-}
-```
-## Operation: postV3ProjectsIdMergeRequestsNoteableIdNotes
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* noteable_id (integer) **required** - The ID of the noteable
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### postV3ProjectsIdMergeRequestsNoteableIdNotes
 Create a new +noteable+ note
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "noteable_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the noteable"
-    },
-    "body": {
-      "type": "string",
-      "description": "The content of a note"
-    },
-    "created_at": {
-      "type": "string",
-      "description": "The creation date of the note"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "noteable_id",
-    "body"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdMergeRequestsNoteableIdNotes({
+  "id": "",
+  "noteable_id": 0,
+  "body": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Note"
-}
-```
-## Operation: deleteV3ProjectsIdMergeRequestsNoteableIdNotesNoteId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* noteable_id (integer) **required** - The ID of the noteable
+* body (string) **required** - The content of a note
+* created_at (string) - The creation date of the note
+
+### deleteV3ProjectsIdMergeRequestsNoteableIdNotesNoteId
 Delete a +noteable+ note
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "noteable_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the noteable"
-    },
-    "note_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a note"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "noteable_id",
-    "note_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdMergeRequestsNoteableIdNotesNoteId({
+  "id": "",
+  "noteable_id": 0,
+  "note_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Note"
-}
-```
-## Operation: getV3ProjectsIdMergeRequestsNoteableIdNotesNoteId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* noteable_id (integer) **required** - The ID of the noteable
+* note_id (integer) **required** - The ID of a note
+
+### getV3ProjectsIdMergeRequestsNoteableIdNotesNoteId
 Get a single +noteable+ note
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "note_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a note"
-    },
-    "noteable_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the noteable"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "note_id",
-    "noteable_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMergeRequestsNoteableIdNotesNoteId({
+  "id": "",
+  "note_id": 0,
+  "noteable_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Note"
-}
-```
-## Operation: putV3ProjectsIdMergeRequestsNoteableIdNotesNoteId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* note_id (integer) **required** - The ID of a note
+* noteable_id (integer) **required** - The ID of the noteable
+
+### putV3ProjectsIdMergeRequestsNoteableIdNotesNoteId
 Update an existing +noteable+ note
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "noteable_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the noteable"
-    },
-    "note_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a note"
-    },
-    "body": {
-      "type": "string",
-      "description": "The content of a note"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "noteable_id",
-    "note_id",
-    "body"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdMergeRequestsNoteableIdNotesNoteId({
+  "id": "",
+  "noteable_id": 0,
+  "note_id": 0,
+  "body": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Note"
-}
-```
-## Operation: deleteV3ProjectsIdMergeRequestsSubscribableIdSubscription
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* noteable_id (integer) **required** - The ID of the noteable
+* note_id (integer) **required** - The ID of a note
+* body (string) **required** - The content of a note
+
+### deleteV3ProjectsIdMergeRequestsSubscribableIdSubscription
 Unsubscribe from a resource
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "subscribable_id": {
-      "type": "string",
-      "description": "The ID of a resource"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "subscribable_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdMergeRequestsSubscribableIdSubscription({
+  "id": "",
+  "subscribable_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MergeRequest"
-}
-```
-## Operation: postV3ProjectsIdMergeRequestsSubscribableIdSubscription
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* subscribable_id (string) **required** - The ID of a resource
+
+### postV3ProjectsIdMergeRequestsSubscribableIdSubscription
 Subscribe to a resource
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "subscribable_id": {
-      "type": "string",
-      "description": "The ID of a resource"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "subscribable_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdMergeRequestsSubscribableIdSubscription({
+  "id": "",
+  "subscribable_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MergeRequest"
-}
-```
-## Operation: getV3ProjectsIdMilestones
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* subscribable_id (string) **required** - The ID of a resource
+
+### getV3ProjectsIdMilestones
 Get a list of project milestones
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "state": {
-      "type": "string",
-      "description": "Return \"active\", \"closed\", or \"all\" milestones",
-      "enum": [
-        "active",
-        "closed",
-        "all"
-      ]
-    },
-    "iid": {
-      "type": "array",
-      "description": "The IID of the milestone"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMilestones({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Milestone"
-}
-```
-## Operation: postV3ProjectsIdMilestones
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* state (string) - Return "active", "closed", or "all" milestones
+* iid (array) - The IID of the milestone
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### postV3ProjectsIdMilestones
 Create a new project milestone
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "title": {
-      "type": "string",
-      "description": "The title of the milestone"
-    },
-    "description": {
-      "type": "string",
-      "description": "The description of the milestone"
-    },
-    "due_date": {
-      "type": "string",
-      "description": "The due date of the milestone. The ISO 8601 date format (%Y-%m-%d)"
-    },
-    "start_date": {
-      "type": "string",
-      "description": "The start date of the milestone. The ISO 8601 date format (%Y-%m-%d)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "title"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdMilestones({
+  "id": "",
+  "title": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Milestone"
-}
-```
-## Operation: getV3ProjectsIdMilestonesMilestoneId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* title (string) **required** - The title of the milestone
+* description (string) - The description of the milestone
+* due_date (string) - The due date of the milestone. The ISO 8601 date format (%Y-%m-%d)
+* start_date (string) - The start date of the milestone. The ISO 8601 date format (%Y-%m-%d)
+
+### getV3ProjectsIdMilestonesMilestoneId
 Get a single project milestone
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "milestone_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project milestone"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "milestone_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMilestonesMilestoneId({
+  "id": "",
+  "milestone_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Milestone"
-}
-```
-## Operation: putV3ProjectsIdMilestonesMilestoneId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* milestone_id (integer) **required** - The ID of a project milestone
+
+### putV3ProjectsIdMilestonesMilestoneId
 Update an existing project milestone
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "milestone_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project milestone"
-    },
-    "title": {
-      "type": "string",
-      "description": "The title of the milestone"
-    },
-    "state_event": {
-      "type": "string",
-      "description": "The state event of the milestone ",
-      "enum": [
-        "close",
-        "activate"
-      ]
-    },
-    "description": {
-      "type": "string",
-      "description": "The description of the milestone"
-    },
-    "due_date": {
-      "type": "string",
-      "description": "The due date of the milestone. The ISO 8601 date format (%Y-%m-%d)"
-    },
-    "start_date": {
-      "type": "string",
-      "description": "The start date of the milestone. The ISO 8601 date format (%Y-%m-%d)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "milestone_id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdMilestonesMilestoneId({
+  "id": "",
+  "milestone_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Milestone"
-}
-```
-## Operation: getV3ProjectsIdMilestonesMilestoneIdIssues
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* milestone_id (integer) **required** - The ID of a project milestone
+* title (string) - The title of the milestone
+* state_event (string) - The state event of the milestone 
+* description (string) - The description of the milestone
+* due_date (string) - The due date of the milestone. The ISO 8601 date format (%Y-%m-%d)
+* start_date (string) - The start date of the milestone. The ISO 8601 date format (%Y-%m-%d)
+
+### getV3ProjectsIdMilestonesMilestoneIdIssues
 Get all issues for a single project milestone
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "milestone_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project milestone"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "milestone_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdMilestonesMilestoneIdIssues({
+  "id": "",
+  "milestone_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Issue"
-}
-```
-## Operation: getV3ProjectsIdNotificationSettings
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* milestone_id (integer) **required** - The ID of a project milestone
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### getV3ProjectsIdNotificationSettings
 This feature was introduced in GitLab 8.12
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The group ID or project ID or project NAMESPACE/PROJECT_NAME"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdNotificationSettings({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NotificationSetting"
-}
-```
-## Operation: putV3ProjectsIdNotificationSettings
+
+#### Parameters
+* id (string) **required** - The group ID or project ID or project NAMESPACE/PROJECT_NAME
+
+### putV3ProjectsIdNotificationSettings
 This feature was introduced in GitLab 8.12
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The group ID or project ID or project NAMESPACE/PROJECT_NAME"
-    },
-    "level": {
-      "type": "string",
-      "description": "The project notification level"
-    },
-    "new_note": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "new_issue": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "reopen_issue": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "close_issue": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "reassign_issue": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "new_merge_request": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "reopen_merge_request": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "close_merge_request": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "reassign_merge_request": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "merge_merge_request": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "failed_pipeline": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    },
-    "success_pipeline": {
-      "type": "boolean",
-      "description": "Enable/disable this notification"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdNotificationSettings({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NotificationSetting"
-}
-```
-## Operation: postV3ProjectsIdPipeline
+
+#### Parameters
+* id (string) **required** - The group ID or project ID or project NAMESPACE/PROJECT_NAME
+* level (string) - The project notification level
+* new_note (boolean) - Enable/disable this notification
+* new_issue (boolean) - Enable/disable this notification
+* reopen_issue (boolean) - Enable/disable this notification
+* close_issue (boolean) - Enable/disable this notification
+* reassign_issue (boolean) - Enable/disable this notification
+* new_merge_request (boolean) - Enable/disable this notification
+* reopen_merge_request (boolean) - Enable/disable this notification
+* close_merge_request (boolean) - Enable/disable this notification
+* reassign_merge_request (boolean) - Enable/disable this notification
+* merge_merge_request (boolean) - Enable/disable this notification
+* failed_pipeline (boolean) - Enable/disable this notification
+* success_pipeline (boolean) - Enable/disable this notification
+
+### postV3ProjectsIdPipeline
 This feature was introduced in GitLab 8.14
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "ref": {
-      "type": "string",
-      "description": "Reference"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "ref"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdPipeline({
+  "id": "",
+  "ref": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Pipeline"
-}
-```
-## Operation: getV3ProjectsIdPipelines
+
+#### Parameters
+* id (string) **required** - The project ID
+* ref (string) **required** - Reference
+
+### getV3ProjectsIdPipelines
 This feature was introduced in GitLab 8.11.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    },
-    "scope": {
-      "type": "string",
-      "description": "Either running, branches, or tags",
-      "enum": [
-        "running",
-        "branches",
-        "tags"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdPipelines({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Pipeline"
-}
-```
-## Operation: getV3ProjectsIdPipelinesPipelineId
+
+#### Parameters
+* id (string) **required** - The project ID
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+* scope (string) - Either running, branches, or tags
+
+### getV3ProjectsIdPipelinesPipelineId
 This feature was introduced in GitLab 8.11
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "pipeline_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The pipeline ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "pipeline_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdPipelinesPipelineId({
+  "id": "",
+  "pipeline_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Pipeline"
-}
-```
-## Operation: postV3ProjectsIdPipelinesPipelineIdCancel
+
+#### Parameters
+* id (string) **required** - The project ID
+* pipeline_id (integer) **required** - The pipeline ID
+
+### postV3ProjectsIdPipelinesPipelineIdCancel
 This feature was introduced in GitLab 8.11.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "pipeline_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The pipeline ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "pipeline_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdPipelinesPipelineIdCancel({
+  "id": "",
+  "pipeline_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Pipeline"
-}
-```
-## Operation: postV3ProjectsIdPipelinesPipelineIdRetry
+
+#### Parameters
+* id (string) **required** - The project ID
+* pipeline_id (integer) **required** - The pipeline ID
+
+### postV3ProjectsIdPipelinesPipelineIdRetry
 This feature was introduced in GitLab 8.11.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "pipeline_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The pipeline ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "pipeline_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdPipelinesPipelineIdRetry({
+  "id": "",
+  "pipeline_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Pipeline"
-}
-```
-## Operation: getV3ProjectsIdRepositoryArchive
+
+#### Parameters
+* id (string) **required** - The project ID
+* pipeline_id (integer) **required** - The pipeline ID
+
+### getV3ProjectsIdRepositoryArchive
 Get an archive of the repository
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "sha": {
-      "type": "string",
-      "description": "The commit sha of the archive to be downloaded"
-    },
-    "format": {
-      "type": "string",
-      "description": "The archive format"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdRepositoryArchive({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdRepositoryBlobsSha
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* sha (string) - The commit sha of the archive to be downloaded
+* format (string) - The archive format
+
+### getV3ProjectsIdRepositoryBlobsSha
 Get a raw file contents
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "sha": {
-      "type": "string",
-      "description": "The commit, branch name, or tag name"
-    },
-    "filepath": {
-      "type": "string",
-      "description": "The path to the file to display"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "sha",
-    "filepath"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdRepositoryBlobsSha({
+  "id": "",
+  "sha": "",
+  "filepath": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdRepositoryBranches
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* sha (string) **required** - The commit, branch name, or tag name
+* filepath (string) **required** - The path to the file to display
+
+### getV3ProjectsIdRepositoryBranches
 Get a project repository branches
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdRepositoryBranches({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RepoBranch"
-}
-```
-## Operation: postV3ProjectsIdRepositoryBranches
+
+#### Parameters
+* id (string) **required** - The ID of a project
+
+### postV3ProjectsIdRepositoryBranches
 Create branch
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "branch_name": {
-      "type": "string",
-      "description": "The name of the branch"
-    },
-    "ref": {
-      "type": "string",
-      "description": "Create branch from commit sha or existing branch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "branch_name",
-    "ref"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdRepositoryBranches({
+  "id": "",
+  "branch_name": "",
+  "ref": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RepoBranch"
-}
-```
-## Operation: deleteV3ProjectsIdRepositoryBranchesBranch
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* branch_name (string) **required** - The name of the branch
+* ref (string) **required** - Create branch from commit sha or existing branch
+
+### deleteV3ProjectsIdRepositoryBranchesBranch
 Delete a branch
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "branch": {
-      "type": "string",
-      "description": "The name of the branch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "branch"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdRepositoryBranchesBranch({
+  "id": "",
+  "branch": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdRepositoryBranchesBranch
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* branch (string) **required** - The name of the branch
+
+### getV3ProjectsIdRepositoryBranchesBranch
 Get a single branch
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "branch": {
-      "type": "string",
-      "description": "The name of the branch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "branch"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdRepositoryBranchesBranch({
+  "id": "",
+  "branch": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RepoBranch"
-}
-```
-## Operation: putV3ProjectsIdRepositoryBranchesBranchProtect
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* branch (string) **required** - The name of the branch
+
+### putV3ProjectsIdRepositoryBranchesBranchProtect
 Protect a single branch
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "branch": {
-      "type": "string",
-      "description": "The name of the branch"
-    },
-    "developers_can_push": {
-      "type": "boolean",
-      "description": "Flag if developers can push to that branch"
-    },
-    "developers_can_merge": {
-      "type": "boolean",
-      "description": "Flag if developers can merge to that branch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "branch"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdRepositoryBranchesBranchProtect({
+  "id": "",
+  "branch": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RepoBranch"
-}
-```
-## Operation: putV3ProjectsIdRepositoryBranchesBranchUnprotect
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* branch (string) **required** - The name of the branch
+* developers_can_push (boolean) - Flag if developers can push to that branch
+* developers_can_merge (boolean) - Flag if developers can merge to that branch
+
+### putV3ProjectsIdRepositoryBranchesBranchUnprotect
 Unprotect a single branch
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "branch": {
-      "type": "string",
-      "description": "The name of the branch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "branch"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdRepositoryBranchesBranchUnprotect({
+  "id": "",
+  "branch": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RepoBranch"
-}
-```
-## Operation: getV3ProjectsIdRepositoryCommits
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* branch (string) **required** - The name of the branch
+
+### getV3ProjectsIdRepositoryCommits
 Get a project repository commits
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "ref_name": {
-      "type": "string",
-      "description": "The name of a repository branch or tag, if not given the default branch is used"
-    },
-    "since": {
-      "type": "string",
-      "description": "Only commits after or in this date will be returned"
-    },
-    "until": {
-      "type": "string",
-      "description": "Only commits before or in this date will be returned"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The page for pagination"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The number of results per page"
-    },
-    "path": {
-      "type": "string",
-      "description": "The file path"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdRepositoryCommits({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RepoCommit"
-}
-```
-## Operation: postV3ProjectsIdRepositoryCommits
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* ref_name (string) - The name of a repository branch or tag, if not given the default branch is used
+* since (string) - Only commits after or in this date will be returned
+* until (string) - Only commits before or in this date will be returned
+* page (integer) - The page for pagination
+* per_page (integer) - The number of results per page
+* path (string) - The file path
+
+### postV3ProjectsIdRepositoryCommits
 This feature was introduced in GitLab 8.13
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "branch_name": {
-      "type": "string",
-      "description": "The name of branch"
-    },
-    "commit_message": {
-      "type": "string",
-      "description": "Commit message"
-    },
-    "actions": {
-      "type": "array",
-      "description": "Actions to perform in commit"
-    },
-    "author_email": {
-      "type": "string",
-      "description": "Author email for commit"
-    },
-    "author_name": {
-      "type": "string",
-      "description": "Author name for commit"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "branch_name",
-    "commit_message",
-    "actions"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdRepositoryCommits({
+  "id": "",
+  "branch_name": "",
+  "commit_message": "",
+  "actions": []
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RepoCommitDetail"
-}
-```
-## Operation: getV3ProjectsIdRepositoryCommitsSha
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* branch_name (string) **required** - The name of branch
+* commit_message (string) **required** - Commit message
+* actions (array) **required** - Actions to perform in commit
+* author_email (string) - Author email for commit
+* author_name (string) - Author name for commit
+
+### getV3ProjectsIdRepositoryCommitsSha
 Get a specific commit of a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "sha": {
-      "type": "string",
-      "description": "A commit sha, or the name of a branch or tag"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "sha"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdRepositoryCommitsSha({
+  "id": "",
+  "sha": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RepoCommitDetail"
-}
-```
-## Operation: getV3ProjectsIdRepositoryCommitsShaBlob
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* sha (string) **required** - A commit sha, or the name of a branch or tag
+
+### getV3ProjectsIdRepositoryCommitsShaBlob
 Get a raw file contents
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "sha": {
-      "type": "string",
-      "description": "The commit, branch name, or tag name"
-    },
-    "filepath": {
-      "type": "string",
-      "description": "The path to the file to display"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "sha",
-    "filepath"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdRepositoryCommitsShaBlob({
+  "id": "",
+  "sha": "",
+  "filepath": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdRepositoryCommitsShaBuilds
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* sha (string) **required** - The commit, branch name, or tag name
+* filepath (string) **required** - The path to the file to display
+
+### getV3ProjectsIdRepositoryCommitsShaBuilds
 Get builds for a specific commit of a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "sha": {
-      "type": "string",
-      "description": "The SHA id of a commit"
-    },
-    "scope": {
-      "type": "string",
-      "description": "The scope of builds to show",
-      "enum": [
-        "pending",
-        "running",
-        "failed",
-        "success",
-        "canceled"
-      ]
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "sha"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdRepositoryCommitsShaBuilds({
+  "id": "",
+  "sha": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Build"
-}
-```
-## Operation: postV3ProjectsIdRepositoryCommitsShaCherryPick
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* sha (string) **required** - The SHA id of a commit
+* scope (string) - The scope of builds to show
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### postV3ProjectsIdRepositoryCommitsShaCherryPick
 This feature was introduced in GitLab 8.15
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "sha": {
-      "type": "string",
-      "description": "A commit sha to be cherry picked"
-    },
-    "branch": {
-      "type": "string",
-      "description": "The name of the branch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "sha",
-    "branch"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdRepositoryCommitsShaCherryPick({
+  "id": "",
+  "sha": "",
+  "branch": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RepoCommit"
-}
-```
-## Operation: getV3ProjectsIdRepositoryCommitsShaComments
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* sha (string) **required** - A commit sha to be cherry picked
+* branch (string) **required** - The name of the branch
+
+### getV3ProjectsIdRepositoryCommitsShaComments
 Get a commit's comments
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    },
-    "sha": {
-      "type": "string",
-      "description": "A commit sha, or the name of a branch or tag"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "sha"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdRepositoryCommitsShaComments({
+  "id": "",
+  "sha": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CommitNote"
-}
-```
-## Operation: postV3ProjectsIdRepositoryCommitsShaComments
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+* sha (string) **required** - A commit sha, or the name of a branch or tag
+
+### postV3ProjectsIdRepositoryCommitsShaComments
 Post comment to commit
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "sha": {
-      "type": "string",
-      "description": "The commit's SHA"
-    },
-    "note": {
-      "type": "string",
-      "description": "The text of the comment"
-    },
-    "path": {
-      "type": "string",
-      "description": "The file path"
-    },
-    "line": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The line number"
-    },
-    "line_type": {
-      "type": "string",
-      "description": "The type of the line",
-      "enum": [
-        "new",
-        "old"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "sha",
-    "note",
-    "line",
-    "line_type"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdRepositoryCommitsShaComments({
+  "id": "",
+  "sha": "",
+  "note": "",
+  "line": 0,
+  "line_type": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CommitNote"
-}
-```
-## Operation: getV3ProjectsIdRepositoryCommitsShaDiff
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* sha (string) **required** - The commit's SHA
+* note (string) **required** - The text of the comment
+* path (string) - The file path
+* line (integer) **required** - The line number
+* line_type (string) **required** - The type of the line
+
+### getV3ProjectsIdRepositoryCommitsShaDiff
 Get the diff for a specific commit of a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "sha": {
-      "type": "string",
-      "description": "A commit sha, or the name of a branch or tag"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "sha"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdRepositoryCommitsShaDiff({
+  "id": "",
+  "sha": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdRepositoryCommitsShaStatuses
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* sha (string) **required** - A commit sha, or the name of a branch or tag
+
+### getV3ProjectsIdRepositoryCommitsShaStatuses
 Get a commit's statuses
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "sha": {
-      "type": "string",
-      "description": "The commit hash"
-    },
-    "ref": {
-      "type": "string",
-      "description": "The ref"
-    },
-    "stage": {
-      "type": "string",
-      "description": "The stage"
-    },
-    "name": {
-      "type": "string",
-      "description": "The name"
-    },
-    "all": {
-      "type": "string",
-      "description": "Show all statuses, default: false"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "sha"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdRepositoryCommitsShaStatuses({
+  "id": "",
+  "sha": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CommitStatus"
-}
-```
-## Operation: getV3ProjectsIdRepositoryCompare
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* sha (string) **required** - The commit hash
+* ref (string) - The ref
+* stage (string) - The stage
+* name (string) - The name
+* all (string) - Show all statuses, default: false
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### getV3ProjectsIdRepositoryCompare
 Compare two branches, tags, or commits
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "from": {
-      "type": "string",
-      "description": "The commit, branch name, or tag name to start comparison"
-    },
-    "to": {
-      "type": "string",
-      "description": "The commit, branch name, or tag name to stop comparison"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "from",
-    "to"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdRepositoryCompare({
+  "id": "",
+  "from": "",
+  "to": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Compare"
-}
-```
-## Operation: getV3ProjectsIdRepositoryContributors
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* from (string) **required** - The commit, branch name, or tag name to start comparison
+* to (string) **required** - The commit, branch name, or tag name to stop comparison
+
+### getV3ProjectsIdRepositoryContributors
 Get repository contributors
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdRepositoryContributors({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Contributor"
-}
-```
-## Operation: deleteV3ProjectsIdRepositoryFiles
+
+#### Parameters
+* id (string) **required** - The ID of a project
+
+### deleteV3ProjectsIdRepositoryFiles
 Delete an existing file in repository
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "file_path": {
-      "type": "string",
-      "description": "The path to new file. Ex. lib/class.rb"
-    },
-    "branch_name": {
-      "type": "string",
-      "description": "The name of branch"
-    },
-    "commit_message": {
-      "type": "string",
-      "description": "Commit Message"
-    },
-    "author_email": {
-      "type": "string",
-      "description": "The email of the author"
-    },
-    "author_name": {
-      "type": "string",
-      "description": "The name of the author"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "file_path",
-    "branch_name",
-    "commit_message"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdRepositoryFiles({
+  "id": "",
+  "file_path": "",
+  "branch_name": "",
+  "commit_message": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdRepositoryFiles
+
+#### Parameters
+* id (string) **required** - The project ID
+* file_path (string) **required** - The path to new file. Ex. lib/class.rb
+* branch_name (string) **required** - The name of branch
+* commit_message (string) **required** - Commit Message
+* author_email (string) - The email of the author
+* author_name (string) - The name of the author
+
+### getV3ProjectsIdRepositoryFiles
 Get a file from repository
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "file_path": {
-      "type": "string",
-      "description": "The path to the file. Ex. lib/class.rb"
-    },
-    "ref": {
-      "type": "string",
-      "description": "The name of branch, tag, or commit"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "file_path",
-    "ref"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdRepositoryFiles({
+  "id": "",
+  "file_path": "",
+  "ref": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postV3ProjectsIdRepositoryFiles
+
+#### Parameters
+* id (string) **required** - The project ID
+* file_path (string) **required** - The path to the file. Ex. lib/class.rb
+* ref (string) **required** - The name of branch, tag, or commit
+
+### postV3ProjectsIdRepositoryFiles
 Create new file in repository
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "file_path": {
-      "type": "string",
-      "description": "The path to new file. Ex. lib/class.rb"
-    },
-    "branch_name": {
-      "type": "string",
-      "description": "The name of branch"
-    },
-    "commit_message": {
-      "type": "string",
-      "description": "Commit Message"
-    },
-    "author_email": {
-      "type": "string",
-      "description": "The email of the author"
-    },
-    "author_name": {
-      "type": "string",
-      "description": "The name of the author"
-    },
-    "content": {
-      "type": "string",
-      "description": "File content"
-    },
-    "encoding": {
-      "type": "string",
-      "description": "File encoding",
-      "enum": [
-        "base64"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "file_path",
-    "branch_name",
-    "commit_message",
-    "content"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdRepositoryFiles({
+  "id": "",
+  "file_path": "",
+  "branch_name": "",
+  "commit_message": "",
+  "content": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdRepositoryFiles
+
+#### Parameters
+* id (string) **required** - The project ID
+* file_path (string) **required** - The path to new file. Ex. lib/class.rb
+* branch_name (string) **required** - The name of branch
+* commit_message (string) **required** - Commit Message
+* author_email (string) - The email of the author
+* author_name (string) - The name of the author
+* content (string) **required** - File content
+* encoding (string) - File encoding
+
+### putV3ProjectsIdRepositoryFiles
 Update existing file in repository
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The project ID"
-    },
-    "file_path": {
-      "type": "string",
-      "description": "The path to new file. Ex. lib/class.rb"
-    },
-    "branch_name": {
-      "type": "string",
-      "description": "The name of branch"
-    },
-    "commit_message": {
-      "type": "string",
-      "description": "Commit Message"
-    },
-    "author_email": {
-      "type": "string",
-      "description": "The email of the author"
-    },
-    "author_name": {
-      "type": "string",
-      "description": "The name of the author"
-    },
-    "content": {
-      "type": "string",
-      "description": "File content"
-    },
-    "encoding": {
-      "type": "string",
-      "description": "File encoding",
-      "enum": [
-        "base64"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "file_path",
-    "branch_name",
-    "commit_message",
-    "content"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdRepositoryFiles({
+  "id": "",
+  "file_path": "",
+  "branch_name": "",
+  "commit_message": "",
+  "content": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteV3ProjectsIdRepositoryMergedBranches
+
+#### Parameters
+* id (string) **required** - The project ID
+* file_path (string) **required** - The path to new file. Ex. lib/class.rb
+* branch_name (string) **required** - The name of branch
+* commit_message (string) **required** - Commit Message
+* author_email (string) - The email of the author
+* author_name (string) - The name of the author
+* content (string) **required** - File content
+* encoding (string) - File encoding
+
+### deleteV3ProjectsIdRepositoryMergedBranches
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdRepositoryMergedBranches({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdRepositoryRawBlobsSha
+
+#### Parameters
+* id (string) **required** - The ID of a project
+
+### getV3ProjectsIdRepositoryRawBlobsSha
 Get a raw blob contents by blob sha
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "sha": {
-      "type": "string",
-      "description": "The commit, branch name, or tag name"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "sha"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdRepositoryRawBlobsSha({
+  "id": "",
+  "sha": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdRepositoryTags
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* sha (string) **required** - The commit, branch name, or tag name
+
+### getV3ProjectsIdRepositoryTags
 Get a project repository tags
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdRepositoryTags({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RepoTag"
-}
-```
-## Operation: postV3ProjectsIdRepositoryTags
+
+#### Parameters
+* id (string) **required** - The ID of a project
+
+### postV3ProjectsIdRepositoryTags
 Create a new repository tag
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "tag_name": {
-      "type": "string",
-      "description": "The name of the tag"
-    },
-    "ref": {
-      "type": "string",
-      "description": "The commit sha or branch name"
-    },
-    "message": {
-      "type": "string",
-      "description": "Specifying a message creates an annotated tag"
-    },
-    "release_description": {
-      "type": "string",
-      "description": "Specifying release notes stored in the GitLab database"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "tag_name",
-    "ref"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdRepositoryTags({
+  "id": "",
+  "tag_name": "",
+  "ref": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RepoTag"
-}
-```
-## Operation: deleteV3ProjectsIdRepositoryTagsTagName
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* tag_name (string) **required** - The name of the tag
+* ref (string) **required** - The commit sha or branch name
+* message (string) - Specifying a message creates an annotated tag
+* release_description (string) - Specifying release notes stored in the GitLab database
+
+### deleteV3ProjectsIdRepositoryTagsTagName
 Delete a repository tag
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "tag_name": {
-      "type": "string",
-      "description": "The name of the tag"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "tag_name"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdRepositoryTagsTagName({
+  "id": "",
+  "tag_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdRepositoryTagsTagName
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* tag_name (string) **required** - The name of the tag
+
+### getV3ProjectsIdRepositoryTagsTagName
 Get a single repository tag
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "tag_name": {
-      "type": "string",
-      "description": "The name of the tag"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "tag_name"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdRepositoryTagsTagName({
+  "id": "",
+  "tag_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RepoTag"
-}
-```
-## Operation: postV3ProjectsIdRepositoryTagsTagNameRelease
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* tag_name (string) **required** - The name of the tag
+
+### postV3ProjectsIdRepositoryTagsTagNameRelease
 Add a release note to a tag
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "tag_name": {
-      "type": "string",
-      "description": "The name of the tag"
-    },
-    "description": {
-      "type": "string",
-      "description": "Release notes with markdown support"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "tag_name",
-    "description"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdRepositoryTagsTagNameRelease({
+  "id": "",
+  "tag_name": "",
+  "description": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Release"
-}
-```
-## Operation: putV3ProjectsIdRepositoryTagsTagNameRelease
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* tag_name (string) **required** - The name of the tag
+* description (string) **required** - Release notes with markdown support
+
+### putV3ProjectsIdRepositoryTagsTagNameRelease
 Update a tag's release note
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "tag_name": {
-      "type": "string",
-      "description": "The name of the tag"
-    },
-    "description": {
-      "type": "string",
-      "description": "Release notes with markdown support"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "tag_name",
-    "description"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdRepositoryTagsTagNameRelease({
+  "id": "",
+  "tag_name": "",
+  "description": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Release"
-}
-```
-## Operation: getV3ProjectsIdRepositoryTree
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* tag_name (string) **required** - The name of the tag
+* description (string) **required** - Release notes with markdown support
+
+### getV3ProjectsIdRepositoryTree
 Get a project repository tree
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "ref_name": {
-      "type": "string",
-      "description": "The name of a repository branch or tag, if not given the default branch is used"
-    },
-    "path": {
-      "type": "string",
-      "description": "The path of the tree"
-    },
-    "recursive": {
-      "type": "boolean",
-      "description": "Used to get a recursive tree"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdRepositoryTree({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RepoTreeObject"
-}
-```
-## Operation: getV3ProjectsIdRunners
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* ref_name (string) - The name of a repository branch or tag, if not given the default branch is used
+* path (string) - The path of the tree
+* recursive (boolean) - Used to get a recursive tree
+
+### getV3ProjectsIdRunners
 Get runners available for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "scope": {
-      "type": "string",
-      "description": "The scope of specific runners to show",
-      "enum": [
-        "active",
-        "paused",
-        "online",
-        "specific",
-        "shared"
-      ]
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdRunners({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Runner"
-}
-```
-## Operation: postV3ProjectsIdRunners
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* scope (string) - The scope of specific runners to show
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### postV3ProjectsIdRunners
 Enable a runner for a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "runner_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the runner"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "runner_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdRunners({
+  "id": "",
+  "runner_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Runner"
-}
-```
-## Operation: deleteV3ProjectsIdRunnersRunnerId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* runner_id (integer) **required** - The ID of the runner
+
+### deleteV3ProjectsIdRunnersRunnerId
 Disable project's runner
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "runner_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the runner"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "runner_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdRunnersRunnerId({
+  "id": "",
+  "runner_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Runner"
-}
-```
-## Operation: putV3ProjectsIdServicesAsana
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* runner_id (integer) **required** - The ID of the runner
+
+### putV3ProjectsIdServicesAsana
 Set asana service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api_key": {
-      "type": "string",
-      "description": "User API token"
-    },
-    "restrict_to_branch": {
-      "type": "string",
-      "description": "Comma-separated list of branches which will be automatically inspected. Leave blank to include all branches"
-    },
-    "push_events": {
-      "type": "string",
-      "description": "Event will be triggered by a push to the repository"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api_key",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesAsana({
+  "api_key": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesAssembla
+
+#### Parameters
+* api_key (string) **required** - User API token
+* restrict_to_branch (string) - Comma-separated list of branches which will be automatically inspected. Leave blank to include all branches
+* push_events (string) - Event will be triggered by a push to the repository
+* id (integer) **required**
+
+### putV3ProjectsIdServicesAssembla
 Set assembla service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "The authentication token"
-    },
-    "subdomain": {
-      "type": "string",
-      "description": "Subdomain setting"
-    },
-    "push_events": {
-      "type": "string",
-      "description": "Event will be triggered by a push to the repository"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesAssembla({
+  "token": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesBamboo
+
+#### Parameters
+* token (string) **required** - The authentication token
+* subdomain (string) - Subdomain setting
+* push_events (string) - Event will be triggered by a push to the repository
+* id (integer) **required**
+
+### putV3ProjectsIdServicesBamboo
 Set bamboo service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "bamboo_url": {
-      "type": "string",
-      "description": "Bamboo root URL like https://bamboo.example.com"
-    },
-    "build_key": {
-      "type": "string",
-      "description": "Bamboo build plan key like"
-    },
-    "username": {
-      "type": "string",
-      "description": "A user with API access, if applicable"
-    },
-    "password": {
-      "type": "string",
-      "description": "Passord of the user"
-    },
-    "push_events": {
-      "type": "string",
-      "description": "Event will be triggered by a push to the repository"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bamboo_url",
-    "build_key",
-    "username",
-    "password",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesBamboo({
+  "bamboo_url": "",
+  "build_key": "",
+  "username": "",
+  "password": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesBugzilla
+
+#### Parameters
+* bamboo_url (string) **required** - Bamboo root URL like https://bamboo.example.com
+* build_key (string) **required** - Bamboo build plan key like
+* username (string) **required** - A user with API access, if applicable
+* password (string) **required** - Passord of the user
+* push_events (string) - Event will be triggered by a push to the repository
+* id (integer) **required**
+
+### putV3ProjectsIdServicesBugzilla
 Set bugzilla service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "new_issue_url": {
-      "type": "string",
-      "description": "New issue URL"
-    },
-    "issues_url": {
-      "type": "string",
-      "description": "Issues URL"
-    },
-    "project_url": {
-      "type": "string",
-      "description": "Project URL"
-    },
-    "description": {
-      "type": "string",
-      "description": "Description"
-    },
-    "title": {
-      "type": "string",
-      "description": "Title"
-    },
-    "push_events": {
-      "type": "string",
-      "description": "Event will be triggered by a push to the repository"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "new_issue_url",
-    "issues_url",
-    "project_url",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesBugzilla({
+  "new_issue_url": "",
+  "issues_url": "",
+  "project_url": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesBuildkite
+
+#### Parameters
+* new_issue_url (string) **required** - New issue URL
+* issues_url (string) **required** - Issues URL
+* project_url (string) **required** - Project URL
+* description (string) - Description
+* title (string) - Title
+* push_events (string) - Event will be triggered by a push to the repository
+* id (integer) **required**
+
+### putV3ProjectsIdServicesBuildkite
 Set buildkite service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "Buildkite project GitLab token"
-    },
-    "project_url": {
-      "type": "string",
-      "description": "The buildkite project URL"
-    },
-    "enable_ssl_verification": {
-      "type": "boolean",
-      "description": "Enable SSL verification for communication"
-    },
-    "push_events": {
-      "type": "string",
-      "description": "Event will be triggered by a push to the repository"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token",
-    "project_url",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesBuildkite({
+  "token": "",
+  "project_url": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesBuildsEmail
+
+#### Parameters
+* token (string) **required** - Buildkite project GitLab token
+* project_url (string) **required** - The buildkite project URL
+* enable_ssl_verification (boolean) - Enable SSL verification for communication
+* push_events (string) - Event will be triggered by a push to the repository
+* id (integer) **required**
+
+### putV3ProjectsIdServicesBuildsEmail
 Set builds-email service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipients": {
-      "type": "string",
-      "description": "Comma-separated list of recipient email addresses"
-    },
-    "add_pusher": {
-      "type": "boolean",
-      "description": "Add pusher to recipients list"
-    },
-    "notify_only_broken_builds": {
-      "type": "boolean",
-      "description": "Notify only broken builds"
-    },
-    "build_events": {
-      "type": "string",
-      "description": "Event will be triggered when a build status changes"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipients",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesBuildsEmail({
+  "recipients": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesCampfire
+
+#### Parameters
+* recipients (string) **required** - Comma-separated list of recipient email addresses
+* add_pusher (boolean) - Add pusher to recipients list
+* notify_only_broken_builds (boolean) - Notify only broken builds
+* build_events (string) - Event will be triggered when a build status changes
+* id (integer) **required**
+
+### putV3ProjectsIdServicesCampfire
 Set campfire service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "Campfire token"
-    },
-    "subdomain": {
-      "type": "string",
-      "description": "Campfire subdomain"
-    },
-    "room": {
-      "type": "string",
-      "description": "Campfire room"
-    },
-    "push_events": {
-      "type": "string",
-      "description": "Event will be triggered by a push to the repository"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesCampfire({
+  "token": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesCustomIssueTracker
+
+#### Parameters
+* token (string) **required** - Campfire token
+* subdomain (string) - Campfire subdomain
+* room (string) - Campfire room
+* push_events (string) - Event will be triggered by a push to the repository
+* id (integer) **required**
+
+### putV3ProjectsIdServicesCustomIssueTracker
 Set custom-issue-tracker service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "new_issue_url": {
-      "type": "string",
-      "description": "New issue URL"
-    },
-    "issues_url": {
-      "type": "string",
-      "description": "Issues URL"
-    },
-    "project_url": {
-      "type": "string",
-      "description": "Project URL"
-    },
-    "description": {
-      "type": "string",
-      "description": "Description"
-    },
-    "title": {
-      "type": "string",
-      "description": "Title"
-    },
-    "push_events": {
-      "type": "string",
-      "description": "Event will be triggered by a push to the repository"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "new_issue_url",
-    "issues_url",
-    "project_url",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesCustomIssueTracker({
+  "new_issue_url": "",
+  "issues_url": "",
+  "project_url": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesDroneCi
+
+#### Parameters
+* new_issue_url (string) **required** - New issue URL
+* issues_url (string) **required** - Issues URL
+* project_url (string) **required** - Project URL
+* description (string) - Description
+* title (string) - Title
+* push_events (string) - Event will be triggered by a push to the repository
+* id (integer) **required**
+
+### putV3ProjectsIdServicesDroneCi
 Set drone-ci service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "Drone CI token"
-    },
-    "drone_url": {
-      "type": "string",
-      "description": "Drone CI URL"
-    },
-    "enable_ssl_verification": {
-      "type": "boolean",
-      "description": "Enable SSL verification for communication"
-    },
-    "push_events": {
-      "type": "string",
-      "description": "Event will be triggered by a push to the repository"
-    },
-    "merge_request_events": {
-      "type": "string",
-      "description": "Event will be triggered when a merge request is created/updated/merged"
-    },
-    "tag_push_events": {
-      "type": "string",
-      "description": "Event will be triggered when a new tag is pushed to the repository"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token",
-    "drone_url",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesDroneCi({
+  "token": "",
+  "drone_url": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesEmailsOnPush
+
+#### Parameters
+* token (string) **required** - Drone CI token
+* drone_url (string) **required** - Drone CI URL
+* enable_ssl_verification (boolean) - Enable SSL verification for communication
+* push_events (string) - Event will be triggered by a push to the repository
+* merge_request_events (string) - Event will be triggered when a merge request is created/updated/merged
+* tag_push_events (string) - Event will be triggered when a new tag is pushed to the repository
+* id (integer) **required**
+
+### putV3ProjectsIdServicesEmailsOnPush
 Set emails-on-push service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipients": {
-      "type": "string",
-      "description": "Comma-separated list of recipient email addresses"
-    },
-    "disable_diffs": {
-      "type": "boolean",
-      "description": "Disable code diffs"
-    },
-    "send_from_committer_email": {
-      "type": "boolean",
-      "description": "Send from committer"
-    },
-    "push_events": {
-      "type": "string",
-      "description": "Event will be triggered by a push to the repository"
-    },
-    "tag_push_events": {
-      "type": "string",
-      "description": "Event will be triggered when a new tag is pushed to the repository"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipients",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesEmailsOnPush({
+  "recipients": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesExternalWiki
+
+#### Parameters
+* recipients (string) **required** - Comma-separated list of recipient email addresses
+* disable_diffs (boolean) - Disable code diffs
+* send_from_committer_email (boolean) - Send from committer
+* push_events (string) - Event will be triggered by a push to the repository
+* tag_push_events (string) - Event will be triggered when a new tag is pushed to the repository
+* id (integer) **required**
+
+### putV3ProjectsIdServicesExternalWiki
 Set external-wiki service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "external_wiki_url": {
-      "type": "string",
-      "description": "The URL of the external Wiki"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "external_wiki_url",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesExternalWiki({
+  "external_wiki_url": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesFlowdock
+
+#### Parameters
+* external_wiki_url (string) **required** - The URL of the external Wiki
+* id (integer) **required**
+
+### putV3ProjectsIdServicesFlowdock
 Set flowdock service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "Flowdock token"
-    },
-    "push_events": {
-      "type": "string",
-      "description": "Event will be triggered by a push to the repository"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesFlowdock({
+  "token": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesGemnasium
+
+#### Parameters
+* token (string) **required** - Flowdock token
+* push_events (string) - Event will be triggered by a push to the repository
+* id (integer) **required**
+
+### putV3ProjectsIdServicesGemnasium
 Set gemnasium service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api_key": {
-      "type": "string",
-      "description": "Your personal API key on gemnasium.com"
-    },
-    "token": {
-      "type": "string",
-      "description": "The project's slug on gemnasium.com"
-    },
-    "push_events": {
-      "type": "string",
-      "description": "Event will be triggered by a push to the repository"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api_key",
-    "token",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesGemnasium({
+  "api_key": "",
+  "token": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesHipchat
+
+#### Parameters
+* api_key (string) **required** - Your personal API key on gemnasium.com
+* token (string) **required** - The project's slug on gemnasium.com
+* push_events (string) - Event will be triggered by a push to the repository
+* id (integer) **required**
+
+### putV3ProjectsIdServicesHipchat
 Set hipchat service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "The room token"
-    },
-    "room": {
-      "type": "string",
-      "description": "The room name or ID"
-    },
-    "color": {
-      "type": "string",
-      "description": "The room color"
-    },
-    "notify": {
-      "type": "boolean",
-      "description": "Enable notifications"
-    },
-    "api_version": {
-      "type": "string",
-      "description": "Leave blank for default (v2)"
-    },
-    "server": {
-      "type": "string",
-      "description": "Leave blank for default. https://hipchat.example.com"
-    },
-    "push_events": {
-      "type": "string",
-      "description": "Event will be triggered by a push to the repository"
-    },
-    "issue_events": {
-      "type": "string",
-      "description": "Event will be triggered when an issue is created/updated/closed"
-    },
-    "confidential_issue_events": {
-      "type": "string",
-      "description": "Event will be triggered when a confidential issue is created/updated/closed"
-    },
-    "merge_request_events": {
-      "type": "string",
-      "description": "Event will be triggered when a merge request is created/updated/merged"
-    },
-    "note_events": {
-      "type": "string",
-      "description": "Event will be triggered when someone adds a comment"
-    },
-    "tag_push_events": {
-      "type": "string",
-      "description": "Event will be triggered when a new tag is pushed to the repository"
-    },
-    "build_events": {
-      "type": "string",
-      "description": "Event will be triggered when a build status changes"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesHipchat({
+  "token": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesIrker
+
+#### Parameters
+* token (string) **required** - The room token
+* room (string) - The room name or ID
+* color (string) - The room color
+* notify (boolean) - Enable notifications
+* api_version (string) - Leave blank for default (v2)
+* server (string) - Leave blank for default. https://hipchat.example.com
+* push_events (string) - Event will be triggered by a push to the repository
+* issue_events (string) - Event will be triggered when an issue is created/updated/closed
+* confidential_issue_events (string) - Event will be triggered when a confidential issue is created/updated/closed
+* merge_request_events (string) - Event will be triggered when a merge request is created/updated/merged
+* note_events (string) - Event will be triggered when someone adds a comment
+* tag_push_events (string) - Event will be triggered when a new tag is pushed to the repository
+* build_events (string) - Event will be triggered when a build status changes
+* id (integer) **required**
+
+### putV3ProjectsIdServicesIrker
 Set irker service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipients": {
-      "type": "string",
-      "description": "Recipients/channels separated by whitespaces"
-    },
-    "default_irc_uri": {
-      "type": "string",
-      "description": "Default: irc://irc.network.net:6697"
-    },
-    "server_host": {
-      "type": "string",
-      "description": "Server host. Default localhost"
-    },
-    "server_port": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Server port. Default 6659"
-    },
-    "colorize_messages": {
-      "type": "boolean",
-      "description": "Colorize messages"
-    },
-    "push_events": {
-      "type": "string",
-      "description": "Event will be triggered by a push to the repository"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipients",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesIrker({
+  "recipients": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesJira
+
+#### Parameters
+* recipients (string) **required** - Recipients/channels separated by whitespaces
+* default_irc_uri (string) - Default: irc://irc.network.net:6697
+* server_host (string) - Server host. Default localhost
+* server_port (integer) - Server port. Default 6659
+* colorize_messages (boolean) - Colorize messages
+* push_events (string) - Event will be triggered by a push to the repository
+* id (integer) **required**
+
+### putV3ProjectsIdServicesJira
 Set jira service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "url": {
-      "type": "string",
-      "description": "The URL to the JIRA project which is being linked to this GitLab project, e.g., https://jira.example.com"
-    },
-    "project_key": {
-      "type": "string",
-      "description": "The short identifier for your JIRA project, all uppercase, e.g., PROJ"
-    },
-    "username": {
-      "type": "string",
-      "description": "The username of the user created to be used with GitLab/JIRA"
-    },
-    "password": {
-      "type": "string",
-      "description": "The password of the user created to be used with GitLab/JIRA"
-    },
-    "jira_issue_transition_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a transition that moves issues to a closed state. You can find this number under the JIRA workflow administration (**Administration > Issues > Workflows**) by selecting **View** under **Operations** of the desired workflow of your project. The ID of each state can be found inside the parenthesis of each transition name under the **Transitions (id)** column ([see screenshot][trans]). By default, this ID is set to `2`"
-    },
-    "commit_events": {
-      "type": "string",
-      "description": "Event will be triggered when a commit is created/updated"
-    },
-    "merge_request_events": {
-      "type": "string",
-      "description": "Event will be triggered when a merge request is created/updated/merged"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "url",
-    "project_key",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesJira({
+  "url": "",
+  "project_key": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesKubernetes
+
+#### Parameters
+* url (string) **required** - The URL to the JIRA project which is being linked to this GitLab project, e.g., https://jira.example.com
+* project_key (string) **required** - The short identifier for your JIRA project, all uppercase, e.g., PROJ
+* username (string) - The username of the user created to be used with GitLab/JIRA
+* password (string) - The password of the user created to be used with GitLab/JIRA
+* jira_issue_transition_id (integer) - The ID of a transition that moves issues to a closed state. You can find this number under the JIRA workflow administration (**Administration > Issues > Workflows**) by selecting **View** under **Operations** of the desired workflow of your project. The ID of each state can be found inside the parenthesis of each transition name under the **Transitions (id)** column ([see screenshot][trans]). By default, this ID is set to `2`
+* commit_events (string) - Event will be triggered when a commit is created/updated
+* merge_request_events (string) - Event will be triggered when a merge request is created/updated/merged
+* id (integer) **required**
+
+### putV3ProjectsIdServicesKubernetes
 Set kubernetes service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "namespace": {
-      "type": "string",
-      "description": "The Kubernetes namespace to use"
-    },
-    "api_url": {
-      "type": "string",
-      "description": "The URL to the Kubernetes cluster API, e.g., https://kubernetes.example.com"
-    },
-    "token": {
-      "type": "string",
-      "description": "The service token to authenticate against the Kubernetes cluster with"
-    },
-    "ca_pem": {
-      "type": "string",
-      "description": "A custom certificate authority bundle to verify the Kubernetes cluster with (PEM format)"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "namespace",
-    "api_url",
-    "token",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesKubernetes({
+  "namespace": "",
+  "api_url": "",
+  "token": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesMattermost
+
+#### Parameters
+* namespace (string) **required** - The Kubernetes namespace to use
+* api_url (string) **required** - The URL to the Kubernetes cluster API, e.g., https://kubernetes.example.com
+* token (string) **required** - The service token to authenticate against the Kubernetes cluster with
+* ca_pem (string) - A custom certificate authority bundle to verify the Kubernetes cluster with (PEM format)
+* id (integer) **required**
+
+### putV3ProjectsIdServicesMattermost
 Set mattermost service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "webhook": {
-      "type": "string",
-      "description": "The Mattermost webhook. e.g. http://mattermost_host/hooks/..."
-    },
-    "push_events": {
-      "type": "string",
-      "description": "Event will be triggered by a push to the repository"
-    },
-    "issue_events": {
-      "type": "string",
-      "description": "Event will be triggered when an issue is created/updated/closed"
-    },
-    "confidential_issue_events": {
-      "type": "string",
-      "description": "Event will be triggered when a confidential issue is created/updated/closed"
-    },
-    "merge_request_events": {
-      "type": "string",
-      "description": "Event will be triggered when a merge request is created/updated/merged"
-    },
-    "note_events": {
-      "type": "string",
-      "description": "Event will be triggered when someone adds a comment"
-    },
-    "tag_push_events": {
-      "type": "string",
-      "description": "Event will be triggered when a new tag is pushed to the repository"
-    },
-    "build_events": {
-      "type": "string",
-      "description": "Event will be triggered when a build status changes"
-    },
-    "pipeline_events": {
-      "type": "string"
-    },
-    "wiki_page_events": {
-      "type": "string",
-      "description": "Event will be triggered when a wiki page is created/updated"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "webhook",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesMattermost({
+  "webhook": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesMattermostSlashCommands
+
+#### Parameters
+* webhook (string) **required** - The Mattermost webhook. e.g. http://mattermost_host/hooks/...
+* push_events (string) - Event will be triggered by a push to the repository
+* issue_events (string) - Event will be triggered when an issue is created/updated/closed
+* confidential_issue_events (string) - Event will be triggered when a confidential issue is created/updated/closed
+* merge_request_events (string) - Event will be triggered when a merge request is created/updated/merged
+* note_events (string) - Event will be triggered when someone adds a comment
+* tag_push_events (string) - Event will be triggered when a new tag is pushed to the repository
+* build_events (string) - Event will be triggered when a build status changes
+* pipeline_events (string)
+* wiki_page_events (string) - Event will be triggered when a wiki page is created/updated
+* id (integer) **required**
+
+### putV3ProjectsIdServicesMattermostSlashCommands
 Set mattermost-slash-commands service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "The Mattermost token"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesMattermostSlashCommands({
+  "token": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postV3ProjectsIdServicesMattermostSlashCommandsTrigger
+
+#### Parameters
+* token (string) **required** - The Mattermost token
+* id (integer) **required**
+
+### postV3ProjectsIdServicesMattermostSlashCommandsTrigger
 Added in GitLab 8.13
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "token": {
-      "type": "string",
-      "description": "The Mattermost token"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "token"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdServicesMattermostSlashCommandsTrigger({
+  "id": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesPipelinesEmail
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* token (string) **required** - The Mattermost token
+
+### putV3ProjectsIdServicesPipelinesEmail
 Set pipelines-email service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipients": {
-      "type": "string",
-      "description": "Comma-separated list of recipient email addresses"
-    },
-    "notify_only_broken_builds": {
-      "type": "boolean",
-      "description": "Notify only broken builds"
-    },
-    "pipeline_events": {
-      "type": "string"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipients",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesPipelinesEmail({
+  "recipients": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesPivotaltracker
+
+#### Parameters
+* recipients (string) **required** - Comma-separated list of recipient email addresses
+* notify_only_broken_builds (boolean) - Notify only broken builds
+* pipeline_events (string)
+* id (integer) **required**
+
+### putV3ProjectsIdServicesPivotaltracker
 Set pivotaltracker service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "The Pivotaltracker token"
-    },
-    "restrict_to_branch": {
-      "type": "string",
-      "description": "Comma-separated list of branches which will be automatically inspected. Leave blank to include all branches."
-    },
-    "push_events": {
-      "type": "string",
-      "description": "Event will be triggered by a push to the repository"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesPivotaltracker({
+  "token": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesPushover
+
+#### Parameters
+* token (string) **required** - The Pivotaltracker token
+* restrict_to_branch (string) - Comma-separated list of branches which will be automatically inspected. Leave blank to include all branches.
+* push_events (string) - Event will be triggered by a push to the repository
+* id (integer) **required**
+
+### putV3ProjectsIdServicesPushover
 Set pushover service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api_key": {
-      "type": "string",
-      "description": "The application key"
-    },
-    "user_key": {
-      "type": "string",
-      "description": "The user key"
-    },
-    "priority": {
-      "type": "string",
-      "description": "The priority"
-    },
-    "device": {
-      "type": "string",
-      "description": "Leave blank for all active devices"
-    },
-    "sound": {
-      "type": "string",
-      "description": "The sound of the notification"
-    },
-    "push_events": {
-      "type": "string",
-      "description": "Event will be triggered by a push to the repository"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api_key",
-    "user_key",
-    "priority",
-    "device",
-    "sound",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesPushover({
+  "api_key": "",
+  "user_key": "",
+  "priority": "",
+  "device": "",
+  "sound": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesRedmine
+
+#### Parameters
+* api_key (string) **required** - The application key
+* user_key (string) **required** - The user key
+* priority (string) **required** - The priority
+* device (string) **required** - Leave blank for all active devices
+* sound (string) **required** - The sound of the notification
+* push_events (string) - Event will be triggered by a push to the repository
+* id (integer) **required**
+
+### putV3ProjectsIdServicesRedmine
 Set redmine service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "new_issue_url": {
-      "type": "string",
-      "description": "The new issue URL"
-    },
-    "project_url": {
-      "type": "string",
-      "description": "The project URL"
-    },
-    "issues_url": {
-      "type": "string",
-      "description": "The issues URL"
-    },
-    "description": {
-      "type": "string",
-      "description": "The description of the tracker"
-    },
-    "push_events": {
-      "type": "string",
-      "description": "Event will be triggered by a push to the repository"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "new_issue_url",
-    "project_url",
-    "issues_url",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesRedmine({
+  "new_issue_url": "",
+  "project_url": "",
+  "issues_url": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesSlack
+
+#### Parameters
+* new_issue_url (string) **required** - The new issue URL
+* project_url (string) **required** - The project URL
+* issues_url (string) **required** - The issues URL
+* description (string) - The description of the tracker
+* push_events (string) - Event will be triggered by a push to the repository
+* id (integer) **required**
+
+### putV3ProjectsIdServicesSlack
 Set slack service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "webhook": {
-      "type": "string",
-      "description": "The Slack webhook. e.g. https://hooks.slack.com/services/..."
-    },
-    "new_issue_url": {
-      "type": "string",
-      "description": "The user name"
-    },
-    "channel": {
-      "type": "string",
-      "description": "The channel name"
-    },
-    "push_events": {
-      "type": "string",
-      "description": "Event will be triggered by a push to the repository"
-    },
-    "issue_events": {
-      "type": "string",
-      "description": "Event will be triggered when an issue is created/updated/closed"
-    },
-    "confidential_issue_events": {
-      "type": "string",
-      "description": "Event will be triggered when a confidential issue is created/updated/closed"
-    },
-    "merge_request_events": {
-      "type": "string",
-      "description": "Event will be triggered when a merge request is created/updated/merged"
-    },
-    "note_events": {
-      "type": "string",
-      "description": "Event will be triggered when someone adds a comment"
-    },
-    "tag_push_events": {
-      "type": "string",
-      "description": "Event will be triggered when a new tag is pushed to the repository"
-    },
-    "build_events": {
-      "type": "string",
-      "description": "Event will be triggered when a build status changes"
-    },
-    "pipeline_events": {
-      "type": "string"
-    },
-    "wiki_page_events": {
-      "type": "string",
-      "description": "Event will be triggered when a wiki page is created/updated"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "webhook",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesSlack({
+  "webhook": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesSlackSlashCommands
+
+#### Parameters
+* webhook (string) **required** - The Slack webhook. e.g. https://hooks.slack.com/services/...
+* new_issue_url (string) - The user name
+* channel (string) - The channel name
+* push_events (string) - Event will be triggered by a push to the repository
+* issue_events (string) - Event will be triggered when an issue is created/updated/closed
+* confidential_issue_events (string) - Event will be triggered when a confidential issue is created/updated/closed
+* merge_request_events (string) - Event will be triggered when a merge request is created/updated/merged
+* note_events (string) - Event will be triggered when someone adds a comment
+* tag_push_events (string) - Event will be triggered when a new tag is pushed to the repository
+* build_events (string) - Event will be triggered when a build status changes
+* pipeline_events (string)
+* wiki_page_events (string) - Event will be triggered when a wiki page is created/updated
+* id (integer) **required**
+
+### putV3ProjectsIdServicesSlackSlashCommands
 Set slack-slash-commands service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "The Slack token"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesSlackSlashCommands({
+  "token": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postV3ProjectsIdServicesSlackSlashCommandsTrigger
+
+#### Parameters
+* token (string) **required** - The Slack token
+* id (integer) **required**
+
+### postV3ProjectsIdServicesSlackSlashCommandsTrigger
 Added in GitLab 8.13
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "token": {
-      "type": "string",
-      "description": "The Slack token"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "token"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdServicesSlackSlashCommandsTrigger({
+  "id": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putV3ProjectsIdServicesTeamcity
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* token (string) **required** - The Slack token
+
+### putV3ProjectsIdServicesTeamcity
 Set teamcity service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "teamcity_url": {
-      "type": "string",
-      "description": "TeamCity root URL like https://teamcity.example.com"
-    },
-    "build_type": {
-      "type": "string",
-      "description": "Build configuration ID"
-    },
-    "username": {
-      "type": "string",
-      "description": "A user with permissions to trigger a manual build"
-    },
-    "password": {
-      "type": "string",
-      "description": "The password of the user"
-    },
-    "push_events": {
-      "type": "string",
-      "description": "Event will be triggered by a push to the repository"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "teamcity_url",
-    "build_type",
-    "username",
-    "password",
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdServicesTeamcity({
+  "teamcity_url": "",
+  "build_type": "",
+  "username": "",
+  "password": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteV3ProjectsIdServicesServiceSlug
+
+#### Parameters
+* teamcity_url (string) **required** - TeamCity root URL like https://teamcity.example.com
+* build_type (string) **required** - Build configuration ID
+* username (string) **required** - A user with permissions to trigger a manual build
+* password (string) **required** - The password of the user
+* push_events (string) - Event will be triggered by a push to the repository
+* id (integer) **required**
+
+### deleteV3ProjectsIdServicesServiceSlug
 Delete a service for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "service_slug": {
-      "type": "string",
-      "description": "The name of the service",
-      "enum": [
-        "asana",
-        "assembla",
-        "bamboo",
-        "bugzilla",
-        "buildkite",
-        "builds-email",
-        "campfire",
-        "custom-issue-tracker",
-        "drone-ci",
-        "emails-on-push",
-        "external-wiki",
-        "flowdock",
-        "gemnasium",
-        "hipchat",
-        "irker",
-        "jira",
-        "kubernetes",
-        "mattermost-slash-commands",
-        "slack-slash-commands",
-        "pipelines-email",
-        "pivotaltracker",
-        "pushover",
-        "redmine",
-        "slack",
-        "mattermost",
-        "teamcity"
-      ]
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "service_slug",
-    "id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdServicesServiceSlug({
+  "service_slug": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdServicesServiceSlug
+
+#### Parameters
+* service_slug (string) **required** - The name of the service
+* id (integer) **required**
+
+### getV3ProjectsIdServicesServiceSlug
 Get the service settings for project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "service_slug": {
-      "type": "string",
-      "description": "The name of the service",
-      "enum": [
-        "asana",
-        "assembla",
-        "bamboo",
-        "bugzilla",
-        "buildkite",
-        "builds-email",
-        "campfire",
-        "custom-issue-tracker",
-        "drone-ci",
-        "emails-on-push",
-        "external-wiki",
-        "flowdock",
-        "gemnasium",
-        "hipchat",
-        "irker",
-        "jira",
-        "kubernetes",
-        "mattermost-slash-commands",
-        "slack-slash-commands",
-        "pipelines-email",
-        "pivotaltracker",
-        "pushover",
-        "redmine",
-        "slack",
-        "mattermost",
-        "teamcity"
-      ]
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "service_slug",
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdServicesServiceSlug({
+  "service_slug": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectService"
-}
-```
-## Operation: postV3ProjectsIdShare
+
+#### Parameters
+* service_slug (string) **required** - The name of the service
+* id (integer) **required**
+
+### postV3ProjectsIdShare
 Share the project with a group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "group_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a group"
-    },
-    "group_access": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The group access level",
-      "enum": [
-        10,
-        20,
-        30,
-        40
-      ]
-    },
-    "expires_at": {
-      "type": "string",
-      "format": "date",
-      "description": "Share expiration date"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "group_id",
-    "group_access"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdShare({
+  "id": "",
+  "group_id": 0,
+  "group_access": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectGroupLink"
-}
-```
-## Operation: deleteV3ProjectsIdShareGroupId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* group_id (integer) **required** - The ID of a group
+* group_access (integer) **required** - The group access level
+* expires_at (string) - Share expiration date
+
+### deleteV3ProjectsIdShareGroupId
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "group_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the group"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "group_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdShareGroupId({
+  "id": "",
+  "group_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdSnippets
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* group_id (integer) **required** - The ID of the group
+
+### getV3ProjectsIdSnippets
 Get all project snippets
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdSnippets({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectSnippet"
-}
-```
-## Operation: postV3ProjectsIdSnippets
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### postV3ProjectsIdSnippets
 Create a new project snippet
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "title": {
-      "type": "string",
-      "description": "The title of the snippet"
-    },
-    "file_name": {
-      "type": "string",
-      "description": "The file name of the snippet"
-    },
-    "code": {
-      "type": "string",
-      "description": "The content of the snippet"
-    },
-    "visibility_level": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The visibility level of the snippet",
-      "enum": [
-        0,
-        10,
-        20
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "title",
-    "file_name",
-    "code",
-    "visibility_level"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdSnippets({
+  "id": "",
+  "title": "",
+  "file_name": "",
+  "code": "",
+  "visibility_level": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectSnippet"
-}
-```
-## Operation: getV3ProjectsIdSnippetsNoteableIdNotes
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* title (string) **required** - The title of the snippet
+* file_name (string) **required** - The file name of the snippet
+* code (string) **required** - The content of the snippet
+* visibility_level (integer) **required** - The visibility level of the snippet
+
+### getV3ProjectsIdSnippetsNoteableIdNotes
 Get a list of project +noteable+ notes
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "noteable_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the noteable"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "noteable_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdSnippetsNoteableIdNotes({
+  "id": "",
+  "noteable_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Note"
-}
-```
-## Operation: postV3ProjectsIdSnippetsNoteableIdNotes
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* noteable_id (integer) **required** - The ID of the noteable
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### postV3ProjectsIdSnippetsNoteableIdNotes
 Create a new +noteable+ note
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "noteable_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the noteable"
-    },
-    "body": {
-      "type": "string",
-      "description": "The content of a note"
-    },
-    "created_at": {
-      "type": "string",
-      "description": "The creation date of the note"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "noteable_id",
-    "body"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdSnippetsNoteableIdNotes({
+  "id": "",
+  "noteable_id": 0,
+  "body": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Note"
-}
-```
-## Operation: deleteV3ProjectsIdSnippetsNoteableIdNotesNoteId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* noteable_id (integer) **required** - The ID of the noteable
+* body (string) **required** - The content of a note
+* created_at (string) - The creation date of the note
+
+### deleteV3ProjectsIdSnippetsNoteableIdNotesNoteId
 Delete a +noteable+ note
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "noteable_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the noteable"
-    },
-    "note_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a note"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "noteable_id",
-    "note_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdSnippetsNoteableIdNotesNoteId({
+  "id": "",
+  "noteable_id": 0,
+  "note_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Note"
-}
-```
-## Operation: getV3ProjectsIdSnippetsNoteableIdNotesNoteId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* noteable_id (integer) **required** - The ID of the noteable
+* note_id (integer) **required** - The ID of a note
+
+### getV3ProjectsIdSnippetsNoteableIdNotesNoteId
 Get a single +noteable+ note
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "note_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a note"
-    },
-    "noteable_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the noteable"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "note_id",
-    "noteable_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdSnippetsNoteableIdNotesNoteId({
+  "id": "",
+  "note_id": 0,
+  "noteable_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Note"
-}
-```
-## Operation: putV3ProjectsIdSnippetsNoteableIdNotesNoteId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* note_id (integer) **required** - The ID of a note
+* noteable_id (integer) **required** - The ID of the noteable
+
+### putV3ProjectsIdSnippetsNoteableIdNotesNoteId
 Update an existing +noteable+ note
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "noteable_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the noteable"
-    },
-    "note_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a note"
-    },
-    "body": {
-      "type": "string",
-      "description": "The content of a note"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "noteable_id",
-    "note_id",
-    "body"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdSnippetsNoteableIdNotesNoteId({
+  "id": "",
+  "noteable_id": 0,
+  "note_id": 0,
+  "body": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Note"
-}
-```
-## Operation: deleteV3ProjectsIdSnippetsSnippetId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* noteable_id (integer) **required** - The ID of the noteable
+* note_id (integer) **required** - The ID of a note
+* body (string) **required** - The content of a note
+
+### deleteV3ProjectsIdSnippetsSnippetId
 Delete a project snippet
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "snippet_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project snippet"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "snippet_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdSnippetsSnippetId({
+  "id": "",
+  "snippet_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdSnippetsSnippetId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* snippet_id (integer) **required** - The ID of a project snippet
+
+### getV3ProjectsIdSnippetsSnippetId
 Get a single project snippet
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "snippet_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project snippet"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "snippet_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdSnippetsSnippetId({
+  "id": "",
+  "snippet_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectSnippet"
-}
-```
-## Operation: putV3ProjectsIdSnippetsSnippetId
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* snippet_id (integer) **required** - The ID of a project snippet
+
+### putV3ProjectsIdSnippetsSnippetId
 Update an existing project snippet
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "snippet_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project snippet"
-    },
-    "title": {
-      "type": "string",
-      "description": "The title of the snippet"
-    },
-    "file_name": {
-      "type": "string",
-      "description": "The file name of the snippet"
-    },
-    "code": {
-      "type": "string",
-      "description": "The content of the snippet"
-    },
-    "visibility_level": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The visibility level of the snippet",
-      "enum": [
-        0,
-        10,
-        20
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "snippet_id"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdSnippetsSnippetId({
+  "id": "",
+  "snippet_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectSnippet"
-}
-```
-## Operation: getV3ProjectsIdSnippetsSnippetIdAwardEmoji
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* snippet_id (integer) **required** - The ID of a project snippet
+* title (string) - The title of the snippet
+* file_name (string) - The file name of the snippet
+* code (string) - The content of the snippet
+* visibility_level (integer) - The visibility level of the snippet
+
+### getV3ProjectsIdSnippetsSnippetIdAwardEmoji
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "snippet_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of an Issue, Merge Request or Snippet"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "snippet_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdSnippetsSnippetIdAwardEmoji({
+  "id": "",
+  "snippet_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: postV3ProjectsIdSnippetsSnippetIdAwardEmoji
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* snippet_id (integer) **required** - The ID of an Issue, Merge Request or Snippet
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### postV3ProjectsIdSnippetsSnippetIdAwardEmoji
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of a award_emoji (without colons)"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "snippet_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "id",
-    "snippet_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdSnippetsSnippetIdAwardEmoji({
+  "name": "",
+  "id": 0,
+  "snippet_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: deleteV3ProjectsIdSnippetsSnippetIdAwardEmojiAwardId
+
+#### Parameters
+* name (string) **required** - The name of a award_emoji (without colons)
+* id (integer) **required**
+* snippet_id (integer) **required**
+
+### deleteV3ProjectsIdSnippetsSnippetIdAwardEmojiAwardId
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "award_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of an award emoji"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "snippet_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "award_id",
-    "id",
-    "snippet_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdSnippetsSnippetIdAwardEmojiAwardId({
+  "award_id": 0,
+  "id": 0,
+  "snippet_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: getV3ProjectsIdSnippetsSnippetIdAwardEmojiAwardId
+
+#### Parameters
+* award_id (integer) **required** - The ID of an award emoji
+* id (integer) **required**
+* snippet_id (integer) **required**
+
+### getV3ProjectsIdSnippetsSnippetIdAwardEmojiAwardId
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "award_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the award"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "snippet_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "award_id",
-    "id",
-    "snippet_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdSnippetsSnippetIdAwardEmojiAwardId({
+  "award_id": 0,
+  "id": 0,
+  "snippet_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: getV3ProjectsIdSnippetsSnippetIdNotesNoteIdAwardEmoji
+
+#### Parameters
+* award_id (integer) **required** - The ID of the award
+* id (integer) **required**
+* snippet_id (integer) **required**
+
+### getV3ProjectsIdSnippetsSnippetIdNotesNoteIdAwardEmoji
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "snippet_id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "note_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "snippet_id",
-    "note_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdSnippetsSnippetIdNotesNoteIdAwardEmoji({
+  "id": 0,
+  "snippet_id": 0,
+  "note_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: postV3ProjectsIdSnippetsSnippetIdNotesNoteIdAwardEmoji
+
+#### Parameters
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+* id (integer) **required**
+* snippet_id (integer) **required**
+* note_id (integer) **required**
+
+### postV3ProjectsIdSnippetsSnippetIdNotesNoteIdAwardEmoji
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of a award_emoji (without colons)"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "snippet_id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "note_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "id",
-    "snippet_id",
-    "note_id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdSnippetsSnippetIdNotesNoteIdAwardEmoji({
+  "name": "",
+  "id": 0,
+  "snippet_id": 0,
+  "note_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: deleteV3ProjectsIdSnippetsSnippetIdNotesNoteIdAwardEmojiAwardId
+
+#### Parameters
+* name (string) **required** - The name of a award_emoji (without colons)
+* id (integer) **required**
+* snippet_id (integer) **required**
+* note_id (integer) **required**
+
+### deleteV3ProjectsIdSnippetsSnippetIdNotesNoteIdAwardEmojiAwardId
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "award_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of an award emoji"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "snippet_id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "note_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "award_id",
-    "id",
-    "snippet_id",
-    "note_id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdSnippetsSnippetIdNotesNoteIdAwardEmojiAwardId({
+  "award_id": 0,
+  "id": 0,
+  "snippet_id": 0,
+  "note_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: getV3ProjectsIdSnippetsSnippetIdNotesNoteIdAwardEmojiAwardId
+
+#### Parameters
+* award_id (integer) **required** - The ID of an award emoji
+* id (integer) **required**
+* snippet_id (integer) **required**
+* note_id (integer) **required**
+
+### getV3ProjectsIdSnippetsSnippetIdNotesNoteIdAwardEmojiAwardId
 This feature was introduced in 8.9
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "award_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the award"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "snippet_id": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "note_id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "award_id",
-    "id",
-    "snippet_id",
-    "note_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdSnippetsSnippetIdNotesNoteIdAwardEmojiAwardId({
+  "award_id": 0,
+  "id": 0,
+  "snippet_id": 0,
+  "note_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AwardEmoji"
-}
-```
-## Operation: getV3ProjectsIdSnippetsSnippetIdRaw
+
+#### Parameters
+* award_id (integer) **required** - The ID of the award
+* id (integer) **required**
+* snippet_id (integer) **required**
+* note_id (integer) **required**
+
+### getV3ProjectsIdSnippetsSnippetIdRaw
 Get a raw project snippet
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "snippet_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a project snippet"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "snippet_id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdSnippetsSnippetIdRaw({
+  "id": "",
+  "snippet_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteV3ProjectsIdStar
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* snippet_id (integer) **required** - The ID of a project snippet
+
+### deleteV3ProjectsIdStar
 Unstar a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdStar({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Project"
-}
-```
-## Operation: postV3ProjectsIdStar
+
+#### Parameters
+* id (string) **required** - The ID of a project
+
+### postV3ProjectsIdStar
 Star a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdStar({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Project"
-}
-```
-## Operation: postV3ProjectsIdStatusesSha
+
+#### Parameters
+* id (string) **required** - The ID of a project
+
+### postV3ProjectsIdStatusesSha
 Post status to a commit
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "sha": {
-      "type": "string",
-      "description": "The commit hash"
-    },
-    "state": {
-      "type": "string",
-      "description": "The state of the status",
-      "enum": [
-        "pending",
-        "running",
-        "success",
-        "failed",
-        "canceled"
-      ]
-    },
-    "ref": {
-      "type": "string",
-      "description": "The ref"
-    },
-    "target_url": {
-      "type": "string",
-      "description": "The target URL to associate with this status"
-    },
-    "description": {
-      "type": "string",
-      "description": "A short description of the status"
-    },
-    "name": {
-      "type": "string",
-      "description": "A string label to differentiate this status from the status of other systems. Default: \"default\""
-    },
-    "context": {
-      "type": "string",
-      "description": "A string label to differentiate this status from the status of other systems. Default: \"default\""
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "sha",
-    "state"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdStatusesSha({
+  "id": "",
+  "sha": "",
+  "state": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CommitStatus"
-}
-```
-## Operation: getV3ProjectsIdTriggers
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* sha (string) **required** - The commit hash
+* state (string) **required** - The state of the status
+* ref (string) - The ref
+* target_url (string) - The target URL to associate with this status
+* description (string) - A short description of the status
+* name (string) - A string label to differentiate this status from the status of other systems. Default: "default"
+* context (string) - A string label to differentiate this status from the status of other systems. Default: "default"
+
+### getV3ProjectsIdTriggers
 Get triggers list
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdTriggers({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Trigger"
-}
-```
-## Operation: postV3ProjectsIdTriggers
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### postV3ProjectsIdTriggers
 Create a trigger
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdTriggers({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Trigger"
-}
-```
-## Operation: deleteV3ProjectsIdTriggersToken
+
+#### Parameters
+* id (string) **required** - The ID of a project
+
+### deleteV3ProjectsIdTriggersToken
 Delete a trigger
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "token": {
-      "type": "string",
-      "description": "The unique token of trigger"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "token"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdTriggersToken({
+  "id": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Trigger"
-}
-```
-## Operation: getV3ProjectsIdTriggersToken
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* token (string) **required** - The unique token of trigger
+
+### getV3ProjectsIdTriggersToken
 Get specific trigger of a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "token": {
-      "type": "string",
-      "description": "The unique token of trigger"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "token"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdTriggersToken({
+  "id": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Trigger"
-}
-```
-## Operation: postV3ProjectsIdUnarchive
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* token (string) **required** - The unique token of trigger
+
+### postV3ProjectsIdUnarchive
 Unarchive a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdUnarchive({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Project"
-}
-```
-## Operation: postV3ProjectsIdUploads
+
+#### Parameters
+* id (string) **required** - The ID of a project
+
+### postV3ProjectsIdUploads
 Upload a file
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "file": {
-      "type": "string",
-      "description": "The file to be uploaded"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "file"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdUploads({
+  "id": "",
+  "file": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3ProjectsIdUsers
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* file (string) **required** - The file to be uploaded
+
+### getV3ProjectsIdUsers
 Get the users list of a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "search": {
-      "type": "string",
-      "description": "Return list of users matching the search criteria"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdUsers({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserBasic"
-}
-```
-## Operation: getV3ProjectsIdVariables
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* search (string) - Return list of users matching the search criteria
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### getV3ProjectsIdVariables
 Get project variables
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdVariables({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Variable"
-}
-```
-## Operation: postV3ProjectsIdVariables
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### postV3ProjectsIdVariables
 Create a new variable in a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "key": {
-      "type": "string",
-      "description": "The key of the variable"
-    },
-    "value": {
-      "type": "string",
-      "description": "The value of the variable"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "key",
-    "value"
-  ]
-}
+
+```js
+gitlab.postV3ProjectsIdVariables({
+  "id": "",
+  "key": "",
+  "value": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Variable"
-}
-```
-## Operation: deleteV3ProjectsIdVariablesKey
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* key (string) **required** - The key of the variable
+* value (string) **required** - The value of the variable
+
+### deleteV3ProjectsIdVariablesKey
 Delete an existing variable from a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "key": {
-      "type": "string",
-      "description": "The key of the variable"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "key"
-  ]
-}
+
+```js
+gitlab.deleteV3ProjectsIdVariablesKey({
+  "id": "",
+  "key": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Variable"
-}
-```
-## Operation: getV3ProjectsIdVariablesKey
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* key (string) **required** - The key of the variable
+
+### getV3ProjectsIdVariablesKey
 Get a specific variable from a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "key": {
-      "type": "string",
-      "description": "The key of the variable"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "key"
-  ]
-}
+
+```js
+gitlab.getV3ProjectsIdVariablesKey({
+  "id": "",
+  "key": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Variable"
-}
-```
-## Operation: putV3ProjectsIdVariablesKey
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* key (string) **required** - The key of the variable
+
+### putV3ProjectsIdVariablesKey
 Update an existing variable from a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The ID of a project"
-    },
-    "key": {
-      "type": "string",
-      "description": "The key of the variable"
-    },
-    "value": {
-      "type": "string",
-      "description": "The value of the variable"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "key"
-  ]
-}
+
+```js
+gitlab.putV3ProjectsIdVariablesKey({
+  "id": "",
+  "key": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Variable"
-}
-```
-## Operation: getV3Runners
+
+#### Parameters
+* id (string) **required** - The ID of a project
+* key (string) **required** - The key of the variable
+* value (string) - The value of the variable
+
+### getV3Runners
 Get runners available for user
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "scope": {
-      "type": "string",
-      "description": "The scope of specific runners to show",
-      "enum": [
-        "active",
-        "paused",
-        "online"
-      ]
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+gitlab.getV3Runners({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Runner"
-}
-```
-## Operation: getV3RunnersAll
+
+
+### getV3RunnersAll
 Get all runners - shared and specific
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "scope": {
-      "type": "string",
-      "description": "The scope of specific runners to show",
-      "enum": [
-        "active",
-        "paused",
-        "online",
-        "specific",
-        "shared"
-      ]
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+gitlab.getV3RunnersAll({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Runner"
-}
-```
-## Operation: deleteV3RunnersId
+
+
+### deleteV3RunnersId
 Remove a runner
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the runner"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.deleteV3RunnersId({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Runner"
-}
-```
-## Operation: getV3RunnersId
+
+#### Parameters
+* id (integer) **required** - The ID of the runner
+
+### getV3RunnersId
 Get runner's details
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the runner"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3RunnersId({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RunnerDetails"
-}
-```
-## Operation: putV3RunnersId
+
+#### Parameters
+* id (integer) **required** - The ID of the runner
+
+### putV3RunnersId
 Update runner's details
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the runner"
-    },
-    "description": {
-      "type": "string",
-      "description": "The description of the runner"
-    },
-    "active": {
-      "type": "boolean",
-      "description": "The state of a runner"
-    },
-    "tag_list": {
-      "type": "array",
-      "description": "The list of tags for a runner"
-    },
-    "run_untagged": {
-      "type": "boolean",
-      "description": "Flag indicating the runner can execute untagged jobs"
-    },
-    "locked": {
-      "type": "boolean",
-      "description": "Flag indicating the runner is locked"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3RunnersId({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RunnerDetails"
-}
-```
-## Operation: postV3Session
+
+#### Parameters
+* id (integer) **required** - The ID of the runner
+* description (string) - The description of the runner
+* active (boolean) - The state of a runner
+* tag_list (array) - The list of tags for a runner
+* run_untagged (boolean) - Flag indicating the runner can execute untagged jobs
+* locked (boolean) - Flag indicating the runner is locked
+
+### postV3Session
 Login to get token
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "login": {
-      "type": "string",
-      "description": "The username"
-    },
-    "email": {
-      "type": "string",
-      "description": "The email of the user"
-    },
-    "password": {
-      "type": "string",
-      "description": "The password of the user"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "password"
-  ]
-}
+
+```js
+gitlab.postV3Session({
+  "password": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserWithPrivateToken"
-}
-```
-## Operation: getV3SidekiqCompoundMetrics
+
+#### Parameters
+* login (string) - The username
+* email (string) - The email of the user
+* password (string) **required** - The password of the user
+
+### getV3SidekiqCompoundMetrics
 Get the Sidekiq Compound metrics. Includes queue, process, and job statistics
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.getV3SidekiqCompoundMetrics(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3SidekiqJobStats
+
+
+### getV3SidekiqJobStats
 Get the Sidekiq job statistics
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.getV3SidekiqJobStats(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3SidekiqProcessMetrics
+
+
+### getV3SidekiqProcessMetrics
 Get the Sidekiq process metrics
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.getV3SidekiqProcessMetrics(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3SidekiqQueueMetrics
+
+
+### getV3SidekiqQueueMetrics
 Get the Sidekiq queue metrics
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.getV3SidekiqQueueMetrics(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3Snippets
+
+
+### getV3Snippets
 This feature was introduced in GitLab 8.15.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+gitlab.getV3Snippets({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PersonalSnippet"
-}
-```
-## Operation: postV3Snippets
+
+
+### postV3Snippets
 This feature was introduced in GitLab 8.15.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "title": {
-      "type": "string",
-      "description": "The title of a snippet"
-    },
-    "file_name": {
-      "type": "string",
-      "description": "The name of a snippet file"
-    },
-    "content": {
-      "type": "string",
-      "description": "The content of a snippet"
-    },
-    "visibility_level": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The visibility level of the snippet",
-      "enum": [
-        0,
-        10,
-        20
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "title",
-    "file_name",
-    "content"
-  ]
-}
+
+```js
+gitlab.postV3Snippets({
+  "title": "",
+  "file_name": "",
+  "content": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PersonalSnippet"
-}
-```
-## Operation: getV3SnippetsPublic
+
+#### Parameters
+* title (string) **required** - The title of a snippet
+* file_name (string) **required** - The name of a snippet file
+* content (string) **required** - The content of a snippet
+* visibility_level (integer) - The visibility level of the snippet
+
+### getV3SnippetsPublic
 This feature was introduced in GitLab 8.15.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+gitlab.getV3SnippetsPublic({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PersonalSnippet"
-}
-```
-## Operation: deleteV3SnippetsId
+
+
+### deleteV3SnippetsId
 This feature was introduced in GitLab 8.15.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a snippet"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.deleteV3SnippetsId({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PersonalSnippet"
-}
-```
-## Operation: getV3SnippetsId
+
+#### Parameters
+* id (integer) **required** - The ID of a snippet
+
+### getV3SnippetsId
 This feature was introduced in GitLab 8.15.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a snippet"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3SnippetsId({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PersonalSnippet"
-}
-```
-## Operation: putV3SnippetsId
+
+#### Parameters
+* id (integer) **required** - The ID of a snippet
+
+### putV3SnippetsId
 This feature was introduced in GitLab 8.15.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a snippet"
-    },
-    "title": {
-      "type": "string",
-      "description": "The title of a snippet"
-    },
-    "file_name": {
-      "type": "string",
-      "description": "The name of a snippet file"
-    },
-    "content": {
-      "type": "string",
-      "description": "The content of a snippet"
-    },
-    "visibility_level": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The visibility level of the snippet",
-      "enum": [
-        0,
-        10,
-        20
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3SnippetsId({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PersonalSnippet"
-}
-```
-## Operation: getV3SnippetsIdRaw
+
+#### Parameters
+* id (integer) **required** - The ID of a snippet
+* title (string) - The title of a snippet
+* file_name (string) - The name of a snippet file
+* content (string) - The content of a snippet
+* visibility_level (integer) - The visibility level of the snippet
+
+### getV3SnippetsIdRaw
 This feature was introduced in GitLab 8.15.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of a snippet"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3SnippetsIdRaw({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3TemplatesDockerfiles
+
+#### Parameters
+* id (integer) **required** - The ID of a snippet
+
+### getV3TemplatesDockerfiles
 This feature was introduced in GitLab 8.15.
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.getV3TemplatesDockerfiles(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TemplatesList"
-}
-```
-## Operation: getV3TemplatesDockerfilesName
+
+
+### getV3TemplatesDockerfilesName
 This feature was introduced in GitLab 8.15.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of the template"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+gitlab.getV3TemplatesDockerfilesName({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Template"
-}
-```
-## Operation: getV3TemplatesGitignores
+
+#### Parameters
+* name (string) **required** - The name of the template
+
+### getV3TemplatesGitignores
 This feature was introduced in GitLab 8.8.
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.getV3TemplatesGitignores(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TemplatesList"
-}
-```
-## Operation: getV3TemplatesGitignoresName
+
+
+### getV3TemplatesGitignoresName
 This feature was introduced in GitLab 8.8.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of the template"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+gitlab.getV3TemplatesGitignoresName({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Template"
-}
-```
-## Operation: getV3TemplatesGitlabCiYmls
+
+#### Parameters
+* name (string) **required** - The name of the template
+
+### getV3TemplatesGitlabCiYmls
 This feature was introduced in GitLab 8.9.
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.getV3TemplatesGitlabCiYmls(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TemplatesList"
-}
-```
-## Operation: getV3TemplatesGitlabCiYmlsName
+
+
+### getV3TemplatesGitlabCiYmlsName
 This feature was introduced in GitLab 8.9.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of the template"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+gitlab.getV3TemplatesGitlabCiYmlsName({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Template"
-}
-```
-## Operation: getV3TemplatesLicenses
+
+#### Parameters
+* name (string) **required** - The name of the template
+
+### getV3TemplatesLicenses
 This feature was introduced in GitLab 8.7.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "popular": {
-      "type": "boolean",
-      "description": "If passed, returns only popular licenses"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+gitlab.getV3TemplatesLicenses({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RepoLicense"
-}
-```
-## Operation: getV3TemplatesLicensesName
+
+
+### getV3TemplatesLicensesName
 This feature was introduced in GitLab 8.7.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of the template"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+gitlab.getV3TemplatesLicensesName({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RepoLicense"
-}
-```
-## Operation: deleteV3Todos
+
+#### Parameters
+* name (string) **required** - The name of the template
+
+### deleteV3Todos
 Mark all todos as done
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.deleteV3Todos(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3Todos
+
+
+### getV3Todos
 Get a todo list
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+gitlab.getV3Todos({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Todo"
-}
-```
-## Operation: deleteV3TodosId
+
+
+### deleteV3TodosId
 Mark a todo as done
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the todo being marked as done"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.deleteV3TodosId({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Todo"
-}
-```
-## Operation: getV3User
+
+#### Parameters
+* id (integer) **required** - The ID of the todo being marked as done
+
+### getV3User
 Get the currently authenticated user
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.getV3User(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserPublic"
-}
-```
-## Operation: getV3UserEmails
+
+
+### getV3UserEmails
 Get the currently authenticated user's email addresses
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.getV3UserEmails(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Email"
-}
-```
-## Operation: postV3UserEmails
+
+
+### postV3UserEmails
 Add new email address to the currently authenticated user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "email": {
-      "type": "string",
-      "description": "The new email"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "email"
-  ]
-}
+
+```js
+gitlab.postV3UserEmails({
+  "email": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Email"
-}
-```
-## Operation: deleteV3UserEmailsEmailId
+
+#### Parameters
+* email (string) **required** - The new email
+
+### deleteV3UserEmailsEmailId
 Delete an email address from the currently authenticated user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "email_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the email"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "email_id"
-  ]
-}
+
+```js
+gitlab.deleteV3UserEmailsEmailId({
+  "email_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3UserEmailsEmailId
+
+#### Parameters
+* email_id (integer) **required** - The ID of the email
+
+### getV3UserEmailsEmailId
 Get a single email address owned by the currently authenticated user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "email_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the email"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "email_id"
-  ]
-}
+
+```js
+gitlab.getV3UserEmailsEmailId({
+  "email_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Email"
-}
-```
-## Operation: getV3UserKeys
+
+#### Parameters
+* email_id (integer) **required** - The ID of the email
+
+### getV3UserKeys
 Get the currently authenticated user's SSH keys
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.getV3UserKeys(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SSHKey"
-}
-```
-## Operation: postV3UserKeys
+
+
+### postV3UserKeys
 Add a new SSH key to the currently authenticated user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "key": {
-      "type": "string",
-      "description": "The new SSH key"
-    },
-    "title": {
-      "type": "string",
-      "description": "The title of the new SSH key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "key",
-    "title"
-  ]
-}
+
+```js
+gitlab.postV3UserKeys({
+  "key": "",
+  "title": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SSHKey"
-}
-```
-## Operation: deleteV3UserKeysKeyId
+
+#### Parameters
+* key (string) **required** - The new SSH key
+* title (string) **required** - The title of the new SSH key
+
+### deleteV3UserKeysKeyId
 Delete an SSH key from the currently authenticated user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "key_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the SSH key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "key_id"
-  ]
-}
+
+```js
+gitlab.deleteV3UserKeysKeyId({
+  "key_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SSHKey"
-}
-```
-## Operation: getV3UserKeysKeyId
+
+#### Parameters
+* key_id (integer) **required** - The ID of the SSH key
+
+### getV3UserKeysKeyId
 Get a single key owned by currently authenticated user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "key_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the SSH key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "key_id"
-  ]
-}
+
+```js
+gitlab.getV3UserKeysKeyId({
+  "key_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SSHKey"
-}
-```
-## Operation: getV3Users
+
+#### Parameters
+* key_id (integer) **required** - The ID of the SSH key
+
+### getV3Users
 Get the list of users
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "Get a single user with a specific username"
-    },
-    "search": {
-      "type": "string",
-      "description": "Search for a username"
-    },
-    "active": {
-      "type": "boolean",
-      "description": "Filters only active users"
-    },
-    "external": {
-      "type": "boolean",
-      "description": "Filters only external users"
-    },
-    "blocked": {
-      "type": "boolean",
-      "description": "Filters only blocked users"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+gitlab.getV3Users({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserBasic"
-}
-```
-## Operation: postV3Users
+
+
+### postV3Users
 Create a user. Available only for admins.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "email": {
-      "type": "string",
-      "description": "The email of the user"
-    },
-    "password": {
-      "type": "string",
-      "description": "The password of the new user"
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the user"
-    },
-    "username": {
-      "type": "string",
-      "description": "The username of the user"
-    },
-    "skype": {
-      "type": "string",
-      "description": "The Skype username"
-    },
-    "linkedin": {
-      "type": "string",
-      "description": "The LinkedIn username"
-    },
-    "twitter": {
-      "type": "string",
-      "description": "The Twitter username"
-    },
-    "website_url": {
-      "type": "string",
-      "description": "The website of the user"
-    },
-    "organization": {
-      "type": "string",
-      "description": "The organization of the user"
-    },
-    "projects_limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The number of projects a user can create"
-    },
-    "extern_uid": {
-      "type": "string",
-      "description": "The external authentication provider UID"
-    },
-    "provider": {
-      "type": "string",
-      "description": "The external provider"
-    },
-    "bio": {
-      "type": "string",
-      "description": "The biography of the user"
-    },
-    "location": {
-      "type": "string",
-      "description": "The location of the user"
-    },
-    "admin": {
-      "type": "boolean",
-      "description": "Flag indicating the user is an administrator"
-    },
-    "can_create_group": {
-      "type": "boolean",
-      "description": "Flag indicating the user can create groups"
-    },
-    "confirm": {
-      "type": "boolean",
-      "description": "Flag indicating the account needs to be confirmed"
-    },
-    "external": {
-      "type": "boolean",
-      "description": "Flag indicating the user is an external user"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "email",
-    "password",
-    "name",
-    "username"
-  ]
-}
+
+```js
+gitlab.postV3Users({
+  "email": "",
+  "password": "",
+  "name": "",
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserPublic"
-}
-```
-## Operation: deleteV3UsersId
+
+#### Parameters
+* email (string) **required** - The email of the user
+* password (string) **required** - The password of the new user
+* name (string) **required** - The name of the user
+* username (string) **required** - The username of the user
+* skype (string) - The Skype username
+* linkedin (string) - The LinkedIn username
+* twitter (string) - The Twitter username
+* website_url (string) - The website of the user
+* organization (string) - The organization of the user
+* projects_limit (integer) - The number of projects a user can create
+* extern_uid (string) - The external authentication provider UID
+* provider (string) - The external provider
+* bio (string) - The biography of the user
+* location (string) - The location of the user
+* admin (boolean) - Flag indicating the user is an administrator
+* can_create_group (boolean) - Flag indicating the user can create groups
+* confirm (boolean) - Flag indicating the account needs to be confirmed
+* external (boolean) - Flag indicating the user is an external user
+
+### deleteV3UsersId
 Delete a user. Available only for admins.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the user"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.deleteV3UsersId({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Email"
-}
-```
-## Operation: getV3UsersId
+
+#### Parameters
+* id (integer) **required** - The ID of the user
+
+### getV3UsersId
 Get a single user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the user"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3UsersId({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserBasic"
-}
-```
-## Operation: putV3UsersId
+
+#### Parameters
+* id (integer) **required** - The ID of the user
+
+### putV3UsersId
 Update a user. Available only for admins.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the user"
-    },
-    "email": {
-      "type": "string",
-      "description": "The email of the user"
-    },
-    "password": {
-      "type": "string",
-      "description": "The password of the new user"
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the user"
-    },
-    "username": {
-      "type": "string",
-      "description": "The username of the user"
-    },
-    "skype": {
-      "type": "string",
-      "description": "The Skype username"
-    },
-    "linkedin": {
-      "type": "string",
-      "description": "The LinkedIn username"
-    },
-    "twitter": {
-      "type": "string",
-      "description": "The Twitter username"
-    },
-    "website_url": {
-      "type": "string",
-      "description": "The website of the user"
-    },
-    "organization": {
-      "type": "string",
-      "description": "The organization of the user"
-    },
-    "projects_limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The number of projects a user can create"
-    },
-    "extern_uid": {
-      "type": "string",
-      "description": "The external authentication provider UID"
-    },
-    "provider": {
-      "type": "string",
-      "description": "The external provider"
-    },
-    "bio": {
-      "type": "string",
-      "description": "The biography of the user"
-    },
-    "location": {
-      "type": "string",
-      "description": "The location of the user"
-    },
-    "admin": {
-      "type": "boolean",
-      "description": "Flag indicating the user is an administrator"
-    },
-    "can_create_group": {
-      "type": "boolean",
-      "description": "Flag indicating the user can create groups"
-    },
-    "confirm": {
-      "type": "boolean",
-      "description": "Flag indicating the account needs to be confirmed"
-    },
-    "external": {
-      "type": "boolean",
-      "description": "Flag indicating the user is an external user"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3UsersId({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserPublic"
-}
-```
-## Operation: putV3UsersIdBlock
+
+#### Parameters
+* id (integer) **required** - The ID of the user
+* email (string) - The email of the user
+* password (string) - The password of the new user
+* name (string) - The name of the user
+* username (string) - The username of the user
+* skype (string) - The Skype username
+* linkedin (string) - The LinkedIn username
+* twitter (string) - The Twitter username
+* website_url (string) - The website of the user
+* organization (string) - The organization of the user
+* projects_limit (integer) - The number of projects a user can create
+* extern_uid (string) - The external authentication provider UID
+* provider (string) - The external provider
+* bio (string) - The biography of the user
+* location (string) - The location of the user
+* admin (boolean) - Flag indicating the user is an administrator
+* can_create_group (boolean) - Flag indicating the user can create groups
+* confirm (boolean) - Flag indicating the account needs to be confirmed
+* external (boolean) - Flag indicating the user is an external user
+
+### putV3UsersIdBlock
 Block a user. Available only for admins.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the user"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3UsersIdBlock({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3UsersIdEmails
+
+#### Parameters
+* id (integer) **required** - The ID of the user
+
+### getV3UsersIdEmails
 Get the emails addresses of a specified user. Available only for admins.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the user"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3UsersIdEmails({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Email"
-}
-```
-## Operation: postV3UsersIdEmails
+
+#### Parameters
+* id (integer) **required** - The ID of the user
+
+### postV3UsersIdEmails
 Add an email address to a specified user. Available only for admins.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the user"
-    },
-    "email": {
-      "type": "string",
-      "description": "The email of the user"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "email"
-  ]
-}
+
+```js
+gitlab.postV3UsersIdEmails({
+  "id": 0,
+  "email": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Email"
-}
-```
-## Operation: deleteV3UsersIdEmailsEmailId
+
+#### Parameters
+* id (integer) **required** - The ID of the user
+* email (string) **required** - The email of the user
+
+### deleteV3UsersIdEmailsEmailId
 Delete an email address of a specified user. Available only for admins.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the user"
-    },
-    "email_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the email"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "email_id"
-  ]
-}
+
+```js
+gitlab.deleteV3UsersIdEmailsEmailId({
+  "id": 0,
+  "email_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Email"
-}
-```
-## Operation: getV3UsersIdEvents
+
+#### Parameters
+* id (integer) **required** - The ID of the user
+* email_id (integer) **required** - The ID of the email
+
+### getV3UsersIdEvents
 This feature was introduced in GitLab 8.13.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the user"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Current page number"
-    },
-    "per_page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of items per page"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3UsersIdEvents({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Event"
-}
-```
-## Operation: getV3UsersIdKeys
+
+#### Parameters
+* id (integer) **required** - The ID of the user
+* page (integer) - Current page number
+* per_page (integer) - Number of items per page
+
+### getV3UsersIdKeys
 Get the SSH keys of a specified user. Available only for admins.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the user"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.getV3UsersIdKeys({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SSHKey"
-}
-```
-## Operation: postV3UsersIdKeys
+
+#### Parameters
+* id (integer) **required** - The ID of the user
+
+### postV3UsersIdKeys
 Add an SSH key to a specified user. Available only for admins.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the user"
-    },
-    "key": {
-      "type": "string",
-      "description": "The new SSH key"
-    },
-    "title": {
-      "type": "string",
-      "description": "The title of the new SSH key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "key",
-    "title"
-  ]
-}
+
+```js
+gitlab.postV3UsersIdKeys({
+  "id": 0,
+  "key": "",
+  "title": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SSHKey"
-}
-```
-## Operation: deleteV3UsersIdKeysKeyId
+
+#### Parameters
+* id (integer) **required** - The ID of the user
+* key (string) **required** - The new SSH key
+* title (string) **required** - The title of the new SSH key
+
+### deleteV3UsersIdKeysKeyId
 Delete an existing SSH key from a specified user. Available only for admins.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the user"
-    },
-    "key_id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the SSH key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "key_id"
-  ]
-}
+
+```js
+gitlab.deleteV3UsersIdKeysKeyId({
+  "id": 0,
+  "key_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SSHKey"
-}
-```
-## Operation: putV3UsersIdUnblock
+
+#### Parameters
+* id (integer) **required** - The ID of the user
+* key_id (integer) **required** - The ID of the SSH key
+
+### putV3UsersIdUnblock
 Unblock a user. Available only for admins.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the user"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+gitlab.putV3UsersIdUnblock({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getV3Version
+
+#### Parameters
+* id (integer) **required** - The ID of the user
+
+### getV3Version
 This feature was introduced in GitLab 8.13.
 
-### Input Schema
-```json
-{}
+
+```js
+gitlab.getV3Version(null, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+

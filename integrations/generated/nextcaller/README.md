@@ -1,91 +1,59 @@
 # @datafire/nextcaller
+
+Client library for Next Caller
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/nextcaller
+```
+
+```js
+let datafire = require('datafire');
+let nextcaller = require('@datafire/nextcaller').actions;
+let context = new datafire.Context();
+
+nextcaller.version.records.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Advanced Caller ID. Obtain name, address, and email of your inbound callers.
 
-## Operation: version.records.get
+## Actions
+### version.records.get
 Returns Nextcaller member detailed info.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "version": {
-      "type": "string",
-      "description": "Specifies a api version.",
-      "enum": [
-        "v2",
-        "v3"
-      ]
-    },
-    "phone": {
-      "type": "integer",
-      "description": "Specifies the caller's phone number.",
-      "maximum": 9223372036854776000,
-      "minimum": -9223372036854776000
-    },
-    "format": {
-      "type": "string",
-      "description": "Specifies a format of response: JSON or XML.",
-      "enum": [
-        "json",
-        "xml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "version",
-    "phone",
-    "format"
-  ]
-}
+
+```js
+nextcaller.version.records.get({
+  "version": "",
+  "phone": 0,
+  "format": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: version.users.nextcaller_id._format_format.post
+
+#### Parameters
+* version (string) **required** - Specifies a api version.
+* phone (integer) **required** - Specifies the caller's phone number.
+* format (string) **required** - Specifies a format of response: JSON or XML.
+
+### version.users.nextcaller_id._format_format.post
 Allows you to update caller's info on Nextcaller.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Content-Type": {
-      "type": "string"
-    },
-    "version": {
-      "type": "string",
-      "description": "Specifies a api version.",
-      "enum": [
-        "v2",
-        "v3"
-      ]
-    },
-    "nextcaller_id": {
-      "type": "string",
-      "description": "The ID of the user whose profile you wish to edit"
-    },
-    "format": {
-      "type": "string",
-      "description": "Specifies a format of response: JSON or XML.",
-      "enum": [
-        "json",
-        "xml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Content-Type",
-    "version",
-    "nextcaller_id",
-    "format"
-  ]
-}
+
+```js
+nextcaller.version.users.nextcaller_id._format_format.post({
+  "Content-Type": "",
+  "version": "",
+  "nextcaller_id": "",
+  "format": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* Content-Type (string) **required**
+* version (string) **required** - Specifies a api version.
+* nextcaller_id (string) **required** - The ID of the user whose profile you wish to edit
+* format (string) **required** - Specifies a format of response: JSON or XML.
+

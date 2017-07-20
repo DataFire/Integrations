@@ -1,318 +1,214 @@
 # @datafire/ijenko
 
+Client library for IoE² IoT API - to create end-user applications
 
-## Operation: Account.changePassword
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/ijenko
+```
+
+```js
+let datafire = require('datafire');
+let ijenko = require('@datafire/ijenko').actions;
+
+let account = {
+  Token in Access-Token header: "",
+  Token in query: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    ijenko: account,
+  }
+})
+
+
+ijenko.Me.places({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
+
+
+## Actions
+### Account.changePassword
 Set a new password for the account.
 
 **Note**: requires full access to the *Account*.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "changePasswordInfo": {
-      "$ref": "#/definitions/AuthChangePassword"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "changePasswordInfo"
-  ]
-}
+
+```js
+ijenko.Account.changePassword({
+  "changePasswordInfo": {
+    "oldPassword": "",
+    "newPassword": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Account.places
+
+#### Parameters
+* changePasswordInfo (object) **required**
+
+### Account.places
 List the *Places* of the account.
 
 **Note:** requires full access to the *Account*.
 
 
-### Input Schema
-```json
-{}
+
+```js
+ijenko.Account.places(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/PlaceItem"
-  },
-  "type": "array",
-  "uniqueItems": true
-}
-```
-## Operation: Account.newPlace
+
+
+### Account.newPlace
 Create a new *Place*.
 
 **Note:** requires full access to the *Account*.
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "place": {
-      "$ref": "#/definitions/PlaceNew"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+ijenko.Account.newPlace({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PlaceCreated"
-}
-```
-## Operation: Account.tokens
+
+
+### Account.tokens
 List the active *Tokens* on the account.
 
 **Note:** requires full access to the *Account*.
 
 
-### Input Schema
-```json
-{}
+
+```js
+ijenko.Account.tokens(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/UserTokenItem"
-  },
-  "type": "array",
-  "uniqueItems": true
-}
-```
-## Operation: Account.revokeToken
+
+
+### Account.revokeToken
 Revoke the given *Token*.
 
 **Note:** requires full access to the *Account*.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "tokenId": {
-      "type": "string",
-      "description": "Identifier of the token"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "tokenId"
-  ]
-}
+
+```js
+ijenko.Account.revokeToken({
+  "tokenId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Account.users
+
+#### Parameters
+* tokenId (string) **required** - Identifier of the token
+
+### Account.users
 Get the list of *Users* of this *Account*.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "embed-metadata": {
-      "type": "array",
-      "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+ijenko.Account.users({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/UserItem"
-  },
-  "type": "array",
-  "uniqueItems": true
-}
-```
-## Operation: Account.newUser
+
+
+### Account.newUser
 Add a *User*.
 
 **Note**: requires full access to the *Account*.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "userInfo": {
-      "$ref": "#/definitions/UserNew"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "userInfo"
-  ]
-}
+
+```js
+ijenko.Account.newUser({
+  "userInfo": {
+    "email": "",
+    "name": "",
+    "locale": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserCreated"
-}
-```
-## Operation: Account.deleteUser
+
+#### Parameters
+* userInfo (object) **required**
+
+### Account.deleteUser
 Delete a *User* from this *Account*, and revoke all his/her *Tokens*.
 
 **Note**: requires full access to the *Account*.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "userId": {
-      "type": "string",
-      "description": "Unique identifier of a *User*."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "userId"
-  ]
-}
+
+```js
+ijenko.Account.deleteUser({
+  "userId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Account.getUser
+
+#### Parameters
+* userId (string) **required** - Unique identifier of a *User*.
+
+### Account.getUser
 Get information about a *User* in the same *Account*.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "userId": {
-      "type": "string",
-      "description": "Unique identifier of a *User*."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "userId"
-  ]
-}
+
+```js
+ijenko.Account.getUser({
+  "userId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/User"
-}
-```
-## Operation: Account.patchUser
+
+#### Parameters
+* userId (string) **required** - Unique identifier of a *User*.
+
+### Account.patchUser
 Modify a *User*.
 
 **Note**: requires full access to the *Account*.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "userId": {
-      "type": "string",
-      "description": "Unique identifier of a *User*."
-    },
-    "userPatch": {
-      "$ref": "#/definitions/UserPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "userId",
-    "userPatch"
-  ]
-}
+
+```js
+ijenko.Account.patchUser({
+  "userId": "",
+  "userPatch": {}
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: User.getMetadata
+
+#### Parameters
+* userId (string) **required** - Unique identifier of a *User*.
+* userPatch (object) **required**
+
+### User.getMetadata
 Get the metadata.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "userId": {
-      "type": "string",
-      "description": "Unique identifier of a *User*."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "userId"
-  ]
-}
+
+```js
+ijenko.User.getMetadata({
+  "userId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Metadata"
-}
-```
-## Operation: User.patchMetadata
+
+#### Parameters
+* userId (string) **required** - Unique identifier of a *User*.
+
+### User.patchMetadata
 Modify the metadata.
 Keys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "userId": {
-      "type": "string",
-      "description": "Unique identifier of a *User*."
-    },
-    "metadataPatch": {
-      "$ref": "#/definitions/MetadataPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "userId",
-    "metadataPatch"
-  ]
-}
+
+```js
+ijenko.User.patchMetadata({
+  "userId": "",
+  "metadataPatch": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Metadata"
-}
-```
-## Operation: AuthAccountLogin
+
+#### Parameters
+* userId (string) **required** - Unique identifier of a *User*.
+* metadataPatch (object) **required**
+
+### AuthAccountLogin
 Get an access+refresh tokens pair from login and password information.
 
 The *access token* obtained with this request can then be used in
@@ -330,56 +226,41 @@ with a shorter lifetime.
 To implement *logout*, use `/auth/revoke`.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "loginInfo": {
-      "$ref": "#/definitions/AuthLogin"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "loginInfo"
-  ]
-}
+
+```js
+ijenko.AuthAccountLogin({
+  "loginInfo": {
+    "login": "",
+    "password": "",
+    "appId": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthTokens"
-}
-```
-## Operation: AuthRefreshToken
+
+#### Parameters
+* loginInfo (object) **required**
+
+### AuthRefreshToken
 Get a new *access token* using a valid *refresh token*.
 
 This is a **replacement** of the *access token*: if an existing *access
 token* was still not expired, it is invalidated.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "refreshInfo": {
-      "$ref": "#/definitions/AuthRefresh"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "refreshInfo"
-  ]
-}
+
+```js
+ijenko.AuthRefreshToken({
+  "refreshInfo": {
+    "refreshToken": "",
+    "appId": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthTokens"
-}
-```
-## Operation: AuthResetPassword
+
+#### Parameters
+* refreshInfo (object) **required**
+
+### AuthResetPassword
 Trigger the request of a new password.
 
 The account administrator will receive an e-mail with an URL pointing to a form
@@ -389,92 +270,59 @@ The old password is still functional until a new one is submitted.
 Either the login or e-mail of the account must be given.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resetPasswordInfo": {
-      "$ref": "#/definitions/AuthResetPassword"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resetPasswordInfo"
-  ]
-}
+
+```js
+ijenko.AuthResetPassword({
+  "resetPasswordInfo": {
+    "appId": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: AuthRevokeToken
+
+#### Parameters
+* resetPasswordInfo (object) **required**
+
+### AuthRevokeToken
 Invalidate the authentication used for the request. The access token and the refresh token will be invalid after this request.
 This request is typically called to implement logout.
 
 
-### Input Schema
-```json
-{}
+
+```js
+ijenko.AuthRevokeToken(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Devices.get
+
+
+### Devices.get
 Get information about a *Device*.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deviceId": {
-      "type": "string",
-      "description": "Unique identifier of a *Device*."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "deviceId"
-  ]
-}
+
+```js
+ijenko.Devices.get({
+  "deviceId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Device"
-}
-```
-## Operation: Devices.patch
+
+#### Parameters
+* deviceId (string) **required** - Unique identifier of a *Device*.
+
+### Devices.patch
 Modify information about a *Device*: its name.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deviceId": {
-      "type": "string",
-      "description": "Unique identifier of a *Device*."
-    },
-    "devicePatch": {
-      "$ref": "#/definitions/DevicePatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "deviceId",
-    "devicePatch"
-  ]
-}
+
+```js
+ijenko.Devices.patch({
+  "deviceId": "",
+  "devicePatch": {}
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Device.addFunctionality
+
+#### Parameters
+* deviceId (string) **required** - Unique identifier of a *Device*.
+* devicePatch (object) **required**
+
+### Device.addFunctionality
 Add a *Functionality* to the device.
 
 Required parameters are :
@@ -493,237 +341,129 @@ Only a few devices allow to add Functionalities.
 **Note**: requires full access to the *Account*.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deviceId": {
-      "type": "string",
-      "description": "Unique identifier of a *Device*."
-    },
-    "functionalityInfo": {
-      "$ref": "#/definitions/FunctionalityNew"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "deviceId",
-    "functionalityInfo"
-  ]
-}
+
+```js
+ijenko.Device.addFunctionality({
+  "deviceId": "",
+  "functionalityInfo": {
+    "class": "",
+    "endpoint": 0
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/FunctionalityCreated"
-}
-```
-## Operation: Device.getMetadata
+
+#### Parameters
+* deviceId (string) **required** - Unique identifier of a *Device*.
+* functionalityInfo (object) **required**
+
+### Device.getMetadata
 Get the metadata.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deviceId": {
-      "type": "string",
-      "description": "Unique identifier of a *Device*."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "deviceId"
-  ]
-}
+
+```js
+ijenko.Device.getMetadata({
+  "deviceId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Metadata"
-}
-```
-## Operation: Device.patchMetadata
+
+#### Parameters
+* deviceId (string) **required** - Unique identifier of a *Device*.
+
+### Device.patchMetadata
 Modify the metadata.
 Keys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deviceId": {
-      "type": "string",
-      "description": "Unique identifier of a *Device*."
-    },
-    "metadataPatch": {
-      "$ref": "#/definitions/MetadataPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "deviceId",
-    "metadataPatch"
-  ]
-}
+
+```js
+ijenko.Device.patchMetadata({
+  "deviceId": "",
+  "metadataPatch": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Metadata"
-}
-```
-## Operation: Device.run
+
+#### Parameters
+* deviceId (string) **required** - Unique identifier of a *Device*.
+* metadataPatch (object) **required**
+
+### Device.run
 Run an *Action* on zero, one or multiple Functionalities selected with tags.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deviceId": {
-      "type": "string",
-      "description": "Unique identifier of a *Device*."
-    },
-    "action": {
-      "type": "string",
-      "description": "Identifier of an *Action* inside a *Functionality*."
-    },
-    "functionalities": {
-      "type": "string",
-      "description": "Functionality selector: Functionality tags or functionality class (optionally, '@' followed by a endpoint in decimal) or '*' for all. Multiple values are separated by '|' and are interpreted as « OR ».\n",
-      "pattern": "^(?:\\\\*|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$"
-    },
-    "arguments": {
-      "$ref": "#/definitions/ActionArgs"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "deviceId",
-    "action",
-    "functionalities",
-    "arguments"
-  ]
-}
+
+```js
+ijenko.Device.run({
+  "deviceId": "",
+  "action": "",
+  "functionalities": "",
+  "arguments": []
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ActionMultiResult"
-}
-```
-## Operation: Device.getTags
+
+#### Parameters
+* deviceId (string) **required** - Unique identifier of a *Device*.
+* action (string) **required** - Identifier of an *Action* inside a *Functionality*.
+* functionalities (string) **required** - Functionality selector: Functionality tags or functionality class (optionally, '@' followed by a endpoint in decimal) or '*' for all. Multiple values are separated by '|' and are interpreted as « OR ».
+* arguments (array) **required**
+
+### Device.getTags
 Get the tags of a *Device*.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deviceId": {
-      "type": "string",
-      "description": "Unique identifier of a *Device*."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "deviceId"
-  ]
-}
+
+```js
+ijenko.Device.getTags({
+  "deviceId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Tags"
-}
-```
-## Operation: Device.patchTags
+
+#### Parameters
+* deviceId (string) **required** - Unique identifier of a *Device*.
+
+### Device.patchTags
 Modify the tags of a *Device*.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deviceId": {
-      "type": "string",
-      "description": "Unique identifier of a *Device*."
-    },
-    "tagsPatch": {
-      "$ref": "#/definitions/TagsPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "deviceId",
-    "tagsPatch"
-  ]
-}
+
+```js
+ijenko.Device.patchTags({
+  "deviceId": "",
+  "tagsPatch": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Tags"
-}
-```
-## Operation: Functionalities.get
+
+#### Parameters
+* deviceId (string) **required** - Unique identifier of a *Device*.
+* tagsPatch (object) **required**
+
+### Functionalities.get
 Get the *Functionality*.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "functionalityId": {
-      "type": "string",
-      "description": "Unique identifier of a *Functionality*."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "functionalityId"
-  ]
-}
+
+```js
+ijenko.Functionalities.get({
+  "functionalityId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Functionality"
-}
-```
-## Operation: Functionality.patch
+
+#### Parameters
+* functionalityId (string) **required** - Unique identifier of a *Functionality*.
+
+### Functionality.patch
 Modify information about a *Functionality*: its name.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "functionalityId": {
-      "type": "string",
-      "description": "Unique identifier of a *Functionality*."
-    },
-    "functionalityPatch": {
-      "$ref": "#/definitions/FunctionalityPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "functionalityId",
-    "functionalityPatch"
-  ]
-}
+
+```js
+ijenko.Functionality.patch({
+  "functionalityId": "",
+  "functionalityPatch": {}
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Functionality.values
+
+#### Parameters
+* functionalityId (string) **required** - Unique identifier of a *Functionality*.
+* functionalityPatch (object) **required**
+
+### Functionality.values
 Get the values of multiple *Attributes* and their history.
 
 If the `names` parameter is not given, all the attributes of the *Functionality*
@@ -736,697 +476,359 @@ If `from` is not set, only the last value is returned.
 The request may fail if too many values are asked.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "functionalityId": {
-      "type": "string",
-      "description": "Unique identifier of a *Functionality*."
-    },
-    "names": {
-      "type": "array",
-      "description": "One or multiple *Attribute* names separated by commas"
-    },
-    "from": {
-      "type": "string",
-      "format": "date-time",
-      "description": "Beginning of the time interval."
-    },
-    "to": {
-      "type": "string",
-      "format": "date-time",
-      "description": "End of the interval. Default: now.\n"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "functionalityId"
-  ]
-}
+
+```js
+ijenko.Functionality.values({
+  "functionalityId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AttributesValues"
-}
-```
-## Operation: Functionality.value
+
+#### Parameters
+* functionalityId (string) **required** - Unique identifier of a *Functionality*.
+* names (array) - One or multiple *Attribute* names separated by commas
+* from (string) - Beginning of the time interval.
+* to (string) - End of the interval. Default: now.
+
+### Functionality.value
 Get the *Attribute* value and the last time when it changed.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "functionalityId": {
-      "type": "string",
-      "description": "Unique identifier of a *Functionality*."
-    },
-    "attributeName": {
-      "type": "string",
-      "description": "Identifier of an *Attribute* inside a *Functionality*."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "functionalityId",
-    "attributeName"
-  ]
-}
+
+```js
+ijenko.Functionality.value({
+  "functionalityId": "",
+  "attributeName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AttributeValue"
-}
-```
-## Operation: Functionality.set
+
+#### Parameters
+* functionalityId (string) **required** - Unique identifier of a *Functionality*.
+* attributeName (string) **required** - Identifier of an *Attribute* inside a *Functionality*.
+
+### Functionality.set
 Modify the value of the *Attribute*.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "functionalityId": {
-      "type": "string",
-      "description": "Unique identifier of a *Functionality*."
-    },
-    "attributeName": {
-      "type": "string",
-      "description": "Identifier of an *Attribute* inside a *Functionality*."
-    },
-    "value": {
-      "$ref": "#/definitions/AnyJSON"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "functionalityId",
-    "attributeName",
-    "value"
-  ]
-}
+
+```js
+ijenko.Functionality.set({
+  "functionalityId": "",
+  "attributeName": "",
+  "value": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Functionality.getMetadata
+
+#### Parameters
+* functionalityId (string) **required** - Unique identifier of a *Functionality*.
+* attributeName (string) **required** - Identifier of an *Attribute* inside a *Functionality*.
+* value (undefined) **required** - null/boolean/integer/number/string/object/array
+
+### Functionality.getMetadata
 Get the metadata.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "functionalityId": {
-      "type": "string",
-      "description": "Unique identifier of a *Functionality*."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "functionalityId"
-  ]
-}
+
+```js
+ijenko.Functionality.getMetadata({
+  "functionalityId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Metadata"
-}
-```
-## Operation: Functionality.patchMetadata
+
+#### Parameters
+* functionalityId (string) **required** - Unique identifier of a *Functionality*.
+
+### Functionality.patchMetadata
 Modify the metadata.
 Keys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "functionalityId": {
-      "type": "string",
-      "description": "Unique identifier of a *Functionality*."
-    },
-    "metadataPatch": {
-      "$ref": "#/definitions/MetadataPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "functionalityId",
-    "metadataPatch"
-  ]
-}
+
+```js
+ijenko.Functionality.patchMetadata({
+  "functionalityId": "",
+  "metadataPatch": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Metadata"
-}
-```
-## Operation: Functionality.run
+
+#### Parameters
+* functionalityId (string) **required** - Unique identifier of a *Functionality*.
+* metadataPatch (object) **required**
+
+### Functionality.run
 Run an action on the Functionality.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "functionalityId": {
-      "type": "string",
-      "description": "Unique identifier of a *Functionality*."
-    },
-    "action": {
-      "type": "string",
-      "description": "Identifier of an *Action* inside a *Functionality*."
-    },
-    "arguments": {
-      "$ref": "#/definitions/ActionArgs"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "functionalityId",
-    "action",
-    "arguments"
-  ]
-}
+
+```js
+ijenko.Functionality.run({
+  "functionalityId": "",
+  "action": "",
+  "arguments": []
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ActionResult"
-}
-```
-## Operation: Functionality.getTags
+
+#### Parameters
+* functionalityId (string) **required** - Unique identifier of a *Functionality*.
+* action (string) **required** - Identifier of an *Action* inside a *Functionality*.
+* arguments (array) **required**
+
+### Functionality.getTags
 Get the tags of a *Functionality*.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "functionalityId": {
-      "type": "string",
-      "description": "Unique identifier of a *Functionality*."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "functionalityId"
-  ]
-}
+
+```js
+ijenko.Functionality.getTags({
+  "functionalityId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Tags"
-}
-```
-## Operation: Functionality.patchTags
+
+#### Parameters
+* functionalityId (string) **required** - Unique identifier of a *Functionality*.
+
+### Functionality.patchTags
 Modify the tags of a *Functionality*.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "functionalityId": {
-      "type": "string",
-      "description": "Unique identifier of a *Functionality*."
-    },
-    "tagsPatch": {
-      "$ref": "#/definitions/TagsPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "functionalityId",
-    "tagsPatch"
-  ]
-}
+
+```js
+ijenko.Functionality.patchTags({
+  "functionalityId": "",
+  "tagsPatch": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Tags"
-}
-```
-## Operation: Me.get
+
+#### Parameters
+* functionalityId (string) **required** - Unique identifier of a *Functionality*.
+* tagsPatch (object) **required**
+
+### Me.get
 Get information on the authenticated *User* who does the request.
 
 The *login* property is returned only if the *User* is the administrator of
 the *Account*.
 
 
-### Input Schema
-```json
-{}
+
+```js
+ijenko.Me.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserMe"
-}
-```
-## Operation: Me.patch
+
+
+### Me.patch
 Update *User* information (locale).
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "userPatch": {
-      "$ref": "#/definitions/UserMePatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "userPatch"
-  ]
-}
+
+```js
+ijenko.Me.patch({
+  "userPatch": {}
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Notification.delete
+
+#### Parameters
+* userPatch (object) **required**
+
+### Notification.delete
 Delete a *Notification*.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "notificationId": {
-      "type": "string",
-      "description": "Unique identifier of a *Notification*."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "notificationId"
-  ]
-}
+
+```js
+ijenko.Notification.delete({
+  "notificationId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Notifications.get
+
+#### Parameters
+* notificationId (string) **required** - Unique identifier of a *Notification*.
+
+### Notifications.get
 Get information about a *Notification*.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "notificationId": {
-      "type": "string",
-      "description": "Unique identifier of a *Notification*."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "notificationId"
-  ]
-}
+
+```js
+ijenko.Notifications.get({
+  "notificationId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Notification"
-}
-```
-## Operation: Notification.patch
+
+#### Parameters
+* notificationId (string) **required** - Unique identifier of a *Notification*.
+
+### Notification.patch
 Modify a *Notification*.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "notificationId": {
-      "type": "string",
-      "description": "Unique identifier of a *Notification*."
-    },
-    "notificationPatch": {
-      "$ref": "#/definitions/NotificationPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "notificationId",
-    "notificationPatch"
-  ]
-}
+
+```js
+ijenko.Notification.patch({
+  "notificationId": "",
+  "notificationPatch": {}
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Notification.getMetadata
+
+#### Parameters
+* notificationId (string) **required** - Unique identifier of a *Notification*.
+* notificationPatch (object) **required**
+
+### Notification.getMetadata
 Get the metadata of the *Notification*.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "notificationId": {
-      "type": "string",
-      "description": "Unique identifier of a *Notification*."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "notificationId"
-  ]
-}
+
+```js
+ijenko.Notification.getMetadata({
+  "notificationId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Metadata"
-}
-```
-## Operation: Notification.patchMetadata
+
+#### Parameters
+* notificationId (string) **required** - Unique identifier of a *Notification*.
+
+### Notification.patchMetadata
 Modify the metadata of a *Notification*.
 Keys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "notificationId": {
-      "type": "string",
-      "description": "Unique identifier of a *Notification*."
-    },
-    "metadataPatch": {
-      "$ref": "#/definitions/MetadataPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "notificationId",
-    "metadataPatch"
-  ]
-}
+
+```js
+ijenko.Notification.patchMetadata({
+  "notificationId": "",
+  "metadataPatch": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Metadata"
-}
-```
-## Operation: Me.places
+
+#### Parameters
+* notificationId (string) **required** - Unique identifier of a *Notification*.
+* metadataPatch (object) **required**
+
+### Me.places
 List the *Places* to which the *Token* has access.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "embed-metadata": {
-      "type": "array",
-      "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+ijenko.Me.places({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/PlaceItem"
-  },
-  "type": "array",
-  "uniqueItems": true
-}
-```
-## Operation: Places.get
+
+
+### Places.get
 Get information about a *Place*.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "placeId": {
-      "type": "string",
-      "description": "Unique identifier of a *Place*."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "placeId"
-  ]
-}
+
+```js
+ijenko.Places.get({
+  "placeId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Place"
-}
-```
-## Operation: Place.patch
+
+#### Parameters
+* placeId (string) **required** - Unique identifier of a *Place*.
+
+### Place.patch
 Change information about a *Place*.
 
 **Note**: requires full access to the *Account*.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "placeId": {
-      "type": "string",
-      "description": "Unique identifier of a *Place*."
-    },
-    "placePatch": {
-      "$ref": "#/definitions/PlacePatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "placeId",
-    "placePatch"
-  ]
-}
+
+```js
+ijenko.Place.patch({
+  "placeId": "",
+  "placePatch": {}
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Place.buses
+
+#### Parameters
+* placeId (string) **required** - Unique identifier of a *Place*.
+* placePatch (object) **required**
+
+### Place.buses
 Get the list of *Buses* available on the gateway of this *Place*.
 If `withPairing` is `true`, return only buses that allow device pairing (see `/places/{placeId}/buses/{busId}/pairing`).
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "placeId": {
-      "type": "string",
-      "description": "Unique identifier of a *Place*."
-    },
-    "withPairing": {
-      "type": "boolean",
-      "description": "Filter out buses that have no pairing window"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "placeId"
-  ]
-}
+
+```js
+ijenko.Place.buses({
+  "placeId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/BusItem"
-  },
-  "type": "array",
-  "uniqueItems": true
-}
-```
-## Operation: Place.pairing
+
+#### Parameters
+* placeId (string) **required** - Unique identifier of a *Place*.
+* withPairing (boolean) - Filter out buses that have no pairing window
+
+### Place.pairing
 Get the state of the pairing window of the *Bus*.
 
 **Note**: requires full access to the *Account*.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "placeId": {
-      "type": "string",
-      "description": "Unique identifier of a *Place*."
-    },
-    "busId": {
-      "type": "string",
-      "description": "Unique identifier of a *Bus*."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "placeId",
-    "busId"
-  ]
-}
+
+```js
+ijenko.Place.pairing({
+  "placeId": "",
+  "busId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BusPairing"
-}
-```
-## Operation: Place.openPairing
+
+#### Parameters
+* placeId (string) **required** - Unique identifier of a *Place*.
+* busId (string) **required** - Unique identifier of a *Bus*.
+
+### Place.openPairing
 Open/Close the pairing window.
 
 **Note**: requires full access to the *Account*.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "placeId": {
-      "type": "string",
-      "description": "Unique identifier of a *Place*."
-    },
-    "busId": {
-      "type": "string",
-      "description": "Unique identifier of a *Bus*."
-    },
-    "pairing": {
-      "$ref": "#/definitions/BusPairing"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "placeId",
-    "busId",
-    "pairing"
-  ]
-}
+
+```js
+ijenko.Place.openPairing({
+  "placeId": "",
+  "busId": "",
+  "pairing": {
+    "enabled": true
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BusPairing"
-}
-```
-## Operation: Place.devices
+
+#### Parameters
+* placeId (string) **required** - Unique identifier of a *Place*.
+* busId (string) **required** - Unique identifier of a *Bus*.
+* pairing (object) **required**
+
+### Place.devices
 Get the list of *Devices* available in this *Place*.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "placeId": {
-      "type": "string",
-      "description": "Unique identifier of a *Place*."
-    },
-    "devices": {
-      "type": "string",
-      "description": "Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».",
-      "pattern": "^(?:\\\\*|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$"
-    },
-    "embed-metadata": {
-      "type": "array",
-      "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "placeId"
-  ]
-}
+
+```js
+ijenko.Place.devices({
+  "placeId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/DeviceItem"
-  },
-  "type": "array",
-  "uniqueItems": true
-}
-```
-## Operation: Place.Electricity.autonomy
+
+#### Parameters
+* placeId (string) **required** - Unique identifier of a *Place*.
+* devices (string) - Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».
+* embed-metadata (array) - Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
+
+### Place.Electricity.autonomy
 Compute the autonomy rate of the *Place* on a time period.
 
 `autonomy = 1 - (elec_drawn / elec_total_usage)`
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "placeId": {
-      "type": "string",
-      "description": "Unique identifier of a *Place*."
-    },
-    "when": {
-      "type": "string",
-      "format": "date-time",
-      "description": "A time part of the time span."
-    },
-    "span": {
-      "type": "string",
-      "description": "Timespan: H (hour), D (day), Wmo (week starting on Monday), Wsu (week starting on Sunday), M (month), Y (year)",
-      "enum": [
-        "H",
-        "D",
-        "Wmo",
-        "Wsu",
-        "M",
-        "Y"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "placeId",
-    "when",
-    "span"
-  ]
-}
+
+```js
+ijenko.Place.Electricity.autonomy({
+  "placeId": "",
+  "when": "",
+  "span": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ElectricityAutonomy"
-}
-```
-## Operation: Place.Electricity.getFlows
+
+#### Parameters
+* placeId (string) **required** - Unique identifier of a *Place*.
+* when (string) **required** - A time part of the time span.
+* span (string) **required** - Timespan: H (hour), D (day), Wmo (week starting on Monday), Wsu (week starting on Sunday), M (month), Y (year)
+
+### Place.Electricity.getFlows
 Get the mapping of virtual electricity flows to functionalities.
 
 Some rules are applied to expand the virtual flows using the concrete
@@ -1446,335 +848,167 @@ The `code` property gives the result which may be partial:
   property lists them.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "placeId": {
-      "type": "string",
-      "description": "Unique identifier of a *Place*."
-    },
-    "flows": {
-      "type": "array",
-      "description": "Names of the flows requested"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "placeId",
-    "flows"
-  ]
-}
+
+```js
+ijenko.Place.Electricity.getFlows({
+  "placeId": "",
+  "flows": []
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ElectricityFlows"
-}
-```
-## Operation: Place.Electricity.getFlowsSetup
+
+#### Parameters
+* placeId (string) **required** - Unique identifier of a *Place*.
+* flows (array) **required** - Names of the flows requested
+
+### Place.Electricity.getFlowsSetup
 Get the mapping of functionalities to electricity flows.
 
 A functionality is attached to *at most* one flow.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "placeId": {
-      "type": "string",
-      "description": "Unique identifier of a *Place*."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "placeId"
-  ]
-}
+
+```js
+ijenko.Place.Electricity.getFlowsSetup({
+  "placeId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ElectricityFlowsSetup"
-}
-```
-## Operation: Place.Electricity.selfConsumption
+
+#### Parameters
+* placeId (string) **required** - Unique identifier of a *Place*.
+
+### Place.Electricity.selfConsumption
 Compute the self-consumption rate of the *Place* on a time period.
 
 `selfConsumption = 1 - (elec_feed_in / elec_total_usage)`
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "placeId": {
-      "type": "string",
-      "description": "Unique identifier of a *Place*."
-    },
-    "when": {
-      "type": "string",
-      "format": "date-time",
-      "description": "A time part of the time span."
-    },
-    "span": {
-      "type": "string",
-      "description": "Timespan: H (hour), D (day), Wmo (week starting on Monday), Wsu (week starting on Sunday), M (month), Y (year)",
-      "enum": [
-        "H",
-        "D",
-        "Wmo",
-        "Wsu",
-        "M",
-        "Y"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "placeId",
-    "when",
-    "span"
-  ]
-}
+
+```js
+ijenko.Place.Electricity.selfConsumption({
+  "placeId": "",
+  "when": "",
+  "span": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ElectricitySelfConsumption"
-}
-```
-## Operation: Place.functionalities
+
+#### Parameters
+* placeId (string) **required** - Unique identifier of a *Place*.
+* when (string) **required** - A time part of the time span.
+* span (string) **required** - Timespan: H (hour), D (day), Wmo (week starting on Monday), Wsu (week starting on Sunday), M (month), Y (year)
+
+### Place.functionalities
 Get the list of *Functionalities* available in this *Place*.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "placeId": {
-      "type": "string",
-      "description": "Unique identifier of a *Place*."
-    },
-    "devices": {
-      "type": "string",
-      "description": "Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».",
-      "pattern": "^(?:\\\\*|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$"
-    },
-    "functionalities": {
-      "type": "string",
-      "description": "Functionality selector: Functionality tags or functionality class (optionally, '@' followed by a endpoint in decimal) or '*' for all. Multiple values are separated by '|' and are interpreted as « OR ».\n",
-      "pattern": "^(?:\\\\*|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$"
-    },
-    "embed-metadata": {
-      "type": "array",
-      "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "placeId"
-  ]
-}
+
+```js
+ijenko.Place.functionalities({
+  "placeId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/FunctionalityItem"
-  },
-  "type": "array",
-  "uniqueItems": true
-}
-```
-## Operation: Place.getMetadata
+
+#### Parameters
+* placeId (string) **required** - Unique identifier of a *Place*.
+* devices (string) - Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».
+* functionalities (string) - Functionality selector: Functionality tags or functionality class (optionally, '@' followed by a endpoint in decimal) or '*' for all. Multiple values are separated by '|' and are interpreted as « OR ».
+* embed-metadata (array) - Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
+
+### Place.getMetadata
 Get the metadata.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "placeId": {
-      "type": "string",
-      "description": "Unique identifier of a *Place*."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "placeId"
-  ]
-}
+
+```js
+ijenko.Place.getMetadata({
+  "placeId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Metadata"
-}
-```
-## Operation: Place.patchMetadata
+
+#### Parameters
+* placeId (string) **required** - Unique identifier of a *Place*.
+
+### Place.patchMetadata
 Modify the metadata.
 Keys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "placeId": {
-      "type": "string",
-      "description": "Unique identifier of a *Place*."
-    },
-    "metadataPatch": {
-      "$ref": "#/definitions/MetadataPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "placeId",
-    "metadataPatch"
-  ]
-}
+
+```js
+ijenko.Place.patchMetadata({
+  "placeId": "",
+  "metadataPatch": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Metadata"
-}
-```
-## Operation: Place.notifications
+
+#### Parameters
+* placeId (string) **required** - Unique identifier of a *Place*.
+* metadataPatch (object) **required**
+
+### Place.notifications
 Get the list of *Notifications* available in this *Place*.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "placeId": {
-      "type": "string",
-      "description": "Unique identifier of a *Place*."
-    },
-    "embed-metadata": {
-      "type": "array",
-      "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "placeId"
-  ]
-}
+
+```js
+ijenko.Place.notifications({
+  "placeId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/NotificationItem"
-  },
-  "type": "array",
-  "uniqueItems": true
-}
-```
-## Operation: Place.newNotification
+
+#### Parameters
+* placeId (string) **required** - Unique identifier of a *Place*.
+* embed-metadata (array) - Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
+
+### Place.newNotification
 Create a new *Notification*.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "placeId": {
-      "type": "string",
-      "description": "Unique identifier of a *Place*."
-    },
-    "notification": {
-      "$ref": "#/definitions/NotificationNew"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "placeId",
-    "notification"
-  ]
-}
+
+```js
+ijenko.Place.newNotification({
+  "placeId": "",
+  "notification": {
+    "name": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NotificationCreated"
-}
-```
-## Operation: Place.programs
+
+#### Parameters
+* placeId (string) **required** - Unique identifier of a *Place*.
+* notification (object) **required**
+
+### Place.programs
 Get the list of *Programs* available in this *Place*.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "placeId": {
-      "type": "string",
-      "description": "Unique identifier of a *Place*."
-    },
-    "embed-metadata": {
-      "type": "array",
-      "description": "Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.\n**Note:** This only applies to the top level resources.\n"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "placeId"
-  ]
-}
+
+```js
+ijenko.Place.programs({
+  "placeId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/ProgramItem"
-  },
-  "type": "array",
-  "uniqueItems": true
-}
-```
-## Operation: Place.newProgram
+
+#### Parameters
+* placeId (string) **required** - Unique identifier of a *Place*.
+* embed-metadata (array) - Request to include the given keys of metadata in the response. If a key doesn't exist on the resource it is ignored.
+
+### Place.newProgram
 Create a new *Program*.
 
 **Note**: requires full access to the *Account*.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "placeId": {
-      "type": "string",
-      "description": "Unique identifier of a *Place*."
-    },
-    "programInfo": {
-      "$ref": "#/definitions/ProgramNew"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "placeId",
-    "programInfo"
-  ]
-}
+
+```js
+ijenko.Place.newProgram({
+  "placeId": "",
+  "programInfo": {
+    "name": "",
+    "code": null
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProgramCreated"
-}
-```
-## Operation: Place.run
+
+#### Parameters
+* placeId (string) **required** - Unique identifier of a *Place*.
+* programInfo (object) **required**
+
+### Place.run
 Run an *Action* on zero, one or multiple *Functionalities* selected with tags.
 
 *Device* and *Functionality* selection are combined with « AND ».
@@ -1782,102 +1016,55 @@ Run an *Action* on zero, one or multiple *Functionalities* selected with tags.
 If no functionality is matched by the device/functionality selection, an empty array is returned.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "placeId": {
-      "type": "string",
-      "description": "Unique identifier of a *Place*."
-    },
-    "action": {
-      "type": "string",
-      "description": "Identifier of an *Action* inside a *Functionality*."
-    },
-    "devices": {
-      "type": "string",
-      "description": "Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».",
-      "pattern": "^(?:\\\\*|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Z0-9]{3}|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$"
-    },
-    "functionalities": {
-      "type": "string",
-      "description": "Functionality selector: Functionality tags or functionality class (optionally, '@' followed by a endpoint in decimal) or '*' for all. Multiple values are separated by '|' and are interpreted as « OR ».\n",
-      "pattern": "^(?:\\\\*|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22})(?:\\\\|(?:[A-Z][A-Za-z0-9]+(?:@(?:0|1[0-9]{,2}|[3-9][0-9]?|2(?:[0-4][0-9]?|5[0-5]?|[6-9])?))?|[a-z][a-z0-9_:]{0,20}|[A-Za-z0-9-_]{22}))*)$"
-    },
-    "arguments": {
-      "$ref": "#/definitions/ActionArgs"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "placeId",
-    "action",
-    "devices",
-    "functionalities",
-    "arguments"
-  ]
-}
+
+```js
+ijenko.Place.run({
+  "placeId": "",
+  "action": "",
+  "devices": "",
+  "functionalities": "",
+  "arguments": []
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ActionMultiResult"
-}
-```
-## Operation: Program.delete
+
+#### Parameters
+* placeId (string) **required** - Unique identifier of a *Place*.
+* action (string) **required** - Identifier of an *Action* inside a *Functionality*.
+* devices (string) **required** - Devices selector. Device tags or device classes or device ids or '*' for any. Multiple values are separated by '|' and interpreted as « OR ».
+* functionalities (string) **required** - Functionality selector: Functionality tags or functionality class (optionally, '@' followed by a endpoint in decimal) or '*' for all. Multiple values are separated by '|' and are interpreted as « OR ».
+* arguments (array) **required**
+
+### Program.delete
 Delete a *Program*.
 
 **Note**: requires full access to the *Account*.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "programId": {
-      "type": "string",
-      "description": "Unique identifier of a *Program*."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "programId"
-  ]
-}
+
+```js
+ijenko.Program.delete({
+  "programId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Programs.get
+
+#### Parameters
+* programId (string) **required** - Unique identifier of a *Program*.
+
+### Programs.get
 Get information about a *Program*.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "programId": {
-      "type": "string",
-      "description": "Unique identifier of a *Program*."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "programId"
-  ]
-}
+
+```js
+ijenko.Programs.get({
+  "programId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Program"
-}
-```
-## Operation: Program.patch
+
+#### Parameters
+* programId (string) **required** - Unique identifier of a *Program*.
+
+### Program.patch
 Modify a *Program*:
 - name
 - status (enabled/disabled)
@@ -1886,147 +1073,75 @@ Modify a *Program*:
 **Note**: requires full access to the *Account*.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "programId": {
-      "type": "string",
-      "description": "Unique identifier of a *Program*."
-    },
-    "programPatch": {
-      "$ref": "#/definitions/ProgramPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "programId",
-    "programPatch"
-  ]
-}
+
+```js
+ijenko.Program.patch({
+  "programId": "",
+  "programPatch": {}
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Program.log
+
+#### Parameters
+* programId (string) **required** - Unique identifier of a *Program*.
+* programPatch (object) **required**
+
+### Program.log
 Get the execution history list of this *Program*.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "programId": {
-      "type": "string",
-      "description": "Unique identifier of a *Program*."
-    },
-    "from": {
-      "type": "string",
-      "format": "date-time",
-      "description": "Beginning of the time interval."
-    },
-    "to": {
-      "type": "string",
-      "format": "date-time",
-      "description": "End of the interval. Default: now.\n"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "programId",
-    "from"
-  ]
-}
+
+```js
+ijenko.Program.log({
+  "programId": "",
+  "from": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/ProgramLog"
-  },
-  "type": "array",
-  "uniqueItems": true
-}
-```
-## Operation: Program.getMetadata
+
+#### Parameters
+* programId (string) **required** - Unique identifier of a *Program*.
+* from (string) **required** - Beginning of the time interval.
+* to (string) - End of the interval. Default: now.
+
+### Program.getMetadata
 Get the metadata of the *Program*.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "programId": {
-      "type": "string",
-      "description": "Unique identifier of a *Program*."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "programId"
-  ]
-}
+
+```js
+ijenko.Program.getMetadata({
+  "programId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Metadata"
-}
-```
-## Operation: Program.patchMetadata
+
+#### Parameters
+* programId (string) **required** - Unique identifier of a *Program*.
+
+### Program.patchMetadata
 Modify the metadata of a *Program*.
 Keys are limited to the same format as tags (up to 21 characters, [a-z0-9], starting with [a-z]). Values can be any JSON value.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "programId": {
-      "type": "string",
-      "description": "Unique identifier of a *Program*."
-    },
-    "metadataPatch": {
-      "$ref": "#/definitions/MetadataPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "programId",
-    "metadataPatch"
-  ]
-}
+
+```js
+ijenko.Program.patchMetadata({
+  "programId": "",
+  "metadataPatch": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Metadata"
-}
-```
-## Operation: Program.run
+
+#### Parameters
+* programId (string) **required** - Unique identifier of a *Program*.
+* metadataPatch (object) **required**
+
+### Program.run
 Launch the *Program*.
 The result will be available later in the run history.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "programId": {
-      "type": "string",
-      "description": "Unique identifier of a *Program*."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "programId"
-  ]
-}
+
+```js
+ijenko.Program.run({
+  "programId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* programId (string) **required** - Unique identifier of a *Program*.
+

@@ -1,147 +1,100 @@
 # @datafire/consumerfinance_gov
+
+Client library for The Consumer Financial Protection Bureau
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/consumerfinance_gov
+```
+
+```js
+let datafire = require('datafire');
+let consumerfinance_gov = require('@datafire/consumerfinance_gov').actions;
+let context = new datafire.Context();
+
+consumerfinance_gov.getDatasets({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Learn more about home mortgage data, download the data yourself, or build new tools using our API.
 
-## Operation: getDatasets
+## Actions
+### getDatasets
 Get a list of all datasets.
 
-### Input Schema
-```json
-{}
+
+```js
+consumerfinance_gov.getDatasets(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getDatasetHmda
+
+
+### getDatasetHmda
 Get metadata for this dataset.
 
-### Input Schema
-```json
-{}
+
+```js
+consumerfinance_gov.getDatasetHmda(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getConceptHmda
+
+
+### getConceptHmda
 Get information about a particular concept in this dataset.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "concept": {
-      "type": "string",
-      "description": "Name of concept"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "concept"
-  ]
-}
+
+```js
+consumerfinance_gov.getConceptHmda({
+  "concept": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: querySliceHmda
+
+#### Parameters
+* concept (string) **required** - Name of concept
+
+### querySliceHmda
 Query a slice in this dataset.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "slice": {
-      "type": "string",
-      "description": "Name of slice"
-    },
-    "$select": {
-      "type": "string",
-      "description": "Fields to return, separated by commas."
-    },
-    "$where": {
-      "type": "string",
-      "description": "Conditions to search for in the slice, in SQL WHERE style."
-    },
-    "$group": {
-      "type": "string",
-      "description": "Fields to group by, summarizing the data, separated by commas."
-    },
-    "$limit": {
-      "type": "integer",
-      "description": "Number of records to return, 100 by default. Enter 0 for no limit."
-    },
-    "$offset": {
-      "type": "integer",
-      "description": "Number of records to skip."
-    },
-    "$orderBy": {
-      "type": "string",
-      "description": "Fields to order by, separated by commas. ASC and DESC can be used to modify the order."
-    },
-    "$callback": {
-      "type": "string",
-      "description": "JavaScript callback to invoke. Only useful with JSONP requests."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "slice"
-  ]
-}
+
+```js
+consumerfinance_gov.querySliceHmda({
+  "slice": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/QueryResponse"
-}
-```
-## Operation: getSliceMetadataHmda
+
+#### Parameters
+* slice (string) **required** - Name of slice
+* $select (string) - Fields to return, separated by commas.
+* $where (string) - Conditions to search for in the slice, in SQL WHERE style.
+* $group (string) - Fields to group by, summarizing the data, separated by commas.
+* $limit (integer) - Number of records to return, 100 by default. Enter 0 for no limit.
+* $offset (integer) - Number of records to skip.
+* $orderBy (string) - Fields to order by, separated by commas. ASC and DESC can be used to modify the order.
+* $callback (string) - JavaScript callback to invoke. Only useful with JSONP requests.
+
+### getSliceMetadataHmda
 Get the metadata for a slice in this dataset.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "slice": {
-      "type": "string",
-      "description": "Name of slice"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "slice"
-  ]
-}
+
+```js
+consumerfinance_gov.getSliceMetadataHmda({
+  "slice": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getDataset
+
+#### Parameters
+* slice (string) **required** - Name of slice
+
+### getDataset
 Get metadata about a dataset.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "dataset": {
-      "type": "string",
-      "description": "Name of dataset"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "dataset"
-  ]
-}
+
+```js
+consumerfinance_gov.getDataset({
+  "dataset": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* dataset (string) **required** - Name of dataset
+

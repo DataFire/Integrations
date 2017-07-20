@@ -1,76 +1,62 @@
 # @datafire/google_storagetransfer
+
+Client library for Google Storage Transfer
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/google_storagetransfer
+```
+
+```js
+let datafire = require('datafire');
+let google_storagetransfer = require('@datafire/google_storagetransfer').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    google_storagetransfer: account,
+  }
+})
+
+
+google_storagetransfer.transferJobs.create({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Transfers data from external data sources to a Google Cloud Storage bucket or between Google Cloud Storage buckets.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+google_storagetransfer.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+google_storagetransfer.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: googleServiceAccounts.get
+
+
+### googleServiceAccounts.get
 Returns the Google service account that is used by Storage Transfer
 Service to access buckets in the project where transfers
 run or in other projects. Each Google service account is associated
@@ -80,898 +66,239 @@ ACLs to grant access to Storage Transfer Service. This service
 account is created and owned by Storage Transfer Service and can
 only be used by Storage Transfer Service.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "The ID of the Google Cloud Platform Console project that the Google service\naccount is associated with.\nRequired."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId"
-  ]
-}
+
+```js
+google_storagetransfer.googleServiceAccounts.get({
+  "projectId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GoogleServiceAccount"
-}
-```
-## Operation: transferJobs.list
+
+#### Parameters
+* projectId (string) **required** - The ID of the Google Cloud Platform Console project that the Google service
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### transferJobs.list
 Lists transfer jobs.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "filter": {
-      "type": "string",
-      "description": "A list of query parameters specified as JSON text in the form of\n{\"project_id\":\"my_project_id\",\n\"job_names\":[\"jobid1\",\"jobid2\",...],\n\"job_statuses\":[\"status1\",\"status2\",...]}.\nSince `job_names` and `job_statuses` support multiple values, their values\nmust be specified with array notation. `project_id` is required. `job_names`\nand `job_statuses` are optional.  The valid values for `job_statuses` are\ncase-insensitive: `ENABLED`, `DISABLED`, and `DELETED`."
-    },
-    "pageSize": {
-      "type": "integer",
-      "description": "The list page size. The max allowed value is 256."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The list page token."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_storagetransfer.transferJobs.list({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListTransferJobsResponse"
-}
-```
-## Operation: transferJobs.create
+
+
+### transferJobs.create
 Creates a transfer job that runs periodically.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/TransferJob"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_storagetransfer.transferJobs.create({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TransferJob"
-}
-```
-## Operation: transferJobs.get
+
+
+### transferJobs.get
 Gets a transfer job.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "jobName": {
-      "type": "string",
-      "description": "The job to get.\nRequired."
-    },
-    "projectId": {
-      "type": "string",
-      "description": "The ID of the Google Cloud Platform Console project that owns the job.\nRequired."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "jobName"
-  ]
-}
+
+```js
+google_storagetransfer.transferJobs.get({
+  "jobName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TransferJob"
-}
-```
-## Operation: transferJobs.patch
+
+#### Parameters
+* jobName (string) **required** - The job to get.
+* projectId (string) - The ID of the Google Cloud Platform Console project that owns the job.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### transferJobs.patch
 Updates a transfer job. Updating a job's transfer spec does not affect
 transfer operations that are running already. Updating the scheduling
 of a job is not allowed.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateTransferJobRequest"
-    },
-    "jobName": {
-      "type": "string",
-      "description": "The name of job to update.\nRequired."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "jobName"
-  ]
-}
+
+```js
+google_storagetransfer.transferJobs.patch({
+  "jobName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TransferJob"
-}
-```
-## Operation: transferOperations.delete
+
+#### Parameters
+* body (object) - Request passed to UpdateTransferJob.
+* jobName (string) **required** - The name of job to update.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### transferOperations.delete
 This method is not supported and the server returns `UNIMPLEMENTED`.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of the operation resource to be deleted."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+google_storagetransfer.transferOperations.delete({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Empty"
-}
-```
-## Operation: transferOperations.list
+
+#### Parameters
+* name (string) **required** - The name of the operation resource to be deleted.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### transferOperations.list
 Lists operations that match the specified filter in the request. If the
 server doesn't support this method, it returns `UNIMPLEMENTED`.
 
 NOTE: the `name` binding below allows API services to override the binding
 to use different resource name schemes, such as `users/*/operations`.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "filter": {
-      "type": "string",
-      "description": "A list of query parameters specified as JSON text in the form of {\\\"project_id\\\" : \\\"my_project_id\\\", \\\"job_names\\\" : [\\\"jobid1\\\", \\\"jobid2\\\",...], \\\"operation_names\\\" : [\\\"opid1\\\", \\\"opid2\\\",...], \\\"transfer_statuses\\\":[\\\"status1\\\", \\\"status2\\\",...]}. Since `job_names`, `operation_names`, and `transfer_statuses` support multiple values, they must be specified with array notation. `job_names`, `operation_names`, and `transfer_statuses` are optional."
-    },
-    "name": {
-      "type": "string",
-      "description": "The value `transferOperations`."
-    },
-    "pageSize": {
-      "type": "integer",
-      "description": "The list page size. The max allowed value is 256."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The list page token."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+google_storagetransfer.transferOperations.list({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListOperationsResponse"
-}
-```
-## Operation: transferOperations.cancel
+
+#### Parameters
+* filter (string) - A list of query parameters specified as JSON text in the form of {\"project_id\" : \"my_project_id\", \"job_names\" : [\"jobid1\", \"jobid2\",...], \"operation_names\" : [\"opid1\", \"opid2\",...], \"transfer_statuses\":[\"status1\", \"status2\",...]}. Since `job_names`, `operation_names`, and `transfer_statuses` support multiple values, they must be specified with array notation. `job_names`, `operation_names`, and `transfer_statuses` are optional.
+* name (string) **required** - The value `transferOperations`.
+* pageSize (integer) - The list page size. The max allowed value is 256.
+* pageToken (string) - The list page token.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### transferOperations.cancel
 Cancels a transfer. Use the get method to check whether the cancellation succeeded or whether the operation completed despite cancellation.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of the operation resource to be cancelled."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+google_storagetransfer.transferOperations.cancel({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Empty"
-}
-```
-## Operation: transferOperations.pause
+
+#### Parameters
+* name (string) **required** - The name of the operation resource to be cancelled.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### transferOperations.pause
 Pauses a transfer operation.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/PauseTransferOperationRequest"
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the transfer operation.\nRequired."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+google_storagetransfer.transferOperations.pause({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Empty"
-}
-```
-## Operation: transferOperations.resume
+
+#### Parameters
+* body (object) - Request passed to PauseTransferOperation.
+* name (string) **required** - The name of the transfer operation.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### transferOperations.resume
 Resumes a transfer operation that is paused.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ResumeTransferOperationRequest"
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the transfer operation.\nRequired."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+google_storagetransfer.transferOperations.resume({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Empty"
-}
-```
+
+#### Parameters
+* body (object) - Request passed to ResumeTransferOperation.
+* name (string) **required** - The name of the transfer operation.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+

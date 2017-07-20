@@ -1,1382 +1,665 @@
 # @datafire/motaword
+
+Client library for MotaWord
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/motaword
+```
+
+```js
+let datafire = require('datafire');
+let motaword = require('@datafire/motaword').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    motaword: account,
+  }
+})
+
+
+motaword.getProjects({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Use MotaWord API to post and track your translation projects.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+motaword.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+motaword.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: getEndpoints
+
+
+### getEndpoints
 The root endpoint will provide you a JSON Swagger definition.
 
 
-### Input Schema
-```json
-{}
+
+```js
+motaword.getEndpoints(null, context)
 ```
-### Output Schema
-```json
-{
-  "type": "object"
-}
-```
-## Operation: getFormats
+
+
+### getFormats
 Get a list of supported formats for documents, style guides and extensions.
 
 
-### Input Schema
-```json
-{}
+
+```js
+motaword.getFormats(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Formats"
-  },
-  "type": "object"
-}
-```
-## Operation: downloadGlobalGlossary
+
+
+### downloadGlobalGlossary
 Download your corporate account's global glossary. This endpoint is available only for corporate account customers.
 
-### Input Schema
-```json
-{}
+
+```js
+motaword.downloadGlobalGlossary(null, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: updateGlobalGlossary
+
+
+### updateGlobalGlossary
 Update your corporate account's global glossary. This endpoint is available only for corporate account customers.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "glossary": {
-      "type": "string",
-      "description": "Glossary file. Currently supported formats: .xlsx, .tbx\n"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "glossary"
-  ]
-}
+
+```js
+motaword.updateGlobalGlossary({
+  "glossary": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "status": {
-      "default": "success",
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: getLanguages
+
+#### Parameters
+* glossary (string) **required** - Glossary file. Currently supported formats: .xlsx, .tbx
+
+### getLanguages
 Get a list of supported languages
 
-### Input Schema
-```json
-{}
+
+```js
+motaword.getLanguages(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Language"
-  },
-  "type": "array"
-}
-```
-## Operation: getAccount
+
+
+### getAccount
 Get your account information and summary.
 
-### Input Schema
-```json
-{}
+
+```js
+motaword.getAccount(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Account"
-}
-```
-## Operation: getProjects
+
+
+### getProjects
 Get a list of your projects
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "page": {
-      "type": "integer"
-    },
-    "per_page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+motaword.getProjects({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/ProjectList"
-  },
-  "type": "object"
-}
-```
-## Operation: createProject
+
+
+### createProject
 Create a new project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "source_language": {
-      "type": "string"
-    },
-    "target_languages[]": {
-      "type": "array"
-    },
-    "callback_url": {
-      "type": "string",
-      "description": "Optional. If you provide a callback URL, we will send POST callbacks when the status of the current project is changed. Possible status changes are, 'translated', 'proofread', 'completed'."
-    },
-    "custom": {
-      "type": "array",
-      "description": "Optional. This is a consistent custom data parameter that will be given to you in the response across every request of this project model. Values should be provided like this, custom[my_key] = my_value."
-    },
-    "documents[]": {
-      "type": "string",
-      "description": "Optional. You can add as many files as you want in documents[] parameter. Or you add your documents later in separate calls."
-    },
-    "styleguides[]": {
-      "type": "string",
-      "description": "Optional. You can add as many files as you want in styleguides[] parameter. Or you add your style guides later in separate calls."
-    },
-    "glossaries[]": {
-      "type": "string",
-      "description": "Optional. Only one glossary is supported at the moment."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "source_language",
-    "target_languages[]"
-  ]
-}
+
+```js
+motaword.createProject({
+  "source_language": "",
+  "target_languages[]": []
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Project"
-  },
-  "type": "object"
-}
-```
-## Operation: getProject
+
+#### Parameters
+* source_language (string) **required**
+* target_languages[] (array) **required**
+* callback_url (string) - Optional. If you provide a callback URL, we will send POST callbacks when the status of the current project is changed. Possible status changes are, 'translated', 'proofread', 'completed'.
+* custom (array) - Optional. This is a consistent custom data parameter that will be given to you in the response across every request of this project model. Values should be provided like this, custom[my_key] = my_value.
+* documents[] (string) - Optional. You can add as many files as you want in documents[] parameter. Or you add your documents later in separate calls.
+* styleguides[] (string) - Optional. You can add as many files as you want in styleguides[] parameter. Or you add your style guides later in separate calls.
+* glossaries[] (string) - Optional. Only one glossary is supported at the moment.
+
+### getProject
 Get single project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+motaword.getProject({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Project"
-}
-```
-## Operation: updateProject
+
+#### Parameters
+* id (integer) **required** - Project ID
+
+### updateProject
 Update project language pairs
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "source_language": {
-      "type": "string"
-    },
-    "target_languages[]": {
-      "type": "array"
-    },
-    "callback_url": {
-      "type": "string",
-      "description": "Optional. If you provide a callback URL, we will send POST callbacks when the status of the current project is changed. Possible status changes are, 'translated', 'proofread', 'completed'."
-    },
-    "custom": {
-      "type": "array",
-      "description": "Optional. This is a consistent custom data parameter that will be given to you in the response across every request of this project model. Values should be provided like this, custom[my_key] = my_value. If you previously provided one, it will be replaced."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "source_language",
-    "target_languages[]"
-  ]
-}
+
+```js
+motaword.updateProject({
+  "id": 0,
+  "source_language": "",
+  "target_languages[]": []
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Project"
-  },
-  "type": "object"
-}
-```
-## Operation: download
+
+#### Parameters
+* id (integer) **required** - Project ID
+* source_language (string) **required**
+* target_languages[] (array) **required**
+* callback_url (string) - Optional. If you provide a callback URL, we will send POST callbacks when the status of the current project is changed. Possible status changes are, 'translated', 'proofread', 'completed'.
+* custom (array) - Optional. This is a consistent custom data parameter that will be given to you in the response across every request of this project model. Values should be provided like this, custom[my_key] = my_value. If you previously provided one, it will be replaced.
+
+### download
 Download the latest translation package. You must have given a /package call beforehand and wait until the packaging status is 'completed'.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+motaword.download({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: downloadLanguage
+
+#### Parameters
+* id (integer) **required** - Project ID
+
+### downloadLanguage
 Download only the translation package of this language. You must have given a /package call beforehand and wait until the packaging status is 'completed'.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "language": {
-      "type": "string",
-      "description": "Language code. You can download the translation of only a specific language."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "language"
-  ]
-}
+
+```js
+motaword.downloadLanguage({
+  "id": 0,
+  "language": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: launchProject
+
+#### Parameters
+* id (integer) **required** - Project ID
+* language (string) **required** - Language code. You can download the translation of only a specific language.
+
+### launchProject
 Launch your translation project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "payment_method": {
-      "type": "string",
-      "description": "Optional. Determines which method to use for payment. Options are 'corporate', 'client'.",
-      "enum": [
-        "corporate",
-        "client"
-      ]
-    },
-    "payment_code": {
-      "type": "string",
-      "description": "Optional. According to your corporate account configuration, this may be required."
-    },
-    "budget_code": {
-      "type": "string",
-      "description": "Optional with corporate accounts. Not available for others."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+motaword.launchProject({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "status": {
-      "default": "started",
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: package
+
+#### Parameters
+* id (integer) **required** - Project ID
+* payment_method (string) - Optional. Determines which method to use for payment. Options are 'corporate', 'client'.
+* payment_code (string) - Optional. According to your corporate account configuration, this may be required.
+* budget_code (string) - Optional with corporate accounts. Not available for others.
+
+### package
 Package the translation project, make it ready to be downloaded.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "async": {
-      "type": "integer",
-      "description": "If you want to package and download the translation synchronously, mark this parameter as '0'. It will package the translation and then return the packaged file in the response, identical to /download call after an asynchronous /package call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+motaword.package({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: trackPackage
+
+#### Parameters
+* id (integer) **required** - Project ID
+* async (integer) - If you want to package and download the translation synchronously, mark this parameter as '0'. It will package the translation and then return the packaged file in the response, identical to /download call after an asynchronous /package call.
+
+### trackPackage
 This request will tell you the current progress of the translation packaging. You will use the 'key' provided by the /package call.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "key": {
-      "type": "string",
-      "description": "This is the package tracking key provided in the response of a /package call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+motaword.trackPackage({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PackageStatus"
-}
-```
-## Operation: packageLanguage
+
+#### Parameters
+* id (integer) **required** - Project ID
+* key (string) - This is the package tracking key provided in the response of a /package call.
+
+### packageLanguage
 Package the translation project, make it ready to be downloaded.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "language": {
-      "type": "string",
-      "description": "Language code. You can package the translation of only a specific language."
-    },
-    "async": {
-      "type": "integer",
-      "description": "If you want to package and download the translation synchronously, mark this parameter as '0'. It will package the translation and then return the packaged file in the response, identical to /download call after an asynchronous /package call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "language"
-  ]
-}
+
+```js
+motaword.packageLanguage({
+  "id": 0,
+  "language": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Package"
-}
-```
-## Operation: getProgress
+
+#### Parameters
+* id (integer) **required** - Project ID
+* language (string) **required** - Language code. You can package the translation of only a specific language.
+* async (integer) - If you want to package and download the translation synchronously, mark this parameter as '0'. It will package the translation and then return the packaged file in the response, identical to /download call after an asynchronous /package call.
+
+### getProgress
 Get the progress of an already launched project.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+motaword.getProgress({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Progress"
-}
-```
-## Operation: getActivities
+
+#### Parameters
+* id (integer) **required** - Project ID
+
+### getActivities
 Get a list of realtime activities on the project, such as translation suggestion and translation approval.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "page": {
-      "type": "integer"
-    },
-    "per_page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId"
-  ]
-}
+
+```js
+motaword.getActivities({
+  "projectId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ActivityList"
-}
-```
-## Operation: getActivity
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+* page (integer)
+* per_page (integer)
+
+### getActivity
 Get a single realtime activity.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "activityId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Activity ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "activityId"
-  ]
-}
+
+```js
+motaword.getActivity({
+  "projectId": 0,
+  "activityId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Activity"
-}
-```
-## Operation: submitComment
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+* activityId (integer) **required** - Activity ID
+
+### submitComment
 Submit a comment to an activity.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "activityId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Activity ID"
-    },
-    "comment": {
-      "type": "string",
-      "description": "Comment text."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "activityId",
-    "comment"
-  ]
-}
+
+```js
+motaword.submitComment({
+  "projectId": 0,
+  "activityId": 0,
+  "comment": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Comment"
-}
-```
-## Operation: getActivityComments
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+* activityId (integer) **required** - Activity ID
+* comment (string) **required** - Comment text.
+
+### getActivityComments
 Get a list of comments belonging to this activity.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "activityId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Activity ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "activityId"
-  ]
-}
+
+```js
+motaword.getActivityComments({
+  "projectId": 0,
+  "activityId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CommentList"
-}
-```
-## Operation: getComments
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+* activityId (integer) **required** - Activity ID
+
+### getComments
 Get a list of activity comments throughout the whole project.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "page": {
-      "type": "integer"
-    },
-    "per_page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId"
-  ]
-}
+
+```js
+motaword.getComments({
+  "projectId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CommentList"
-}
-```
-## Operation: getDocuments
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+* page (integer)
+* per_page (integer)
+
+### getDocuments
 Get a list of documents
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId"
-  ]
-}
+
+```js
+motaword.getDocuments({
+  "projectId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DocumentList"
-}
-```
-## Operation: createDocument
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+
+### createDocument
 Upload a new document
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "documents[]": {
-      "type": "string",
-      "description": "You can add as many files as you want in documents[] parameter."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "documents[]"
-  ]
-}
+
+```js
+motaword.createDocument({
+  "projectId": 0,
+  "documents[]": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Document"
-}
-```
-## Operation: deleteDocument
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+* documents[] (string) **required** - You can add as many files as you want in documents[] parameter.
+
+### deleteDocument
 Delete the document
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "documentId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Document ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "documentId"
-  ]
-}
+
+```js
+motaword.deleteDocument({
+  "projectId": 0,
+  "documentId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "status": {
-      "default": "success",
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: getDocument
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+* documentId (integer) **required** - Document ID
+
+### getDocument
 Get single document
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "documentId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Document ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "documentId"
-  ]
-}
+
+```js
+motaword.getDocument({
+  "projectId": 0,
+  "documentId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Document"
-}
-```
-## Operation: updateDocument
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+* documentId (integer) **required** - Document ID
+
+### updateDocument
 Update the document. File name and contents will replaced with the new one.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "documentId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Document ID"
-    },
-    "documents": {
-      "type": "string",
-      "description": "Single file data. The name is plural to provide a consistent naming convention."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "documentId",
-    "documents"
-  ]
-}
+
+```js
+motaword.updateDocument({
+  "projectId": 0,
+  "documentId": 0,
+  "documents": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Document"
-}
-```
-## Operation: downloadDocument
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+* documentId (integer) **required** - Document ID
+* documents (string) **required** - Single file data. The name is plural to provide a consistent naming convention.
+
+### downloadDocument
 Download a document
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "documentId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Document ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "documentId"
-  ]
-}
+
+```js
+motaword.downloadDocument({
+  "projectId": 0,
+  "documentId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: getGlossaries
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+* documentId (integer) **required** - Document ID
+
+### getGlossaries
 Get a list of glossaries
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId"
-  ]
-}
+
+```js
+motaword.getGlossaries({
+  "projectId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GlossaryList"
-}
-```
-## Operation: createGlossary
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+
+### createGlossary
 Upload a new glossary
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "glossaries": {
-      "type": "string",
-      "description": "You can only add one glossary, even though the name suggests multiple glossaries. This may be updated in the future to support multiple glossaries."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "glossaries"
-  ]
-}
+
+```js
+motaword.createGlossary({
+  "projectId": 0,
+  "glossaries": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Glossary"
-}
-```
-## Operation: deleteGlossary
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+* glossaries (string) **required** - You can only add one glossary, even though the name suggests multiple glossaries. This may be updated in the future to support multiple glossaries.
+
+### deleteGlossary
 Delete the glossary
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "glossaryId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Glossary ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "glossaryId"
-  ]
-}
+
+```js
+motaword.deleteGlossary({
+  "projectId": 0,
+  "glossaryId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "status": {
-      "default": "success",
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: getGlossary
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+* glossaryId (integer) **required** - Glossary ID
+
+### getGlossary
 Get single glossary
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "glossaryId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Glossary ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "glossaryId"
-  ]
-}
+
+```js
+motaword.getGlossary({
+  "projectId": 0,
+  "glossaryId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Glossary"
-}
-```
-## Operation: updateGlossary
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+* glossaryId (integer) **required** - Glossary ID
+
+### updateGlossary
 Update the glossary. File name and contents will replaced with the new one.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "glossaryId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Glossary ID"
-    },
-    "glossaries": {
-      "type": "string",
-      "description": "Single file data. The name is plural to provide a consistent naming convention."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "glossaryId",
-    "glossaries"
-  ]
-}
+
+```js
+motaword.updateGlossary({
+  "projectId": 0,
+  "glossaryId": 0,
+  "glossaries": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Glossary"
-}
-```
-## Operation: downloadGlossary
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+* glossaryId (integer) **required** - Glossary ID
+* glossaries (string) **required** - Single file data. The name is plural to provide a consistent naming convention.
+
+### downloadGlossary
 Download a glossary
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "glossaryId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Glossary ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "glossaryId"
-  ]
-}
+
+```js
+motaword.downloadGlossary({
+  "projectId": 0,
+  "glossaryId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: getStyleGuides
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+* glossaryId (integer) **required** - Glossary ID
+
+### getStyleGuides
 Get a list of style guides
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId"
-  ]
-}
+
+```js
+motaword.getStyleGuides({
+  "projectId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/StyleGuideList"
-}
-```
-## Operation: createStyleGuide
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+
+### createStyleGuide
 Upload a new style guide
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "styleguides[]": {
-      "type": "string",
-      "description": "You can add as many files as you want in styleguides[] parameter."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "styleguides[]"
-  ]
-}
+
+```js
+motaword.createStyleGuide({
+  "projectId": 0,
+  "styleguides[]": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/StyleGuide"
-}
-```
-## Operation: deleteStyleGuide
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+* styleguides[] (string) **required** - You can add as many files as you want in styleguides[] parameter.
+
+### deleteStyleGuide
 Delete the style guide
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "styleGuideId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Style Guide ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "styleGuideId"
-  ]
-}
+
+```js
+motaword.deleteStyleGuide({
+  "projectId": 0,
+  "styleGuideId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "status": {
-      "default": "success",
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: getStyleGuide
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+* styleGuideId (integer) **required** - Style Guide ID
+
+### getStyleGuide
 Get single style guide
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "styleGuideId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Style Guide ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "styleGuideId"
-  ]
-}
+
+```js
+motaword.getStyleGuide({
+  "projectId": 0,
+  "styleGuideId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/StyleGuide"
-}
-```
-## Operation: updteStyleGuide
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+* styleGuideId (integer) **required** - Style Guide ID
+
+### updteStyleGuide
 Update the style guide. File name and contents will replaced with the new one.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "styleGuideId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Style guide ID"
-    },
-    "styleguides": {
-      "type": "string",
-      "description": "Single file data. The name is plural to provide a consistent naming convention."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "styleGuideId",
-    "styleguides"
-  ]
-}
+
+```js
+motaword.updteStyleGuide({
+  "projectId": 0,
+  "styleGuideId": 0,
+  "styleguides": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/StyleGuide"
-}
-```
-## Operation: downloadStyleGuide
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+* styleGuideId (integer) **required** - Style guide ID
+* styleguides (string) **required** - Single file data. The name is plural to provide a consistent naming convention.
+
+### downloadStyleGuide
 Download a style guide
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Project ID"
-    },
-    "styleGuideId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Style Guide ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "styleGuideId"
-  ]
-}
+
+```js
+motaword.downloadStyleGuide({
+  "projectId": 0,
+  "styleGuideId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: downloadGlobalStyleGuide
+
+#### Parameters
+* projectId (integer) **required** - Project ID
+* styleGuideId (integer) **required** - Style Guide ID
+
+### downloadGlobalStyleGuide
 Download your corporate account's global style guide. This endpoint is available only for corporate account customers.
 
-### Input Schema
-```json
-{}
+
+```js
+motaword.downloadGlobalStyleGuide(null, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: updateGlobalStyleGuide
+
+
+### updateGlobalStyleGuide
 Update your corporate account's global style guide. This endpoint is available only for corporate account customers.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "styleguide": {
-      "type": "string",
-      "description": "Style guide file. Currently supported formats: .pdf, .docx, .txt\n"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "styleguide"
-  ]
-}
+
+```js
+motaword.updateGlobalStyleGuide({
+  "styleguide": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "status": {
-      "default": "success",
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: getAccessToken
+
+#### Parameters
+* styleguide (string) **required** - Style guide file. Currently supported formats: .pdf, .docx, .txt
+
+### getAccessToken
 MotaWord API is using OAuth2 procedures when authenticating or authorizing your API call. Currently, we only allow Client Credential type flow.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "grant_type": {
-      "type": "string",
-      "description": "OAuth2 grant type. Currently only 'client_credentials' available."
-    },
-    "Authorization": {
-      "type": "string",
-      "description": "HTTP Basic Authorization header."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "grant_type",
-    "Authorization"
-  ]
-}
+
+```js
+motaword.getAccessToken({
+  "grant_type": "",
+  "Authorization": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Token"
-}
-```
+
+#### Parameters
+* grant_type (string) **required** - OAuth2 grant type. Currently only 'client_credentials' available.
+* Authorization (string) **required** - HTTP Basic Authorization header.
+

@@ -1,4 +1,34 @@
 # @datafire/bigoven
+
+Client library for BigOven
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/bigoven
+```
+
+```js
+let datafire = require('datafire');
+let bigoven = require('@datafire/bigoven').actions;
+
+let account = {
+  api_key: "",
+  username: "",
+  password: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    bigoven: account,
+  }
+})
+
+
+bigoven.Recipe_RecentViews({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 #Documentation
 
 This is the documentation for the partner endpoint of the BigOven Recipe and Grocery List API.
@@ -25,603 +55,309 @@ See our [photos documentation](http://api2.bigoven.com/web/documentation/recipe-
 
 For more information on usage of this API, including features, pricing, rate limits, terms and conditions, please visit the [BigOven API website](http://api2.bigoven.com).
 
-## Operation: Collection_GetCollection
+## Actions
+### Collection_GetCollection
 Gets a recipe collection. A recipe collection is a curated set of recipes.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "the collection identifier"
-    },
-    "rpp": {
-      "type": "integer",
-      "format": "int32",
-      "description": "results per page"
-    },
-    "pg": {
-      "type": "integer",
-      "format": "int32",
-      "description": "page number (starting with 1)"
-    },
-    "test": {
-      "type": "boolean"
-    },
-    "sessionForLogging": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+bigoven.Collection_GetCollection({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.API2.RecipeSearchResult"
-}
-```
-## Operation: Collection_GetCollectionMeta
+
+#### Parameters
+* id (integer) **required** - the collection identifier
+* rpp (integer) - results per page
+* pg (integer) - page number (starting with 1)
+* test (boolean)
+* sessionForLogging (string)
+
+### Collection_GetCollectionMeta
 Gets a recipe collection metadata. A recipe collection is a curated set of recipes.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "the collection identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+bigoven.Collection_GetCollectionMeta({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.API2.CollectionInfo"
-}
-```
-## Operation: Collection_Collections
+
+#### Parameters
+* id (integer) **required** - the collection identifier
+
+### Collection_Collections
 Get the list of current, seasonal recipe collections. From here, you can use the /collection/{id} endpoint to retrieve the recipes in those collections.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "test": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+bigoven.Collection_Collections({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/BigOven.Model.API2.CollectionInfo"
-  },
-  "type": "array"
-}
-```
-## Operation: Glossary_ByTerm
+
+
+### Glossary_ByTerm
 Get food glossary article by term (e.g., asparagus). This editorial is (c) BigOven and MUST carry attribution and a link back to the glossary entry on BigOven.com.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "term": {
-      "type": "string",
-      "description": "Keyword used to look up article, e.g., asparagus"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "term"
-  ]
-}
+
+```js
+bigoven.Glossary_ByTerm({
+  "term": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.API.GlossaryEntry"
-}
-```
-## Operation: Glossary_Get
+
+#### Parameters
+* term (string) **required** - Keyword used to look up article, e.g., asparagus
+
+### Glossary_Get
 Get food glossary article
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "identifier of article to retrieve"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+bigoven.Glossary_Get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: GroceryList_Delete
+
+#### Parameters
+* id (integer) **required** - identifier of article to retrieve
+
+### GroceryList_Delete
 Delete all the items on a grocery list; faster operation than a sync with deleted items.
 
-### Input Schema
-```json
-{}
+
+```js
+bigoven.GroceryList_Delete(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/System.Object"
-}
-```
-## Operation: GroceryList_Get
+
+
+### GroceryList_Get
 Get the user's grocery list.  User is determined by Basic Authentication.
 
-### Input Schema
-```json
-{}
+
+```js
+bigoven.GroceryList_Get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.API2.GroceryList"
-}
-```
-## Operation: GroceryList_Department
+
+
+### GroceryList_Department
 Departmentalize a list of strings -- used for ad-hoc grocery list item addition
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "model": {
-      "$ref": "#/definitions/API2.Controllers.GroceryListController.DepartmentModel"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "model"
-  ]
-}
+
+```js
+bigoven.GroceryList_Department({
+  "model": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/API2.GroceryListDepartmentResult"
-  },
-  "type": "array"
-}
-```
-## Operation: GroceryList_Post
+
+#### Parameters
+* model (object) **required**
+
+### GroceryList_Post
 Add a single line item to the grocery list
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "newItem": {
-      "$ref": "#/definitions/API2.Controllers.GroceryListController.PostToGroceryListRecipeRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "newItem"
-  ]
-}
+
+```js
+bigoven.GroceryList_Post({
+  "newItem": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.ShoppingListLine"
-}
-```
-## Operation: GroceryList_DeleteItemByGuid
+
+#### Parameters
+* newItem (object) **required**
+
+### GroceryList_DeleteItemByGuid
 /grocerylist/item/{guid}  DELETE will delete this item assuming you own it.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "guid": {
-      "type": "string",
-      "description": ""
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "guid"
-  ]
-}
+
+```js
+bigoven.GroceryList_DeleteItemByGuid({
+  "guid": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/System.Object"
-}
-```
-## Operation: GroceryList_GroceryListItemGuid
+
+#### Parameters
+* guid (string) **required**
+
+### GroceryList_GroceryListItemGuid
 Update a grocery item by GUID
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "req": {
-      "$ref": "#/definitions/API2.Controllers.GroceryListController.UpdateItemByGuidRequest"
-    },
-    "guid": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "req",
-    "guid"
-  ]
-}
+
+```js
+bigoven.GroceryList_GroceryListItemGuid({
+  "req": {},
+  "guid": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/System.Object"
-}
-```
-## Operation: GroceryList_AddRecipe
+
+#### Parameters
+* req (object) **required**
+* guid (string) **required**
+
+### GroceryList_AddRecipe
 Add a Recipe to the grocery list.  In the request data, pass in recipeId, scale (scale=1.0 says to keep the recipe the same size as originally posted), markAsPending (true/false) to indicate that
             the lines in the recipe should be marked in a "pending" (unconfirmed by user) state.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/API2.Controllers.GroceryListController.PostGroceryListRecipeRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "data"
-  ]
-}
+
+```js
+bigoven.GroceryList_AddRecipe({
+  "data": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/System.Object"
-}
-```
-## Operation: GroceryList_PostGroceryListSync
+
+#### Parameters
+* data (object) **required**
+
+### GroceryList_PostGroceryListSync
 Synchronize the grocery list.  Call this with a POST to /grocerylist/sync
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "req": {
-      "$ref": "#/definitions/API2.Controllers.GroceryListController.PostGroceryListSyncRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "req"
-  ]
-}
+
+```js
+bigoven.GroceryList_PostGroceryListSync({
+  "req": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/System.Object"
-}
-```
-## Operation: Recipe_Post
+
+#### Parameters
+* req (object) **required**
+
+### Recipe_Post
 Add a new recipe
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipe": {
-      "$ref": "#/definitions/BigOven.Model.API.Recipe"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipe"
-  ]
-}
+
+```js
+bigoven.Recipe_Post({
+  "recipe": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.API.Recipe"
-}
-```
-## Operation: Recipe_Put
+
+#### Parameters
+* recipe (object) **required**
+
+### Recipe_Put
 Update a recipe
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipe": {
-      "$ref": "#/definitions/BigOven.Model.API.Recipe"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipe"
-  ]
-}
+
+```js
+bigoven.Recipe_Put({
+  "recipe": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.API.Recipe"
-}
-```
-## Operation: Recipe_AutoComplete
+
+#### Parameters
+* recipe (object) **required**
+
+### Recipe_AutoComplete
 Given a query, return recipe titles starting with query. Query must be at least 3 chars in length.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "query": {
-      "type": "string",
-      "description": ""
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": ""
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "query"
-  ]
-}
+
+```js
+bigoven.Recipe_AutoComplete({
+  "query": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "type": "string"
-  },
-  "type": "array"
-}
-```
-## Operation: Recipe_Categories
+
+#### Parameters
+* query (string) **required**
+* limit (integer)
+
+### Recipe_Categories
 Get a list of recipe categories (the ID field can be used for include_cat in search parameters)
 
-### Input Schema
-```json
-{}
+
+```js
+bigoven.Recipe_Categories(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/BigOven.Model.RecipeCategory"
-  },
-  "type": "array"
-}
-```
-## Operation: Review_DeleteReply
+
+
+### Review_DeleteReply
 DELETE a reply to a given review. Authenticated user must be the one who originally posted the reply.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "replyId": {
-      "type": "string",
-      "description": ""
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "replyId"
-  ]
-}
+
+```js
+bigoven.Review_DeleteReply({
+  "replyId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/System.Object"
-}
-```
-## Operation: Review_PutReply
+
+#### Parameters
+* replyId (string) **required**
+
+### Review_PutReply
 Update (PUT) a reply to a given review. Authenticated user must be the original one that posted the reply.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "replyId": {
-      "type": "string",
-      "description": ""
-    },
-    "data": {
-      "$ref": "#/definitions/API2.Controllers.ReviewController.PostReplyReq"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "replyId",
-    "data"
-  ]
-}
+
+```js
+bigoven.Review_PutReply({
+  "replyId": "",
+  "data": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.API.Reply"
-}
-```
-## Operation: recipe.review.reviewId.get
+
+#### Parameters
+* replyId (string) **required**
+* data (object) **required** - Reply request parameters
+
+### recipe.review.reviewId.get
 Get a given review by string-style ID. This will return a payload with FeaturedReply, ReplyCount.
             Recommended display is to list top-level reviews with one featured reply underneath. 
             Currently, the FeaturedReply is the most recent one for that rating.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "reviewId": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "reviewId"
-  ]
-}
+
+```js
+bigoven.recipe.review.reviewId.get({
+  "reviewId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.API.Review"
-}
-```
-## Operation: Review_Put
+
+#### Parameters
+* reviewId (string) **required**
+
+### Review_Put
 Update a given top-level review.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "reviewId": {
-      "type": "string",
-      "description": ""
-    },
-    "review": {
-      "$ref": "#/definitions/API2.Controllers.ReviewController.ReviewRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "reviewId",
-    "review"
-  ]
-}
+
+```js
+bigoven.Review_Put({
+  "reviewId": "",
+  "review": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.API.Review"
-}
-```
-## Operation: Review_GetReplies
+
+#### Parameters
+* reviewId (string) **required**
+* review (object) **required** - Payload for reviews
+
+### Review_GetReplies
 Get a paged list of replies for a given review.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "reviewId": {
-      "type": "string",
-      "description": ""
-    },
-    "pg": {
-      "type": "integer",
-      "format": "int32",
-      "description": "the page (int), starting with 1"
-    },
-    "rpp": {
-      "type": "integer",
-      "format": "int32",
-      "description": "results per page (int)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "reviewId"
-  ]
-}
+
+```js
+bigoven.Review_GetReplies({
+  "reviewId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/BigOven.Model.API.Reply"
-  },
-  "type": "array"
-}
-```
-## Operation: Review_PostReply
+
+#### Parameters
+* reviewId (string) **required**
+* pg (integer) - the page (int), starting with 1
+* rpp (integer) - results per page (int)
+
+### Review_PostReply
 POST a reply to a given review. The date will be set by server. Note that replies no longer have star ratings, only top-level reviews do.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "reviewId": {
-      "type": "string",
-      "description": ""
-    },
-    "data": {
-      "$ref": "#/definitions/API2.Controllers.ReviewController.PostReplyReq"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "reviewId",
-    "data"
-  ]
-}
+
+```js
+bigoven.Review_PostReply({
+  "reviewId": "",
+  "data": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.API.Reply"
-}
-```
-## Operation: Recipe_Scan
+
+#### Parameters
+* reviewId (string) **required**
+* data (object) **required** - Reply request parameters
+
+### Recipe_Scan
 POST an image as a new RecipeScan request
                 1)  Fetch the filename -- DONE
                 2)  Copy it to the pics/scan folder - ENSURE NO NAMING COLLISIONS -- DONE
@@ -632,121 +368,55 @@ POST an image as a new RecipeScan request
                 7)  Email the requesing user
                 8)  Call out to www.bigoven.com to fetch the image and re-create the thumbnail
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "test": {
-      "type": "boolean"
-    },
-    "devicetype": {
-      "type": "string"
-    },
-    "lat": {
-      "type": "number",
-      "format": "double"
-    },
-    "lng": {
-      "type": "number",
-      "format": "double"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+bigoven.Recipe_Scan({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Recipe_Delete
+
+
+### Recipe_Delete
 Delete a Recipe (you must be authenticated as an owner of the recipe)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+bigoven.Recipe_Delete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/System.Object"
-}
-```
-## Operation: Recipe_Get
+
+#### Parameters
+* id (integer) **required**
+
+### Recipe_Get
 Return full Recipe detail. Returns 403 if the recipe is owned by someone else.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "the Recipe ID to retrieve"
-    },
-    "prefetch": {
-      "type": "boolean"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+bigoven.Recipe_Get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.API2.Recipe"
-}
-```
-## Operation: Recipe_Feedback
+
+#### Parameters
+* id (integer) **required** - the Recipe ID to retrieve
+* prefetch (boolean)
+
+### Recipe_Feedback
 Feedback on a Recipe -- for internal BigOven editors
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipeId": {
-      "type": "integer",
-      "format": "int32",
-      "description": ""
-    },
-    "data": {
-      "$ref": "#/definitions/API2.Controllers.RecipeController.FeedbackDTO"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipeId",
-    "data"
-  ]
-}
+
+```js
+bigoven.Recipe_Feedback({
+  "recipeId": 0,
+  "data": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/System.Object"
-}
-```
-## Operation: Images_UploadRecipeImage
+
+#### Parameters
+* recipeId (integer) **required**
+* data (object) **required**
+
+### Images_UploadRecipeImage
 POST: /recipe/{recipeId}/image?lat=42&amp;lng=21&amp;caption=this%20is%20my%20caption
              
              Note that caption, lng and lat are all optional, but must go on the request URI as params because this endpoint
@@ -757,390 +427,187 @@ POST: /recipe/{recipeId}/image?lat=42&amp;lng=21&amp;caption=this%20is%20my%20ca
              2) On the request, click Body and choose "form-data", then add a line item with "key" column set to "file" and on the right,
              change the type of the input from Text to File.  Browse and choose a JPG.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipeId": {
-      "type": "string"
-    },
-    "caption": {
-      "type": "string"
-    },
-    "lat": {
-      "type": "number",
-      "format": "double"
-    },
-    "lng": {
-      "type": "number",
-      "format": "double"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipeId"
-  ]
-}
+
+```js
+bigoven.Images_UploadRecipeImage({
+  "recipeId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/System.Object"
-}
-```
-## Operation: Images_Get
+
+#### Parameters
+* recipeId (string) **required**
+* caption (string)
+* lat (number)
+* lng (number)
+
+### Images_Get
 Get all the images for a recipe. DEPRECATED. Please use /recipe/{recipeId}/photos.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipeId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Recipe ID (required)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipeId"
-  ]
-}
+
+```js
+bigoven.Images_Get({
+  "recipeId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/BigOven.Model.API.Image"
-  },
-  "type": "array"
-}
-```
-## Operation: Note_Post
+
+#### Parameters
+* recipeId (integer) **required** - Recipe ID (required)
+
+### Note_Post
 HTTP POST a new note into the system.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipeId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "recipeId (int)"
-    },
-    "note": {
-      "$ref": "#/definitions/API2.Controllers.NoteController.NoteRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipeId",
-    "note"
-  ]
-}
+
+```js
+bigoven.Note_Post({
+  "recipeId": 0,
+  "note": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.API2.RecipeNote"
-}
-```
-## Operation: Note_Delete
+
+#### Parameters
+* recipeId (integer) **required** - recipeId (int)
+* note (object) **required**
+
+### Note_Delete
 Delete a review
                 do a DELETE Http request of /note/{ID}
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipeId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "recipeId (int)"
-    },
-    "noteId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "noteId (int)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipeId",
-    "noteId"
-  ]
-}
+
+```js
+bigoven.Note_Delete({
+  "recipeId": 0,
+  "noteId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/System.Object"
-}
-```
-## Operation: Note_Get
+
+#### Parameters
+* recipeId (integer) **required** - recipeId (int)
+* noteId (integer) **required** - noteId (int)
+
+### Note_Get
 Get a given note. Make sure you're passing authentication information in the header for the user who owns the note.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipeId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "recipe identifier (integer)"
-    },
-    "noteId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The note ID (note -- it's not the RecipeID)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipeId",
-    "noteId"
-  ]
-}
+
+```js
+bigoven.Note_Get({
+  "recipeId": 0,
+  "noteId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.API.RecipeNote"
-}
-```
-## Operation: Note_Put
+
+#### Parameters
+* recipeId (integer) **required** - recipe identifier (integer)
+* noteId (integer) **required** - The note ID (note -- it's not the RecipeID)
+
+### Note_Put
 HTTP PUT (update) a Recipe note (RecipeNote).
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipeId": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "noteId": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "recipeNote": {
-      "$ref": "#/definitions/API2.Controllers.NoteController.NoteRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipeId",
-    "noteId",
-    "recipeNote"
-  ]
-}
+
+```js
+bigoven.Note_Put({
+  "recipeId": 0,
+  "noteId": 0,
+  "recipeNote": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.API.RecipeNote"
-}
-```
-## Operation: Note_GetNotes
+
+#### Parameters
+* recipeId (integer) **required**
+* noteId (integer) **required**
+* recipeNote (object) **required**
+
+### Note_GetNotes
 recipe/100/notes
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipeId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "recipeId (int)"
-    },
-    "pg": {
-      "type": "integer",
-      "format": "int32",
-      "description": "page (int, starting from 1)"
-    },
-    "rpp": {
-      "type": "integer",
-      "format": "int32",
-      "description": "recipeId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipeId"
-  ]
-}
+
+```js
+bigoven.Note_GetNotes({
+  "recipeId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.API.RecipeNoteList"
-}
-```
-## Operation: Images_GetRecipePhotos
+
+#### Parameters
+* recipeId (integer) **required** - recipeId (int)
+* pg (integer) - page (int, starting from 1)
+* rpp (integer) - recipeId
+
+### Images_GetRecipePhotos
 Get all the photos for a recipe
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipeId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Recipe ID (required)"
-    },
-    "pg": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "rpp": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipeId"
-  ]
-}
+
+```js
+bigoven.Images_GetRecipePhotos({
+  "recipeId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/API2.Controllers.ImagesController.RecipePhotosResponse"
-}
-```
-## Operation: Recipe_Related
+
+#### Parameters
+* recipeId (integer) **required** - Recipe ID (required)
+* pg (integer)
+* rpp (integer)
+
+### Recipe_Related
 Get recipes related to the given recipeId
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipeId": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "pg": {
-      "type": "integer",
-      "format": "int32",
-      "description": ""
-    },
-    "rpp": {
-      "type": "integer",
-      "format": "int32",
-      "description": ""
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipeId",
-    "pg",
-    "rpp"
-  ]
-}
+
+```js
+bigoven.Recipe_Related({
+  "recipeId": 0,
+  "pg": 0,
+  "rpp": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.API2.RecipeSearchResult"
-}
-```
-## Operation: recipe.recipeId.review.get
+
+#### Parameters
+* recipeId (integer) **required**
+* pg (integer) **required**
+* rpp (integer) **required**
+
+### recipe.recipeId.review.get
 Get *my* review for the recipe {recipeId}, where "me" is determined by standard authentication headers
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipeId": {
-      "type": "integer",
-      "format": "int32",
-      "description": ""
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipeId"
-  ]
-}
+
+```js
+bigoven.recipe.recipeId.review.get({
+  "recipeId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.API.Review"
-}
-```
-## Operation: Review_Post
+
+#### Parameters
+* recipeId (integer) **required**
+
+### Review_Post
 Add a new review. Only one review can be provided per {userId, recipeId} pair. Otherwise your review will be updated.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipeId": {
-      "type": "integer",
-      "format": "int32",
-      "description": ""
-    },
-    "data": {
-      "$ref": "#/definitions/API2.Controllers.ReviewController.ReviewRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipeId",
-    "data"
-  ]
-}
+
+```js
+bigoven.Review_Post({
+  "recipeId": 0,
+  "data": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/System.Object"
-}
-```
-## Operation: Review_Delete
+
+#### Parameters
+* recipeId (integer) **required**
+* data (object) **required** - Payload for reviews
+
+### Review_Delete
 Delete a review by recipeId and reviewId. DEPRECATED. Please see recipe/review/{reviewId} for the preferred method.
             (We are moving from an integer-based ID system to a GUID-style string-based ID system for reviews and replies.)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "reviewId": {
-      "type": "string",
-      "description": ""
-    },
-    "recipeId": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "reviewId",
-    "recipeId"
-  ]
-}
+
+```js
+bigoven.Review_Delete({
+  "reviewId": "",
+  "recipeId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/System.Object"
-}
-```
-## Operation: recipe.recipeId.review.reviewId.get
+
+#### Parameters
+* reviewId (string) **required**
+* recipeId (string) **required**
+
+### recipe.recipeId.review.reviewId.get
 Get a given review - DEPRECATED. See recipe/review/{reviewId} for the current usage.
             Beginning in January 2017, BigOven moded from an integer-based ID system to a GUID-style string-based ID system for reviews and replies.
             We are also supporting more of a "Google Play" style model for Reviews and Replies. That is, there are top-level Reviews and then
@@ -1148,141 +615,65 @@ Get a given review - DEPRECATED. See recipe/review/{reviewId} for the current us
             per recipe. Existing legacy endpoints will continue to work, but we strongly recommend you migrate to using the newer endpoints listed
             which do NOT carry the "DEPRECATED" flag.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "reviewId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "int"
-    },
-    "recipeId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "int"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "reviewId",
-    "recipeId"
-  ]
-}
+
+```js
+bigoven.recipe.recipeId.review.reviewId.get({
+  "reviewId": 0,
+  "recipeId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.API.Review"
-}
-```
-## Operation: Review_PutLegacy
+
+#### Parameters
+* reviewId (integer) **required** - int
+* recipeId (integer) **required** - int
+
+### Review_PutLegacy
 HTTP PUT (update) a recipe review. DEPRECATED. Please see recipe/review/{reviewId} PUT for the new endpoint.
             We are moving to a string-based primary key system, no longer integers, for reviews and replies.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "reviewId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "reviewId (int)"
-    },
-    "review": {
-      "$ref": "#/definitions/API2.Controllers.ReviewController.ReviewRequestLegacy"
-    },
-    "recipeId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "recipeId (int)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "reviewId",
-    "review",
-    "recipeId"
-  ]
-}
+
+```js
+bigoven.Review_PutLegacy({
+  "reviewId": 0,
+  "review": {},
+  "recipeId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.API.Review"
-}
-```
-## Operation: Review_GetReviews
+
+#### Parameters
+* reviewId (integer) **required** - reviewId (int)
+* review (object) **required** - Legacy -- This object here is deprecated. Please use the new "ReviewRequest" structure for all future development
+* recipeId (integer) **required** - recipeId (int)
+
+### Review_GetReviews
 Get paged list of reviews for a recipe. Each review will have at most one FeaturedReply, as well as a ReplyCount.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipeId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "recipe id (int)"
-    },
-    "pg": {
-      "type": "integer",
-      "format": "int32",
-      "description": "the page (int), starting with 1"
-    },
-    "rpp": {
-      "type": "integer",
-      "format": "int32",
-      "description": "results per page (int)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipeId"
-  ]
-}
+
+```js
+bigoven.Review_GetReviews({
+  "recipeId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/BigOven.Model.API.Review"
-  },
-  "type": "array"
-}
-```
-## Operation: Images_GetScanImages
+
+#### Parameters
+* recipeId (integer) **required** - recipe id (int)
+* pg (integer) - the page (int), starting with 1
+* rpp (integer) - results per page (int)
+
+### Images_GetScanImages
 Gets a list of RecipeScan images for the recipe. There will be at most 3 per recipe.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipeId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "the recipe identifier (int)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipeId"
-  ]
-}
+
+```js
+bigoven.Images_GetScanImages({
+  "recipeId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/BigOven.Model.API.Image"
-  },
-  "type": "array"
-}
-```
-## Operation: Recipe_RecipeSearch
+
+#### Parameters
+* recipeId (integer) **required** - the recipe identifier (int)
+
+### Recipe_RecipeSearch
 Search for recipes. There are many parameters that you can apply. Starting with the most common, use title_kw to search within a title.
             Use any_kw to search across the entire recipe.
             If you'd like to limit by course, set the parameter "include_primarycat" to one of (appetizers,bread,breakfast,dessert,drinks,maindish,salad,sidedish,soup,marinades,other).
@@ -1301,251 +692,36 @@ Search for recipes. There are many parameters that you can apply. Starting with 
             folder=FolderNameCaseSensitive
             coll=ID of Collection
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "any_kw": {
-      "type": "string",
-      "description": "Search anywhere in the recipe for the keyword"
-    },
-    "folder": {
-      "type": "string",
-      "description": "Search in a specific folder name for the authenticated user"
-    },
-    "coll": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Limit to a collection ID number"
-    },
-    "filter": {
-      "type": "string",
-      "description": "optionally set to either \"myrecipes\", \"try\", \"favorites\",\"added\" to filter to just the authenticated user's recipe set"
-    },
-    "title_kw": {
-      "type": "string",
-      "description": "Search just in the recipe title for the keyword"
-    },
-    "userId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Set the target userid to search their public recipes"
-    },
-    "username": {
-      "type": "string",
-      "description": "Set the target username to search their public recipes"
-    },
-    "token": {
-      "type": "string",
-      "description": ""
-    },
-    "photos": {
-      "type": "boolean",
-      "description": "if set to true, limit search results to photos only"
-    },
-    "boostmine": {
-      "type": "boolean",
-      "description": "if set to true, boost my own recipes in my folders so they show up high in the list (at the expense of other sort orders)"
-    },
-    "include_cat": {
-      "type": "string",
-      "description": "integer of the subcategory you'd like to limit searches to (see the /recipe/categories endpoint for available id numbers). For instance, 58 is \"Main Dish &gt; Casseroles\"."
-    },
-    "exclude_cat": {
-      "type": "string",
-      "description": "like include_cat, set this to an integer to exclude a specific category"
-    },
-    "include_primarycat": {
-      "type": "string",
-      "description": "csv indicating up to three top-level categories -- valid values are [appetizers,bread,breakfast,desserts,drinks,maindish,salads,sidedish,soups,marinades,other]"
-    },
-    "include_ing": {
-      "type": "string",
-      "description": "A CSV representing up to 3 ingredients to include, e.g., tomatoes,corn%20%starch,chicken"
-    },
-    "exclude_ing": {
-      "type": "string",
-      "description": "A CSV representing up to 3 ingredients to exclude  (Powersearch-capable plan required)"
-    },
-    "cuisine": {
-      "type": "string",
-      "description": "Limit to a specific cuisine. Cooks can enter anything free-form, but the few dozen preconfigured values are Afghan,African,American,American-South,Asian,Australian,Brazilian,Cajun,Canadian,Caribbean,Chinese,Croatian,Cuban,Dessert,Eastern European,English,French,German,Greek,Hawaiian,Hungarian,India,Indian,Irish,Italian,Japanese,Jewish,Korean,Latin,Mediterranean,Mexican,Middle Eastern,Moroccan,Polish,Russian,Scandanavian,Seafood,Southern,Southwestern,Spanish,Tex-Mex,Thai,Vegan,Vegetarian,Vietnamese"
-    },
-    "db": {
-      "type": "string",
-      "description": ""
-    },
-    "userset": {
-      "type": "string",
-      "description": "If set to a given username, it'll force the search to filter to just that username"
-    },
-    "rpp": {
-      "type": "integer",
-      "format": "int32",
-      "description": "integer; results per page"
-    },
-    "pg": {
-      "type": "integer",
-      "format": "int32",
-      "description": "integer: the page number"
-    },
-    "vtn": {
-      "type": "integer",
-      "format": "int32",
-      "description": "when set to 1, limit to vegetarian (Powersearch-capable plan required)"
-    },
-    "vgn": {
-      "type": "integer",
-      "format": "int32",
-      "description": "when set to 1, limit to vegan (Powersearch-capable plan required)"
-    },
-    "chs": {
-      "type": "integer",
-      "format": "int32",
-      "description": "when set to 1, limit to contains-cheese (Powersearch-capable plan required)"
-    },
-    "glf": {
-      "type": "integer",
-      "format": "int32",
-      "description": "when set to 1, limit to gluten-free (Powersearch-capable plan required)"
-    },
-    "ntf": {
-      "type": "integer",
-      "format": "int32",
-      "description": "when set to 1, limit to nut-free (Powersearch-capable plan required)"
-    },
-    "dyf": {
-      "type": "integer",
-      "format": "int32",
-      "description": "when set to 1, limit to dairy-free (Powersearch-capable plan required)"
-    },
-    "sff": {
-      "type": "integer",
-      "format": "int32",
-      "description": "when set to 1, limit to seafood-free (Powersearch-capable plan required)"
-    },
-    "slf": {
-      "type": "integer",
-      "format": "int32",
-      "description": "when set to 1, limit to shellfish-free (Powersearch-capable plan required)"
-    },
-    "tnf": {
-      "type": "integer",
-      "format": "int32",
-      "description": "when set to 1, limit to tree-nut free (Powersearch-capable plan required)"
-    },
-    "wmf": {
-      "type": "integer",
-      "format": "int32",
-      "description": "when set to 1, limit to white-meat free (Powersearch-capable plan required)"
-    },
-    "rmf": {
-      "type": "integer",
-      "format": "int32",
-      "description": "when set to 1, limit to red-meat free (Powersearch-capable plan required)"
-    },
-    "cps": {
-      "type": "integer",
-      "format": "int32",
-      "description": "when set to 1, recipe contains pasta, set to 0 means contains no pasta (Powersearch-capable plan required)"
-    },
-    "champion": {
-      "type": "integer",
-      "format": "int32",
-      "description": "optional. When set to 1, this will limit search results to \"best of\" recipes as determined by various internal editorial and programmatic algorithms. For the most comprehensive results, don't include this parameter."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+bigoven.Recipe_RecipeSearch({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.API2.RecipeSearchResult"
-}
-```
-## Operation: Recipe_GetRandomRecipe
+
+
+### Recipe_GetRandomRecipe
 Get a random, home-page-quality Recipe.
 
-### Input Schema
-```json
-{}
+
+```js
+bigoven.Recipe_GetRandomRecipe(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BigOven.Model.API.Recipe"
-}
-```
-## Operation: Recipe_Raves
+
+
+### Recipe_Raves
 Get the recipe/comment tuples for those recipes with 4 or 5 star ratings
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "pg": {
-      "type": "integer",
-      "format": "int32",
-      "description": "page, starting with 1"
-    },
-    "rpp": {
-      "type": "integer",
-      "format": "int32",
-      "description": "results per page"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+bigoven.Recipe_Raves({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/BigOven.Model.RecipeInfoReviewTuple2"
-  },
-  "type": "array"
-}
-```
-## Operation: Recipe_RecentViews
+
+
+### Recipe_RecentViews
 Get a list of recipes that the authenticated user has most recently viewed
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "pg": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Page number starting with 1"
-    },
-    "rpp": {
-      "type": "integer",
-      "format": "int32",
-      "description": "results per page"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+bigoven.Recipe_RecentViews({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/BigOven.Model.RecipeInfoDateTuple2"
-  },
-  "type": "array"
-}
-```
+
+

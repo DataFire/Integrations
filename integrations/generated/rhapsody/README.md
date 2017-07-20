@@ -1,497 +1,299 @@
 # @datafire/rhapsody
+
+Client library for Rhapsody
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/rhapsody
+```
+
+```js
+let datafire = require('datafire');
+let rhapsody = require('@datafire/rhapsody').actions;
+let context = new datafire.Context();
+
+rhapsody.artists.top.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Access Rhapsody technologies and content, including metadeta, search and music player.
 
-## Operation: artists.top.get
+## Actions
+### artists.top.get
 Returns a list of top artists.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "apikey": {
-      "type": "string"
-    },
-    "limit": {
-      "type": "string",
-      "description": ""
-    },
-    "offset": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "apikey"
-  ]
-}
+
+```js
+rhapsody.artists.top.get({
+  "apikey": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: artists.art.id.get
+
+#### Parameters
+* apikey (string) **required**
+* limit (string)
+* offset (string)
+
+### artists.art.id.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "apikey": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "apikey"
-  ]
-}
+
+```js
+rhapsody.artists.art.id.get({
+  "apikey": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: artists.art.id.full.get
+
+#### Parameters
+* apikey (string) **required**
+
+### artists.art.id.full.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "apikey": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "apikey"
-  ]
-}
+
+```js
+rhapsody.artists.art.id.full.get({
+  "apikey": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: artists.art.id.albums.get
+
+#### Parameters
+* apikey (string) **required**
+
+### artists.art.id.albums.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "apikey": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "apikey"
-  ]
-}
+
+```js
+rhapsody.artists.art.id.albums.get({
+  "apikey": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: artists.art.id.recommendations.get
+
+#### Parameters
+* apikey (string) **required**
+
+### artists.art.id.recommendations.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "apikey": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "apikey"
-  ]
-}
+
+```js
+rhapsody.artists.art.id.recommendations.get({
+  "apikey": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: artists.art.id.similar.get
+
+#### Parameters
+* apikey (string) **required**
+
+### artists.art.id.similar.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "apikey": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "apikey"
-  ]
-}
+
+```js
+rhapsody.artists.art.id.similar.get({
+  "apikey": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: artists.art.id.tracks.top.get
+
+#### Parameters
+* apikey (string) **required**
+
+### artists.art.id.tracks.top.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "apikey": {
-      "type": "string"
-    },
-    "limit": {
-      "type": "string",
-      "description": ""
-    },
-    "offset": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "apikey"
-  ]
-}
+
+```js
+rhapsody.artists.art.id.tracks.top.get({
+  "apikey": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: albums.top.get
+
+#### Parameters
+* apikey (string) **required**
+* limit (string)
+* offset (string)
+
+### albums.top.get
 Returns a list of top albums.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "apikey": {
-      "type": "string"
-    },
-    "limit": {
-      "type": "string",
-      "description": ""
-    },
-    "offset": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "apikey"
-  ]
-}
+
+```js
+rhapsody.albums.top.get({
+  "apikey": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: albums.new.get
+
+#### Parameters
+* apikey (string) **required**
+* limit (string)
+* offset (string)
+
+### albums.new.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "apikey": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "apikey"
-  ]
-}
+
+```js
+rhapsody.albums.new.get({
+  "apikey": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: albums.alb.id.get
+
+#### Parameters
+* apikey (string) **required**
+
+### albums.alb.id.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "apikey": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "apikey"
-  ]
-}
+
+```js
+rhapsody.albums.alb.id.get({
+  "apikey": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: albums.alb.id.tracks.get
+
+#### Parameters
+* apikey (string) **required**
+
+### albums.alb.id.tracks.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "apikey": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "apikey"
-  ]
-}
+
+```js
+rhapsody.albums.alb.id.tracks.get({
+  "apikey": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: albums.alb.id.similar.get
+
+#### Parameters
+* apikey (string) **required**
+
+### albums.alb.id.similar.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "apikey": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "apikey"
-  ]
-}
+
+```js
+rhapsody.albums.alb.id.similar.get({
+  "apikey": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: albums.alb.id.recommendations.get
+
+#### Parameters
+* apikey (string) **required**
+
+### albums.alb.id.recommendations.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "apikey": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "apikey"
-  ]
-}
+
+```js
+rhapsody.albums.alb.id.recommendations.get({
+  "apikey": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: albums.alb.id.reviews.get
+
+#### Parameters
+* apikey (string) **required**
+
+### albums.alb.id.reviews.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "apikey": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "apikey"
-  ]
-}
+
+```js
+rhapsody.albums.alb.id.reviews.get({
+  "apikey": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: search.typeahead.get
+
+#### Parameters
+* apikey (string) **required**
+
+### search.typeahead.get
 Returns a list of tracks, artists and albums based on the search term for authenticated users.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "apikey": {
-      "type": "string"
-    },
-    "q": {
-      "type": "string",
-      "description": "Typeahead search term."
-    },
-    "limit": {
-      "type": "string",
-      "description": ""
-    },
-    "offset": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "apikey",
-    "q"
-  ]
-}
+
+```js
+rhapsody.search.typeahead.get({
+  "apikey": "",
+  "q": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: tracks.top.get
+
+#### Parameters
+* apikey (string) **required**
+* q (string) **required** - Typeahead search term.
+* limit (string)
+* offset (string)
+
+### tracks.top.get
 Returns a list of top tracks.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "apikey": {
-      "type": "string"
-    },
-    "limit": {
-      "type": "string",
-      "description": ""
-    },
-    "offset": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "apikey"
-  ]
-}
+
+```js
+rhapsody.tracks.top.get({
+  "apikey": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: tracks.tra.id.get
+
+#### Parameters
+* apikey (string) **required**
+* limit (string)
+* offset (string)
+
+### tracks.tra.id.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "apikey": {
-      "type": "string"
-    },
-    "limit": {
-      "type": "string",
-      "description": ""
-    },
-    "offset": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "apikey"
-  ]
-}
+
+```js
+rhapsody.tracks.tra.id.get({
+  "apikey": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: tracks.tra.id.recommendations.get
+
+#### Parameters
+* apikey (string) **required**
+* limit (string)
+* offset (string)
+
+### tracks.tra.id.recommendations.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "apikey": {
-      "type": "string"
-    },
-    "limit": {
-      "type": "string",
-      "description": ""
-    },
-    "offset": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "apikey"
-  ]
-}
+
+```js
+rhapsody.tracks.tra.id.recommendations.get({
+  "apikey": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: genres.get
+
+#### Parameters
+* apikey (string) **required**
+* limit (string)
+* offset (string)
+
+### genres.get
 Returns a list of available genres.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "apikey": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "apikey"
-  ]
-}
+
+```js
+rhapsody.genres.get({
+  "apikey": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: genres.g.id.get
+
+#### Parameters
+* apikey (string) **required**
+
+### genres.g.id.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "apikey": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "apikey"
-  ]
-}
+
+```js
+rhapsody.genres.g.id.get({
+  "apikey": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* apikey (string) **required**
+

@@ -1,29 +1,45 @@
 # @datafire/versioneye
+
+Client library for Available API endpoints
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/versioneye
+```
+
+```js
+let datafire = require('datafire');
+let versioneye = require('@datafire/versioneye').actions;
+let context = new datafire.Context();
+
+versioneye.getProjects({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 VersionEye is a cross-platform search engine for free/libre/open source software libraries.
 
-## Operation: getFacebookPing
+## Actions
+### getFacebookPing
 ping pong
 
-### Input Schema
-```json
-{}
+
+```js
+versioneye.getFacebookPing(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postFacebookPing
+
+
+### postFacebookPing
 ping pong
 
-### Input Schema
-```json
-{}
+
+```js
+versioneye.postFacebookPing(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getGithub
+
+
+### getGithub
 
 This endpoint shows all imported repositories from your Github account.
 
@@ -35,70 +51,26 @@ If it shows no or old data, then you can use the `github/sync` endpoint
 to update your account with the current meta data from GitHub.
         
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "lang": {
-      "type": "string",
-      "description": "Filter by language"
-    },
-    "private": {
-      "type": "boolean",
-      "description": "Filter by visibility"
-    },
-    "org_name": {
-      "type": "string",
-      "description": "Filter by name of organization"
-    },
-    "org_type": {
-      "type": "string",
-      "description": "Filter by type of organization"
-    },
-    "page": {
-      "type": "string",
-      "description": "Number of page"
-    },
-    "only_imported": {
-      "type": "boolean",
-      "description": "Show only imported repositories"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+versioneye.getGithub({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postGithubHookProjectId
+
+
+### postGithubHookProjectId
 This endpoint is registered as service hook on GitHub. It triggers a project re-parse on each git push. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project_id": {
-      "type": "string",
-      "description": "Project ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project_id"
-  ]
-}
+
+```js
+versioneye.postGithubHookProjectId({
+  "project_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getGithubSync
+
+#### Parameters
+* project_id (string) **required** - Project ID
+
+### getGithubSync
 
 Reimports ALL GitHub Repositories. This Endpoint fetches meta information to all
 repositories in your GitHub account. Meta information such as repo name, branches and
@@ -108,15 +80,13 @@ This endpoint works asynchronously and returns a status code. The status code is
 **running** or **done**.
         
 
-### Input Schema
-```json
-{}
+
+```js
+versioneye.getGithubSync(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteGithubRepoKey
+
+
+### deleteGithubRepoKey
 
 This Endpoint deletes a project on VersionEye!
 
@@ -128,31 +98,18 @@ For example,  repository with fullname `versioneye/veye` has to transformed
 to `versioneye:veye`.
         
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "repo_key": {
-      "type": "string",
-      "description": "encoded repo-key"
-    },
-    "branch": {
-      "type": "string",
-      "description": "the name of the branch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "repo_key"
-  ]
-}
+
+```js
+versioneye.deleteGithubRepoKey({
+  "repo_key": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getGithubRepoKey
+
+#### Parameters
+* repo_key (string) **required** - encoded repo-key
+* branch (string) - the name of the branch
+
+### getGithubRepoKey
 
 This Endpoint returns detailed information about a GitHub repository.
 
@@ -164,27 +121,17 @@ For example,  repository with fullname `versioneye/veye` has to transformed
 to `versioneye:veye`.
         
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "repo_key": {
-      "type": "string",
-      "description": "encoded repo name with optional branch info."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "repo_key"
-  ]
-}
+
+```js
+versioneye.getGithubRepoKey({
+  "repo_key": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postGithubRepoKey
+
+#### Parameters
+* repo_key (string) **required** - encoded repo name with optional branch info.
+
+### postGithubRepoKey
 
 Use this Endpoint to import a project file from GitHub. This will create a new project on VersionEye.
 
@@ -196,94 +143,46 @@ For example,  repository with fullname `versioneye/veye` has to transformed
 to `versioneye:veye`.
         
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "repo_key": {
-      "type": "string",
-      "description": "encoded repo name"
-    },
-    "branch": {
-      "type": "string",
-      "description": "the name of the branch"
-    },
-    "file": {
-      "type": "string",
-      "description": "the project file (default is Gemfile)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "repo_key"
-  ]
-}
+
+```js
+versioneye.postGithubRepoKey({
+  "repo_key": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMe
+
+#### Parameters
+* repo_key (string) **required** - encoded repo name
+* branch (string) - the name of the branch
+* file (string) - the project file (default is Gemfile)
+
+### getMe
 On Swagger, you can create session by adding additional parameter :api_key.
 
-### Input Schema
-```json
-{}
+
+```js
+versioneye.getMe(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMeComments
+
+
+### getMeComments
 shows comments of authorized user
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "page number for pagination"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+versioneye.getMeComments({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMeFavorites
+
+
+### getMeFavorites
 shows the packages you are following
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "page number for pagination"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+versioneye.getMeFavorites({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMeNotifications
+
+
+### getMeNotifications
 
 This Endpoint returns the 30 latest notifications.
 
@@ -291,128 +190,69 @@ If there are new versions out there for software packages you follow directly on
 each new version is a new **notification** for your account.
         
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Specify page for paging"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+versioneye.getMeNotifications({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getOrganisations
+
+
+### getOrganisations
 
 This endpoint requires the API key from a user. The result is a set of organisations and their API keys.
               
 
-### Input Schema
-```json
-{}
+
+```js
+versioneye.getOrganisations(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getOrganisationsOrgaNameInventory
+
+
+### getOrganisationsOrgaNameInventory
 
 Find a detailed description here: https://github.com/versioneye/versioneye-api/blob/master/docs/api/v2/organisation.md
               
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "team_name": {
-      "type": "string",
-      "description": "Filter by team name"
-    },
-    "language": {
-      "type": "string",
-      "description": "Filter by programming language"
-    },
-    "project_version": {
-      "type": "string",
-      "description": "Filter down by project version"
-    },
-    "post_filter": {
-      "type": "string",
-      "description": "Post processing filter. Possible values are 'ALL', 'duplicates_only', 'show_duplicates'"
-    },
-    "orga_name": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "orga_name"
-  ]
-}
+
+```js
+versioneye.getOrganisationsOrgaNameInventory({
+  "orga_name": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getOrganisationsOrgaNameProjects
+
+#### Parameters
+* team_name (string) - Filter by team name
+* language (string) - Filter by programming language
+* project_version (string) - Filter down by project version
+* post_filter (string) - Post processing filter. Possible values are 'ALL', 'duplicates_only', 'show_duplicates'
+* orga_name (integer) **required**
+
+### getOrganisationsOrgaNameProjects
 Returns the list of projects
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "orga_name": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "orga_name"
-  ]
-}
+
+```js
+versioneye.getOrganisationsOrgaNameProjects({
+  "orga_name": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getOrganisationsOrgaNameTeams
+
+#### Parameters
+* orga_name (integer) **required**
+
+### getOrganisationsOrgaNameTeams
 Returns the list of teams
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "orga_name": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "orga_name"
-  ]
-}
+
+```js
+versioneye.getOrganisationsOrgaNameTeams({
+  "orga_name": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getProductsSearchQ
+
+#### Parameters
+* orga_name (integer) **required**
+
+### getProductsSearchQ
 
 This resource returns same results as our web application. But you get it as JSON objects -
 the result is an JSON array of product objects.
@@ -420,65 +260,35 @@ the result is an JSON array of product objects.
 When there's no match for the query, the result array will be empty.
               
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "q": {
-      "type": "string",
-      "description": "Query string. At least 2 characters."
-    },
-    "lang": {
-      "type": "string",
-      "description": "Filter results by programming languages;\n                                  For filtering multiple languages submit a comma separated list of language strings.\n                                "
-    },
-    "g": {
-      "type": "string",
-      "description": "Filter by GroupID. This is Java/Maven specific"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Specify page for paging"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "q"
-  ]
-}
+
+```js
+versioneye.getProductsSearchQ({
+  "q": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getProductsShaSha
+
+#### Parameters
+* q (string) **required** - Query string. At least 2 characters.
+* lang (string) - Filter results by programming languages;
+* g (string) - Filter by GroupID. This is Java/Maven specific
+* page (integer) - Specify page for paging
+
+### getProductsShaSha
 
 This Endpoint expects a SHA value and returns the corresponding product to it, if available.
               
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sha": {
-      "type": "integer",
-      "format": "int32"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sha"
-  ]
-}
+
+```js
+versioneye.getProductsShaSha({
+  "sha": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getProductsLangProdKey
+
+#### Parameters
+* sha (integer) **required**
+
+### getProductsLangProdKey
 
 Please replace all slashes `/` through colons `:` and all dots `.` through `~`!
 
@@ -491,36 +301,20 @@ Example: The clojure package `yummy.json/json` has to be transformed to  `yummy~
   * Response 302 means that you didnt encode prod_key correctly.* (Replace all dots & slashes ) *
               
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "lang": {
-      "type": "string",
-      "description": "\"Name of programming language\""
-    },
-    "prod_key": {
-      "type": "string",
-      "description": "\"Encoded product key, replace all `/` and `.`"
-    },
-    "prod_version": {
-      "type": "string",
-      "description": "\"Version string\""
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "lang",
-    "prod_key"
-  ]
-}
+
+```js
+versioneye.getProductsLangProdKey({
+  "lang": "",
+  "prod_key": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteProductsLangProdKeyFollow
+
+#### Parameters
+* lang (string) **required** - "Name of programming language"
+* prod_key (string) **required** - "Encoded product key, replace all `/` and `.`
+* prod_version (string) - "Version string"
+
+### deleteProductsLangProdKeyFollow
 
 Please replace all slashes `/` through colons `:` and all dots `.` through `~`!
 
@@ -533,32 +327,19 @@ Example: The clojure package `yummy.json/json` has to be transformed to  `yummy~
   * 403 - forbidden; you are not authorized; or just missed api_key;
         
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "lang": {
-      "type": "string",
-      "description": "Programming language"
-    },
-    "prod_key": {
-      "type": "string",
-      "description": "Package specifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "lang",
-    "prod_key"
-  ]
-}
+
+```js
+versioneye.deleteProductsLangProdKeyFollow({
+  "lang": "",
+  "prod_key": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getProductsLangProdKeyFollow
+
+#### Parameters
+* lang (string) **required** - Programming language
+* prod_key (string) **required** - Package specifier
+
+### getProductsLangProdKeyFollow
 
 Please replace all slashes `/` through colons `:` and all dots `.` through `~`!
 
@@ -570,32 +351,19 @@ This resource will returns the status code 404 if there is no product
 for the given prod_key.
               
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "lang": {
-      "type": "string",
-      "description": "\"Name of programming language\""
-    },
-    "prod_key": {
-      "type": "string",
-      "description": "Package specifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "lang",
-    "prod_key"
-  ]
-}
+
+```js
+versioneye.getProductsLangProdKeyFollow({
+  "lang": "",
+  "prod_key": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postProductsLangProdKeyFollow
+
+#### Parameters
+* lang (string) **required** - "Name of programming language"
+* prod_key (string) **required** - Package specifier
+
+### postProductsLangProdKeyFollow
 
 Please replace all slashes `/` through colons `:` and all dots `.` through `~`!
 
@@ -606,32 +374,19 @@ Example: The clojure package `yummy.json/json` has to be transformed to  `yummy~
 It will respond 404, when you are using wrong product key or encode it uncorrectly.
               
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "lang": {
-      "type": "string",
-      "description": "Programming language"
-    },
-    "prod_key": {
-      "type": "string",
-      "description": " Package product key. "
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "lang",
-    "prod_key"
-  ]
-}
+
+```js
+versioneye.postProductsLangProdKeyFollow({
+  "lang": "",
+  "prod_key": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getProductsLangProdKeyReferences
+
+#### Parameters
+* lang (string) **required** - Programming language
+* prod_key (string) **required** -  Package product key. 
+
+### getProductsLangProdKeyReferences
 
 It returns the references of a package.
 
@@ -645,37 +400,20 @@ This resource will return the status code 404 if there is no product for
 the given prod_key or the product has 0 references.
               
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "lang": {
-      "type": "string",
-      "description": "Language"
-    },
-    "prod_key": {
-      "type": "string",
-      "description": "Product Key"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Page for paging"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "lang",
-    "prod_key"
-  ]
-}
+
+```js
+versioneye.getProductsLangProdKeyReferences({
+  "lang": "",
+  "prod_key": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getProductsLangProdKeyVersions
+
+#### Parameters
+* lang (string) **required** - Language
+* prod_key (string) **required** - Product Key
+* page (integer) - Page for paging
+
+### getProductsLangProdKeyVersions
 
 Please replace all slashes `/` through colons `:` and all dots `.` through `~`!
 
@@ -688,79 +426,41 @@ Example: The clojure package `yummy.json/json` has to be transformed to  `yummy~
   * Response 302 means that you didnt encode prod_key correctly.* (Replace all dots & slashes ) *
               
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "lang": {
-      "type": "string",
-      "description": "\"Name of programming language\""
-    },
-    "prod_key": {
-      "type": "string",
-      "description": "\"Encoded product key, replace all `/` and `.`"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "lang",
-    "prod_key"
-  ]
-}
+
+```js
+versioneye.getProductsLangProdKeyVersions({
+  "lang": "",
+  "prod_key": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postProductsLangProdKeyProdVersionLicense
+
+#### Parameters
+* lang (string) **required** - "Name of programming language"
+* prod_key (string) **required** - "Encoded product key, replace all `/` and `.`
+
+### postProductsLangProdKeyProdVersionLicense
 With this endpoint users can suggest a license for an artifact.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "lang": {
-      "type": "string",
-      "description": " programming language "
-    },
-    "prod_key": {
-      "type": "string",
-      "description": " product key "
-    },
-    "prod_version": {
-      "type": "string",
-      "description": " product version "
-    },
-    "license_name": {
-      "type": "string",
-      "description": " name of the license "
-    },
-    "license_source": {
-      "type": "string",
-      "description": " source of the license. Where did you find it? "
-    },
-    "comments": {
-      "type": "string",
-      "description": " you wanna say anyting important to this license? "
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "lang",
-    "prod_key",
-    "prod_version",
-    "license_name",
-    "license_source"
-  ]
-}
+
+```js
+versioneye.postProductsLangProdKeyProdVersionLicense({
+  "lang": "",
+  "prod_key": "",
+  "prod_version": "",
+  "license_name": "",
+  "license_source": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postProductsLangProdKeyProdVersionScmChanges
+
+#### Parameters
+* lang (string) **required** -  programming language 
+* prod_key (string) **required** -  product key 
+* prod_version (string) **required** -  product version 
+* license_name (string) **required** -  name of the license 
+* license_source (string) **required** -  source of the license. Where did you find it? 
+* comments (string) -  you wanna say anyting important to this license? 
+
+### postProductsLangProdKeyProdVersionScmChanges
 
 This resource can parse a changelog.xml from the maven-changelog-plugin, assign
 it to a specific artifact and display the changelog infos on the product page.
@@ -774,113 +474,54 @@ Example: The clojure package `yummy.json/json` has to be transformed to  `yummy~
 It will respond 404, when you are using wrong product key or encode it uncorrectly.
               
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "lang": {
-      "type": "string",
-      "description": " programming language "
-    },
-    "prod_key": {
-      "type": "string",
-      "description": " product key "
-    },
-    "prod_version": {
-      "type": "string",
-      "description": " product version "
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "lang",
-    "prod_key",
-    "prod_version"
-  ]
-}
+
+```js
+versioneye.postProductsLangProdKeyProdVersionScmChanges({
+  "lang": "",
+  "prod_key": "",
+  "prod_version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getProjects
+
+#### Parameters
+* lang (string) **required** -  programming language 
+* prod_key (string) **required** -  product key 
+* prod_version (string) **required** -  product version 
+
+### getProjects
 
 To use this resource you need either an active session or you have to append
 your API Key to the URL as parameter. For example: "?api_key=666_your_api_key_666"
             
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "orga_name": {
-      "type": "string",
-      "description": "The name of the organisation the project is assigned to."
-    },
-    "team_name": {
-      "type": "string",
-      "description": "The name of the team in the organisation this project is assigned to."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+versioneye.getProjects({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postProjects
+
+
+### postProjects
 
 To use this resource you need either an active session or you have to append
 your API Key to the URL as parameter. For example: "?api_key=666_your_api_key_666"
             
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "upload": {
-      "type": "string",
-      "description": "Project file - [maven.pom, Gemfile ...]"
-    },
-    "visibility": {
-      "type": "string",
-      "description": "By default 'public'. If 'public' everybody can see the project."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the VersionEye project. By default it is the filename."
-    },
-    "orga_name": {
-      "type": "string",
-      "description": "The name of the organisation this project should be assigned to."
-    },
-    "team_name": {
-      "type": "string",
-      "description": "The name of the team in the organisation this project should be assigned to."
-    },
-    "temp": {
-      "type": "string",
-      "description": "If 'true' this project will not show up in the UI and gets removed later."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "upload"
-  ]
-}
+
+```js
+versioneye.postProjects({
+  "upload": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getProjectsGroupIdArtifactIdMergeGaChildId
+
+#### Parameters
+* upload (string) **required** - Project file - [maven.pom, Gemfile ...]
+* visibility (string) - By default 'public'. If 'public' everybody can see the project.
+* name (string) - The name of the VersionEye project. By default it is the filename.
+* orga_name (string) - The name of the organisation this project should be assigned to.
+* team_name (string) - The name of the team in the organisation this project should be assigned to.
+* temp (string) - If 'true' this project will not show up in the UI and gets removed later.
+
+### getProjectsGroupIdArtifactIdMergeGaChildId
 
 This endpoint merges a project (child_id) into another project (group_id/artifact_id).
 This endpoint is specially for Maven based projects!
@@ -888,69 +529,40 @@ To use this resource you need either an active session or you have to append
 your API Key to the URL as parameter. For example: "?api_key=666_your_api_key_666"
             
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "group_id": {
-      "type": "string",
-      "description": "GroupId of the parent project"
-    },
-    "artifact_id": {
-      "type": "string",
-      "description": "ArtifactId of the parent project"
-    },
-    "child_id": {
-      "type": "string",
-      "description": "Project ID of the child"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "group_id",
-    "artifact_id",
-    "child_id"
-  ]
-}
+
+```js
+versioneye.getProjectsGroupIdArtifactIdMergeGaChildId({
+  "group_id": "",
+  "artifact_id": "",
+  "child_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getProjectsParentIdMergeChildId
+
+#### Parameters
+* group_id (string) **required** - GroupId of the parent project
+* artifact_id (string) **required** - ArtifactId of the parent project
+* child_id (string) **required** - Project ID of the child
+
+### getProjectsParentIdMergeChildId
 
 This endpoint merges a project (child_id) into another project (parent_id).
 To use this resource you need either an active session or you have to append
 your API Key to the URL as parameter. For example: "?api_key=666_your_api_key_666"
             
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "parent_id": {
-      "type": "string",
-      "description": "Project ID of the parent"
-    },
-    "child_id": {
-      "type": "string",
-      "description": "Project ID of the child"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "parent_id",
-    "child_id"
-  ]
-}
+
+```js
+versioneye.getProjectsParentIdMergeChildId({
+  "parent_id": "",
+  "child_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getProjectsParentIdUnmergeChildId
+
+#### Parameters
+* parent_id (string) **required** - Project ID of the parent
+* child_id (string) **required** - Project ID of the child
+
+### getProjectsParentIdUnmergeChildId
 
 This endpoint unmerges a project (child_id) from another project (parent_id). It makes the
 chilld again a separate project!
@@ -958,341 +570,195 @@ To use this resource you need either an active session or you have to append
 your API Key to the URL as parameter. For example: "?api_key=666_your_api_key_666"
             
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "parent_id": {
-      "type": "string",
-      "description": "Project ID of the parent"
-    },
-    "child_id": {
-      "type": "string",
-      "description": "Project ID of the child"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "parent_id",
-    "child_id"
-  ]
-}
+
+```js
+versioneye.getProjectsParentIdUnmergeChildId({
+  "parent_id": "",
+  "child_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteProjectsProjectKey
+
+#### Parameters
+* parent_id (string) **required** - Project ID of the parent
+* child_id (string) **required** - Project ID of the child
+
+### deleteProjectsProjectKey
 
 To use this resource you need either an active session or you have to append
 your API Key to the URL as parameter. For example: "?api_key=666_your_api_key_666"
             
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project_key": {
-      "type": "string",
-      "description": "Delete project with given project ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project_key"
-  ]
-}
+
+```js
+versioneye.deleteProjectsProjectKey({
+  "project_key": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getProjectsProjectKey
+
+#### Parameters
+* project_key (string) **required** - Delete project with given project ID.
+
+### getProjectsProjectKey
  It shows detailed info of your project. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project_key": {
-      "type": "string",
-      "description": "Project ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project_key"
-  ]
-}
+
+```js
+versioneye.getProjectsProjectKey({
+  "project_key": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postProjectsProjectKey
+
+#### Parameters
+* project_key (string) **required** - Project ID
+
+### postProjectsProjectKey
 
 To use this resource you need either an active session or you have to append
 your API Key to the URL as parameter. For example: "?api_key=666_your_api_key_666"
             
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project_key": {
-      "type": "string",
-      "description": "Project ID"
-    },
-    "project_file": {
-      "type": "string",
-      "description": "Project file - [maven.pom, Gemfile ...]"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project_key",
-    "project_file"
-  ]
-}
+
+```js
+versioneye.postProjectsProjectKey({
+  "project_key": "",
+  "project_file": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getProjectsProjectKeyLicenses
+
+#### Parameters
+* project_key (string) **required** - Project ID
+* project_file (string) **required** - Project file - [maven.pom, Gemfile ...]
+
+### getProjectsProjectKeyLicenses
 
 To use this resource you need either an active session or you have to append
 your API Key to the URL as parameter. For example: "?api_key=666_your_api_key_666"
             
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project_key": {
-      "type": "string",
-      "description": "Project ID or project_key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project_key"
-  ]
-}
+
+```js
+versioneye.getProjectsProjectKeyLicenses({
+  "project_key": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getSecurity
+
+#### Parameters
+* project_key (string) **required** - Project ID or project_key
+
+### getSecurity
 Security Vulnerabilities
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "language": {
-      "type": "string",
-      "description": "Filter by programming languages"
-    },
-    "prod_key": {
-      "type": "string",
-      "description": "prod_key of the package"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Specify page for paging"
-    },
-    "asc_sort": {
-      "type": "string",
-      "description": "Asc sort by value"
-    },
-    "desc_sort": {
-      "type": "string",
-      "description": "Desc sort by value"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "language"
-  ]
-}
+
+```js
+versioneye.getSecurity({
+  "language": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getServicesPing
+
+#### Parameters
+* language (string) **required** - Filter by programming languages
+* prod_key (string) - prod_key of the package
+* page (integer) - Specify page for paging
+* asc_sort (string) - Asc sort by value
+* desc_sort (string) - Desc sort by value
+
+### getServicesPing
 check is the service up and running
 
-### Input Schema
-```json
-{}
+
+```js
+versioneye.getServicesPing(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteSessions
+
+
+### deleteSessions
 Close current session. It's very handy method when you re-generated your current API-key.
 
-### Input Schema
-```json
-{}
+
+```js
+versioneye.deleteSessions(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getSessions
+
+
+### getSessions
 
 If current user has active session, then this
 method will return 200 with short user profile.
 For othercase, it will return error message with status code 401.
               
 
-### Input Schema
-```json
-{}
+
+```js
+versioneye.getSessions(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postSessions
+
+
+### postSessions
  You need to append your api_key to request. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api_key": {
-      "type": "string",
-      "description": "your personal token for API."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api_key"
-  ]
-}
+
+```js
+versioneye.postSessions({
+  "api_key": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postSessionsLogin
+
+#### Parameters
+* api_key (string) **required** - your personal token for API.
+
+### postSessionsLogin
  You need to append your api_key to request. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "email or username"
-    },
-    "password": {
-      "type": "string",
-      "description": "password"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "password"
-  ]
-}
+
+```js
+versioneye.postSessionsLogin({
+  "username": "",
+  "password": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getUsersUsername
+
+#### Parameters
+* username (string) **required** - email or username
+* password (string) **required** - password
+
+### getUsersUsername
 shows profile of given user_id
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "username"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+versioneye.getUsersUsername({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getUsersUsernameComments
+
+#### Parameters
+* username (string) **required** - username
+
+### getUsersUsernameComments
 shows user's comments
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "VersionEye users' nickname"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "pagination number"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+versioneye.getUsersUsernameComments({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getUsersUsernameFavorites
+
+#### Parameters
+* username (string) **required** - VersionEye users' nickname
+* page (integer) - pagination number
+
+### getUsersUsernameFavorites
 shows user's favorite packages
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "username"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Pagination number"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+versioneye.getUsersUsernameFavorites({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* username (string) **required** - username
+* page (integer) - Pagination number
+

@@ -1,55 +1,59 @@
 # @datafire/cnn_rss
 
+Client library for rss.cnn.com
 
-## Operation: topStories
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/cnn_rss
+```
+
+```js
+let datafire = require('datafire');
+let cnn_rss = require('@datafire/cnn_rss').actions;
+let context = new datafire.Context();
+
+cnn_rss.topStories({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
+
+
+## Actions
+### topStories
 CNN.com delivers up-to-the-minute news and information on the latest top stories, weather, entertainment, politics and more.
 
-### Input Schema
-```json
-{}
+
+```js
+cnn_rss.topStories(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Feed"
-}
-```
-## Operation: world
+
+
+### world
 CNN.com delivers up-to-the-minute news and information on the latest top stories, weather, entertainment, politics and more.
 
-### Input Schema
-```json
-{}
+
+```js
+cnn_rss.world(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Feed"
-}
-```
-## Operation: politics
+
+
+### politics
 CNN.com delivers up-to-the-minute news and information on the latest top stories, weather, entertainment, politics and more.
 
-### Input Schema
-```json
-{}
+
+```js
+cnn_rss.politics(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Feed"
-}
-```
-## Operation: business
+
+
+### business
 CNNMoney.com, the business website of CNN, combines business news and in-depth market analysis with practical advice and answers to personal finance questions.
 
-### Input Schema
-```json
-{}
+
+```js
+cnn_rss.business(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Feed"
-}
-```
+
+

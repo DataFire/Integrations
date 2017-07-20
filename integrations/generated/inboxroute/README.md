@@ -1,200 +1,118 @@
 # @datafire/inboxroute
+
+Client library for Mailsquad
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/inboxroute
+```
+
+```js
+let datafire = require('datafire');
+let inboxroute = require('@datafire/inboxroute').actions;
+
+let account = {
+  mqApiKey: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    inboxroute: account,
+  }
+})
+
+
+inboxroute.contacts.lists.post({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 MailSquad offers an affordable and super easy way to create, send and track delightful emails.
 
-## Operation: contacts.get
+## Actions
+### contacts.get
 Get a paged result of contacts from a list
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "listid": {
-      "type": "string",
-      "description": "Unique 16 characters ID of the contact list to get contacts of"
-    },
-    "offset": {
-      "type": "integer",
-      "description": "Skip that many records"
-    },
-    "limit": {
-      "type": "integer",
-      "description": "Maximum number of items in page"
-    },
-    "sort": {
-      "type": "string",
-      "description": "Property to sort by. Append '-' for descending order."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+inboxroute.contacts.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ContactPage"
-}
-```
-## Operation: contacts.lists.get
+
+
+### contacts.lists.get
 Get a paged result of contact lists.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "offset": {
-      "type": "integer",
-      "description": "Skip that many records"
-    },
-    "limit": {
-      "type": "integer",
-      "description": "Maximum number of items in page"
-    },
-    "sort": {
-      "type": "string",
-      "description": "Property to sort by. Append '-' for descending order."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+inboxroute.contacts.lists.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ContactListPage"
-}
-```
-## Operation: contacts.lists.post
+
+
+### contacts.lists.post
 Add a new contact list
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "contactlist": {
-      "$ref": "#/definitions/ContactListUpdate"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+inboxroute.contacts.lists.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NewId"
-}
-```
-## Operation: contacts.lists.listid.delete
+
+
+### contacts.lists.listid.delete
 Delete an existing contact list
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "listid": {
-      "type": "string",
-      "description": "Unique 16 characters ID of the contact list"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "listid"
-  ]
-}
+
+```js
+inboxroute.contacts.lists.listid.delete({
+  "listid": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: contacts.lists.listid.put
+
+#### Parameters
+* listid (string) **required** - Unique 16 characters ID of the contact list
+
+### contacts.lists.listid.put
 Update an existing contact list
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "listid": {
-      "type": "string",
-      "description": "Unique 16 characters ID of the contact list"
-    },
-    "contactlist": {
-      "$ref": "#/definitions/ContactListUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "listid"
-  ]
-}
+
+```js
+inboxroute.contacts.lists.listid.put({
+  "listid": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: contacts.contactid.delete
+
+#### Parameters
+* listid (string) **required** - Unique 16 characters ID of the contact list
+* contactlist (undefined)
+
+### contacts.contactid.delete
 Delete an existing contact
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "contactid": {
-      "type": "string",
-      "description": "Unique 16 characters ID of the contact"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "contactid"
-  ]
-}
+
+```js
+inboxroute.contacts.contactid.delete({
+  "contactid": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: contacts.contactid.put
+
+#### Parameters
+* contactid (string) **required** - Unique 16 characters ID of the contact
+
+### contacts.contactid.put
 Update an existing contact
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "contactid": {
-      "type": "string",
-      "description": "Unique 16 characters ID of the contact"
-    },
-    "contact": {
-      "$ref": "#/definitions/ContactUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "contactid",
-    "contact"
-  ]
-}
+
+```js
+inboxroute.contacts.contactid.put({
+  "contactid": "",
+  "contact": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: subscription.listid.post
+
+#### Parameters
+* contactid (string) **required** - Unique 16 characters ID of the contact
+* contact (undefined) **required**
+
+### subscription.listid.post
 Subscribe an email address to a list. This api call has the same behavior as
 a regular subscribe form. However, single opt-in is allowed for system integration
 purposes.
@@ -207,27 +125,15 @@ purposes.
   you must provide the subscribe's origin ip and confirmation date-time.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "listid": {
-      "type": "string",
-      "description": "Unique 16 characters ID of the contact list"
-    },
-    "subscription": {
-      "$ref": "#/definitions/SubscriptionRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "listid",
-    "subscription"
-  ]
-}
+
+```js
+inboxroute.subscription.listid.post({
+  "listid": "",
+  "subscription": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* listid (string) **required** - Unique 16 characters ID of the contact list
+* subscription (undefined) **required**
+

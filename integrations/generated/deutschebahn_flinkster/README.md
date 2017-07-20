@@ -1,4 +1,23 @@
 # @datafire/deutschebahn_flinkster
+
+Client library for Flinkster_API_NG
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/deutschebahn_flinkster
+```
+
+```js
+let datafire = require('datafire');
+let deutschebahn_flinkster = require('@datafire/deutschebahn_flinkster').actions;
+let context = new datafire.Context();
+
+deutschebahn_flinkster.listBookingProposals({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 This REST-API enables you to query for private transport sharing offers provided by companies and cities in Germany, Netherland and Austria. 
 You can search for informations about the rental stations (points or areas) where you can find the rentals by utilizing the /areas/ ressource. 
 With the help of the proximity search in the /bookingproposals/ URI you can request the availabilities of the rentalobjects for spontaneous or planed usage in the future. 
@@ -11,320 +30,134 @@ You can find more details in the documentation section (Unfortunately only avail
 
 Have lots of fun and we are lucky to take notice of your products or getting your feedback.
 
-## Operation: listAreas
+## Actions
+### listAreas
 Search for areas (locations of rental objects) by criteria.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "lat": {
-      "type": "number",
-      "format": "double"
-    },
-    "lon": {
-      "type": "number",
-      "format": "double"
-    },
-    "radius": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "expand": {
-      "type": "string"
-    },
-    "type": {
-      "type": "string"
-    },
-    "provider": {
-      "type": "string"
-    },
-    "providernetwork": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+deutschebahn_flinkster.listAreas({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AreaJO"
-}
-```
-## Operation: getArea
+
+
+### getArea
 Search for a specific area by UID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "areaUID": {
-      "type": "string",
-      "description": "The Area UID "
-    },
-    "expand": {
-      "type": "string",
-      "description": "Expand Provider"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "areaUID"
-  ]
-}
+
+```js
+deutschebahn_flinkster.getArea({
+  "areaUID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AreaJO"
-}
-```
-## Operation: listBookingProposals
+
+#### Parameters
+* areaUID (string) **required** - The Area UID 
+* expand (string) - Expand Provider
+
+### listBookingProposals
 Here you can query all bookable Rental Objects with different Parameters (Time, Location,...)
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "lat": {
-      "type": "number",
-      "format": "double"
-    },
-    "lon": {
-      "type": "number",
-      "format": "double"
-    },
-    "radius": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "providernetwork": {
-      "type": "string"
-    },
-    "begin": {
-      "type": "string"
-    },
-    "end": {
-      "type": "string"
-    },
-    "expand": {
-      "type": "string"
-    },
-    "view": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+deutschebahn_flinkster.listBookingProposals({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RentalObjectJO"
-}
-```
-## Operation: getIndex
+
+
+### getIndex
 Show Service index.
 
-### Input Schema
-```json
-{}
+
+```js
+deutschebahn_flinkster.getIndex(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/JsonCollection"
-}
-```
-## Operation: listCategories
+
+
+### listCategories
 Search for categorie.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "providernetworkUID": {
-      "type": "string"
-    },
-    "expand": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "providernetworkUID"
-  ]
-}
+
+```js
+deutschebahn_flinkster.listCategories({
+  "providernetworkUID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CategoryJO"
-}
-```
-## Operation: getCategory
+
+#### Parameters
+* providernetworkUID (string) **required**
+* expand (string)
+
+### getCategory
 Search for categorie.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "providernetworkUID": {
-      "type": "string",
-      "description": "Provider Network UID"
-    },
-    "categoryUID": {
-      "type": "string"
-    },
-    "expand": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "providernetworkUID",
-    "categoryUID"
-  ]
-}
+
+```js
+deutschebahn_flinkster.getCategory({
+  "providernetworkUID": "",
+  "categoryUID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CategoryJO"
-}
-```
-## Operation: getPrices
+
+#### Parameters
+* providernetworkUID (string) **required** - Provider Network UID
+* categoryUID (string) **required**
+* expand (string)
+
+### getPrices
 Prices of a rental object by query params. The params depend on the price determination strategy of the provider network.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "providernetworkUID": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "providernetworkUID"
-  ]
-}
+
+```js
+deutschebahn_flinkster.getPrices({
+  "providernetworkUID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RentalObjectJO"
-}
-```
-## Operation: getRentalObject
+
+#### Parameters
+* providernetworkUID (string) **required**
+
+### getRentalObject
 Get information about the Rental Object.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "rentalObjectUID": {
-      "type": "string"
-    },
-    "providernetworkUID": {
-      "type": "string"
-    },
-    "expand": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "rentalObjectUID",
-    "providernetworkUID"
-  ]
-}
+
+```js
+deutschebahn_flinkster.getRentalObject({
+  "rentalObjectUID": "",
+  "providernetworkUID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RentalObjectJO"
-}
-```
-## Operation: getProviderNetwork
+
+#### Parameters
+* rentalObjectUID (string) **required**
+* providernetworkUID (string) **required**
+* expand (string)
+
+### getProviderNetwork
 Get information about the ProviderNetworkResources.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "uid": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "uid"
-  ]
-}
+
+```js
+deutschebahn_flinkster.getProviderNetwork({
+  "uid": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RentalObjectJO"
-}
-```
-## Operation: getProvider
+
+#### Parameters
+* uid (string) **required**
+
+### getProvider
 Get information about the ProviderResourcesCtrl.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "uid": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "uid"
-  ]
-}
+
+```js
+deutschebahn_flinkster.getProvider({
+  "uid": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RentalObjectJO"
-}
-```
+
+#### Parameters
+* uid (string) **required**
+

@@ -1,139 +1,90 @@
 # @datafire/box_upload
+
+Client library for Box 2.0 Uploads
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/box_upload
+```
+
+```js
+let datafire = require('datafire');
+let box_upload = require('@datafire/box_upload').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    box_upload: account,
+  }
+})
+
+
+box_upload.uploadFile({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 The Box Uploads API allows users to add a new file or add a new file version in the same way as uploading file.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+box_upload.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+box_upload.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: uploadFile
+
+
+### uploadFile
 Use the Uploads API to allow users to add a new file.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "file": {
-      "type": "string",
-      "description": "File to upload"
-    },
-    "attributes": {
-      "type": "string",
-      "description": "File attributes"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "file",
-    "attributes"
-  ]
-}
+
+```js
+box_upload.uploadFile({
+  "file": "",
+  "attributes": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/FileList"
-}
-```
-## Operation: uploadFileVersion
+
+#### Parameters
+* file (string) **required** - File to upload
+* attributes (string) **required** - File attributes
+
+### uploadFileVersion
 This method is used to upload a new version of an existing file in a user’s account. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "FILE_ID": {
-      "type": "string"
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "This is in the ‘etag’ field of the file object"
-    },
-    "attributes": {
-      "type": "string",
-      "description": "File attributes"
-    },
-    "file": {
-      "type": "string",
-      "description": "File to upload"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "FILE_ID",
-    "file"
-  ]
-}
+
+```js
+box_upload.uploadFileVersion({
+  "FILE_ID": "",
+  "file": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/FileList"
-}
-```
+
+#### Parameters
+* FILE_ID (string) **required**
+* If-Match (string) - This is in the ‘etag’ field of the file object
+* attributes (string) - File attributes
+* file (string) **required** - File to upload
+

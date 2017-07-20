@@ -1,3605 +1,1647 @@
 # @datafire/data2crm
+
+Client library for Data2CRM.API
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/data2crm
+```
+
+```js
+let datafire = require('datafire');
+let data2crm = require('@datafire/data2crm').actions;
+let context = new datafire.Context();
+
+data2crm.getAccountCollection({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 <p>Make use of our in-depth documentation to get more information about the various functions of the service. Those willing to explore the mechanics of Data2CRM.API can test it in live regime using the short code samples.</p><p>Select CRM: <span id="docs-select-crm" style="font-weight: bold">Loading... please wait</span></p><p>Here are the API access keys:<br><b>X-API2CRM-USERKEY</b>: <span id="docs-user-key">e2a6379ab878ae7e58119d4ec842bf9c926e05b5</span><br><b>X-API2CRM-CRMKEY</b>: <span id="docs-crm-key">7ae5b17008fb414d84981191cf3b66a476ef8bef</span></p><p id="docs-crm-access">The CRM access details are:<br><b>URL</b>: <a id="docs-crm-url" href="https://login.salesforce.com/" target="_blank">https://login.salesforce.com/</a><br><b>E-mail / Username</b>: <span id="docs-crm-username">developers.data2crm.api+1@magneticone.com</span><br><b>Password</b>: <span id="docs-crm-password">data2crmapi123</span></p>
 
-## Operation: getAccountCollection
+## Actions
+### getAccountCollection
 Returns all accounts from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "X-API2CRM-DATA-ENABLE": {
-      "type": "string",
-      "description": "Data Enable",
-      "enum": [
-        "false",
-        "true"
-      ]
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Amount of results (default: 25)"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Start from record (default: 0)"
-    },
-    "filter": {
-      "type": "string",
-      "description": "Filter"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getAccountCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Account"
-  },
-  "type": "array"
-}
-```
-## Operation: createAccountEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* X-API2CRM-DATA-ENABLE (string) - Data Enable
+* limit (integer) - Amount of results (default: 25)
+* offset (integer) - Start from record (default: 0)
+* filter (string) - Filter
+
+### createAccountEntity
 Add account into the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "body": {
-      "$ref": "#/definitions/AccountCreate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "body"
-  ]
-}
+
+```js
+data2crm.createAccountEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccountCreated"
-}
-```
-## Operation: getAccountCountCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* body (object) **required**
+
+### getAccountCountCollection
 Count all accounts from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getAccountCountCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Count"
-}
-```
-## Operation: getAccountDescribe
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### getAccountDescribe
 Returns describe for accounts
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getAccountDescribe({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Describe"
-}
-```
-## Operation: deleteAccountEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### deleteAccountEntity
 Delete account information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "account_id": {
-      "type": "string",
-      "description": "Account Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "account_id"
-  ]
-}
+
+```js
+data2crm.deleteAccountEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "account_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getAccountEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* account_id (string) **required** - Account Identifier
+
+### getAccountEntity
 Return account information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "account_id": {
-      "type": "string",
-      "description": "Account Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "account_id"
-  ]
-}
+
+```js
+data2crm.getAccountEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "account_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Account"
-}
-```
-## Operation: updateAccountEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* account_id (string) **required** - Account Identifier
+
+### updateAccountEntity
 Update account information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "account_id": {
-      "type": "string",
-      "description": "Account Identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/AccountUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "account_id",
-    "body"
-  ]
-}
+
+```js
+data2crm.updateAccountEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "account_id": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccountUpdated"
-}
-```
-## Operation: getAttachmentCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* account_id (string) **required** - Account Identifier
+* body (object) **required**
+
+### getAttachmentCollection
 Returns all attachments from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "X-API2CRM-DATA-ENABLE": {
-      "type": "string",
-      "description": "Data Enable",
-      "enum": [
-        "false",
-        "true"
-      ]
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Amount of results (default: 25)"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Start from record (default: 0)"
-    },
-    "filter": {
-      "type": "string",
-      "description": "Filter"
-    },
-    "parent_type": {
-      "type": "string",
-      "description": "Parent Type",
-      "enum": [
-        "account",
-        "contact",
-        "lead",
-        "task",
-        "user",
-        "opportunity",
-        "note"
-      ]
-    },
-    "parent_id": {
-      "type": "string",
-      "description": "Parent Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getAttachmentCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Attachment"
-  },
-  "type": "array"
-}
-```
-## Operation: createAttachmentEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* X-API2CRM-DATA-ENABLE (string) - Data Enable
+* limit (integer) - Amount of results (default: 25)
+* offset (integer) - Start from record (default: 0)
+* filter (string) - Filter
+* parent_type (string) - Parent Type
+* parent_id (string) - Parent Identifier
+
+### createAttachmentEntity
 Add attachment into the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "body": {
-      "$ref": "#/definitions/AttachmentCreate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "body"
-  ]
-}
+
+```js
+data2crm.createAttachmentEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AttachmentCreated"
-}
-```
-## Operation: getAttachmentCountCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* body (object) **required**
+
+### getAttachmentCountCollection
 Count all attachments from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getAttachmentCountCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Count"
-}
-```
-## Operation: getAttachmentDescribe
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### getAttachmentDescribe
 Returns describe for attachments
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getAttachmentDescribe({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Describe"
-}
-```
-## Operation: deleteAttachmentEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### deleteAttachmentEntity
 Delete attachment information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "attachment_id": {
-      "type": "string",
-      "description": "Attachment Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "attachment_id"
-  ]
-}
+
+```js
+data2crm.deleteAttachmentEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "attachment_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getAttachmentEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* attachment_id (string) **required** - Attachment Identifier
+
+### getAttachmentEntity
 Return attachment information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "attachment_id": {
-      "type": "string",
-      "description": "Attachment Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "attachment_id"
-  ]
-}
+
+```js
+data2crm.getAttachmentEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "attachment_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Attachment"
-}
-```
-## Operation: updateAttachmentEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* attachment_id (string) **required** - Attachment Identifier
+
+### updateAttachmentEntity
 Update attachment information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "attachment_id": {
-      "type": "string",
-      "description": "Attachment Identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/AttachmentUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "attachment_id",
-    "body"
-  ]
-}
+
+```js
+data2crm.updateAttachmentEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "attachment_id": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AttachmentUpdated"
-}
-```
-## Operation: getCallCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* attachment_id (string) **required** - Attachment Identifier
+* body (object) **required**
+
+### getCallCollection
 Returns all calls from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "X-API2CRM-DATA-ENABLE": {
-      "type": "string",
-      "description": "Data Enable",
-      "enum": [
-        "false",
-        "true"
-      ]
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Amount of results (default: 25)"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Start from record (default: 0)"
-    },
-    "filter": {
-      "type": "string",
-      "description": "Filter"
-    },
-    "parent_type": {
-      "type": "string",
-      "description": "Parent Type",
-      "enum": [
-        "account",
-        "contact",
-        "lead",
-        "opportunity",
-        "task",
-        "user"
-      ]
-    },
-    "parent_id": {
-      "type": "string",
-      "description": "Parent Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getCallCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Call"
-  },
-  "type": "array"
-}
-```
-## Operation: createCallEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* X-API2CRM-DATA-ENABLE (string) - Data Enable
+* limit (integer) - Amount of results (default: 25)
+* offset (integer) - Start from record (default: 0)
+* filter (string) - Filter
+* parent_type (string) - Parent Type
+* parent_id (string) - Parent Identifier
+
+### createCallEntity
 Add call into the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "body": {
-      "$ref": "#/definitions/CallCreate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "body"
-  ]
-}
+
+```js
+data2crm.createCallEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CallCreated"
-}
-```
-## Operation: getCallCountCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* body (object) **required**
+
+### getCallCountCollection
 Count all calls from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getCallCountCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Count"
-}
-```
-## Operation: getCallDescribe
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### getCallDescribe
 Returns describe for calls
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getCallDescribe({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Describe"
-}
-```
-## Operation: deleteCallEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### deleteCallEntity
 Delete call information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "call_id": {
-      "type": "string",
-      "description": "Call Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "call_id"
-  ]
-}
+
+```js
+data2crm.deleteCallEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "call_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCallEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* call_id (string) **required** - Call Identifier
+
+### getCallEntity
 Return call information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "call_id": {
-      "type": "string",
-      "description": "Call Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "call_id"
-  ]
-}
+
+```js
+data2crm.getCallEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "call_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Call"
-}
-```
-## Operation: updateCallEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* call_id (string) **required** - Call Identifier
+
+### updateCallEntity
 Update call information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "call_id": {
-      "type": "string",
-      "description": "Call Identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/CallUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "call_id",
-    "body"
-  ]
-}
+
+```js
+data2crm.updateCallEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "call_id": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CallUpdated"
-}
-```
-## Operation: getContactCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* call_id (string) **required** - Call Identifier
+* body (object) **required**
+
+### getContactCollection
 Returns all contacts from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "X-API2CRM-DATA-ENABLE": {
-      "type": "string",
-      "description": "Data Enable",
-      "enum": [
-        "false",
-        "true"
-      ]
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Amount of results (default: 25)"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Start from record (default: 0)"
-    },
-    "filter": {
-      "type": "string",
-      "description": "Filter"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getContactCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Contact"
-  },
-  "type": "array"
-}
-```
-## Operation: createContactEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* X-API2CRM-DATA-ENABLE (string) - Data Enable
+* limit (integer) - Amount of results (default: 25)
+* offset (integer) - Start from record (default: 0)
+* filter (string) - Filter
+
+### createContactEntity
 Add contact into the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "body": {
-      "$ref": "#/definitions/ContactCreate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "body"
-  ]
-}
+
+```js
+data2crm.createContactEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ContactCreated"
-}
-```
-## Operation: getContactCountCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* body (object) **required**
+
+### getContactCountCollection
 Count all contacts from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getContactCountCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Count"
-}
-```
-## Operation: getContactDescribe
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### getContactDescribe
 Returns describe for contacts
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getContactDescribe({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Describe"
-}
-```
-## Operation: deleteContactEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### deleteContactEntity
 Delete contact information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "contact_id": {
-      "type": "string",
-      "description": "Contact Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "contact_id"
-  ]
-}
+
+```js
+data2crm.deleteContactEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "contact_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getContactEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* contact_id (string) **required** - Contact Identifier
+
+### getContactEntity
 Return contact information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "contact_id": {
-      "type": "string",
-      "description": "Contact Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "contact_id"
-  ]
-}
+
+```js
+data2crm.getContactEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "contact_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Contact"
-}
-```
-## Operation: updateContactEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* contact_id (string) **required** - Contact Identifier
+
+### updateContactEntity
 Update contact information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "contact_id": {
-      "type": "string",
-      "description": "Contact Identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/ContactUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "contact_id",
-    "body"
-  ]
-}
+
+```js
+data2crm.updateContactEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "contact_id": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ContactUpdated"
-}
-```
-## Operation: getCrmCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* contact_id (string) **required** - Contact Identifier
+* body (object) **required**
+
+### getCrmCollection
 Returns all CRMs from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Amount of results (default: 25)"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Start from record (default: 0)"
-    },
-    "filter": {
-      "type": "string",
-      "description": "Filter"
-    },
-    "type": {
-      "type": "string",
-      "description": "Type",
-      "enum": [
-        "Bitrix24",
-        "SugarCRM",
-        "SuiteCRM",
-        "BPMOnline",
-        "HubSpot",
-        "vtiger",
-        "OroCRM",
-        "ZohoCRM",
-        "Insightly",
-        "Salesforce",
-        "Solve360CRM",
-        "HighriseHQ",
-        "PipelineDeals",
-        "Pipedrive",
-        "CapsuleCRM",
-        "Zurmo",
-        "MicrosoftDynamics"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY"
-  ]
-}
+
+```js
+data2crm.getCrmCollection({
+  "X-API2CRM-USERKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Crm"
-  },
-  "type": "array"
-}
-```
-## Operation: createCrmEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* limit (integer) - Amount of results (default: 25)
+* offset (integer) - Start from record (default: 0)
+* filter (string) - Filter
+* type (string) - Type
+
+### createCrmEntity
 Add CRM into the system<br><a href="http://www.data2crm.com/api/faqs/need-connect-crm-data2crm-api/" target="_blank">What do I need to connect a CRM to Data2CRM.API?</a>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "body": {
-      "$ref": "#/definitions/CrmCreate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "body"
-  ]
-}
+
+```js
+data2crm.createCrmEntity({
+  "X-API2CRM-USERKEY": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CrmCreated"
-}
-```
-## Operation: getCrmCountCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* body (object) **required**
+
+### getCrmCountCollection
 Count all CRMs from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY"
-  ]
-}
+
+```js
+data2crm.getCrmCountCollection({
+  "X-API2CRM-USERKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Count"
-}
-```
-## Operation: deleteCrmEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+
+### deleteCrmEntity
 Delete CRM information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "crm_id": {
-      "type": "string",
-      "description": "CRM Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "crm_id"
-  ]
-}
+
+```js
+data2crm.deleteCrmEntity({
+  "X-API2CRM-USERKEY": "",
+  "crm_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCrmEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* crm_id (string) **required** - CRM Identifier
+
+### getCrmEntity
 Return CRM information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "crm_id": {
-      "type": "string",
-      "description": "CRM Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "crm_id"
-  ]
-}
+
+```js
+data2crm.getCrmEntity({
+  "X-API2CRM-USERKEY": "",
+  "crm_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Crm"
-}
-```
-## Operation: updateCrmEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* crm_id (string) **required** - CRM Identifier
+
+### updateCrmEntity
 Update CRM information<br><a href="http://www.data2crm.com/api/faqs/need-connect-crm-data2crm-api/" target="_blank">What do I need to connect a CRM to Data2CRM.API?</a>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "crm_id": {
-      "type": "string",
-      "description": "CRM Identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/CrmUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "crm_id",
-    "body"
-  ]
-}
+
+```js
+data2crm.updateCrmEntity({
+  "X-API2CRM-USERKEY": "",
+  "crm_id": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CrmUpdated"
-}
-```
-## Operation: getCustomFieldCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* crm_id (string) **required** - CRM Identifier
+* body (object) **required**
+
+### getCustomFieldCollection
 Returns all custom field from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "X-API2CRM-DATA-ENABLE": {
-      "type": "string",
-      "description": "Data Enable",
-      "enum": [
-        "false",
-        "true"
-      ]
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Amount of results (default: 25)"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Start from record (default: 0)"
-    },
-    "filter": {
-      "type": "string",
-      "description": "Filter"
-    },
-    "entity": {
-      "type": "string",
-      "description": "Entity",
-      "enum": [
-        "account",
-        "contact",
-        "user",
-        "opportunity",
-        "task",
-        "lead",
-        "note",
-        "attachment",
-        "event",
-        "email",
-        "call",
-        "meeting"
-      ]
-    },
-    "label": {
-      "type": "string",
-      "description": "Label"
-    },
-    "name": {
-      "type": "string",
-      "description": "Name"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getCustomFieldCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/CustomField"
-  },
-  "type": "array"
-}
-```
-## Operation: createCustomFieldEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* X-API2CRM-DATA-ENABLE (string) - Data Enable
+* limit (integer) - Amount of results (default: 25)
+* offset (integer) - Start from record (default: 0)
+* filter (string) - Filter
+* entity (string) - Entity
+* label (string) - Label
+* name (string) - Name
+
+### createCustomFieldEntity
 Add custom field into the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "body": {
-      "$ref": "#/definitions/CustomFieldCreate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "body"
-  ]
-}
+
+```js
+data2crm.createCustomFieldEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CustomFieldCreated"
-}
-```
-## Operation: deleteCustomFieldEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* body (object) **required**
+
+### deleteCustomFieldEntity
 Delete custom field information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "custom_field_id": {
-      "type": "string",
-      "description": "Custom Field Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "custom_field_id"
-  ]
-}
+
+```js
+data2crm.deleteCustomFieldEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "custom_field_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCustomFieldEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* custom_field_id (string) **required** - Custom Field Identifier
+
+### getCustomFieldEntity
 Return custom field information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "custom_field_id": {
-      "type": "string",
-      "description": "Custom Field Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "custom_field_id"
-  ]
-}
+
+```js
+data2crm.getCustomFieldEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "custom_field_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CustomField"
-}
-```
-## Operation: updateCustomFieldEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* custom_field_id (string) **required** - Custom Field Identifier
+
+### updateCustomFieldEntity
 Update custom field information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "custom_field_id": {
-      "type": "string",
-      "description": "Custom Field Identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/CustomFieldUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "custom_field_id",
-    "body"
-  ]
-}
+
+```js
+data2crm.updateCustomFieldEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "custom_field_id": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CustomFieldUpdated"
-}
-```
-## Operation: getEmailCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* custom_field_id (string) **required** - Custom Field Identifier
+* body (object) **required**
+
+### getEmailCollection
 Returns all emails from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "X-API2CRM-DATA-ENABLE": {
-      "type": "string",
-      "description": "Data Enable",
-      "enum": [
-        "false",
-        "true"
-      ]
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Amount of results (default: 25)"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Start from record (default: 0)"
-    },
-    "filter": {
-      "type": "string",
-      "description": "Filter"
-    },
-    "parent_type": {
-      "type": "string",
-      "description": "Parent Type",
-      "enum": [
-        "account",
-        "opportunity",
-        "contact",
-        "lead",
-        "user",
-        "task"
-      ]
-    },
-    "parent_id": {
-      "type": "string",
-      "description": "Parent Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getEmailCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Email"
-  },
-  "type": "array"
-}
-```
-## Operation: createEmailEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* X-API2CRM-DATA-ENABLE (string) - Data Enable
+* limit (integer) - Amount of results (default: 25)
+* offset (integer) - Start from record (default: 0)
+* filter (string) - Filter
+* parent_type (string) - Parent Type
+* parent_id (string) - Parent Identifier
+
+### createEmailEntity
 Add email into the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "body": {
-      "$ref": "#/definitions/EmailCreate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "body"
-  ]
-}
+
+```js
+data2crm.createEmailEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/EmailCreated"
-}
-```
-## Operation: getEmailCountCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* body (object) **required**
+
+### getEmailCountCollection
 Count all emails from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getEmailCountCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Count"
-}
-```
-## Operation: getEmailDescribe
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### getEmailDescribe
 Returns describe for emails
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getEmailDescribe({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Describe"
-}
-```
-## Operation: deleteEmailEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### deleteEmailEntity
 Delete email information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "email_id": {
-      "type": "string",
-      "description": "Email Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "email_id"
-  ]
-}
+
+```js
+data2crm.deleteEmailEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "email_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getEmailEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* email_id (string) **required** - Email Identifier
+
+### getEmailEntity
 Return email information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "email_id": {
-      "type": "string",
-      "description": "Email Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "email_id"
-  ]
-}
+
+```js
+data2crm.getEmailEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "email_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Email"
-}
-```
-## Operation: updateEmailEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* email_id (string) **required** - Email Identifier
+
+### updateEmailEntity
 Update email information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "email_id": {
-      "type": "string",
-      "description": "Email Identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/EmailUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "email_id",
-    "body"
-  ]
-}
+
+```js
+data2crm.updateEmailEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "email_id": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/EmailUpdated"
-}
-```
-## Operation: getEventCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* email_id (string) **required** - Email Identifier
+* body (object) **required**
+
+### getEventCollection
 Returns all events from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "X-API2CRM-DATA-ENABLE": {
-      "type": "string",
-      "description": "Data Enable",
-      "enum": [
-        "false",
-        "true"
-      ]
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Amount of results (default: 25)"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Start from record (default: 0)"
-    },
-    "filter": {
-      "type": "string",
-      "description": "Filter"
-    },
-    "parent_type": {
-      "type": "string",
-      "description": "Parent Type",
-      "enum": [
-        "account",
-        "contact",
-        "lead",
-        "opportunity",
-        "task",
-        "user"
-      ]
-    },
-    "parent_id": {
-      "type": "string",
-      "description": "Parent Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getEventCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Event"
-  },
-  "type": "array"
-}
-```
-## Operation: createEventEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* X-API2CRM-DATA-ENABLE (string) - Data Enable
+* limit (integer) - Amount of results (default: 25)
+* offset (integer) - Start from record (default: 0)
+* filter (string) - Filter
+* parent_type (string) - Parent Type
+* parent_id (string) - Parent Identifier
+
+### createEventEntity
 Add event into the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "body": {
-      "$ref": "#/definitions/EventCreate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "body"
-  ]
-}
+
+```js
+data2crm.createEventEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/EventCreated"
-}
-```
-## Operation: getEventCountCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* body (object) **required**
+
+### getEventCountCollection
 Count all events from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getEventCountCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Count"
-}
-```
-## Operation: getEventDescribe
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### getEventDescribe
 Returns describe for events
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getEventDescribe({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Describe"
-}
-```
-## Operation: deleteEventEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### deleteEventEntity
 Delete event information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "event_id": {
-      "type": "string",
-      "description": "Event Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "event_id"
-  ]
-}
+
+```js
+data2crm.deleteEventEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "event_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getEventEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* event_id (string) **required** - Event Identifier
+
+### getEventEntity
 Return event information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "event_id": {
-      "type": "string",
-      "description": "Event Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "event_id"
-  ]
-}
+
+```js
+data2crm.getEventEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "event_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Event"
-}
-```
-## Operation: updateEventEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* event_id (string) **required** - Event Identifier
+
+### updateEventEntity
 Update event information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "event_id": {
-      "type": "string",
-      "description": "Event Identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/EventUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "event_id",
-    "body"
-  ]
-}
+
+```js
+data2crm.updateEventEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "event_id": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/EventUpdated"
-}
-```
-## Operation: getLeadCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* event_id (string) **required** - Event Identifier
+* body (object) **required**
+
+### getLeadCollection
 Returns all leads from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "X-API2CRM-DATA-ENABLE": {
-      "type": "string",
-      "description": "Data Enable",
-      "enum": [
-        "false",
-        "true"
-      ]
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Amount of results (default: 25)"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Start from record (default: 0)"
-    },
-    "filter": {
-      "type": "string",
-      "description": "Filter"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getLeadCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Lead"
-  },
-  "type": "array"
-}
-```
-## Operation: createLeadEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* X-API2CRM-DATA-ENABLE (string) - Data Enable
+* limit (integer) - Amount of results (default: 25)
+* offset (integer) - Start from record (default: 0)
+* filter (string) - Filter
+
+### createLeadEntity
 Add lead into the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "body": {
-      "$ref": "#/definitions/LeadCreate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "body"
-  ]
-}
+
+```js
+data2crm.createLeadEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LeadCreated"
-}
-```
-## Operation: getLeadCountCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* body (object) **required**
+
+### getLeadCountCollection
 Count all leads from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getLeadCountCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Count"
-}
-```
-## Operation: getLeadDescribe
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### getLeadDescribe
 Returns describe for leads
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getLeadDescribe({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Describe"
-}
-```
-## Operation: deleteLeadEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### deleteLeadEntity
 Delete lead information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "lead_id": {
-      "type": "string",
-      "description": "Lead Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "lead_id"
-  ]
-}
+
+```js
+data2crm.deleteLeadEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "lead_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getLeadEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* lead_id (string) **required** - Lead Identifier
+
+### getLeadEntity
 Return lead information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "lead_id": {
-      "type": "string",
-      "description": "Lead Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "lead_id"
-  ]
-}
+
+```js
+data2crm.getLeadEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "lead_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Lead"
-}
-```
-## Operation: updateLeadEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* lead_id (string) **required** - Lead Identifier
+
+### updateLeadEntity
 Update lead information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "lead_id": {
-      "type": "string",
-      "description": "Lead Identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/LeadUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "lead_id",
-    "body"
-  ]
-}
+
+```js
+data2crm.updateLeadEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "lead_id": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LeadUpdated"
-}
-```
-## Operation: getMeetingCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* lead_id (string) **required** - Lead Identifier
+* body (object) **required**
+
+### getMeetingCollection
 Returns all meetings from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "X-API2CRM-DATA-ENABLE": {
-      "type": "string",
-      "description": "Data Enable",
-      "enum": [
-        "false",
-        "true"
-      ]
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Amount of results (default: 25)"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Start from record (default: 0)"
-    },
-    "filter": {
-      "type": "string",
-      "description": "Filter"
-    },
-    "parent_type": {
-      "type": "string",
-      "description": "Parent Type",
-      "enum": [
-        "account",
-        "contact",
-        "lead",
-        "opportunity",
-        "user"
-      ]
-    },
-    "parent_id": {
-      "type": "string",
-      "description": "Parent Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getMeetingCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Meeting"
-  },
-  "type": "array"
-}
-```
-## Operation: createMeetingEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* X-API2CRM-DATA-ENABLE (string) - Data Enable
+* limit (integer) - Amount of results (default: 25)
+* offset (integer) - Start from record (default: 0)
+* filter (string) - Filter
+* parent_type (string) - Parent Type
+* parent_id (string) - Parent Identifier
+
+### createMeetingEntity
 Add meeting into the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "body": {
-      "$ref": "#/definitions/MeetingCreate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "body"
-  ]
-}
+
+```js
+data2crm.createMeetingEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MeetingCreated"
-}
-```
-## Operation: getMeetingCountCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* body (object) **required**
+
+### getMeetingCountCollection
 Count all meetings from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getMeetingCountCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Count"
-}
-```
-## Operation: getMeetingDescribe
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### getMeetingDescribe
 Returns describe for meetings
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getMeetingDescribe({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Describe"
-}
-```
-## Operation: deleteMeetingEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### deleteMeetingEntity
 Delete meeting information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "meeting_id": {
-      "type": "string",
-      "description": "Meeting Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "meeting_id"
-  ]
-}
+
+```js
+data2crm.deleteMeetingEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "meeting_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMeetingEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* meeting_id (string) **required** - Meeting Identifier
+
+### getMeetingEntity
 Return meeting information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "meeting_id": {
-      "type": "string",
-      "description": "Meeting Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "meeting_id"
-  ]
-}
+
+```js
+data2crm.getMeetingEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "meeting_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Meeting"
-}
-```
-## Operation: updateMeetingEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* meeting_id (string) **required** - Meeting Identifier
+
+### updateMeetingEntity
 Update meeting information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "meeting_id": {
-      "type": "string",
-      "description": "Meeting Identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/MeetingUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "meeting_id",
-    "body"
-  ]
-}
+
+```js
+data2crm.updateMeetingEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "meeting_id": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MeetingUpdated"
-}
-```
-## Operation: getNoteCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* meeting_id (string) **required** - Meeting Identifier
+* body (object) **required**
+
+### getNoteCollection
 Returns all notes from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "X-API2CRM-DATA-ENABLE": {
-      "type": "string",
-      "description": "Data Enable",
-      "enum": [
-        "false",
-        "true"
-      ]
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Amount of results (default: 25)"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Start from record (default: 0)"
-    },
-    "filter": {
-      "type": "string",
-      "description": "Filter"
-    },
-    "parent_type": {
-      "type": "string",
-      "description": "Parent Type",
-      "enum": [
-        "account",
-        "contact",
-        "lead",
-        "task",
-        "user",
-        "opportunity",
-        "event"
-      ]
-    },
-    "parent_id": {
-      "type": "string",
-      "description": "Parent Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getNoteCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Note"
-  },
-  "type": "array"
-}
-```
-## Operation: createNoteEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* X-API2CRM-DATA-ENABLE (string) - Data Enable
+* limit (integer) - Amount of results (default: 25)
+* offset (integer) - Start from record (default: 0)
+* filter (string) - Filter
+* parent_type (string) - Parent Type
+* parent_id (string) - Parent Identifier
+
+### createNoteEntity
 Add note into the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "body": {
-      "$ref": "#/definitions/NoteCreate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "body"
-  ]
-}
+
+```js
+data2crm.createNoteEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NoteCreated"
-}
-```
-## Operation: getNoteCountCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* body (object) **required**
+
+### getNoteCountCollection
 Count all notes from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getNoteCountCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Count"
-}
-```
-## Operation: getNoteDescribe
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### getNoteDescribe
 Returns describe for notes
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getNoteDescribe({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Describe"
-}
-```
-## Operation: deleteNoteEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### deleteNoteEntity
 Delete note information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "note_id": {
-      "type": "string",
-      "description": "Note Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "note_id"
-  ]
-}
+
+```js
+data2crm.deleteNoteEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "note_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getNoteEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* note_id (string) **required** - Note Identifier
+
+### getNoteEntity
 Return note information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "note_id": {
-      "type": "string",
-      "description": "Note Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "note_id"
-  ]
-}
+
+```js
+data2crm.getNoteEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "note_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Note"
-}
-```
-## Operation: updateNoteEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* note_id (string) **required** - Note Identifier
+
+### updateNoteEntity
 Update note information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "note_id": {
-      "type": "string",
-      "description": "Note Identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/NoteUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "note_id",
-    "body"
-  ]
-}
+
+```js
+data2crm.updateNoteEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "note_id": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NoteUpdated"
-}
-```
-## Operation: getOpportunityCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* note_id (string) **required** - Note Identifier
+* body (object) **required**
+
+### getOpportunityCollection
 Returns all opportunities from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "X-API2CRM-DATA-ENABLE": {
-      "type": "string",
-      "description": "Data Enable",
-      "enum": [
-        "false",
-        "true"
-      ]
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Amount of results (default: 25)"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Start from record (default: 0)"
-    },
-    "filter": {
-      "type": "string",
-      "description": "Filter"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getOpportunityCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Opportunity"
-  },
-  "type": "array"
-}
-```
-## Operation: createOpportunityEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* X-API2CRM-DATA-ENABLE (string) - Data Enable
+* limit (integer) - Amount of results (default: 25)
+* offset (integer) - Start from record (default: 0)
+* filter (string) - Filter
+
+### createOpportunityEntity
 Add opportunity into the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "body": {
-      "$ref": "#/definitions/OpportunityCreate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "body"
-  ]
-}
+
+```js
+data2crm.createOpportunityEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OpportunityCreated"
-}
-```
-## Operation: getOpportunityCountCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* body (object) **required**
+
+### getOpportunityCountCollection
 Count all opportunities from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getOpportunityCountCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Count"
-}
-```
-## Operation: getOpportunityDescribe
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### getOpportunityDescribe
 Returns describe for opportunities
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getOpportunityDescribe({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Describe"
-}
-```
-## Operation: deleteOpportunityEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### deleteOpportunityEntity
 Delete opportunity information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "opportunity_id": {
-      "type": "string",
-      "description": "Opportunity Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "opportunity_id"
-  ]
-}
+
+```js
+data2crm.deleteOpportunityEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "opportunity_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getOpportunityEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* opportunity_id (string) **required** - Opportunity Identifier
+
+### getOpportunityEntity
 Return opportunity information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "opportunity_id": {
-      "type": "string",
-      "description": "Opportunity Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "opportunity_id"
-  ]
-}
+
+```js
+data2crm.getOpportunityEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "opportunity_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Opportunity"
-}
-```
-## Operation: updateOpportunityEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* opportunity_id (string) **required** - Opportunity Identifier
+
+### updateOpportunityEntity
 Update opportunity information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "opportunity_id": {
-      "type": "string",
-      "description": "Opportunity Identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/OpportunityUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "opportunity_id",
-    "body"
-  ]
-}
+
+```js
+data2crm.updateOpportunityEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "opportunity_id": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OpportunityUpdated"
-}
-```
-## Operation: getTaskCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* opportunity_id (string) **required** - Opportunity Identifier
+* body (object) **required**
+
+### getTaskCollection
 Returns all tasks from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "X-API2CRM-DATA-ENABLE": {
-      "type": "string",
-      "description": "Data Enable",
-      "enum": [
-        "false",
-        "true"
-      ]
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Amount of results (default: 25)"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Start from record (default: 0)"
-    },
-    "filter": {
-      "type": "string",
-      "description": "Filter"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getTaskCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Task"
-  },
-  "type": "array"
-}
-```
-## Operation: createTaskEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* X-API2CRM-DATA-ENABLE (string) - Data Enable
+* limit (integer) - Amount of results (default: 25)
+* offset (integer) - Start from record (default: 0)
+* filter (string) - Filter
+
+### createTaskEntity
 Add task into the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "body": {
-      "$ref": "#/definitions/TaskCreate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "body"
-  ]
-}
+
+```js
+data2crm.createTaskEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TaskCreated"
-}
-```
-## Operation: getTaskCountCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* body (object) **required**
+
+### getTaskCountCollection
 Count all tasks from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getTaskCountCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Count"
-}
-```
-## Operation: getTaskDescribe
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### getTaskDescribe
 Returns describe for tasks
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getTaskDescribe({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Describe"
-}
-```
-## Operation: deleteTaskEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### deleteTaskEntity
 Delete task information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "task_id": {
-      "type": "string",
-      "description": "Task Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "task_id"
-  ]
-}
+
+```js
+data2crm.deleteTaskEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "task_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getTaskEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* task_id (string) **required** - Task Identifier
+
+### getTaskEntity
 Return task information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "task_id": {
-      "type": "string",
-      "description": "Task Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "task_id"
-  ]
-}
+
+```js
+data2crm.getTaskEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "task_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Task"
-}
-```
-## Operation: updateTaskEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* task_id (string) **required** - Task Identifier
+
+### updateTaskEntity
 Update task information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "task_id": {
-      "type": "string",
-      "description": "Task Identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/TaskUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "task_id",
-    "body"
-  ]
-}
+
+```js
+data2crm.updateTaskEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "task_id": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TaskUpdated"
-}
-```
-## Operation: getUserCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* task_id (string) **required** - Task Identifier
+* body (object) **required**
+
+### getUserCollection
 Returns all users from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "X-API2CRM-DATA-ENABLE": {
-      "type": "string",
-      "description": "Data Enable",
-      "enum": [
-        "false",
-        "true"
-      ]
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Amount of results (default: 25)"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Start from record (default: 0)"
-    },
-    "filter": {
-      "type": "string",
-      "description": "Filter"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getUserCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/User"
-  },
-  "type": "array"
-}
-```
-## Operation: createUserEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* X-API2CRM-DATA-ENABLE (string) - Data Enable
+* limit (integer) - Amount of results (default: 25)
+* offset (integer) - Start from record (default: 0)
+* filter (string) - Filter
+
+### createUserEntity
 Add user into the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "body": {
-      "$ref": "#/definitions/UserCreate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "body"
-  ]
-}
+
+```js
+data2crm.createUserEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserCreated"
-}
-```
-## Operation: getUserCountCollection
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* body (object) **required**
+
+### getUserCountCollection
 Count all users from the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getUserCountCollection({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Count"
-}
-```
-## Operation: getUserDescribe
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### getUserDescribe
 Returns describe for users
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY"
-  ]
-}
+
+```js
+data2crm.getUserDescribe({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Describe"
-}
-```
-## Operation: deleteUserEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+
+### deleteUserEntity
 Delete user information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "user_id": {
-      "type": "string",
-      "description": "User Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "user_id"
-  ]
-}
+
+```js
+data2crm.deleteUserEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "user_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getUserEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* user_id (string) **required** - User Identifier
+
+### getUserEntity
 Return user information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "user_id": {
-      "type": "string",
-      "description": "User Identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "user_id"
-  ]
-}
+
+```js
+data2crm.getUserEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "user_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/User"
-}
-```
-## Operation: updateUserEntity
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* user_id (string) **required** - User Identifier
+
+### updateUserEntity
 Update user information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-API2CRM-USERKEY": {
-      "type": "string",
-      "description": "User Key"
-    },
-    "X-API2CRM-CRMKEY": {
-      "type": "string",
-      "description": "CRM Key"
-    },
-    "user_id": {
-      "type": "string",
-      "description": "User Identifier"
-    },
-    "body": {
-      "$ref": "#/definitions/UserUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "X-API2CRM-USERKEY",
-    "X-API2CRM-CRMKEY",
-    "user_id",
-    "body"
-  ]
-}
+
+```js
+data2crm.updateUserEntity({
+  "X-API2CRM-USERKEY": "",
+  "X-API2CRM-CRMKEY": "",
+  "user_id": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserUpdated"
-}
-```
+
+#### Parameters
+* X-API2CRM-USERKEY (string) **required** - User Key
+* X-API2CRM-CRMKEY (string) **required** - CRM Key
+* user_id (string) **required** - User Identifier
+* body (object) **required**
+

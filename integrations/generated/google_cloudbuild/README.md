@@ -1,1007 +1,361 @@
 # @datafire/google_cloudbuild
+
+Client library for Google Cloud Container Builder
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/google_cloudbuild
+```
+
+```js
+let datafire = require('datafire');
+let google_cloudbuild = require('@datafire/google_cloudbuild').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    google_cloudbuild: account,
+  }
+})
+
+
+google_cloudbuild.projects.builds.list({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Builds container images in the cloud.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+google_cloudbuild.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+google_cloudbuild.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: projects.builds.list
+
+
+### projects.builds.list
 Lists previously requested builds.
 
 Previously requested builds may still be in-progress, or may have finished
 successfully or unsuccessfully.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "ID of the project."
-    },
-    "filter": {
-      "type": "string",
-      "description": "The raw filter text to constrain the results."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "Token to provide to skip to a particular spot in the list."
-    },
-    "pageSize": {
-      "type": "integer",
-      "description": "Number of results to return in the list."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId"
-  ]
-}
+
+```js
+google_cloudbuild.projects.builds.list({
+  "projectId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListBuildsResponse"
-}
-```
-## Operation: projects.builds.create
+
+#### Parameters
+* projectId (string) **required** - ID of the project.
+* filter (string) - The raw filter text to constrain the results.
+* pageToken (string) - Token to provide to skip to a particular spot in the list.
+* pageSize (integer) - Number of results to return in the list.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+### projects.builds.create
 Starts a build with the specified configuration.
 
 The long-running Operation returned by this method will include the ID of
 the build, which can be passed to GetBuild to determine its status (e.g.,
 success or failure).
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "ID of the project."
-    },
-    "body": {
-      "$ref": "#/definitions/Build"
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId"
-  ]
-}
+
+```js
+google_cloudbuild.projects.builds.create({
+  "projectId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: projects.builds.get
+
+#### Parameters
+* projectId (string) **required** - ID of the project.
+* body (object) - A build resource in the Container Builder API.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+### projects.builds.get
 Returns information about a previously requested build.
 
 The Build that is returned includes its status (e.g., success or failure,
 or in-progress), and timing information.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "ID of the project."
-    },
-    "id": {
-      "type": "string",
-      "description": "ID of the build."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "id"
-  ]
-}
+
+```js
+google_cloudbuild.projects.builds.get({
+  "projectId": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Build"
-}
-```
-## Operation: projects.builds.cancel
+
+#### Parameters
+* projectId (string) **required** - ID of the project.
+* id (string) **required** - ID of the build.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+### projects.builds.cancel
 Cancels a requested build in progress.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "ID of the project."
-    },
-    "id": {
-      "type": "string",
-      "description": "ID of the build."
-    },
-    "body": {
-      "$ref": "#/definitions/CancelBuildRequest"
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "id"
-  ]
-}
+
+```js
+google_cloudbuild.projects.builds.cancel({
+  "projectId": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Build"
-}
-```
-## Operation: projects.triggers.list
+
+#### Parameters
+* projectId (string) **required** - ID of the project.
+* id (string) **required** - ID of the build.
+* body (object) - Request to cancel an ongoing build.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+### projects.triggers.list
 Lists existing BuildTrigger.
 
 This API is experimental.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "ID of the project for which to list BuildTriggers."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId"
-  ]
-}
+
+```js
+google_cloudbuild.projects.triggers.list({
+  "projectId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListBuildTriggersResponse"
-}
-```
-## Operation: projects.triggers.create
+
+#### Parameters
+* projectId (string) **required** - ID of the project for which to list BuildTriggers.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+### projects.triggers.create
 Creates a new BuildTrigger.
 
 This API is experimental.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "ID of the project for which to configure automatic builds."
-    },
-    "body": {
-      "$ref": "#/definitions/BuildTrigger"
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId"
-  ]
-}
+
+```js
+google_cloudbuild.projects.triggers.create({
+  "projectId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BuildTrigger"
-}
-```
-## Operation: projects.triggers.delete
+
+#### Parameters
+* projectId (string) **required** - ID of the project for which to configure automatic builds.
+* body (object) - Configuration for an automated build in response to source repository
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+### projects.triggers.delete
 Deletes an BuildTrigger by its project ID and trigger ID.
 
 This API is experimental.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "ID of the project that owns the trigger."
-    },
-    "triggerId": {
-      "type": "string",
-      "description": "ID of the BuildTrigger to delete."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "triggerId"
-  ]
-}
+
+```js
+google_cloudbuild.projects.triggers.delete({
+  "projectId": "",
+  "triggerId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Empty"
-}
-```
-## Operation: projects.triggers.get
+
+#### Parameters
+* projectId (string) **required** - ID of the project that owns the trigger.
+* triggerId (string) **required** - ID of the BuildTrigger to delete.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+### projects.triggers.get
 Gets information about a BuildTrigger.
 
 This API is experimental.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "ID of the project that owns the trigger."
-    },
-    "triggerId": {
-      "type": "string",
-      "description": "ID of the BuildTrigger to get."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "triggerId"
-  ]
-}
+
+```js
+google_cloudbuild.projects.triggers.get({
+  "projectId": "",
+  "triggerId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BuildTrigger"
-}
-```
-## Operation: projects.triggers.patch
+
+#### Parameters
+* projectId (string) **required** - ID of the project that owns the trigger.
+* triggerId (string) **required** - ID of the BuildTrigger to get.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+### projects.triggers.patch
 Updates an BuildTrigger by its project ID and trigger ID.
 
 This API is experimental.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "ID of the project that owns the trigger."
-    },
-    "triggerId": {
-      "type": "string",
-      "description": "ID of the BuildTrigger to update."
-    },
-    "body": {
-      "$ref": "#/definitions/BuildTrigger"
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId",
-    "triggerId"
-  ]
-}
+
+```js
+google_cloudbuild.projects.triggers.patch({
+  "projectId": "",
+  "triggerId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BuildTrigger"
-}
-```
-## Operation: operations.get
+
+#### Parameters
+* projectId (string) **required** - ID of the project that owns the trigger.
+* triggerId (string) **required** - ID of the BuildTrigger to update.
+* body (object) - Configuration for an automated build in response to source repository
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+### operations.get
 Gets the latest state of a long-running operation.  Clients can use this
 method to poll the operation result at intervals as recommended by the API
 service.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of the operation resource."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+google_cloudbuild.operations.get({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: operations.cancel
+
+#### Parameters
+* name (string) **required** - The name of the operation resource.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+
+### operations.cancel
 Starts asynchronous cancellation on a long-running operation.  The server
 makes a best effort to cancel the operation, but success is not
 guaranteed.  If the server doesn't support this method, it returns
@@ -1013,89 +367,27 @@ the operation is not deleted; instead, it becomes an operation with
 an Operation.error value with a google.rpc.Status.code of 1,
 corresponding to `Code.CANCELLED`.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of the operation resource to be cancelled."
-    },
-    "body": {
-      "$ref": "#/definitions/CancelOperationRequest"
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+google_cloudbuild.operations.cancel({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Empty"
-}
-```
+
+#### Parameters
+* name (string) **required** - The name of the operation resource to be cancelled.
+* body (object) - The request message for Operations.CancelOperation.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+

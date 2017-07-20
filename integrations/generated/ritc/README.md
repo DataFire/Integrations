@@ -1,1663 +1,895 @@
 # @datafire/ritc
+
+Client library for Ritc
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/ritc
+```
+
+```js
+let datafire = require('datafire');
+let ritc = require('@datafire/ritc').actions;
+
+let account = {
+  Authorization: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    ritc: account,
+  }
+})
+
+
+ritc.runApp({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Rules in the Cloud
 
-## Operation: listActions
+## Actions
+### listActions
 List actions
 
-### Input Schema
-```json
-{}
+
+```js
+ritc.listActions(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/ActionShortResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: addAction
+
+
+### addAction
 Create a new action
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Action Object": {
-      "$ref": "#/definitions/Action59"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Action Object"
-  ]
-}
+
+```js
+ritc.addAction({
+  "Action Object": {
+    "name": "",
+    "channelId": 0,
+    "functionId": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ActionShortResponse"
-}
-```
-## Operation: removeAction
+
+#### Parameters
+* Action Object (object) **required**
+
+### removeAction
 Delete an action
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "action_id": {
-      "type": "string",
-      "description": "Id of action"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "action_id"
-  ]
-}
+
+```js
+ritc.removeAction({
+  "action_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getAction
+
+#### Parameters
+* action_id (string) **required** - Id of action
+
+### getAction
 Get an action
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "action_id": {
-      "type": "string",
-      "description": "Id of action_id"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "action_id"
-  ]
-}
+
+```js
+ritc.getAction({
+  "action_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/ActionFullResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: updateAction
+
+#### Parameters
+* action_id (string) **required** - Id of action_id
+
+### updateAction
 Update information about a specific action
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "action_id": {
-      "type": "string",
-      "description": "Id of user"
-    },
-    "Action Object": {
-      "$ref": "#/definitions/Action59"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "action_id",
-    "Action Object"
-  ]
-}
+
+```js
+ritc.updateAction({
+  "action_id": "",
+  "Action Object": {
+    "name": "",
+    "channelId": 0,
+    "functionId": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ActionShortResponse"
-}
-```
-## Operation: admin
+
+#### Parameters
+* action_id (string) **required** - Id of user
+* Action Object (object) **required**
+
+### admin
 Ping the server
 
-### Input Schema
-```json
-{}
+
+```js
+ritc.admin(null, context)
 ```
-### Output Schema
-```json
-{
-  "type": "object"
-}
-```
-## Operation: logInRitc
+
+
+### logInRitc
 Log a message
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "message"
-  ]
-}
+
+```js
+ritc.logInRitc({
+  "message": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "object"
-}
-```
-## Operation: pingRitc
+
+#### Parameters
+* message (object) **required**
+
+### pingRitc
 Ping the server
 
-### Input Schema
-```json
-{}
+
+```js
+ritc.pingRitc(null, context)
 ```
-### Output Schema
-```json
-{
-  "type": "object"
-}
-```
-## Operation: listApps
+
+
+### listApps
 Get apps information
 
-### Input Schema
-```json
-{}
+
+```js
+ritc.listApps(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/AppResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: addApp
+
+
+### addApp
 Create a new app
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "App Object": {
-      "$ref": "#/definitions/App"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "App Object"
-  ]
-}
+
+```js
+ritc.addApp({
+  "App Object": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AppResponse"
-}
-```
-## Operation: listAppChannels
+
+#### Parameters
+* App Object (object) **required**
+
+### listAppChannels
 Get app channels
 
-### Input Schema
-```json
-{}
+
+```js
+ritc.listAppChannels(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/AppChannelResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: listAppChannelUsers
+
+
+### listAppChannelUsers
 Get users of a specified channel
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "channel_id": {
-      "type": "string",
-      "description": "Id of Channel"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "channel_id"
-  ]
-}
+
+```js
+ritc.listAppChannelUsers({
+  "channel_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/AppChannelResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: getAppChannelUser
+
+#### Parameters
+* channel_id (string) **required** - Id of Channel
+
+### getAppChannelUser
 Get user of a specified channel
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "channel_id": {
-      "type": "string",
-      "description": "Id of Channel"
-    },
-    "user_id": {
-      "type": "string",
-      "description": "Id of User"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "channel_id",
-    "user_id"
-  ]
-}
+
+```js
+ritc.getAppChannelUser({
+  "channel_id": "",
+  "user_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/AppChannelResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: addAppChannelUser
+
+#### Parameters
+* channel_id (string) **required** - Id of Channel
+* user_id (string) **required** - Id of User
+
+### addAppChannelUser
 Create user channel
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "channel_id": {
-      "type": "string",
-      "description": "Id of Channel"
-    },
-    "user_id": {
-      "type": "string",
-      "description": "Id of User"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "channel_id",
-    "user_id"
-  ]
-}
+
+```js
+ritc.addAppChannelUser({
+  "channel_id": "",
+  "user_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AppChannelResponse"
-}
-```
-## Operation: listChannelExternalCredentials
+
+#### Parameters
+* channel_id (string) **required** - Id of Channel
+* user_id (string) **required** - Id of User
+
+### listChannelExternalCredentials
 Get external credentials
 
-### Input Schema
-```json
-{}
+
+```js
+ritc.listChannelExternalCredentials(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/AppExternalCredentialsResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: addChannelExternalCredentials
+
+
+### addChannelExternalCredentials
 Create new external credentials
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "App_External_Credentials Object": {
-      "$ref": "#/definitions/AppExternalCredentials"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "App_External_Credentials Object"
-  ]
-}
+
+```js
+ritc.addChannelExternalCredentials({
+  "App_External_Credentials Object": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AppExternalCredentialsResponse"
-}
-```
-## Operation: removeChannelExternalCredentials
+
+#### Parameters
+* App_External_Credentials Object (object) **required**
+
+### removeChannelExternalCredentials
 Delete credentials for a channel
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "channel_id": {
-      "type": "string",
-      "description": "Id of Channel"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "channel_id"
-  ]
-}
+
+```js
+ritc.removeChannelExternalCredentials({
+  "channel_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getChannelExternalCredentials
+
+#### Parameters
+* channel_id (string) **required** - Id of Channel
+
+### getChannelExternalCredentials
 Get credentials for a channel in an app
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "channel_id": {
-      "type": "string",
-      "description": "Id of Channel"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "channel_id"
-  ]
-}
+
+```js
+ritc.getChannelExternalCredentials({
+  "channel_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/AppExternalCredentialsResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: updateChannelExternalCredentials
+
+#### Parameters
+* channel_id (string) **required** - Id of Channel
+
+### updateChannelExternalCredentials
 Update credentials for a channel
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "channel_id": {
-      "type": "string",
-      "description": "Id of Channel"
-    },
-    "App_External_Credentials Object": {
-      "$ref": "#/definitions/AppExternalCredentials"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "channel_id",
-    "App_External_Credentials Object"
-  ]
-}
+
+```js
+ritc.updateChannelExternalCredentials({
+  "channel_id": "",
+  "App_External_Credentials Object": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AppExternalCredentialsResponse"
-}
-```
-## Operation: runRuleGroup
+
+#### Parameters
+* channel_id (string) **required** - Id of Channel
+* App_External_Credentials Object (object) **required**
+
+### runRuleGroup
 Run specified rule group in the app
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "rule_id_list": {
-      "type": "string",
-      "description": "Ids of rules in the group, separated by commas, no spaces"
-    },
-    "initial_data": {
-      "type": "object"
-    },
-    "break_when_rule_fires": {
-      "type": "boolean",
-      "description": "Do not continue with remaining rules after a rule fires"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "rule_id_list"
-  ]
-}
+
+```js
+ritc.runRuleGroup({
+  "rule_id_list": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/RuleResults"
-  },
-  "type": "array"
-}
-```
-## Operation: runApp
+
+#### Parameters
+* rule_id_list (string) **required** - Ids of rules in the group, separated by commas, no spaces
+* initial_data (object)
+* break_when_rule_fires (boolean) - Do not continue with remaining rules after a rule fires
+
+### runApp
 Run active app rules
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "initial_data": {
-      "type": "object"
-    },
-    "break_when_rule_fires": {
-      "type": "boolean",
-      "description": "Do not continue with remaining rules after a rule fires"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+ritc.runApp({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/RuleResults"
-  },
-  "type": "array"
-}
-```
-## Operation: removeApp
+
+
+### removeApp
 Delete an app
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "app_id": {
-      "type": "string",
-      "description": "Id of App"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "app_id"
-  ]
-}
+
+```js
+ritc.removeApp({
+  "app_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getApp
+
+#### Parameters
+* app_id (string) **required** - Id of App
+
+### getApp
 Get app information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "app_id": {
-      "type": "string",
-      "description": "Id of App"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "app_id"
-  ]
-}
+
+```js
+ritc.getApp({
+  "app_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/AppResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: updateApp
+
+#### Parameters
+* app_id (string) **required** - Id of App
+
+### updateApp
 Update an app
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "app_id": {
-      "type": "string",
-      "description": "Id of app"
-    },
-    "App Object": {
-      "$ref": "#/definitions/App"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "app_id",
-    "App Object"
-  ]
-}
+
+```js
+ritc.updateApp({
+  "app_id": "",
+  "App Object": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AppResponse"
-}
-```
-## Operation: listChannels
+
+#### Parameters
+* app_id (string) **required** - Id of app
+* App Object (object) **required**
+
+### listChannels
 Retrieve Channels
 
-### Input Schema
-```json
-{}
+
+```js
+ritc.listChannels(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/ChannelResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: addChannel
+
+
+### addChannel
 Create a channel
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Channel Object": {
-      "$ref": "#/definitions/Channel"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Channel Object"
-  ]
-}
+
+```js
+ritc.addChannel({
+  "Channel Object": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ChannelResponse"
-}
-```
-## Operation: listAnonymousChannels
+
+#### Parameters
+* Channel Object (object) **required**
+
+### listAnonymousChannels
 Retrieve Channels anonymously
 
-### Input Schema
-```json
-{}
+
+```js
+ritc.listAnonymousChannels(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/ChannelResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: removeChannel
+
+
+### removeChannel
 Delete a channel
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "channel_id": {
-      "type": "string",
-      "description": "Id of Channel"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "channel_id"
-  ]
-}
+
+```js
+ritc.removeChannel({
+  "channel_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getChannel
+
+#### Parameters
+* channel_id (string) **required** - Id of Channel
+
+### getChannel
 Get channel information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "channel_id": {
-      "type": "string",
-      "description": "Id of Channel"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "channel_id"
-  ]
-}
+
+```js
+ritc.getChannel({
+  "channel_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/ChannelResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: updateChannel
+
+#### Parameters
+* channel_id (string) **required** - Id of Channel
+
+### updateChannel
 Update a channel
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "channel_id": {
-      "type": "string",
-      "description": "Id of Channel"
-    },
-    "Channel Object": {
-      "$ref": "#/definitions/Rule"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "channel_id",
-    "Channel Object"
-  ]
-}
+
+```js
+ritc.updateChannel({
+  "channel_id": "",
+  "Channel Object": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ChannelResponse"
-}
-```
-## Operation: listChannelFunctions
+
+#### Parameters
+* channel_id (string) **required** - Id of Channel
+* Channel Object (object) **required**
+
+### listChannelFunctions
 Retrieve Channel Functions
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "channel_id": {
-      "type": "string",
-      "description": "Id of Channel"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "channel_id"
-  ]
-}
+
+```js
+ritc.listChannelFunctions({
+  "channel_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/FunctionResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: addChannelFunction
+
+#### Parameters
+* channel_id (string) **required** - Id of Channel
+
+### addChannelFunction
 Create a channel function
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "channel_id": {
-      "type": "string",
-      "description": "Id of Channel"
-    },
-    "Channel Function Object": {
-      "$ref": "#/definitions/Function7"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "channel_id",
-    "Channel Function Object"
-  ]
-}
+
+```js
+ritc.addChannelFunction({
+  "channel_id": "",
+  "Channel Function Object": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/FunctionResponse"
-}
-```
-## Operation: getChannelFunction
+
+#### Parameters
+* channel_id (string) **required** - Id of Channel
+* Channel Function Object (object) **required**
+
+### getChannelFunction
 Get channel function information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "channel_id": {
-      "type": "string",
-      "description": "Id of Channel"
-    },
-    "function_id": {
-      "type": "string",
-      "description": "Id of Channel Function"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "channel_id",
-    "function_id"
-  ]
-}
+
+```js
+ritc.getChannelFunction({
+  "channel_id": "",
+  "function_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/FunctionResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: addOrganization
+
+#### Parameters
+* channel_id (string) **required** - Id of Channel
+* function_id (string) **required** - Id of Channel Function
+
+### addOrganization
 Create an org
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Org Object": {
-      "$ref": "#/definitions/Org"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Org Object"
-  ]
-}
+
+```js
+ritc.addOrganization({
+  "Org Object": {
+    "name": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/OrgResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: getMyOrganization
+
+#### Parameters
+* Org Object (object) **required**
+
+### getMyOrganization
 Get org information
 
-### Input Schema
-```json
-{}
+
+```js
+ritc.getMyOrganization(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/OrgResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: listRules
+
+
+### listRules
 List rules
 
-### Input Schema
-```json
-{}
+
+```js
+ritc.listRules(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/RuleShortResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: addRule
+
+
+### addRule
 Create a new rule
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Rule Object": {
-      "$ref": "#/definitions/Rule"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Rule Object"
-  ]
-}
+
+```js
+ritc.addRule({
+  "Rule Object": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RuleFullResponse"
-}
-```
-## Operation: removeRule
+
+#### Parameters
+* Rule Object (object) **required**
+
+### removeRule
 Delete a rule
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "rule_id": {
-      "type": "string",
-      "description": "Id of rule"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "rule_id"
-  ]
-}
+
+```js
+ritc.removeRule({
+  "rule_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getRule
+
+#### Parameters
+* rule_id (string) **required** - Id of rule
+
+### getRule
 Get a rule
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "rule_id": {
-      "type": "string",
-      "description": "Id of rule"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "rule_id"
-  ]
-}
+
+```js
+ritc.getRule({
+  "rule_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/RuleFullResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: updateRule
+
+#### Parameters
+* rule_id (string) **required** - Id of rule
+
+### updateRule
 Update information about a specific rule
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "rule_id": {
-      "type": "string",
-      "description": "Id of user"
-    },
-    "Rule Object": {
-      "$ref": "#/definitions/Rule"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "rule_id",
-    "Rule Object"
-  ]
-}
+
+```js
+ritc.updateRule({
+  "rule_id": "",
+  "Rule Object": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RuleFullResponse"
-}
-```
-## Operation: runRule
+
+#### Parameters
+* rule_id (string) **required** - Id of user
+* Rule Object (object) **required**
+
+### runRule
 Run a rule
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "rule_id": {
-      "type": "string",
-      "description": "Id of rule"
-    },
-    "initial_data": {
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "rule_id"
-  ]
-}
+
+```js
+ritc.runRule({
+  "rule_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "object"
-}
-```
-## Operation: listTriggers
+
+#### Parameters
+* rule_id (string) **required** - Id of rule
+* initial_data (object)
+
+### listTriggers
 Triggers in an app
 
-### Input Schema
-```json
-{}
+
+```js
+ritc.listTriggers(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/TriggerShortResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: addTrigger
+
+
+### addTrigger
 Create a new trigger in an app
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Trigger Object": {
-      "$ref": "#/definitions/Trigger54"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Trigger Object"
-  ]
-}
+
+```js
+ritc.addTrigger({
+  "Trigger Object": {
+    "name": "",
+    "channelId": 0,
+    "functionId": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TriggerShortResponse"
-}
-```
-## Operation: removeTrigger
+
+#### Parameters
+* Trigger Object (object) **required**
+
+### removeTrigger
 Delete a trigger
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "trigger_id": {
-      "type": "string",
-      "description": "Id of Trigger"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "trigger_id"
-  ]
-}
+
+```js
+ritc.removeTrigger({
+  "trigger_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getTrigger
+
+#### Parameters
+* trigger_id (string) **required** - Id of Trigger
+
+### getTrigger
 Get a trigger
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "trigger_id": {
-      "type": "string",
-      "description": "Id of Trigger"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "trigger_id"
-  ]
-}
+
+```js
+ritc.getTrigger({
+  "trigger_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/TriggerFullResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: updateTrigger
+
+#### Parameters
+* trigger_id (string) **required** - Id of Trigger
+
+### updateTrigger
 Update a trigger
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "trigger_id": {
-      "type": "string",
-      "description": "Id of user"
-    },
-    "Trigger Object": {
-      "$ref": "#/definitions/Trigger54"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "trigger_id",
-    "Trigger Object"
-  ]
-}
+
+```js
+ritc.updateTrigger({
+  "trigger_id": "",
+  "Trigger Object": {
+    "name": "",
+    "channelId": 0,
+    "functionId": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TriggerShortResponse"
-}
-```
-## Operation: listAppUsers
+
+#### Parameters
+* trigger_id (string) **required** - Id of user
+* Trigger Object (object) **required**
+
+### listAppUsers
 Users
 
-### Input Schema
-```json
-{}
+
+```js
+ritc.listAppUsers(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/AppUserResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: addAppUser
+
+
+### addAppUser
 Create a new App User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "App User Object": {
-      "$ref": "#/definitions/AppUser"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "App User Object"
-  ]
-}
+
+```js
+ritc.addAppUser({
+  "App User Object": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AppUserResponse"
-}
-```
-## Operation: listAdminUsers
+
+#### Parameters
+* App User Object (object) **required**
+
+### listAdminUsers
 Admin users
 
-### Input Schema
-```json
-{}
+
+```js
+ritc.listAdminUsers(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/AdminUserResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: addAdminUser
+
+
+### addAdminUser
 Create a new admin user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Admin_User Object": {
-      "$ref": "#/definitions/AdminUser"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Admin_User Object"
-  ]
-}
+
+```js
+ritc.addAdminUser({
+  "Admin_User Object": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AdminUserResponse"
-}
-```
-## Operation: removeAdminUser
+
+#### Parameters
+* Admin_User Object (object) **required**
+
+### removeAdminUser
 Remove an admin user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "string",
-      "description": "Id of Admin_User"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id"
-  ]
-}
+
+```js
+ritc.removeAdminUser({
+  "user_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getAdminUser
+
+#### Parameters
+* user_id (string) **required** - Id of Admin_User
+
+### getAdminUser
 Get an admin user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "string",
-      "description": "Id of Admin_User"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id"
-  ]
-}
+
+```js
+ritc.getAdminUser({
+  "user_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/AdminUserResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: updateAdminUser
+
+#### Parameters
+* user_id (string) **required** - Id of Admin_User
+
+### updateAdminUser
 Update information about an admin user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "string",
-      "description": "Id of user"
-    },
-    "Admin_User Object": {
-      "$ref": "#/definitions/AdminUser"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id",
-    "Admin_User Object"
-  ]
-}
+
+```js
+ritc.updateAdminUser({
+  "user_id": "",
+  "Admin_User Object": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AdminUserResponse"
-}
-```
-## Operation: authenticateAppUserForChannel
+
+#### Parameters
+* user_id (string) **required** - Id of user
+* Admin_User Object (object) **required**
+
+### authenticateAppUserForChannel
 Authenticate a user for a channel
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "string",
-      "description": "Id of User"
-    },
-    "channel_id": {
-      "type": "string",
-      "description": "Id of Channel"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id",
-    "channel_id"
-  ]
-}
+
+```js
+ritc.authenticateAppUserForChannel({
+  "user_id": "",
+  "channel_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/AuthorizeUrlResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: removeAppUser
+
+#### Parameters
+* user_id (string) **required** - Id of User
+* channel_id (string) **required** - Id of Channel
+
+### removeAppUser
 Remove a user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "string",
-      "description": "Id of user"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id"
-  ]
-}
+
+```js
+ritc.removeAppUser({
+  "user_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getAppUser
+
+#### Parameters
+* user_id (string) **required** - Id of user
+
+### getAppUser
 Get an App User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "string",
-      "description": "Id of App User"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id"
-  ]
-}
+
+```js
+ritc.getAppUser({
+  "user_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/AppUserResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: updateAppUser
+
+#### Parameters
+* user_id (string) **required** - Id of App User
+
+### updateAppUser
 Update information about an App User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "string",
-      "description": "Id of user"
-    },
-    "App User Object": {
-      "$ref": "#/definitions/AppUser"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id",
-    "App User Object"
-  ]
-}
+
+```js
+ritc.updateAppUser({
+  "user_id": "",
+  "App User Object": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AppUserResponse"
-}
-```
-## Operation: listAppUserChannels
+
+#### Parameters
+* user_id (string) **required** - Id of user
+* App User Object (object) **required**
+
+### listAppUserChannels
 Channels available to a User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "string",
-      "description": "Id of user"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id"
-  ]
-}
+
+```js
+ritc.listAppUserChannels({
+  "user_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/UserChannel"
-  },
-  "type": "array"
-}
-```
-## Operation: addAppUserToChannel
+
+#### Parameters
+* user_id (string) **required** - Id of user
+
+### addAppUserToChannel
 Assign a channel to a user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "string",
-      "description": "Id of user"
-    },
-    "channel_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id",
-    "channel_id"
-  ]
-}
+
+```js
+ritc.addAppUserToChannel({
+  "user_id": "",
+  "channel_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserChannel"
-}
-```
-## Operation: removeAppUserFromChannel
+
+#### Parameters
+* user_id (string) **required** - Id of user
+* channel_id (string) **required**
+
+### removeAppUserFromChannel
 Remove a user channel assignment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "string",
-      "description": "Id of User"
-    },
-    "channel_id": {
-      "type": "string",
-      "description": "Id of Channel"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id",
-    "channel_id"
-  ]
-}
+
+```js
+ritc.removeAppUserFromChannel({
+  "user_id": "",
+  "channel_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getAppUserChannel
+
+#### Parameters
+* user_id (string) **required** - Id of User
+* channel_id (string) **required** - Id of Channel
+
+### getAppUserChannel
 Get a user channel
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "string",
-      "description": "Id of User"
-    },
-    "channel_id": {
-      "type": "string",
-      "description": "Id of Channel"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id",
-    "channel_id"
-  ]
-}
+
+```js
+ritc.getAppUserChannel({
+  "user_id": "",
+  "channel_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/UserChannel"
-  },
-  "type": "array"
-}
-```
-## Operation: listAppUserRules
+
+#### Parameters
+* user_id (string) **required** - Id of User
+* channel_id (string) **required** - Id of Channel
+
+### listAppUserRules
 Rules for a User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "string",
-      "description": "Id of user"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id"
-  ]
-}
+
+```js
+ritc.listAppUserRules({
+  "user_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/RuleShortResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: removeAppUserFromRule
+
+#### Parameters
+* user_id (string) **required** - Id of user
+
+### removeAppUserFromRule
 Remove a rule user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "string",
-      "description": "Id of User"
-    },
-    "rule_id": {
-      "type": "string",
-      "description": "Id of Rule"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id",
-    "rule_id"
-  ]
-}
+
+```js
+ritc.removeAppUserFromRule({
+  "user_id": "",
+  "rule_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getAppUserRule
+
+#### Parameters
+* user_id (string) **required** - Id of User
+* rule_id (string) **required** - Id of Rule
+
+### getAppUserRule
 Get a user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "string",
-      "description": "Id of User"
-    },
-    "rule_id": {
-      "type": "string",
-      "description": "Id of Rule"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id",
-    "rule_id"
-  ]
-}
+
+```js
+ritc.getAppUserRule({
+  "user_id": "",
+  "rule_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/RuleFullResponse"
-  },
-  "type": "array"
-}
-```
-## Operation: addAppUserToRule
+
+#### Parameters
+* user_id (string) **required** - Id of User
+* rule_id (string) **required** - Id of Rule
+
+### addAppUserToRule
 Assign a user to a rule
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "string",
-      "description": "Id of User"
-    },
-    "rule_id": {
-      "type": "string",
-      "description": "Id of Rule"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id",
-    "rule_id"
-  ]
-}
+
+```js
+ritc.addAppUserToRule({
+  "user_id": "",
+  "rule_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RuleShortResponse"
-}
-```
-## Operation: runRuleForAppUser
+
+#### Parameters
+* user_id (string) **required** - Id of User
+* rule_id (string) **required** - Id of Rule
+
+### runRuleForAppUser
 Run rule for a user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "string",
-      "description": "Id of User"
-    },
-    "rule_id": {
-      "type": "string",
-      "description": "Id of Rule"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id",
-    "rule_id"
-  ]
-}
+
+```js
+ritc.runRuleForAppUser({
+  "user_id": "",
+  "rule_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "object"
-}
-```
+
+#### Parameters
+* user_id (string) **required** - Id of User
+* rule_id (string) **required** - Id of Rule
+

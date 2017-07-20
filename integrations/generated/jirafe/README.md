@@ -1,234 +1,183 @@
 # @datafire/jirafe
+
+Client library for Jirafe Events
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/jirafe
+```
+
+```js
+let datafire = require('datafire');
+let jirafe = require('@datafire/jirafe').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    jirafe: account,
+  }
+})
+
+
+jirafe.postBatch({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 API endpoins for sending Jirafe events
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+jirafe.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+jirafe.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: postBatch
+
+
+### postBatch
 Send a batch for the given site
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "siteId": {
-      "type": "string",
-      "description": "ID site to send the event"
-    },
-    "body": {
-      "$ref": "#/definitions/Batch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "siteId",
-    "body"
-  ]
-}
+
+```js
+jirafe.postBatch({
+  "siteId": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postCart
+
+#### Parameters
+* siteId (string) **required** - ID site to send the event
+* body (object) **required**
+
+### postCart
 Send a cart for the given site
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "siteId": {
-      "type": "string",
-      "description": "ID site to send the event"
+
+```js
+jirafe.postCart({
+  "siteId": "",
+  "body": {
+    "id": "",
+    "create_date": "",
+    "change_date": "",
+    "subtotal": 0,
+    "total": 0,
+    "total_tax": 0,
+    "total_shipping": 0,
+    "total_payment_cost": 0,
+    "total_discounts": 0,
+    "currency": "",
+    "customer": {
+      "id": "",
+      "create_date": "",
+      "change_date": ""
     },
-    "body": {
-      "$ref": "#/definitions/Cart"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "siteId",
-    "body"
-  ]
-}
+    "items": []
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postCategory
+
+#### Parameters
+* siteId (string) **required** - ID site to send the event
+* body (object) **required**
+
+### postCategory
 Send a category for the given site
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "siteId": {
-      "type": "string",
-      "description": "ID site to send the event"
-    },
-    "body": {
-      "$ref": "#/definitions/Category"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "siteId",
-    "body"
-  ]
-}
+
+```js
+jirafe.postCategory({
+  "siteId": "",
+  "body": {
+    "id": "",
+    "name": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postCustomer
+
+#### Parameters
+* siteId (string) **required** - ID site to send the event
+* body (object) **required**
+
+### postCustomer
 Send a customer for the given site
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "siteId": {
-      "type": "string",
-      "description": "ID site to send the event"
-    },
-    "body": {
-      "$ref": "#/definitions/Customer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "siteId",
-    "body"
-  ]
-}
+
+```js
+jirafe.postCustomer({
+  "siteId": "",
+  "body": {
+    "id": "",
+    "create_date": "",
+    "change_date": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postOrderCancelled
+
+#### Parameters
+* siteId (string) **required** - ID site to send the event
+* body (object) **required**
+
+### postOrderCancelled
 Send a order for the given site
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "siteId": {
-      "type": "string",
-      "description": "ID site to send the event"
-    },
-    "body": {
-      "$ref": "#/definitions/OrderCancelled"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "siteId",
-    "body"
-  ]
-}
+
+```js
+jirafe.postOrderCancelled({
+  "siteId": "",
+  "body": {
+    "order_number": "",
+    "cancel_date": "",
+    "status": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postProduct
+
+#### Parameters
+* siteId (string) **required** - ID site to send the event
+* body (object) **required**
+
+### postProduct
 Send a product for the given site
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "siteId": {
-      "type": "string",
-      "description": "ID site to send the event"
-    },
-    "body": {
-      "$ref": "#/definitions/Product"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "siteId",
-    "body"
-  ]
-}
+
+```js
+jirafe.postProduct({
+  "siteId": "",
+  "body": {
+    "id": "",
+    "is_order": true,
+    "is_sku": true,
+    "code": "",
+    "create_date": "",
+    "change_date": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* siteId (string) **required** - ID site to send the event
+* body (object) **required**
+

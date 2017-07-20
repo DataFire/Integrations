@@ -1,1077 +1,540 @@
 # @datafire/amazonaws_pinpoint
 
+Client library for Amazon Pinpoint
 
-## Operation: GetCampaigns
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/amazonaws_pinpoint
+```
+
+```js
+let datafire = require('datafire');
+let amazonaws_pinpoint = require('@datafire/amazonaws_pinpoint').actions;
+
+let account = {
+  hmac: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    amazonaws_pinpoint: account,
+  }
+})
+
+
+amazonaws_pinpoint.GetCampaigns({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
+
+
+## Actions
+### GetCampaigns
 Returns information about your campaigns.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetCampaignsRequest"
-    },
-    "application-id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "application-id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_pinpoint.GetCampaigns({
+  "body": {},
+  "application-id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetCampaignsResponse"
-}
-```
-## Operation: UpdateCampaign
+
+#### Parameters
+* body (object) **required**
+* application-id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateCampaign
 Use to update a campaign.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateCampaignRequest"
-    },
-    "application-id": {
-      "type": "string"
-    },
-    "campaign-id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_pinpoint.UpdateCampaign({
+  "body": {
+    "WriteCampaignRequest": {}
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "application-id",
-    "campaign-id",
-    "Action",
-    "Version"
-  ]
-}
+  "application-id": "",
+  "campaign-id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdateCampaignResponse"
-}
-```
-## Operation: GetCampaignActivities
+
+#### Parameters
+* body (object) **required**
+* application-id (string) **required**
+* campaign-id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetCampaignActivities
 Returns information about the activity performed by a campaign.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetCampaignActivitiesRequest"
-    },
-    "application-id": {
-      "type": "string"
-    },
-    "campaign-id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "application-id",
-    "campaign-id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_pinpoint.GetCampaignActivities({
+  "body": {},
+  "application-id": "",
+  "campaign-id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetCampaignActivitiesResponse"
-}
-```
-## Operation: GetCampaignVersions
+
+#### Parameters
+* body (object) **required**
+* application-id (string) **required**
+* campaign-id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetCampaignVersions
 Returns information about your campaign versions.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetCampaignVersionsRequest"
-    },
-    "application-id": {
-      "type": "string"
-    },
-    "campaign-id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "application-id",
-    "campaign-id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_pinpoint.GetCampaignVersions({
+  "body": {},
+  "application-id": "",
+  "campaign-id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetCampaignVersionsResponse"
-}
-```
-## Operation: GetCampaignVersion
+
+#### Parameters
+* body (object) **required**
+* application-id (string) **required**
+* campaign-id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetCampaignVersion
 Returns information about a specific version of a campaign.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetCampaignVersionRequest"
-    },
-    "application-id": {
-      "type": "string"
-    },
-    "campaign-id": {
-      "type": "string"
-    },
-    "version": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "application-id",
-    "campaign-id",
-    "version",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_pinpoint.GetCampaignVersion({
+  "body": {},
+  "application-id": "",
+  "campaign-id": "",
+  "version": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetCampaignVersionResponse"
-}
-```
-## Operation: UpdateApnsChannel
+
+#### Parameters
+* body (object) **required**
+* application-id (string) **required**
+* campaign-id (string) **required**
+* version (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateApnsChannel
 Use to update the APNs channel for an app.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateApnsChannelRequest"
-    },
-    "application-id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_pinpoint.UpdateApnsChannel({
+  "body": {
+    "APNSChannelRequest": {}
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "application-id",
-    "Action",
-    "Version"
-  ]
-}
+  "application-id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdateApnsChannelResponse"
-}
-```
-## Operation: UpdateGcmChannel
+
+#### Parameters
+* body (object) **required**
+* application-id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateGcmChannel
 Use to update the GCM channel for an app.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateGcmChannelRequest"
-    },
-    "application-id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_pinpoint.UpdateGcmChannel({
+  "body": {
+    "GCMChannelRequest": {}
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "application-id",
-    "Action",
-    "Version"
-  ]
-}
+  "application-id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdateGcmChannelResponse"
-}
-```
-## Operation: UpdateEndpointsBatch
+
+#### Parameters
+* body (object) **required**
+* application-id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateEndpointsBatch
 Use to update a batch of endpoints.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateEndpointsBatchRequest"
-    },
-    "application-id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_pinpoint.UpdateEndpointsBatch({
+  "body": {
+    "EndpointBatchRequest": {}
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "application-id",
-    "Action",
-    "Version"
-  ]
-}
+  "application-id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdateEndpointsBatchResponse"
-}
-```
-## Operation: UpdateEndpoint
+
+#### Parameters
+* body (object) **required**
+* application-id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateEndpoint
 Use to update an endpoint.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateEndpointRequest"
-    },
-    "application-id": {
-      "type": "string"
-    },
-    "endpoint-id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_pinpoint.UpdateEndpoint({
+  "body": {
+    "EndpointRequest": {}
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "application-id",
-    "endpoint-id",
-    "Action",
-    "Version"
-  ]
-}
+  "application-id": "",
+  "endpoint-id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdateEndpointResponse"
-}
-```
-## Operation: PutEventStream
+
+#### Parameters
+* body (object) **required**
+* application-id (string) **required**
+* endpoint-id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### PutEventStream
 Use to create or update the event stream for an app.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/PutEventStreamRequest"
-    },
-    "application-id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_pinpoint.PutEventStream({
+  "body": {
+    "WriteEventStream": {}
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "application-id",
-    "Action",
-    "Version"
-  ]
-}
+  "application-id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PutEventStreamResponse"
-}
-```
-## Operation: GetImportJobs
+
+#### Parameters
+* body (object) **required** - PutEventStream Request
+* application-id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetImportJobs
 Returns information about your import jobs.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetImportJobsRequest"
-    },
-    "application-id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "application-id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_pinpoint.GetImportJobs({
+  "body": {},
+  "application-id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetImportJobsResponse"
-}
-```
-## Operation: GetImportJob
+
+#### Parameters
+* body (object) **required**
+* application-id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetImportJob
 Returns information about an import job.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetImportJobRequest"
-    },
-    "application-id": {
-      "type": "string"
-    },
-    "job-id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "application-id",
-    "job-id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_pinpoint.GetImportJob({
+  "body": {},
+  "application-id": "",
+  "job-id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetImportJobResponse"
-}
-```
-## Operation: GetSegments
+
+#### Parameters
+* body (object) **required**
+* application-id (string) **required**
+* job-id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetSegments
 Used to get information about your segments.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetSegmentsRequest"
-    },
-    "application-id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "application-id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_pinpoint.GetSegments({
+  "body": {},
+  "application-id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetSegmentsResponse"
-}
-```
-## Operation: UpdateSegment
+
+#### Parameters
+* body (object) **required**
+* application-id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateSegment
 Use to update a segment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateSegmentRequest"
-    },
-    "application-id": {
-      "type": "string"
-    },
-    "segment-id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_pinpoint.UpdateSegment({
+  "body": {
+    "WriteSegmentRequest": {}
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "application-id",
-    "segment-id",
-    "Action",
-    "Version"
-  ]
-}
+  "application-id": "",
+  "segment-id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdateSegmentResponse"
-}
-```
-## Operation: GetSegmentImportJobs
+
+#### Parameters
+* body (object) **required**
+* application-id (string) **required**
+* segment-id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetSegmentImportJobs
 Returns a list of import jobs for a specific segment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetSegmentImportJobsRequest"
-    },
-    "application-id": {
-      "type": "string"
-    },
-    "segment-id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "application-id",
-    "segment-id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_pinpoint.GetSegmentImportJobs({
+  "body": {},
+  "application-id": "",
+  "segment-id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetSegmentImportJobsResponse"
-}
-```
-## Operation: GetSegmentVersions
+
+#### Parameters
+* body (object) **required**
+* application-id (string) **required**
+* segment-id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetSegmentVersions
 Returns information about your segment versions.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetSegmentVersionsRequest"
-    },
-    "application-id": {
-      "type": "string"
-    },
-    "segment-id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "application-id",
-    "segment-id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_pinpoint.GetSegmentVersions({
+  "body": {},
+  "application-id": "",
+  "segment-id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetSegmentVersionsResponse"
-}
-```
-## Operation: GetSegmentVersion
+
+#### Parameters
+* body (object) **required**
+* application-id (string) **required**
+* segment-id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetSegmentVersion
 Returns information about a segment version.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetSegmentVersionRequest"
-    },
-    "application-id": {
-      "type": "string"
-    },
-    "segment-id": {
-      "type": "string"
-    },
-    "version": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "application-id",
-    "segment-id",
-    "version",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_pinpoint.GetSegmentVersion({
+  "body": {},
+  "application-id": "",
+  "segment-id": "",
+  "version": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetSegmentVersionResponse"
-}
-```
-## Operation: UpdateApplicationSettings
+
+#### Parameters
+* body (object) **required**
+* application-id (string) **required**
+* segment-id (string) **required**
+* version (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateApplicationSettings
 Used to update the settings for an app.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateApplicationSettingsRequest"
-    },
-    "application-id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_pinpoint.UpdateApplicationSettings({
+  "body": {
+    "WriteApplicationSettingsRequest": {}
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "application-id",
-    "Action",
-    "Version"
-  ]
-}
+  "application-id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdateApplicationSettingsResponse"
-}
-```
+
+#### Parameters
+* body (object) **required**
+* application-id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+

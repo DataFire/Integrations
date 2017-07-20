@@ -1,33 +1,37 @@
 # @datafire/apitore_newsfeedsapis
+
+Client library for News feeds APIs
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/apitore_newsfeedsapis
+```
+
+```js
+let datafire = require('datafire');
+let apitore_newsfeedsapis = require('@datafire/apitore_newsfeedsapis').actions;
+let context = new datafire.Context();
+
+apitore_newsfeedsapis.feedUsingGET_6({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Various news feeds.<BR />[Endpoint] https://api.apitore.com/api/34
 
-## Operation: feedUsingGET_6
+## Actions
+### feedUsingGET_6
 News feeds.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/rome-response">rome-response</a><BR />&nbsp; Class: com.apitore.banana.response.org.rome.FeedResponseEntity<BR />
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access Token"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Page number [page x 10 feeds]"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token"
-  ]
-}
+
+```js
+apitore_newsfeedsapis.feedUsingGET_6({
+  "access_token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/FeedResponseEntity"
-}
-```
+
+#### Parameters
+* access_token (string) **required** - Access Token
+* page (integer) - Page number [page x 10 feeds]
+

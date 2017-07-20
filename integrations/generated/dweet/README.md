@@ -1,406 +1,230 @@
 # @datafire/dweet
+
+Client library for dweet.io
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/dweet
+```
+
+```js
+let datafire = require('datafire');
+let dweet = require('@datafire/dweet').actions;
+let context = new datafire.Context();
+
+dweet.createAlertGET({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Dweet.io allows users to share data from mobile, tablets, and pcs, and them to other devices and accounts across social media platforms. Dweet.io provides an API to access the different functionality of the Dweet.io service. Users can make REST calls to read and create dweets, lock and unlock things, and perform other calls. The API returns JSON and JSONP.
 
-## Operation: createAlertGET
+## Actions
+### createAlertGET
 Create an alert for a thing. A thing must be locked before an alert can be set.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "who": {
-      "type": "string",
-      "description": "A comma separated list of Email addresses to send the alert to."
-    },
-    "thing": {
-      "type": "string",
-      "description": "A unique name of a thing. It is recommended that you use a GUID as to avoid name collisions."
-    },
-    "condition": {
-      "type": "string",
-      "description": "A condition that returns a string or a true value if a condition is met."
-    },
-    "key": {
-      "type": "string",
-      "description": "A valid key for a locked thing. If the thing is not locked, this can be ignored."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "who",
-    "thing",
-    "condition",
-    "key"
-  ]
-}
+
+```js
+dweet.createAlertGET({
+  "who": "",
+  "thing": "",
+  "condition": "",
+  "key": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: dweet.for.thing.post
+
+#### Parameters
+* who (string) **required** - A comma separated list of Email addresses to send the alert to.
+* thing (string) **required** - A unique name of a thing. It is recommended that you use a GUID as to avoid name collisions.
+* condition (string) **required** - A condition that returns a string or a true value if a condition is met.
+* key (string) **required** - A valid key for a locked thing. If the thing is not locked, this can be ignored.
+
+### dweet.for.thing.post
 Create a dweet for a thing.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "thing": {
-      "type": "string",
-      "description": "A unique name of a thing. It is recommended that you use a GUID as to avoid name collisions."
-    },
-    "key": {
-      "type": "string",
-      "description": "A valid key for a locked thing. If the thing is not locked, this can be ignored."
-    },
-    "content": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "thing",
-    "content"
-  ]
-}
+
+```js
+dweet.dweet.for.thing.post({
+  "thing": "",
+  "content": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: dweet.quietly.for.thing.post
+
+#### Parameters
+* thing (string) **required** - A unique name of a thing. It is recommended that you use a GUID as to avoid name collisions.
+* key (string) - A valid key for a locked thing. If the thing is not locked, this can be ignored.
+* content (string) **required**
+
+### dweet.quietly.for.thing.post
 Create a dweet for a thing.  This method differs from /dweet/for/{thing} only in that successful dweets result in an HTTP 204 response rather than the typical verbose response.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "thing": {
-      "type": "string",
-      "description": "A unique name of a thing. It is recommended that you use a GUID as to avoid name collisions."
-    },
-    "key": {
-      "type": "string",
-      "description": "A valid key for a locked thing. If the thing is not locked, this can be ignored."
-    },
-    "content": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "thing",
-    "content"
-  ]
-}
+
+```js
+dweet.dweet.quietly.for.thing.post({
+  "thing": "",
+  "content": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getAlert
+
+#### Parameters
+* thing (string) **required** - A unique name of a thing. It is recommended that you use a GUID as to avoid name collisions.
+* key (string) - A valid key for a locked thing. If the thing is not locked, this can be ignored.
+* content (string) **required**
+
+### getAlert
 Get the alert attached to a thing.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "thing": {
-      "type": "string",
-      "description": "A unique name of a thing."
-    },
-    "key": {
-      "type": "string",
-      "description": "A valid key for a locked thing. If the thing is not locked, this can be ignored."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "thing",
-    "key"
-  ]
-}
+
+```js
+dweet.getAlert({
+  "thing": "",
+  "key": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: get.dweets.for.thing.get
+
+#### Parameters
+* thing (string) **required** - A unique name of a thing.
+* key (string) **required** - A valid key for a locked thing. If the thing is not locked, this can be ignored.
+
+### get.dweets.for.thing.get
 Read the last 5 cached dweets for a thing.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "thing": {
-      "type": "string",
-      "description": "A unique name of a thing."
-    },
-    "key": {
-      "type": "string",
-      "description": "A valid key for a locked thing. If the thing is not locked, this can be ignored."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "thing"
-  ]
-}
+
+```js
+dweet.get.dweets.for.thing.get({
+  "thing": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getLatestDweet
+
+#### Parameters
+* thing (string) **required** - A unique name of a thing.
+* key (string) - A valid key for a locked thing. If the thing is not locked, this can be ignored.
+
+### getLatestDweet
 Read the latest dweet for a thing.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "thing": {
-      "type": "string",
-      "description": "A unique name of a thing."
-    },
-    "key": {
-      "type": "string",
-      "description": "A valid key for a locked thing. If the thing is not locked, this can be ignored."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "thing"
-  ]
-}
+
+```js
+dweet.getLatestDweet({
+  "thing": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getStoredAlerts
+
+#### Parameters
+* thing (string) **required** - A unique name of a thing.
+* key (string) - A valid key for a locked thing. If the thing is not locked, this can be ignored.
+
+### getStoredAlerts
 Read all the saved alerts for a thing from long term storage.  You can query a maximum of 1 day per request and a granularly of 1 hour.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "thing": {
-      "type": "string",
-      "description": "A unique name of a thing."
-    },
-    "key": {
-      "type": "string",
-      "description": "A valid key for a locked thing. If the thing is not locked, this can be ignored."
-    },
-    "date": {
-      "type": "string",
-      "description": "The calendar date (YYYY-MM-DD) from which you'd like to start your query.  The response will be a maximum of one day."
-    },
-    "hour": {
-      "type": "string",
-      "description": "The hour of the day represented in the date parameter in 24-hour (00-23) format.  If this parameter is included, a maximum of 1 hour will be returned starting at this hour."
-    },
-    "responseType": {
-      "type": "string",
-      "description": "Current valid parameters for this are 'csv' and 'json'.  If this parameter is left blank, all responses default to hapi-json dweet-speak."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "thing",
-    "key",
-    "date"
-  ]
-}
+
+```js
+dweet.getStoredAlerts({
+  "thing": "",
+  "key": "",
+  "date": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: get.stored.dweets.for.thing.get
+
+#### Parameters
+* thing (string) **required** - A unique name of a thing.
+* key (string) **required** - A valid key for a locked thing. If the thing is not locked, this can be ignored.
+* date (string) **required** - The calendar date (YYYY-MM-DD) from which you'd like to start your query.  The response will be a maximum of one day.
+* hour (string) - The hour of the day represented in the date parameter in 24-hour (00-23) format.  If this parameter is included, a maximum of 1 hour will be returned starting at this hour.
+* responseType (string) - Current valid parameters for this are 'csv' and 'json'.  If this parameter is left blank, all responses default to hapi-json dweet-speak.
+
+### get.stored.dweets.for.thing.get
 Read all the saved dweets for a thing from long term storage.  You can query a maximum of 1 day per request and a granularly of 1 hour.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "thing": {
-      "type": "string",
-      "description": "A unique name of a thing."
-    },
-    "key": {
-      "type": "string",
-      "description": "A valid key for a locked thing. If the thing is not locked, this can be ignored."
-    },
-    "date": {
-      "type": "string",
-      "description": "The calendar date (YYYY-MM-DD) from which you'd like to start your query.  The response will be a maximum of one day."
-    },
-    "hour": {
-      "type": "string",
-      "description": "The hour of the day represented in the date parameter in 24-hour (00-23) format.  If this parameter is included, a maximum of 1 hour will be returned starting at this hour."
-    },
-    "responseType": {
-      "type": "string",
-      "description": "Current valid parameters for this are 'csv' and 'json'.  If this parameter is left blank, all responses default to hapi-json dweet-speak."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "thing",
-    "key",
-    "date"
-  ]
-}
+
+```js
+dweet.get.stored.dweets.for.thing.get({
+  "thing": "",
+  "key": "",
+  "date": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: listenForDweets
+
+#### Parameters
+* thing (string) **required** - A unique name of a thing.
+* key (string) **required** - A valid key for a locked thing. If the thing is not locked, this can be ignored.
+* date (string) **required** - The calendar date (YYYY-MM-DD) from which you'd like to start your query.  The response will be a maximum of one day.
+* hour (string) - The hour of the day represented in the date parameter in 24-hour (00-23) format.  If this parameter is included, a maximum of 1 hour will be returned starting at this hour.
+* responseType (string) - Current valid parameters for this are 'csv' and 'json'.  If this parameter is left blank, all responses default to hapi-json dweet-speak.
+
+### listenForDweets
 Sorry, this function uses HTTP chunked responses and cannot be tested here. Try something like: <pre>curl --raw https://dweet.io/listen/for/dweets/from/{thing}</pre>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "thing": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "thing"
-  ]
-}
+
+```js
+dweet.listenForDweets({
+  "thing": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: lockThing
+
+#### Parameters
+* thing (string) **required**
+
+### lockThing
 Reserve and lock a thing.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "thing": {
-      "type": "string",
-      "description": "A unique name of a thing."
-    },
-    "lock": {
-      "type": "string",
-      "description": "A valid dweet.io lock."
-    },
-    "key": {
-      "type": "string",
-      "description": "A valid dweet.io master key."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "thing",
-    "lock",
-    "key"
-  ]
-}
+
+```js
+dweet.lockThing({
+  "thing": "",
+  "lock": "",
+  "key": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: removeAlert
+
+#### Parameters
+* thing (string) **required** - A unique name of a thing.
+* lock (string) **required** - A valid dweet.io lock.
+* key (string) **required** - A valid dweet.io master key.
+
+### removeAlert
 Remove an alert for a thing.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "thing": {
-      "type": "string",
-      "description": "A unique name of a thing."
-    },
-    "key": {
-      "type": "string",
-      "description": "A valid key for a locked thing. If the thing is not locked, this can be ignored."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "thing",
-    "key"
-  ]
-}
+
+```js
+dweet.removeAlert({
+  "thing": "",
+  "key": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: removeLock
+
+#### Parameters
+* thing (string) **required** - A unique name of a thing.
+* key (string) **required** - A valid key for a locked thing. If the thing is not locked, this can be ignored.
+
+### removeLock
 Remove a lock from thing.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "lock": {
-      "type": "string",
-      "description": "A valid dweet.io lock."
-    },
-    "key": {
-      "type": "string",
-      "description": "A valid dweet.io master key."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "lock",
-    "key"
-  ]
-}
+
+```js
+dweet.removeLock({
+  "lock": "",
+  "key": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: unlockThing
+
+#### Parameters
+* lock (string) **required** - A valid dweet.io lock.
+* key (string) **required** - A valid dweet.io master key.
+
+### unlockThing
 Unlock a thing.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "thing": {
-      "type": "string",
-      "description": "A unique name of a thing."
-    },
-    "key": {
-      "type": "string",
-      "description": "A valid dweet.io master key."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "thing",
-    "key"
-  ]
-}
+
+```js
+dweet.unlockThing({
+  "thing": "",
+  "key": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* thing (string) **required** - A unique name of a thing.
+* key (string) **required** - A valid dweet.io master key.
+

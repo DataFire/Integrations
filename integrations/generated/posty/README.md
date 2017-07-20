@@ -1,610 +1,391 @@
 # @datafire/posty
+
+Client library for posty_API
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/posty
+```
+
+```js
+let datafire = require('datafire');
+let posty = require('@datafire/posty').actions;
+let context = new datafire.Context();
+
+posty.api.v1.domains.json.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 The posty_API is the core element of the posty softwarestack. It is developed to administrate a mailserver based on Postfix and Dovecot. It offers an easy REST interface which can be used in own applications or with the posty client applications, posty_CLI and posty_webUI.
 
-## Operation: api.v1.domains.json.get
+## Actions
+### api.v1.domains.json.get
 Returns all available domains
 
-### Input Schema
-```json
-{}
+
+```js
+posty.api.v1.domains.json.get(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.domains.json.post
+
+
+### api.v1.domains.json.post
 Create new domain
 
-### Input Schema
-```json
-{}
+
+```js
+posty.api.v1.domains.json.post(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.domains.domain_name.json.delete
+
+
+### api.v1.domains.domain_name.json.delete
 Delete the specified domain
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "domain_name": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "domain_name"
-  ]
-}
+
+```js
+posty.api.v1.domains.domain_name.json.delete({
+  "domain_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.domains.domain_name.json.get
+
+#### Parameters
+* domain_name (string) **required**
+
+### api.v1.domains.domain_name.json.get
 Returns the information to the specified domain
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "domain_name": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "domain_name"
-  ]
-}
+
+```js
+posty.api.v1.domains.domain_name.json.get({
+  "domain_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.domains.domain_name.json.put
+
+#### Parameters
+* domain_name (string) **required**
+
+### api.v1.domains.domain_name.json.put
 Update the specified domain
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "domain_name": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "domain_name"
-  ]
-}
+
+```js
+posty.api.v1.domains.domain_name.json.put({
+  "domain_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.domains.domain_name.aliases.json.get
+
+#### Parameters
+* domain_name (string) **required**
+
+### api.v1.domains.domain_name.aliases.json.get
 Returns all aliases for the specified domain
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "domain_name": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "domain_name"
-  ]
-}
+
+```js
+posty.api.v1.domains.domain_name.aliases.json.get({
+  "domain_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.domains.domain_name.aliases.json.post
+
+#### Parameters
+* domain_name (string) **required**
+
+### api.v1.domains.domain_name.aliases.json.post
 Create new domain alias
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "domain_name": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "domain_name"
-  ]
-}
+
+```js
+posty.api.v1.domains.domain_name.aliases.json.post({
+  "domain_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.domains.domain_name.aliases.alias_name.json.delete
+
+#### Parameters
+* domain_name (string) **required**
+
+### api.v1.domains.domain_name.aliases.alias_name.json.delete
 Delete the specified domain alias
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "domain_name": {
-      "type": "string"
-    },
-    "alias_name": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "domain_name",
-    "alias_name"
-  ]
-}
+
+```js
+posty.api.v1.domains.domain_name.aliases.alias_name.json.delete({
+  "domain_name": "",
+  "alias_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.domains.domain_name.aliases.alias_name.json.get
+
+#### Parameters
+* domain_name (string) **required**
+* alias_name (string) **required**
+
+### api.v1.domains.domain_name.aliases.alias_name.json.get
 Returns the information to the specified domain alias
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "domain_name": {
-      "type": "string"
-    },
-    "alias_name": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "domain_name",
-    "alias_name"
-  ]
-}
+
+```js
+posty.api.v1.domains.domain_name.aliases.alias_name.json.get({
+  "domain_name": "",
+  "alias_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.domains.domain_name.aliases.alias_name.json.put
+
+#### Parameters
+* domain_name (string) **required**
+* alias_name (string) **required**
+
+### api.v1.domains.domain_name.aliases.alias_name.json.put
 Update the specified domain alias
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "domain_name": {
-      "type": "string"
-    },
-    "alias_name": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "domain_name",
-    "alias_name"
-  ]
-}
+
+```js
+posty.api.v1.domains.domain_name.aliases.alias_name.json.put({
+  "domain_name": "",
+  "alias_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.domains.domain_name.users.json.get
+
+#### Parameters
+* domain_name (string) **required**
+* alias_name (string) **required**
+
+### api.v1.domains.domain_name.users.json.get
 Returns all users for the specified domain
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "domain_name": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "domain_name"
-  ]
-}
+
+```js
+posty.api.v1.domains.domain_name.users.json.get({
+  "domain_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.domains.domain_name.users.json.post
+
+#### Parameters
+* domain_name (string) **required**
+
+### api.v1.domains.domain_name.users.json.post
 Create new user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "domain_name": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "domain_name"
-  ]
-}
+
+```js
+posty.api.v1.domains.domain_name.users.json.post({
+  "domain_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.domains.domain_name.users.user_name.json.delete
+
+#### Parameters
+* domain_name (string) **required**
+
+### api.v1.domains.domain_name.users.user_name.json.delete
 Delete the specified user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "domain_name": {
-      "type": "string"
-    },
-    "user_name": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "domain_name",
-    "user_name"
-  ]
-}
+
+```js
+posty.api.v1.domains.domain_name.users.user_name.json.delete({
+  "domain_name": "",
+  "user_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.domains.domain_name.users.user_name.json.get
+
+#### Parameters
+* domain_name (string) **required**
+* user_name (string) **required**
+
+### api.v1.domains.domain_name.users.user_name.json.get
 Returns the information to the specified user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "domain_name": {
-      "type": "string"
-    },
-    "user_name": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "domain_name",
-    "user_name"
-  ]
-}
+
+```js
+posty.api.v1.domains.domain_name.users.user_name.json.get({
+  "domain_name": "",
+  "user_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.domains.domain_name.users.user_name.json.put
+
+#### Parameters
+* domain_name (string) **required**
+* user_name (string) **required**
+
+### api.v1.domains.domain_name.users.user_name.json.put
 Update the specified user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "domain_name": {
-      "type": "string"
-    },
-    "user_name": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "domain_name",
-    "user_name"
-  ]
-}
+
+```js
+posty.api.v1.domains.domain_name.users.user_name.json.put({
+  "domain_name": "",
+  "user_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.domains.domain_name.users.user_name.aliases.json.get
+
+#### Parameters
+* domain_name (string) **required**
+* user_name (string) **required**
+
+### api.v1.domains.domain_name.users.user_name.aliases.json.get
 Returns all aliases for the specified user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "domain_name": {
-      "type": "string"
-    },
-    "user_name": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "domain_name",
-    "user_name"
-  ]
-}
+
+```js
+posty.api.v1.domains.domain_name.users.user_name.aliases.json.get({
+  "domain_name": "",
+  "user_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.domains.domain_name.users.user_name.aliases.json.post
+
+#### Parameters
+* domain_name (string) **required**
+* user_name (string) **required**
+
+### api.v1.domains.domain_name.users.user_name.aliases.json.post
 Create new user alias
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "domain_name": {
-      "type": "string"
-    },
-    "user_name": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "domain_name",
-    "user_name"
-  ]
-}
+
+```js
+posty.api.v1.domains.domain_name.users.user_name.aliases.json.post({
+  "domain_name": "",
+  "user_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.delete
+
+#### Parameters
+* domain_name (string) **required**
+* user_name (string) **required**
+
+### api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.delete
 Delete the specified user alias
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "domain_name": {
-      "type": "string"
-    },
-    "user_name": {
-      "type": "string"
-    },
-    "alias_name": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "domain_name",
-    "user_name",
-    "alias_name"
-  ]
-}
+
+```js
+posty.api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.delete({
+  "domain_name": "",
+  "user_name": "",
+  "alias_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.get
+
+#### Parameters
+* domain_name (string) **required**
+* user_name (string) **required**
+* alias_name (string) **required**
+
+### api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.get
 Returns the information to the specified user alias
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "domain_name": {
-      "type": "string"
-    },
-    "user_name": {
-      "type": "string"
-    },
-    "alias_name": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "domain_name",
-    "user_name",
-    "alias_name"
-  ]
-}
+
+```js
+posty.api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.get({
+  "domain_name": "",
+  "user_name": "",
+  "alias_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.put
+
+#### Parameters
+* domain_name (string) **required**
+* user_name (string) **required**
+* alias_name (string) **required**
+
+### api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.put
 Update the specified user alias
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "domain_name": {
-      "type": "string"
-    },
-    "user_name": {
-      "type": "string"
-    },
-    "alias_name": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "domain_name",
-    "user_name",
-    "alias_name"
-  ]
-}
+
+```js
+posty.api.v1.domains.domain_name.users.user_name.aliases.alias_name.json.put({
+  "domain_name": "",
+  "user_name": "",
+  "alias_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.summary.json.get
+
+#### Parameters
+* domain_name (string) **required**
+* user_name (string) **required**
+* alias_name (string) **required**
+
+### api.v1.summary.json.get
 Returns a summary of all Resources
 
-### Input Schema
-```json
-{}
+
+```js
+posty.api.v1.summary.json.get(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.swagger_doc.json.get
+
+
+### api.v1.swagger_doc.json.get
 Swagger compatible API description
 
-### Input Schema
-```json
-{}
+
+```js
+posty.api.v1.swagger_doc.json.get(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.swagger_doc.name.json.get
+
+
+### api.v1.swagger_doc.name.json.get
 Swagger compatible API description for specific API
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Resource name of mounted API"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+posty.api.v1.swagger_doc.name.json.get({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.transports.json.get
+
+#### Parameters
+* name (string) **required** - Resource name of mounted API
+
+### api.v1.transports.json.get
 Returns all available transports
 
-### Input Schema
-```json
-{}
+
+```js
+posty.api.v1.transports.json.get(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.transports.json.post
+
+
+### api.v1.transports.json.post
 Create new transport
 
-### Input Schema
-```json
-{}
+
+```js
+posty.api.v1.transports.json.post(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.transports.transport_name.json.delete
+
+
+### api.v1.transports.transport_name.json.delete
 Delete the specified transport
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "transport_name": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "transport_name"
-  ]
-}
+
+```js
+posty.api.v1.transports.transport_name.json.delete({
+  "transport_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.transports.transport_name.json.get
+
+#### Parameters
+* transport_name (string) **required**
+
+### api.v1.transports.transport_name.json.get
 Returns the information to the specified transport
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "transport_name": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "transport_name"
-  ]
-}
+
+```js
+posty.api.v1.transports.transport_name.json.get({
+  "transport_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.transports.transport_name.json.put
+
+#### Parameters
+* transport_name (string) **required**
+
+### api.v1.transports.transport_name.json.put
 Update the specified transport
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "transport_name": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "transport_name"
-  ]
-}
+
+```js
+posty.api.v1.transports.transport_name.json.put({
+  "transport_name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* transport_name (string) **required**
+

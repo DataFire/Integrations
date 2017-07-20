@@ -1,82 +1,46 @@
 # @datafire/omdbapi
+
+Client library for OMDb
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/omdbapi
+```
+
+```js
+let datafire = require('datafire');
+let omdbapi = require('@datafire/omdbapi').actions;
+let context = new datafire.Context();
+
+omdbapi..get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 The Open Movie Database. The OMDb API is a free web service to obtain movie information, all content and images on the site are contributed and maintained by our users.
 
-## Operation: .get
+## Actions
+### .get
 Find a movie, series or episode from the OMDb by title, IMDb-id or by free-text search
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "t": {
-      "type": "string",
-      "description": "Movie title to search for. One of t, i or s is required."
-    },
-    "i": {
-      "type": "string",
-      "description": "A valid IMDb ID (e.g. tt1285016). One of t, i or s is required."
-    },
-    "s": {
-      "type": "string",
-      "description": "Movie title to search for. One of t, i or s is required."
-    },
-    "y": {
-      "type": "integer",
-      "description": "Year of release."
-    },
-    "type": {
-      "type": "string",
-      "description": "Type of result to return.",
-      "enum": [
-        "movie",
-        "series",
-        "episode"
-      ]
-    },
-    "plot": {
-      "type": "string",
-      "description": "Return short or full plot.",
-      "enum": [
-        "short",
-        "full"
-      ]
-    },
-    "tomatoes": {
-      "type": "boolean",
-      "description": "Include Rotten Tomatoes ratings."
-    },
-    "r": {
-      "type": "string",
-      "description": "The data type to return.",
-      "enum": [
-        "json",
-        "xml"
-      ]
-    },
-    "v": {
-      "type": "integer",
-      "description": "API version (reserved for future use)."
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Page number to return."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP callback name."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "r"
-  ]
-}
+
+```js
+omdbapi..get({
+  "r": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/combinedResult"
-}
-```
+
+#### Parameters
+* t (string) - Movie title to search for. One of t, i or s is required.
+* i (string) - A valid IMDb ID (e.g. tt1285016). One of t, i or s is required.
+* s (string) - Movie title to search for. One of t, i or s is required.
+* y (integer) - Year of release.
+* type (string) - Type of result to return.
+* plot (string) - Return short or full plot.
+* tomatoes (boolean) - Include Rotten Tomatoes ratings.
+* r (string) **required** - The data type to return.
+* v (integer) - API version (reserved for future use).
+* page (integer) - Page number to return.
+* callback (string) - JSONP callback name.
+

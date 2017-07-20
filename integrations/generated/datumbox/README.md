@@ -1,337 +1,218 @@
 # @datafire/datumbox
+
+Client library for DatumBox
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/datumbox
+```
+
+```js
+let datafire = require('datafire');
+let datumbox = require('@datafire/datumbox').actions;
+
+let account = {
+  apiKey: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    datumbox: account,
+  }
+})
+
+
+datumbox.AdultContentDetection({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Datumbox offers a Machine Learning platform composed of 14 classifiers and Natural Language processing functions. Functions include sentiment analysis, topic classification, readability assessment, language detection, and much more.
 
-## Operation: AdultContentDetection
+## Actions
+### AdultContentDetection
 The Adult Content Detection function classifies the documents as adult or noadult based on their context. It can be used to detect whether a document contains content unsuitable for minors.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "text": {
-      "type": "string",
-      "description": "The text that you want to analyze. It should not contain HTML tags."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "text"
-  ]
-}
+
+```js
+datumbox.AdultContentDetection({
+  "text": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: CommercialDetection
+
+#### Parameters
+* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+
+### CommercialDetection
 The Commercial Detection function labels the documents as commercial or non-commercial based on their keywords and expressions. It can be used to detect whether a website is commercial or not.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "text": {
-      "type": "string",
-      "description": "The text that you want to analyze. It should not contain HTML tags."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "text"
-  ]
-}
+
+```js
+datumbox.CommercialDetection({
+  "text": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: DocumentSimilarity
+
+#### Parameters
+* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+
+### DocumentSimilarity
 The Document Similarity function estimates the degree of similarity between two documents. It can be used to detect duplicate webpages or detect plagiarism.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "original": {
-      "type": "string",
-      "description": "The first text. It should not contain HTML tags."
-    },
-    "copy": {
-      "type": "string",
-      "description": "The second text. It should not contain HTML tags."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "original",
-    "copy"
-  ]
-}
+
+```js
+datumbox.DocumentSimilarity({
+  "original": "",
+  "copy": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: EducationalDetection
+
+#### Parameters
+* original (string) **required** - The first text. It should not contain HTML tags.
+* copy (string) **required** - The second text. It should not contain HTML tags.
+
+### EducationalDetection
 The Educational Detection function classifies the documents as educational or non-educational based on their context. It can be used to detect whether a website is educational or not.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "text": {
-      "type": "string",
-      "description": "The text that you want to analyze. It should not contain HTML tags."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "text"
-  ]
-}
+
+```js
+datumbox.EducationalDetection({
+  "text": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: GenderDetection
+
+#### Parameters
+* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+
+### GenderDetection
 The Gender Detection function identifies if a particular document is written-by or targets-to a man or a woman based on the context, the words and the idioms found in the text.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "text": {
-      "type": "string",
-      "description": "The text that you want to analyze. It should not contain HTML tags."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "text"
-  ]
-}
+
+```js
+datumbox.GenderDetection({
+  "text": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: KeywordExtraction
+
+#### Parameters
+* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+
+### KeywordExtraction
 The Keyword Extraction function enables you to extract from an arbitrary document all the keywords and word-combinations along with their occurrences in the text.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "n": {
-      "type": "integer",
-      "description": "The number of keyword combinations (n-grams) that you wish to extract.",
-      "maximum": 5,
-      "minimum": 1
-    },
-    "text": {
-      "type": "string",
-      "description": "The text that you want to analyze. It should not contain HTML tags."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "n",
-    "text"
-  ]
-}
+
+```js
+datumbox.KeywordExtraction({
+  "n": 0,
+  "text": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: LanguageDetection
+
+#### Parameters
+* n (integer) **required** - The number of keyword combinations (n-grams) that you wish to extract.
+* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+
+### LanguageDetection
 The Language Detection function identifies the natural language of the given document based on its words and context. This classifier is able to detect 96 different languages.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "text": {
-      "type": "string",
-      "description": "The text that you want to analyze. It should not contain HTML tags."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "text"
-  ]
-}
+
+```js
+datumbox.LanguageDetection({
+  "text": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ReadabilityAssessment
+
+#### Parameters
+* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+
+### ReadabilityAssessment
 The Readability Assessment function determines the degree of readability of a document based on its terms and idioms. The texts are classified as basic, intermediate and advanced depending their difficulty.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "text": {
-      "type": "string",
-      "description": "The text that you want to analyze. It should not contain HTML tags."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "text"
-  ]
-}
+
+```js
+datumbox.ReadabilityAssessment({
+  "text": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: SentimentAnalysis
+
+#### Parameters
+* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+
+### SentimentAnalysis
 The Sentiment Analysis function classifies documents as positive, negative or neutral (lack of sentiment) depending on whether they express a positive, negative or neutral opinion.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "text": {
-      "type": "string",
-      "description": "The text that you want to analyze. It should not contain HTML tags."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "text"
-  ]
-}
+
+```js
+datumbox.SentimentAnalysis({
+  "text": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: SpamDetection
+
+#### Parameters
+* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+
+### SpamDetection
 The Spam Detection function labels documents as spam or nospam by taking into account their context. It can be used to filter out spam emails and comments.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "text": {
-      "type": "string",
-      "description": "The text that you want to analyze. It should not contain HTML tags."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "text"
-  ]
-}
+
+```js
+datumbox.SpamDetection({
+  "text": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: SubjectivityAnalysis
+
+#### Parameters
+* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+
+### SubjectivityAnalysis
 The Subjectivity Analysis function categorizes documents as subjective or objective based on their writing style. Texts that express personal opinions are labeled as subjective and the others as objective.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "text": {
-      "type": "string",
-      "description": "The text that you want to analyze. It should not contain HTML tags."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "text"
-  ]
-}
+
+```js
+datumbox.SubjectivityAnalysis({
+  "text": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: TextExtraction
+
+#### Parameters
+* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+
+### TextExtraction
 The Text Extraction function enables you to extract the important information from a given webpage. Extracting the clear text of the documents is an important step before any other analysis.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "text": {
-      "type": "string",
-      "description": "The HTML source of the webpage."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "text"
-  ]
-}
+
+```js
+datumbox.TextExtraction({
+  "text": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: TopicClassification
+
+#### Parameters
+* text (string) **required** - The HTML source of the webpage.
+
+### TopicClassification
 The Topic Classification function assigns documents in 12 thematic categories based on their keywords, idioms and jargon. It can be used to identify the topic of the texts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "text": {
-      "type": "string",
-      "description": "The text that you want to analyze. It should not contain HTML tags."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "text"
-  ]
-}
+
+```js
+datumbox.TopicClassification({
+  "text": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: TwitterSentimentAnalysis
+
+#### Parameters
+* text (string) **required** - The text that you want to analyze. It should not contain HTML tags.
+
+### TwitterSentimentAnalysis
 The Twitter Sentiment Analysis function allows you to perform Sentiment Analysis on Twitter. It classifies the tweets as positive, negative or neutral depending on their context.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "text": {
-      "type": "string",
-      "description": "The text of the tweet that we evaluate."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "text"
-  ]
-}
+
+```js
+datumbox.TwitterSentimentAnalysis({
+  "text": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* text (string) **required** - The text of the tweet that we evaluate.
+

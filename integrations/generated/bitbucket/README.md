@@ -1,283 +1,183 @@
 # @datafire/bitbucket
+
+Client library for Bitbucket
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/bitbucket
+```
+
+```js
+let datafire = require('datafire');
+let bitbucket = require('@datafire/bitbucket').actions;
+
+let account = {
+  api_key: "",
+  username: "",
+  password: "",
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    bitbucket: account,
+  }
+})
+
+
+bitbucket.teams.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Code against the Bitbucket API to automate simple tasks, embed Bitbucket data into your own site, build mobile or desktop apps, or even add custom UI add-ons into Bitbucket itself using the Connect framework.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+bitbucket.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+bitbucket.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: addon.delete
 
 
-### Input Schema
-```json
-{}
-```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: addon.put
+### addon.delete
 
 
-### Input Schema
-```json
-{}
+
+```js
+bitbucket.addon.delete(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: addon.linkers.get
 
 
-### Input Schema
-```json
-{}
-```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: addon.linkers.linker_key.get
+### addon.put
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "linker_key": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "linker_key"
-  ]
-}
+
+```js
+bitbucket.addon.put(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: addon.linkers.linker_key.values.delete
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "linker_key": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "linker_key"
-  ]
-}
-```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: addon.linkers.linker_key.values.get
+### addon.linkers.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "linker_key": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "linker_key"
-  ]
-}
+
+```js
+bitbucket.addon.linkers.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: addon.linkers.linker_key.values.post
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "linker_key": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "linker_key"
-  ]
-}
-```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: addon.linkers.linker_key.values.put
+### addon.linkers.linker_key.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "linker_key": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "linker_key"
-  ]
-}
+
+```js
+bitbucket.addon.linkers.linker_key.get({
+  "linker_key": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: addon.linkers.linker_key.values.delete
+
+#### Parameters
+* linker_key (string) **required**
+
+### addon.linkers.linker_key.values.delete
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "linker_key": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "linker_key"
-  ]
-}
+
+```js
+bitbucket.addon.linkers.linker_key.values.delete({
+  "linker_key": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: addon.linkers.linker_key.values.get
+
+#### Parameters
+* linker_key (string) **required**
+
+### addon.linkers.linker_key.values.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "linker_key": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "linker_key"
-  ]
-}
+
+```js
+bitbucket.addon.linkers.linker_key.values.get({
+  "linker_key": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
+
+#### Parameters
+* linker_key (string) **required**
+
+### addon.linkers.linker_key.values.post
+
+
+
+```js
+bitbucket.addon.linkers.linker_key.values.post({
+  "linker_key": ""
+}, context)
 ```
-## Operation: hook_events.get
+
+#### Parameters
+* linker_key (string) **required**
+
+### addon.linkers.linker_key.values.put
+
+
+
+```js
+bitbucket.addon.linkers.linker_key.values.put({
+  "linker_key": ""
+}, context)
+```
+
+#### Parameters
+* linker_key (string) **required**
+
+### addon.linkers.linker_key.values.delete
+
+
+
+```js
+bitbucket.addon.linkers.linker_key.values.delete({
+  "linker_key": ""
+}, context)
+```
+
+#### Parameters
+* linker_key (string) **required**
+
+### addon.linkers.linker_key.values.get
+
+
+
+```js
+bitbucket.addon.linkers.linker_key.values.get({
+  "linker_key": ""
+}, context)
+```
+
+#### Parameters
+* linker_key (string) **required**
+
+### hook_events.get
 Returns the webhook resource or subject types on which webhooks can
 be registered.
 
@@ -318,17 +218,13 @@ $ curl https://api.bitbucket.org/2.0/hook_events
 }
 ```
 
-### Input Schema
-```json
-{}
+
+```js
+bitbucket.hook_events.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/subject_types"
-}
-```
-## Operation: hook_events.subject_type.get
+
+
+### hook_events.subject_type.get
 Returns a paginated list of all valid webhook events for the
 specified entity.
 
@@ -369,56 +265,29 @@ $ curl https://api.bitbucket.org/2.0/hook_events/team
 }
 ```
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subject_type": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subject_type"
-  ]
-}
+
+```js
+bitbucket.hook_events.subject_type.get({
+  "subject_type": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_hook_events"
-}
-```
-## Operation: repositories.get
+
+#### Parameters
+* subject_type (string) **required**
+
+### repositories.get
 Returns a paginated list of all public repositories.
 
 This endpoint also supports filtering and sorting of the results. See
 [filtering and sorting](../meta/filtering) for more details.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "after": {
-      "type": "string",
-      "description": "Filter the results to include only repositories create on or\nafter this [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)\n timestamp. Example: `YYYY-MM-DDTHH:mm:ss.sssZ`"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+bitbucket.repositories.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_repositories"
-}
-```
-## Operation: repositories.username.get
+
+
+### repositories.username.get
 Returns a paginated list of all repositories owned by the specified
 account or UUID.
 
@@ -431,94 +300,50 @@ repo the user is an admin on, as that implies write access).
 This endpoint also supports filtering and sorting of the results. See
 [filtering and sorting](../../meta/filtering) for more details.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "role": {
-      "type": "string",
-      "description": "\nFilters the result based on the authenticated user's role on each repository.\n\n* **member**: returns repositories to which the user has explicit read access\n* **contributor**: returns repositories to which the user has explicit write access\n* **admin**: returns repositories to which the user has explicit administrator access\n* **owner**: returns all repositories owned by the current user\n",
-      "enum": [
-        "admin",
-        "contributor",
-        "member",
-        "owner"
-      ]
-    },
-    "username": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+bitbucket.repositories.username.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_repositories"
-}
-```
-## Operation: repositories.username.repo_slug.delete
+
+#### Parameters
+* role (string) - 
+* username (string) **required**
+
+### repositories.username.repo_slug.delete
 Deletes the repository. This is an irreversible operation.
 
 This does not affect its forks.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.delete({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repositories.username.repo_slug.get
+
+#### Parameters
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.get
 Returns the object describing this repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.get({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/repository"
-}
-```
-## Operation: repositories.username.repo_slug.post
+
+#### Parameters
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.post
 Creates a new repository.
 
 Note: In order to set the project for the newly created repository,
@@ -552,35 +377,20 @@ repository is automatically assigned to the oldest project in the team.
 Note: In the examples above, the username `teamsinspace`,
 and/or the repository name `hablanding` can be replaced by UUIDs.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_body": {
-      "$ref": "#/definitions/repository"
-    },
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.post({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/repository"
-}
-```
-## Operation: repositories.username.repo_slug.put
+
+#### Parameters
+* _body (undefined)
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.put
 Since this endpoint can be used to both update and to create a
 repository, the request body depends on the intent.
 
@@ -599,64 +409,36 @@ with an existing repository's slug. But if there is no conflict,
 the new location will be returned in the `Location` header of the
 response.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_body": {
-      "$ref": "#/definitions/repository"
-    },
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.put({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/repository"
-}
-```
-## Operation: repositories.username.repo_slug.branch_restrictions.get
+
+#### Parameters
+* _body (undefined)
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.branch_restrictions.get
 Returns a paginated list of all branch restrictions on the
 repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.branch_restrictions.get({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_branchrestrictions"
-}
-```
-## Operation: repositories.username.repo_slug.branch_restrictions.post
+
+#### Parameters
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.branch_restrictions.post
 Creates a new branch restriction rule for a repository.
 
 `kind` describes what will be restricted. Allowed values are: `push`,
@@ -684,138 +466,78 @@ users or groups to an existing restriction should be done via `PUT`.
 Note that branch restrictions with overlapping patterns are allowed,
 but the resulting behavior may be surprising.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_body": {
-      "$ref": "#/definitions/branchrestriction"
-    },
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "_body",
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.branch_restrictions.post({
+  "_body": null,
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/branchrestriction"
-}
-```
-## Operation: repositories.username.repo_slug.branch_restrictions.id.delete
+
+#### Parameters
+* _body (undefined) **required**
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.branch_restrictions.id.delete
 Deletes an existing branch restriction rule.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.branch_restrictions.id.delete({
+  "username": "",
+  "id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repositories.username.repo_slug.branch_restrictions.id.get
+
+#### Parameters
+* username (string) **required**
+* id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.branch_restrictions.id.get
 Returns a specific branch restriction rule.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.branch_restrictions.id.get({
+  "username": "",
+  "id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/branchrestriction"
-}
-```
-## Operation: repositories.username.repo_slug.branch_restrictions.id.put
+
+#### Parameters
+* username (string) **required**
+* id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.branch_restrictions.id.put
 Updates an existing branch restriction rule.
 
 Fields not present in the request body are ignored.
 
 See [`POST`](../../branch-restrictions#post) for details.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_body": {
-      "$ref": "#/definitions/branchrestriction"
-    },
-    "username": {
-      "type": "string"
-    },
-    "id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "_body",
-    "username",
-    "id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.branch_restrictions.id.put({
+  "_body": null,
+  "username": "",
+  "id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/branchrestriction"
-}
-```
-## Operation: repositories.username.repo_slug.commit.node.approve.delete
+
+#### Parameters
+* _body (undefined) **required**
+* username (string) **required**
+* id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.commit.node.approve.delete
 Redact the authenticated user's approval of the specified commit.
 
 This operation is only available to users that have explicit access to
@@ -823,34 +545,21 @@ the repository. In contrast, just the fact that a repository is
 publicly accessible to users does not give them the ability to approve
 commits.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "node": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "node",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.commit.node.approve.delete({
+  "username": "",
+  "node": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repositories.username.repo_slug.commit.node.approve.post
+
+#### Parameters
+* username (string) **required**
+* node (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.commit.node.approve.post
 Approve the specified commit as the authenticated user.
 
 This operation is only available to users that have explicit access to
@@ -858,68 +567,38 @@ the repository. In contrast, just the fact that a repository is
 publicly accessible to users does not give them the ability to approve
 commits.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "node": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "node",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.commit.node.approve.post({
+  "username": "",
+  "node": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/participant"
-}
-```
-## Operation: repositories.username.repo_slug.commit.node.statuses.get
+
+#### Parameters
+* username (string) **required**
+* node (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.commit.node.statuses.get
 Returns all statuses (e.g. build results) for a specific commit.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "node": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "node",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.commit.node.statuses.get({
+  "username": "",
+  "node": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_commitstatuses"
-}
-```
-## Operation: repositories.username.repo_slug.commit.node.statuses.build.post
+
+#### Parameters
+* username (string) **required**
+* node (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.commit.node.statuses.build.post
 Creates a new build status against the specified commit.
 
 If the specified key already exists, the existing status object will
@@ -934,72 +613,40 @@ For example, one could use `https://foo.com/builds/{repository.full_name}`
 which Bitbucket will turn into `https://foo.com/builds/foo/bar` at render time.
 The context variables available are `repository` and `commit`.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "node": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "node",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.commit.node.statuses.build.post({
+  "username": "",
+  "node": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/commitstatus"
-}
-```
-## Operation: repositories.username.repo_slug.commit.node.statuses.build.key.get
+
+#### Parameters
+* username (string) **required**
+* node (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.commit.node.statuses.build.key.get
 Returns the specified build status for a commit.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "node": {
-      "type": "string"
-    },
-    "key": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "node",
-    "key",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.commit.node.statuses.build.key.get({
+  "username": "",
+  "node": "",
+  "key": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/commitstatus"
-}
-```
-## Operation: repositories.username.repo_slug.commit.node.statuses.build.key.put
+
+#### Parameters
+* username (string) **required**
+* node (string) **required**
+* key (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.commit.node.statuses.build.key.put
 Used to update the current status of a build status object on the
 specific commit.
 
@@ -1014,75 +661,41 @@ build status:
 
 The `key` cannot be changed.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_body": {
-      "$ref": "#/definitions/commitstatus"
-    },
-    "username": {
-      "type": "string"
-    },
-    "node": {
-      "type": "string"
-    },
-    "key": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "node",
-    "key",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.commit.node.statuses.build.key.put({
+  "username": "",
+  "node": "",
+  "key": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/commitstatus"
-}
-```
-## Operation: repositories.username.repo_slug.commit.revision.get
+
+#### Parameters
+* _body (undefined)
+* username (string) **required**
+* node (string) **required**
+* key (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.commit.revision.get
 Returns the specified commit.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "revision": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "revision",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.commit.revision.get({
+  "username": "",
+  "revision": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/commit"
-}
-```
-## Operation: repositories.username.repo_slug.commit.sha.comments.get
+
+#### Parameters
+* username (string) **required**
+* revision (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.commit.sha.comments.get
 Returns the commit's comments.
 
 This includes both global and inline comments.
@@ -1090,72 +703,40 @@ This includes both global and inline comments.
 The default sorting is oldest to newest and can be overridden with
 the `sort` query parameter.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "sha": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "sha",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.commit.sha.comments.get({
+  "username": "",
+  "sha": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.commit.sha.comments.comment_id.get
+
+#### Parameters
+* username (string) **required**
+* sha (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.commit.sha.comments.comment_id.get
 Returns the specified commit comment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "sha": {
-      "type": "string"
-    },
-    "comment_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "sha",
-    "comment_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.commit.sha.comments.comment_id.get({
+  "username": "",
+  "sha": "",
+  "comment_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.commits.get
+
+#### Parameters
+* username (string) **required**
+* sha (string) **required**
+* comment_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.commits.get
 These are the repository's commits. They are paginated and returned
 in reverse chronological order, similar to the output of `git log` and
 `hg log`. Like these tools, the DAG can be filtered.
@@ -1194,64 +775,38 @@ construct your own links.
 When the include and exclude parameters are more than ca fit in a
 query string, clients can use a `x-www-form-urlencoded` POST instead.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.commits.get({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.commits.post
+
+#### Parameters
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.commits.post
 Identical to `GET /repositories/{username}/{repo_slug}/commits`,
 except that POST allows clients to place the include and exclude
 parameters in the request body to avoid URL length issues.
 
 **Note that this resource does NOT support new commit creation.**
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.commits.post({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.commits.revision.get
+
+#### Parameters
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.commits.revision.get
 These are the repository's commits. They are paginated and returned
 in reverse chronological order, similar to the output of `git log` and
 `hg log`. Like these tools, the DAG can be filtered.
@@ -1290,267 +845,153 @@ construct your own links.
 When the include and exclude parameters are more than ca fit in a
 query string, clients can use a `x-www-form-urlencoded` POST instead.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "revision": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "revision",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.commits.revision.get({
+  "username": "",
+  "revision": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.commits.revision.post
+
+#### Parameters
+* username (string) **required**
+* revision (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.commits.revision.post
 Identical to `GET /repositories/{username}/{repo_slug}/commits`,
 except that POST allows clients to place the include and exclude
 parameters in the request body to avoid URL length issues.
 
 **Note that this resource does NOT support new commit creation.**
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "revision": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "revision",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.commits.revision.post({
+  "username": "",
+  "revision": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.components.get
+
+#### Parameters
+* username (string) **required**
+* revision (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.components.get
 Returns the components that have been defined in the issue tracker.
 
 This resource is only available on repositories that have the issue
 tracker enabled.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.components.get({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_components"
-}
-```
-## Operation: repositories.username.repo_slug.components.component_id.get
+
+#### Parameters
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.components.component_id.get
 Returns the specified issue tracker component object.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "component_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "component_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.components.component_id.get({
+  "username": "",
+  "component_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/component"
-}
-```
-## Operation: repositories.username.repo_slug.default_reviewers.get
+
+#### Parameters
+* username (string) **required**
+* component_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.default_reviewers.get
 Returns the repository's default reviewers.
 
 These are the users that are automatically added as reviewers on every
 new pull request that is created.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.default_reviewers.get({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repositories.username.repo_slug.default_reviewers.target_username.delete
+
+#### Parameters
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.default_reviewers.target_username.delete
 Removes a default reviewer from the repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "target_username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "target_username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.default_reviewers.target_username.delete({
+  "username": "",
+  "target_username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.default_reviewers.target_username.get
+
+#### Parameters
+* username (string) **required**
+* target_username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.default_reviewers.target_username.get
 Returns the specified reviewer.
 
 This can be used to test whether a user is among the repository's
 default reviewers list. A 404 indicates that that specified user is not
 a default reviewer.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "target_username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "target_username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.default_reviewers.target_username.get({
+  "username": "",
+  "target_username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.default_reviewers.target_username.put
+
+#### Parameters
+* username (string) **required**
+* target_username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.default_reviewers.target_username.put
 Adds the specified user to the repository's list of default
 reviewers.
 
 This method is idempotent. Adding a user a second time has no effect.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "target_username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "target_username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.default_reviewers.target_username.put({
+  "username": "",
+  "target_username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.diff.spec.get
+
+#### Parameters
+* username (string) **required**
+* target_username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.diff.spec.get
 Produces a raw, git-style diff for either a single commit (diffed
 against its first parent), or a revspec of 2 commits (e.g.
 `3a8b42..9ff173` where the first commit represents the source and the
@@ -1576,70 +1017,38 @@ The raw diff is returned as-is, in whatever encoding the files in the
 repository use. It is not decoded into unicode. As such, the
 content-type is `text/plain`.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "context": {
-      "type": "integer",
-      "description": "Generate diffs with <n> lines of context instead of the usual three"
-    },
-    "path": {
-      "type": "string",
-      "description": "Limit the diff to a single file"
-    },
-    "username": {
-      "type": "string"
-    },
-    "spec": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "spec",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.diff.spec.get({
+  "username": "",
+  "spec": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repositories.username.repo_slug.downloads.get
+
+#### Parameters
+* context (integer) - Generate diffs with <n> lines of context instead of the usual three
+* path (string) - Limit the diff to a single file
+* username (string) **required**
+* spec (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.downloads.get
 Returns a list of download links associated with the repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.downloads.get({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.downloads.post
+
+#### Parameters
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.downloads.post
 Upload new download artifacts.
 
 To upload files, perform a `multipart/form-data` POST containing one
@@ -1651,64 +1060,36 @@ or more `files` fields:
 When a file is uploaded with the same name as an existing artifact,
 then the existing file will be replaced.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.downloads.post({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.downloads.filename.delete
+
+#### Parameters
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.downloads.filename.delete
 Deletes the specified download artifact from the repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "filename": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "filename",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.downloads.filename.delete({
+  "username": "",
+  "filename": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.downloads.filename.get
+
+#### Parameters
+* username (string) **required**
+* filename (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.downloads.filename.get
 Return a redirect to the contents of a download artifact.
 
 This endpoint returns the actual file contents and not the artifact's
@@ -1717,93 +1098,52 @@ metadata.
     $ curl -s -L https://api.bitbucket.org/2.0/repositories/evzijst/git-tests/downloads/hello.txt
     Hello World
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "filename": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "filename",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.downloads.filename.get({
+  "username": "",
+  "filename": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.forks.get
+
+#### Parameters
+* username (string) **required**
+* filename (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.forks.get
 Returns a paginated list of all the forks of the specified
 repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.forks.get({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_repositories"
-}
-```
-## Operation: repositories.username.repo_slug.hooks.get
+
+#### Parameters
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.hooks.get
 Returns a paginated list of webhooks installed on this repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.hooks.get({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_webhook_subscriptions"
-}
-```
-## Operation: repositories.username.repo_slug.hooks.post
+
+#### Parameters
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.hooks.post
 Creates a new webhook on the specified repository.
 
 Example:
@@ -1829,96 +1169,55 @@ example above that means: `webhook`, `repository` and `issue`.
 Also note that the `url` must properly resolve and cannot be an
 internal, non-routed address.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.hooks.post({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/webhook_subscription"
-}
-```
-## Operation: repositories.username.repo_slug.hooks.uid.delete
+
+#### Parameters
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.hooks.uid.delete
 Deletes the specified webhook subscription from the given
 repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "uid": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "uid",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.hooks.uid.delete({
+  "username": "",
+  "uid": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repositories.username.repo_slug.hooks.uid.get
+
+#### Parameters
+* username (string) **required**
+* uid (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.hooks.uid.get
 Returns the webhook with the specified id installed on the specified
 repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "uid": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "uid",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.hooks.uid.get({
+  "username": "",
+  "uid": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/webhook_subscription"
-}
-```
-## Operation: repositories.username.repo_slug.hooks.uid.put
+
+#### Parameters
+* username (string) **required**
+* uid (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.hooks.uid.put
 Updates the specified webhook subscription.
 
 The following properties can be mutated:
@@ -1928,64 +1227,36 @@ The following properties can be mutated:
 * `active`
 * `events`
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "uid": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "uid",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.hooks.uid.put({
+  "username": "",
+  "uid": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/webhook_subscription"
-}
-```
-## Operation: repositories.username.repo_slug.issues.get
+
+#### Parameters
+* username (string) **required**
+* uid (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.issues.get
 Returns the issues in the issue tracker.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.issues.get({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_issues"
-}
-```
-## Operation: repositories.username.repo_slug.issues.post
+
+#### Parameters
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.issues.post
 Creates a new issue.
 
 This call requires authentication. Private repositories or private
@@ -1994,101 +1265,56 @@ has appropriate authorisation.
 
 The authenticated user is used for the issue's `reporter` field.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_body": {
-      "$ref": "#/definitions/issue"
-    },
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "_body",
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.issues.post({
+  "_body": null,
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/issue"
-}
-```
-## Operation: repositories.username.repo_slug.issues.issue_id.delete
+
+#### Parameters
+* _body (undefined) **required**
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.issues.issue_id.delete
 Deletes the specified issue. This requires write access to the
 repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "issue_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "issue_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.issues.issue_id.delete({
+  "username": "",
+  "issue_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/issue"
-}
-```
-## Operation: repositories.username.repo_slug.issues.issue_id.get
+
+#### Parameters
+* username (string) **required**
+* issue_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.issues.issue_id.get
 Returns the specified issue.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "issue_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "issue_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.issues.issue_id.get({
+  "username": "",
+  "issue_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/issue"
-}
-```
-## Operation: repositories.username.repo_slug.issues.issue_id.attachments.get
+
+#### Parameters
+* username (string) **required**
+* issue_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.issues.issue_id.attachments.get
 Returns all attachments for this issue.
 
 This returns the files' meta data. This does not return the files'
@@ -2096,36 +1322,21 @@ actual contents.
 
 The files are always ordered by their upload date.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "issue_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "issue_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.issues.issue_id.attachments.get({
+  "username": "",
+  "issue_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_issue_attachments"
-}
-```
-## Operation: repositories.username.repo_slug.issues.issue_id.attachments.post
+
+#### Parameters
+* username (string) **required**
+* issue_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.issues.issue_id.attachments.post
 Upload new issue attachments.
 
 To upload files, perform a `multipart/form-data` POST containing one
@@ -2134,68 +1345,40 @@ or more file fields.
 When a file is uploaded with the same name as an existing attachment,
 then the existing file will be replaced.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "issue_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "issue_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.issues.issue_id.attachments.post({
+  "username": "",
+  "issue_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repositories.username.repo_slug.issues.issue_id.attachments.path.delete
+
+#### Parameters
+* username (string) **required**
+* issue_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.issues.issue_id.attachments.path.delete
 Deletes an attachment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "path": {
-      "type": "string"
-    },
-    "issue_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "path",
-    "issue_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.issues.issue_id.attachments.path.delete({
+  "username": "",
+  "path": "",
+  "issue_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repositories.username.repo_slug.issues.issue_id.attachments.path.get
+
+#### Parameters
+* username (string) **required**
+* path (string) **required**
+* issue_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.issues.issue_id.attachments.path.get
 Returns the contents of the specified file attachment.
 
 Note that this endpoint does not return a JSON response, but instead
@@ -2205,373 +1388,208 @@ the raw contents.
 The redirect URL contains a one-time token that has a limited lifetime.
 As a result, the link should not be persisted, stored, or shared.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "path": {
-      "type": "string"
-    },
-    "issue_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "path",
-    "issue_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.issues.issue_id.attachments.path.get({
+  "username": "",
+  "path": "",
+  "issue_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repositories.username.repo_slug.issues.issue_id.comments.get
+
+#### Parameters
+* username (string) **required**
+* path (string) **required**
+* issue_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.issues.issue_id.comments.get
 Returns all comments that were made on the specified issue.
 
 The default sorting is oldest to newest and can be overridden with
 the `sort` query parameter.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "issue_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "issue_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.issues.issue_id.comments.get({
+  "username": "",
+  "issue_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.issues.issue_id.comments.comment_id.get
+
+#### Parameters
+* username (string) **required**
+* issue_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.issues.issue_id.comments.comment_id.get
 Returns the specified issue comment object.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "comment_id": {
-      "type": "string"
-    },
-    "issue_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "comment_id",
-    "issue_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.issues.issue_id.comments.comment_id.get({
+  "username": "",
+  "comment_id": "",
+  "issue_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.issues.issue_id.vote.delete
+
+#### Parameters
+* username (string) **required**
+* comment_id (string) **required**
+* issue_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.issues.issue_id.vote.delete
 Retract your vote.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "issue_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "issue_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.issues.issue_id.vote.delete({
+  "username": "",
+  "issue_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.issues.issue_id.vote.get
+
+#### Parameters
+* username (string) **required**
+* issue_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.issues.issue_id.vote.get
 Check whether the authenticated user has voted for this issue.
 A 204 status code indicates that the user has voted, while a 404
 implies they haven't.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "issue_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "issue_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.issues.issue_id.vote.get({
+  "username": "",
+  "issue_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.issues.issue_id.vote.put
+
+#### Parameters
+* username (string) **required**
+* issue_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.issues.issue_id.vote.put
 Vote for this issue.
 
 To cast your vote, do an empty PUT. The 204 status code indicates that
 the operation was successful.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "issue_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "issue_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.issues.issue_id.vote.put({
+  "username": "",
+  "issue_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.issues.issue_id.watch.delete
+
+#### Parameters
+* username (string) **required**
+* issue_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.issues.issue_id.watch.delete
 Stop watching this issue.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "issue_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "issue_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.issues.issue_id.watch.delete({
+  "username": "",
+  "issue_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.issues.issue_id.watch.get
+
+#### Parameters
+* username (string) **required**
+* issue_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.issues.issue_id.watch.get
 Indicated whether or not the authenticated user is watching this
 issue.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "issue_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "issue_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.issues.issue_id.watch.get({
+  "username": "",
+  "issue_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.issues.issue_id.watch.put
+
+#### Parameters
+* username (string) **required**
+* issue_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.issues.issue_id.watch.put
 Start watching this issue.
 
 To start watching this issue, do an empty PUT. The 204 status code
 indicates that the operation was successful.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "issue_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "issue_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.issues.issue_id.watch.put({
+  "username": "",
+  "issue_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.milestones.get
+
+#### Parameters
+* username (string) **required**
+* issue_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.milestones.get
 Returns the milestones that have been defined in the issue tracker.
 
 This resource is only available on repositories that have the issue
 tracker enabled.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.milestones.get({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_milestones"
-}
-```
-## Operation: repositories.username.repo_slug.milestones.milestone_id.get
+
+#### Parameters
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.milestones.milestone_id.get
 Returns the specified issue tracker milestone object.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "milestone_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "milestone_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.milestones.milestone_id.get({
+  "username": "",
+  "milestone_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/milestone"
-}
-```
-## Operation: repositories.username.repo_slug.patch.spec.get
+
+#### Parameters
+* username (string) **required**
+* milestone_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.patch.spec.get
 Produces a raw patch for a single commit (diffed against its first
 parent), or a patch-series for a revspec of 2 commits (e.g.
 `3a8b42..9ff173` where the first commit represents the source and the
@@ -2591,64 +1609,36 @@ The raw patch is returned as-is, in whatever encoding the files in the
 repository use. It is not decoded into unicode. As such, the
 content-type is `text/plain`.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "spec": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "spec",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.patch.spec.get({
+  "username": "",
+  "spec": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getPipelinesForRepository
+
+#### Parameters
+* username (string) **required**
+* spec (string) **required**
+* repo_slug (string) **required**
+
+### getPipelinesForRepository
 Find pipelines
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.getPipelinesForRepository({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_pipelines"
-}
-```
-## Operation: createPipelineForRepository
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+
+### createPipelineForRepository
 Endpoint to create and initiate a pipeline. 
 There are a couple of different options to initiate a pipeline, where the payload of the request will determine which type of pipeline will be instantiated.
 # Trigger a Pipeline for a branch or tag
@@ -2754,719 +1744,361 @@ $ curl -X POST -is -u username:password \
 ```
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    },
-    "_body": {
-      "$ref": "#/definitions/pipeline"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug",
-    "_body"
-  ]
-}
+
+```js
+bitbucket.createPipelineForRepository({
+  "username": "",
+  "repo_slug": "",
+  "_body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pipeline"
-}
-```
-## Operation: getPipelineForRepository
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+* _body (undefined) **required**
+
+### getPipelineForRepository
 Retrieve a specified pipeline
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    },
-    "pipeline_uuid": {
-      "type": "string",
-      "description": "The pipeline UUID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug",
-    "pipeline_uuid"
-  ]
-}
+
+```js
+bitbucket.getPipelineForRepository({
+  "username": "",
+  "repo_slug": "",
+  "pipeline_uuid": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pipeline"
-}
-```
-## Operation: getPipelineStepsForRepository
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+* pipeline_uuid (string) **required** - The pipeline UUID.
+
+### getPipelineStepsForRepository
 Find steps for the given pipeline.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    },
-    "pipeline_uuid": {
-      "type": "string",
-      "description": "The UUID of the pipeline."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug",
-    "pipeline_uuid"
-  ]
-}
+
+```js
+bitbucket.getPipelineStepsForRepository({
+  "username": "",
+  "repo_slug": "",
+  "pipeline_uuid": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_pipeline_steps"
-}
-```
-## Operation: getPipelineStepForRepository
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+* pipeline_uuid (string) **required** - The UUID of the pipeline.
+
+### getPipelineStepForRepository
 Retrieve a given step of a pipeline.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    },
-    "pipeline_uuid": {
-      "type": "string",
-      "description": "The UUID of the pipeline."
-    },
-    "step_uuid": {
-      "type": "string",
-      "description": "The UUID of the step."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug",
-    "pipeline_uuid",
-    "step_uuid"
-  ]
-}
+
+```js
+bitbucket.getPipelineStepForRepository({
+  "username": "",
+  "repo_slug": "",
+  "pipeline_uuid": "",
+  "step_uuid": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pipeline_step"
-}
-```
-## Operation: getPipelineStepLogForRepository
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+* pipeline_uuid (string) **required** - The UUID of the pipeline.
+* step_uuid (string) **required** - The UUID of the step.
+
+### getPipelineStepLogForRepository
 Retrieve the log file for a given step of a pipeline.
 
 This endpoint supports (and encourages!) the use of [HTTP Range requests](https://tools.ietf.org/html/rfc7233) to deal with potentially very large log files.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    },
-    "pipeline_uuid": {
-      "type": "string",
-      "description": "The UUID of the pipeline."
-    },
-    "step_uuid": {
-      "type": "string",
-      "description": "The UUID of the step."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug",
-    "pipeline_uuid",
-    "step_uuid"
-  ]
-}
+
+```js
+bitbucket.getPipelineStepLogForRepository({
+  "username": "",
+  "repo_slug": "",
+  "pipeline_uuid": "",
+  "step_uuid": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: stopPipeline
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+* pipeline_uuid (string) **required** - The UUID of the pipeline.
+* step_uuid (string) **required** - The UUID of the step.
+
+### stopPipeline
 Signal the stop of a pipeline and all of its steps that not have completed yet.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    },
-    "pipeline_uuid": {
-      "type": "string",
-      "description": "The UUID of the pipeline."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug",
-    "pipeline_uuid"
-  ]
-}
+
+```js
+bitbucket.stopPipeline({
+  "username": "",
+  "repo_slug": "",
+  "pipeline_uuid": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getRepositoryPipelineConfig
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+* pipeline_uuid (string) **required** - The UUID of the pipeline.
+
+### getRepositoryPipelineConfig
 Retrieve the repository pipelines configuration.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.getRepositoryPipelineConfig({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pipelines_config"
-}
-```
-## Operation: updateRepositoryPipelineConfig
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+
+### updateRepositoryPipelineConfig
 Update the pipelines configuration for a repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    },
-    "_body": {
-      "$ref": "#/definitions/pipelines_config"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug",
-    "_body"
-  ]
-}
+
+```js
+bitbucket.updateRepositoryPipelineConfig({
+  "username": "",
+  "repo_slug": "",
+  "_body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pipelines_config"
-}
-```
-## Operation: deleteRepositoryPipelineKeyPair
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+* _body (undefined) **required**
+
+### deleteRepositoryPipelineKeyPair
 Delete the repository SSH key pair.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.deleteRepositoryPipelineKeyPair({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getRepositoryPipelineSshKeyPair
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+
+### getRepositoryPipelineSshKeyPair
 Retrieve the repository SSH key pair excluding the SSH private key. The private key is a write only field and will never be exposed in the logs or the REST API.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.getRepositoryPipelineSshKeyPair({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pipeline_ssh_key_pair"
-}
-```
-## Operation: updateRepositoryPipelineKeyPair
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+
+### updateRepositoryPipelineKeyPair
 Create or update the repository SSH key pair. The private key will be set as a default SSH identity in your build container.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    },
-    "_body": {
-      "$ref": "#/definitions/pipeline_ssh_key_pair"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug",
-    "_body"
-  ]
-}
+
+```js
+bitbucket.updateRepositoryPipelineKeyPair({
+  "username": "",
+  "repo_slug": "",
+  "_body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pipeline_ssh_key_pair"
-}
-```
-## Operation: getRepositoryPipelineKnownHosts
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+* _body (undefined) **required**
+
+### getRepositoryPipelineKnownHosts
 Find repository level known hosts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.getRepositoryPipelineKnownHosts({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_pipeline_known_hosts"
-}
-```
-## Operation: createRepositoryPipelineKnownHost
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+
+### createRepositoryPipelineKnownHost
 Create a repository level known host.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    },
-    "_body": {
-      "$ref": "#/definitions/pipeline_known_host"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug",
-    "_body"
-  ]
-}
+
+```js
+bitbucket.createRepositoryPipelineKnownHost({
+  "username": "",
+  "repo_slug": "",
+  "_body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pipeline_known_host"
-}
-```
-## Operation: deleteRepositoryPipelineKnownHost
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+* _body (undefined) **required**
+
+### deleteRepositoryPipelineKnownHost
 Delete a repository level known host.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    },
-    "known_host_uuid": {
-      "type": "string",
-      "description": "The UUID of the known host to delete."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug",
-    "known_host_uuid"
-  ]
-}
+
+```js
+bitbucket.deleteRepositoryPipelineKnownHost({
+  "username": "",
+  "repo_slug": "",
+  "known_host_uuid": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getRepositoryPipelineKnownHost
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+* known_host_uuid (string) **required** - The UUID of the known host to delete.
+
+### getRepositoryPipelineKnownHost
 Retrieve a repository level known host.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    },
-    "known_host_uuid": {
-      "type": "string",
-      "description": "The UUID of the known host to retrieve."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug",
-    "known_host_uuid"
-  ]
-}
+
+```js
+bitbucket.getRepositoryPipelineKnownHost({
+  "username": "",
+  "repo_slug": "",
+  "known_host_uuid": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pipeline_known_host"
-}
-```
-## Operation: updateRepositoryPipelineKnownHost
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+* known_host_uuid (string) **required** - The UUID of the known host to retrieve.
+
+### updateRepositoryPipelineKnownHost
 Update a repository level known host.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    },
-    "known_host_uuid": {
-      "type": "string",
-      "description": "The UUID of the known host to update."
-    },
-    "_body": {
-      "$ref": "#/definitions/pipeline_known_host"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug",
-    "known_host_uuid",
-    "_body"
-  ]
-}
+
+```js
+bitbucket.updateRepositoryPipelineKnownHost({
+  "username": "",
+  "repo_slug": "",
+  "known_host_uuid": "",
+  "_body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pipeline_known_host"
-}
-```
-## Operation: getRepositoryPipelineVariables
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+* known_host_uuid (string) **required** - The UUID of the known host to update.
+* _body (undefined) **required**
+
+### getRepositoryPipelineVariables
 Find repository level variables.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.getRepositoryPipelineVariables({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_pipeline_variables"
-}
-```
-## Operation: createRepositoryPipelineVariable
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+
+### createRepositoryPipelineVariable
 Create a repository level variable.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    },
-    "_body": {
-      "$ref": "#/definitions/pipeline_variable"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug",
-    "_body"
-  ]
-}
+
+```js
+bitbucket.createRepositoryPipelineVariable({
+  "username": "",
+  "repo_slug": "",
+  "_body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pipeline_variable"
-}
-```
-## Operation: deleteRepositoryPipelineVariable
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+* _body (undefined) **required**
+
+### deleteRepositoryPipelineVariable
 Delete a repository level variable.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    },
-    "variable_uuid": {
-      "type": "string",
-      "description": "The UUID of the variable to delete."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug",
-    "variable_uuid"
-  ]
-}
+
+```js
+bitbucket.deleteRepositoryPipelineVariable({
+  "username": "",
+  "repo_slug": "",
+  "variable_uuid": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getRepositoryPipelineVariable
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+* variable_uuid (string) **required** - The UUID of the variable to delete.
+
+### getRepositoryPipelineVariable
 Retrieve a repository level variable.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    },
-    "variable_uuid": {
-      "type": "string",
-      "description": "The UUID of the variable to retrieve."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug",
-    "variable_uuid"
-  ]
-}
+
+```js
+bitbucket.getRepositoryPipelineVariable({
+  "username": "",
+  "repo_slug": "",
+  "variable_uuid": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pipeline_variable"
-}
-```
-## Operation: updateRepositoryPipelineVariable
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+* variable_uuid (string) **required** - The UUID of the variable to retrieve.
+
+### updateRepositoryPipelineVariable
 Update a repository level variable.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "The repository."
-    },
-    "variable_uuid": {
-      "type": "string",
-      "description": "The UUID of the variable to update."
-    },
-    "_body": {
-      "$ref": "#/definitions/pipeline_variable"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug",
-    "variable_uuid",
-    "_body"
-  ]
-}
+
+```js
+bitbucket.updateRepositoryPipelineVariable({
+  "username": "",
+  "repo_slug": "",
+  "variable_uuid": "",
+  "_body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pipeline_variable"
-}
-```
-## Operation: repositories.username.repo_slug.pullrequests.get
+
+#### Parameters
+* username (string) **required** - The account.
+* repo_slug (string) **required** - The repository.
+* variable_uuid (string) **required** - The UUID of the variable to update.
+* _body (undefined) **required**
+
+### repositories.username.repo_slug.pullrequests.get
 Returns a paginated list of all pull requests on the specified
 repository. By default only open pull requests are returned. This can
 be controlled using the `state` query parameter. To retrieve pull
@@ -3476,271 +2108,148 @@ parameter for each individual state.
 This endpoint also supports filtering and sorting of the results. See
 [filtering and sorting](../../../../meta/filtering) for more details.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "state": {
-      "type": "string",
-      "description": "Only return pull requests that are in this state. This parameter can be repeated.",
-      "enum": [
-        "MERGED",
-        "SUPERSEDED",
-        "OPEN",
-        "DECLINED"
-      ]
-    },
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.pullrequests.get({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_pullrequests"
-}
-```
-## Operation: repositories.username.repo_slug.pullrequests.post
+
+#### Parameters
+* state (string) - Only return pull requests that are in this state. This parameter can be repeated.
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.pullrequests.post
 Creates a new pull request.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_body": {
-      "$ref": "#/definitions/pullrequest"
-    },
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.pullrequests.post({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pullrequest"
-}
-```
-## Operation: repositories.username.repo_slug.pullrequests.activity.get
+
+#### Parameters
+* _body (undefined)
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.pullrequests.activity.get
 Returns a paginated list of the pull request's activity log.
 
 This includes comments that were made by the reviewers, updates and
 approvals.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.pullrequests.activity.get({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repositories.username.repo_slug.pullrequests.pull_request_id.get
+
+#### Parameters
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.pullrequests.pull_request_id.get
 Returns the specified pull request.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "pull_request_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "pull_request_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.get({
+  "username": "",
+  "pull_request_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pullrequest"
-}
-```
-## Operation: repositories.username.repo_slug.pullrequests.pull_request_id.put
+
+#### Parameters
+* username (string) **required**
+* pull_request_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.pullrequests.pull_request_id.put
 Mutates the specified pull request.
 
 This can be used to change the pull request's branches or description.
 
 Only open pull requests can be mutated.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_body": {
-      "$ref": "#/definitions/pullrequest"
-    },
-    "username": {
-      "type": "string"
-    },
-    "pull_request_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "pull_request_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.put({
+  "username": "",
+  "pull_request_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pullrequest"
-}
-```
-## Operation: repositories.username.repo_slug.pullrequests.pull_request_id.activity.get
+
+#### Parameters
+* _body (undefined)
+* username (string) **required**
+* pull_request_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.pullrequests.pull_request_id.activity.get
 Returns a paginated list of the pull request's activity log.
 
 This includes comments that were made by the reviewers, updates and
 approvals.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "pull_request_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "pull_request_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.activity.get({
+  "username": "",
+  "pull_request_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repositories.username.repo_slug.pullrequests.pull_request_id.approve.delete
+
+#### Parameters
+* username (string) **required**
+* pull_request_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.pullrequests.pull_request_id.approve.delete
 Redact the authenticated user's approval of the specified pull
 request.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "pull_request_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "pull_request_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.approve.delete({
+  "username": "",
+  "pull_request_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.pullrequests.pull_request_id.approve.post
+
+#### Parameters
+* username (string) **required**
+* pull_request_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.pullrequests.pull_request_id.approve.post
 Approve the specified pull request as the authenticated user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "pull_request_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "pull_request_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.approve.post({
+  "username": "",
+  "pull_request_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.pullrequests.pull_request_id.comments.get
+
+#### Parameters
+* username (string) **required**
+* pull_request_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.pullrequests.pull_request_id.comments.get
 Returns a paginated list of the pull request's comments.
 
 This includes both global, inline comments and replies.
@@ -3752,389 +2261,209 @@ This endpoint also supports filtering and sorting of the results. See
 [filtering and sorting](../../../../../../meta/filtering) for more
 details.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "pull_request_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "pull_request_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.comments.get({
+  "username": "",
+  "pull_request_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.pullrequests.pull_request_id.comments.comment_id.get
+
+#### Parameters
+* username (string) **required**
+* pull_request_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.pullrequests.pull_request_id.comments.comment_id.get
 Returns a specific pull request comment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "pull_request_id": {
-      "type": "string"
-    },
-    "comment_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "pull_request_id",
-    "comment_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.comments.comment_id.get({
+  "username": "",
+  "pull_request_id": "",
+  "comment_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.pullrequests.pull_request_id.commits.get
+
+#### Parameters
+* username (string) **required**
+* pull_request_id (string) **required**
+* comment_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.pullrequests.pull_request_id.commits.get
 Returns a paginated list of the pull request's commits.
 
 These are the commits that are being merged into the destination
 branch when the pull requests gets accepted.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "pull_request_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "pull_request_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.commits.get({
+  "username": "",
+  "pull_request_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.pullrequests.pull_request_id.decline.post
+
+#### Parameters
+* username (string) **required**
+* pull_request_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.pullrequests.pull_request_id.decline.post
 Declines the pull request.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "pull_request_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "pull_request_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.decline.post({
+  "username": "",
+  "pull_request_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pullrequest"
-}
-```
-## Operation: repositories.username.repo_slug.pullrequests.pull_request_id.diff.get
+
+#### Parameters
+* username (string) **required**
+* pull_request_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.pullrequests.pull_request_id.diff.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "pull_request_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "pull_request_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.diff.get({
+  "username": "",
+  "pull_request_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.pullrequests.pull_request_id.merge.post
+
+#### Parameters
+* username (string) **required**
+* pull_request_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.pullrequests.pull_request_id.merge.post
 Merges the pull request.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_body": {
-      "$ref": "#/definitions/pullrequest_merge_parameters"
-    },
-    "username": {
-      "type": "string"
-    },
-    "pull_request_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "pull_request_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.merge.post({
+  "username": "",
+  "pull_request_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pullrequest"
-}
-```
-## Operation: repositories.username.repo_slug.pullrequests.pull_request_id.patch.get
+
+#### Parameters
+* _body (object) - The metadata that describes a pull request merge.
+* username (string) **required**
+* pull_request_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.pullrequests.pull_request_id.patch.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "pull_request_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "pull_request_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.patch.get({
+  "username": "",
+  "pull_request_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.pullrequests.pull_request_id.statuses.get
+
+#### Parameters
+* username (string) **required**
+* pull_request_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.pullrequests.pull_request_id.statuses.get
 Returns all statuses (e.g. build results) for the given pull
 request.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "pull_request_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "pull_request_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.pullrequests.pull_request_id.statuses.get({
+  "username": "",
+  "pull_request_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_commitstatuses"
-}
-```
-## Operation: repositories.username.repo_slug.refs.get
+
+#### Parameters
+* username (string) **required**
+* pull_request_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.refs.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.refs.get({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.refs.branches.get
+
+#### Parameters
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.refs.branches.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.refs.branches.get({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.refs.branches.name.get
+
+#### Parameters
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.refs.branches.name.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "name": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "name",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.refs.branches.name.get({
+  "username": "",
+  "name": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.refs.tags.get
+
+#### Parameters
+* username (string) **required**
+* name (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.refs.tags.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "\nThe username for the owner of the repository. This can either be the\n`username` of the owner or the `UUID` of the owner (surrounded by\ncurly-braces (`{}`)). Owners can be users or teams.\n"
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "\nThe repo slug for the repository.  This can either be the `repo_slug` of\nthe repository or the `UUID` of the repository (surrounded by\ncurly-braces (`{}`))\n"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.refs.tags.get({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.refs.tags.post
+
+#### Parameters
+* username (string) **required** - 
+* repo_slug (string) **required** - 
+
+### repositories.username.repo_slug.refs.tags.post
 Creates a new tag in the specified repository.
 
 The payload of the POST should consist of a JSON document that
@@ -4153,162 +2482,91 @@ This endpoint does support using short hash prefixes for the commit
 hash, but it may return a 400 response if the provided prefix is
 ambiguous. Using a full commit hash is the preferred approach.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_body": {
-      "$ref": "#/definitions/tag"
-    },
-    "username": {
-      "type": "string",
-      "description": "\nThe username for the owner of the repository. This can either be the\n`username` of the owner or the `UUID` of the owner (surrounded by\ncurly-braces (`{}`)). Owners can be users or teams.\n"
-    },
-    "repo_slug": {
-      "type": "string",
-      "description": "\nThe repo slug for the repository.  This can either be the `repo_slug` of\nthe repository or the `UUID` of the repository (surrounded by\ncurly-braces (`{}`))\n"
-    }
+
+```js
+bitbucket.repositories.username.repo_slug.refs.tags.post({
+  "_body": {
+    "type": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "_body",
-    "username",
-    "repo_slug"
-  ]
-}
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/tag"
-}
-```
-## Operation: repositories.username.repo_slug.refs.tags.name.get
+
+#### Parameters
+* _body (object) **required** - A tag object, representing a tag in a repository.
+* username (string) **required** - 
+* repo_slug (string) **required** - 
+
+### repositories.username.repo_slug.refs.tags.name.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "name": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "name",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.refs.tags.name.get({
+  "username": "",
+  "name": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: repositories.username.repo_slug.versions.get
+
+#### Parameters
+* username (string) **required**
+* name (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.versions.get
 Returns the versions that have been defined in the issue tracker.
 
 This resource is only available on repositories that have the issue
 tracker enabled.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.versions.get({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_versions"
-}
-```
-## Operation: repositories.username.repo_slug.versions.version_id.get
+
+#### Parameters
+* username (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.versions.version_id.get
 Returns the specified issue tracker version object.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "version_id": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "version_id",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.versions.version_id.get({
+  "username": "",
+  "version_id": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/version"
-}
-```
-## Operation: repositories.username.repo_slug.watchers.get
+
+#### Parameters
+* username (string) **required**
+* version_id (string) **required**
+* repo_slug (string) **required**
+
+### repositories.username.repo_slug.watchers.get
 Returns a paginated list of all the watchers on the specified
 repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "repo_slug": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "repo_slug"
-  ]
-}
+
+```js
+bitbucket.repositories.username.repo_slug.watchers.get({
+  "username": "",
+  "repo_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: snippets.get
+
+#### Parameters
+* username (string) **required**
+* repo_slug (string) **required**
+
+### snippets.get
 Returns all snippets. Like pull requests, repositories and teams, the
 full set of snippets is defined by what the current user has access to.
 
@@ -4333,34 +2591,13 @@ only supports `application/json` responses and no
 `multipart/form-data` or `multipart/related`. As a result, it is not
 possible to include the file contents.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "role": {
-      "type": "string",
-      "description": "Filter down the result based on the authenticated user's role (`owner`, `contributor`, or `member`).",
-      "enum": [
-        "owner",
-        "contributor",
-        "member"
-      ]
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+bitbucket.snippets.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_snippets"
-}
-```
-## Operation: snippets.post
+
+
+### snippets.post
 Creates a new snippet under the authenticated user's account.
 
 Snippets can contain multiple files. Both text and binary files are
@@ -4512,118 +2749,64 @@ is controlled through the snippet's `is_private` element:
 To create the snippet under a team account, just append the team name
 to the URL (see `/2.0/snippets/{username}`).
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_body": {
-      "$ref": "#/definitions/snippet"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "_body"
-  ]
-}
+
+```js
+bitbucket.snippets.post({
+  "_body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/snippet"
-}
-```
-## Operation: snippets.username.get
+
+#### Parameters
+* _body (undefined) **required**
+
+### snippets.username.get
 Identical to `/snippets`, except that the result is further filtered
 by the snippet owner and only those that are owned by `{username}` are
 returned.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "role": {
-      "type": "string",
-      "description": "Filter down the result based on the authenticated user's role (`owner`, `contributor`, or `member`).",
-      "enum": [
-        "owner",
-        "contributor",
-        "member"
-      ]
-    },
-    "username": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+bitbucket.snippets.username.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_snippets"
-}
-```
-## Operation: snippets.username.post
+
+#### Parameters
+* role (string) - Filter down the result based on the authenticated user's role (`owner`, `contributor`, or `member`).
+* username (string) **required**
+
+### snippets.username.post
 Identical to `/snippets`, except that the new snippet will be
 created under the account specified in the path parameter `{username}`.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_body": {
-      "$ref": "#/definitions/snippet"
-    },
-    "username": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "_body",
-    "username"
-  ]
-}
+
+```js
+bitbucket.snippets.username.post({
+  "_body": null,
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/snippet"
-}
-```
-## Operation: snippets.username.encoded_id.delete
+
+#### Parameters
+* _body (undefined) **required**
+* username (string) **required**
+
+### snippets.username.encoded_id.delete
 Deletes a snippet and returns an empty response.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "encoded_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "encoded_id"
-  ]
-}
+
+```js
+bitbucket.snippets.username.encoded_id.delete({
+  "username": "",
+  "encoded_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: snippets.username.encoded_id.get
+
+#### Parameters
+* username (string) **required**
+* encoded_id (string) **required**
+
+### snippets.username.encoded_id.get
 Retrieves a single snippet.
 
 Snippets support multiple content types:
@@ -4809,32 +2992,19 @@ Response:
     AqxFUD6OMxcvkO+UfKfkOyXfKdsv/AYCHMLVkHAFWgAAAABJRU5ErkJggg==
     ------------------------------5957323a6b76--
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "encoded_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "encoded_id"
-  ]
-}
+
+```js
+bitbucket.snippets.username.encoded_id.get({
+  "username": "",
+  "encoded_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/snippet"
-}
-```
-## Operation: snippets.username.encoded_id.put
+
+#### Parameters
+* username (string) **required**
+* encoded_id (string) **required**
+
+### snippets.username.encoded_id.put
 Used to update a snippet. Use this to add and delete files and to
 change a snippet's title.
 
@@ -5034,32 +3204,19 @@ The default mode of operation is for file parts to be processed,
 regardless of whether or not they are listed in `files`, as a
 convenience to the client.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "encoded_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "encoded_id"
-  ]
-}
+
+```js
+bitbucket.snippets.username.encoded_id.put({
+  "username": "",
+  "encoded_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/snippet"
-}
-```
-## Operation: snippets.username.encoded_id.comments.get
+
+#### Parameters
+* username (string) **required**
+* encoded_id (string) **required**
+
+### snippets.username.encoded_id.comments.get
 Used to retrieve a paginated list of all comments for a specific
 snippet.
 
@@ -5068,253 +3225,143 @@ This resource works identical to commit and pull request comments.
 The default sorting is oldest to newest and can be overridden with
 the `sort` query parameter.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "encoded_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "encoded_id"
-  ]
-}
+
+```js
+bitbucket.snippets.username.encoded_id.comments.get({
+  "username": "",
+  "encoded_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_snippet_comments"
-}
-```
-## Operation: snippets.username.encoded_id.comments.post
+
+#### Parameters
+* username (string) **required**
+* encoded_id (string) **required**
+
+### snippets.username.encoded_id.comments.post
 Creates a new comment.
 
 The only required field in the body is `content.raw`.
 
 To create a threaded reply to an existing comment, include `parent.id`.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_body": {
-      "$ref": "#/definitions/snippet"
-    },
-    "username": {
-      "type": "string"
-    },
-    "encoded_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "_body",
-    "username",
-    "encoded_id"
-  ]
-}
+
+```js
+bitbucket.snippets.username.encoded_id.comments.post({
+  "_body": null,
+  "username": "",
+  "encoded_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/snippet"
-}
-```
-## Operation: snippets.username.encoded_id.comments.comment_id.delete
+
+#### Parameters
+* _body (undefined) **required**
+* username (string) **required**
+* encoded_id (string) **required**
+
+### snippets.username.encoded_id.comments.comment_id.delete
 Deletes a snippet comment.
 
 Comments can only be removed by their author.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "comment_id": {
-      "type": "string"
-    },
-    "encoded_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "comment_id",
-    "encoded_id"
-  ]
-}
+
+```js
+bitbucket.snippets.username.encoded_id.comments.comment_id.delete({
+  "username": "",
+  "comment_id": "",
+  "encoded_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: snippets.username.encoded_id.comments.comment_id.get
+
+#### Parameters
+* username (string) **required**
+* comment_id (string) **required**
+* encoded_id (string) **required**
+
+### snippets.username.encoded_id.comments.comment_id.get
 Returns the specific snippet comment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "comment_id": {
-      "type": "string"
-    },
-    "encoded_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "comment_id",
-    "encoded_id"
-  ]
-}
+
+```js
+bitbucket.snippets.username.encoded_id.comments.comment_id.get({
+  "username": "",
+  "comment_id": "",
+  "encoded_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/snippet_comment"
-}
-```
-## Operation: snippets.username.encoded_id.comments.comment_id.put
+
+#### Parameters
+* username (string) **required**
+* comment_id (string) **required**
+* encoded_id (string) **required**
+
+### snippets.username.encoded_id.comments.comment_id.put
 Updates a comment.
 
 Comments can only be updated by their author.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "comment_id": {
-      "type": "string"
-    },
-    "encoded_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "comment_id",
-    "encoded_id"
-  ]
-}
+
+```js
+bitbucket.snippets.username.encoded_id.comments.comment_id.put({
+  "username": "",
+  "comment_id": "",
+  "encoded_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: snippets.username.encoded_id.commits.get
+
+#### Parameters
+* username (string) **required**
+* comment_id (string) **required**
+* encoded_id (string) **required**
+
+### snippets.username.encoded_id.commits.get
 Returns the changes (commits) made on this snippet.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "encoded_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "encoded_id"
-  ]
-}
+
+```js
+bitbucket.snippets.username.encoded_id.commits.get({
+  "username": "",
+  "encoded_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_snippet_commit"
-}
-```
-## Operation: snippets.username.encoded_id.commits.revision.get
+
+#### Parameters
+* username (string) **required**
+* encoded_id (string) **required**
+
+### snippets.username.encoded_id.commits.revision.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "encoded_id": {
-      "type": "string"
-    },
-    "revision": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "encoded_id",
-    "revision"
-  ]
-}
+
+```js
+bitbucket.snippets.username.encoded_id.commits.revision.get({
+  "username": "",
+  "encoded_id": "",
+  "revision": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/snippet_commit"
-}
-```
-## Operation: snippets.username.encoded_id.watch.delete
+
+#### Parameters
+* username (string) **required**
+* encoded_id (string) **required**
+* revision (string) **required**
+
+### snippets.username.encoded_id.watch.delete
 Used to stop watching a specific snippet. Returns 204 (No Content)
 to indicate success.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "encoded_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "encoded_id"
-  ]
-}
+
+```js
+bitbucket.snippets.username.encoded_id.watch.delete({
+  "username": "",
+  "encoded_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_users"
-}
-```
-## Operation: snippets.username.encoded_id.watch.get
+
+#### Parameters
+* username (string) **required**
+* encoded_id (string) **required**
+
+### snippets.username.encoded_id.watch.get
 Used to check if the current user is watching a specific snippet.
 
 Returns 204 (No Content) if the user is watching the snippet and 404 if
@@ -5322,88 +3369,49 @@ not.
 
 Hitting this endpoint anonymously always returns a 404.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "encoded_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "encoded_id"
-  ]
-}
+
+```js
+bitbucket.snippets.username.encoded_id.watch.get({
+  "username": "",
+  "encoded_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_users"
-}
-```
-## Operation: snippets.username.encoded_id.watch.put
+
+#### Parameters
+* username (string) **required**
+* encoded_id (string) **required**
+
+### snippets.username.encoded_id.watch.put
 Used to start watching a specific snippet. Returns 204 (No Content).
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "encoded_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "encoded_id"
-  ]
-}
+
+```js
+bitbucket.snippets.username.encoded_id.watch.put({
+  "username": "",
+  "encoded_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_users"
-}
-```
-## Operation: snippets.username.encoded_id.watchers.get
+
+#### Parameters
+* username (string) **required**
+* encoded_id (string) **required**
+
+### snippets.username.encoded_id.watchers.get
 Returns a paginated list of all users watching a specific snippet.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "encoded_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "encoded_id"
-  ]
-}
+
+```js
+bitbucket.snippets.username.encoded_id.watchers.get({
+  "username": "",
+  "encoded_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_users"
-}
-```
-## Operation: snippets.username.encoded_id.node_id.delete
+
+#### Parameters
+* username (string) **required**
+* encoded_id (string) **required**
+
+### snippets.username.encoded_id.node_id.delete
 Deletes the snippet.
 
 Note that this only works for versioned URLs that point to the latest
@@ -5413,34 +3421,21 @@ status code.
 To delete a snippet, regardless of whether or not concurrent changes
 are being made to it, use `DELETE /snippets/{encoded_id}` instead.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "node_id": {
-      "type": "string"
-    },
-    "encoded_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "node_id",
-    "encoded_id"
-  ]
-}
+
+```js
+bitbucket.snippets.username.encoded_id.node_id.delete({
+  "username": "",
+  "node_id": "",
+  "encoded_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: snippets.username.encoded_id.node_id.get
+
+#### Parameters
+* username (string) **required**
+* node_id (string) **required**
+* encoded_id (string) **required**
+
+### snippets.username.encoded_id.node_id.get
 Identical to `GET /snippets/encoded_id`, except that this endpoint
 can be used to retrieve the contents of the snippet as it was at an
 older revision, while `/snippets/encoded_id` always returns the
@@ -5451,36 +3446,21 @@ meta data properties like the title.
 
 Other than that, the two endpoints are identical in behavior.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "node_id": {
-      "type": "string"
-    },
-    "encoded_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "node_id",
-    "encoded_id"
-  ]
-}
+
+```js
+bitbucket.snippets.username.encoded_id.node_id.get({
+  "username": "",
+  "node_id": "",
+  "encoded_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/snippet"
-}
-```
-## Operation: snippets.username.encoded_id.node_id.put
+
+#### Parameters
+* username (string) **required**
+* node_id (string) **required**
+* encoded_id (string) **required**
+
+### snippets.username.encoded_id.node_id.put
 Identical to `UPDATE /snippets/encoded_id`, except that this endpoint
 takes an explicit commit revision. Only the snippet's "HEAD"/"tip"
 (most recent) version can be updated and requests on all other,
@@ -5496,36 +3476,21 @@ operation.
 
 Other than that, the two endpoints are identical in behavior.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "node_id": {
-      "type": "string"
-    },
-    "encoded_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "node_id",
-    "encoded_id"
-  ]
-}
+
+```js
+bitbucket.snippets.username.encoded_id.node_id.put({
+  "username": "",
+  "node_id": "",
+  "encoded_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/snippet"
-}
-```
-## Operation: snippets.username.encoded_id.node_id.files.path.get
+
+#### Parameters
+* username (string) **required**
+* node_id (string) **required**
+* encoded_id (string) **required**
+
+### snippets.username.encoded_id.node_id.files.path.get
 Retrieves the raw contents of a specific file in the snippet. The
 `Content-Disposition` header will be "attachment" to avoid issues with
 malevolent executable files.
@@ -5536,38 +3501,23 @@ The file's mime type is derived from its filename and returned in the
 Note that for text files, no character encoding is included as part of
 the content type.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "path": {
-      "type": "string"
-    },
-    "node_id": {
-      "type": "string"
-    },
-    "encoded_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "path",
-    "node_id",
-    "encoded_id"
-  ]
-}
+
+```js
+bitbucket.snippets.username.encoded_id.node_id.files.path.get({
+  "username": "",
+  "path": "",
+  "node_id": "",
+  "encoded_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: snippets.username.encoded_id.revision.diff.get
+
+#### Parameters
+* username (string) **required**
+* path (string) **required**
+* node_id (string) **required**
+* encoded_id (string) **required**
+
+### snippets.username.encoded_id.revision.diff.get
 Returns the diff of the specified commit against its first parent.
 
 Note that this resource is different in functionality from the `patch`
@@ -5588,38 +3538,22 @@ Note that the character encoding of the contents of the diff is
 unspecified as Git and Mercurial do not track this, making it hard for
 Bitbucket to reliably determine this.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "path": {
-      "type": "string",
-      "description": "When used, only one the diff of the specified file will be returned."
-    },
-    "username": {
-      "type": "string"
-    },
-    "encoded_id": {
-      "type": "string"
-    },
-    "revision": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "encoded_id",
-    "revision"
-  ]
-}
+
+```js
+bitbucket.snippets.username.encoded_id.revision.diff.get({
+  "username": "",
+  "encoded_id": "",
+  "revision": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: snippets.username.encoded_id.revision.patch.get
+
+#### Parameters
+* path (string) - When used, only one the diff of the specified file will be returned.
+* username (string) **required**
+* encoded_id (string) **required**
+* revision (string) **required**
+
+### snippets.username.encoded_id.revision.patch.get
 Returns the patch of the specified commit against its first
 parent.
 
@@ -5641,90 +3575,44 @@ Note that the character encoding of the contents of the patch is
 unspecified as Git and Mercurial do not track this, making it hard for
 Bitbucket to reliably determine this.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "encoded_id": {
-      "type": "string"
-    },
-    "revision": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "encoded_id",
-    "revision"
-  ]
-}
+
+```js
+bitbucket.snippets.username.encoded_id.revision.patch.get({
+  "username": "",
+  "encoded_id": "",
+  "revision": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: teams.get
+
+#### Parameters
+* username (string) **required**
+* encoded_id (string) **required**
+* revision (string) **required**
+
+### teams.get
 Returns all the teams that the authenticated user is associated
 with.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "role": {
-      "type": "string",
-      "description": "\nFilters the teams based on the authenticated user's role on each team.\n\n* **member**: returns a list of all the teams which the caller is a member of\n  at least one team group or repository owned by the team\n* **contributor**: returns a list of teams which the caller has write access\n  to at least one repository owned by the team\n* **admin**: returns a list teams which the caller has team administrator access\n",
-      "enum": [
-        "admin",
-        "contributor",
-        "member"
-      ]
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+bitbucket.teams.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_teams"
-}
-```
-## Operation: teams.owner.projects.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "The team which owns the project. This can either be the `username` of\nthe team or the `UUID` of the team (surrounded by curly-braces (`{}`)).\n"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner"
-  ]
-}
+### teams.owner.projects.get
+
+
+
+```js
+bitbucket.teams.owner.projects.get({
+  "owner": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_projects"
-}
-```
-## Operation: teams.owner.projects.post
+
+#### Parameters
+* owner (string) **required** - The team which owns the project. This can either be the `username` of
+
+### teams.owner.projects.post
 Creates a new project.
 
 Note that the avatar has to be embedded as either a data-url
@@ -5780,91 +3668,49 @@ $ curl -H "Content-Type: application/json" \
 }
 ```
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_body": {
-      "$ref": "#/definitions/project"
-    },
-    "owner": {
-      "type": "string",
-      "description": "The team which owns the project. This can either be the `username` of\nthe team or the `UUID` of the team (surrounded by curly-braces (`{}`)).\n"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "_body",
-    "owner"
-  ]
-}
+
+```js
+bitbucket.teams.owner.projects.post({
+  "_body": null,
+  "owner": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/project"
-}
-```
-## Operation: teams.owner.projects.project_key.delete
+
+#### Parameters
+* _body (undefined) **required**
+* owner (string) **required** - The team which owns the project. This can either be the `username` of
+
+### teams.owner.projects.project_key.delete
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "The team which owns the project. This can either be the `username` of\nthe team or the `UUID` of the team (surrounded by curly-braces (`{}`)).\n"
-    },
-    "project_key": {
-      "type": "string",
-      "description": "The project in question. This can either be the actual `key` assigned\nto the project or the `UUID` (surrounded by curly-braces (`{}`)).\n"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "project_key"
-  ]
-}
+
+```js
+bitbucket.teams.owner.projects.project_key.delete({
+  "owner": "",
+  "project_key": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: teams.owner.projects.project_key.get
+
+#### Parameters
+* owner (string) **required** - The team which owns the project. This can either be the `username` of
+* project_key (string) **required** - The project in question. This can either be the actual `key` assigned
+
+### teams.owner.projects.project_key.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "The team which owns the project. This can either be the `username` of\nthe team or the `UUID` of the team (surrounded by curly-braces (`{}`)).\n"
-    },
-    "project_key": {
-      "type": "string",
-      "description": "The project in question. This can either be the actual `key` assigned\nto the project or the `UUID` (surrounded by curly-braces (`{}`)).\n"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "project_key"
-  ]
-}
+
+```js
+bitbucket.teams.owner.projects.project_key.get({
+  "owner": "",
+  "project_key": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/project"
-}
-```
-## Operation: teams.owner.projects.project_key.put
+
+#### Parameters
+* owner (string) **required** - The team which owns the project. This can either be the `username` of
+* project_key (string) **required** - The project in question. This can either be the actual `key` assigned
+
+### teams.owner.projects.project_key.put
 Since this endpoint can be used to both update and to create a
 project, the request body depends on the intent.
 
@@ -5888,137 +3734,76 @@ to change the key itself. In such a scenario, the location of the
 project is changed and is returned in the `Location` header of the
 response.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_body": {
-      "$ref": "#/definitions/project"
-    },
-    "owner": {
-      "type": "string",
-      "description": "The team which owns the project. This can either be the `username` of\nthe team or the `UUID` of the team (surrounded by curly-braces (`{}`)).\n"
-    },
-    "project_key": {
-      "type": "string",
-      "description": "The project in question. This can either be the actual `key` assigned\nto the project or the `UUID` (surrounded by curly-braces (`{}`)).\n"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "_body",
-    "owner",
-    "project_key"
-  ]
-}
+
+```js
+bitbucket.teams.owner.projects.project_key.put({
+  "_body": null,
+  "owner": "",
+  "project_key": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/project"
-}
-```
-## Operation: teams.username.get
+
+#### Parameters
+* _body (undefined) **required**
+* owner (string) **required** - The team which owns the project. This can either be the `username` of
+* project_key (string) **required** - The project in question. This can either be the actual `key` assigned
+
+### teams.username.get
 Gets the public information associated with a team.
 
 If the team's profile is private, `location`, `website` and
 `created_on` elements are omitted.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+bitbucket.teams.username.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/team"
-}
-```
-## Operation: teams.username.followers.get
+
+#### Parameters
+* username (string) **required**
+
+### teams.username.followers.get
 Returns the list of accounts that are following this team.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+bitbucket.teams.username.followers.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_users"
-}
-```
-## Operation: teams.username.following.get
+
+#### Parameters
+* username (string) **required**
+
+### teams.username.following.get
 Returns the list of accounts this team is following.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+bitbucket.teams.username.following.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_users"
-}
-```
-## Operation: teams.username.hooks.get
+
+#### Parameters
+* username (string) **required**
+
+### teams.username.hooks.get
 Returns a paginated list of webhooks installed on this team.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+bitbucket.teams.username.hooks.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_webhook_subscriptions"
-}
-```
-## Operation: teams.username.hooks.post
+
+#### Parameters
+* username (string) **required**
+
+### teams.username.hooks.post
 Creates a new webhook on the specified team.
 
 Team webhooks are fired for events from all repositories belonging to
@@ -6026,84 +3811,49 @@ that team account.
 
 Note that only admins can install webhooks on teams.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+bitbucket.teams.username.hooks.post({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/webhook_subscription"
-}
-```
-## Operation: teams.username.hooks.uid.delete
+
+#### Parameters
+* username (string) **required**
+
+### teams.username.hooks.uid.delete
 Deletes the specified webhook subscription from the given team
 account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "uid": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "uid"
-  ]
-}
+
+```js
+bitbucket.teams.username.hooks.uid.delete({
+  "username": "",
+  "uid": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: teams.username.hooks.uid.get
+
+#### Parameters
+* username (string) **required**
+* uid (string) **required**
+
+### teams.username.hooks.uid.get
 Returns the webhook with the specified id installed on the given
 team account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "uid": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "uid"
-  ]
-}
+
+```js
+bitbucket.teams.username.hooks.uid.get({
+  "username": "",
+  "uid": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/webhook_subscription"
-}
-```
-## Operation: teams.username.hooks.uid.put
+
+#### Parameters
+* username (string) **required**
+* uid (string) **required**
+
+### teams.username.hooks.uid.put
 Updates the specified webhook subscription.
 
 The following properties can be mutated:
@@ -6113,32 +3863,19 @@ The following properties can be mutated:
 * `active`
 * `events`
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "uid": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "uid"
-  ]
-}
+
+```js
+bitbucket.teams.username.hooks.uid.put({
+  "username": "",
+  "uid": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/webhook_subscription"
-}
-```
-## Operation: teams.username.members.get
+
+#### Parameters
+* username (string) **required**
+* uid (string) **required**
+
+### teams.username.members.get
 All members of a team.
 
 Returns all members of the specified team. Any member of any of the
@@ -6148,353 +3885,197 @@ repositories.
 
 Note that members using the "private profile" feature are not included.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+bitbucket.teams.username.members.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/user"
-}
-```
-## Operation: getPipelineVariablesForTeam
+
+#### Parameters
+* username (string) **required**
+
+### getPipelineVariablesForTeam
 Find account level variables.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+bitbucket.getPipelineVariablesForTeam({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_pipeline_variables"
-}
-```
-## Operation: createPipelineVariableForTeam
+
+#### Parameters
+* username (string) **required** - The account.
+
+### createPipelineVariableForTeam
 Create an account level variable.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "_body": {
-      "$ref": "#/definitions/pipeline_variable"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+bitbucket.createPipelineVariableForTeam({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pipeline_variable"
-}
-```
-## Operation: deletePipelineVariableForTeam
+
+#### Parameters
+* username (string) **required** - The account.
+* _body (undefined)
+
+### deletePipelineVariableForTeam
 Delete a team level variable.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "variable_uuid": {
-      "type": "string",
-      "description": "The UUID of the variable to delete."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "variable_uuid"
-  ]
-}
+
+```js
+bitbucket.deletePipelineVariableForTeam({
+  "username": "",
+  "variable_uuid": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getPipelineVariableForTeam
+
+#### Parameters
+* username (string) **required** - The account.
+* variable_uuid (string) **required** - The UUID of the variable to delete.
+
+### getPipelineVariableForTeam
 Retrieve a team level variable.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "variable_uuid": {
-      "type": "string",
-      "description": "The UUID of the variable to retrieve."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "variable_uuid"
-  ]
-}
+
+```js
+bitbucket.getPipelineVariableForTeam({
+  "username": "",
+  "variable_uuid": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pipeline_variable"
-}
-```
-## Operation: updatePipelineVariableForTeam
+
+#### Parameters
+* username (string) **required** - The account.
+* variable_uuid (string) **required** - The UUID of the variable to retrieve.
+
+### updatePipelineVariableForTeam
 Update a team level variable.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "variable_uuid": {
-      "type": "string",
-      "description": "The UUID of the variable."
-    },
-    "_body": {
-      "$ref": "#/definitions/pipeline_variable"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "variable_uuid",
-    "_body"
-  ]
-}
+
+```js
+bitbucket.updatePipelineVariableForTeam({
+  "username": "",
+  "variable_uuid": "",
+  "_body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pipeline_variable"
-}
-```
-## Operation: teams.username.repositories.get
+
+#### Parameters
+* username (string) **required** - The account.
+* variable_uuid (string) **required** - The UUID of the variable.
+* _body (undefined) **required**
+
+### teams.username.repositories.get
 All repositories owned by a user/team. This includes private
 repositories, but filtered down to the ones that the calling user has
 access to.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+bitbucket.teams.username.repositories.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: user.get
+
+#### Parameters
+* username (string) **required**
+
+### user.get
 Returns the currently logged in user.
 
-### Input Schema
-```json
-{}
+
+```js
+bitbucket.user.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/user"
-}
-```
-## Operation: user.emails.get
+
+
+### user.emails.get
 Returns all the authenticated user's email addresses. Both
 confirmed and unconfirmed.
 
-### Input Schema
-```json
-{}
+
+```js
+bitbucket.user.emails.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: user.emails.email.get
+
+
+### user.emails.email.get
 Returns details about a specific one of the authenticated user's
 email addresses.
 
 Details describe whether the address has been confirmed by the user and
 whether it is the user's primary address or not.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "email": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "email"
-  ]
-}
+
+```js
+bitbucket.user.emails.email.get({
+  "email": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
-## Operation: users.username.get
+
+#### Parameters
+* email (string) **required**
+
+### users.username.get
 Gets the public information associated with a user account.
 
 If the user's profile is private, `location`, `website` and
 `created_on` elements are omitted.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+bitbucket.users.username.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/user"
-}
-```
-## Operation: users.username.followers.get
+
+#### Parameters
+* username (string) **required**
+
+### users.username.followers.get
 Returns the list of accounts that are following this team.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+bitbucket.users.username.followers.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_users"
-}
-```
-## Operation: users.username.following.get
+
+#### Parameters
+* username (string) **required**
+
+### users.username.following.get
 Returns the list of accounts this user is following.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+bitbucket.users.username.following.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_users"
-}
-```
-## Operation: users.username.hooks.get
+
+#### Parameters
+* username (string) **required**
+
+### users.username.hooks.get
 Returns a paginated list of webhooks installed on this user account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+bitbucket.users.username.hooks.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_webhook_subscriptions"
-}
-```
-## Operation: users.username.hooks.post
+
+#### Parameters
+* username (string) **required**
+
+### users.username.hooks.post
 Creates a new webhook on the specified user account.
 
 Account-level webhooks are fired for events from all repositories
@@ -6503,84 +4084,49 @@ belonging to that account.
 Note that one can only register webhooks on one's own account, not that
 of others.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+bitbucket.users.username.hooks.post({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/webhook_subscription"
-}
-```
-## Operation: users.username.hooks.uid.delete
+
+#### Parameters
+* username (string) **required**
+
+### users.username.hooks.uid.delete
 Deletes the specified webhook subscription from the given user
 account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "uid": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "uid"
-  ]
-}
+
+```js
+bitbucket.users.username.hooks.uid.delete({
+  "username": "",
+  "uid": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: users.username.hooks.uid.get
+
+#### Parameters
+* username (string) **required**
+* uid (string) **required**
+
+### users.username.hooks.uid.get
 Returns the webhook with the specified id installed on the given
 user account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "uid": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "uid"
-  ]
-}
+
+```js
+bitbucket.users.username.hooks.uid.get({
+  "username": "",
+  "uid": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/webhook_subscription"
-}
-```
-## Operation: users.username.hooks.uid.put
+
+#### Parameters
+* username (string) **required**
+* uid (string) **required**
+
+### users.username.hooks.uid.put
 Updates the specified webhook subscription.
 
 The following properties can be mutated:
@@ -6590,199 +4136,104 @@ The following properties can be mutated:
 * `active`
 * `events`
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    },
-    "uid": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "uid"
-  ]
-}
+
+```js
+bitbucket.users.username.hooks.uid.put({
+  "username": "",
+  "uid": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/webhook_subscription"
-}
-```
-## Operation: getPipelineVariablesForUser
+
+#### Parameters
+* username (string) **required**
+* uid (string) **required**
+
+### getPipelineVariablesForUser
 Find user level variables.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+bitbucket.getPipelineVariablesForUser({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/paginated_pipeline_variables"
-}
-```
-## Operation: createPipelineVariableForUser
+
+#### Parameters
+* username (string) **required** - The account.
+
+### createPipelineVariableForUser
 Create a user level variable.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "_body": {
-      "$ref": "#/definitions/pipeline_variable"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+bitbucket.createPipelineVariableForUser({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pipeline_variable"
-}
-```
-## Operation: deletePipelineVariableForUser
+
+#### Parameters
+* username (string) **required** - The account.
+* _body (undefined)
+
+### deletePipelineVariableForUser
 Delete an account level variable.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "variable_uuid": {
-      "type": "string",
-      "description": "The UUID of the variable to delete."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "variable_uuid"
-  ]
-}
+
+```js
+bitbucket.deletePipelineVariableForUser({
+  "username": "",
+  "variable_uuid": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getPipelineVariableForUser
+
+#### Parameters
+* username (string) **required** - The account.
+* variable_uuid (string) **required** - The UUID of the variable to delete.
+
+### getPipelineVariableForUser
 Retrieve a user level variable.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "variable_uuid": {
-      "type": "string",
-      "description": "The UUID of the variable to retrieve."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "variable_uuid"
-  ]
-}
+
+```js
+bitbucket.getPipelineVariableForUser({
+  "username": "",
+  "variable_uuid": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pipeline_variable"
-}
-```
-## Operation: updatePipelineVariableForUser
+
+#### Parameters
+* username (string) **required** - The account.
+* variable_uuid (string) **required** - The UUID of the variable to retrieve.
+
+### updatePipelineVariableForUser
 Update a user level variable.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "The account."
-    },
-    "variable_uuid": {
-      "type": "string",
-      "description": "The UUID of the variable."
-    },
-    "_body": {
-      "$ref": "#/definitions/pipeline_variable"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "variable_uuid",
-    "_body"
-  ]
-}
+
+```js
+bitbucket.updatePipelineVariableForUser({
+  "username": "",
+  "variable_uuid": "",
+  "_body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pipeline_variable"
-}
-```
-## Operation: users.username.repositories.get
+
+#### Parameters
+* username (string) **required** - The account.
+* variable_uuid (string) **required** - The UUID of the variable.
+* _body (undefined) **required**
+
+### users.username.repositories.get
 All repositories owned by a user/team. This includes private
 repositories, but filtered down to the ones that the calling user has
 access to.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+bitbucket.users.username.repositories.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error"
-}
-```
+
+#### Parameters
+* username (string) **required**
+

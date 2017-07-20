@@ -1,719 +1,371 @@
 # @datafire/rubygems
+
+Client library for Ruby Gems
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/rubygems
+```
+
+```js
+let datafire = require('datafire');
+let rubygems = require('@datafire/rubygems').actions;
+let context = new datafire.Context();
+
+rubygems.gems.name.format.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Interact with RubyGems.org to query and create gems, mange owners and more.
 
-## Operation: gems.name.format.get
+## Actions
+### gems.name.format.get
 Returns some basic information about the given gem.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Gem name."
-    },
-    "format": {
-      "type": "string",
-      "description": "Response format.",
-      "enum": [
-        "json",
-        "xml",
-        "yaml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "format"
-  ]
-}
+
+```js
+rubygems.gems.name.format.get({
+  "name": "",
+  "format": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: search.format.get
+
+#### Parameters
+* name (string) **required** - Gem name.
+* format (string) **required** - Response format.
+
+### search.format.get
 Submit a search to Gemcutter for active gems, just like a search query on the site.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "format": {
-      "type": "string",
-      "description": "Response format.",
-      "enum": [
-        "json",
-        "xml",
-        "yaml"
-      ]
-    },
-    "query": {
-      "type": "string",
-      "description": "Query to search for."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "format",
-    "query"
-  ]
-}
+
+```js
+rubygems.search.format.get({
+  "format": "",
+  "query": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: gems.format.get
+
+#### Parameters
+* format (string) **required** - Response format.
+* query (string) **required** - Query to search for.
+
+### gems.format.get
 List all gems that you own.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "format": {
-      "type": "string",
-      "description": "Response format.",
-      "enum": [
-        "json",
-        "xml",
-        "yaml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "format"
-  ]
-}
+
+```js
+rubygems.gems.format.get({
+  "format": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: gems.post
+
+#### Parameters
+* format (string) **required** - Response format.
+
+### gems.post
 Submit a gem to RubyGems.org. Must post a built RubyGem in the request body.
 
-### Input Schema
-```json
-{}
+
+```js
+rubygems.gems.post(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: gems.yank.delete
+
+
+### gems.yank.delete
 Remove a gem from RubyGems.org’s index.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "gem_name": {
-      "type": "string",
-      "description": "Gem name."
-    },
-    "version": {
-      "type": "string",
-      "description": "Gem version."
-    },
-    "platform": {
-      "type": "string",
-      "description": "Gem platform."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "gem_name",
-    "version"
-  ]
-}
+
+```js
+rubygems.gems.yank.delete({
+  "gem_name": "",
+  "version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: gems.unyank.put
+
+#### Parameters
+* gem_name (string) **required** - Gem name.
+* version (string) **required** - Gem version.
+* platform (string) - Gem platform.
+
+### gems.unyank.put
 Update a previously yanked gem back into RubyGems.org’s index.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "gem_name": {
-      "type": "string",
-      "description": "Gem name."
-    },
-    "version": {
-      "type": "string",
-      "description": "Gem version."
-    },
-    "platform": {
-      "type": "string",
-      "description": "Gem platform."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "gem_name",
-    "version"
-  ]
-}
+
+```js
+rubygems.gems.unyank.put({
+  "gem_name": "",
+  "version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: gems.latest.format.get
+
+#### Parameters
+* gem_name (string) **required** - Gem name.
+* version (string) **required** - Gem version.
+* platform (string) - Gem platform.
+
+### gems.latest.format.get
 Pulls the 50 newest first-version gems added to RubyGems.org.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "format": {
-      "type": "string",
-      "description": "Response format.",
-      "enum": [
-        "json",
-        "xml",
-        "yaml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "format"
-  ]
-}
+
+```js
+rubygems.gems.latest.format.get({
+  "format": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: gems.just_updated.format.get
+
+#### Parameters
+* format (string) **required** - Response format.
+
+### gems.just_updated.format.get
 Pulls the 50 most recently updated gems.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "format": {
-      "type": "string",
-      "description": "Response format.",
-      "enum": [
-        "json",
-        "xml",
-        "yaml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "format"
-  ]
-}
+
+```js
+rubygems.gems.just_updated.format.get({
+  "format": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: versions.name.format.get
+
+#### Parameters
+* format (string) **required** - Response format.
+
+### versions.name.format.get
 Returns an array of gem version details.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Gem name."
-    },
-    "format": {
-      "type": "string",
-      "description": "Response format.",
-      "enum": [
-        "json",
-        "xml",
-        "yaml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "format"
-  ]
-}
+
+```js
+rubygems.versions.name.format.get({
+  "name": "",
+  "format": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: downloads.format.get
+
+#### Parameters
+* name (string) **required** - Gem name.
+* format (string) **required** - Response format.
+
+### downloads.format.get
 Returns an object containing the total number of downloads on RubyGems.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "format": {
-      "type": "string",
-      "description": "Response format.",
-      "enum": [
-        "json",
-        "xml",
-        "yaml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "format"
-  ]
-}
+
+```js
+rubygems.downloads.format.get({
+  "format": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: downloads.top.format.get
+
+#### Parameters
+* format (string) **required** - Response format.
+
+### downloads.top.format.get
 Returns an object containing the top 50 downloaded gem versions for today.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "format": {
-      "type": "string",
-      "description": "Response format.",
-      "enum": [
-        "json",
-        "xml",
-        "yaml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "format"
-  ]
-}
+
+```js
+rubygems.downloads.top.format.get({
+  "format": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: downloads.all.format.get
+
+#### Parameters
+* format (string) **required** - Response format.
+
+### downloads.all.format.get
 Returns an object containing the top 50 downloaded gem versions of all time.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "format": {
-      "type": "string",
-      "description": "Response format.",
-      "enum": [
-        "json",
-        "xml",
-        "yaml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "format"
-  ]
-}
+
+```js
+rubygems.downloads.all.format.get({
+  "format": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: downloads.name_version.format.get
+
+#### Parameters
+* format (string) **required** - Response format.
+
+### downloads.name_version.format.get
 Returns an object containing the total number of downloads for a paritcular gem as well as the total number of downloads for the specified version.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Gem name."
-    },
-    "version": {
-      "type": "string",
-      "description": "Gem version."
-    },
-    "format": {
-      "type": "string",
-      "description": "Response format.",
-      "enum": [
-        "json",
-        "xml",
-        "yaml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "version",
-    "format"
-  ]
-}
+
+```js
+rubygems.downloads.name_version.format.get({
+  "name": "",
+  "version": "",
+  "format": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: versions.name_version.downloads.format.get
+
+#### Parameters
+* name (string) **required** - Gem name.
+* version (string) **required** - Gem version.
+* format (string) **required** - Response format.
+
+### versions.name_version.downloads.format.get
 Returns an object containing the number of downloads by day for a particular gem version for 90 days of data.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Gem name."
-    },
-    "version": {
-      "type": "string",
-      "description": "Gem version."
-    },
-    "format": {
-      "type": "string",
-      "description": "Response format.",
-      "enum": [
-        "json",
-        "yaml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "version",
-    "format"
-  ]
-}
+
+```js
+rubygems.versions.name_version.downloads.format.get({
+  "name": "",
+  "version": "",
+  "format": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: versions.name_version.downloads.search.format.get
+
+#### Parameters
+* name (string) **required** - Gem name.
+* version (string) **required** - Gem version.
+* format (string) **required** - Response format.
+
+### versions.name_version.downloads.search.format.get
 Returns an object containing the number of downloads by day for a particular gem version between a date range, specified by the parameters from and to. Dates values should be specified in the format YYYY-MM-DD.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Gem name."
-    },
-    "version": {
-      "type": "string",
-      "description": "Gem version."
-    },
-    "format": {
-      "type": "string",
-      "description": "Response format.",
-      "enum": [
-        "json",
-        "yaml"
-      ]
-    },
-    "from": {
-      "type": "string",
-      "description": "Start date from where to search for. (YYYY-MM-DD)"
-    },
-    "to": {
-      "type": "string",
-      "description": "End date to where to search for. (YYYY-MM-DD)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "version",
-    "format",
-    "from",
-    "to"
-  ]
-}
+
+```js
+rubygems.versions.name_version.downloads.search.format.get({
+  "name": "",
+  "version": "",
+  "format": "",
+  "from": "",
+  "to": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: gems.name.owners.format.get
+
+#### Parameters
+* name (string) **required** - Gem name.
+* version (string) **required** - Gem version.
+* format (string) **required** - Response format.
+* from (string) **required** - Start date from where to search for. (YYYY-MM-DD)
+* to (string) **required** - End date to where to search for. (YYYY-MM-DD)
+
+### gems.name.owners.format.get
 View all owners of a gem. These users can all push to this gem.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Gem name."
-    },
-    "format": {
-      "type": "string",
-      "description": "Response format.",
-      "enum": [
-        "json",
-        "xml",
-        "yaml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "format"
-  ]
-}
+
+```js
+rubygems.gems.name.owners.format.get({
+  "name": "",
+  "format": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: gems.name.owners.post
+
+#### Parameters
+* name (string) **required** - Gem name.
+* format (string) **required** - Response format.
+
+### gems.name.owners.post
 Add an owner to a RubyGem you own, giving that user permission to manage it.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Gem name."
-    },
-    "email": {
-      "type": "string",
-      "description": "Gem owner email."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "email"
-  ]
-}
+
+```js
+rubygems.gems.name.owners.post({
+  "name": "",
+  "email": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: gems.name.owners.delete
+
+#### Parameters
+* name (string) **required** - Gem name.
+* email (string) **required** - Gem owner email.
+
+### gems.name.owners.delete
 Remove a user’s permission to manage a RubyGem you own.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Gem name."
-    },
-    "email": {
-      "type": "string",
-      "description": "Gem owner email."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "email"
-  ]
-}
+
+```js
+rubygems.gems.name.owners.delete({
+  "name": "",
+  "email": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: web_hooks.format.get
+
+#### Parameters
+* name (string) **required** - Gem name.
+* email (string) **required** - Gem owner email.
+
+### web_hooks.format.get
 List the webhooks registered under your account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "format": {
-      "type": "string",
-      "description": "Response format.",
-      "enum": [
-        "json",
-        "xml",
-        "yaml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "format"
-  ]
-}
+
+```js
+rubygems.web_hooks.format.get({
+  "format": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: web_hooks.post
+
+#### Parameters
+* format (string) **required** - Response format.
+
+### web_hooks.post
 Create a webhook.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "gem_name": {
-      "type": "string",
-      "description": "Gem name. Could specify * to apply the hook globally to all gems."
-    },
-    "url": {
-      "type": "string",
-      "description": "WebHook URL."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "gem_name",
-    "url"
-  ]
-}
+
+```js
+rubygems.web_hooks.post({
+  "gem_name": "",
+  "url": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: web_hooks.remove.delete
+
+#### Parameters
+* gem_name (string) **required** - Gem name. Could specify * to apply the hook globally to all gems.
+* url (string) **required** - WebHook URL.
+
+### web_hooks.remove.delete
 Remove a webhook.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "gem_name": {
-      "type": "string",
-      "description": "Gem name. Could specify * to apply the hook globally to all gems."
-    },
-    "url": {
-      "type": "string",
-      "description": "WebHook URL."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "gem_name",
-    "url"
-  ]
-}
+
+```js
+rubygems.web_hooks.remove.delete({
+  "gem_name": "",
+  "url": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: web_hooks.fire.post
+
+#### Parameters
+* gem_name (string) **required** - Gem name. Could specify * to apply the hook globally to all gems.
+* url (string) **required** - WebHook URL.
+
+### web_hooks.fire.post
 Test fire a webhook. This can be used to test out an endpoint at any time, for example when you’re developing your application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "gem_name": {
-      "type": "string",
-      "description": "Gem name. Could specify * to apply the hook globally to all gems."
-    },
-    "url": {
-      "type": "string",
-      "description": "WebHook URL."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "gem_name",
-    "url"
-  ]
-}
+
+```js
+rubygems.web_hooks.fire.post({
+  "gem_name": "",
+  "url": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api_key.format.get
+
+#### Parameters
+* gem_name (string) **required** - Gem name. Could specify * to apply the hook globally to all gems.
+* url (string) **required** - WebHook URL.
+
+### api_key.format.get
 Retrieve your API key using HTTP basic auth.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "format": {
-      "type": "string",
-      "description": "Response format.",
-      "enum": [
-        "json",
-        "xml",
-        "yaml"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "format"
-  ]
-}
+
+```js
+rubygems.api_key.format.get({
+  "format": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: dependencies.get
+
+#### Parameters
+* format (string) **required** - Response format.
+
+### dependencies.get
 Returns a marshalled array of hashes for all versions of given gems. Each hash contains a gem version with its dependencies making this useful for resolving dependencies.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "gems": {
-      "type": "string",
-      "description": "Comma delimited Gem names."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "gems"
-  ]
-}
+
+```js
+rubygems.dependencies.get({
+  "gems": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* gems (string) **required** - Comma delimited Gem names.
+

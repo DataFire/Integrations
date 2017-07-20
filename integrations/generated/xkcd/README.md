@@ -1,42 +1,47 @@
 # @datafire/xkcd
+
+Client library for XKCD
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/xkcd
+```
+
+```js
+let datafire = require('datafire');
+let xkcd = require('@datafire/xkcd').actions;
+let context = new datafire.Context();
+
+xkcd.info.0.json.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Webcomic of romance, sarcasm, math, and language.
 
-## Operation: info.0.json.get
+## Actions
+### info.0.json.get
 Fetch current comic and metadata.
 
 
-### Input Schema
-```json
-{}
+
+```js
+xkcd.info.0.json.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/comic"
-}
-```
-## Operation: comicId.info.0.json.get
+
+
+### comicId.info.0.json.get
 Fetch comics and metadata  by comic id.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "comicId": {
-      "type": "number"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "comicId"
-  ]
-}
+
+```js
+xkcd.comicId.info.0.json.get({
+  "comicId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/comic"
-}
-```
+
+#### Parameters
+* comicId (number) **required**
+

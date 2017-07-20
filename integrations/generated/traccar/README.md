@@ -1,1466 +1,739 @@
 # @datafire/traccar
+
+Client library for traccar
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/traccar
+```
+
+```js
+let datafire = require('datafire');
+let traccar = require('@datafire/traccar').actions;
+
+let account = {
+  username: "",
+  password: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    traccar: account,
+  }
+})
+
+
+traccar.users.notifications.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Open Source GPS Tracking Platform
 
-## Operation: attributes.aliases.get
+## Actions
+### attributes.aliases.get
 Without params, it returns a list of AttributeAlias from all the user's Devices
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "deviceId": {
-      "type": "integer",
-      "description": "Standard users can use this only with _userId_s, they have access to"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+traccar.attributes.aliases.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/AttributeAlias"
-  },
-  "type": "array"
-}
-```
-## Operation: attributes.aliases.post
+
+
+### attributes.aliases.post
 Set an AttributeAlias
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/AttributeAlias"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.attributes.aliases.post({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AttributeAlias"
-}
-```
-## Operation: attributes.aliases.id.delete
+
+#### Parameters
+* body (undefined) **required**
+
+### attributes.aliases.id.delete
 Delete an AttributeAlias
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+traccar.attributes.aliases.id.delete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: attributes.aliases.id.put
+
+#### Parameters
+* id (integer) **required**
+
+### attributes.aliases.id.put
 Update an AttributeAlias
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/AttributeAlias"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "body"
-  ]
-}
+
+```js
+traccar.attributes.aliases.id.put({
+  "id": 0,
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AttributeAlias"
-}
-```
-## Operation: calendars.get
+
+#### Parameters
+* id (integer) **required**
+* body (undefined) **required**
+
+### calendars.get
 Without params, it returns a list of Calendars the user has access to
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "all": {
-      "type": "boolean",
-      "description": "Can only be used by admins or managers to fetch all entities"
-    },
-    "userId": {
-      "type": "integer",
-      "description": "Standard users can use this only with their own _userId_"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+traccar.calendars.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Calendar"
-  },
-  "type": "array"
-}
-```
-## Operation: calendars.post
+
+
+### calendars.post
 Create a Calendar
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Calendar"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.calendars.post({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Calendar"
-}
-```
-## Operation: calendars.id.delete
+
+#### Parameters
+* body (undefined) **required**
+
+### calendars.id.delete
 Delete a Calendar
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+traccar.calendars.id.delete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: calendars.id.put
+
+#### Parameters
+* id (integer) **required**
+
+### calendars.id.put
 Update a Calendar
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/Calendar"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "body"
-  ]
-}
+
+```js
+traccar.calendars.id.put({
+  "id": 0,
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Calendar"
-}
-```
-## Operation: commands.post
+
+#### Parameters
+* id (integer) **required**
+* body (undefined) **required**
+
+### commands.post
 Dispatch commands to device
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Command"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.commands.post({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Command"
-}
-```
-## Operation: commandtypes.get
+
+#### Parameters
+* body (undefined) **required**
+
+### commandtypes.get
 Fetch a list of available Commands for the Device
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deviceId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "deviceId"
-  ]
-}
+
+```js
+traccar.commandtypes.get({
+  "deviceId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/CommandType"
-  },
-  "type": "array"
-}
-```
-## Operation: devices.get
+
+#### Parameters
+* deviceId (integer) **required**
+
+### devices.get
 Without any params, returns a list of the user's devices
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "all": {
-      "type": "boolean",
-      "description": "Can only be used by admins or managers to fetch all entities"
-    },
-    "userId": {
-      "type": "integer",
-      "description": "Standard users can use this only with their own _userId_"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+traccar.devices.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Device"
-  },
-  "type": "array"
-}
-```
-## Operation: devices.post
+
+
+### devices.post
 Create a Device
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Device"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.devices.post({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Device"
-}
-```
-## Operation: devices.geofences.delete
+
+#### Parameters
+* body (undefined) **required**
+
+### devices.geofences.delete
 Remove a Geofence from a Device
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeviceGeofence"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.devices.geofences.delete({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: devices.geofences.post
+
+#### Parameters
+* body (undefined) **required**
+
+### devices.geofences.post
 Link a Geofence to a Device
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DeviceGeofence"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.devices.geofences.post({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeviceGeofence"
-}
-```
-## Operation: devices.id.delete
+
+#### Parameters
+* body (undefined) **required**
+
+### devices.id.delete
 Update a Device
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+traccar.devices.id.delete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: devices.id.put
+
+#### Parameters
+* id (integer) **required**
+
+### devices.id.put
 Update a Device
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/Device"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "body"
-  ]
-}
+
+```js
+traccar.devices.id.put({
+  "id": 0,
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Device"
-}
-```
-## Operation: devices.id.distance.put
+
+#### Parameters
+* id (integer) **required**
+* body (undefined) **required**
+
+### devices.id.distance.put
 Update the distance counter of the Device
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/DeviceTotalDistance"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "body"
-  ]
-}
+
+```js
+traccar.devices.id.distance.put({
+  "id": 0,
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: events.id.get
+
+#### Parameters
+* id (integer) **required**
+* body (undefined) **required**
+
+### events.id.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+traccar.events.id.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Event"
-}
-```
-## Operation: geofences.get
+
+#### Parameters
+* id (integer) **required**
+
+### geofences.get
 Without params, it returns a list of Geofences the user has access to
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "all": {
-      "type": "boolean",
-      "description": "Can only be used by admins or managers to fetch all entities"
-    },
-    "userId": {
-      "type": "integer",
-      "description": "Standard users can use this only with their own _userId_"
-    },
-    "groupId": {
-      "type": "integer"
-    },
-    "deviceId": {
-      "type": "integer",
-      "description": "Standard users can use this only with _userId_s, they have access to"
-    },
-    "refresh": {
-      "type": "boolean"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+traccar.geofences.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Geofence"
-  },
-  "type": "array"
-}
-```
-## Operation: geofences.post
+
+
+### geofences.post
 Create a Geofence
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Geofence"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.geofences.post({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Geofence"
-}
-```
-## Operation: geofences.id.delete
+
+#### Parameters
+* body (undefined) **required**
+
+### geofences.id.delete
 Delete a Geofence
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+traccar.geofences.id.delete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: geofences.id.put
+
+#### Parameters
+* id (integer) **required**
+
+### geofences.id.put
 Update a Geofence
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/Geofence"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "body"
-  ]
-}
+
+```js
+traccar.geofences.id.put({
+  "id": 0,
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Geofence"
-}
-```
-## Operation: groups.get
+
+#### Parameters
+* id (integer) **required**
+* body (undefined) **required**
+
+### groups.get
 Without any params, returns a list of the Groups the user belongs to
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "all": {
-      "type": "boolean",
-      "description": "Can only be used by admins or managers to fetch all entities"
-    },
-    "userId": {
-      "type": "integer",
-      "description": "Standard users can use this only with their own _userId_"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+traccar.groups.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Group"
-  },
-  "type": "array"
-}
-```
-## Operation: groups.post
+
+
+### groups.post
 Create a Group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Group"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.groups.post({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Group"
-}
-```
-## Operation: groups.geofences.delete
+
+#### Parameters
+* body (undefined) **required**
+
+### groups.geofences.delete
 Remove a Geofence from a Group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GroupGeofence"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.groups.geofences.delete({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: groups.geofences.post
+
+#### Parameters
+* body (undefined) **required**
+
+### groups.geofences.post
 Link a Geofence to a Group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GroupGeofence"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.groups.geofences.post({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GroupGeofence"
-}
-```
-## Operation: groups.id.delete
+
+#### Parameters
+* body (undefined) **required**
+
+### groups.id.delete
 Delete a Group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+traccar.groups.id.delete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: groups.id.put
+
+#### Parameters
+* id (integer) **required**
+
+### groups.id.put
 Update a Group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/Group"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "body"
-  ]
-}
+
+```js
+traccar.groups.id.put({
+  "id": 0,
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Group"
-}
-```
-## Operation: permissions.calendars.delete
+
+#### Parameters
+* id (integer) **required**
+* body (undefined) **required**
+
+### permissions.calendars.delete
 Remove a Calendar from a User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CalendarPermission"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.permissions.calendars.delete({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: permissions.calendars.post
+
+#### Parameters
+* body (undefined) **required**
+
+### permissions.calendars.post
 Link a Calendar to a User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CalendarPermission"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.permissions.calendars.post({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CalendarPermission"
-}
-```
-## Operation: permissions.devices.delete
+
+#### Parameters
+* body (undefined) **required**
+
+### permissions.devices.delete
 Remove a Device from a User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DevicePermission"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.permissions.devices.delete({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: permissions.devices.post
+
+#### Parameters
+* body (undefined) **required**
+
+### permissions.devices.post
 Link a Device to a User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DevicePermission"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.permissions.devices.post({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DevicePermission"
-}
-```
-## Operation: permissions.geofences.delete
+
+#### Parameters
+* body (undefined) **required**
+
+### permissions.geofences.delete
 Remove a Geofence from a User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GeofencePermission"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.permissions.geofences.delete({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: permissions.geofences.post
+
+#### Parameters
+* body (undefined) **required**
+
+### permissions.geofences.post
 Link a Geofence to a User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GeofencePermission"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.permissions.geofences.post({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GeofencePermission"
-}
-```
-## Operation: permissions.groups.delete
+
+#### Parameters
+* body (undefined) **required**
+
+### permissions.groups.delete
 Remove a Group from a User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GroupPermission"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.permissions.groups.delete({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: permissions.groups.post
+
+#### Parameters
+* body (undefined) **required**
+
+### permissions.groups.post
 Link a Group to a User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GroupPermission"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.permissions.groups.post({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GroupPermission"
-}
-```
-## Operation: permissions.users.delete
+
+#### Parameters
+* body (undefined) **required**
+
+### permissions.users.delete
 Remove a User from a manager User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UserPermission"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.permissions.users.delete({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: permissions.users.post
+
+#### Parameters
+* body (undefined) **required**
+
+### permissions.users.post
 Link a User to a manager User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UserPermission"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.permissions.users.post({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserPermission"
-}
-```
-## Operation: positions.get
+
+#### Parameters
+* body (undefined) **required**
+
+### positions.get
 Without any params, it returns a list of last known positions for all the user's Devices. _from_ and _to_ fields are not required with _id_
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "deviceId": {
-      "type": "integer",
-      "description": "_deviceId_ is optional, but requires the _from_ and _to_ parameters when used"
-    },
-    "from": {
-      "type": "string",
-      "format": "date-time",
-      "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
-    },
-    "to": {
-      "type": "string",
-      "format": "date-time",
-      "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
-    },
-    "id": {
-      "type": "integer",
-      "description": "To fetch one or more positions. Multiple params can be passed like `id=31&id=42`"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+traccar.positions.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Position"
-  },
-  "type": "array"
-}
-```
-## Operation: reports.events.get
+
+
+### reports.events.get
 At least one _deviceId_ or one _groupId_ must be passed
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deviceId": {
-      "type": "array"
-    },
-    "groupId": {
-      "type": "array"
-    },
-    "type": {
-      "type": "array",
-      "description": "% can be used to return events of all types"
-    },
-    "from": {
-      "type": "string",
-      "format": "date-time",
-      "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
-    },
-    "to": {
-      "type": "string",
-      "format": "date-time",
-      "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "from",
-    "to"
-  ]
-}
+
+```js
+traccar.reports.events.get({
+  "from": "",
+  "to": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Event"
-  },
-  "type": "array"
-}
-```
-## Operation: reports.route.get
+
+#### Parameters
+* deviceId (array)
+* groupId (array)
+* type (array) - % can be used to return events of all types
+* from (string) **required** - in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+* to (string) **required** - in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+
+### reports.route.get
 At least one _deviceId_ or one _groupId_ must be passed
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deviceId": {
-      "type": "array"
-    },
-    "groupId": {
-      "type": "array"
-    },
-    "from": {
-      "type": "string",
-      "format": "date-time",
-      "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
-    },
-    "to": {
-      "type": "string",
-      "format": "date-time",
-      "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "from",
-    "to"
-  ]
-}
+
+```js
+traccar.reports.route.get({
+  "from": "",
+  "to": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Position"
-  },
-  "type": "array"
-}
-```
-## Operation: reports.summary.get
+
+#### Parameters
+* deviceId (array)
+* groupId (array)
+* from (string) **required** - in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+* to (string) **required** - in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+
+### reports.summary.get
 At least one _deviceId_ or one _groupId_ must be passed
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deviceId": {
-      "type": "array"
-    },
-    "groupId": {
-      "type": "array"
-    },
-    "from": {
-      "type": "string",
-      "format": "date-time",
-      "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
-    },
-    "to": {
-      "type": "string",
-      "format": "date-time",
-      "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "from",
-    "to"
-  ]
-}
+
+```js
+traccar.reports.summary.get({
+  "from": "",
+  "to": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/ReportSummary"
-  },
-  "type": "array"
-}
-```
-## Operation: reports.trips.get
+
+#### Parameters
+* deviceId (array)
+* groupId (array)
+* from (string) **required** - in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+* to (string) **required** - in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+
+### reports.trips.get
 At least one _deviceId_ or one _groupId_ must be passed
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "deviceId": {
-      "type": "array"
-    },
-    "groupId": {
-      "type": "array"
-    },
-    "from": {
-      "type": "string",
-      "format": "date-time",
-      "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
-    },
-    "to": {
-      "type": "string",
-      "format": "date-time",
-      "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "from",
-    "to"
-  ]
-}
+
+```js
+traccar.reports.trips.get({
+  "from": "",
+  "to": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/ReportTrips"
-  },
-  "type": "array"
-}
-```
-## Operation: server.get
+
+#### Parameters
+* deviceId (array)
+* groupId (array)
+* from (string) **required** - in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+* to (string) **required** - in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+
+### server.get
 Fetch Server information
 
-### Input Schema
-```json
-{}
+
+```js
+traccar.server.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Server"
-}
-```
-## Operation: server.put
+
+
+### server.put
 Update Server information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Server"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.server.put({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Server"
-}
-```
-## Operation: session.delete
+
+#### Parameters
+* body (undefined) **required**
+
+### session.delete
 Close the Session
 
-### Input Schema
-```json
-{}
+
+```js
+traccar.session.delete(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: session.get
+
+
+### session.get
 Fetch Session information
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "token": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+traccar.session.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/User"
-}
-```
-## Operation: session.post
+
+
+### session.post
 Create a new Session
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "email": {
-      "type": "string"
-    },
-    "password": {
-      "type": "string",
-      "format": "password"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "email",
-    "password"
-  ]
-}
+
+```js
+traccar.session.post({
+  "email": "",
+  "password": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/User"
-}
-```
-## Operation: statistics.get
+
+#### Parameters
+* email (string) **required**
+* password (string) **required**
+
+### statistics.get
 Fetch server Statistics
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "from": {
-      "type": "string",
-      "format": "date-time",
-      "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
-    },
-    "to": {
-      "type": "string",
-      "format": "date-time",
-      "description": "in IS0 8601 format. eg. `1963-11-22T18:30:00Z`"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "from",
-    "to"
-  ]
-}
+
+```js
+traccar.statistics.get({
+  "from": "",
+  "to": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Statistics"
-  },
-  "type": "array"
-}
-```
-## Operation: users.get
+
+#### Parameters
+* from (string) **required** - in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+* to (string) **required** - in IS0 8601 format. eg. `1963-11-22T18:30:00Z`
+
+### users.get
 Fetch a list of Users
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "userId": {
-      "type": "string",
-      "description": "Can only be used by admin or manager users"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+traccar.users.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/User"
-  },
-  "type": "array"
-}
-```
-## Operation: users.post
+
+
+### users.post
 Create a User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/User"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.users.post({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/User"
-}
-```
-## Operation: users.notifications.get
+
+#### Parameters
+* body (undefined) **required**
+
+### users.notifications.get
 Without params, it returns a list of the user's enabled Notifications
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "all": {
-      "type": "boolean",
-      "description": "To fetch a list of all available Notifications"
-    },
-    "userId": {
-      "type": "integer",
-      "description": "Standard users can use this only with their own _userId_"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+traccar.users.notifications.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Notification"
-  },
-  "type": "array"
-}
-```
-## Operation: users.notifications.post
+
+
+### users.notifications.post
 Set or unset a Notification
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Notification"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+traccar.users.notifications.post({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Notification"
-}
-```
-## Operation: users.id.delete
+
+#### Parameters
+* body (undefined) **required**
+
+### users.id.delete
 Delete a User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+traccar.users.id.delete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: users.id.put
+
+#### Parameters
+* id (integer) **required**
+
+### users.id.put
 Update a User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/User"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "body"
-  ]
-}
+
+```js
+traccar.users.id.put({
+  "id": 0,
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/User"
-}
-```
+
+#### Parameters
+* id (integer) **required**
+* body (undefined) **required**
+

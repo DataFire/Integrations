@@ -1,7 +1,27 @@
 # @datafire/postmark
+
+Client library for Postmark
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/postmark
+```
+
+```js
+let datafire = require('datafire');
+let postmark = require('@datafire/postmark').actions;
+let context = new datafire.Context();
+
+postmark.email.post({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Send emails, retrieve bounces and start accepting inbound emails, all via an easy-to-use HTTP API.
 
-## Operation: email.post
+## Actions
+### email.post
 Sends e-mails. Currently Postmark supports JSON message format. The mail message format is:
 
 {
@@ -66,42 +86,19 @@ If all goes well, you will get back a JSON message looking a lot like:
 
 Note the MessageID property. You can log it in your system and use it to associate the message you just sent to a possible bounce that you obtained from a bounce web hook or the bounce API.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type of the request. Must be set to application/json, text/json, or text/x-json.",
-      "enum": [
-        "application/json",
-        "text/json",
-        "text/x-json"
-      ]
-    },
-    "Accept": {
-      "type": "string",
-      "description": "The accepted type for the response. Must be set to application/json, text/json, or text/x-json.",
-      "enum": [
-        "application/json",
-        "text/json",
-        "text/x-json"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Content-Type",
-    "Accept"
-  ]
-}
+
+```js
+postmark.email.post({
+  "Content-Type": "",
+  "Accept": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: email.batch.post
+
+#### Parameters
+* Content-Type (string) **required** - The content type of the request. Must be set to application/json, text/json, or text/x-json.
+* Accept (string) **required** - The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+
+### email.batch.post
 While Postmark is focused on transactional email, we understand that developers with higher volumes or processing time constraints need to send their messages in batches. To facilitate this we provide a batching endpoint that permits you to send up to 500 well-formed Postmark messages in a single API call.
                     
 The format of the batched message is a JSON array containing multiple message requests like the following example:
@@ -131,408 +128,149 @@ Similarly, you will receive a matching JSON array containing each response for t
     },
 ]
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type of the request. Must be set to application/json, text/json, or text/x-json.",
-      "enum": [
-        "application/json",
-        "text/json",
-        "text/x-json"
-      ]
-    },
-    "Accept": {
-      "type": "string",
-      "description": "The accepted type for the response. Must be set to application/json, text/json, or text/x-json.",
-      "enum": [
-        "application/json",
-        "text/json",
-        "text/x-json"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Content-Type",
-    "Accept"
-  ]
-}
+
+```js
+postmark.email.batch.post({
+  "Content-Type": "",
+  "Accept": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deliverystats.get
+
+#### Parameters
+* Content-Type (string) **required** - The content type of the request. Must be set to application/json, text/json, or text/x-json.
+* Accept (string) **required** - The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+
+### deliverystats.get
 Returns a summary of inactive emails and bounces by type.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type of the request. Must be set to application/json, text/json, or text/x-json.",
-      "enum": [
-        "application/json",
-        "text/json",
-        "text/x-json"
-      ]
-    },
-    "Accept": {
-      "type": "string",
-      "description": "The accepted type for the response. Must be set to application/json, text/json, or text/x-json.",
-      "enum": [
-        "application/json",
-        "text/json",
-        "text/x-json"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Content-Type",
-    "Accept"
-  ]
-}
+
+```js
+postmark.deliverystats.get({
+  "Content-Type": "",
+  "Accept": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: bounces.get
+
+#### Parameters
+* Content-Type (string) **required** - The content type of the request. Must be set to application/json, text/json, or text/x-json.
+* Accept (string) **required** - The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+
+### bounces.get
 Fetches a portion of bounces according to the specified input criteria. Supported filters: type, inactive, email like, tag. Paging: page_size (count), page_start (offset). Bounces are sorted by BouncedAt in a descending order.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type of the request. Must be set to application/json, text/json, or text/x-json.",
-      "enum": [
-        "application/json",
-        "text/json",
-        "text/x-json"
-      ]
-    },
-    "Accept": {
-      "type": "string",
-      "description": "The accepted type for the response. Must be set to application/json, text/json, or text/x-json.",
-      "enum": [
-        "application/json",
-        "text/json",
-        "text/x-json"
-      ]
-    },
-    "type": {
-      "type": "string",
-      "description": "Filter by bounce type. Supported types are:\n- HardBounce\n- Transient\n- Unsubscribe\n- Subscribe\n- AutoResponder\n- AddressChange\n- DnsError\n- SpamNotification\n- OpenRelayTest\n- Unknown\n- SoftBounce\n- VirusNotification\n- ChallengeVerification\n- BadEmailAddress\n- SpamComplaint\n- ManuallyDeactivated\n- Unconfirmed\n- Blocked",
-      "enum": [
-        "HardBounce",
-        "Transient",
-        "Unsubscribe",
-        "Subscribe",
-        "AutoResponder",
-        "AddressChange",
-        "DnsError",
-        "SpamNotification",
-        "OpenRelayTest",
-        "Unknown",
-        "SoftBounce",
-        "VirusNotification",
-        "ChallengeVerification",
-        "BadEmailAddress",
-        "SpamComplaint",
-        "ManuallyDeactivated",
-        "Unconfirmed",
-        "Blocked"
-      ]
-    },
-    "inactive": {
-      "type": "string",
-      "description": "Filter by active/inactive status. Note that we have three options here: true, false, and null (no value). To get all bounces no matter if they are active or inactive, do not pass a value.",
-      "enum": [
-        "true",
-        "false",
-        ""
-      ]
-    },
-    "emailFilter": {
-      "type": "string",
-      "description": "Return only bounces whose recipient address contains the provided string."
-    },
-    "tag": {
-      "type": "string",
-      "description": "Filter by tag."
-    },
-    "count": {
-      "type": "integer",
-      "description": "The number of bounces to retrieve. A page has 25 bounces. To know how much your bounces are, you need to request a portion first, usually the first page, and the service will return the count in the TotalCount property in the response."
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The offset from where to start retrieving bounces. Starts at 0."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Content-Type",
-    "Accept",
-    "count",
-    "offset"
-  ]
-}
+
+```js
+postmark.bounces.get({
+  "Content-Type": "",
+  "Accept": "",
+  "count": 0,
+  "offset": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: bounces.bounceID.get
+
+#### Parameters
+* Content-Type (string) **required** - The content type of the request. Must be set to application/json, text/json, or text/x-json.
+* Accept (string) **required** - The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+* type (string) - Filter by bounce type. Supported types are:
+* inactive (string) - Filter by active/inactive status. Note that we have three options here: true, false, and null (no value). To get all bounces no matter if they are active or inactive, do not pass a value.
+* emailFilter (string) - Return only bounces whose recipient address contains the provided string.
+* tag (string) - Filter by tag.
+* count (integer) **required** - The number of bounces to retrieve. A page has 25 bounces. To know how much your bounces are, you need to request a portion first, usually the first page, and the service will return the count in the TotalCount property in the response.
+* offset (integer) **required** - The offset from where to start retrieving bounces. Starts at 0.
+
+### bounces.bounceID.get
 Gets details about a single bounce. Note that the bounce ID is a numeric value that you typically obtain after a getting a list of bounces.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type of the request. Must be set to application/json, text/json, or text/x-json.",
-      "enum": [
-        "application/json",
-        "text/json",
-        "text/x-json"
-      ]
-    },
-    "Accept": {
-      "type": "string",
-      "description": "The accepted type for the response. Must be set to application/json, text/json, or text/x-json.",
-      "enum": [
-        "application/json",
-        "text/json",
-        "text/x-json"
-      ]
-    },
-    "bounceID": {
-      "type": "integer",
-      "description": "A bounce ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Content-Type",
-    "Accept",
-    "bounceID"
-  ]
-}
+
+```js
+postmark.bounces.bounceID.get({
+  "Content-Type": "",
+  "Accept": "",
+  "bounceID": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: bounces.bounceID.dump.get
+
+#### Parameters
+* Content-Type (string) **required** - The content type of the request. Must be set to application/json, text/json, or text/x-json.
+* Accept (string) **required** - The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+* bounceID (integer) **required** - A bounce ID.
+
+### bounces.bounceID.dump.get
 Returns the raw source of the bounce we accepted. If Postmark does not have a dump for that bounce, it will return an empty string.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type of the request. Must be set to application/json, text/json, or text/x-json.",
-      "enum": [
-        "application/json",
-        "text/json",
-        "text/x-json"
-      ]
-    },
-    "Accept": {
-      "type": "string",
-      "description": "The accepted type for the response. Must be set to application/json, text/json, or text/x-json.",
-      "enum": [
-        "application/json",
-        "text/json",
-        "text/x-json"
-      ]
-    },
-    "bounceID": {
-      "type": "integer",
-      "description": "A bounce ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Content-Type",
-    "Accept",
-    "bounceID"
-  ]
-}
+
+```js
+postmark.bounces.bounceID.dump.get({
+  "Content-Type": "",
+  "Accept": "",
+  "bounceID": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: bounces.tags.get
+
+#### Parameters
+* Content-Type (string) **required** - The content type of the request. Must be set to application/json, text/json, or text/x-json.
+* Accept (string) **required** - The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+* bounceID (integer) **required** - A bounce ID.
+
+### bounces.tags.get
 Returns a list of tags used for the current server.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type of the request. Must be set to application/json, text/json, or text/x-json.",
-      "enum": [
-        "application/json",
-        "text/json",
-        "text/x-json"
-      ]
-    },
-    "Accept": {
-      "type": "string",
-      "description": "The accepted type for the response. Must be set to application/json, text/json, or text/x-json.",
-      "enum": [
-        "application/json",
-        "text/json",
-        "text/x-json"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Content-Type",
-    "Accept"
-  ]
-}
+
+```js
+postmark.bounces.tags.get({
+  "Content-Type": "",
+  "Accept": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: bounces.bounceID.activate.put
+
+#### Parameters
+* Content-Type (string) **required** - The content type of the request. Must be set to application/json, text/json, or text/x-json.
+* Accept (string) **required** - The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+
+### bounces.bounceID.activate.put
 Activates a deactivated bounce. Note that you do not need to send anything in the request body.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type of the request. Must be set to application/json, text/json, or text/x-json.",
-      "enum": [
-        "application/json",
-        "text/json",
-        "text/x-json"
-      ]
-    },
-    "Accept": {
-      "type": "string",
-      "description": "The accepted type for the response. Must be set to application/json, text/json, or text/x-json.",
-      "enum": [
-        "application/json",
-        "text/json",
-        "text/x-json"
-      ]
-    },
-    "bounceID": {
-      "type": "integer",
-      "description": "A bounce ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Content-Type",
-    "Accept",
-    "bounceID"
-  ]
-}
+
+```js
+postmark.bounces.bounceID.activate.put({
+  "Content-Type": "",
+  "Accept": "",
+  "bounceID": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: server.get
+
+#### Parameters
+* Content-Type (string) **required** - The content type of the request. Must be set to application/json, text/json, or text/x-json.
+* Accept (string) **required** - The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+* bounceID (integer) **required** - A bounce ID.
+
+### server.get
 Gets the server details and figures out your unique InboundHash where you can forward your email. This can be found in the web app in your server's Credentials tab or via the API.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type of the request. Must be set to application/json, text/json, or text/x-json.",
-      "enum": [
-        "application/json",
-        "text/json",
-        "text/x-json"
-      ]
-    },
-    "Accept": {
-      "type": "string",
-      "description": "The accepted type for the response. Must be set to application/json, text/json, or text/x-json.",
-      "enum": [
-        "application/json",
-        "text/json",
-        "text/x-json"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Content-Type",
-    "Accept"
-  ]
-}
+
+```js
+postmark.server.get({
+  "Content-Type": "",
+  "Accept": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: server.post
+
+#### Parameters
+* Content-Type (string) **required** - The content type of the request. Must be set to application/json, text/json, or text/x-json.
+* Accept (string) **required** - The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+
+### server.post
 Sets the URL where we should send JSON data. In order for your application receive the emails that we parse, you will need to tell Postmark where to send the JSON data for each inbound email it processes, which is done via an HTTP POST to a URL of your choice. You can set this URL in the Settings page for your Postmark server in the web app, or using the InboundHookUrl field in the API. It also lets you choose a domain that you would like to listen on for incoming email to be processed by Postmark. We recommend a separate subdomain, like inbound.yourdomain.com. Each server can listen to one unique domain, so make sure to set the X-Postmark-Server-Token to the correct server token in the API call below.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Content-Type": {
-      "type": "string",
-      "description": "The content type of the request. Must be set to application/json, text/json, or text/x-json.",
-      "enum": [
-        "application/json",
-        "text/json",
-        "text/x-json"
-      ]
-    },
-    "Accept": {
-      "type": "string",
-      "description": "The accepted type for the response. Must be set to application/json, text/json, or text/x-json.",
-      "enum": [
-        "application/json",
-        "text/json",
-        "text/x-json"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Content-Type",
-    "Accept"
-  ]
-}
+
+```js
+postmark.server.post({
+  "Content-Type": "",
+  "Accept": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* Content-Type (string) **required** - The content type of the request. Must be set to application/json, text/json, or text/x-json.
+* Accept (string) **required** - The accepted type for the response. Must be set to application/json, text/json, or text/x-json.
+

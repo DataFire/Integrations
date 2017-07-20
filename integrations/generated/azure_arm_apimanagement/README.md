@@ -1,5403 +1,2270 @@
 # @datafire/azure_arm_apimanagement
+
+Client library for ApiManagementClient
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/azure_arm_apimanagement
+```
+
+```js
+let datafire = require('datafire');
+let azure_arm_apimanagement = require('@datafire/azure_arm_apimanagement').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    azure_arm_apimanagement: account,
+  }
+})
+
+
+azure_arm_apimanagement.Apis_ListByService({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Use these REST APIs for performing operations on entities like API, Product, and Subscription associated with your Azure API Management deployment.
 
-## Operation: Apis_ListByService
+## Actions
+### Apis_ListByService
 Lists all APIs of the API Management service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "$filter": {
-      "type": "string",
-      "description": "| Field       | Supported operators    | Supported functions               |\n|-------------|------------------------|-----------------------------------|\n| id          | ge, le, eq, ne, gt, lt | substringof, startswith, endswith |\n| name        | ge, le, eq, ne, gt, lt | substringof, startswith, endswith |\n| description | ge, le, eq, ne, gt, lt | substringof, startswith, endswith |\n| serviceUrl  | ge, le, eq, ne, gt, lt | substringof, startswith, endswith |\n| path        | ge, le, eq, ne, gt, lt | substringof, startswith, endswith |"
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to return.",
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to skip.",
-      "minimum": 0
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Apis_ListByService({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApiCollection"
-}
-```
-## Operation: Apis_Delete
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* $filter (string) - | Field       | Supported operators    | Supported functions               |
+* $top (integer) - Number of records to return.
+* $skip (integer) - Number of records to skip.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Apis_Delete
 Deletes the specified API of the API Management service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "apiId": {
-      "type": "string",
-      "description": "API identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "ETag of the API Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "apiId",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Apis_Delete({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "apiId": "",
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Apis_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* apiId (string) **required** - API identifier. Must be unique in the current API Management service instance.
+* If-Match (string) **required** - ETag of the API Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Apis_Get
 Gets the details of the API specified by its identifier.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "apiId": {
-      "type": "string",
-      "description": "API identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "apiId",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Apis_Get({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "apiId": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApiContract"
-}
-```
-## Operation: Apis_Update
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* apiId (string) **required** - API identifier. Must be unique in the current API Management service instance.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Apis_Update
 Updates the specified API of the API Management service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "apiId": {
-      "type": "string",
-      "description": "API identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/PatchParameters"
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "ETag of the API entity. ETag should match the current entity state in the header response of the GET request or it should be * for unconditional update."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "apiId",
-    "parameters",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Apis_Update({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "apiId": "",
+  "parameters": null,
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Apis_CreateOrUpdate
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* apiId (string) **required** - API identifier. Must be unique in the current API Management service instance.
+* parameters (undefined) **required** - Parameters supplied to the Patch operations.
+* If-Match (string) **required** - ETag of the API entity. ETag should match the current entity state in the header response of the GET request or it should be * for unconditional update.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Apis_CreateOrUpdate
 Creates new or updates existing specified API of the API Management service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "apiId": {
-      "type": "string",
-      "description": "API identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/ApiContract"
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "ETag of the Api Entity. For Create Api Etag should not be specified. For Update Etag should match the existing Entity or it can be * for unconditional update."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "apiId",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Apis_CreateOrUpdate({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "apiId": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ApiOperations_ListByApi
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* apiId (string) **required** - API identifier. Must be unique in the current API Management service instance.
+* parameters (undefined) **required** - API details.
+* If-Match (string) - ETag of the Api Entity. For Create Api Etag should not be specified. For Update Etag should match the existing Entity or it can be * for unconditional update.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### ApiOperations_ListByApi
 Lists a collection of the operations for the specified API.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "apiId": {
-      "type": "string",
-      "description": "API identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "$filter": {
-      "type": "string",
-      "description": "| Field       | Supported operators    | Supported functions               |\n|-------------|------------------------|-----------------------------------|\n| name        | ge, le, eq, ne, gt, lt | substringof, startswith, endswith |\n| method      | ge, le, eq, ne, gt, lt | substringof, startswith, endswith |\n| description | ge, le, eq, ne, gt, lt | substringof, startswith, endswith |\n| urlTemplate | ge, le, eq, ne, gt, lt | substringof, startswith, endswith |"
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to return.",
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to skip.",
-      "minimum": 0
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "apiId",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.ApiOperations_ListByApi({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "apiId": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OperationCollection"
-}
-```
-## Operation: ApiOperations_Delete
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* apiId (string) **required** - API identifier. Must be unique in the current API Management service instance.
+* $filter (string) - | Field       | Supported operators    | Supported functions               |
+* $top (integer) - Number of records to return.
+* $skip (integer) - Number of records to skip.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### ApiOperations_Delete
 Deletes the specified operation.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "apiId": {
-      "type": "string",
-      "description": "API identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "operationId": {
-      "type": "string",
-      "description": "Operation identifier within an API. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "ETag of the API Operation Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "apiId",
-    "operationId",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.ApiOperations_Delete({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "apiId": "",
+  "operationId": "",
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ApiOperations_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* apiId (string) **required** - API identifier. Must be unique in the current API Management service instance.
+* operationId (string) **required** - Operation identifier within an API. Must be unique in the current API Management service instance.
+* If-Match (string) **required** - ETag of the API Operation Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### ApiOperations_Get
 Gets the details of the API Operation specified by its identifier.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "apiId": {
-      "type": "string",
-      "description": "API identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "operationId": {
-      "type": "string",
-      "description": "Operation identifier within an API. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "apiId",
-    "operationId",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.ApiOperations_Get({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "apiId": "",
+  "operationId": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OperationContract"
-}
-```
-## Operation: ApiOperations_Update
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* apiId (string) **required** - API identifier. Must be unique in the current API Management service instance.
+* operationId (string) **required** - Operation identifier within an API. Must be unique in the current API Management service instance.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### ApiOperations_Update
 Updates the details of the operation specified by its identifier.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "apiId": {
-      "type": "string",
-      "description": "API identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "operationId": {
-      "type": "string",
-      "description": "Operation identifier within an API. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/PatchParameters"
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "ETag of the API Operation Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "apiId",
-    "operationId",
-    "parameters",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.ApiOperations_Update({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "apiId": "",
+  "operationId": "",
+  "parameters": null,
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ApiOperations_CreateOrUpdate
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* apiId (string) **required** - API identifier. Must be unique in the current API Management service instance.
+* operationId (string) **required** - Operation identifier within an API. Must be unique in the current API Management service instance.
+* parameters (undefined) **required** - Parameters supplied to the Patch operations.
+* If-Match (string) **required** - ETag of the API Operation Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### ApiOperations_CreateOrUpdate
 Creates a new API operation or updates an existing one.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "apiId": {
-      "type": "string",
-      "description": "API identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "operationId": {
-      "type": "string",
-      "description": "Operation identifier within an API. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/OperationContract"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "apiId",
-    "operationId",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.ApiOperations_CreateOrUpdate({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "apiId": "",
+  "operationId": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ApiProducts_ListByApi
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* apiId (string) **required** - API identifier. Must be unique in the current API Management service instance.
+* operationId (string) **required** - Operation identifier within an API. Must be unique in the current API Management service instance.
+* parameters (undefined) **required** - Api Operation details.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### ApiProducts_ListByApi
 Lists all API associated products.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "apiId": {
-      "type": "string",
-      "description": "API identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "$filter": {
-      "type": "string",
-      "description": "| Field | Supported operators    | Supported functions                         |\n|-------|------------------------|---------------------------------------------|\n| name  | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |"
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to return.",
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to skip.",
-      "minimum": 0
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "apiId",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.ApiProducts_ListByApi({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "apiId": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProductCollection"
-}
-```
-## Operation: AuthorizationServers_ListByService
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* apiId (string) **required** - API identifier. Must be unique in the current API Management service instance.
+* $filter (string) - | Field | Supported operators    | Supported functions                         |
+* $top (integer) - Number of records to return.
+* $skip (integer) - Number of records to skip.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### AuthorizationServers_ListByService
 Lists a collection of authorization servers defined within a service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "$filter": {
-      "type": "string",
-      "description": "| Field | Supported operators    | Supported functions                         |\n|-------|------------------------|---------------------------------------------|\n| id    | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| name  | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |"
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to return.",
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to skip.",
-      "minimum": 0
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.AuthorizationServers_ListByService({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthorizationServerCollection"
-}
-```
-## Operation: AuthorizationServers_Delete
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* $filter (string) - | Field | Supported operators    | Supported functions                         |
+* $top (integer) - Number of records to return.
+* $skip (integer) - Number of records to skip.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### AuthorizationServers_Delete
 Deletes specific authorization server instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "authsid": {
-      "type": "string",
-      "description": "Identifier of the authorization server."
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "The entity state (Etag) version of the authentication server to delete. A value of \"*\" can be used for If-Match to unconditionally apply the operation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "authsid",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.AuthorizationServers_Delete({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "authsid": "",
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: AuthorizationServers_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* authsid (string) **required** - Identifier of the authorization server.
+* If-Match (string) **required** - The entity state (Etag) version of the authentication server to delete. A value of "*" can be used for If-Match to unconditionally apply the operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### AuthorizationServers_Get
 Gets the details of the authorization server specified by its identifier.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "authsid": {
-      "type": "string",
-      "description": "Identifier of the authorization server.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "authsid",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.AuthorizationServers_Get({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "authsid": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OAuth2AuthorizationServerContract"
-}
-```
-## Operation: AuthorizationServers_Update
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* authsid (string) **required** - Identifier of the authorization server.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### AuthorizationServers_Update
 Updates the details of the authorization server specified by its identifier.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "authsid": {
-      "type": "string",
-      "description": "Identifier of the authorization server."
-    },
-    "parameters": {
-      "$ref": "#/definitions/OAuth2AuthorizationServerUpdateContract"
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "The entity state (Etag) version of the authorization server to update. A value of \"*\" can be used for If-Match to unconditionally apply the operation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "authsid",
-    "parameters",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.AuthorizationServers_Update({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "authsid": "",
+  "parameters": null,
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: AuthorizationServers_CreateOrUpdate
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* authsid (string) **required** - Identifier of the authorization server.
+* parameters (undefined) **required** - External OAuth authorization server Update settings contract.
+* If-Match (string) **required** - The entity state (Etag) version of the authorization server to update. A value of "*" can be used for If-Match to unconditionally apply the operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### AuthorizationServers_CreateOrUpdate
 Creates new authorization server or updates an existing authorization server.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "authsid": {
-      "type": "string",
-      "description": "Identifier of the authorization server.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256
-    },
-    "parameters": {
-      "$ref": "#/definitions/OAuth2AuthorizationServerContract"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "authsid",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.AuthorizationServers_CreateOrUpdate({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "authsid": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Backends_ListByService
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* authsid (string) **required** - Identifier of the authorization server.
+* parameters (undefined) **required** - External OAuth authorization server settings.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Backends_ListByService
 Lists a collection of backends in the specified service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "$filter": {
-      "type": "string",
-      "description": "| Field | Supported operators    | Supported functions                         |\n|-------|------------------------|---------------------------------------------|\n| id    | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| host  | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |"
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to return.",
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to skip.",
-      "minimum": 0
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Backends_ListByService({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BackendCollection"
-}
-```
-## Operation: Backends_Delete
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* $filter (string) - | Field | Supported operators    | Supported functions                         |
+* $top (integer) - Number of records to return.
+* $skip (integer) - Number of records to skip.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Backends_Delete
 Deletes the specified backend.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "backendid": {
-      "type": "string",
-      "description": "User identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 255,
-      "minLength": 1
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "The entity state (Etag) version of the backend to delete. A value of \"*\" can be used for If-Match to unconditionally apply the operation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "backendid",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Backends_Delete({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "backendid": "",
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Backends_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* backendid (string) **required** - User identifier. Must be unique in the current API Management service instance.
+* If-Match (string) **required** - The entity state (Etag) version of the backend to delete. A value of "*" can be used for If-Match to unconditionally apply the operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Backends_Get
 Gets the details of the backend specified by its identifier.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "backendid": {
-      "type": "string",
-      "description": "User identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 255,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "backendid",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Backends_Get({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "backendid": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BackendResponse"
-}
-```
-## Operation: Backends_Update
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* backendid (string) **required** - User identifier. Must be unique in the current API Management service instance.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Backends_Update
 Updates an existing backend.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "backendid": {
-      "type": "string",
-      "description": "User identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 255,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/BackendUpdateParameters"
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "The entity state (Etag) version of the backend to update. A value of \"*\" can be used for If-Match to unconditionally apply the operation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "backendid",
-    "parameters",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Backends_Update({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "backendid": "",
+  "parameters": null,
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Backends_CreateOrUpdate
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* backendid (string) **required** - User identifier. Must be unique in the current API Management service instance.
+* parameters (undefined) **required** - Parameters supplied to the Update Backend operation.
+* If-Match (string) **required** - The entity state (Etag) version of the backend to update. A value of "*" can be used for If-Match to unconditionally apply the operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Backends_CreateOrUpdate
 Creates or Updates a backend.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "backendid": {
-      "type": "string",
-      "description": "User identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 255,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/BackendContract"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "backendid",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Backends_CreateOrUpdate({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "backendid": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Certificates_ListByService
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* backendid (string) **required** - User identifier. Must be unique in the current API Management service instance.
+* parameters (undefined) **required** - Parameters supplied to the Create Backend operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Certificates_ListByService
 Lists a collection of all certificates in the specified service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "$filter": {
-      "type": "string",
-      "description": "| Field          | Supported operators    | Supported functions                         |\n|----------------|------------------------|---------------------------------------------|\n| id             | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| subject        | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| thumbprint     | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| expirationDate | ge, le, eq, ne, gt, lt | N/A                                         |"
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to return.",
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to skip.",
-      "minimum": 0
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Certificates_ListByService({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CertificateCollection"
-}
-```
-## Operation: Certificates_Delete
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* $filter (string) - | Field          | Supported operators    | Supported functions                         |
+* $top (integer) - Number of records to return.
+* $skip (integer) - Number of records to skip.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Certificates_Delete
 Deletes specific certificate.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "certificateId": {
-      "type": "string",
-      "description": "Identifier of the certificate."
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "The entity state (Etag) version of the certificate to delete. A value of \"*\" can be used for If-Match to unconditionally apply the operation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "certificateId",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Certificates_Delete({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "certificateId": "",
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Certificates_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* certificateId (string) **required** - Identifier of the certificate.
+* If-Match (string) **required** - The entity state (Etag) version of the certificate to delete. A value of "*" can be used for If-Match to unconditionally apply the operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Certificates_Get
 Gets the details of the certificate specified by its identifier.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "certificateId": {
-      "type": "string",
-      "description": "Identifier of the certificate."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "certificateId",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Certificates_Get({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "certificateId": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CertificateContract"
-}
-```
-## Operation: Certificates_CreateOrUpdate
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* certificateId (string) **required** - Identifier of the certificate.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Certificates_CreateOrUpdate
 Creates or updates the certificate being used for authentication with the backend.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "certificateId": {
-      "type": "string",
-      "description": "Identifier of the certificate entity. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/CertificateCreateOrUpdateParameters"
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "The entity state (Etag) version of the certificate to update. A value of \"*\" can be used for If-Match to unconditionally apply the operation.."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "certificateId",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Certificates_CreateOrUpdate({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "certificateId": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Groups_ListByService
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* certificateId (string) **required** - Identifier of the certificate entity. Must be unique in the current API Management service instance.
+* parameters (undefined) **required** - Parameters supplied to the CreateOrUpdate certificate operation.
+* If-Match (string) - The entity state (Etag) version of the certificate to update. A value of "*" can be used for If-Match to unconditionally apply the operation..
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Groups_ListByService
 Lists a collection of groups defined within a service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "$filter": {
-      "type": "string",
-      "description": "| Field       | Supported operators    | Supported functions                         |\n|-------------|------------------------|---------------------------------------------|\n| id          | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| name        | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| description | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| type        | eq, ne                 | N/A                                         |"
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to return.",
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to skip.",
-      "minimum": 0
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Groups_ListByService({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GroupCollection"
-}
-```
-## Operation: Groups_Delete
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* $filter (string) - | Field       | Supported operators    | Supported functions                         |
+* $top (integer) - Number of records to return.
+* $skip (integer) - Number of records to skip.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Groups_Delete
 Deletes specific group of the API Management service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "groupId": {
-      "type": "string",
-      "description": "Group identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "ETag of the Group Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "groupId",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Groups_Delete({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "groupId": "",
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Groups_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* groupId (string) **required** - Group identifier. Must be unique in the current API Management service instance.
+* If-Match (string) **required** - ETag of the Group Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Groups_Get
 Gets the details of the group specified by its identifier.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "groupId": {
-      "type": "string",
-      "description": "Group identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "groupId",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Groups_Get({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "groupId": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GroupContract"
-}
-```
-## Operation: Groups_Update
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* groupId (string) **required** - Group identifier. Must be unique in the current API Management service instance.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Groups_Update
 Updates the details of the group specified by its identifier.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "groupId": {
-      "type": "string",
-      "description": "Group identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/GroupUpdateParameters"
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "ETag of the Group Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "groupId",
-    "parameters",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Groups_Update({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "groupId": "",
+  "parameters": null,
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Groups_CreateOrUpdate
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* groupId (string) **required** - Group identifier. Must be unique in the current API Management service instance.
+* parameters (undefined) **required** - Parameters supplied to the Update Group operation.
+* If-Match (string) **required** - ETag of the Group Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Groups_CreateOrUpdate
 Creates or Updates a group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "groupId": {
-      "type": "string",
-      "description": "Group identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/GroupCreateParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "groupId",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Groups_CreateOrUpdate({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "groupId": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: GroupUsers_ListByGroup
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* groupId (string) **required** - Group identifier. Must be unique in the current API Management service instance.
+* parameters (undefined) **required** - Parameters supplied to the Create Group operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### GroupUsers_ListByGroup
 Lists a collection of the members of the group, specified by its identifier.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "groupId": {
-      "type": "string",
-      "description": "Group identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "$filter": {
-      "type": "string",
-      "description": "| Field            | Supported operators    | Supported functions               |\n|------------------|------------------------|-----------------------------------|\n| id               | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| firstName        | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| lastName         | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| email            | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| state            | eq                     | N/A                               |\n| registrationDate | ge, le, eq, ne, gt, lt | N/A                               |\n| note             | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |"
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to return.",
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to skip.",
-      "minimum": 0
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "groupId",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.GroupUsers_ListByGroup({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "groupId": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserCollection"
-}
-```
-## Operation: GroupUsers_Remove
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* groupId (string) **required** - Group identifier. Must be unique in the current API Management service instance.
+* $filter (string) - | Field            | Supported operators    | Supported functions               |
+* $top (integer) - Number of records to return.
+* $skip (integer) - Number of records to skip.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### GroupUsers_Remove
 Remove existing user from existing group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "groupId": {
-      "type": "string",
-      "description": "Group identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "uid": {
-      "type": "string",
-      "description": "User identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "groupId",
-    "uid",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.GroupUsers_Remove({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "groupId": "",
+  "uid": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: GroupUsers_Add
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* groupId (string) **required** - Group identifier. Must be unique in the current API Management service instance.
+* uid (string) **required** - User identifier. Must be unique in the current API Management service instance.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### GroupUsers_Add
 Adds a user to the specified group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "groupId": {
-      "type": "string",
-      "description": "Group identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "uid": {
-      "type": "string",
-      "description": "User identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "groupId",
-    "uid",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.GroupUsers_Add({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "groupId": "",
+  "uid": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: IdentityProviders_ListByService
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* groupId (string) **required** - Group identifier. Must be unique in the current API Management service instance.
+* uid (string) **required** - User identifier. Must be unique in the current API Management service instance.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### IdentityProviders_ListByService
 Lists a collection of Identity Provider configured in the specified service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "serviceName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_apimanagement.IdentityProviders_ListByService({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/IdentityProviderList"
-}
-```
-## Operation: IdentityProviders_Delete
+
+#### Parameters
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* api-version (string) **required** - Version of the API to be used with the client request.
+
+### IdentityProviders_Delete
 Deletes the specified identity provider configuration.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "identityProviderName": {
-      "type": "string",
-      "description": "Identity Provider Type identifier.",
-      "enum": [
-        "facebook",
-        "google",
-        "microsoft",
-        "twitter",
-        "aad"
-      ]
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "The entity state (Etag) version of the backend to delete. A value of \"*\" can be used for If-Match to unconditionally apply the operation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "identityProviderName",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.IdentityProviders_Delete({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "identityProviderName": "",
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: IdentityProviders_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* identityProviderName (string) **required** - Identity Provider Type identifier.
+* If-Match (string) **required** - The entity state (Etag) version of the backend to delete. A value of "*" can be used for If-Match to unconditionally apply the operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### IdentityProviders_Get
 Gets the configuration details of the identity Provider configured in specified service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "identityProviderName": {
-      "type": "string",
-      "description": "Identity Provider Type identifier.",
-      "enum": [
-        "facebook",
-        "google",
-        "microsoft",
-        "twitter",
-        "aad"
-      ]
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "serviceName",
-    "identityProviderName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_apimanagement.IdentityProviders_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "serviceName": "",
+  "identityProviderName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/IdentityProviderContract"
-}
-```
-## Operation: IdentityProviders_Update
+
+#### Parameters
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* identityProviderName (string) **required** - Identity Provider Type identifier.
+* api-version (string) **required** - Version of the API to be used with the client request.
+
+### IdentityProviders_Update
 Updates an existing IdentityProvider configuration.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "identityProviderName": {
-      "type": "string",
-      "description": "Identity Provider Type identifier.",
-      "enum": [
-        "facebook",
-        "google",
-        "microsoft",
-        "twitter",
-        "aad"
-      ]
-    },
-    "parameters": {
-      "$ref": "#/definitions/IdentityProviderUpdateParameters"
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "The entity state (Etag) version of the identity provider configuration to update. A value of \"*\" can be used for If-Match to unconditionally apply the operation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "identityProviderName",
-    "parameters",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.IdentityProviders_Update({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "identityProviderName": "",
+  "parameters": null,
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: IdentityProviders_CreateOrUpdate
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* identityProviderName (string) **required** - Identity Provider Type identifier.
+* parameters (undefined) **required** - Parameters supplied to the Update Identity Provider operation.
+* If-Match (string) **required** - The entity state (Etag) version of the identity provider configuration to update. A value of "*" can be used for If-Match to unconditionally apply the operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### IdentityProviders_CreateOrUpdate
 Creates or Updates the IdentityProvider configuration.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "identityProviderName": {
-      "type": "string",
-      "description": "Identity Provider Type identifier.",
-      "enum": [
-        "facebook",
-        "google",
-        "microsoft",
-        "twitter",
-        "aad"
-      ]
-    },
-    "parameters": {
-      "$ref": "#/definitions/IdentityProviderContract"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "identityProviderName",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.IdentityProviders_CreateOrUpdate({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "identityProviderName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Loggers_ListByService
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* identityProviderName (string) **required** - Identity Provider Type identifier.
+* parameters (undefined) **required** - The external Identity Providers like Facebook, Google, Microsoft, Twitter or Azure Active Directory which can be used to enable access to the API Management service developer portal for all users.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Loggers_ListByService
 Lists a collection of loggers in the specified service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "$filter": {
-      "type": "string",
-      "description": "| Field | Supported operators    | Supported functions                         |\n|-------|------------------------|---------------------------------------------|\n| id    | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| type  | eq                     |                                             |"
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to return.",
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to skip.",
-      "minimum": 0
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Loggers_ListByService({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LoggerCollection"
-}
-```
-## Operation: Loggers_Delete
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* $filter (string) - | Field | Supported operators    | Supported functions                         |
+* $top (integer) - Number of records to return.
+* $skip (integer) - Number of records to skip.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Loggers_Delete
 Deletes the specified logger.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "loggerid": {
-      "type": "string",
-      "description": "Identifier of the logger."
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "The entity state (Etag) version of the logger to delete. A value of \"*\" can be used for If-Match to unconditionally apply the operation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "loggerid",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Loggers_Delete({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "loggerid": "",
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Loggers_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* loggerid (string) **required** - Identifier of the logger.
+* If-Match (string) **required** - The entity state (Etag) version of the logger to delete. A value of "*" can be used for If-Match to unconditionally apply the operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Loggers_Get
 Gets the details of the logger specified by its identifier.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "loggerid": {
-      "type": "string",
-      "description": "Identifier of the logger."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "loggerid",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Loggers_Get({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "loggerid": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LoggerResponse"
-}
-```
-## Operation: Loggers_Update
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* loggerid (string) **required** - Identifier of the logger.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Loggers_Update
 Updates an existing logger.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "loggerid": {
-      "type": "string",
-      "description": "Identifier of the logger."
-    },
-    "parameters": {
-      "$ref": "#/definitions/LoggerUpdateParameters"
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "The entity state (Etag) version of the logger to update. A value of \"*\" can be used for If-Match to unconditionally apply the operation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "loggerid",
-    "parameters",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Loggers_Update({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "loggerid": "",
+  "parameters": null,
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Loggers_CreateOrUpdate
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* loggerid (string) **required** - Identifier of the logger.
+* parameters (undefined) **required** - Parameters supplied to the Update Logger operation.
+* If-Match (string) **required** - The entity state (Etag) version of the logger to update. A value of "*" can be used for If-Match to unconditionally apply the operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Loggers_CreateOrUpdate
 Creates or Updates a logger.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "loggerid": {
-      "type": "string",
-      "description": "Identifier of the logger.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256
-    },
-    "parameters": {
-      "$ref": "#/definitions/LoggerCreateParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "loggerid",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Loggers_CreateOrUpdate({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "loggerid": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: OpenIdConnectProviders_ListByService
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* loggerid (string) **required** - Identifier of the logger.
+* parameters (undefined) **required** - Parameters supplied to the Create Logger operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### OpenIdConnectProviders_ListByService
 Lists all OpenID Connect Providers.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "$filter": {
-      "type": "string",
-      "description": "| Field | Supported operators    | Supported functions                         |\n|-------|------------------------|---------------------------------------------|\n| id    | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| name  | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |"
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to return.",
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to skip.",
-      "minimum": 0
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.OpenIdConnectProviders_ListByService({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OpenIdConnectProviderCollection"
-}
-```
-## Operation: OpenIdConnectProviders_Delete
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* $filter (string) - | Field | Supported operators    | Supported functions                         |
+* $top (integer) - Number of records to return.
+* $skip (integer) - Number of records to skip.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### OpenIdConnectProviders_Delete
 Deletes specific OpenID Connect Provider of the API Management service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "opid": {
-      "type": "string",
-      "description": "Identifier of the OpenID Connect Provider."
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "The entity state (Etag) version of the OpenID Connect Provider to delete. A value of \"*\" can be used for If-Match to unconditionally apply the operation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "opid",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.OpenIdConnectProviders_Delete({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "opid": "",
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: OpenIdConnectProviders_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* opid (string) **required** - Identifier of the OpenID Connect Provider.
+* If-Match (string) **required** - The entity state (Etag) version of the OpenID Connect Provider to delete. A value of "*" can be used for If-Match to unconditionally apply the operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### OpenIdConnectProviders_Get
 Gets specific OpenID Connect Provider.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "opid": {
-      "type": "string",
-      "description": "Identifier of the OpenID Connect Provider."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "opid",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.OpenIdConnectProviders_Get({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "opid": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OpenidConnectProviderContract"
-}
-```
-## Operation: OpenIdConnectProviders_Update
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* opid (string) **required** - Identifier of the OpenID Connect Provider.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### OpenIdConnectProviders_Update
 Updates the specific OpenID Connect Provider.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "opid": {
-      "type": "string",
-      "description": "Identifier of the OpenID Connect Provider."
-    },
-    "parameters": {
-      "$ref": "#/definitions/OpenidConnectProviderUpdateContract"
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "The entity state (Etag) version of the OpenID Connect Provider to update. A value of \"*\" can be used for If-Match to unconditionally apply the operation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "opid",
-    "parameters",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.OpenIdConnectProviders_Update({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "opid": "",
+  "parameters": null,
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: OpenIdConnectProviders_CreateOrUpdate
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* opid (string) **required** - Identifier of the OpenID Connect Provider.
+* parameters (undefined) **required** - Parameters supplied to the Update OpenID Connect Provider operation.
+* If-Match (string) **required** - The entity state (Etag) version of the OpenID Connect Provider to update. A value of "*" can be used for If-Match to unconditionally apply the operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### OpenIdConnectProviders_CreateOrUpdate
 Creates or updates the OpenID Connect Provider.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "opid": {
-      "type": "string",
-      "description": "Identifier of the OpenID Connect Provider.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256
-    },
-    "parameters": {
-      "$ref": "#/definitions/OpenidConnectProviderCreateContract"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "opid",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.OpenIdConnectProviders_CreateOrUpdate({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "opid": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: PolicySnippets_ListByService
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* opid (string) **required** - Identifier of the OpenID Connect Provider.
+* parameters (undefined) **required** - Parameters supplied to the Create OpenID Connect Provider operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### PolicySnippets_ListByService
 Lists all policy snippets.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "scope": {
-      "type": "string",
-      "description": "Policy scope.",
-      "enum": [
-        "Tenant",
-        "Product",
-        "Api",
-        "Operation",
-        "All"
-      ]
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.PolicySnippets_ListByService({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/PolicySnippetContract"
-  },
-  "type": "array"
-}
-```
-## Operation: Products_ListByService
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* scope (string) - Policy scope.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Products_ListByService
 Lists a collection of products in the specified service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "$filter": {
-      "type": "string",
-      "description": "| Field       | Supported operators    | Supported functions                         |\n|-------------|------------------------|---------------------------------------------|\n| id          | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| name        | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| description | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| terms       | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| state       | eq                     |                                             |"
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to return.",
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to skip.",
-      "minimum": 0
-    },
-    "expandGroups": {
-      "type": "boolean",
-      "description": "When set to true, the response contains an array of groups that have visibility to the product. The default is false."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Products_ListByService({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProductCollection"
-}
-```
-## Operation: Products_Delete
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* $filter (string) - | Field       | Supported operators    | Supported functions                         |
+* $top (integer) - Number of records to return.
+* $skip (integer) - Number of records to skip.
+* expandGroups (boolean) - When set to true, the response contains an array of groups that have visibility to the product. The default is false.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Products_Delete
 Delete product.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "productId": {
-      "type": "string",
-      "description": "Product identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "deleteSubscriptions": {
-      "type": "boolean",
-      "description": "Delete existing subscriptions to the product or not."
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "ETag of the Product Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "productId",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Products_Delete({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "productId": "",
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Products_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* productId (string) **required** - Product identifier. Must be unique in the current API Management service instance.
+* deleteSubscriptions (boolean) - Delete existing subscriptions to the product or not.
+* If-Match (string) **required** - ETag of the Product Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Products_Get
 Gets the details of the product specified by its identifier.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "productId": {
-      "type": "string",
-      "description": "Product identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "productId",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Products_Get({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "productId": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProductContract"
-}
-```
-## Operation: Products_Update
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* productId (string) **required** - Product identifier. Must be unique in the current API Management service instance.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Products_Update
 Update product.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "productId": {
-      "type": "string",
-      "description": "Product identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/ProductUpdateParameters"
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "ETag of the Product Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "productId",
-    "parameters",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Products_Update({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "productId": "",
+  "parameters": null,
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Products_CreateOrUpdate
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* productId (string) **required** - Product identifier. Must be unique in the current API Management service instance.
+* parameters (undefined) **required** - Parameters supplied to the CreateOrUpdate Product operation.
+* If-Match (string) **required** - ETag of the Product Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Products_CreateOrUpdate
 Creates or Updates a product.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "productId": {
-      "type": "string",
-      "description": "Product identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/ProductContract"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "productId",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Products_CreateOrUpdate({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "productId": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ProductApis_ListByProduct
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* productId (string) **required** - Product identifier. Must be unique in the current API Management service instance.
+* parameters (undefined) **required** - Product profile.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### ProductApis_ListByProduct
 Lists a collection of the APIs associated with a product.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "productId": {
-      "type": "string",
-      "description": "Product identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "$filter": {
-      "type": "string",
-      "description": "| Field       | Supported operators    | Supported functions                         |\n|-------------|------------------------|---------------------------------------------|\n| id          | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| name        | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| description | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| serviceUrl  | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| path        | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n"
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to return.",
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to skip.",
-      "minimum": 0
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "productId",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.ProductApis_ListByProduct({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "productId": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApiCollection"
-}
-```
-## Operation: ProductApis_Remove
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* productId (string) **required** - Product identifier. Must be unique in the current API Management service instance.
+* $filter (string) - | Field       | Supported operators    | Supported functions                         |
+* $top (integer) - Number of records to return.
+* $skip (integer) - Number of records to skip.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### ProductApis_Remove
 Deletes the specified API from the specified product.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "productId": {
-      "type": "string",
-      "description": "Product identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "apiId": {
-      "type": "string",
-      "description": "API identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "productId",
-    "apiId",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.ProductApis_Remove({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "productId": "",
+  "apiId": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ProductApis_Add
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* productId (string) **required** - Product identifier. Must be unique in the current API Management service instance.
+* apiId (string) **required** - API identifier. Must be unique in the current API Management service instance.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### ProductApis_Add
 Adds an API to the specified product.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "productId": {
-      "type": "string",
-      "description": "Product identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "apiId": {
-      "type": "string",
-      "description": "API identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "productId",
-    "apiId",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.ProductApis_Add({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "productId": "",
+  "apiId": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ProductGroups_ListByProduct
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* productId (string) **required** - Product identifier. Must be unique in the current API Management service instance.
+* apiId (string) **required** - API identifier. Must be unique in the current API Management service instance.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### ProductGroups_ListByProduct
 Lists the collection of developer groups associated with the specified product.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "productId": {
-      "type": "string",
-      "description": "Product identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "$filter": {
-      "type": "string",
-      "description": "| Field       | Supported operators    | Supported functions                         |\n|-------------|------------------------|---------------------------------------------|\n| id          | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| name        | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| description | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| type        | eq, ne                 | N/A                                         |"
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to return.",
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to skip.",
-      "minimum": 0
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "productId",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.ProductGroups_ListByProduct({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "productId": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GroupCollection"
-}
-```
-## Operation: ProductGroups_Remove
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* productId (string) **required** - Product identifier. Must be unique in the current API Management service instance.
+* $filter (string) - | Field       | Supported operators    | Supported functions                         |
+* $top (integer) - Number of records to return.
+* $skip (integer) - Number of records to skip.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### ProductGroups_Remove
 Deletes the association between the specified group and product.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "productId": {
-      "type": "string",
-      "description": "Product identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "groupId": {
-      "type": "string",
-      "description": "Group identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "productId",
-    "groupId",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.ProductGroups_Remove({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "productId": "",
+  "groupId": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ProductGroups_Add
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* productId (string) **required** - Product identifier. Must be unique in the current API Management service instance.
+* groupId (string) **required** - Group identifier. Must be unique in the current API Management service instance.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### ProductGroups_Add
 Adds the association between the specified developer group with the specified product.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "productId": {
-      "type": "string",
-      "description": "Product identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "groupId": {
-      "type": "string",
-      "description": "Group identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "productId",
-    "groupId",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.ProductGroups_Add({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "productId": "",
+  "groupId": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ProductSubscriptions_ListByProduct
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* productId (string) **required** - Product identifier. Must be unique in the current API Management service instance.
+* groupId (string) **required** - Group identifier. Must be unique in the current API Management service instance.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### ProductSubscriptions_ListByProduct
 Lists the collection of subscriptions to the specified product.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "productId": {
-      "type": "string",
-      "description": "Product identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "$filter": {
-      "type": "string",
-      "description": "| Field        | Supported operators    | Supported functions                         |\n|--------------|------------------------|---------------------------------------------|\n| id           | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| name         | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| stateComment | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| userId       | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| productId    | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| state        | eq                     |                                             |"
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to return.",
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to skip.",
-      "minimum": 0
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "productId",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.ProductSubscriptions_ListByProduct({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "productId": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SubscriptionCollection"
-}
-```
-## Operation: Property_ListByService
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* productId (string) **required** - Product identifier. Must be unique in the current API Management service instance.
+* $filter (string) - | Field        | Supported operators    | Supported functions                         |
+* $top (integer) - Number of records to return.
+* $skip (integer) - Number of records to skip.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Property_ListByService
 Lists a collection of properties defined within a service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "$filter": {
-      "type": "string",
-      "description": "| Field | Supported operators    | Supported functions                                   |\n|-------|------------------------|-------------------------------------------------------|\n| tags  | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith, any, all |\n| name  | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith           |"
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to return.",
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to skip.",
-      "minimum": 0
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Property_ListByService({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PropertyCollection"
-}
-```
-## Operation: Property_Delete
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* $filter (string) - | Field | Supported operators    | Supported functions                                   |
+* $top (integer) - Number of records to return.
+* $skip (integer) - Number of records to skip.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Property_Delete
 Deletes specific property from the the API Management service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "propId": {
-      "type": "string",
-      "description": "Identifier of the property."
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "The entity state (Etag) version of the property to delete. A value of \"*\" can be used for If-Match to unconditionally apply the operation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "propId",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Property_Delete({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "propId": "",
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Property_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* propId (string) **required** - Identifier of the property.
+* If-Match (string) **required** - The entity state (Etag) version of the property to delete. A value of "*" can be used for If-Match to unconditionally apply the operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Property_Get
 Gets the details of the property specified by its identifier.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "propId": {
-      "type": "string",
-      "description": "Identifier of the property."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "propId",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Property_Get({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "propId": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PropertyContract"
-}
-```
-## Operation: Property_Update
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* propId (string) **required** - Identifier of the property.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Property_Update
 Updates the specific property.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "propId": {
-      "type": "string",
-      "description": "Identifier of the property."
-    },
-    "parameters": {
-      "$ref": "#/definitions/PropertyUpdateParameters"
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "The entity state (Etag) version of the property to update. A value of \"*\" can be used for If-Match to unconditionally apply the operation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "propId",
-    "parameters",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Property_Update({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "propId": "",
+  "parameters": null,
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Property_CreateOrUpdate
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* propId (string) **required** - Identifier of the property.
+* parameters (undefined) **required** - Parameters supplied to the Update Property operation.
+* If-Match (string) **required** - The entity state (Etag) version of the property to update. A value of "*" can be used for If-Match to unconditionally apply the operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Property_CreateOrUpdate
 Creates or updates a property.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "propId": {
-      "type": "string",
-      "description": "Identifier of the property.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256
-    },
-    "parameters": {
-      "$ref": "#/definitions/PropertyCreateParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "propId",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Property_CreateOrUpdate({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "propId": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: QuotaByCounterKeys_ListByService
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* propId (string) **required** - Identifier of the property.
+* parameters (undefined) **required** - Parameters supplied to the Create Property operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### QuotaByCounterKeys_ListByService
 Lists a collection of current quota counter periods associated with the counter-key configured in the policy on the specified service instance. The api does not support paging yet.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "quotaCounterKey": {
-      "type": "string",
-      "description": "Quota counter key identifier."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "serviceName",
-    "quotaCounterKey",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_apimanagement.QuotaByCounterKeys_ListByService({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "serviceName": "",
+  "quotaCounterKey": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/QuotaCounterCollection"
-}
-```
-## Operation: QuotaByCounterKeys_Update
+
+#### Parameters
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* quotaCounterKey (string) **required** - Quota counter key identifier.
+* api-version (string) **required** - Version of the API to be used with the client request.
+
+### QuotaByCounterKeys_Update
 Updates all the quota counter values specified with the existing quota counter key to a value in the specified service instance. This should be used for reset of the quota counter values.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "quotaCounterKey": {
-      "type": "string",
-      "description": "Quota counter key identifier."
-    },
-    "parameters": {
-      "$ref": "#/definitions/QuotaCounterValueContract"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "quotaCounterKey",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.QuotaByCounterKeys_Update({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "quotaCounterKey": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: QuotaByPeriodKeys_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* quotaCounterKey (string) **required** - Quota counter key identifier.
+* parameters (undefined) **required** - Quota counter value details.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### QuotaByPeriodKeys_Get
 Gets the value of the quota counter associated with the counter-key in the policy for the specific period in service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "quotaCounterKey": {
-      "type": "string",
-      "description": "Quota counter key identifier."
-    },
-    "quotaPeriodKey": {
-      "type": "string",
-      "description": "Quota period key identifier."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "serviceName",
-    "quotaCounterKey",
-    "quotaPeriodKey",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_apimanagement.QuotaByPeriodKeys_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "serviceName": "",
+  "quotaCounterKey": "",
+  "quotaPeriodKey": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/QuotaCounterContract"
-}
-```
-## Operation: QuotaByPeriodKeys_Update
+
+#### Parameters
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* quotaCounterKey (string) **required** - Quota counter key identifier.
+* quotaPeriodKey (string) **required** - Quota period key identifier.
+* api-version (string) **required** - Version of the API to be used with the client request.
+
+### QuotaByPeriodKeys_Update
 Updates an existing quota counter value in the specified service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "quotaCounterKey": {
-      "type": "string",
-      "description": "Quota counter key identifier."
-    },
-    "quotaPeriodKey": {
-      "type": "string",
-      "description": "Quota period key identifier."
-    },
-    "parameters": {
-      "$ref": "#/definitions/QuotaCounterValueContract"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "quotaCounterKey",
-    "quotaPeriodKey",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.QuotaByPeriodKeys_Update({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "quotaCounterKey": "",
+  "quotaPeriodKey": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Regions_ListByService
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* quotaCounterKey (string) **required** - Quota counter key identifier.
+* quotaPeriodKey (string) **required** - Quota period key identifier.
+* parameters (undefined) **required** - Quota counter value details.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Regions_ListByService
 Lists all azure regions in which the service exists.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Regions_ListByService({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RegionListResult"
-}
-```
-## Operation: Reports_ListByService
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Reports_ListByService
 Lists report records.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "aggregation": {
-      "type": "string",
-      "description": "Report aggregation.",
-      "enum": [
-        "byApi",
-        "byGeo",
-        "byOperation",
-        "byProduct",
-        "bySubscription",
-        "byTime",
-        "byUser"
-      ]
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to return.",
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to skip.",
-      "minimum": 0
-    },
-    "interval": {
-      "type": "string",
-      "description": "By time interval. This value is only applicable to ByTime aggregation. Interval must be multiple of 15 minutes and may not be zero. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, secconds))"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "aggregation",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Reports_ListByService({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "aggregation": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ReportCollection"
-}
-```
-## Operation: Subscriptions_ListByService
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* aggregation (string) **required** - Report aggregation.
+* $filter (string) - The filter to apply on the operation.
+* $top (integer) - Number of records to return.
+* $skip (integer) - Number of records to skip.
+* interval (string) - By time interval. This value is only applicable to ByTime aggregation. Interval must be multiple of 15 minutes and may not be zero. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, secconds))
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Subscriptions_ListByService
 Lists all subscriptions of the API Management service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "$filter": {
-      "type": "string",
-      "description": "| Field        | Supported operators    | Supported functions                         |\n|--------------|------------------------|---------------------------------------------|\n| id           | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| name         | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| stateComment | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| userId       | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| productId    | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| state        | eq                     |                                             |"
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to return.",
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to skip.",
-      "minimum": 0
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Subscriptions_ListByService({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SubscriptionCollection"
-}
-```
-## Operation: Subscriptions_Delete
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* $filter (string) - | Field        | Supported operators    | Supported functions                         |
+* $top (integer) - Number of records to return.
+* $skip (integer) - Number of records to skip.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Subscriptions_Delete
 Deletes the specified subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "sid": {
-      "type": "string",
-      "description": "Identifier of the subscription."
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "ETag of the Subscription Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "sid",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Subscriptions_Delete({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "sid": "",
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Subscriptions_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* sid (string) **required** - Identifier of the subscription.
+* If-Match (string) **required** - ETag of the Subscription Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Subscriptions_Get
 Gets the specified Subscription entity.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "sid": {
-      "type": "string",
-      "description": "Identifier of the subscription."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "sid",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Subscriptions_Get({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "sid": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SubscriptionContract"
-}
-```
-## Operation: Subscriptions_Update
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* sid (string) **required** - Identifier of the subscription.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Subscriptions_Update
 Updates the details of a subscription specificied by its identifier.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "sid": {
-      "type": "string",
-      "description": "Identifier of the subscription."
-    },
-    "parameters": {
-      "$ref": "#/definitions/SubscriptionUpdateParameters"
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "ETag of the Subscription Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "sid",
-    "parameters",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Subscriptions_Update({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "sid": "",
+  "parameters": null,
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Subscriptions_CreateOrUpdate
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* sid (string) **required** - Identifier of the subscription.
+* parameters (undefined) **required** - Parameters supplied to the Update subscription operation.
+* If-Match (string) **required** - ETag of the Subscription Entity. ETag should match the current entity state from the header response of the GET request or it should be * for unconditional update.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Subscriptions_CreateOrUpdate
 Creates or updates the subscription of specified user to the specified product.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "sid": {
-      "type": "string",
-      "description": "Identifier of the subscription.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/SubscriptionCreateParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "sid",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Subscriptions_CreateOrUpdate({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "sid": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Subscriptions_RegeneratePrimaryKey
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* sid (string) **required** - Identifier of the subscription.
+* parameters (undefined) **required** - Parameters supplied to the Create subscription operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Subscriptions_RegeneratePrimaryKey
 Regenerates primary key of existing subscription of the API Management service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "sid": {
-      "type": "string",
-      "description": "Identifier of the subscription."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "sid",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Subscriptions_RegeneratePrimaryKey({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "sid": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Subscriptions_RegenerateSecondaryKey
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* sid (string) **required** - Identifier of the subscription.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Subscriptions_RegenerateSecondaryKey
 Regenerates secondary key of existing subscription of the API Management service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "sid": {
-      "type": "string",
-      "description": "Identifier of the subscription."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "sid",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Subscriptions_RegenerateSecondaryKey({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "sid": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: TenantAccess_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* sid (string) **required** - Identifier of the subscription.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### TenantAccess_Get
 Get tenant access information details.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.TenantAccess_Get({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccessInformationContract"
-}
-```
-## Operation: TenantAccess_Update
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### TenantAccess_Update
 Update tenant access information details.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/AccessInformationUpdateParameters"
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "The entity state (Etag) version of the tenant access settings to update. A value of \"*\" can be used for If-Match to unconditionally apply the operation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "parameters",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.TenantAccess_Update({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "parameters": null,
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: TenantAccessGit_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* parameters (undefined) **required** - Tenant access information update parameters of the API Management service.
+* If-Match (string) **required** - The entity state (Etag) version of the tenant access settings to update. A value of "*" can be used for If-Match to unconditionally apply the operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### TenantAccessGit_Get
 Gets the Git access configuration for the tenant.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.TenantAccessGit_Get({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccessInformationContract"
-}
-```
-## Operation: TenantAccessGit_RegeneratePrimaryKey
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### TenantAccessGit_RegeneratePrimaryKey
 Regenerate primary access key for GIT.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.TenantAccessGit_RegeneratePrimaryKey({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: TenantAccessGit_RegenerateSecondaryKey
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### TenantAccessGit_RegenerateSecondaryKey
 Regenerate secondary access key for GIT.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.TenantAccessGit_RegenerateSecondaryKey({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: TenantAccess_RegeneratePrimaryKey
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### TenantAccess_RegeneratePrimaryKey
 Regenerate primary access key.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.TenantAccess_RegeneratePrimaryKey({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: TenantAccess_RegenerateSecondaryKey
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### TenantAccess_RegenerateSecondaryKey
 Regenerate secondary access key.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.TenantAccess_RegenerateSecondaryKey({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: TenantConfiguration_Deploy
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### TenantConfiguration_Deploy
 This operation applies changes from the specified Git branch to the configuration database. This is a long running operation and could take several minutes to complete.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/DeployConfigurationParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.TenantConfiguration_Deploy({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OperationResultContract"
-}
-```
-## Operation: TenantConfiguration_Save
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* parameters (undefined) **required** - Parameters supplied to the Deploy Configuration operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### TenantConfiguration_Save
 This operation creates a commit with the current configuration snapshot to the specified branch in the repository. This is a long running operation and could take several minutes to complete.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/SaveConfigurationParameter"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.TenantConfiguration_Save({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OperationResultContract"
-}
-```
-## Operation: TenantConfigurationSyncState_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* parameters (undefined) **required** - Parameters supplied to the Save Tenant Configuration operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### TenantConfigurationSyncState_Get
 Gets the status of the most recent synchronization between the configuration database and the Git repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.TenantConfigurationSyncState_Get({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TenantConfigurationSyncStateContract"
-}
-```
-## Operation: TenantConfiguration_Validate
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### TenantConfiguration_Validate
 This operation validates the changes in the specified Git branch. This is a long running operation and could take several minutes to complete.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/DeployConfigurationParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.TenantConfiguration_Validate({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OperationResultContract"
-}
-```
-## Operation: Users_ListByService
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* parameters (undefined) **required** - Parameters supplied to the Deploy Configuration operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Users_ListByService
 Lists a collection of registered users in the specified service instance.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "$filter": {
-      "type": "string",
-      "description": "| Field            | Supported operators    | Supported functions               |\n|------------------|------------------------|-----------------------------------|\n| id               | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| firstName        | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| lastName         | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| email            | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| state            | eq                     | N/A                               |\n| registrationDate | ge, le, eq, ne, gt, lt | N/A                               |\n| note             | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |"
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to return.",
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to skip.",
-      "minimum": 0
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Users_ListByService({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserCollection"
-}
-```
-## Operation: Users_Delete
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* $filter (string) - | Field            | Supported operators    | Supported functions               |
+* $top (integer) - Number of records to return.
+* $skip (integer) - Number of records to skip.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Users_Delete
 Deletes specific user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "uid": {
-      "type": "string",
-      "description": "User identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "deleteSubscriptions": {
-      "type": "boolean",
-      "description": "Whether to delete user's subscription or not."
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "The entity state (Etag) version of the user to delete. A value of \"*\" can be used for If-Match to unconditionally apply the operation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "uid",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Users_Delete({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "uid": "",
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Users_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* uid (string) **required** - User identifier. Must be unique in the current API Management service instance.
+* deleteSubscriptions (boolean) - Whether to delete user's subscription or not.
+* If-Match (string) **required** - The entity state (Etag) version of the user to delete. A value of "*" can be used for If-Match to unconditionally apply the operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Users_Get
 Gets the details of the user specified by its identifier.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "uid": {
-      "type": "string",
-      "description": "User identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "uid",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Users_Get({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "uid": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserContract"
-}
-```
-## Operation: Users_Update
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* uid (string) **required** - User identifier. Must be unique in the current API Management service instance.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Users_Update
 Updates the details of the user specified by its identifier.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "uid": {
-      "type": "string",
-      "description": "User identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/UserUpdateParameters"
-    },
-    "If-Match": {
-      "type": "string",
-      "description": "The entity state (Etag) version of the user to update. A value of \"*\" can be used for If-Match to unconditionally apply the operation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "uid",
-    "parameters",
-    "If-Match",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Users_Update({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "uid": "",
+  "parameters": null,
+  "If-Match": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Users_CreateOrUpdate
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* uid (string) **required** - User identifier. Must be unique in the current API Management service instance.
+* parameters (undefined) **required** - Parameters supplied to the Update User operation.
+* If-Match (string) **required** - The entity state (Etag) version of the user to update. A value of "*" can be used for If-Match to unconditionally apply the operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Users_CreateOrUpdate
 Creates or Updates a user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "uid": {
-      "type": "string",
-      "description": "User identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/UserCreateParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "uid",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Users_CreateOrUpdate({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "uid": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Users_GenerateSsoUrl
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* uid (string) **required** - User identifier. Must be unique in the current API Management service instance.
+* parameters (undefined) **required** - Parameters supplied to the Create User operation.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Users_GenerateSsoUrl
 Retrieves a redirection URL containing an authentication token for signing a given user into the developer portal.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "uid": {
-      "type": "string",
-      "description": "User identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "uid",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.Users_GenerateSsoUrl({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "uid": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GenerateSsoUrlResult",
-  "x-ms-client-flatten": true
-}
-```
-## Operation: UserGroups_ListByUser
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* uid (string) **required** - User identifier. Must be unique in the current API Management service instance.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### UserGroups_ListByUser
 Lists all user groups.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "uid": {
-      "type": "string",
-      "description": "User identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "$filter": {
-      "type": "string",
-      "description": "| Field       | Supported operators    | Supported functions                         |\n|-------------|------------------------|---------------------------------------------|\n| id          | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| name        | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| description | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |"
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to return.",
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to skip.",
-      "minimum": 0
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "uid",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.UserGroups_ListByUser({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "uid": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GroupCollection"
-}
-```
-## Operation: UserIdentities_ListByUser
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* uid (string) **required** - User identifier. Must be unique in the current API Management service instance.
+* $filter (string) - | Field       | Supported operators    | Supported functions                         |
+* $top (integer) - Number of records to return.
+* $skip (integer) - Number of records to skip.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### UserIdentities_ListByUser
 Lists all user identities.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "uid": {
-      "type": "string",
-      "description": "User identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "uid",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.UserIdentities_ListByUser({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "uid": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/UserIdentityContract"
-  },
-  "type": "array"
-}
-```
-## Operation: UserSubscriptions_ListByUser
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* uid (string) **required** - User identifier. Must be unique in the current API Management service instance.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### UserSubscriptions_ListByUser
 Lists the collection of subscriptions of the specified user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "serviceName": {
-      "type": "string",
-      "description": "The name of the API Management service.",
-      "pattern": "^[a-zA-Z](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "uid": {
-      "type": "string",
-      "description": "User identifier. Must be unique in the current API Management service instance.",
-      "pattern": "^[^*#&+:<>?]+$",
-      "maxLength": 256,
-      "minLength": 1
-    },
-    "$filter": {
-      "type": "string",
-      "description": "| Field        | Supported operators    | Supported functions                         |\n|--------------|------------------------|---------------------------------------------|\n| id           | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| name         | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| stateComment | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| userId       | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| productId    | ge, le, eq, ne, gt, lt | substringof, contains, startswith, endswith |\n| state        | eq                     |                                             |"
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to return.",
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of records to skip.",
-      "minimum": 0
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "serviceName",
-    "uid",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_apimanagement.UserSubscriptions_ListByUser({
+  "resourceGroupName": "",
+  "serviceName": "",
+  "uid": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SubscriptionCollection"
-}
-```
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group.
+* serviceName (string) **required** - The name of the API Management service.
+* uid (string) **required** - User identifier. Must be unique in the current API Management service instance.
+* $filter (string) - | Field        | Supported operators    | Supported functions                         |
+* $top (integer) - Number of records to return.
+* $skip (integer) - Number of records to skip.
+* api-version (string) **required** - Version of the API to be used with the client request.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+

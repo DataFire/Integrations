@@ -1,2852 +1,1326 @@
 # @datafire/amazonaws_apigateway
+
+Client library for Amazon API Gateway
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/amazonaws_apigateway
+```
+
+```js
+let datafire = require('datafire');
+let amazonaws_apigateway = require('@datafire/amazonaws_apigateway').actions;
+
+let account = {
+  hmac: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    amazonaws_apigateway: account,
+  }
+})
+
+
+amazonaws_apigateway.UpdateAccount({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 <fullname>Amazon API Gateway</fullname> <p>Amazon API Gateway helps developers deliver robust, secure, and scalable mobile and web application back ends. Amazon API Gateway allows developers to securely connect mobile and web applications to APIs that run on AWS Lambda, Amazon EC2, or other publicly addressable web services that are hosted outside of AWS.</p>
 
-## Operation: UpdateAccount
+## Actions
+### UpdateAccount
 Changes information about the current <a>Account</a> resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateAccountRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.UpdateAccount({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Account"
-}
-```
-## Operation: GetApiKeys
+
+#### Parameters
+* body (object) **required** - Requests Amazon API Gateway to change information about the current <a>Account</a> resource.
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetApiKeys
 Gets information about the current <a>ApiKeys</a> resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetApiKeysRequest"
-    },
-    "limit": {
-      "type": "string",
-      "description": "Pagination limit"
-    },
-    "position": {
-      "type": "string",
-      "description": "Pagination token"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.GetApiKeys({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApiKeys"
-}
-```
-## Operation: UpdateApiKey
+
+#### Parameters
+* body (object) **required** - A request to get information about the current <a>ApiKeys</a> resource.
+* limit (string) - Pagination limit
+* position (string) - Pagination token
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateApiKey
 Changes information about an <a>ApiKey</a> resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateApiKeyRequest"
-    },
-    "api_Key": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "api_Key",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.UpdateApiKey({
+  "body": {},
+  "api_Key": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApiKey"
-}
-```
-## Operation: ImportApiKeys
+
+#### Parameters
+* body (object) **required** - A request to change information about an <a>ApiKey</a> resource.
+* api_Key (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ImportApiKeys
 Import API keys from an external source, such as a CSV-formatted file.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ImportApiKeysRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_apigateway.ImportApiKeys({
+  "body": {
+    "body": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApiKeyIds"
-}
-```
-## Operation: GetClientCertificates
+
+#### Parameters
+* body (object) **required** - The POST request to import API keys from an external source, such as a CSV-formatted file.
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetClientCertificates
 Gets a collection of <a>ClientCertificate</a> resources.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetClientCertificatesRequest"
-    },
-    "limit": {
-      "type": "string",
-      "description": "Pagination limit"
-    },
-    "position": {
-      "type": "string",
-      "description": "Pagination token"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.GetClientCertificates({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ClientCertificates"
-}
-```
-## Operation: UpdateClientCertificate
+
+#### Parameters
+* body (object) **required** - A request to get information about a collection of <a>ClientCertificate</a> resources.
+* limit (string) - Pagination limit
+* position (string) - Pagination token
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateClientCertificate
 Changes information about an <a>ClientCertificate</a> resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateClientCertificateRequest"
-    },
-    "clientcertificate_id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "clientcertificate_id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.UpdateClientCertificate({
+  "body": {},
+  "clientcertificate_id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ClientCertificate"
-}
-```
-## Operation: GetDomainNames
+
+#### Parameters
+* body (object) **required** - A request to change information about an <a>ClientCertificate</a> resource.
+* clientcertificate_id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetDomainNames
 Represents a collection of <a>DomainName</a> resources.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetDomainNamesRequest"
-    },
-    "limit": {
-      "type": "string",
-      "description": "Pagination limit"
-    },
-    "position": {
-      "type": "string",
-      "description": "Pagination token"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.GetDomainNames({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DomainNames"
-}
-```
-## Operation: UpdateDomainName
+
+#### Parameters
+* body (object) **required** - Request to describe a collection of <a>DomainName</a> resources.
+* limit (string) - Pagination limit
+* position (string) - Pagination token
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateDomainName
 Changes information about the <a>DomainName</a> resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateDomainNameRequest"
-    },
-    "domain_name": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "domain_name",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.UpdateDomainName({
+  "body": {},
+  "domain_name": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DomainName"
-}
-```
-## Operation: GetBasePathMappings
+
+#### Parameters
+* body (object) **required** - A request to change information about the <a>DomainName</a> resource.
+* domain_name (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetBasePathMappings
 Represents a collection of <a>BasePathMapping</a> resources.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetBasePathMappingsRequest"
-    },
-    "limit": {
-      "type": "string",
-      "description": "Pagination limit"
-    },
-    "position": {
-      "type": "string",
-      "description": "Pagination token"
-    },
-    "domain_name": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "domain_name",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.GetBasePathMappings({
+  "body": {},
+  "domain_name": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BasePathMappings"
-}
-```
-## Operation: UpdateBasePathMapping
+
+#### Parameters
+* body (object) **required** - A request to get information about a collection of <a>BasePathMapping</a> resources.
+* limit (string) - Pagination limit
+* position (string) - Pagination token
+* domain_name (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateBasePathMapping
 Changes information about the <a>BasePathMapping</a> resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateBasePathMappingRequest"
-    },
-    "domain_name": {
-      "type": "string"
-    },
-    "base_path": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "domain_name",
-    "base_path",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.UpdateBasePathMapping({
+  "body": {},
+  "domain_name": "",
+  "base_path": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BasePathMapping"
-}
-```
-## Operation: GetRestApis
+
+#### Parameters
+* body (object) **required** - A request to change information about the <a>BasePathMapping</a> resource.
+* domain_name (string) **required**
+* base_path (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetRestApis
 Lists the <a>RestApis</a> resources for your collection.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetRestApisRequest"
-    },
-    "limit": {
-      "type": "string",
-      "description": "Pagination limit"
-    },
-    "position": {
-      "type": "string",
-      "description": "Pagination token"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.GetRestApis({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RestApis"
-}
-```
-## Operation: UpdateRestApi
+
+#### Parameters
+* body (object) **required** - The GET request to list existing <a>RestApis</a> defined for your collection.
+* limit (string) - Pagination limit
+* position (string) - Pagination token
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateRestApi
 Changes information about the specified API.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateRestApiRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.UpdateRestApi({
+  "body": {},
+  "restapi_id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RestApi"
-}
-```
-## Operation: GetAuthorizers
+
+#### Parameters
+* body (object) **required** - Request to update an existing <a>RestApi</a> resource in your collection.
+* restapi_id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetAuthorizers
 <p>Describe an existing <a>Authorizers</a> resource.</p> <div class="seeAlso"><a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html">AWS CLI</a></div>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetAuthorizersRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.GetAuthorizers({
+  "body": {},
+  "restapi_id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Authorizers"
-}
-```
-## Operation: UpdateAuthorizer
+
+#### Parameters
+* body (object) **required** - Request to describe an existing <a>Authorizers</a> resource.
+* restapi_id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateAuthorizer
 <p>Updates an existing <a>Authorizer</a> resource.</p> <div class="seeAlso"><a href="http://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html">AWS CLI</a></div>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateAuthorizerRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "authorizer_id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "authorizer_id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.UpdateAuthorizer({
+  "body": {},
+  "restapi_id": "",
+  "authorizer_id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Authorizer"
-}
-```
-## Operation: GetDeployments
+
+#### Parameters
+* body (object) **required** - Request to update an existing <a>Authorizer</a> resource.
+* restapi_id (string) **required**
+* authorizer_id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetDeployments
 Gets information about a <a>Deployments</a> collection.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetDeploymentsRequest"
-    },
-    "limit": {
-      "type": "string",
-      "description": "Pagination limit"
-    },
-    "position": {
-      "type": "string",
-      "description": "Pagination token"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.GetDeployments({
+  "body": {},
+  "restapi_id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Deployments"
-}
-```
-## Operation: UpdateDeployment
+
+#### Parameters
+* body (object) **required** - Requests Amazon API Gateway to get information about a <a>Deployments</a> collection.
+* limit (string) - Pagination limit
+* position (string) - Pagination token
+* restapi_id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateDeployment
 Changes information about a <a>Deployment</a> resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateDeploymentRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "deployment_id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_apigateway.UpdateDeployment({
+  "body": {},
+  "restapi_id": "",
+  "deployment_id": "",
+  "Action": "",
+  "Version": ""
+}, context)
+```
+
+#### Parameters
+* body (object) **required** - Requests Amazon API Gateway to change information about a <a>Deployment</a> resource.
+* restapi_id (string) **required**
+* deployment_id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ImportDocumentationParts
+
+
+
+```js
+amazonaws_apigateway.ImportDocumentationParts({
+  "body": {
+    "body": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "deployment_id",
-    "Action",
-    "Version"
-  ]
-}
+  "restapi_id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Deployment"
-}
-```
-## Operation: ImportDocumentationParts
+
+#### Parameters
+* body (object) **required** - Import documentation parts from an external (e.g., Swagger) definition file. 
+* restapi_id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateDocumentationPart
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ImportDocumentationPartsRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.UpdateDocumentationPart({
+  "body": {},
+  "restapi_id": "",
+  "part_id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DocumentationPartIds"
-}
-```
-## Operation: UpdateDocumentationPart
+
+#### Parameters
+* body (object) **required** - Updates an existing documentation part of a given API.
+* restapi_id (string) **required**
+* part_id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetDocumentationVersions
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateDocumentationPartRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "part_id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "part_id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.GetDocumentationVersions({
+  "body": {},
+  "restapi_id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DocumentationPart"
-}
-```
-## Operation: GetDocumentationVersions
+
+#### Parameters
+* body (object) **required** - Gets the documentation versions of an API.
+* restapi_id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateDocumentationVersion
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetDocumentationVersionsRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "Action",
-    "Version"
-  ]
-}
-```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DocumentationVersions"
-}
-```
-## Operation: UpdateDocumentationVersion
 
+```js
+amazonaws_apigateway.UpdateDocumentationVersion({
+  "body": {},
+  "restapi_id": "",
+  "doc_version": "",
+  "Action": "",
+  "Version": ""
+}, context)
+```
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateDocumentationVersionRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "doc_version": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "doc_version",
-    "Action",
-    "Version"
-  ]
-}
-```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DocumentationVersion"
-}
-```
-## Operation: GetModels
+#### Parameters
+* body (object) **required** - Updates an existing documentation version of an API.
+* restapi_id (string) **required**
+* doc_version (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetModels
 Describes existing <a>Models</a> defined for a <a>RestApi</a> resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetModelsRequest"
-    },
-    "limit": {
-      "type": "string",
-      "description": "Pagination limit"
-    },
-    "position": {
-      "type": "string",
-      "description": "Pagination token"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.GetModels({
+  "body": {},
+  "restapi_id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Models"
-}
-```
-## Operation: UpdateModel
+
+#### Parameters
+* body (object) **required** - Request to list existing <a>Models</a> defined for a <a>RestApi</a> resource.
+* limit (string) - Pagination limit
+* position (string) - Pagination token
+* restapi_id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateModel
 Changes information about a model.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateModelRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "model_name": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "model_name",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.UpdateModel({
+  "body": {},
+  "restapi_id": "",
+  "model_name": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Model"
-}
-```
-## Operation: GetModelTemplate
+
+#### Parameters
+* body (object) **required** - Request to update an existing model in an existing <a>RestApi</a> resource.
+* restapi_id (string) **required**
+* model_name (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetModelTemplate
 Generates a sample mapping template that can be used to transform a payload into the structure of a model.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetModelTemplateRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "model_name": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "model_name",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.GetModelTemplate({
+  "body": {},
+  "restapi_id": "",
+  "model_name": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Template"
-}
-```
-## Operation: GetRequestValidators
+
+#### Parameters
+* body (object) **required** - Request to generate a sample mapping template used to transform the payload.
+* restapi_id (string) **required**
+* model_name (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetRequestValidators
 Gets the <a>RequestValidators</a> collection of a given <a>RestApi</a>.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetRequestValidatorsRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.GetRequestValidators({
+  "body": {},
+  "restapi_id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RequestValidators"
-}
-```
-## Operation: UpdateRequestValidator
+
+#### Parameters
+* body (object) **required** - Gets the <a>RequestValidators</a> collection of a given <a>RestApi</a>.
+* restapi_id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateRequestValidator
 Updates a <a>RequestValidator</a> of a given <a>RestApi</a>.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateRequestValidatorRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "requestvalidator_id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "requestvalidator_id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.UpdateRequestValidator({
+  "body": {},
+  "restapi_id": "",
+  "requestvalidator_id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RequestValidator"
-}
-```
-## Operation: GetResources
+
+#### Parameters
+* body (object) **required** - Updates a <a>RequestValidator</a> of a given <a>RestApi</a>.
+* restapi_id (string) **required**
+* requestvalidator_id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetResources
 Lists information about a collection of <a>Resource</a> resources.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetResourcesRequest"
-    },
-    "limit": {
-      "type": "string",
-      "description": "Pagination limit"
-    },
-    "position": {
-      "type": "string",
-      "description": "Pagination token"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.GetResources({
+  "body": {},
+  "restapi_id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Resources"
-}
-```
-## Operation: CreateResource
+
+#### Parameters
+* body (object) **required** - Request to list information about a collection of resources.
+* limit (string) - Pagination limit
+* position (string) - Pagination token
+* restapi_id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### CreateResource
 Creates a <a>Resource</a> resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CreateResourceRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "parent_id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_apigateway.CreateResource({
+  "body": {
+    "pathPart": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "parent_id",
-    "Action",
-    "Version"
-  ]
-}
+  "restapi_id": "",
+  "parent_id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Resource"
-}
-```
-## Operation: UpdateResource
+
+#### Parameters
+* body (object) **required** - Requests Amazon API Gateway to create a <a>Resource</a> resource.
+* restapi_id (string) **required**
+* parent_id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateResource
 Changes information about a <a>Resource</a> resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateResourceRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "resource_id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "resource_id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.UpdateResource({
+  "body": {},
+  "restapi_id": "",
+  "resource_id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Resource"
-}
-```
-## Operation: UpdateMethod
+
+#### Parameters
+* body (object) **required** - Request to change information about a <a>Resource</a> resource.
+* restapi_id (string) **required**
+* resource_id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateMethod
 Updates an existing <a>Method</a> resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateMethodRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "resource_id": {
-      "type": "string"
-    },
-    "http_method": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "resource_id",
-    "http_method",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.UpdateMethod({
+  "body": {},
+  "restapi_id": "",
+  "resource_id": "",
+  "http_method": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Method"
-}
-```
-## Operation: UpdateIntegration
+
+#### Parameters
+* body (object) **required** - Request to update an existing <a>Method</a> resource.
+* restapi_id (string) **required**
+* resource_id (string) **required**
+* http_method (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateIntegration
 Represents an update integration.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateIntegrationRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "resource_id": {
-      "type": "string"
-    },
-    "http_method": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "resource_id",
-    "http_method",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.UpdateIntegration({
+  "body": {},
+  "restapi_id": "",
+  "resource_id": "",
+  "http_method": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Integration"
-}
-```
-## Operation: UpdateIntegrationResponse
+
+#### Parameters
+* body (object) **required** - Represents an update integration request.
+* restapi_id (string) **required**
+* resource_id (string) **required**
+* http_method (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateIntegrationResponse
 Represents an update integration response.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateIntegrationResponseRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "resource_id": {
-      "type": "string"
-    },
-    "http_method": {
-      "type": "string"
-    },
-    "status_code": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "resource_id",
-    "http_method",
-    "status_code",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.UpdateIntegrationResponse({
+  "body": {},
+  "restapi_id": "",
+  "resource_id": "",
+  "http_method": "",
+  "status_code": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/IntegrationResponse"
-}
-```
-## Operation: UpdateMethodResponse
+
+#### Parameters
+* body (object) **required** - Represents an update integration response request.
+* restapi_id (string) **required**
+* resource_id (string) **required**
+* http_method (string) **required**
+* status_code (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateMethodResponse
 Updates an existing <a>MethodResponse</a> resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateMethodResponseRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "resource_id": {
-      "type": "string"
-    },
-    "http_method": {
-      "type": "string"
-    },
-    "status_code": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "resource_id",
-    "http_method",
-    "status_code",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.UpdateMethodResponse({
+  "body": {},
+  "restapi_id": "",
+  "resource_id": "",
+  "http_method": "",
+  "status_code": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MethodResponse"
-}
-```
-## Operation: GetStages
+
+#### Parameters
+* body (object) **required** - A request to update an existing <a>MethodResponse</a> resource.
+* restapi_id (string) **required**
+* resource_id (string) **required**
+* http_method (string) **required**
+* status_code (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetStages
 Gets information about one or more <a>Stage</a> resources.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetStagesRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.GetStages({
+  "body": {},
+  "restapi_id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Stages"
-}
-```
-## Operation: UpdateStage
+
+#### Parameters
+* body (object) **required** - Requests Amazon API Gateway to get information about one or more <a>Stage</a> resources.
+* restapi_id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateStage
 Changes information about a <a>Stage</a> resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateStageRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "stage_name": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "stage_name",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.UpdateStage({
+  "body": {},
+  "restapi_id": "",
+  "stage_name": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Stage"
-}
-```
-## Operation: FlushStageAuthorizersCache
+
+#### Parameters
+* body (object) **required** - Requests Amazon API Gateway to change information about a <a>Stage</a> resource.
+* restapi_id (string) **required**
+* stage_name (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### FlushStageAuthorizersCache
 Flushes all authorizer cache entries on a stage.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/FlushStageAuthorizersCacheRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "stage_name": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "stage_name",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.FlushStageAuthorizersCache({
+  "body": {},
+  "restapi_id": "",
+  "stage_name": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: FlushStageCache
+
+#### Parameters
+* body (object) **required** - Request to flush authorizer cache entries on a specified stage.
+* restapi_id (string) **required**
+* stage_name (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### FlushStageCache
 Flushes a stage's cache.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/FlushStageCacheRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "stage_name": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "stage_name",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.FlushStageCache({
+  "body": {},
+  "restapi_id": "",
+  "stage_name": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: GetExport
+
+#### Parameters
+* body (object) **required** - Requests Amazon API Gateway to flush a stage's cache.
+* restapi_id (string) **required**
+* stage_name (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetExport
 Exports a deployed version of a <a>RestApi</a> in a specified format.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetExportRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "stage_name": {
-      "type": "string"
-    },
-    "export_type": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "stage_name",
-    "export_type",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.GetExport({
+  "body": {},
+  "restapi_id": "",
+  "stage_name": "",
+  "export_type": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ExportResponse"
-}
-```
-## Operation: GetSdk
+
+#### Parameters
+* body (object) **required** - Request a new export of a <a>RestApi</a> for a particular <a>Stage</a>.
+* restapi_id (string) **required**
+* stage_name (string) **required**
+* export_type (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetSdk
 Generates a client SDK for a <a>RestApi</a> and <a>Stage</a>.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetSdkRequest"
-    },
-    "restapi_id": {
-      "type": "string"
-    },
-    "stage_name": {
-      "type": "string"
-    },
-    "sdk_type": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "restapi_id",
-    "stage_name",
-    "sdk_type",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.GetSdk({
+  "body": {},
+  "restapi_id": "",
+  "stage_name": "",
+  "sdk_type": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SdkResponse"
-}
-```
-## Operation: ImportRestApi
+
+#### Parameters
+* body (object) **required** - Request a new generated client SDK for a <a>RestApi</a> and <a>Stage</a>.
+* restapi_id (string) **required**
+* stage_name (string) **required**
+* sdk_type (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ImportRestApi
 A feature of the Amazon API Gateway control service for creating a new API from an external API definition file.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ImportRestApiRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_apigateway.ImportRestApi({
+  "body": {
+    "body": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RestApi"
-}
-```
-## Operation: GetSdkTypes
+
+#### Parameters
+* body (object) **required** - A POST request to import an API to Amazon API Gateway using an input of an API definition file.
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetSdkTypes
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetSdkTypesRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.GetSdkTypes({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SdkTypes"
-}
-```
-## Operation: GetSdkType
+
+#### Parameters
+* body (object) **required** - Get the <a>SdkTypes</a> collection.
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetSdkType
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetSdkTypeRequest"
-    },
-    "sdktype_id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "sdktype_id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.GetSdkType({
+  "body": {},
+  "sdktype_id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SdkType"
-}
-```
-## Operation: GetUsagePlans
+
+#### Parameters
+* body (object) **required** - Get an <a>SdkType</a> instance.
+* sdktype_id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetUsagePlans
 Gets all the usage plans of the caller's account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetUsagePlansRequest"
-    },
-    "limit": {
-      "type": "string",
-      "description": "Pagination limit"
-    },
-    "position": {
-      "type": "string",
-      "description": "Pagination token"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.GetUsagePlans({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UsagePlans"
-}
-```
-## Operation: UpdateUsagePlan
+
+#### Parameters
+* body (object) **required** - The GET request to get all the usage plans of the caller's account.
+* limit (string) - Pagination limit
+* position (string) - Pagination token
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateUsagePlan
 Updates a usage plan of a given plan Id.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateUsagePlanRequest"
-    },
-    "usageplanId": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "usageplanId",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.UpdateUsagePlan({
+  "body": {},
+  "usageplanId": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UsagePlan"
-}
-```
-## Operation: GetUsagePlanKeys
+
+#### Parameters
+* body (object) **required** - The PATCH request to update a usage plan of a given plan Id.
+* usageplanId (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetUsagePlanKeys
 Gets all the usage plan keys representing the API keys added to a specified usage plan.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetUsagePlanKeysRequest"
-    },
-    "limit": {
-      "type": "string",
-      "description": "Pagination limit"
-    },
-    "position": {
-      "type": "string",
-      "description": "Pagination token"
-    },
-    "usageplanId": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "usageplanId",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.GetUsagePlanKeys({
+  "body": {},
+  "usageplanId": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UsagePlanKeys"
-}
-```
-## Operation: GetUsagePlanKey
+
+#### Parameters
+* body (object) **required** - The GET request to get all the usage plan keys representing the API keys added to a specified usage plan.
+* limit (string) - Pagination limit
+* position (string) - Pagination token
+* usageplanId (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetUsagePlanKey
 Gets a usage plan key of a given key identifier.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetUsagePlanKeyRequest"
-    },
-    "usageplanId": {
-      "type": "string"
-    },
-    "keyId": {
-      "type": "string"
-    },
-    "keyId_query": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "usageplanId",
-    "keyId",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.GetUsagePlanKey({
+  "body": {},
+  "usageplanId": "",
+  "keyId": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UsagePlanKey"
-}
-```
-## Operation: UpdateUsage
+
+#### Parameters
+* body (object) **required** - The GET request to get a usage plan key of a given key identifier.
+* usageplanId (string) **required**
+* keyId (string) **required**
+* keyId_query (string)
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateUsage
 Grants a temporary extension to the reamining quota of a usage plan associated with a specified API key.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateUsageRequest"
-    },
-    "usageplanId": {
-      "type": "string"
-    },
-    "keyId": {
-      "type": "string"
-    },
-    "keyId_query": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "usageplanId",
-    "keyId",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.UpdateUsage({
+  "body": {},
+  "usageplanId": "",
+  "keyId": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Usage"
-}
-```
-## Operation: GetUsage
+
+#### Parameters
+* body (object) **required** - The PATCH request to grant a temporary extension to the reamining quota of a usage plan associated with a specified API key.
+* usageplanId (string) **required**
+* keyId (string) **required**
+* keyId_query (string)
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetUsage
 Gets the usage data of a usage plan in a specified time interval.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetUsageRequest"
-    },
-    "limit": {
-      "type": "string",
-      "description": "Pagination limit"
-    },
-    "position": {
-      "type": "string",
-      "description": "Pagination token"
-    },
-    "usageplanId": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "usageplanId",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_apigateway.GetUsage({
+  "body": {},
+  "usageplanId": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Usage"
-}
-```
+
+#### Parameters
+* body (object) **required** - The GET request to get the usage data of a usage plan in a specified time interval.
+* limit (string) - Pagination limit
+* position (string) - Pagination token
+* usageplanId (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+

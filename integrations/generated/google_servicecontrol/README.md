@@ -1,76 +1,62 @@
 # @datafire/google_servicecontrol
+
+Client library for Google Service Control
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/google_servicecontrol
+```
+
+```js
+let datafire = require('datafire');
+let google_servicecontrol = require('@datafire/google_servicecontrol').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    google_servicecontrol: account,
+  }
+})
+
+
+google_servicecontrol.services.allocateQuota({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Google Service Control provides control plane functionality to managed services, such as logging, monitoring, and status checks.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+google_servicecontrol.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+google_servicecontrol.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: services.allocateQuota
+
+
+### services.allocateQuota
 Attempts to allocate quota for the specified consumer. It should be called
 before the operation is executed.
 
@@ -88,93 +74,31 @@ of the following quota errors:
 The server may inject above errors to prohibit any hard dependency
 on the quota system.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "serviceName": {
-      "type": "string",
-      "description": "Name of the service as specified in the service configuration. For example,\n`\"pubsub.googleapis.com\"`.\n\nSee google.api.Service for the definition of a service name."
-    },
-    "body": {
-      "$ref": "#/definitions/AllocateQuotaRequest"
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "serviceName"
-  ]
-}
+
+```js
+google_servicecontrol.services.allocateQuota({
+  "serviceName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AllocateQuotaResponse"
-}
-```
-## Operation: services.check
+
+#### Parameters
+* serviceName (string) **required** - Name of the service as specified in the service configuration. For example,
+* body (object) - Request message for the AllocateQuota method.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+### services.check
 Checks an operation with Google Service Control to decide whether
 the given operation should proceed. It should be called before the
 operation is executed.
@@ -189,93 +113,31 @@ This method requires the `servicemanagement.services.check` permission
 on the specified service. For more information, see
 [Google Cloud IAM](https://cloud.google.com/iam).
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "serviceName": {
-      "type": "string",
-      "description": "The service name as specified in its service configuration. For example,\n`\"pubsub.googleapis.com\"`.\n\nSee google.api.Service for the definition of a service name."
-    },
-    "body": {
-      "$ref": "#/definitions/CheckRequest"
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "serviceName"
-  ]
-}
+
+```js
+google_servicecontrol.services.check({
+  "serviceName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CheckResponse"
-}
-```
-## Operation: services.endReconciliation
+
+#### Parameters
+* serviceName (string) **required** - The service name as specified in its service configuration. For example,
+* body (object) - Request message for the Check method.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+### services.endReconciliation
 Signals the quota controller that service ends the ongoing usage
 reconciliation.
 
@@ -283,93 +145,31 @@ This method requires the `servicemanagement.services.quota`
 permission on the specified service. For more information, see
 [Google Cloud IAM](https://cloud.google.com/iam).
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "serviceName": {
-      "type": "string",
-      "description": "Name of the service as specified in the service configuration. For example,\n`\"pubsub.googleapis.com\"`.\n\nSee google.api.Service for the definition of a service name."
-    },
-    "body": {
-      "$ref": "#/definitions/EndReconciliationRequest"
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "serviceName"
-  ]
-}
+
+```js
+google_servicecontrol.services.endReconciliation({
+  "serviceName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/EndReconciliationResponse"
-}
-```
-## Operation: services.releaseQuota
+
+#### Parameters
+* serviceName (string) **required** - Name of the service as specified in the service configuration. For example,
+* body (object)
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+### services.releaseQuota
 Releases previously allocated quota done through AllocateQuota method.
 
 This method requires the `servicemanagement.services.quota`
@@ -386,93 +186,31 @@ of the following quota errors:
 The server may inject above errors to prohibit any hard dependency
 on the quota system.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "serviceName": {
-      "type": "string",
-      "description": "Name of the service as specified in the service configuration. For example,\n`\"pubsub.googleapis.com\"`.\n\nSee google.api.Service for the definition of a service name."
-    },
-    "body": {
-      "$ref": "#/definitions/ReleaseQuotaRequest"
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "serviceName"
-  ]
-}
+
+```js
+google_servicecontrol.services.releaseQuota({
+  "serviceName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ReleaseQuotaResponse"
-}
-```
-## Operation: services.report
+
+#### Parameters
+* serviceName (string) **required** - Name of the service as specified in the service configuration. For example,
+* body (object) - Request message for the ReleaseQuota method.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+### services.report
 Reports operation results to Google Service Control, such as logs and
 metrics. It should be called after an operation is completed.
 
@@ -488,93 +226,31 @@ This method requires the `servicemanagement.services.report` permission
 on the specified service. For more information, see
 [Google Cloud IAM](https://cloud.google.com/iam).
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "serviceName": {
-      "type": "string",
-      "description": "The service name as specified in its service configuration. For example,\n`\"pubsub.googleapis.com\"`.\n\nSee google.api.Service for the definition of a service name."
-    },
-    "body": {
-      "$ref": "#/definitions/ReportRequest"
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "serviceName"
-  ]
-}
+
+```js
+google_servicecontrol.services.report({
+  "serviceName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ReportResponse"
-}
-```
-## Operation: services.startReconciliation
+
+#### Parameters
+* serviceName (string) **required** - The service name as specified in its service configuration. For example,
+* body (object) - Request message for the Report method.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+
+### services.startReconciliation
 Unlike rate quota, allocation quota does not get refilled periodically.
 So, it is possible that the quota usage as seen by the service differs from
 what the One Platform considers the usage is. This is expected to happen
@@ -601,89 +277,27 @@ This method requires the `servicemanagement.services.quota`
 permission on the specified service. For more information, see
 [Google Cloud IAM](https://cloud.google.com/iam).
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "serviceName": {
-      "type": "string",
-      "description": "Name of the service as specified in the service configuration. For example,\n`\"pubsub.googleapis.com\"`.\n\nSee google.api.Service for the definition of a service name."
-    },
-    "body": {
-      "$ref": "#/definitions/StartReconciliationRequest"
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "serviceName"
-  ]
-}
+
+```js
+google_servicecontrol.services.startReconciliation({
+  "serviceName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/StartReconciliationResponse"
-}
-```
+
+#### Parameters
+* serviceName (string) **required** - Name of the service as specified in the service configuration. For example,
+* body (object)
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+

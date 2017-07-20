@@ -1,133 +1,85 @@
 # @datafire/openapi_converter_herokuapp
+
+Client library for Swagger2OpenAPI Converter
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/openapi_converter_herokuapp
+```
+
+```js
+let datafire = require('datafire');
+let openapi_converter_herokuapp = require('@datafire/openapi_converter_herokuapp').actions;
+let context = new datafire.Context();
+
+openapi_converter_herokuapp.validate({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Converter and validator for Swagger 2.0 to OpenAPI 3.0.x definitions
 
-## Operation: getBadge
+## Actions
+### getBadge
 Return a redirect to a badge svg file depending on a source definition's validity
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "url": {
-      "type": "string",
-      "format": "uri",
-      "description": "The URL to retrieve the OpenAPI 3.0.x definition from"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "url"
-  ]
-}
+
+```js
+openapi_converter_herokuapp.getBadge({
+  "url": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: convertUrl
+
+#### Parameters
+* url (string) **required** - The URL to retrieve the OpenAPI 3.0.x definition from
+
+### convertUrl
 Convert a Swagger 2.0 definition to OpenAPI 3.0.x from a URL
 
-### Input Schema
-```json
-{}
+
+```js
+openapi_converter_herokuapp.convertUrl(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: convert
+
+
+### convert
 Convert a Swagger 2.0 definition passed in the body to OpenAPI 3.0.x 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "filename": {
-      "type": "string",
-      "description": "The file to upload and convert"
-    },
-    "source": {
-      "type": "string",
-      "description": "The text of a Swagger 2.0 definition to convert"
-    },
-    "validate": {
-      "type": "string",
-      "enum": [
-        "on"
-      ]
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+openapi_converter_herokuapp.convert({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getStatus
+
+
+### getStatus
 Get the status of the API
 
-### Input Schema
-```json
-{}
+
+```js
+openapi_converter_herokuapp.getStatus(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: validateUrl
+
+
+### validateUrl
 Validate an OpenAPI 3.0.x definition
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "url": {
-      "type": "string",
-      "format": "uri",
-      "description": "The URL to retrieve the OpenAPI 3.0.x definition from"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "url"
-  ]
-}
+
+```js
+openapi_converter_herokuapp.validateUrl({
+  "url": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: validate
+
+#### Parameters
+* url (string) **required** - The URL to retrieve the OpenAPI 3.0.x definition from
+
+### validate
 Validate an OpenAPI 3.0.x definition supplied in the body of the request
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "filename": {
-      "type": "string",
-      "description": "The file to upload and validate"
-    },
-    "source": {
-      "type": "string",
-      "description": "The text of an OpenAPI 3.0.x definition to validate"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+openapi_converter_herokuapp.validate({}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+

@@ -1,4 +1,32 @@
 # @datafire/geneea
+
+Client library for Geneea Natural Language Processing
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/geneea
+```
+
+```js
+let datafire = require('datafire');
+let geneea = require('@datafire/geneea').actions;
+
+let account = {
+  user_key: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    geneea: account,
+  }
+})
+
+
+geneea.topicPost({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 <div class="api-description">
     <h2>Authentication</h2>
     <p>For all calls, supply your API key. <a href="https://www.geneea.com/pricing">Sign up to <em>obtain the key</em></a>.</p>
@@ -76,361 +104,103 @@
 </div>
 
 
-## Operation: getInfo
+## Actions
+### getInfo
 getInfo
 
-### Input Schema
-```json
-{}
+
+```js
+geneea.getInfo(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Information_about_a_user_account."
-}
-```
-## Operation: correctionGet
+
+
+### correctionGet
 <br/><strong>Possible options:</strong><p class="markdown">An optional parameter <code>diacritize</code> with values <code>yes</code>, <code>no</code> or <code>auto</code> indicate whether the text diacritization will be performed. The default value is <code>auto</code>.</p>
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "text": {
-      "type": "string",
-      "description": "raw document text"
-    },
-    "url": {
-      "type": "string",
-      "description": "document URL"
-    },
-    "extractor": {
-      "type": "string",
-      "description": "document extractor",
-      "enum": [
-        "default",
-        "article",
-        "keep-everything"
-      ]
-    },
-    "language": {
-      "type": "string",
-      "description": "document language"
-    },
-    "returnTextInfo": {
-      "type": "boolean"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+geneea.correctionGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Response_for_the_text_correction"
-}
-```
-## Operation: correctionPost
+
+
+### correctionPost
 <strong>Notes:</strong><br/>Valid JSON cannot contain newline characters. These have to be escaped. (See also <a href="https://geneea.atlassian.net/wiki/display/IPD/The+Interpretor+API+Public+Documentation#TheInterpretorAPIPublicDocumentation-Interactiveonlinedocumentation" target="_blank">Interpretor documentation</a>)<br/>Fields <code>text</code> and <code>url</code> are mutually exclusive.<br/><strong>Examples:</strong><pre><code>{"text": "Hello world!"}</code></pre><pre><code>{"url": "https://en.wikipedia.org/wiki/Pyrrhuloxia"}</code></pre><br/><strong>Possible options:</strong><p class="markdown">An optional parameter <code>diacritize</code> with values <code>yes</code>, <code>no</code> or <code>auto</code> indicate whether the text diacritization will be performed. The default value is <code>auto</code>.</p>
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Request"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+geneea.correctionPost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Response_for_the_text_correction"
-}
-```
-## Operation: entitiesGet
+
+
+### entitiesGet
 entitiesGet
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "text": {
-      "type": "string",
-      "description": "raw document text"
-    },
-    "url": {
-      "type": "string",
-      "description": "document URL"
-    },
-    "extractor": {
-      "type": "string",
-      "description": "document extractor",
-      "enum": [
-        "default",
-        "article",
-        "keep-everything"
-      ]
-    },
-    "language": {
-      "type": "string",
-      "description": "document language"
-    },
-    "returnTextInfo": {
-      "type": "boolean"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+geneea.entitiesGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/EntitiesResponse"
-}
-```
-## Operation: entitiesPost
+
+
+### entitiesPost
 <strong>Notes:</strong><br/>Valid JSON cannot contain newline characters. These have to be escaped. (See also <a href="https://geneea.atlassian.net/wiki/display/IPD/The+Interpretor+API+Public+Documentation#TheInterpretorAPIPublicDocumentation-Interactiveonlinedocumentation" target="_blank">Interpretor documentation</a>)<br/>Fields <code>text</code> and <code>url</code> are mutually exclusive.<br/><strong>Examples:</strong><pre><code>{"text": "Hello world!"}</code></pre><pre><code>{"url": "https://en.wikipedia.org/wiki/Pyrrhuloxia"}</code></pre>
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Request"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+geneea.entitiesPost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/EntitiesResponse"
-}
-```
-## Operation: lemmatizeGet
+
+
+### lemmatizeGet
 lemmatizeGet
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "text": {
-      "type": "string",
-      "description": "raw document text"
-    },
-    "url": {
-      "type": "string",
-      "description": "document URL"
-    },
-    "extractor": {
-      "type": "string",
-      "description": "document extractor",
-      "enum": [
-        "default",
-        "article",
-        "keep-everything"
-      ]
-    },
-    "language": {
-      "type": "string",
-      "description": "document language"
-    },
-    "returnTextInfo": {
-      "type": "boolean"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+geneea.lemmatizeGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LemmatizeResponse"
-}
-```
-## Operation: lemmatizePost
+
+
+### lemmatizePost
 <strong>Notes:</strong><br/>Valid JSON cannot contain newline characters. These have to be escaped. (See also <a href="https://geneea.atlassian.net/wiki/display/IPD/The+Interpretor+API+Public+Documentation#TheInterpretorAPIPublicDocumentation-Interactiveonlinedocumentation" target="_blank">Interpretor documentation</a>)<br/>Fields <code>text</code> and <code>url</code> are mutually exclusive.<br/><strong>Examples:</strong><pre><code>{"text": "Hello world!"}</code></pre><pre><code>{"url": "https://en.wikipedia.org/wiki/Pyrrhuloxia"}</code></pre>
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Request"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+geneea.lemmatizePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LemmatizeResponse"
-}
-```
-## Operation: sentimentGet
+
+
+### sentimentGet
 sentimentGet
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "text": {
-      "type": "string",
-      "description": "raw document text"
-    },
-    "url": {
-      "type": "string",
-      "description": "document URL"
-    },
-    "extractor": {
-      "type": "string",
-      "description": "document extractor",
-      "enum": [
-        "default",
-        "article",
-        "keep-everything"
-      ]
-    },
-    "language": {
-      "type": "string",
-      "description": "document language"
-    },
-    "returnTextInfo": {
-      "type": "boolean"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+geneea.sentimentGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SentimentResponse"
-}
-```
-## Operation: sentimentPost
+
+
+### sentimentPost
 <strong>Notes:</strong><br/>Valid JSON cannot contain newline characters. These have to be escaped. (See also <a href="https://geneea.atlassian.net/wiki/display/IPD/The+Interpretor+API+Public+Documentation#TheInterpretorAPIPublicDocumentation-Interactiveonlinedocumentation" target="_blank">Interpretor documentation</a>)<br/>Fields <code>text</code> and <code>url</code> are mutually exclusive.<br/><strong>Examples:</strong><pre><code>{"text": "Hello world!"}</code></pre><pre><code>{"url": "https://en.wikipedia.org/wiki/Pyrrhuloxia"}</code></pre>
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Request"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+geneea.sentimentPost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SentimentResponse"
-}
-```
-## Operation: topicGet
+
+
+### topicGet
 topicGet
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "text": {
-      "type": "string",
-      "description": "raw document text"
-    },
-    "url": {
-      "type": "string",
-      "description": "document URL"
-    },
-    "extractor": {
-      "type": "string",
-      "description": "document extractor",
-      "enum": [
-        "default",
-        "article",
-        "keep-everything"
-      ]
-    },
-    "language": {
-      "type": "string",
-      "description": "document language"
-    },
-    "returnTextInfo": {
-      "type": "boolean"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+geneea.topicGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TopicResponse"
-}
-```
-## Operation: topicPost
+
+
+### topicPost
 <strong>Notes:</strong><br/>Valid JSON cannot contain newline characters. These have to be escaped. (See also <a href="https://geneea.atlassian.net/wiki/display/IPD/The+Interpretor+API+Public+Documentation#TheInterpretorAPIPublicDocumentation-Interactiveonlinedocumentation" target="_blank">Interpretor documentation</a>)<br/>Fields <code>text</code> and <code>url</code> are mutually exclusive.<br/><strong>Examples:</strong><pre><code>{"text": "Hello world!"}</code></pre><pre><code>{"url": "https://en.wikipedia.org/wiki/Pyrrhuloxia"}</code></pre>
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Request"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+geneea.topicPost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TopicResponse"
-}
-```
+
+

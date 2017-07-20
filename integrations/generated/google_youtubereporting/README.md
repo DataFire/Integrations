@@ -1,830 +1,228 @@
 # @datafire/google_youtubereporting
+
+Client library for YouTube Reporting
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/google_youtubereporting
+```
+
+```js
+let datafire = require('datafire');
+let google_youtubereporting = require('@datafire/google_youtubereporting').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    google_youtubereporting: account,
+  }
+})
+
+
+google_youtubereporting.reportTypes.list({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Schedules reporting jobs containing your YouTube Analytics data and downloads the resulting bulk data reports in the form of CSV files.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+google_youtubereporting.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+google_youtubereporting.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: jobs.list
+
+
+### jobs.list
 Lists jobs.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "onBehalfOfContentOwner": {
-      "type": "string",
-      "description": "The content owner's external ID on which behalf the user is acting on. If\nnot set, the user is acting for himself (his own channel)."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "A token identifying a page of results the server should return. Typically,\nthis is the value of\nListReportTypesResponse.next_page_token\nreturned in response to the previous call to the `ListJobs` method."
-    },
-    "includeSystemManaged": {
-      "type": "boolean",
-      "description": "If set to true, also system-managed jobs will be returned; otherwise only\nuser-created jobs will be returned. System-managed jobs can neither be\nmodified nor deleted."
-    },
-    "pageSize": {
-      "type": "integer",
-      "description": "Requested page size. Server may return fewer jobs than requested.\nIf unspecified, server will pick an appropriate default."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_youtubereporting.jobs.list({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListJobsResponse"
-}
-```
-## Operation: jobs.create
+
+
+### jobs.create
 Creates a job and returns it.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "onBehalfOfContentOwner": {
-      "type": "string",
-      "description": "The content owner's external ID on which behalf the user is acting on. If\nnot set, the user is acting for himself (his own channel)."
-    },
-    "body": {
-      "$ref": "#/definitions/Job"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_youtubereporting.jobs.create({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Job"
-}
-```
-## Operation: jobs.delete
+
+
+### jobs.delete
 Deletes a job.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "jobId": {
-      "type": "string",
-      "description": "The ID of the job to delete."
-    },
-    "onBehalfOfContentOwner": {
-      "type": "string",
-      "description": "The content owner's external ID on which behalf the user is acting on. If\nnot set, the user is acting for himself (his own channel)."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "jobId"
-  ]
-}
+
+```js
+google_youtubereporting.jobs.delete({
+  "jobId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Empty"
-}
-```
-## Operation: jobs.get
+
+#### Parameters
+* jobId (string) **required** - The ID of the job to delete.
+* onBehalfOfContentOwner (string) - The content owner's external ID on which behalf the user is acting on. If
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+
+### jobs.get
 Gets a job.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "jobId": {
-      "type": "string",
-      "description": "The ID of the job to retrieve."
-    },
-    "onBehalfOfContentOwner": {
-      "type": "string",
-      "description": "The content owner's external ID on which behalf the user is acting on. If\nnot set, the user is acting for himself (his own channel)."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "jobId"
-  ]
-}
+
+```js
+google_youtubereporting.jobs.get({
+  "jobId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Job"
-}
-```
-## Operation: jobs.reports.list
+
+#### Parameters
+* jobId (string) **required** - The ID of the job to retrieve.
+* onBehalfOfContentOwner (string) - The content owner's external ID on which behalf the user is acting on. If
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+
+### jobs.reports.list
 Lists reports created by a specific job.
 Returns NOT_FOUND if the job does not exist.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "jobId": {
-      "type": "string",
-      "description": "The ID of the job."
-    },
-    "onBehalfOfContentOwner": {
-      "type": "string",
-      "description": "The content owner's external ID on which behalf the user is acting on. If\nnot set, the user is acting for himself (his own channel)."
-    },
-    "startTimeBefore": {
-      "type": "string",
-      "description": "If set, only reports whose start time is smaller than the specified\ndate/time are returned."
-    },
-    "createdAfter": {
-      "type": "string",
-      "description": "If set, only reports created after the specified date/time are returned."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "A token identifying a page of results the server should return. Typically,\nthis is the value of\nListReportsResponse.next_page_token\nreturned in response to the previous call to the `ListReports` method."
-    },
-    "startTimeAtOrAfter": {
-      "type": "string",
-      "description": "If set, only reports whose start time is greater than or equal the\nspecified date/time are returned."
-    },
-    "pageSize": {
-      "type": "integer",
-      "description": "Requested page size. Server may return fewer report types than requested.\nIf unspecified, server will pick an appropriate default."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "jobId"
-  ]
-}
+
+```js
+google_youtubereporting.jobs.reports.list({
+  "jobId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListReportsResponse"
-}
-```
-## Operation: jobs.reports.get
+
+#### Parameters
+* jobId (string) **required** - The ID of the job.
+* onBehalfOfContentOwner (string) - The content owner's external ID on which behalf the user is acting on. If
+* startTimeBefore (string) - If set, only reports whose start time is smaller than the specified
+* createdAfter (string) - If set, only reports created after the specified date/time are returned.
+* pageToken (string) - A token identifying a page of results the server should return. Typically,
+* startTimeAtOrAfter (string) - If set, only reports whose start time is greater than or equal the
+* pageSize (integer) - Requested page size. Server may return fewer report types than requested.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+
+### jobs.reports.get
 Gets the metadata of a specific report.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "jobId": {
-      "type": "string",
-      "description": "The ID of the job."
-    },
-    "reportId": {
-      "type": "string",
-      "description": "The ID of the report to retrieve."
-    },
-    "onBehalfOfContentOwner": {
-      "type": "string",
-      "description": "The content owner's external ID on which behalf the user is acting on. If\nnot set, the user is acting for himself (his own channel)."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "jobId",
-    "reportId"
-  ]
-}
+
+```js
+google_youtubereporting.jobs.reports.get({
+  "jobId": "",
+  "reportId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Report"
-}
-```
-## Operation: media.download
+
+#### Parameters
+* jobId (string) **required** - The ID of the job.
+* reportId (string) **required** - The ID of the report to retrieve.
+* onBehalfOfContentOwner (string) - The content owner's external ID on which behalf the user is acting on. If
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+
+### media.download
 Method for media download. Download is supported
 on the URI `/v1/media/{+name}?alt=media`.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceName": {
-      "type": "string",
-      "description": "Name of the media that is being downloaded.  See\nReadRequest.resource_name."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceName"
-  ]
-}
+
+```js
+google_youtubereporting.media.download({
+  "resourceName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Media"
-}
-```
-## Operation: reportTypes.list
+
+#### Parameters
+* resourceName (string) **required** - Name of the media that is being downloaded.  See
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* alt (string) - Data format for response.
+* access_token (string) - OAuth access token.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+
+### reportTypes.list
 Lists report types.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "pageToken": {
-      "type": "string",
-      "description": "A token identifying a page of results the server should return. Typically,\nthis is the value of\nListReportTypesResponse.next_page_token\nreturned in response to the previous call to the `ListReportTypes` method."
-    },
-    "includeSystemManaged": {
-      "type": "boolean",
-      "description": "If set to true, also system-managed report types will be returned;\notherwise only the report types that can be used to create new reporting\njobs will be returned."
-    },
-    "pageSize": {
-      "type": "integer",
-      "description": "Requested page size. Server may return fewer report types than requested.\nIf unspecified, server will pick an appropriate default."
-    },
-    "onBehalfOfContentOwner": {
-      "type": "string",
-      "description": "The content owner's external ID on which behalf the user is acting on. If\nnot set, the user is acting for himself (his own channel)."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_youtubereporting.reportTypes.list({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListReportTypesResponse"
-}
-```
+
+

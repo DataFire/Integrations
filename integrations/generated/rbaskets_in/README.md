@@ -1,116 +1,85 @@
 # @datafire/rbaskets_in
+
+Client library for Request Baskets
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/rbaskets_in
+```
+
+```js
+let datafire = require('datafire');
+let rbaskets_in = require('@datafire/rbaskets_in').actions;
+
+let account = {
+  basket_token: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    rbaskets_in: account,
+  }
+})
+
+
+rbaskets_in.baskets.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 RESTful API of Request Baskets service
 
-## Operation: baskets.get
+## Actions
+### baskets.get
 Fetches a list of basket names managed by service. Require master token.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "max": {
-      "type": "integer",
-      "description": "Maximum number of basket names to return; default 20"
-    },
-    "skip": {
-      "type": "integer",
-      "description": "Number of basket names to skip; default 0"
-    },
-    "q": {
-      "type": "string",
-      "description": "Query string to filter result, only those basket names that match the query will be included in response"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rbaskets_in.baskets.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Baskets"
-}
-```
-## Operation: baskets.name.delete
+
+
+### baskets.name.delete
 Permanently deletes this basket and all collected requests.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The basket name"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+rbaskets_in.baskets.name.delete({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: baskets.name.get
+
+#### Parameters
+* name (string) **required** - The basket name
+
+### baskets.name.get
 Retrieves configuration settings of this basket.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The basket name"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+rbaskets_in.baskets.name.get({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Config"
-}
-```
-## Operation: baskets.name.post
+
+#### Parameters
+* name (string) **required** - The basket name
+
+### baskets.name.post
 Creates a new basket with this name.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of new basket"
-    },
-    "config": {
-      "$ref": "#/definitions/Config"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+rbaskets_in.baskets.name.post({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Token"
-}
-```
-## Operation: baskets.name.put
+
+#### Parameters
+* name (string) **required** - The name of new basket
+* config (object)
+
+### baskets.name.put
 Updates configuration settings of this basket.
 
 Special configuration parameters for request forwarding:
@@ -126,189 +95,85 @@ Special configuration parameters for request forwarding:
     * `false` => `GET http://server1.intranet:8001/myservice?status=OK`
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The basket name"
-    },
-    "config": {
-      "$ref": "#/definitions/Config"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "config"
-  ]
-}
+
+```js
+rbaskets_in.baskets.name.put({
+  "name": "",
+  "config": {}
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: baskets.name.requests.delete
+
+#### Parameters
+* name (string) **required** - The basket name
+* config (object) **required**
+
+### baskets.name.requests.delete
 Deletes all requests collected by this basket.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The basket name"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+rbaskets_in.baskets.name.requests.delete({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: baskets.name.requests.get
+
+#### Parameters
+* name (string) **required** - The basket name
+
+### baskets.name.requests.get
 Fetches collection of requests collected by this basket.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The basket name"
-    },
-    "max": {
-      "type": "integer",
-      "description": "Maximum number of requests to return; default 20"
-    },
-    "skip": {
-      "type": "integer",
-      "description": "Number of requests to skip; default 0"
-    },
-    "q": {
-      "type": "string",
-      "description": "Query string to filter result, only requests that match the query will be included in response"
-    },
-    "in": {
-      "type": "string",
-      "description": "Defines what is taken into account when filtering is applied: `body` - search in content body of collected requests,\n`query` - search among query parameters of collected requests, `headers` - search among request header values,\n`any` - search anywhere; default `any`\n",
-      "enum": [
-        "any",
-        "body",
-        "query",
-        "headers"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+rbaskets_in.baskets.name.requests.get({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Requests"
-}
-```
-## Operation: baskets.name.responses.method.get
+
+#### Parameters
+* name (string) **required** - The basket name
+* max (integer) - Maximum number of requests to return; default 20
+* skip (integer) - Number of requests to skip; default 0
+* q (string) - Query string to filter result, only requests that match the query will be included in response
+* in (string) - Defines what is taken into account when filtering is applied: `body` - search in content body of collected requests,
+
+### baskets.name.responses.method.get
 Retrieves information about configured response of the basket. Service will reply with this response to any
 HTTP request sent to the basket with appropriate HTTP method.
 
 If nothing is configured, the default response is HTTP 200 - OK with empty content.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The basket name"
-    },
-    "method": {
-      "type": "string",
-      "description": "The HTTP method this response is configured for",
-      "enum": [
-        "GET",
-        "HEAD",
-        "POST",
-        "PUT",
-        "PATCH",
-        "DELETE",
-        "CONNECT",
-        "OPTIONS",
-        "TRACE"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "method"
-  ]
-}
+
+```js
+rbaskets_in.baskets.name.responses.method.get({
+  "name": "",
+  "method": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Response"
-}
-```
-## Operation: baskets.name.responses.method.put
+
+#### Parameters
+* name (string) **required** - The basket name
+* method (string) **required** - The HTTP method this response is configured for
+
+### baskets.name.responses.method.put
 Allows to configure HTTP response of this basket. The service will reply with configured response to any HTTP
 request sent to the basket with appropriate HTTP method.
 
 If nothing is configured, the default response is HTTP 200 - OK with empty content.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The basket name"
-    },
-    "method": {
-      "type": "string",
-      "description": "The HTTP method this response is configured for",
-      "enum": [
-        "GET",
-        "HEAD",
-        "POST",
-        "PUT",
-        "PATCH",
-        "DELETE",
-        "CONNECT",
-        "OPTIONS",
-        "TRACE"
-      ]
-    },
-    "response": {
-      "$ref": "#/definitions/Response"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "method",
-    "response"
-  ]
-}
+
+```js
+rbaskets_in.baskets.name.responses.method.put({
+  "name": "",
+  "method": "",
+  "response": {}
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* name (string) **required** - The basket name
+* method (string) **required** - The HTTP method this response is configured for
+* response (object) **required**
+

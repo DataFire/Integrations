@@ -1,811 +1,423 @@
 # @datafire/runscope
+
+Client library for Runscope
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/runscope
+```
+
+```js
+let datafire = require('datafire');
+let runscope = require('@datafire/runscope').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    runscope: account,
+  }
+})
+
+
+runscope.account.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Manage Runscope programmatically.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+runscope.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+runscope.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: account.get
+
+
+### account.get
 Information about the authorized account.
 
-### Input Schema
-```json
-{}
+
+```js
+runscope.account.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/Account"
-    },
-    "meta": {
-      "$ref": "#/definitions/Meta"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: buckets.get
+
+
+### buckets.get
 Returns a list of buckets.
 
-### Input Schema
-```json
-{}
+
+```js
+runscope.buckets.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/Account"
-    },
-    "meta": {
-      "$ref": "#/definitions/Meta"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: buckets.post
+
+
+### buckets.post
 Create a new bucket
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "NewBucket": {
-      "$ref": "#/definitions/NewBucket"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "NewBucket"
-  ]
-}
+
+```js
+runscope.buckets.post({
+  "NewBucket": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Bucket"
-}
-```
-## Operation: buckets.bucketKey.delete
+
+#### Parameters
+* NewBucket (undefined) **required**
+
+### buckets.bucketKey.delete
 Delete a single bucket resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "bucketKey": {
-      "type": "string",
-      "description": "Unique identifier for a bucket"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucketKey"
-  ]
-}
+
+```js
+runscope.buckets.bucketKey.delete({
+  "bucketKey": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: buckets.bucketKey.get
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+
+### buckets.bucketKey.get
 Returns a single bucket resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "bucketKey": {
-      "type": "string",
-      "description": "Unique identifier for a bucket"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucketKey"
-  ]
-}
+
+```js
+runscope.buckets.bucketKey.get({
+  "bucketKey": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Bucket"
-}
-```
-## Operation: buckets.bucketKey.environments.get
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+
+### buckets.bucketKey.environments.get
 Returns list of shared environments for a specified bucket.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "bucketKey": {
-      "type": "string",
-      "description": "Unique identifier for a bucket"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucketKey"
-  ]
-}
+
+```js
+runscope.buckets.bucketKey.environments.get({
+  "bucketKey": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: buckets.bucketKey.environments.post
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+
+### buckets.bucketKey.environments.post
 Create new shared environment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "bucketKey": {
-      "type": "string",
-      "description": "Unique identifier for a bucket"
-    },
-    "NewEnvironment": {
-      "$ref": "#/definitions/NewEnvironment"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucketKey",
-    "NewEnvironment"
-  ]
-}
+
+```js
+runscope.buckets.bucketKey.environments.post({
+  "bucketKey": "",
+  "NewEnvironment": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: buckets.bucketKey.environments.environmentId.put
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+* NewEnvironment (undefined) **required**
+
+### buckets.bucketKey.environments.environmentId.put
 Update the details of a test environment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "bucketKey": {
-      "type": "string",
-      "description": "Unique identifier for a bucket"
-    },
-    "environmentId": {
-      "type": "string",
-      "description": "Unique identifier for a test environment"
-    },
-    "ModifiedEnvironment": {
-      "$ref": "#/definitions/NewEnvironment"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucketKey",
-    "environmentId",
-    "ModifiedEnvironment"
-  ]
-}
+
+```js
+runscope.buckets.bucketKey.environments.environmentId.put({
+  "bucketKey": "",
+  "environmentId": "",
+  "ModifiedEnvironment": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: buckets.bucketKey.errors.get
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+* environmentId (string) **required** - Unique identifier for a test environment
+* ModifiedEnvironment (undefined) **required**
+
+### buckets.bucketKey.errors.get
 Retrieve a list of error messages in a bucket
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "bucketKey": {
-      "type": "string",
-      "description": "Unique identifier for a bucket"
-    },
-    "count": {
-      "type": "integer",
-      "description": "Maxiumum number of messages to return. Default 50, max 1000."
-    },
-    "since": {
-      "type": "integer",
-      "description": "Only return messages after the given Unix timestamp"
-    },
-    "before": {
-      "type": "integer",
-      "description": "Only return messages before the given Unix timestamp"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucketKey"
-  ]
-}
+
+```js
+runscope.buckets.bucketKey.errors.get({
+  "bucketKey": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Bucket"
-}
-```
-## Operation: buckets.bucketKey.messages.delete
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+* count (integer) - Maxiumum number of messages to return. Default 50, max 1000.
+* since (integer) - Only return messages after the given Unix timestamp
+* before (integer) - Only return messages before the given Unix timestamp
+
+### buckets.bucketKey.messages.delete
 Clear a bucket (remove all messages).
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "bucketKey": {
-      "type": "string",
-      "description": "Unique identifier for a bucket"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucketKey"
-  ]
-}
+
+```js
+runscope.buckets.bucketKey.messages.delete({
+  "bucketKey": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Bucket"
-}
-```
-## Operation: buckets.bucketKey.messages.get
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+
+### buckets.bucketKey.messages.get
 Retrieve a list of messages in a bucket
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "bucketKey": {
-      "type": "string",
-      "description": "Unique identifier for a bucket"
-    },
-    "count": {
-      "type": "integer",
-      "description": "Maxiumum number of messages to return. Default 50, max 1000."
-    },
-    "since": {
-      "type": "integer",
-      "description": "Only return messages after the given Unix timestamp"
-    },
-    "before": {
-      "type": "integer",
-      "description": "Only return messages before the given Unix timestamp"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucketKey"
-  ]
-}
+
+```js
+runscope.buckets.bucketKey.messages.get({
+  "bucketKey": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Bucket"
-}
-```
-## Operation: buckets.bucketKey.messages.post
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+* count (integer) - Maxiumum number of messages to return. Default 50, max 1000.
+* since (integer) - Only return messages after the given Unix timestamp
+* before (integer) - Only return messages before the given Unix timestamp
+
+### buckets.bucketKey.messages.post
 Create a message
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "bucketKey": {
-      "type": "string",
-      "description": "Unique identifier for a bucket"
-    },
-    "NewMessage": {
-      "$ref": "#/definitions/NewMessage"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucketKey",
-    "NewMessage"
-  ]
-}
+
+```js
+runscope.buckets.bucketKey.messages.post({
+  "bucketKey": "",
+  "NewMessage": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Bucket"
-}
-```
-## Operation: buckets.bucketKey.messages.messageId.get
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+* NewMessage (undefined) **required**
+
+### buckets.bucketKey.messages.messageId.get
 Retrieve the details for a single message.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "bucketKey": {
-      "type": "string",
-      "description": "Unique identifier for a bucket"
-    },
-    "messageId": {
-      "type": "string",
-      "description": "The unique identifier for this message"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucketKey",
-    "messageId"
-  ]
-}
+
+```js
+runscope.buckets.bucketKey.messages.messageId.get({
+  "bucketKey": "",
+  "messageId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Bucket"
-}
-```
-## Operation: buckets.bucketKey.tests.get
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+* messageId (string) **required** - The unique identifier for this message
+
+### buckets.bucketKey.tests.get
 Returns a list of tests.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "bucketKey": {
-      "type": "string",
-      "description": "Unique identifier for a bucket"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucketKey"
-  ]
-}
+
+```js
+runscope.buckets.bucketKey.tests.get({
+  "bucketKey": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/Test"
-      },
-      "type": "array"
-    },
-    "meta": {
-      "$ref": "#/definitions/Meta"
-    }
-  }
-}
-```
-## Operation: buckets.bucketKey.tests.post
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+
+### buckets.bucketKey.tests.post
 Create a test.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "bucketKey": {
-      "type": "string",
-      "description": "Unique identifier for a bucket"
-    },
-    "NewTest": {
-      "$ref": "#/definitions/NewTest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucketKey",
-    "NewTest"
-  ]
-}
+
+```js
+runscope.buckets.bucketKey.tests.post({
+  "bucketKey": "",
+  "NewTest": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/Test"
-      },
-      "type": "array"
-    },
-    "meta": {
-      "$ref": "#/definitions/Meta"
-    }
-  }
-}
-```
-## Operation: buckets.bucketKey.tests.testId.delete
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+* NewTest (undefined) **required**
+
+### buckets.bucketKey.tests.testId.delete
 Delete a single test.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "bucketKey": {
-      "type": "string",
-      "description": "Unique identifier for a bucket"
-    },
-    "testId": {
-      "type": "string",
-      "description": "Unique identifier for a test"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucketKey",
-    "testId"
-  ]
-}
+
+```js
+runscope.buckets.bucketKey.tests.testId.delete({
+  "bucketKey": "",
+  "testId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: buckets.bucketKey.tests.testId.environments.get
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+* testId (string) **required** - Unique identifier for a test
+
+### buckets.bucketKey.tests.testId.environments.get
 Return details of the test's environments (only those that belong to the specified test)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "bucketKey": {
-      "type": "string",
-      "description": "Unique identifier for a bucket"
-    },
-    "testId": {
-      "type": "string",
-      "description": "Unique identifier for a test"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucketKey",
-    "testId"
-  ]
-}
+
+```js
+runscope.buckets.bucketKey.tests.testId.environments.get({
+  "bucketKey": "",
+  "testId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: buckets.bucketKey.tests.testId.environments.post
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+* testId (string) **required** - Unique identifier for a test
+
+### buckets.bucketKey.tests.testId.environments.post
 Create new test environment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "bucketKey": {
-      "type": "string",
-      "description": "Unique identifier for a bucket"
-    },
-    "testId": {
-      "type": "string",
-      "description": "Unique identifier for a test"
-    },
-    "NewEnvironment": {
-      "$ref": "#/definitions/NewEnvironment"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucketKey",
-    "testId",
-    "NewEnvironment"
-  ]
-}
+
+```js
+runscope.buckets.bucketKey.tests.testId.environments.post({
+  "bucketKey": "",
+  "testId": "",
+  "NewEnvironment": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: buckets.bucketKey.tests.testId.environments.environmentId.put
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+* testId (string) **required** - Unique identifier for a test
+* NewEnvironment (undefined) **required**
+
+### buckets.bucketKey.tests.testId.environments.environmentId.put
 Update the details of a test environment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "bucketKey": {
-      "type": "string",
-      "description": "Unique identifier for a bucket"
-    },
-    "testId": {
-      "type": "string",
-      "description": "Unique identifier for a test"
-    },
-    "environmentId": {
-      "type": "string",
-      "description": "Unique identifier for a test environment"
-    },
-    "ModifiedEnvironment": {
-      "$ref": "#/definitions/NewEnvironment"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucketKey",
-    "testId",
-    "environmentId",
-    "ModifiedEnvironment"
-  ]
-}
+
+```js
+runscope.buckets.bucketKey.tests.testId.environments.environmentId.put({
+  "bucketKey": "",
+  "testId": "",
+  "environmentId": "",
+  "ModifiedEnvironment": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: buckets.bucketKey.tests.testId.steps.get
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+* testId (string) **required** - Unique identifier for a test
+* environmentId (string) **required** - Unique identifier for a test environment
+* ModifiedEnvironment (undefined) **required**
+
+### buckets.bucketKey.tests.testId.steps.get
 List test steps for a test.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "bucketKey": {
-      "type": "string",
-      "description": "Unique identifier for a bucket"
-    },
-    "testId": {
-      "type": "string",
-      "description": "Unique identifier for a test"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucketKey",
-    "testId"
-  ]
-}
+
+```js
+runscope.buckets.bucketKey.tests.testId.steps.get({
+  "bucketKey": "",
+  "testId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: buckets.bucketKey.tests.testId.steps.post
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+* testId (string) **required** - Unique identifier for a test
+
+### buckets.bucketKey.tests.testId.steps.post
 Add new test step.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "bucketKey": {
-      "type": "string",
-      "description": "Unique identifier for a bucket"
-    },
-    "testId": {
-      "type": "string",
-      "description": "Unique identifier for a test"
-    },
-    "NewStep": {
-      "$ref": "#/definitions/NewStep"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucketKey",
-    "testId",
-    "NewStep"
-  ]
-}
+
+```js
+runscope.buckets.bucketKey.tests.testId.steps.post({
+  "bucketKey": "",
+  "testId": "",
+  "NewStep": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: buckets.bucketKey.tests.testId.steps.stepId.delete
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+* testId (string) **required** - Unique identifier for a test
+* NewStep (undefined) **required**
+
+### buckets.bucketKey.tests.testId.steps.stepId.delete
 Delete a step from a test.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "bucketKey": {
-      "type": "string",
-      "description": "Unique identifier for a bucket"
-    },
-    "testId": {
-      "type": "string",
-      "description": "Unique identifier for a test"
-    },
-    "stepId": {
-      "type": "string",
-      "description": "Unique identifier for a test step"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucketKey",
-    "testId",
-    "stepId"
-  ]
-}
+
+```js
+runscope.buckets.bucketKey.tests.testId.steps.stepId.delete({
+  "bucketKey": "",
+  "testId": "",
+  "stepId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: buckets.bucketKey.tests.testId.steps.stepId.put
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+* testId (string) **required** - Unique identifier for a test
+* stepId (string) **required** - Unique identifier for a test step
+
+### buckets.bucketKey.tests.testId.steps.stepId.put
 Update the details of a single test step.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "bucketKey": {
-      "type": "string",
-      "description": "Unique identifier for a bucket"
-    },
-    "testId": {
-      "type": "string",
-      "description": "Unique identifier for a test"
-    },
-    "stepId": {
-      "type": "string",
-      "description": "Unique identifier for a test step"
-    },
-    "NewStep": {
-      "$ref": "#/definitions/NewStep"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucketKey",
-    "testId",
-    "stepId",
-    "NewStep"
-  ]
-}
+
+```js
+runscope.buckets.bucketKey.tests.testId.steps.stepId.put({
+  "bucketKey": "",
+  "testId": "",
+  "stepId": "",
+  "NewStep": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: teams.teamId.integrations.get
+
+#### Parameters
+* bucketKey (string) **required** - Unique identifier for a bucket
+* testId (string) **required** - Unique identifier for a test
+* stepId (string) **required** - Unique identifier for a test step
+* NewStep (undefined) **required**
+
+### teams.teamId.integrations.get
 Returns a list of integrations configured for the team.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "teamId": {
-      "type": "string",
-      "description": "Unique identifier for team"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "teamId"
-  ]
-}
+
+```js
+runscope.teams.teamId.integrations.get({
+  "teamId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Account"
-  },
-  "type": "array"
-}
-```
-## Operation: teams.teamId.people.get
+
+#### Parameters
+* teamId (string) **required** - Unique identifier for team
+
+### teams.teamId.people.get
 List people and integrations associated with a given team.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "teamId": {
-      "type": "string",
-      "description": "Unique identifier for team"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "teamId"
-  ]
-}
+
+```js
+runscope.teams.teamId.people.get({
+  "teamId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Account"
-  },
-  "type": "array"
-}
-```
+
+#### Parameters
+* teamId (string) **required** - Unique identifier for team
+

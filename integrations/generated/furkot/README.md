@@ -1,119 +1,83 @@
 # @datafire/furkot
+
+Client library for Furkot Trips
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/furkot
+```
+
+```js
+let datafire = require('datafire');
+let furkot = require('@datafire/furkot').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    furkot: account,
+  }
+})
+
+
+furkot.trip.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Furkot provides Rest API to access user trip data.
 Using Furkot API an application can list user trips and display stops for a specific trip.
 Furkot API uses OAuth2 protocol to authorize applications to access data on behalf of users.
 
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+furkot.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+furkot.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: trip.get
+
+
+### trip.get
 list user's trips
 
-### Input Schema
-```json
-{}
+
+```js
+furkot.trip.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Trip"
-  },
-  "type": "array"
-}
-```
-## Operation: trip.trip_id.stop.get
+
+
+### trip.trip_id.stop.get
 list stops for a trip identified by {trip_id}
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "trip_id": {
-      "type": "string",
-      "description": "id of the trip"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "trip_id"
-  ]
-}
+
+```js
+furkot.trip.trip_id.stop.get({
+  "trip_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Step"
-  },
-  "type": "array"
-}
-```
+
+#### Parameters
+* trip_id (string) **required** - id of the trip
+

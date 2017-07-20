@@ -1,33 +1,47 @@
 # @datafire/import_extraction
 
+Client library for import.io
 
-## Operation: extractor.extractorId.get
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/import_extraction
+```
+
+```js
+let datafire = require('datafire');
+let import_extraction = require('@datafire/import_extraction').actions;
+
+let account = {
+  api_key: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    import_extraction: account,
+  }
+})
+
+
+import_extraction.extractor.extractorId.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
+
+
+## Actions
+### extractor.extractorId.get
 Query by extractor endpoint, adhoc runs only.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "extractorId": {
-      "type": "string",
-      "description": "extractorId"
-    },
-    "url": {
-      "type": "string",
-      "description": "url"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "extractorId",
-    "url"
-  ]
-}
+
+```js
+import_extraction.extractor.extractorId.get({
+  "extractorId": "",
+  "url": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/QueryResponse"
-}
-```
+
+#### Parameters
+* extractorId (string) **required** - extractorId
+* url (string) **required** - url
+

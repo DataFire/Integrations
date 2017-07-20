@@ -1,63 +1,59 @@
 # @datafire/import_run
 
+Client library for import.io
 
-## Operation: extractor.extractorId.cancel.post
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/import_run
+```
+
+```js
+let datafire = require('datafire');
+let import_run = require('@datafire/import_run').actions;
+
+let account = {
+  api_key: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    import_run: account,
+  }
+})
+
+
+import_run.extractor.extractorId.cancel.post({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
+
+
+## Actions
+### extractor.extractorId.cancel.post
 Cancel an existing crawl.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "extractorId": {
-      "type": "string",
-      "description": "extractorId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "extractorId"
-  ]
-}
+
+```js
+import_run.extractor.extractorId.cancel.post({
+  "extractorId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "additionalProperties": {
-    "type": "string"
-  },
-  "type": "object"
-}
-```
-## Operation: extractor.extractorId.start.post
+
+#### Parameters
+* extractorId (string) **required** - extractorId
+
+### extractor.extractorId.start.post
 Launch a crawl from an extractor that a user owns.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "extractorId": {
-      "type": "string",
-      "description": "the id of the extractor to start crawling with"
-    },
-    "loginSessionId": {
-      "type": "string",
-      "description": "The loginSessionId required for authenticated extractors. Only required when running authenticated extractors."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "extractorId"
-  ]
-}
+
+```js
+import_run.extractor.extractorId.start.post({
+  "extractorId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "additionalProperties": {
-    "type": "string"
-  },
-  "type": "object"
-}
-```
+
+#### Parameters
+* extractorId (string) **required** - the id of the extractor to start crawling with
+* loginSessionId (string) - The loginSessionId required for authenticated extractors. Only required when running authenticated extractors.
+

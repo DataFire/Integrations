@@ -1,4 +1,35 @@
 # @datafire/rebilly
+
+Client library for Rebilly
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/rebilly
+```
+
+```js
+let datafire = require('datafire');
+let rebilly = require('@datafire/rebilly').actions;
+
+let account = {
+  ApiKey: "",
+  username: "",
+  password: "",
+  RebAuth: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    rebilly: account,
+  }
+})
+
+
+rebilly.websites.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 # Introduction
 The Rebilly API is built on HTTP.  Our API is RESTful.  It has predictable
 resource URLs.  It returns HTTP response codes to indicate errors.  It also
@@ -46,6911 +77,3469 @@ $client = new Rebilly\Client([
 ```
 
 
-## Operation: 3dsecure.get
+## Actions
+### 3dsecure.get
 Retrieve a list of ThreeDSecure entries
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.3dsecure.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/ThreeDSecure"
-  },
-  "type": "array"
-}
-```
-## Operation: 3dsecure.post
+
+
+### 3dsecure.post
 Create a ThreeDSecure entry
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ThreeDSecure"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.3dsecure.post({
+  "body": {
+    "enrolled": "",
+    "enrollmentEci": "",
+    "customerId": null,
+    "gatewayAccountId": null,
+    "paymentCardId": null,
+    "websiteId": null,
+    "currency": "",
+    "amount": 0
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ThreeDSecure"
-}
-```
-## Operation: 3dsecure.id.get
+
+#### Parameters
+* body (object) **required**
+
+### 3dsecure.id.get
 Retrieve a ThreeDSecure entry with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.3dsecure.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ThreeDSecure"
-}
-```
-## Operation: activation.token.post
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### activation.token.post
 Sends a token to activate user account
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "The token string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token"
-  ]
-}
+
+```js
+rebilly.activation.token.post({
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api_keys.get
+
+#### Parameters
+* token (string) **required** - The token string
+
+### api_keys.get
 Retrieve a list of api keys
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.api_keys.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/ApiKey"
-  },
-  "type": "array"
-}
-```
-## Operation: api_keys.post
+
+
+### api_keys.post
 Create an api key
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ApiKey"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.api_keys.post({
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApiKey"
-}
-```
-## Operation: api_keys.id.delete
+
+#### Parameters
+* body (object) **required** - API secret Key.
+
+### api_keys.id.delete
 Delete api key with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.api_keys.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api_keys.id.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### api_keys.id.get
 Retrieve api key with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.api_keys.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApiKey"
-}
-```
-## Operation: api_keys.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### api_keys.id.put
 Create or update api key with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ApiKey"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+
+```js
+rebilly.api_keys.id.put({
+  "body": {},
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApiKey"
-}
-```
-## Operation: attachments.get
+
+#### Parameters
+* body (object) **required** - API secret Key.
+* id (string) **required** - The resource identifier string
+
+### attachments.get
 Retrieve a list of Attachments
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    },
-    "filter": {
-      "type": "string",
-      "description": "The collection items filter requires a special format.\nUse \",\" for multiple allowed values.  Use \";\" for multiple fields.\nSee the filter guide for more options and examples about this format.\n"
-    },
-    "q": {
-      "type": "string",
-      "description": "The partial search of the text fields."
-    },
-    "expand": {
-      "type": "string",
-      "description": "Expand response to get full related object intead of ID.  See the expand guide for more info."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Limit the returned fields to the list specified, separated by comma.  Note that id is always returned."
-    },
-    "sort": {
-      "type": "array",
-      "description": "The collection items sort field and order (prefix with \"-\" for descending sort)."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.attachments.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Attachment"
-  },
-  "type": "array"
-}
-```
-## Operation: attachments.post
+
+
+### attachments.post
 Create an Attachment
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Attachment"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.attachments.post({
+  "body": {
+    "fileId": "",
+    "relatedId": "",
+    "relatedType": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Attachment"
-}
-```
-## Operation: attachments.id.delete
+
+#### Parameters
+* body (object) **required**
+
+### attachments.id.delete
 Delete the Attachment with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.attachments.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: attachments.id.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### attachments.id.get
 Retrieve a Attachment with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.attachments.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Attachment"
-}
-```
-## Operation: attachments.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### attachments.id.put
 Update the Attachment with predefined ID
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Attachment"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.attachments.id.put({
+  "body": {
+    "fileId": "",
+    "relatedId": "",
+    "relatedType": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Attachment"
-}
-```
-## Operation: authentication_options.get
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### authentication_options.get
 Read current authentication options
 
 
-### Input Schema
-```json
-{}
+
+```js
+rebilly.authentication_options.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/AuthenticationOptions"
-  },
-  "type": "array"
-}
-```
-## Operation: authentication_options.put
+
+
+### authentication_options.put
 Change options
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/AuthenticationOptions"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.authentication_options.put({
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthenticationOptions"
-}
-```
-## Operation: authentication_tokens.get
+
+#### Parameters
+* body (object) **required**
+
+### authentication_tokens.get
 Retrieve a list of auth tokens
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.authentication_tokens.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/AuthenticationToken"
-  },
-  "type": "array"
-}
-```
-## Operation: authentication_tokens.post
+
+
+### authentication_tokens.post
 Login a user (customer)
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/AuthenticationToken"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.authentication_tokens.post({
+  "body": {
+    "username": "",
+    "password": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthenticationToken"
-}
-```
-## Operation: authentication_tokens.token.delete
+
+#### Parameters
+* body (object) **required**
+
+### authentication_tokens.token.delete
 Logout a user
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "The token identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token"
-  ]
-}
+
+```js
+rebilly.authentication_tokens.token.delete({
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: authentication_tokens.token.get
+
+#### Parameters
+* token (string) **required** - The token identifier string
+
+### authentication_tokens.token.get
 Verify an authentication token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "The token identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token"
-  ]
-}
+
+```js
+rebilly.authentication_tokens.token.get({
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthenticationToken"
-}
-```
-## Operation: bank_accounts.get
+
+#### Parameters
+* token (string) **required** - The token identifier string
+
+### bank_accounts.get
 Retrieve a list of Bank Accounts
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.bank_accounts.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/BankAccount"
-  },
-  "type": "array"
-}
-```
-## Operation: bank_accounts.post
+
+
+### bank_accounts.post
 Create a Bank Account
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/BankAccount"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.bank_accounts.post({
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BankAccount"
-}
-```
-## Operation: bank_accounts.id.get
+
+#### Parameters
+* body (object) **required**
+
+### bank_accounts.id.get
 Retrieve a Bank Account with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.bank_accounts.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BankAccount"
-}
-```
-## Operation: bank_accounts.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### bank_accounts.id.put
 Create or update a BankAccount with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/BankAccount"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+
+```js
+rebilly.bank_accounts.id.put({
+  "body": {},
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BankAccount"
-}
-```
-## Operation: bank_accounts.id.deactivation.post
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### bank_accounts.id.deactivation.post
 Deactivate a Bank Account
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.bank_accounts.id.deactivation.post({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BankAccount"
-}
-```
-## Operation: blacklists.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### blacklists.get
 Retrieve a list of blacklists
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.blacklists.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Blacklist"
-  },
-  "type": "array"
-}
-```
-## Operation: blacklists.post
+
+
+### blacklists.post
 Create a blacklist
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Blacklist"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.blacklists.post({
+  "body": {
+    "type": "",
+    "value": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Blacklist"
-}
-```
-## Operation: blacklists.id.delete
+
+#### Parameters
+* body (object) **required**
+
+### blacklists.id.delete
 Delete a blacklist with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.blacklists.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: blacklists.id.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### blacklists.id.get
 Retrieve a blacklist with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.blacklists.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Blacklist"
-}
-```
-## Operation: blacklists.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### blacklists.id.put
 Create a blacklist with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Blacklist"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.blacklists.id.put({
+  "body": {
+    "type": "",
+    "value": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Blacklist"
-}
-```
-## Operation: checkout_pages.get
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### checkout_pages.get
 Retrieve a list of checkout pages
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.checkout_pages.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/CheckoutPage"
-  },
-  "type": "array"
-}
-```
-## Operation: checkout_pages.post
+
+
+### checkout_pages.post
 Create a Checkout Page
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CheckoutPage"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.checkout_pages.post({
+  "body": {
+    "name": "",
+    "planId": "",
+    "websiteId": "",
+    "uriPath": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CheckoutPage"
-}
-```
-## Operation: checkout_pages.id.delete
+
+#### Parameters
+* body (object) **required**
+
+### checkout_pages.id.delete
 Delete a Checkout Page with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.checkout_pages.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: checkout_pages.id.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### checkout_pages.id.get
 Retrieve a Checkout Page with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.checkout_pages.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CheckoutPage"
-}
-```
-## Operation: checkout_pages.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### checkout_pages.id.put
 Create or update a Checkout Page with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CheckoutPage"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.checkout_pages.id.put({
+  "body": {
+    "name": "",
+    "planId": "",
+    "websiteId": "",
+    "uriPath": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CheckoutPage"
-}
-```
-## Operation: contacts.get
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### contacts.get
 Retrieve a list of contacts
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.contacts.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Contact"
-  },
-  "type": "array"
-}
-```
-## Operation: contacts.post
+
+
+### contacts.post
 Create a contact
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Contact"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.contacts.post({
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Contact"
-}
-```
-## Operation: contacts.id.get
+
+#### Parameters
+* body (object) **required**
+
+### contacts.id.get
 Retrieve a contact with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.contacts.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Contact"
-}
-```
-## Operation: contacts.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### contacts.id.put
 Create or update a contact with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Contact"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+
+```js
+rebilly.contacts.id.put({
+  "body": {},
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Contact"
-}
-```
-## Operation: coupons.get
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### coupons.get
 Retrieve a list of coupons
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    },
-    "filter": {
-      "type": "string",
-      "description": "The collection items filter requires a special format.\nUse \",\" for multiple allowed values.  Use \";\" for multiple fields.\nSee the filter guide for more options and examples about this format.\n"
-    },
-    "q": {
-      "type": "string",
-      "description": "The partial search of the text fields."
-    },
-    "criteria": {
-      "type": "string",
-      "description": "The json criteria for collection"
-    },
-    "sort": {
-      "type": "array",
-      "description": "The collection items sort field and order (prefix with \"-\" for descending sort)."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.coupons.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Coupon"
-  },
-  "type": "array"
-}
-```
-## Operation: coupons.post
+
+
+### coupons.post
 Create a coupon
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Coupon"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.coupons.post({
+  "body": {
+    "discount": {},
+    "issuedTime": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Coupon"
-}
-```
-## Operation: coupons_redemptions.get
+
+#### Parameters
+* body (object) **required** - Coupons and Discounts
+
+### coupons_redemptions.get
 Retrieve a list of coupon redemptions
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    },
-    "filter": {
-      "type": "string",
-      "description": "The collection items filter requires a special format.\nUse \",\" for multiple allowed values.  Use \";\" for multiple fields.\nSee the filter guide for more options and examples about this format.\n"
-    },
-    "q": {
-      "type": "string",
-      "description": "The partial search of the text fields."
-    },
-    "criteria": {
-      "type": "string",
-      "description": "The json criteria for collection"
-    },
-    "sort": {
-      "type": "array",
-      "description": "The collection items sort field and order (prefix with \"-\" for descending sort)."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.coupons_redemptions.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/CouponRedemption"
-  },
-  "type": "array"
-}
-```
-## Operation: coupons_redemptions.post
+
+
+### coupons_redemptions.post
 Redeem a coupon
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CouponRedemption"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.coupons_redemptions.post({
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CouponRedemption"
-}
-```
-## Operation: coupons_redemptions.id.get
+
+#### Parameters
+* body (object) **required** - Coupons redemption log
+
+### coupons_redemptions.id.get
 Retrieve a coupon redemption with specified identifier string
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.coupons_redemptions.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CouponRedemption"
-}
-```
-## Operation: coupons_redemptions.id.cancel.post
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### coupons_redemptions.id.cancel.post
 Cancel a coupon redemption
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.coupons_redemptions.id.cancel.post({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: coupons.redemptionCode.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### coupons.redemptionCode.get
 Retrieve a coupon with specified redemption code string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "redemptionCode": {
-      "type": "string",
-      "description": "The Coupon's redemption code"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "redemptionCode"
-  ]
-}
+
+```js
+rebilly.coupons.redemptionCode.get({
+  "redemptionCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Coupon"
-}
-```
-## Operation: coupons.redemptionCode.put
+
+#### Parameters
+* redemptionCode (string) **required** - The Coupon's redemption code
+
+### coupons.redemptionCode.put
 Create or update a coupon with predefined redemption code
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Coupon"
-    },
-    "redemptionCode": {
-      "type": "string",
-      "description": "The Coupon's redemption code"
-    }
+
+```js
+rebilly.coupons.redemptionCode.put({
+  "body": {
+    "discount": {},
+    "issuedTime": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "redemptionCode"
-  ]
-}
+  "redemptionCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Coupon"
-}
-```
-## Operation: credential_hashes.emails.post
+
+#### Parameters
+* body (object) **required** - Coupons and Discounts
+* redemptionCode (string) **required** - The Coupon's redemption code
+
+### credential_hashes.emails.post
 Create an email credential
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/SmtpCredential"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.credential_hashes.emails.post({
+  "body": {
+    "host": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SmtpCredential"
-}
-```
-## Operation: credential_hashes.emails.hash.get
+
+#### Parameters
+* body (object) **required** - SMTP Credential
+
+### credential_hashes.emails.hash.get
 Retrieve an email credential with specified token identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hash": {
-      "type": "string",
-      "description": "The token identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hash"
-  ]
-}
+
+```js
+rebilly.credential_hashes.emails.hash.get({
+  "hash": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SmtpCredential"
-}
-```
-## Operation: credential_hashes.webhooks.post
+
+#### Parameters
+* hash (string) **required** - The token identifier string
+
+### credential_hashes.webhooks.post
 Create a webhook credential
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/WebhookCredential"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.credential_hashes.webhooks.post({
+  "body": {
+    "host": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebhookCredential"
-}
-```
-## Operation: credential_hashes.webhooks.hash.get
+
+#### Parameters
+* body (object) **required** - Webhook credential
+
+### credential_hashes.webhooks.hash.get
 Retrieve a webhook credential with specified token identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "hash": {
-      "type": "string",
-      "description": "The token identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "hash"
-  ]
-}
+
+```js
+rebilly.credential_hashes.webhooks.hash.get({
+  "hash": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebhookCredential"
-}
-```
-## Operation: credentials.get
+
+#### Parameters
+* hash (string) **required** - The token identifier string
+
+### credentials.get
 Retrieve a list of credentials
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.credentials.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Credential"
-  },
-  "type": "array"
-}
-```
-## Operation: credentials.post
+
+
+### credentials.post
 Create a credential
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Credential"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.credentials.post({
+  "body": {
+    "username": "",
+    "password": "",
+    "customerId": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Credential"
-}
-```
-## Operation: credentials.id.delete
+
+#### Parameters
+* body (object) **required**
+
+### credentials.id.delete
 Delete a credential with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.credentials.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: credentials.id.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### credentials.id.get
 Retrieve a credential with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.credentials.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Credential"
-}
-```
-## Operation: credentials.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### credentials.id.put
 Create or update a credential with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Credential"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.credentials.id.put({
+  "body": {
+    "username": "",
+    "password": "",
+    "customerId": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Credential"
-}
-```
-## Operation: custom_events.get
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### custom_events.get
 Retrieve a list of custom events
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.custom_events.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/CustomEvent"
-  },
-  "type": "array"
-}
-```
-## Operation: custom_events.post
+
+
+### custom_events.post
 Create a custom event
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CustomEvent"
+
+```js
+rebilly.custom_events.post({
+  "body": {
+    "eventType": "",
+    "title": "",
+    "chronology": "",
+    "scheduleInstruction": {
+      "method": ""
     }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CustomEvent"
-}
-```
-## Operation: custom_events.id.delete
+
+#### Parameters
+* body (object) **required**
+
+### custom_events.id.delete
 Delete a custom event with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.custom_events.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: custom_events.id.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### custom_events.id.get
 Retrieve a custom event with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.custom_events.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CustomEvent"
-}
-```
-## Operation: custom_events.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### custom_events.id.put
 Create a custom event with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CustomEvent"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
+
+```js
+rebilly.custom_events.id.put({
+  "body": {
+    "eventType": "",
+    "title": "",
+    "chronology": "",
+    "scheduleInstruction": {
+      "method": ""
     }
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CustomEvent"
-}
-```
-## Operation: custom_events.id.rules.get
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### custom_events.id.rules.get
 Retrieve a list of rules for custom event
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.custom_events.id.rules.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RuleSet"
-}
-```
-## Operation: custom_events.id.rules.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### custom_events.id.rules.put
 Update the rules for custom event
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/RuleSet"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.custom_events.id.rules.put({
+  "body": {
+    "rules": []
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RuleSet"
-}
-```
-## Operation: custom_events.id.rules.history.get
+
+#### Parameters
+* body (object) **required** - Set of rules for particular event
+* id (string) **required** - The resource identifier string
+
+### custom_events.id.rules.history.get
 Retrieve the change history of the set of rules for the selected custom event.
 The history is updated each time you change the rules.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    },
-    "filter": {
-      "type": "string",
-      "description": "The collection items filter requires a special format.\nUse \",\" for multiple allowed values.  Use \";\" for multiple fields.\nSee the filter guide for more options and examples about this format.\n"
-    },
-    "q": {
-      "type": "string",
-      "description": "The partial search of the text fields."
-    },
-    "sort": {
-      "type": "array",
-      "description": "The collection items sort field and order (prefix with \"-\" for descending sort)."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Limit the returned fields to the list specified, separated by comma.  Note that id is always returned."
-    },
-    "expand": {
-      "type": "string",
-      "description": "Expand response to get full related object intead of ID.  See the expand guide for more info."
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.custom_events.id.rules.history.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/RuleSetHistoryItem"
-  },
-  "type": "array"
-}
-```
-## Operation: custom_events.id.rules.history.version.get
+
+#### Parameters
+* limit (integer) - The collection items limit
+* offset (integer) - The collection items offset
+* filter (string) - The collection items filter requires a special format.
+* q (string) - The partial search of the text fields.
+* sort (array) - The collection items sort field and order (prefix with "-" for descending sort).
+* fields (string) - Limit the returned fields to the list specified, separated by comma.  Note that id is always returned.
+* expand (string) - Expand response to get full related object intead of ID.  See the expand guide for more info.
+* id (string) **required** - The resource identifier string
+
+### custom_events.id.rules.history.version.get
 Retrieve the record from the change history of the set of rules for the selected custom event.
 A history record is created each time you change the rules.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "fields": {
-      "type": "string",
-      "description": "Limit the returned fields to the list specified, separated by comma.  Note that id is always returned."
-    },
-    "expand": {
-      "type": "string",
-      "description": "Expand response to get full related object intead of ID.  See the expand guide for more info."
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    },
-    "version": {
-      "type": "integer",
-      "description": "The rule set version. Expand response to get full related object instead of ID.  See the expand guide for more info.",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "version"
-  ]
-}
+
+```js
+rebilly.custom_events.id.rules.history.version.get({
+  "id": "",
+  "version": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RuleSetHistoryItem"
-}
-```
-## Operation: custom_events.id.rules.versions.version.get
+
+#### Parameters
+* fields (string) - Limit the returned fields to the list specified, separated by comma.  Note that id is always returned.
+* expand (string) - Expand response to get full related object intead of ID.  See the expand guide for more info.
+* id (string) **required** - The resource identifier string
+* version (integer) **required** - The rule set version. Expand response to get full related object instead of ID.  See the expand guide for more info.
+
+### custom_events.id.rules.versions.version.get
 Retrieve the version of the selected set of rules for the selected custom event.
 The versions are created each time you change the rules.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "fields": {
-      "type": "string",
-      "description": "Limit the returned fields to the list specified, separated by comma.  Note that id is always returned."
-    },
-    "expand": {
-      "type": "string",
-      "description": "Expand response to get full related object intead of ID.  See the expand guide for more info."
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    },
-    "version": {
-      "type": "integer",
-      "description": "The rule set version. Expand response to get full related object instead of ID.  See the expand guide for more info.",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "version"
-  ]
-}
+
+```js
+rebilly.custom_events.id.rules.versions.version.get({
+  "id": "",
+  "version": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RuleSetVersion"
-}
-```
-## Operation: custom_fields.resource.get
+
+#### Parameters
+* fields (string) - Limit the returned fields to the list specified, separated by comma.  Note that id is always returned.
+* expand (string) - Expand response to get full related object intead of ID.  See the expand guide for more info.
+* id (string) **required** - The resource identifier string
+* version (integer) **required** - The rule set version. Expand response to get full related object instead of ID.  See the expand guide for more info.
+
+### custom_fields.resource.get
 Retrieve a schema of Custom Fields for the given resource type
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resource": {
-      "type": "string",
-      "description": "The resource type string",
-      "enum": [
-        "customers",
-        "payment-cards",
-        "subscriptions",
-        "payments",
-        "websites",
-        "contacts",
-        "products"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resource"
-  ]
-}
+
+```js
+rebilly.custom_fields.resource.get({
+  "resource": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "The list of custom fields",
-  "items": {
-    "$ref": "#/definitions/CustomField"
-  },
-  "type": "array"
-}
-```
-## Operation: custom_fields.resource.name.delete
+
+#### Parameters
+* resource (string) **required** - The resource type string
+
+### custom_fields.resource.name.delete
 Delete a custom field by its name
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resource": {
-      "type": "string",
-      "description": "The resource type string",
-      "enum": [
-        "customers",
-        "payment-cards",
-        "subscriptions",
-        "payments",
-        "websites",
-        "contacts",
-        "products"
-      ]
-    },
-    "name": {
-      "type": "string",
-      "description": "The custom field's identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resource",
-    "name"
-  ]
-}
+
+```js
+rebilly.custom_fields.resource.name.delete({
+  "resource": "",
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: custom_fields.resource.name.get
+
+#### Parameters
+* resource (string) **required** - The resource type string
+* name (string) **required** - The custom field's identifier string
+
+### custom_fields.resource.name.get
 Retrieve a schema of the given Custom Field for the given resource type
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resource": {
-      "type": "string",
-      "description": "The resource type string",
-      "enum": [
-        "customers",
-        "payment-cards",
-        "subscriptions",
-        "payments",
-        "websites",
-        "contacts",
-        "products"
-      ]
-    },
-    "name": {
-      "type": "string",
-      "description": "The custom field's identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resource",
-    "name"
-  ]
-}
+
+```js
+rebilly.custom_fields.resource.name.get({
+  "resource": "",
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CustomField"
-}
-```
-## Operation: custom_fields.resource.name.put
+
+#### Parameters
+* resource (string) **required** - The resource type string
+* name (string) **required** - The custom field's identifier string
+
+### custom_fields.resource.name.put
 Create or alter a schema of the given Custom Field for the given resource type.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CustomField"
-    },
-    "resource": {
-      "type": "string",
-      "description": "The resource type string",
-      "enum": [
-        "customers",
-        "payment-cards",
-        "subscriptions",
-        "payments",
-        "websites",
-        "contacts",
-        "products"
-      ]
-    },
-    "name": {
-      "type": "string",
-      "description": "The custom field's identifier string"
-    }
+
+```js
+rebilly.custom_fields.resource.name.put({
+  "body": {
+    "name": "",
+    "type": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "resource",
-    "name"
-  ]
-}
+  "resource": "",
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CustomField"
-}
-```
-## Operation: customers.get
+
+#### Parameters
+* body (object) **required** - A separate Custom Field schema
+* resource (string) **required** - The resource type string
+* name (string) **required** - The custom field's identifier string
+
+### customers.get
 Retrieve a list of customers
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    },
-    "filter": {
-      "type": "string",
-      "description": "The collection items filter requires a special format.\nUse \",\" for multiple allowed values.  Use \";\" for multiple fields.\nSee the filter guide for more options and examples about this format.\n"
-    },
-    "q": {
-      "type": "string",
-      "description": "The partial search of the text fields."
-    },
-    "expand": {
-      "type": "string",
-      "description": "Expand response to get full related object intead of ID.  See the expand guide for more info."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Limit the returned fields to the list specified, separated by comma.  Note that id is always returned."
-    },
-    "sort": {
-      "type": "array",
-      "description": "The collection items sort field and order (prefix with \"-\" for descending sort)."
-    },
-    "Accept": {
-      "type": "string",
-      "description": "The response media type",
-      "enum": [
-        "application/json",
-        "text/csv"
-      ]
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.customers.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Customer"
-  },
-  "type": "array"
-}
-```
-## Operation: customers.post
+
+
+### customers.post
 Create a customer
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Customer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.customers.post({
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Customer"
-}
-```
-## Operation: customers.id.get
+
+#### Parameters
+* body (object) **required**
+
+### customers.id.get
 Retrieve a customer with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.customers.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Customer"
-}
-```
-## Operation: customers.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### customers.id.put
 Create a customer with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Customer"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+
+```js
+rebilly.customers.id.put({
+  "body": {},
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Customer"
-}
-```
-## Operation: customers.id.lead_source.delete
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### customers.id.lead_source.delete
 Delete a Lead Source that belongs to a certain customer
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.customers.id.lead_source.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: customers.id.lead_source.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### customers.id.lead_source.get
 Retrieve a Lead Source of given customer
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.customers.id.lead_source.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LeadSource"
-}
-```
-## Operation: customers.id.lead_source.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### customers.id.lead_source.put
 Create a Lead Source for a customer
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/LeadSource"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+
+```js
+rebilly.customers.id.lead_source.put({
+  "body": {},
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LeadSource"
-}
-```
-## Operation: disputes.get
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### disputes.get
 Retrieve a list of disputes
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.disputes.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Dispute"
-  },
-  "type": "array"
-}
-```
-## Operation: disputes.post
+
+
+### disputes.post
 Create a dispute
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Dispute"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.disputes.post({
+  "body": {
+    "currency": "",
+    "transactionId": "",
+    "postedTime": "",
+    "type": "",
+    "status": "",
+    "reasonCode": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Dispute"
-}
-```
-## Operation: disputes.id.get
+
+#### Parameters
+* body (object) **required**
+
+### disputes.id.get
 Retrieve a dispute with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.disputes.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Dispute"
-}
-```
-## Operation: disputes.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### disputes.id.put
 Create or update a Dispute with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Dispute"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.disputes.id.put({
+  "body": {
+    "currency": "",
+    "transactionId": "",
+    "postedTime": "",
+    "type": "",
+    "status": "",
+    "reasonCode": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Dispute"
-}
-```
-## Operation: events.get
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### events.get
 Retrieve a list of existing events
 
-### Input Schema
-```json
-{}
+
+```js
+rebilly.events.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/SystemEvent"
-  },
-  "type": "array"
-}
-```
-## Operation: events.eventType.get
+
+
+### events.eventType.get
 Retrieve the event information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "eventType": {
-      "type": "string",
-      "description": "The event type"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "eventType"
-  ]
-}
+
+```js
+rebilly.events.eventType.get({
+  "eventType": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SystemEvent"
-}
-```
-## Operation: events.eventType.rules.get
+
+#### Parameters
+* eventType (string) **required** - The event type
+
+### events.eventType.rules.get
 Retrieve a list of rules for event
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "eventType": {
-      "type": "string",
-      "description": "The event type"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "eventType"
-  ]
-}
+
+```js
+rebilly.events.eventType.rules.get({
+  "eventType": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RuleSet"
-}
-```
-## Operation: events.eventType.rules.put
+
+#### Parameters
+* eventType (string) **required** - The event type
+
+### events.eventType.rules.put
 Update the rules for event
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/RuleSet"
-    },
-    "eventType": {
-      "type": "string",
-      "description": "The event type"
-    }
+
+```js
+rebilly.events.eventType.rules.put({
+  "body": {
+    "rules": []
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "eventType"
-  ]
-}
+  "eventType": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RuleSet"
-}
-```
-## Operation: events.eventType.rules.history.get
+
+#### Parameters
+* body (object) **required** - Set of rules for particular event
+* eventType (string) **required** - The event type
+
+### events.eventType.rules.history.get
 Retrieve the change history of the selected set of rules.
 The history is updated each time you change the rules.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    },
-    "filter": {
-      "type": "string",
-      "description": "The collection items filter requires a special format.\nUse \",\" for multiple allowed values.  Use \";\" for multiple fields.\nSee the filter guide for more options and examples about this format.\n"
-    },
-    "q": {
-      "type": "string",
-      "description": "The partial search of the text fields."
-    },
-    "sort": {
-      "type": "array",
-      "description": "The collection items sort field and order (prefix with \"-\" for descending sort)."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Limit the returned fields to the list specified, separated by comma.  Note that id is always returned."
-    },
-    "expand": {
-      "type": "string",
-      "description": "Expand response to get full related object intead of ID.  See the expand guide for more info."
-    },
-    "eventType": {
-      "type": "string",
-      "description": "The event type"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "eventType"
-  ]
-}
+
+```js
+rebilly.events.eventType.rules.history.get({
+  "eventType": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/RuleSetHistoryItem"
-  },
-  "type": "array"
-}
-```
-## Operation: events.eventType.rules.history.version.get
+
+#### Parameters
+* limit (integer) - The collection items limit
+* offset (integer) - The collection items offset
+* filter (string) - The collection items filter requires a special format.
+* q (string) - The partial search of the text fields.
+* sort (array) - The collection items sort field and order (prefix with "-" for descending sort).
+* fields (string) - Limit the returned fields to the list specified, separated by comma.  Note that id is always returned.
+* expand (string) - Expand response to get full related object intead of ID.  See the expand guide for more info.
+* eventType (string) **required** - The event type
+
+### events.eventType.rules.history.version.get
 Retrieve the record from the change history of the selected set of rules.
 A history record is created each time you change the rules.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "fields": {
-      "type": "string",
-      "description": "Limit the returned fields to the list specified, separated by comma.  Note that id is always returned."
-    },
-    "expand": {
-      "type": "string",
-      "description": "Expand response to get full related object intead of ID.  See the expand guide for more info."
-    },
-    "eventType": {
-      "type": "string",
-      "description": "The event type"
-    },
-    "version": {
-      "type": "integer",
-      "description": "The rule set version. Expand response to get full related object instead of ID.  See the expand guide for more info.",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "eventType",
-    "version"
-  ]
-}
+
+```js
+rebilly.events.eventType.rules.history.version.get({
+  "eventType": "",
+  "version": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RuleSetHistoryItem"
-}
-```
-## Operation: events.eventType.rules.versions.version.get
+
+#### Parameters
+* fields (string) - Limit the returned fields to the list specified, separated by comma.  Note that id is always returned.
+* expand (string) - Expand response to get full related object intead of ID.  See the expand guide for more info.
+* eventType (string) **required** - The event type
+* version (integer) **required** - The rule set version. Expand response to get full related object instead of ID.  See the expand guide for more info.
+
+### events.eventType.rules.versions.version.get
 Retrieve the version of the selected set of rules.
 The versions are created each time you change the rules.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "fields": {
-      "type": "string",
-      "description": "Limit the returned fields to the list specified, separated by comma.  Note that id is always returned."
-    },
-    "expand": {
-      "type": "string",
-      "description": "Expand response to get full related object intead of ID.  See the expand guide for more info."
-    },
-    "eventType": {
-      "type": "string",
-      "description": "The event type"
-    },
-    "version": {
-      "type": "integer",
-      "description": "The rule set version. Expand response to get full related object instead of ID.  See the expand guide for more info.",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "eventType",
-    "version"
-  ]
-}
+
+```js
+rebilly.events.eventType.rules.versions.version.get({
+  "eventType": "",
+  "version": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RuleSetVersion"
-}
-```
-## Operation: files.get
+
+#### Parameters
+* fields (string) - Limit the returned fields to the list specified, separated by comma.  Note that id is always returned.
+* expand (string) - Expand response to get full related object intead of ID.  See the expand guide for more info.
+* eventType (string) **required** - The event type
+* version (integer) **required** - The rule set version. Expand response to get full related object instead of ID.  See the expand guide for more info.
+
+### files.get
 Retrieve a list of files
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    },
-    "filter": {
-      "type": "string",
-      "description": "The collection items filter requires a special format.\nUse \",\" for multiple allowed values.  Use \";\" for multiple fields.\nSee the filter guide for more options and examples about this format.\n"
-    },
-    "q": {
-      "type": "string",
-      "description": "The partial search of the text fields."
-    },
-    "expand": {
-      "type": "string",
-      "description": "Expand response to get full related object intead of ID.  See the expand guide for more info."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Limit the returned fields to the list specified, separated by comma.  Note that id is always returned."
-    },
-    "sort": {
-      "type": "array",
-      "description": "The collection items sort field and order (prefix with \"-\" for descending sort)."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.files.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/File"
-  },
-  "type": "array"
-}
-```
-## Operation: files.post
+
+
+### files.post
 Create a file
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "properties": {
-        "url": {
-          "description": "The file URL",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.files.post({
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/File"
-}
-```
-## Operation: files.id.delete
+
+#### Parameters
+* body (object) **required**
+
+### files.id.delete
 Delete the File with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.files.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: files.id.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### files.id.get
 Retrieve a File with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.files.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/File"
-}
-```
-## Operation: files.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### files.id.put
 Update the File with predefined ID
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/File"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+
+```js
+rebilly.files.id.put({
+  "body": {},
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/File"
-}
-```
-## Operation: files.id.download.get
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### files.id.download.get
 Retrieve a file
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.files.id.download.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "readOnly": true,
-  "type": "string"
-}
-```
-## Operation: files.id.downloadextension.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### files.id.downloadextension.get
 Used for converting images server-side
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    },
-    "extension": {
-      "type": "string",
-      "description": "File extension which also indicates the desired file format",
-      "enum": [
-        ".png",
-        ".jpg"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "extension"
-  ]
-}
+
+```js
+rebilly.files.id.downloadextension.get({
+  "id": "",
+  "extension": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "readOnly": true,
-  "type": "string"
-}
-```
-## Operation: forgot_password.post
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+* extension (string) **required** - File extension which also indicates the desired file format
+
+### forgot_password.post
 Sends an email with a link containing a token to reset user password
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Email"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.forgot_password.post({
+  "body": {
+    "email": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: gateway_accounts.get
+
+#### Parameters
+* body (object) **required**
+
+### gateway_accounts.get
 Retrieve a list of gateway accounts
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.gateway_accounts.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/GatewayAccount"
-  },
-  "type": "array"
-}
-```
-## Operation: gateway_accounts.post
+
+
+### gateway_accounts.post
 Create a Gateway Account
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GatewayAccount"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.gateway_accounts.post({
+  "body": {
+    "gatewayName": "",
+    "acquirerName": "",
+    "merchantCategoryCode": 0,
+    "websites": [],
+    "acceptedCurrencies": [],
+    "organizationId": null
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GatewayAccount"
-}
-```
-## Operation: gateway_accounts.id.delete
+
+#### Parameters
+* body (object) **required**
+
+### gateway_accounts.id.delete
 Delete a Gateway Account with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.gateway_accounts.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: gateway_accounts.id.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### gateway_accounts.id.get
 Retrieve a Gateway Account with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.gateway_accounts.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GatewayAccount"
-}
-```
-## Operation: gateway_accounts.id.patch
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### gateway_accounts.id.patch
 Update a GatewayAccount with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GatewayAccount"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.gateway_accounts.id.patch({
+  "body": {
+    "gatewayName": "",
+    "acquirerName": "",
+    "merchantCategoryCode": 0,
+    "websites": [],
+    "acceptedCurrencies": [],
+    "organizationId": null
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GatewayAccount"
-}
-```
-## Operation: gateway_accounts.id.put
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### gateway_accounts.id.put
 Create or update a GatewayAccount with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GatewayAccount"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.gateway_accounts.id.put({
+  "body": {
+    "gatewayName": "",
+    "acquirerName": "",
+    "merchantCategoryCode": 0,
+    "websites": [],
+    "acceptedCurrencies": [],
+    "organizationId": null
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GatewayAccount"
-}
-```
-## Operation: invoices.get
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### invoices.get
 Retrieve a list of invoices
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    },
-    "Accept": {
-      "type": "string",
-      "description": "The response media type",
-      "enum": [
-        "application/json",
-        "text/csv"
-      ]
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.invoices.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Invoice"
-  },
-  "type": "array"
-}
-```
-## Operation: invoices.post
+
+
+### invoices.post
 Create an invoice
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Invoice"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.invoices.post({
+  "body": {
+    "customerId": null,
+    "websiteId": null,
+    "currency": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Invoice"
-}
-```
-## Operation: invoices.id.get
+
+#### Parameters
+* body (object) **required**
+
+### invoices.id.get
 Retrieve an invoice with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Accept": {
-      "type": "string",
-      "description": "The response media type",
-      "enum": [
-        "application/json",
-        "application/pdf"
-      ]
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.invoices.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Invoice"
-}
-```
-## Operation: invoices.id.put
+
+#### Parameters
+* Accept (string) - The response media type
+* id (string) **required** - The resource identifier string
+
+### invoices.id.put
 Create or update an invoice with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Invoice"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.invoices.id.put({
+  "body": {
+    "customerId": null,
+    "websiteId": null,
+    "currency": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Invoice"
-}
-```
-## Operation: invoices.id.abandon.post
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### invoices.id.abandon.post
 Abandon an invoice with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.invoices.id.abandon.post({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Invoice"
-}
-```
-## Operation: invoices.id.issue.post
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### invoices.id.issue.post
 Issue an invoice with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/InvoiceIssue"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+
+```js
+rebilly.invoices.id.issue.post({
+  "body": {},
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Invoice"
-}
-```
-## Operation: invoices.id.items.get
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### invoices.id.items.get
 Retrieve an invoice items with specified invoice identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.invoices.id.items.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/InvoiceItem"
-  },
-  "type": "array"
-}
-```
-## Operation: invoices.id.items.post
+
+#### Parameters
+* limit (integer) - The collection items limit
+* offset (integer) - The collection items offset
+* id (string) **required** - The resource identifier string
+
+### invoices.id.items.post
 Create an invoice item
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/InvoiceItem"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.invoices.id.items.post({
+  "body": {
+    "type": "",
+    "unitPrice": 0
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/InvoiceItem"
-}
-```
-## Operation: invoices.id.lead_source.delete
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### invoices.id.lead_source.delete
 Delete a Lead Source that belongs to a certain invoice
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.invoices.id.lead_source.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: invoices.id.lead_source.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### invoices.id.lead_source.get
 Retrieve a Lead Source of given invoice
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.invoices.id.lead_source.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LeadSource"
-}
-```
-## Operation: invoices.id.lead_source.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### invoices.id.lead_source.put
 Create a Lead Source for an invoice
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/LeadSource"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+
+```js
+rebilly.invoices.id.lead_source.put({
+  "body": {},
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LeadSource"
-}
-```
-## Operation: invoices.id.void.post
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### invoices.id.void.post
 Void an invoice with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.invoices.id.void.post({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Invoice"
-}
-```
-## Operation: layouts.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### layouts.get
 Retrieve a layout list
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.layouts.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Layout"
-  },
-  "type": "array"
-}
-```
-## Operation: layouts.post
+
+
+### layouts.post
 Create a layout
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Layout"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.layouts.post({
+  "body": {
+    "name": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Layout"
-}
-```
-## Operation: layouts.id.delete
+
+#### Parameters
+* body (object) **required**
+
+### layouts.id.delete
 Delete a layout with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.layouts.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: layouts.id.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### layouts.id.get
 Retrieve a layout with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.layouts.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Layout"
-}
-```
-## Operation: layouts.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### layouts.id.put
 Create or update a layout with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Layout"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.layouts.id.put({
+  "body": {
+    "name": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Layout"
-}
-```
-## Operation: lists.get
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### lists.get
 Retrieve a collection of Lists
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    },
-    "filter": {
-      "type": "string",
-      "description": "The collection items filter requires a special format.\nUse \",\" for multiple allowed values.  Use \";\" for multiple fields.\nSee the filter guide for more options and examples about this format.\n"
-    },
-    "criteria": {
-      "type": "string",
-      "description": "The json criteria for collection"
-    },
-    "sort": {
-      "type": "array",
-      "description": "The collection items sort field and order (prefix with \"-\" for descending sort)."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.lists.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/List"
-  },
-  "type": "array"
-}
-```
-## Operation: lists.post
+
+
+### lists.post
 Create a List
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/List"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.lists.post({
+  "body": {
+    "name": "",
+    "values": []
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/List"
-}
-```
-## Operation: lists.id.delete
+
+#### Parameters
+* body (object) **required**
+
+### lists.id.delete
 Delete a list with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.lists.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: lists.id.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### lists.id.get
 Retrieve latest version of List with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.lists.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/List"
-}
-```
-## Operation: lists.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### lists.id.put
 Create or update a list with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/List"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.lists.id.put({
+  "body": {
+    "name": "",
+    "values": []
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/List"
-}
-```
-## Operation: lists.id.version.get
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### lists.id.version.get
 Retrieve List's exact version
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    },
-    "version": {
-      "type": "integer",
-      "description": "List version",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "version"
-  ]
-}
+
+```js
+rebilly.lists.id.version.get({
+  "id": "",
+  "version": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/List"
-}
-```
-## Operation: notes.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+* version (integer) **required** - List version
+
+### notes.get
 Retrieve a list of notes
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.notes.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Note"
-  },
-  "type": "array"
-}
-```
-## Operation: notes.post
+
+
+### notes.post
 Create a note
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Note"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.notes.post({
+  "body": {
+    "content": "",
+    "relatedType": "",
+    "relatedId": null
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Note"
-}
-```
-## Operation: notes.id.get
+
+#### Parameters
+* body (object) **required**
+
+### notes.id.get
 Retrieve a note with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.notes.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Note"
-}
-```
-## Operation: notes.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### notes.id.put
 Create or update a note with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Note"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.notes.id.put({
+  "body": {
+    "content": "",
+    "relatedType": "",
+    "relatedId": null
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Note"
-}
-```
-## Operation: organizations.get
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### organizations.get
 Retrieve a list of organizations
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.organizations.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Organization"
-  },
-  "type": "array"
-}
-```
-## Operation: organizations.post
+
+
+### organizations.post
 Create a organization
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Organization"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.organizations.post({
+  "body": {
+    "name": "",
+    "country": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Organization"
-}
-```
-## Operation: organizations.id.delete
+
+#### Parameters
+* body (object) **required**
+
+### organizations.id.delete
 Delete a organization with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.organizations.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: organizations.id.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### organizations.id.get
 Retrieve a organization with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.organizations.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Organization"
-}
-```
-## Operation: organizations.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### organizations.id.put
 Create or update a organization with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Organization"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.organizations.id.put({
+  "body": {
+    "name": "",
+    "country": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Organization"
-}
-```
-## Operation: password_tokens.get
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### password_tokens.get
 Retrieve a list of tokens
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.password_tokens.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/ResetPasswordToken"
-  },
-  "type": "array"
-}
-```
-## Operation: password_tokens.post
+
+
+### password_tokens.post
 Create a Reset Password Token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ResetPasswordToken"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.password_tokens.post({
+  "body": {
+    "username": "",
+    "password": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ResetPasswordToken"
-}
-```
-## Operation: password_tokens.id.delete
+
+#### Parameters
+* body (object) **required**
+
+### password_tokens.id.delete
 Delete a Reset Password Token with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.password_tokens.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: password_tokens.id.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### password_tokens.id.get
 Retrieve a Reset Password Token with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.password_tokens.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ResetPasswordToken"
-}
-```
-## Operation: payment_cards.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### payment_cards.get
 Retrieve a list of Payments Cards
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.payment_cards.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/PaymentCard"
-  },
-  "type": "array"
-}
-```
-## Operation: payment_cards.post
+
+
+### payment_cards.post
 Create a Payment Card
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/PaymentCard"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.payment_cards.post({
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PaymentCard"
-}
-```
-## Operation: payment_cards_migrations.get
+
+#### Parameters
+* body (object) **required**
+
+### payment_cards_migrations.get
 Retrieve a list of payment cards ready for migration
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.payment_cards_migrations.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/PaymentCard"
-  },
-  "type": "array"
-}
-```
-## Operation: payment_cards_migrations.migrate.post
+
+
+### payment_cards_migrations.migrate.post
 Migrate payment cards to another gateway account
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/PaymentCardMigrationRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.payment_cards_migrations.migrate.post({
+  "body": {
+    "fromGatewayAccountId": null,
+    "toGatewayAccountId": null,
+    "paymentCardIds": []
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PaymentCardMigrationResponse"
-}
-```
-## Operation: payment_cards.id.get
+
+#### Parameters
+* body (object) **required**
+
+### payment_cards.id.get
 Retrieve a Payment Card with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.payment_cards.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PaymentCard"
-}
-```
-## Operation: payment_cards.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### payment_cards.id.put
 Create a payment card with predefined ID
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/PaymentCard"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+
+```js
+rebilly.payment_cards.id.put({
+  "body": {},
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PaymentCard"
-}
-```
-## Operation: payment_cards.id.authorization.post
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### payment_cards.id.authorization.post
 Authorize a Payment Card
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "properties": {
-        "amount": {
-          "description": "Amount",
-          "format": "double",
-          "type": "number"
-        },
-        "currency": {
-          "description": "Currency (three letter code)",
-          "type": "string"
-        },
-        "gatewayAccountId": {
-          "description": "The Gateway account ID",
-          "type": "string"
-        },
-        "websiteId": {
-          "description": "The Website ID",
-          "type": "string"
-        }
-      },
-      "required": [
-        "websiteId",
-        "currency"
-      ],
-      "type": "object"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.payment_cards.id.authorization.post({
+  "body": {
+    "websiteId": "",
+    "currency": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PaymentCard"
-}
-```
-## Operation: payment_cards.id.deactivation.post
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### payment_cards.id.deactivation.post
 Deactivate a Payment Card
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.payment_cards.id.deactivation.post({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PaymentCard"
-}
-```
-## Operation: payments.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### payments.get
 Retrieve a payment list
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    },
-    "Accept": {
-      "type": "string",
-      "description": "The response media type",
-      "enum": [
-        "application/json",
-        "text/csv"
-      ]
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.payments.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Payment"
-  },
-  "type": "array"
-}
-```
-## Operation: payments.post
+
+
+### payments.post
 Create a payment
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Payment"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.payments.post({
+  "body": {
+    "websiteId": null,
+    "customerId": null,
+    "currency": "",
+    "amount": 0
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Payment"
-  },
-  "type": "array"
-}
-```
-## Operation: payments.id.get
+
+#### Parameters
+* body (object) **required**
+
+### payments.id.get
 Retrieve a payment with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.payments.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Payment"
-}
-```
-## Operation: payments.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### payments.id.put
 Make a payment with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Payment"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.payments.id.put({
+  "body": {
+    "websiteId": null,
+    "customerId": null,
+    "currency": "",
+    "amount": 0
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Payment"
-  },
-  "type": "array"
-}
-```
-## Operation: plans.get
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### plans.get
 Retrieve a list of plans
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.plans.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Plan"
-  },
-  "type": "array"
-}
-```
-## Operation: plans.post
+
+
+### plans.post
 Create a plan
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Plan"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.plans.post({
+  "body": {
+    "name": "",
+    "currency": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Plan"
-}
-```
-## Operation: plans.id.delete
+
+#### Parameters
+* body (object) **required**
+
+### plans.id.delete
 Delete a Plan with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.plans.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: plans.id.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### plans.id.get
 Retrieve a plan with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.plans.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Plan"
-}
-```
-## Operation: plans.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### plans.id.put
 Create or update a Plan with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Plan"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.plans.id.put({
+  "body": {
+    "name": "",
+    "currency": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Plan"
-}
-```
-## Operation: previews.rule_actions.send_email.post
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### previews.rule_actions.send_email.post
 Send a test email
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/SendTestEmail"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.previews.rule_actions.send_email.post({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SendTestEmail"
-}
-```
-## Operation: previews.rule_actions.trigger_webhook.post
+
+#### Parameters
+* body (undefined) **required** - Send a test email
+
+### previews.rule_actions.trigger_webhook.post
 Trigger a test webhook
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/SendPreviewWebhook"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.previews.rule_actions.trigger_webhook.post({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SendPreviewWebhook"
-}
-```
-## Operation: previews.webhooks.post
+
+#### Parameters
+* body (undefined) **required** - Trigger a test webhook
+
+### previews.webhooks.post
 Trigger a test webhook
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GlobalWebhook"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.previews.webhooks.post({
+  "body": {
+    "method": "",
+    "url": "",
+    "credentialHash": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: products.get
+
+#### Parameters
+* body (object) **required**
+
+### products.get
 Retrieve a list of products
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.products.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Product"
-  },
-  "type": "array"
-}
-```
-## Operation: products.post
+
+
+### products.post
 Create a Product
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Product"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.products.post({
+  "body": {
+    "name": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Product"
-}
-```
-## Operation: products.id.delete
+
+#### Parameters
+* body (object) **required** - Your product includes digital goods, services, and physical goods.
+
+### products.id.delete
 Delete a product with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.products.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: products.id.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### products.id.get
 Retrieve a product with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.products.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Product"
-}
-```
-## Operation: products.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### products.id.put
 Create a product with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Product"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.products.id.put({
+  "body": {
+    "name": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Product"
-}
-```
-## Operation: profile.get
+
+#### Parameters
+* body (object) **required** - Your product includes digital goods, services, and physical goods.
+* id (string) **required** - The resource identifier string
+
+### profile.get
 Retrieve user's profile
 
 
-### Input Schema
-```json
-{}
+
+```js
+rebilly.profile.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Profile"
-}
-```
-## Operation: profile.put
+
+
+### profile.put
 Update user's profile
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Profile"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.profile.put({
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Profile"
-}
-```
-## Operation: queue.custom_events.get
+
+#### Parameters
+* body (object) **required**
+
+### queue.custom_events.get
 Retrieve a list of scheduled custom events
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.queue.custom_events.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/CustomEvent"
-  },
-  "type": "array"
-}
-```
-## Operation: queue.custom_events.id.delete
+
+
+### queue.custom_events.id.delete
 Delete a scheduled custom event with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.queue.custom_events.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: queue.custom_events.id.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### queue.custom_events.id.get
 Retrieve a scheduled custom event with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.queue.custom_events.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CustomEvent"
-}
-```
-## Operation: queue.payments.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### queue.payments.get
 Retrieve a scheduled payment list
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.queue.payments.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Payment"
-  },
-  "type": "array"
-}
-```
-## Operation: queue.payments.id.get
+
+
+### queue.payments.id.get
 Retrieve a payment with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.queue.payments.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Payment"
-}
-```
-## Operation: queue.payments.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### queue.payments.id.put
 Update pending payment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Payment"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.queue.payments.id.put({
+  "body": {
+    "websiteId": null,
+    "customerId": null,
+    "currency": "",
+    "amount": 0
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Payment"
-}
-```
-## Operation: queue.payments.id.cancel.post
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### queue.payments.id.cancel.post
 Cancel a scheduled payment with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.queue.payments.id.cancel.post({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Payment"
-}
-```
-## Operation: sessions.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### sessions.get
 Retrieve a list of sessions
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.sessions.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Session"
-  },
-  "type": "array"
-}
-```
-## Operation: sessions.post
+
+
+### sessions.post
 Create a session
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Session"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.sessions.post({
+  "body": {
+    "permissions": null
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Session"
-}
-```
-## Operation: sessions.id.delete
+
+#### Parameters
+* body (object) **required**
+
+### sessions.id.delete
 Delete a Session with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.sessions.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: sessions.id.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### sessions.id.get
 Retrieve a Session with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.sessions.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Session"
-}
-```
-## Operation: sessions.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### sessions.id.put
 Create or update a Session with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Session"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.sessions.id.put({
+  "body": {
+    "permissions": null
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Session"
-}
-```
-## Operation: shipping_zones.get
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### shipping_zones.get
 Retrieve a list of shipping zones
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.shipping_zones.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/ShippingZone"
-  },
-  "type": "array"
-}
-```
-## Operation: shipping_zones.post
+
+
+### shipping_zones.post
 Create a Shipping Zone
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ShippingZone"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.shipping_zones.post({
+  "body": {
+    "name": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ShippingZone"
-}
-```
-## Operation: shipping_zones.id.delete
+
+#### Parameters
+* body (object) **required**
+
+### shipping_zones.id.delete
 Delete a shipping zone with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.shipping_zones.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: shipping_zones.id.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### shipping_zones.id.get
 Retrieve a shipping zone with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.shipping_zones.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ShippingZone"
-}
-```
-## Operation: shipping_zones.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### shipping_zones.id.put
 Create a shipping zone with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ShippingZone"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.shipping_zones.id.put({
+  "body": {
+    "name": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ShippingZone"
-}
-```
-## Operation: signin.post
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### signin.post
 Create a session with email and password
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Signin"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.signin.post({
+  "body": {
+    "email": "",
+    "password": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Session"
-}
-```
-## Operation: signup.post
+
+#### Parameters
+* body (object) **required**
+
+### signup.post
 Creates a new user and sends an email confirmation
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Signup"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.signup.post({
+  "body": {
+    "email": "",
+    "company": "",
+    "firstName": "",
+    "lastName": "",
+    "businessPhone": "",
+    "password": "",
+    "website": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/User"
-}
-```
-## Operation: status.get
+
+#### Parameters
+* body (object) **required**
+
+### status.get
 Retrieve API current status
 
 
-### Input Schema
-```json
-{}
+
+```js
+rebilly.status.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Status"
-}
-```
-## Operation: subscriptions.get
+
+
+### subscriptions.get
 Retrieve a list of subscriptions
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    },
-    "Accept": {
-      "type": "string",
-      "description": "The response media type",
-      "enum": [
-        "application/json",
-        "text/csv"
-      ]
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.subscriptions.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Subscription"
-  },
-  "type": "array"
-}
-```
-## Operation: subscriptions.post
+
+
+### subscriptions.post
 Create a subscription
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Subscription"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.subscriptions.post({
+  "body": {
+    "customerId": null,
+    "planId": null,
+    "websiteId": null
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Subscription"
-}
-```
-## Operation: subscriptions.id.get
+
+#### Parameters
+* body (object) **required**
+
+### subscriptions.id.get
 Retrieve a subscription with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.subscriptions.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Subscription"
-}
-```
-## Operation: subscriptions.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### subscriptions.id.put
 Create or update a subscription with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Subscription"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.subscriptions.id.put({
+  "body": {
+    "customerId": null,
+    "planId": null,
+    "websiteId": null
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Subscription"
-}
-```
-## Operation: subscriptions.id.cancel.post
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### subscriptions.id.cancel.post
 Cancel a subscription
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/SubscriptionCancel"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.subscriptions.id.cancel.post({
+  "body": {
+    "policy": "",
+    "canceledBy": "",
+    "cancelCategory": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Subscription"
-}
-```
-## Operation: subscriptions.id.lead_source.delete
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### subscriptions.id.lead_source.delete
 Delete a Lead Source that belongs to a certain Subscription
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.subscriptions.id.lead_source.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: subscriptions.id.lead_source.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### subscriptions.id.lead_source.get
 Retrieve a Lead Source of given subscription
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.subscriptions.id.lead_source.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LeadSource"
-}
-```
-## Operation: subscriptions.id.lead_source.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### subscriptions.id.lead_source.put
 Create a Lead Source for a Subscription
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/LeadSource"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+
+```js
+rebilly.subscriptions.id.lead_source.put({
+  "body": {},
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LeadSource"
-}
-```
-## Operation: subscriptions.id.switch.post
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### subscriptions.id.switch.post
 Switch a subscription
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/SubscriptionSwitch"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.subscriptions.id.switch.post({
+  "body": {
+    "planId": null,
+    "policy": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Subscription"
-}
-```
-## Operation: tax_categories.get
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### tax_categories.get
 Retrieve a list of tax categories
 
 
-### Input Schema
-```json
-{}
+
+```js
+rebilly.tax_categories.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/TaxCategory"
-  },
-  "type": "array"
-}
-```
-## Operation: tokens.get
+
+
+### tokens.get
 Retrieve a list of tokens
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.tokens.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/PaymentToken"
-  },
-  "type": "array"
-}
-```
-## Operation: tokens.post
+
+
+### tokens.post
 Create a token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/PaymentToken"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.tokens.post({
+  "body": {
+    "method": "",
+    "paymentInstrument": {},
+    "firstName": "",
+    "lastName": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PaymentToken"
-}
-```
-## Operation: tokens.token.get
+
+#### Parameters
+* body (object) **required**
+
+### tokens.token.get
 Retrieve a token with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "The token identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token"
-  ]
-}
+
+```js
+rebilly.tokens.token.get({
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PaymentToken"
-}
-```
-## Operation: tokens.token.expiration.post
+
+#### Parameters
+* token (string) **required** - The token identifier string
+
+### tokens.token.expiration.post
 Expire a token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/PaymentToken"
-    },
-    "token": {
-      "type": "string",
-      "description": "The token identifier string"
-    }
+
+```js
+rebilly.tokens.token.expiration.post({
+  "body": {
+    "method": "",
+    "paymentInstrument": {},
+    "firstName": "",
+    "lastName": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "token"
-  ]
-}
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PaymentToken"
-}
-```
-## Operation: tracking.api.get
+
+#### Parameters
+* body (object) **required**
+* token (string) **required** - The token identifier string
+
+### tracking.api.get
 Retrieve a list of tracking API logs
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    },
-    "Accept": {
-      "type": "string",
-      "description": "The response media type",
-      "enum": [
-        "application/json",
-        "text/csv"
-      ]
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.tracking.api.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/ApiTracking"
-  },
-  "type": "array"
-}
-```
-## Operation: tracking.api.id.get
+
+
+### tracking.api.id.get
 Retrieve a tracking API log with specified identifier string
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.tracking.api.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApiTracking"
-}
-```
-## Operation: tracking.lists.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### tracking.lists.get
 Retrieve Lists changes history
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.tracking.lists.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/List"
-  },
-  "type": "array"
-}
-```
-## Operation: tracking.subscriptions.get
+
+
+### tracking.subscriptions.get
 Retrieve a list of tracking subscription logs
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.tracking.subscriptions.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/SubscriptionTracking"
-  },
-  "type": "array"
-}
-```
-## Operation: tracking.subscriptions.id.get
+
+
+### tracking.subscriptions.id.get
 Retrieve a tracking subscription log with specified identifier string
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.tracking.subscriptions.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SubscriptionTracking"
-}
-```
-## Operation: tracking.website_webhooks.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### tracking.website_webhooks.get
 Retrieve a list of tracking webhook notifications
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.tracking.website_webhooks.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/WebsiteWebhookTracking"
-  },
-  "type": "array"
-}
-```
-## Operation: tracking.website_webhooks.id.get
+
+
+### tracking.website_webhooks.id.get
 Retrieve a tracking webhook notification with specified identifier string
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.tracking.website_webhooks.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebsiteWebhookTracking"
-}
-```
-## Operation: transactions.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### transactions.get
 Retrieve a list of transactions
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    },
-    "filter": {
-      "type": "string",
-      "description": "The collection items filter requires a special format.\nUse \",\" for multiple allowed values.  Use \";\" for multiple fields.\nSee the filter guide for more options and examples about this format.\n"
-    },
-    "sort": {
-      "type": "array",
-      "description": "The collection items sort field and order (prefix with \"-\" for descending sort)."
-    },
-    "Accept": {
-      "type": "string",
-      "description": "The response media type",
-      "enum": [
-        "application/json",
-        "text/csv"
-      ]
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.transactions.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Transaction"
-  },
-  "type": "array"
-}
-```
-## Operation: transactions.id.get
+
+
+### transactions.id.get
 Retrieve a Transaction with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.transactions.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Transaction"
-}
-```
-## Operation: transactions.id.gateway_logs.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### transactions.id.gateway_logs.get
 Retrieve Gateway communication Logs for Transaction with specified identifier string
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.transactions.id.gateway_logs.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TransactionGatewayLog"
-}
-```
-## Operation: transactions.id.lead_source.delete
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### transactions.id.lead_source.delete
 Delete a Lead Source that belongs to a certain transaction
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.transactions.id.lead_source.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: transactions.id.lead_source.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### transactions.id.lead_source.get
 Retrieve a Lead Source of given transaction
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.transactions.id.lead_source.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LeadSource"
-}
-```
-## Operation: transactions.id.lead_source.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### transactions.id.lead_source.put
 Create a Lead Source for a transaction
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/LeadSource"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+
+```js
+rebilly.transactions.id.lead_source.put({
+  "body": {},
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LeadSource"
-}
-```
-## Operation: transactions.id.refund.post
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### transactions.id.refund.post
 Refund a Transaction with specified identifier string.
 Note that the refund will be in the same currency as the original transaction.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/TransactionRefund"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.transactions.id.refund.post({
+  "body": {
+    "amount": 0
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Transaction"
-}
-```
-## Operation: users.get
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### users.get
 Retrieve a list of users
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.users.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/User"
-  },
-  "type": "array"
-}
-```
-## Operation: users.post
+
+
+### users.post
 Create an user
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/User"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.users.post({
+  "body": {
+    "email": "",
+    "firstName": "",
+    "lastName": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/User"
-}
-```
-## Operation: users.reset_password.token.post
+
+#### Parameters
+* body (object) **required**
+
+### users.reset_password.token.post
 Reset user password
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ResetPassword"
-    },
-    "token": {
-      "type": "string",
-      "description": "The token string"
-    }
+
+```js
+rebilly.users.reset_password.token.post({
+  "body": {
+    "newPassword": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "token"
-  ]
-}
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/User"
-}
-```
-## Operation: users.id.delete
+
+#### Parameters
+* body (object) **required**
+* token (string) **required** - The token string
+
+### users.id.delete
 Delete user with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.users.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: users.id.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### users.id.get
 Retrieve user with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.users.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/User"
-}
-```
-## Operation: users.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### users.id.put
 Create or update user with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/User"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.users.id.put({
+  "body": {
+    "email": "",
+    "firstName": "",
+    "lastName": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/User"
-}
-```
-## Operation: users.id.password.post
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### users.id.password.post
 Updates user's password with the specified newPassword. And checks if currentPassword matches the actual one.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdatePassword"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+
+```js
+rebilly.users.id.password.post({
+  "body": {},
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/User"
-}
-```
-## Operation: users.id.totp_reset.post
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### users.id.totp_reset.post
 Reset (renew) totpSecret
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.users.id.totp_reset.post({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/User"
-}
-```
-## Operation: webhooks.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### webhooks.get
 Retrieve a list of webhooks
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.webhooks.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/GlobalWebhook"
-  },
-  "type": "array"
-}
-```
-## Operation: webhooks.post
+
+
+### webhooks.post
 Create a webhook
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GlobalWebhook"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.webhooks.post({
+  "body": {
+    "method": "",
+    "url": "",
+    "credentialHash": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GlobalWebhook"
-}
-```
-## Operation: webhooks.id.get
+
+#### Parameters
+* body (object) **required**
+
+### webhooks.id.get
 Retrieve a webhook with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.webhooks.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GlobalWebhook"
-}
-```
-## Operation: webhooks.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### webhooks.id.put
 Create or update a webhook with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GlobalWebhook"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.webhooks.id.put({
+  "body": {
+    "method": "",
+    "url": "",
+    "credentialHash": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GlobalWebhook"
-}
-```
-## Operation: websites.get
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### websites.get
 Retrieve a list of websites
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "description": "The collection items limit",
-      "maximum": 1000,
-      "minimum": 0
-    },
-    "offset": {
-      "type": "integer",
-      "description": "The collection items offset",
-      "minimum": 0
-    },
-    "Accept": {
-      "type": "string",
-      "description": "The response media type",
-      "enum": [
-        "application/json",
-        "text/csv"
-      ]
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rebilly.websites.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Website"
-  },
-  "type": "array"
-}
-```
-## Operation: websites.post
+
+
+### websites.post
 Create a website
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Website"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rebilly.websites.post({
+  "body": {
+    "name": "",
+    "url": "",
+    "servicePhone": "",
+    "serviceEmail": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Website"
-}
-```
-## Operation: websites.id.delete
+
+#### Parameters
+* body (object) **required**
+
+### websites.id.delete
 Delete a website with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.websites.id.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: websites.id.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### websites.id.get
 Retrieve a website with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.websites.id.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Website"
-}
-```
-## Operation: websites.id.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### websites.id.put
 Create or update a website with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Website"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.websites.id.put({
+  "body": {
+    "name": "",
+    "url": "",
+    "servicePhone": "",
+    "serviceEmail": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Website"
-}
-```
-## Operation: websites.id.webhook.delete
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+
+### websites.id.webhook.delete
 Delete a webhook that belongs to a website with predefined ID
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.websites.id.webhook.delete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: websites.id.webhook.get
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### websites.id.webhook.get
 Retrieve a webhook for website with specified identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+rebilly.websites.id.webhook.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebsiteWebhook"
-}
-```
-## Operation: websites.id.webhook.put
+
+#### Parameters
+* id (string) **required** - The resource identifier string
+
+### websites.id.webhook.put
 Create or update a webhook for website with predefined identifier string
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/WebsiteWebhook"
-    },
-    "id": {
-      "type": "string",
-      "description": "The resource identifier string"
-    }
+
+```js
+rebilly.websites.id.webhook.put({
+  "body": {
+    "webHookUrl": "",
+    "webHookUsername": "",
+    "webHookPassword": ""
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "id"
-  ]
-}
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebsiteWebhook"
-}
-```
+
+#### Parameters
+* body (object) **required**
+* id (string) **required** - The resource identifier string
+

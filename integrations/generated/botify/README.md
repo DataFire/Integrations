@@ -1,1429 +1,519 @@
 # @datafire/botify
+
+Client library for Botify
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/botify
+```
+
+```js
+let datafire = require('datafire');
+let botify = require('@datafire/botify').actions;
+
+let account = {
+  DjangoRestToken: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    botify: account,
+  }
+})
+
+
+botify.getProjectAnalyses({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Botify Saas API
 
-## Operation: getProjectAnalyses
+## Actions
+### getProjectAnalyses
 List all analyses for a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "integer",
-      "description": "Page Number"
-    },
-    "size": {
-      "type": "integer",
-      "description": "Page Size"
-    },
-    "only_success": {
-      "type": "boolean",
-      "description": "Return only successfully finished analyses"
-    },
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug"
-  ]
-}
+
+```js
+botify.getProjectAnalyses({
+  "username": "",
+  "project_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "count": {
-      "type": "integer"
-    },
-    "next": {
-      "type": "string"
-    },
-    "page": {
-      "type": "integer"
-    },
-    "previous": {
-      "type": "string"
-    },
-    "results": {
-      "items": {
-        "$ref": "#/definitions/Analysis"
-      },
-      "type": "array"
-    },
-    "size": {
-      "type": "integer"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: getAnalysisSummary
+
+#### Parameters
+* page (integer) - Page Number
+* size (integer) - Page Size
+* only_success (boolean) - Return only successfully finished analyses
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+
+### getAnalysisSummary
 Get an Analysis detail
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "analysis_slug": {
-      "type": "string",
-      "description": "Analysis' identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug",
-    "analysis_slug"
-  ]
-}
+
+```js
+botify.getAnalysisSummary({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AnalysisDetail"
-}
-```
-## Operation: getCrawlStatistics
+
+#### Parameters
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+
+### getCrawlStatistics
 Return global statistics for an analysis
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "analysis_slug": {
-      "type": "string",
-      "description": "Analysis' identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug",
-    "analysis_slug"
-  ]
-}
+
+```js
+botify.getCrawlStatistics({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CrawlStatistics"
-}
-```
-## Operation: getCrawlStatisticsByFrequency
+
+#### Parameters
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+
+### getCrawlStatisticsByFrequency
 Return crawl statistics grouped by time frequency (1 min, 5 mins or 60 min) for an analysis
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "max number of elements to retrieve"
-    },
-    "frequency": {
-      "type": "string",
-      "description": "Aggregation frequency",
-      "enum": [
-        "1mn",
-        "5mn",
-        "60mn"
-      ]
-    },
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "analysis_slug": {
-      "type": "string",
-      "description": "Analysis' identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "frequency",
-    "username",
-    "project_slug",
-    "analysis_slug"
-  ]
-}
+
+```js
+botify.getCrawlStatisticsByFrequency({
+  "frequency": "",
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CrawlStatisticsTime"
-}
-```
-## Operation: getCrawlStatisticsUrls
+
+#### Parameters
+* limit (integer) - max number of elements to retrieve
+* frequency (string) **required** - Aggregation frequency
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+
+### getCrawlStatisticsUrls
 Return a list of 1000 latest URLs crawled (all crawled URLs or only URLS with HTTP errors)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "analysis_slug": {
-      "type": "string",
-      "description": "Analysis' identifier"
-    },
-    "list_type": {
-      "type": "string",
-      "description": "URLs list type (crawled URLs or error URLs)",
-      "enum": [
-        "organic",
-        "social"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug",
-    "analysis_slug",
-    "list_type"
-  ]
-}
+
+```js
+botify.getCrawlStatisticsUrls({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": "",
+  "list_type": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/CrawlStatisticsUrls"
-  },
-  "type": "array"
-}
-```
-## Operation: getGanalyticsOrphanURLs
+
+#### Parameters
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+* list_type (string) **required** - URLs list type (crawled URLs or error URLs)
+
+### getGanalyticsOrphanURLs
 Legacy    List of Orphan URLs. URLs which generated visits from the selected source according to Google Analytics data, but were not crawled with by the Botify crawler (either because no links to them were found on the website, or because the crawler was not allowed to follow these links according to the project settings).   For a search engine (medium: origanic; sources: all, aol, ask, baidu, bing, google, naver, yahoo, yandex) or a social network (medium: social; sources: all, facebook, google+, linkedin, pinterest, reddit, tumblr, twitter)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "integer",
-      "description": "Page Number"
-    },
-    "size": {
-      "type": "integer",
-      "description": "Page Size"
-    },
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "analysis_slug": {
-      "type": "string",
-      "description": "Analysis' identifier"
-    },
-    "medium": {
-      "type": "string",
-      "description": "Type of traffic, value: 'organic' (from search engine)or 'social' (from a social network)",
-      "enum": [
-        "organic",
-        "social"
-      ]
-    },
-    "source": {
-      "type": "string",
-      "description": "Traffic source, value: name of the search engine or social network",
-      "enum": [
-        "all",
-        "aol",
-        "ask",
-        "baidu",
-        "bing",
-        "facebook",
-        "google",
-        "google+",
-        "linkedin",
-        "naver",
-        "pinterest",
-        "reddit",
-        "tumblr",
-        "twitter",
-        "yahoo",
-        "yandex"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug",
-    "analysis_slug",
-    "medium",
-    "source"
-  ]
-}
+
+```js
+botify.getGanalyticsOrphanURLs({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": "",
+  "medium": "",
+  "source": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "count": {
-      "type": "integer"
-    },
-    "next": {
-      "type": "string"
-    },
-    "page": {
-      "type": "integer"
-    },
-    "previous": {
-      "type": "string"
-    },
-    "results": {
-      "items": {
-        "$ref": "#/definitions/CrawlOrphanURLs"
-      },
-      "type": "array"
-    },
-    "size": {
-      "type": "integer"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: getLinksPercentiles
+
+#### Parameters
+* page (integer) - Page Number
+* size (integer) - Page Size
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+* medium (string) **required** - Type of traffic, value: 'organic' (from search engine)or 'social' (from a social network)
+* source (string) **required** - Traffic source, value: name of the search engine or social network
+
+### getLinksPercentiles
 Get inlinks percentiles
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "analysis_slug": {
-      "type": "string",
-      "description": "Analysis' identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug",
-    "analysis_slug"
-  ]
-}
+
+```js
+botify.getLinksPercentiles({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LinksPercentiles"
-}
-```
-## Operation: getPageRankLost
+
+#### Parameters
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+
+### getPageRankLost
 Lost pagerank
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "analysis_slug": {
-      "type": "string",
-      "description": "Analysis' identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug",
-    "analysis_slug"
-  ]
-}
+
+```js
+botify.getPageRankLost({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PageRankLost"
-}
-```
-## Operation: getSitemapsReport
+
+#### Parameters
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+
+### getSitemapsReport
 Get global information of the sitemaps found (sitemaps indexes, invalid sitemaps urls, etc.)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "analysis_slug": {
-      "type": "string",
-      "description": "Analysis' identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug",
-    "analysis_slug"
-  ]
-}
+
+```js
+botify.getSitemapsReport({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SitemapsReport"
-}
-```
-## Operation: getSitemapsSamplesOutOfConfig
+
+#### Parameters
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+
+### getSitemapsSamplesOutOfConfig
 Sample list of URLs which were found in your sitemaps but outside of the crawl perimeter defined for the project, for instance domain/subdomain or protocol (HTTP/HTTPS) not allowed in the crawl settings.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "integer",
-      "description": "Page Number"
-    },
-    "size": {
-      "type": "integer",
-      "description": "Page Size"
-    },
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "analysis_slug": {
-      "type": "string",
-      "description": "Analysis' identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug",
-    "analysis_slug"
-  ]
-}
+
+```js
+botify.getSitemapsSamplesOutOfConfig({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "count": {
-      "type": "integer"
-    },
-    "next": {
-      "type": "string"
-    },
-    "page": {
-      "type": "integer"
-    },
-    "previous": {
-      "type": "string"
-    },
-    "results": {
-      "items": {
-        "type": "string"
-      },
-      "type": "array"
-    },
-    "size": {
-      "type": "integer"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: getSitemapsSamplesSitemapsOnly
+
+#### Parameters
+* page (integer) - Page Number
+* size (integer) - Page Size
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+
+### getSitemapsSamplesSitemapsOnly
 Sample list of URLs which were found in your sitemaps, within the project allowed scope (allowed domains/subdomains/protocols), but not found by the Botify crawler.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "integer",
-      "description": "Page Number"
-    },
-    "size": {
-      "type": "integer",
-      "description": "Page Size"
-    },
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "analysis_slug": {
-      "type": "string",
-      "description": "Analysis' identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug",
-    "analysis_slug"
-  ]
-}
+
+```js
+botify.getSitemapsSamplesSitemapsOnly({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "count": {
-      "type": "integer"
-    },
-    "next": {
-      "type": "string"
-    },
-    "page": {
-      "type": "integer"
-    },
-    "previous": {
-      "type": "string"
-    },
-    "results": {
-      "items": {
-        "type": "string"
-      },
-      "type": "array"
-    },
-    "size": {
-      "type": "integer"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: getLinksTopDomains
+
+#### Parameters
+* page (integer) - Page Number
+* size (integer) - Page Size
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+
+### getLinksTopDomains
 Top domains
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "integer",
-      "description": "Page Number"
-    },
-    "size": {
-      "type": "integer",
-      "description": "Page Size"
-    },
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "analysis_slug": {
-      "type": "string",
-      "description": "Analysis' identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug",
-    "analysis_slug"
-  ]
-}
+
+```js
+botify.getLinksTopDomains({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "count": {
-      "type": "integer"
-    },
-    "next": {
-      "type": "string"
-    },
-    "page": {
-      "type": "integer"
-    },
-    "previous": {
-      "type": "string"
-    },
-    "results": {
-      "items": {
-        "$ref": "#/definitions/LinksTopDomains"
-      },
-      "type": "array"
-    },
-    "size": {
-      "type": "integer"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: getLinksTopSubdomains
+
+#### Parameters
+* page (integer) - Page Number
+* size (integer) - Page Size
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+
+### getLinksTopSubdomains
 Top subddomains
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "integer",
-      "description": "Page Number"
-    },
-    "size": {
-      "type": "integer",
-      "description": "Page Size"
-    },
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "analysis_slug": {
-      "type": "string",
-      "description": "Analysis' identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug",
-    "analysis_slug"
-  ]
-}
+
+```js
+botify.getLinksTopSubdomains({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "count": {
-      "type": "integer"
-    },
-    "next": {
-      "type": "string"
-    },
-    "page": {
-      "type": "integer"
-    },
-    "previous": {
-      "type": "string"
-    },
-    "results": {
-      "items": {
-        "$ref": "#/definitions/LinksTopDomains"
-      },
-      "type": "array"
-    },
-    "size": {
-      "type": "integer"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: getVisitsOrphanURLs
+
+#### Parameters
+* page (integer) - Page Number
+* size (integer) - Page Size
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+
+### getVisitsOrphanURLs
 List of Orphan URLs. URLs which generated visits from the selected source according to Google Analytics data, but were not crawled with by the Botify crawler (either because no links to them were found on the website, or because the crawler was not allowed to follow these links according to the project settings).   For a search engine (medium: origanic; sources: all, aol, ask, baidu, bing, google, naver, yahoo, yandex) or a social network (medium: social; sources: all, facebook, google+, linkedin, pinterest, reddit, tumblr, twitter)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "integer",
-      "description": "Page Number"
-    },
-    "size": {
-      "type": "integer",
-      "description": "Page Size"
-    },
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "analysis_slug": {
-      "type": "string",
-      "description": "Analysis' identifier"
-    },
-    "medium": {
-      "type": "string",
-      "description": "Type of traffic, value: 'organic' (from search engine)or 'social' (from a social network)",
-      "enum": [
-        "organic",
-        "social"
-      ]
-    },
-    "source": {
-      "type": "string",
-      "description": "Traffic source, value: name of the search engine or social network",
-      "enum": [
-        "all",
-        "aol",
-        "ask",
-        "baidu",
-        "bing",
-        "facebook",
-        "google",
-        "google+",
-        "linkedin",
-        "naver",
-        "pinterest",
-        "reddit",
-        "tumblr",
-        "twitter",
-        "yahoo",
-        "yandex"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug",
-    "analysis_slug",
-    "medium",
-    "source"
-  ]
-}
+
+```js
+botify.getVisitsOrphanURLs({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": "",
+  "medium": "",
+  "source": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "count": {
-      "type": "integer"
-    },
-    "next": {
-      "type": "string"
-    },
-    "page": {
-      "type": "integer"
-    },
-    "previous": {
-      "type": "string"
-    },
-    "results": {
-      "items": {
-        "$ref": "#/definitions/CrawlOrphanURLs"
-      },
-      "type": "array"
-    },
-    "size": {
-      "type": "integer"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: getUrls
+
+#### Parameters
+* page (integer) - Page Number
+* size (integer) - Page Size
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+* medium (string) **required** - Type of traffic, value: 'organic' (from search engine)or 'social' (from a social network)
+* source (string) **required** - Traffic source, value: name of the search engine or social network
+
+### getUrls
 Executes a query and returns a paginated response
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "UrlsQuery": {
-      "$ref": "#/definitions/UrlsQuery"
-    },
-    "area": {
-      "type": "string",
-      "description": "Analysis context",
-      "enum": [
-        "current",
-        "disappeared",
-        "new",
-        "search_engines_orphans"
-      ]
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Page Number"
-    },
-    "size": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Page Size"
-    },
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "analysis_slug": {
-      "type": "string",
-      "description": "Analysis' identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug",
-    "analysis_slug"
-  ]
-}
+
+```js
+botify.getUrls({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "count": {
-      "type": "integer"
-    },
-    "next": {
-      "type": "string"
-    },
-    "page": {
-      "type": "integer"
-    },
-    "previous": {
-      "type": "string"
-    },
-    "results": {
-      "items": {
-        "$ref": "#/definitions/UrlDetail"
-      },
-      "type": "array"
-    },
-    "size": {
-      "type": "integer"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: getUrlsAggs
+
+#### Parameters
+* UrlsQuery (object) - Urls query
+* area (string) - Analysis context
+* page (integer) - Page Number
+* size (integer) - Page Size
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+
+### getUrlsAggs
 Query aggregator. It accepts multiple queries
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "UrlsAggsQueries": {
-      "$ref": "#/definitions/UrlsAggsQueries"
-    },
-    "area": {
-      "type": "string",
-      "description": "Analysis context",
-      "enum": [
-        "current",
-        "disappeared",
-        "new",
-        "search_engines_orphans"
-      ]
-    },
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "analysis_slug": {
-      "type": "string",
-      "description": "Analysis' identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug",
-    "analysis_slug"
-  ]
-}
+
+```js
+botify.getUrlsAggs({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/UrlsAggs"
-  },
-  "type": "array"
-}
-```
-## Operation: getUrlsDatamodel
+
+#### Parameters
+* UrlsAggsQueries (array)
+* area (string) - Analysis context
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+
+### getUrlsDatamodel
 Gets an Analysis datamodel
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "area": {
-      "type": "string",
-      "description": "Analysis context",
-      "enum": [
-        "current",
-        "disappeared",
-        "new",
-        "search_engines_orphans"
-      ]
-    },
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "analysis_slug": {
-      "type": "string",
-      "description": "Analysis' identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug",
-    "analysis_slug"
-  ]
-}
+
+```js
+botify.getUrlsDatamodel({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Datamodel"
-}
-```
-## Operation: getUrlsExports
+
+#### Parameters
+* area (string) - Analysis context
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+
+### getUrlsExports
 A list of the CSV Exports requests and their current status
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "integer",
-      "description": "Page Number"
-    },
-    "size": {
-      "type": "integer",
-      "description": "Page Size"
-    },
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "analysis_slug": {
-      "type": "string",
-      "description": "Analysis' identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug",
-    "analysis_slug"
-  ]
-}
+
+```js
+botify.getUrlsExports({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "count": {
-      "type": "integer"
-    },
-    "next": {
-      "type": "string"
-    },
-    "page": {
-      "type": "integer"
-    },
-    "previous": {
-      "type": "string"
-    },
-    "results": {
-      "items": {
-        "$ref": "#/definitions/CsvExportStatus"
-      },
-      "type": "array"
-    },
-    "size": {
-      "type": "integer"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: createUrlsExport
+
+#### Parameters
+* page (integer) - Page Number
+* size (integer) - Page Size
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+
+### createUrlsExport
 Creates a new UrlExport object and starts a task that will export the results into a csv. Returns the model id that manages the task
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "UrlsQuery": {
-      "$ref": "#/definitions/UrlsQuery"
-    },
-    "area": {
-      "type": "string",
-      "description": "Analysis context",
-      "enum": [
-        "current",
-        "disappeared",
-        "new",
-        "search_engines_orphans"
-      ]
-    },
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "analysis_slug": {
-      "type": "string",
-      "description": "Analysis' identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug",
-    "analysis_slug"
-  ]
-}
+
+```js
+botify.createUrlsExport({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CsvExportStatus"
-}
-```
-## Operation: getUrlsExportStatus
+
+#### Parameters
+* UrlsQuery (object) - Urls query
+* area (string) - Analysis context
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+
+### getUrlsExportStatus
 Checks the status of an CSVUrlExportJob object. Returns json object with the status.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "analysis_slug": {
-      "type": "string",
-      "description": "Analysis' identifier"
-    },
-    "url_export_id": {
-      "type": "string",
-      "description": "Url Export ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug",
-    "analysis_slug",
-    "url_export_id"
-  ]
-}
+
+```js
+botify.getUrlsExportStatus({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": "",
+  "url_export_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CsvExportStatus"
-}
-```
-## Operation: getUrlsSuggestedFilters
+
+#### Parameters
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+* url_export_id (string) **required** - Url Export ID
+
+### getUrlsSuggestedFilters
 Return most frequent segments (= suggested patterns in the previous version) for a Botify Query.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "UrlsAggsQuery": {
-      "$ref": "#/definitions/UrlsAggsQuery"
-    },
-    "area": {
-      "type": "string",
-      "description": "Analysis context",
-      "enum": [
-        "current",
-        "new"
-      ]
-    },
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "analysis_slug": {
-      "type": "string",
-      "description": "Analysis' identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug",
-    "analysis_slug"
-  ]
-}
+
+```js
+botify.getUrlsSuggestedFilters({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UrlsAggsQuery"
-}
-```
-## Operation: getUrlDetail
+
+#### Parameters
+* UrlsAggsQuery (object) - UrlsAggs query
+* area (string) - Analysis context
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+
+### getUrlDetail
 Gets the detail of an URL for an analysis
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "fields": {
-      "type": "array",
-      "description": "comma separated list of fields to return (c.f. URLs Datamodel)"
-    },
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "analysis_slug": {
-      "type": "string",
-      "description": "Analysis' identifier"
-    },
-    "url": {
-      "type": "string",
-      "description": "(Urlencoded) Searched URL"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug",
-    "analysis_slug",
-    "url"
-  ]
-}
+
+```js
+botify.getUrlDetail({
+  "username": "",
+  "project_slug": "",
+  "analysis_slug": "",
+  "url": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UrlDetail"
-}
-```
-## Operation: getUserProjects
+
+#### Parameters
+* fields (array) - comma separated list of fields to return (c.f. URLs Datamodel)
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* analysis_slug (string) **required** - Analysis' identifier
+* url (string) **required** - (Urlencoded) Searched URL
+
+### getUserProjects
 List all active projects for the user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Project's name"
-    },
-    "page": {
-      "type": "integer",
-      "description": "Page Number"
-    },
-    "size": {
-      "type": "integer",
-      "description": "Page Size"
-    },
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+botify.getUserProjects({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "count": {
-      "type": "integer"
-    },
-    "next": {
-      "type": "string"
-    },
-    "page": {
-      "type": "integer"
-    },
-    "previous": {
-      "type": "string"
-    },
-    "results": {
-      "items": {
-        "$ref": "#/definitions/Project"
-      },
-      "type": "array"
-    },
-    "size": {
-      "type": "integer"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: getSavedFilters
+
+#### Parameters
+* name (string) - Project's name
+* page (integer) - Page Number
+* size (integer) - Page Size
+* username (string) **required** - User's identifier
+
+### getSavedFilters
 List all the project's saved filters (each filter's name, ID and filter value)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "integer",
-      "description": "Page Number"
-    },
-    "size": {
-      "type": "integer",
-      "description": "Page Size"
-    },
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug"
-  ]
-}
+
+```js
+botify.getSavedFilters({
+  "username": "",
+  "project_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "count": {
-      "type": "integer"
-    },
-    "next": {
-      "type": "string"
-    },
-    "page": {
-      "type": "integer"
-    },
-    "previous": {
-      "type": "string"
-    },
-    "results": {
-      "items": {
-        "$ref": "#/definitions/ProjectSavedFilter"
-      },
-      "type": "array"
-    },
-    "size": {
-      "type": "integer"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: getSavedFilter
+
+#### Parameters
+* page (integer) - Page Number
+* size (integer) - Page Size
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+
+### getSavedFilter
 Retrieves a specific saved filter's name, ID and filter value
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    },
-    "identifier": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug",
-    "identifier"
-  ]
-}
+
+```js
+botify.getSavedFilter({
+  "username": "",
+  "project_slug": "",
+  "identifier": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectSavedFilter"
-}
-```
-## Operation: getProjectUrlsAggs
+
+#### Parameters
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+* identifier (string) **required**
+
+### getProjectUrlsAggs
 Project Query aggregator. It accepts multiple queries that will be executed on all completed analyses in the project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "UrlsAggsQueries": {
-      "$ref": "#/definitions/UrlsAggsQueries"
-    },
-    "area": {
-      "type": "string",
-      "description": "Analyses context",
-      "enum": [
-        "current",
-        "disappeared",
-        "new"
-      ]
-    },
-    "last_analysis_slug": {
-      "type": "string",
-      "description": "Last analysis on the trend"
-    },
-    "nb_analyses": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Max number of analysis to return",
-      "maximum": 20,
-      "minimum": 1
-    },
-    "username": {
-      "type": "string",
-      "description": "User's identifier"
-    },
-    "project_slug": {
-      "type": "string",
-      "description": "Project's identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "project_slug"
-  ]
-}
+
+```js
+botify.getProjectUrlsAggs({
+  "username": "",
+  "project_slug": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Default"
-}
-```
+
+#### Parameters
+* UrlsAggsQueries (array)
+* area (string) - Analyses context
+* last_analysis_slug (string) - Last analysis on the trend
+* nb_analyses (integer) - Max number of analysis to return
+* username (string) **required** - User's identifier
+* project_slug (string) **required** - Project's identifier
+

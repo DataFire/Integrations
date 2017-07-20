@@ -1,5712 +1,2950 @@
 # @datafire/nba
+
+Client library for NBA Stats
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/nba
+```
+
+```js
+let datafire = require('datafire');
+let nba = require('@datafire/nba').actions;
+let context = new datafire.Context();
+
+nba.playerdashptshotlog.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 The destination for current and historic NBA statistics.
 
-## Operation: allstarballotpredictor.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "PointCap": {
-      "type": "string"
-    },
-    "WestPlayer1": {
-      "type": "string"
-    },
-    "WestPlayer2": {
-      "type": "string"
-    },
-    "WestPlayer3": {
-      "type": "string"
-    },
-    "WestPlayer4": {
-      "type": "string"
-    },
-    "WestPlayer5": {
-      "type": "string"
-    },
-    "EastPlayer1": {
-      "type": "string"
-    },
-    "EastPlayer2": {
-      "type": "string"
-    },
-    "EastPlayer3": {
-      "type": "string"
-    },
-    "EastPlayer4": {
-      "type": "string"
-    },
-    "EastPlayer5": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "WestPlayer1",
-    "WestPlayer2",
-    "WestPlayer3",
-    "WestPlayer4",
-    "WestPlayer5",
-    "EastPlayer1",
-    "EastPlayer2",
-    "EastPlayer3",
-    "EastPlayer4",
-    "EastPlayer5"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: boxscore.get
-
-
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "GameID": {
-      "type": "string"
-    },
-    "StartPeriod": {
-      "type": "string"
-    },
-    "EndPeriod": {
-      "type": "string"
-    },
-    "StartRange": {
-      "type": "string"
-    },
-    "EndRange": {
-      "type": "string"
-    },
-    "RangeType": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: boxscoreadvanced.get
-
-
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "GameID": {
-      "type": "string"
-    },
-    "StartPeriod": {
-      "type": "string"
-    },
-    "EndPeriod": {
-      "type": "string"
-    },
-    "StartRange": {
-      "type": "string"
-    },
-    "EndRange": {
-      "type": "string"
-    },
-    "RangeType": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: boxscoreadvancedv2.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "GameID": {
-      "type": "string"
-    },
-    "StartPeriod": {
-      "type": "string"
-    },
-    "EndPeriod": {
-      "type": "string"
-    },
-    "StartRange": {
-      "type": "string"
-    },
-    "EndRange": {
-      "type": "string"
-    },
-    "RangeType": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "GameID",
-    "StartPeriod",
-    "EndPeriod",
-    "StartRange",
-    "EndRange",
-    "RangeType"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: boxscorefourfactors.get
-
-
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "GameID": {
-      "type": "string"
-    },
-    "StartPeriod": {
-      "type": "string"
-    },
-    "EndPeriod": {
-      "type": "string"
-    },
-    "StartRange": {
-      "type": "string"
-    },
-    "EndRange": {
-      "type": "string"
-    },
-    "RangeType": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: boxscorefourfactorsv2.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "GameID": {
-      "type": "string"
-    },
-    "StartPeriod": {
-      "type": "string"
-    },
-    "EndPeriod": {
-      "type": "string"
-    },
-    "StartRange": {
-      "type": "string"
-    },
-    "EndRange": {
-      "type": "string"
-    },
-    "RangeType": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "GameID",
-    "StartPeriod",
-    "EndPeriod",
-    "StartRange",
-    "EndRange",
-    "RangeType"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: boxscoremisc.get
-
-
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "GameID": {
-      "type": "string"
-    },
-    "StartPeriod": {
-      "type": "string"
-    },
-    "EndPeriod": {
-      "type": "string"
-    },
-    "StartRange": {
-      "type": "string"
-    },
-    "EndRange": {
-      "type": "string"
-    },
-    "RangeType": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: boxscoremiscv2.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "GameID": {
-      "type": "string"
-    },
-    "StartPeriod": {
-      "type": "string"
-    },
-    "EndPeriod": {
-      "type": "string"
-    },
-    "StartRange": {
-      "type": "string"
-    },
-    "EndRange": {
-      "type": "string"
-    },
-    "RangeType": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "GameID",
-    "StartPeriod",
-    "EndPeriod",
-    "StartRange",
-    "EndRange",
-    "RangeType"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: boxscoreplayertrackv2.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "GameID": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "GameID"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: boxscorescoring.get
-
-
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "GameID": {
-      "type": "string"
-    },
-    "StartPeriod": {
-      "type": "string"
-    },
-    "EndPeriod": {
-      "type": "string"
-    },
-    "StartRange": {
-      "type": "string"
-    },
-    "EndRange": {
-      "type": "string"
-    },
-    "RangeType": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: boxscorescoringv2.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "GameID": {
-      "type": "string"
-    },
-    "StartPeriod": {
-      "type": "string"
-    },
-    "EndPeriod": {
-      "type": "string"
-    },
-    "StartRange": {
-      "type": "string"
-    },
-    "EndRange": {
-      "type": "string"
-    },
-    "RangeType": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "GameID",
-    "StartPeriod",
-    "EndPeriod",
-    "StartRange",
-    "EndRange",
-    "RangeType"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: boxscoresummaryv2.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "GameID": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "GameID"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: boxscoretraditionalv2.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "GameID": {
-      "type": "string"
-    },
-    "StartPeriod": {
-      "type": "string"
-    },
-    "EndPeriod": {
-      "type": "string"
-    },
-    "StartRange": {
-      "type": "string"
-    },
-    "EndRange": {
-      "type": "string"
-    },
-    "RangeType": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "GameID",
-    "StartPeriod",
-    "EndPeriod",
-    "StartRange",
-    "EndRange",
-    "RangeType"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: boxscoreusage.get
-
-
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "GameID": {
-      "type": "string"
-    },
-    "StartPeriod": {
-      "type": "string"
-    },
-    "EndPeriod": {
-      "type": "string"
-    },
-    "StartRange": {
-      "type": "string"
-    },
-    "EndRange": {
-      "type": "string"
-    },
-    "RangeType": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: boxscoreusagev2.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "GameID": {
-      "type": "string"
-    },
-    "StartPeriod": {
-      "type": "string"
-    },
-    "EndPeriod": {
-      "type": "string"
-    },
-    "StartRange": {
-      "type": "string"
-    },
-    "EndRange": {
-      "type": "string"
-    },
-    "RangeType": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "GameID",
-    "StartPeriod",
-    "EndPeriod",
-    "StartRange",
-    "EndRange",
-    "RangeType"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: commonTeamYears.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "LeagueID": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "LeagueID"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: commonallplayers.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "LeagueID": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "IsOnlyCurrentSeason": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "LeagueID",
-    "Season",
-    "IsOnlyCurrentSeason"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: commonplayerinfo.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "PlayerID": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "PlayerID"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: commonplayoffseries.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "LeagueID": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "LeagueID",
-    "Season"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: commonteamroster.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Season": {
-      "type": "string"
-    },
-    "TeamID": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Season",
-    "TeamID"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: draftcombinedrillresults.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "LeagueID": {
-      "type": "string"
-    },
-    "SeasonYear": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "LeagueID",
-    "SeasonYear"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: draftcombinenonstationaryshooting.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "LeagueID": {
-      "type": "string"
-    },
-    "SeasonYear": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "LeagueID",
-    "SeasonYear"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: draftcombineplayeranthro.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "LeagueID": {
-      "type": "string"
-    },
-    "SeasonYear": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "LeagueID",
-    "SeasonYear"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: draftcombinespotshooting.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "LeagueID": {
-      "type": "string"
-    },
-    "SeasonYear": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "LeagueID",
-    "SeasonYear"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: draftcombinestats.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "LeagueID": {
-      "type": "string"
-    },
-    "SeasonYear": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "LeagueID",
-    "SeasonYear"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: drafthistory.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "LeagueID": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "LeagueID"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: franchisehistory.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "LeagueID": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "LeagueID"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: homepageleaders.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "StatCategory": {
-      "type": "string"
-    },
-    "LeagueID": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "PlayerOrTeam": {
-      "type": "string"
-    },
-    "Game": {
-      "type": "string"
-    },
-    "Player": {
-      "type": "string"
-    },
-    "PlayerScope": {
-      "type": "string"
-    },
-    "GameScope": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "StatCategory",
-    "LeagueID",
-    "Season",
-    "SeasonType",
-    "PlayerOrTeam",
-    "PlayerScope",
-    "GameScope"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: homepagev2.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "StatType": {
-      "type": "string"
-    },
-    "LeagueID": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "PlayerOrTeam": {
-      "type": "string"
-    },
-    "Game": {
-      "type": "string"
-    },
-    "Player": {
-      "type": "string"
-    },
-    "PlayerScope": {
-      "type": "string"
-    },
-    "GameScope": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "StatType",
-    "LeagueID",
-    "Season",
-    "SeasonType",
-    "PlayerOrTeam",
-    "PlayerScope",
-    "GameScope"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: leaderstiles.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Stat": {
-      "type": "string"
-    },
-    "LeagueID": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "PlayerOrTeam": {
-      "type": "string"
-    },
-    "Game": {
-      "type": "string"
-    },
-    "Player": {
-      "type": "string"
-    },
-    "PlayerScope": {
-      "type": "string"
-    },
-    "GameScope": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Stat",
-    "LeagueID",
-    "Season",
-    "SeasonType",
-    "PlayerOrTeam",
-    "PlayerScope",
-    "GameScope"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: leaguedashlineups.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "GroupQuantity": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "GroupQuantity",
-    "SeasonType",
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: leaguedashplayerbiostats.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "PerMode": {
-      "type": "string"
-    },
-    "LeagueID": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "PerMode",
-    "LeagueID",
-    "Season",
-    "SeasonType"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: leaguedashplayerclutch.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "ClutchTime": {
-      "type": "string"
-    },
-    "AheadBehind": {
-      "type": "string"
-    },
-    "PointDiff": {
-      "type": "string"
-    },
-    "GameScope": {
-      "type": "string"
-    },
-    "PlayerExperience": {
-      "type": "string"
-    },
-    "PlayerPosition": {
-      "type": "string"
-    },
-    "StarterBench": {
-      "type": "string"
-    },
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "ClutchTime",
-    "AheadBehind",
-    "PointDiff",
-    "GameScope",
-    "PlayerExperience",
-    "PlayerPosition",
-    "StarterBench",
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: leaguedashplayerptshot.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "LeagueID": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "LeagueID",
-    "PerMode",
-    "Season",
-    "SeasonType"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: leaguedashplayershotlocations.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    },
-    "DistanceRange": {
-      "type": "string"
-    },
-    "GameScope": {
-      "type": "string"
-    },
-    "PlayerExperience": {
-      "type": "string"
-    },
-    "PlayerPosition": {
-      "type": "string"
-    },
-    "StarterBench": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames",
-    "DistanceRange",
-    "GameScope",
-    "PlayerExperience",
-    "PlayerPosition",
-    "StarterBench"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: leaguedashplayerstats.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "GameScope": {
-      "type": "string"
-    },
-    "PlayerExperience": {
-      "type": "string"
-    },
-    "PlayerPosition": {
-      "type": "string"
-    },
-    "StarterBench": {
-      "type": "string"
-    },
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "GameScope",
-    "PlayerExperience",
-    "PlayerPosition",
-    "StarterBench",
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: leaguedashptdefend.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "LeagueID": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "DefenseCategory": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "LeagueID",
-    "PerMode",
-    "Season",
-    "SeasonType",
-    "DefenseCategory"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: leaguedashptteamdefend.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "LeagueID": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "DefenseCategory": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "LeagueID",
-    "PerMode",
-    "Season",
-    "SeasonType",
-    "DefenseCategory"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: leaguedashteamclutch.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "ClutchTime": {
-      "type": "string"
-    },
-    "AheadBehind": {
-      "type": "string"
-    },
-    "PointDiff": {
-      "type": "string"
-    },
-    "GameScope": {
-      "type": "string"
-    },
-    "PlayerExperience": {
-      "type": "string"
-    },
-    "PlayerPosition": {
-      "type": "string"
-    },
-    "StarterBench": {
-      "type": "string"
-    },
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "ClutchTime",
-    "AheadBehind",
-    "PointDiff",
-    "GameScope",
-    "PlayerExperience",
-    "PlayerPosition",
-    "StarterBench",
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: leaguedashteamptshot.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "LeagueID": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "LeagueID",
-    "PerMode",
-    "Season",
-    "SeasonType"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: leaguedashteamshotlocations.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    },
-    "DistanceRange": {
-      "type": "string"
-    },
-    "GameScope": {
-      "type": "string"
-    },
-    "PlayerExperience": {
-      "type": "string"
-    },
-    "PlayerPosition": {
-      "type": "string"
-    },
-    "StarterBench": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames",
-    "DistanceRange",
-    "GameScope",
-    "PlayerExperience",
-    "PlayerPosition",
-    "StarterBench"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: leaguedashteamstats.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: leagueleaders.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "LeagueID": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "StatCategory": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "Scope": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "LeagueID",
-    "PerMode",
-    "Season",
-    "SeasonType",
-    "Scope"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playbyplay.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "GameID": {
-      "type": "string"
-    },
-    "StartPeriod": {
-      "type": "string"
-    },
-    "EndPeriod": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "GameID",
-    "StartPeriod",
-    "EndPeriod"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playbyplayv2.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "GameID": {
-      "type": "string"
-    },
-    "StartPeriod": {
-      "type": "string"
-    },
-    "EndPeriod": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "GameID",
-    "StartPeriod",
-    "EndPeriod"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playercareerstats.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "PerMode": {
-      "type": "string"
-    },
-    "PlayerID": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "PerMode",
-    "PlayerID"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playercompare.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "PlayerIDList": {
-      "type": "string"
-    },
-    "VsPlayerIDList": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "PlayerIDList",
-    "VsPlayerIDList",
-    "SeasonType",
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playerdashboardbyclutch.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "PlayerID": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "PlayerID",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playerdashboardbygamesplits.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "PlayerID": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "PlayerID",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playerdashboardbygeneralsplits.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "PlayerID": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "PlayerID",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playerdashboardbylastngames.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "PlayerID": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "PlayerID",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playerdashboardbyopponent.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "PlayerID": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "PlayerID",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playerdashboardbyshootingsplits.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "PlayerID": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "PlayerID",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playerdashboardbyteamperformance.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "PlayerID": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "PlayerID",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playerdashboardbyyearoveryear.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "PlayerID": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "PlayerID",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playerdashptpass.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "PerMode": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "PlayerID": {
-      "type": "string"
-    },
-    "TeamID": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "PerMode",
-    "Season",
-    "SeasonType",
-    "PlayerID",
-    "TeamID",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playerdashptreb.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "PerMode": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "PlayerID": {
-      "type": "string"
-    },
-    "TeamID": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "PerMode",
-    "Season",
-    "SeasonType",
-    "PlayerID",
-    "TeamID",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playerdashptreboundlogs.get
-
-
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "PlayerID": {
-      "type": "string"
-    },
-    "TeamID": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playerdashptshotdefend.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "PerMode": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "PlayerID": {
-      "type": "string"
-    },
-    "TeamID": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "PerMode",
-    "Season",
-    "SeasonType",
-    "PlayerID",
-    "TeamID",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playerdashptshotlog.get
-
-
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "LeagueID": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "PlayerID": {
-      "type": "string"
-    },
-    "TeamID": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playerdashptshots.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "PerMode": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "PlayerID": {
-      "type": "string"
-    },
-    "TeamID": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "PerMode",
-    "Season",
-    "SeasonType",
-    "PlayerID",
-    "TeamID",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playergamelog.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "PlayerID": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "PlayerID",
-    "Season",
-    "SeasonType"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playerprofile.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "LeagueID": {
-      "type": "string"
-    },
-    "PlayerID": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "GraphStartSeason": {
-      "type": "string"
-    },
-    "GraphEndSeason": {
-      "type": "string"
-    },
-    "GraphStat": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "LeagueID",
-    "PlayerID",
-    "Season",
-    "SeasonType",
-    "GraphStartSeason",
-    "GraphEndSeason",
-    "GraphStat"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playerprofilev2.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "PerMode": {
-      "type": "string"
-    },
-    "PlayerID": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "PerMode",
-    "PlayerID"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playersvsplayers.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "PlayerTeamID": {
-      "type": "string"
-    },
-    "PlayerID1": {
-      "type": "string"
-    },
-    "PlayerID2": {
-      "type": "string"
-    },
-    "PlayerID3": {
-      "type": "string"
-    },
-    "PlayerID4": {
-      "type": "string"
-    },
-    "PlayerID5": {
-      "type": "string"
-    },
-    "VsTeamID": {
-      "type": "string"
-    },
-    "VsPlayerID1": {
-      "type": "string"
-    },
-    "VsPlayerID2": {
-      "type": "string"
-    },
-    "VsPlayerID3": {
-      "type": "string"
-    },
-    "VsPlayerID4": {
-      "type": "string"
-    },
-    "VsPlayerID5": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "PlayerTeamID",
-    "PlayerID1",
-    "PlayerID2",
-    "PlayerID3",
-    "PlayerID4",
-    "PlayerID5",
-    "VsTeamID",
-    "VsPlayerID1",
-    "VsPlayerID2",
-    "VsPlayerID3",
-    "VsPlayerID4",
-    "VsPlayerID5",
-    "SeasonType",
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playervsplayer.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "PlayerID": {
-      "type": "string"
-    },
-    "VsPlayerID": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "PlayerID",
-    "VsPlayerID",
-    "SeasonType",
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: playoffpicture.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "LeagueID": {
-      "type": "string"
-    },
-    "SeasonID": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "LeagueID",
-    "SeasonID"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: scoreboard.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "GameDate": {
-      "type": "string"
-    },
-    "LeagueID": {
-      "type": "string"
-    },
-    "DayOffset": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "GameDate",
-    "LeagueID",
-    "DayOffset"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: scoreboardV2.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "GameDate": {
-      "type": "string"
-    },
-    "LeagueID": {
-      "type": "string"
-    },
-    "DayOffset": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "GameDate",
-    "LeagueID",
-    "DayOffset"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: shotchartdetail.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "SeasonType": {
-      "type": "string"
-    },
-    "TeamID": {
-      "type": "string"
-    },
-    "PlayerID": {
-      "type": "string"
-    },
-    "GameID": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "Position": {
-      "type": "string"
-    },
-    "RookieYear": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    },
-    "ContextMeasure": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "SeasonType",
-    "TeamID",
-    "PlayerID",
-    "GameID",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "Position",
-    "RookieYear",
-    "GameSegment",
-    "Period",
-    "LastNGames",
-    "ContextMeasure"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: shotchartlineupdetail.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "LeagueID": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "TeamID": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    },
-    "GameID": {
-      "type": "string"
-    },
-    "GROUP_ID": {
-      "type": "string"
-    },
-    "ContextMeasure": {
-      "type": "string"
-    },
-    "ContextFilter": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "LeagueID",
-    "Season",
-    "SeasonType",
-    "TeamID",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames",
-    "GameID",
-    "GROUP_ID",
-    "ContextMeasure",
-    "ContextFilter"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: teamdashboardbyclutch.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "TeamID": {
-      "type": "string"
-    },
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "TeamID",
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: teamdashboardbygamesplits.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "TeamID": {
-      "type": "string"
-    },
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "TeamID",
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: teamdashboardbygeneralsplits.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "SeasonType": {
-      "type": "string"
-    },
-    "TeamID": {
-      "type": "string"
-    },
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "SeasonType",
-    "TeamID",
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: teamdashboardbylastngames.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "TeamID": {
-      "type": "string"
-    },
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "TeamID",
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: teamdashboardbyopponent.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "TeamID": {
-      "type": "string"
-    },
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "TeamID",
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: teamdashboardbyshootingsplits.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "TeamID": {
-      "type": "string"
-    },
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "TeamID",
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: teamdashboardbyteamperformance.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "TeamID": {
-      "type": "string"
-    },
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "TeamID",
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: teamdashboardbyyearoveryear.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "TeamID": {
-      "type": "string"
-    },
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "TeamID",
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: teamdashlineups.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "GroupQuantity": {
-      "type": "string"
-    },
-    "GameID": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "TeamID": {
-      "type": "string"
-    },
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "GroupQuantity",
-    "GameID",
-    "SeasonType",
-    "TeamID",
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: teamdashptpass.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "PerMode": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "TeamID": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "PerMode",
-    "Season",
-    "SeasonType",
-    "TeamID",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: teamdashptreb.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "PerMode": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "TeamID": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "PerMode",
-    "Season",
-    "SeasonType",
-    "TeamID",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: teamdashptshots.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "PerMode": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "TeamID": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "PerMode",
-    "Season",
-    "SeasonType",
-    "TeamID",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: teamgamelog.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "TeamID": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "TeamID",
-    "Season",
-    "SeasonType"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: teaminfocommon.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Season": {
-      "type": "string"
-    },
-    "TeamID": {
-      "type": "string"
-    },
-    "LeagueID": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Season",
-    "TeamID",
-    "LeagueID",
-    "SeasonType"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: teamplayerdashboard.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "SeasonType": {
-      "type": "string"
-    },
-    "TeamID": {
-      "type": "string"
-    },
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "SeasonType",
-    "TeamID",
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: teamplayeronoffdetails.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "TeamID": {
-      "type": "string"
-    },
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "TeamID",
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: teamplayeronoffsummary.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "TeamID": {
-      "type": "string"
-    },
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "TeamID",
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "SeasonType",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: teamvsplayer.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "TeamID": {
-      "type": "string"
-    },
-    "VsPlayerID": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "MeasureType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "PlusMinus": {
-      "type": "string"
-    },
-    "PaceAdjust": {
-      "type": "string"
-    },
-    "Rank": {
-      "type": "string"
-    },
-    "Season": {
-      "type": "string"
-    },
-    "Outcome": {
-      "type": "string"
-    },
-    "Location": {
-      "type": "string"
-    },
-    "Month": {
-      "type": "string"
-    },
-    "SeasonSegment": {
-      "type": "string"
-    },
-    "DateFrom": {
-      "type": "string"
-    },
-    "DateTo": {
-      "type": "string"
-    },
-    "OpponentTeamID": {
-      "type": "string"
-    },
-    "VsConference": {
-      "type": "string"
-    },
-    "VsDivision": {
-      "type": "string"
-    },
-    "GameSegment": {
-      "type": "string"
-    },
-    "Period": {
-      "type": "string"
-    },
-    "LastNGames": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "TeamID",
-    "VsPlayerID",
-    "SeasonType",
-    "MeasureType",
-    "PerMode",
-    "PlusMinus",
-    "PaceAdjust",
-    "Rank",
-    "Season",
-    "Outcome",
-    "Location",
-    "Month",
-    "SeasonSegment",
-    "DateFrom",
-    "DateTo",
-    "OpponentTeamID",
-    "VsConference",
-    "VsDivision",
-    "GameSegment",
-    "Period",
-    "LastNGames"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: teamyearbyyearstats.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "LeagueID": {
-      "type": "string"
-    },
-    "SeasonType": {
-      "type": "string"
-    },
-    "PerMode": {
-      "type": "string"
-    },
-    "TeamID": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "LeagueID",
-    "SeasonType",
-    "PerMode",
-    "TeamID"
-  ]
-}
-```
-### Output Schema
-```json
-{}
-```
-## Operation: videoStatus.get
-
-
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "LeagueID": {
-      "type": "string"
-    },
-    "GameDate": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "LeagueID",
-    "GameDate"
-  ]
-}
-```
-### Output Schema
-```json
-{}
+## Actions
+### allstarballotpredictor.get
+
+
+
+```js
+nba.allstarballotpredictor.get({
+  "WestPlayer1": "",
+  "WestPlayer2": "",
+  "WestPlayer3": "",
+  "WestPlayer4": "",
+  "WestPlayer5": "",
+  "EastPlayer1": "",
+  "EastPlayer2": "",
+  "EastPlayer3": "",
+  "EastPlayer4": "",
+  "EastPlayer5": ""
+}, context)
+```
+
+#### Parameters
+* PointCap (string)
+* WestPlayer1 (string) **required**
+* WestPlayer2 (string) **required**
+* WestPlayer3 (string) **required**
+* WestPlayer4 (string) **required**
+* WestPlayer5 (string) **required**
+* EastPlayer1 (string) **required**
+* EastPlayer2 (string) **required**
+* EastPlayer3 (string) **required**
+* EastPlayer4 (string) **required**
+* EastPlayer5 (string) **required**
+
+### boxscore.get
+
+
+
+```js
+nba.boxscore.get({}, context)
+```
+
+
+### boxscoreadvanced.get
+
+
+
+```js
+nba.boxscoreadvanced.get({}, context)
+```
+
+
+### boxscoreadvancedv2.get
+
+
+
+```js
+nba.boxscoreadvancedv2.get({
+  "GameID": "",
+  "StartPeriod": "",
+  "EndPeriod": "",
+  "StartRange": "",
+  "EndRange": "",
+  "RangeType": ""
+}, context)
+```
+
+#### Parameters
+* GameID (string) **required**
+* StartPeriod (string) **required**
+* EndPeriod (string) **required**
+* StartRange (string) **required**
+* EndRange (string) **required**
+* RangeType (string) **required**
+
+### boxscorefourfactors.get
+
+
+
+```js
+nba.boxscorefourfactors.get({}, context)
+```
+
+
+### boxscorefourfactorsv2.get
+
+
+
+```js
+nba.boxscorefourfactorsv2.get({
+  "GameID": "",
+  "StartPeriod": "",
+  "EndPeriod": "",
+  "StartRange": "",
+  "EndRange": "",
+  "RangeType": ""
+}, context)
+```
+
+#### Parameters
+* GameID (string) **required**
+* StartPeriod (string) **required**
+* EndPeriod (string) **required**
+* StartRange (string) **required**
+* EndRange (string) **required**
+* RangeType (string) **required**
+
+### boxscoremisc.get
+
+
+
+```js
+nba.boxscoremisc.get({}, context)
+```
+
+
+### boxscoremiscv2.get
+
+
+
+```js
+nba.boxscoremiscv2.get({
+  "GameID": "",
+  "StartPeriod": "",
+  "EndPeriod": "",
+  "StartRange": "",
+  "EndRange": "",
+  "RangeType": ""
+}, context)
+```
+
+#### Parameters
+* GameID (string) **required**
+* StartPeriod (string) **required**
+* EndPeriod (string) **required**
+* StartRange (string) **required**
+* EndRange (string) **required**
+* RangeType (string) **required**
+
+### boxscoreplayertrackv2.get
+
+
+
+```js
+nba.boxscoreplayertrackv2.get({
+  "GameID": ""
+}, context)
+```
+
+#### Parameters
+* GameID (string) **required**
+
+### boxscorescoring.get
+
+
+
+```js
+nba.boxscorescoring.get({}, context)
+```
+
+
+### boxscorescoringv2.get
+
+
+
+```js
+nba.boxscorescoringv2.get({
+  "GameID": "",
+  "StartPeriod": "",
+  "EndPeriod": "",
+  "StartRange": "",
+  "EndRange": "",
+  "RangeType": ""
+}, context)
+```
+
+#### Parameters
+* GameID (string) **required**
+* StartPeriod (string) **required**
+* EndPeriod (string) **required**
+* StartRange (string) **required**
+* EndRange (string) **required**
+* RangeType (string) **required**
+
+### boxscoresummaryv2.get
+
+
+
+```js
+nba.boxscoresummaryv2.get({
+  "GameID": ""
+}, context)
+```
+
+#### Parameters
+* GameID (string) **required**
+
+### boxscoretraditionalv2.get
+
+
+
+```js
+nba.boxscoretraditionalv2.get({
+  "GameID": "",
+  "StartPeriod": "",
+  "EndPeriod": "",
+  "StartRange": "",
+  "EndRange": "",
+  "RangeType": ""
+}, context)
+```
+
+#### Parameters
+* GameID (string) **required**
+* StartPeriod (string) **required**
+* EndPeriod (string) **required**
+* StartRange (string) **required**
+* EndRange (string) **required**
+* RangeType (string) **required**
+
+### boxscoreusage.get
+
+
+
+```js
+nba.boxscoreusage.get({}, context)
+```
+
+
+### boxscoreusagev2.get
+
+
+
+```js
+nba.boxscoreusagev2.get({
+  "GameID": "",
+  "StartPeriod": "",
+  "EndPeriod": "",
+  "StartRange": "",
+  "EndRange": "",
+  "RangeType": ""
+}, context)
+```
+
+#### Parameters
+* GameID (string) **required**
+* StartPeriod (string) **required**
+* EndPeriod (string) **required**
+* StartRange (string) **required**
+* EndRange (string) **required**
+* RangeType (string) **required**
+
+### commonTeamYears.get
+
+
+
+```js
+nba.commonTeamYears.get({
+  "LeagueID": ""
+}, context)
+```
+
+#### Parameters
+* LeagueID (string) **required**
+
+### commonallplayers.get
+
+
+
+```js
+nba.commonallplayers.get({
+  "LeagueID": "",
+  "Season": "",
+  "IsOnlyCurrentSeason": ""
+}, context)
+```
+
+#### Parameters
+* LeagueID (string) **required**
+* Season (string) **required**
+* IsOnlyCurrentSeason (string) **required**
+
+### commonplayerinfo.get
+
+
+
+```js
+nba.commonplayerinfo.get({
+  "PlayerID": ""
+}, context)
+```
+
+#### Parameters
+* PlayerID (string) **required**
+
+### commonplayoffseries.get
+
+
+
+```js
+nba.commonplayoffseries.get({
+  "LeagueID": "",
+  "Season": ""
+}, context)
+```
+
+#### Parameters
+* LeagueID (string) **required**
+* Season (string) **required**
+
+### commonteamroster.get
+
+
+
+```js
+nba.commonteamroster.get({
+  "Season": "",
+  "TeamID": ""
+}, context)
+```
+
+#### Parameters
+* Season (string) **required**
+* TeamID (string) **required**
+
+### draftcombinedrillresults.get
+
+
+
+```js
+nba.draftcombinedrillresults.get({
+  "LeagueID": "",
+  "SeasonYear": ""
+}, context)
+```
+
+#### Parameters
+* LeagueID (string) **required**
+* SeasonYear (string) **required**
+
+### draftcombinenonstationaryshooting.get
+
+
+
+```js
+nba.draftcombinenonstationaryshooting.get({
+  "LeagueID": "",
+  "SeasonYear": ""
+}, context)
+```
+
+#### Parameters
+* LeagueID (string) **required**
+* SeasonYear (string) **required**
+
+### draftcombineplayeranthro.get
+
+
+
+```js
+nba.draftcombineplayeranthro.get({
+  "LeagueID": "",
+  "SeasonYear": ""
+}, context)
+```
+
+#### Parameters
+* LeagueID (string) **required**
+* SeasonYear (string) **required**
+
+### draftcombinespotshooting.get
+
+
+
+```js
+nba.draftcombinespotshooting.get({
+  "LeagueID": "",
+  "SeasonYear": ""
+}, context)
+```
+
+#### Parameters
+* LeagueID (string) **required**
+* SeasonYear (string) **required**
+
+### draftcombinestats.get
+
+
+
+```js
+nba.draftcombinestats.get({
+  "LeagueID": "",
+  "SeasonYear": ""
+}, context)
+```
+
+#### Parameters
+* LeagueID (string) **required**
+* SeasonYear (string) **required**
+
+### drafthistory.get
+
+
+
+```js
+nba.drafthistory.get({
+  "LeagueID": ""
+}, context)
+```
+
+#### Parameters
+* LeagueID (string) **required**
+
+### franchisehistory.get
+
+
+
+```js
+nba.franchisehistory.get({
+  "LeagueID": ""
+}, context)
+```
+
+#### Parameters
+* LeagueID (string) **required**
+
+### homepageleaders.get
+
+
+
+```js
+nba.homepageleaders.get({
+  "StatCategory": "",
+  "LeagueID": "",
+  "Season": "",
+  "SeasonType": "",
+  "PlayerOrTeam": "",
+  "PlayerScope": "",
+  "GameScope": ""
+}, context)
+```
+
+#### Parameters
+* StatCategory (string) **required**
+* LeagueID (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* PlayerOrTeam (string) **required**
+* Game (string)
+* Player (string)
+* PlayerScope (string) **required**
+* GameScope (string) **required**
+
+### homepagev2.get
+
+
+
+```js
+nba.homepagev2.get({
+  "StatType": "",
+  "LeagueID": "",
+  "Season": "",
+  "SeasonType": "",
+  "PlayerOrTeam": "",
+  "PlayerScope": "",
+  "GameScope": ""
+}, context)
+```
+
+#### Parameters
+* StatType (string) **required**
+* LeagueID (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* PlayerOrTeam (string) **required**
+* Game (string)
+* Player (string)
+* PlayerScope (string) **required**
+* GameScope (string) **required**
+
+### leaderstiles.get
+
+
+
+```js
+nba.leaderstiles.get({
+  "Stat": "",
+  "LeagueID": "",
+  "Season": "",
+  "SeasonType": "",
+  "PlayerOrTeam": "",
+  "PlayerScope": "",
+  "GameScope": ""
+}, context)
+```
+
+#### Parameters
+* Stat (string) **required**
+* LeagueID (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* PlayerOrTeam (string) **required**
+* Game (string)
+* Player (string)
+* PlayerScope (string) **required**
+* GameScope (string) **required**
+
+### leaguedashlineups.get
+
+
+
+```js
+nba.leaguedashlineups.get({
+  "GroupQuantity": "",
+  "SeasonType": "",
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* GroupQuantity (string) **required**
+* SeasonType (string) **required**
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### leaguedashplayerbiostats.get
+
+
+
+```js
+nba.leaguedashplayerbiostats.get({
+  "PerMode": "",
+  "LeagueID": "",
+  "Season": "",
+  "SeasonType": ""
+}, context)
+```
+
+#### Parameters
+* PerMode (string) **required**
+* LeagueID (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+
+### leaguedashplayerclutch.get
+
+
+
+```js
+nba.leaguedashplayerclutch.get({
+  "ClutchTime": "",
+  "AheadBehind": "",
+  "PointDiff": "",
+  "GameScope": "",
+  "PlayerExperience": "",
+  "PlayerPosition": "",
+  "StarterBench": "",
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* ClutchTime (string) **required**
+* AheadBehind (string) **required**
+* PointDiff (string) **required**
+* GameScope (string) **required**
+* PlayerExperience (string) **required**
+* PlayerPosition (string) **required**
+* StarterBench (string) **required**
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### leaguedashplayerptshot.get
+
+
+
+```js
+nba.leaguedashplayerptshot.get({
+  "LeagueID": "",
+  "PerMode": "",
+  "Season": "",
+  "SeasonType": ""
+}, context)
+```
+
+#### Parameters
+* LeagueID (string) **required**
+* PerMode (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+
+### leaguedashplayershotlocations.get
+
+
+
+```js
+nba.leaguedashplayershotlocations.get({
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": "",
+  "DistanceRange": "",
+  "GameScope": "",
+  "PlayerExperience": "",
+  "PlayerPosition": "",
+  "StarterBench": ""
+}, context)
+```
+
+#### Parameters
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+* DistanceRange (string) **required**
+* GameScope (string) **required**
+* PlayerExperience (string) **required**
+* PlayerPosition (string) **required**
+* StarterBench (string) **required**
+
+### leaguedashplayerstats.get
+
+
+
+```js
+nba.leaguedashplayerstats.get({
+  "GameScope": "",
+  "PlayerExperience": "",
+  "PlayerPosition": "",
+  "StarterBench": "",
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* GameScope (string) **required**
+* PlayerExperience (string) **required**
+* PlayerPosition (string) **required**
+* StarterBench (string) **required**
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### leaguedashptdefend.get
+
+
+
+```js
+nba.leaguedashptdefend.get({
+  "LeagueID": "",
+  "PerMode": "",
+  "Season": "",
+  "SeasonType": "",
+  "DefenseCategory": ""
+}, context)
+```
+
+#### Parameters
+* LeagueID (string) **required**
+* PerMode (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* DefenseCategory (string) **required**
+
+### leaguedashptteamdefend.get
+
+
+
+```js
+nba.leaguedashptteamdefend.get({
+  "LeagueID": "",
+  "PerMode": "",
+  "Season": "",
+  "SeasonType": "",
+  "DefenseCategory": ""
+}, context)
 ```
+
+#### Parameters
+* LeagueID (string) **required**
+* PerMode (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* DefenseCategory (string) **required**
+
+### leaguedashteamclutch.get
+
+
+
+```js
+nba.leaguedashteamclutch.get({
+  "ClutchTime": "",
+  "AheadBehind": "",
+  "PointDiff": "",
+  "GameScope": "",
+  "PlayerExperience": "",
+  "PlayerPosition": "",
+  "StarterBench": "",
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* ClutchTime (string) **required**
+* AheadBehind (string) **required**
+* PointDiff (string) **required**
+* GameScope (string) **required**
+* PlayerExperience (string) **required**
+* PlayerPosition (string) **required**
+* StarterBench (string) **required**
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### leaguedashteamptshot.get
+
+
+
+```js
+nba.leaguedashteamptshot.get({
+  "LeagueID": "",
+  "PerMode": "",
+  "Season": "",
+  "SeasonType": ""
+}, context)
+```
+
+#### Parameters
+* LeagueID (string) **required**
+* PerMode (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+
+### leaguedashteamshotlocations.get
+
+
+
+```js
+nba.leaguedashteamshotlocations.get({
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": "",
+  "DistanceRange": "",
+  "GameScope": "",
+  "PlayerExperience": "",
+  "PlayerPosition": "",
+  "StarterBench": ""
+}, context)
+```
+
+#### Parameters
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+* DistanceRange (string) **required**
+* GameScope (string) **required**
+* PlayerExperience (string) **required**
+* PlayerPosition (string) **required**
+* StarterBench (string) **required**
+
+### leaguedashteamstats.get
+
+
+
+```js
+nba.leaguedashteamstats.get({
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### leagueleaders.get
+
+
+
+```js
+nba.leagueleaders.get({
+  "LeagueID": "",
+  "PerMode": "",
+  "Season": "",
+  "SeasonType": "",
+  "Scope": ""
+}, context)
+```
+
+#### Parameters
+* LeagueID (string) **required**
+* PerMode (string) **required**
+* StatCategory (string)
+* Season (string) **required**
+* SeasonType (string) **required**
+* Scope (string) **required**
+
+### playbyplay.get
+
+
+
+```js
+nba.playbyplay.get({
+  "GameID": "",
+  "StartPeriod": "",
+  "EndPeriod": ""
+}, context)
+```
+
+#### Parameters
+* GameID (string) **required**
+* StartPeriod (string) **required**
+* EndPeriod (string) **required**
+
+### playbyplayv2.get
+
+
+
+```js
+nba.playbyplayv2.get({
+  "GameID": "",
+  "StartPeriod": "",
+  "EndPeriod": ""
+}, context)
+```
+
+#### Parameters
+* GameID (string) **required**
+* StartPeriod (string) **required**
+* EndPeriod (string) **required**
+
+### playercareerstats.get
+
+
+
+```js
+nba.playercareerstats.get({
+  "PerMode": "",
+  "PlayerID": ""
+}, context)
+```
+
+#### Parameters
+* PerMode (string) **required**
+* PlayerID (string) **required**
+
+### playercompare.get
+
+
+
+```js
+nba.playercompare.get({
+  "PlayerIDList": "",
+  "VsPlayerIDList": "",
+  "SeasonType": "",
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* PlayerIDList (string) **required**
+* VsPlayerIDList (string) **required**
+* SeasonType (string) **required**
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### playerdashboardbyclutch.get
+
+
+
+```js
+nba.playerdashboardbyclutch.get({
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "PlayerID": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* PlayerID (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### playerdashboardbygamesplits.get
+
+
+
+```js
+nba.playerdashboardbygamesplits.get({
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "PlayerID": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* PlayerID (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### playerdashboardbygeneralsplits.get
+
+
+
+```js
+nba.playerdashboardbygeneralsplits.get({
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "PlayerID": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* PlayerID (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### playerdashboardbylastngames.get
+
+
+
+```js
+nba.playerdashboardbylastngames.get({
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "PlayerID": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* PlayerID (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### playerdashboardbyopponent.get
+
+
+
+```js
+nba.playerdashboardbyopponent.get({
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "PlayerID": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* PlayerID (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### playerdashboardbyshootingsplits.get
+
+
+
+```js
+nba.playerdashboardbyshootingsplits.get({
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "PlayerID": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* PlayerID (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### playerdashboardbyteamperformance.get
+
+
+
+```js
+nba.playerdashboardbyteamperformance.get({
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "PlayerID": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* PlayerID (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### playerdashboardbyyearoveryear.get
+
+
+
+```js
+nba.playerdashboardbyyearoveryear.get({
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "PlayerID": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* PlayerID (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### playerdashptpass.get
+
+
+
+```js
+nba.playerdashptpass.get({
+  "PerMode": "",
+  "Season": "",
+  "SeasonType": "",
+  "PlayerID": "",
+  "TeamID": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* PerMode (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* PlayerID (string) **required**
+* TeamID (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* LastNGames (string) **required**
+
+### playerdashptreb.get
+
+
+
+```js
+nba.playerdashptreb.get({
+  "PerMode": "",
+  "Season": "",
+  "SeasonType": "",
+  "PlayerID": "",
+  "TeamID": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* PerMode (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* PlayerID (string) **required**
+* TeamID (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### playerdashptreboundlogs.get
+
+
+
+```js
+nba.playerdashptreboundlogs.get({}, context)
+```
+
+
+### playerdashptshotdefend.get
+
+
+
+```js
+nba.playerdashptshotdefend.get({
+  "PerMode": "",
+  "Season": "",
+  "SeasonType": "",
+  "PlayerID": "",
+  "TeamID": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* PerMode (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* PlayerID (string) **required**
+* TeamID (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### playerdashptshotlog.get
+
+
+
+```js
+nba.playerdashptshotlog.get({}, context)
+```
+
+
+### playerdashptshots.get
+
+
+
+```js
+nba.playerdashptshots.get({
+  "PerMode": "",
+  "Season": "",
+  "SeasonType": "",
+  "PlayerID": "",
+  "TeamID": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* PerMode (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* PlayerID (string) **required**
+* TeamID (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### playergamelog.get
+
+
+
+```js
+nba.playergamelog.get({
+  "PlayerID": "",
+  "Season": "",
+  "SeasonType": ""
+}, context)
+```
+
+#### Parameters
+* PlayerID (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+
+### playerprofile.get
+
+
+
+```js
+nba.playerprofile.get({
+  "LeagueID": "",
+  "PlayerID": "",
+  "Season": "",
+  "SeasonType": "",
+  "GraphStartSeason": "",
+  "GraphEndSeason": "",
+  "GraphStat": ""
+}, context)
+```
+
+#### Parameters
+* LeagueID (string) **required**
+* PlayerID (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* GraphStartSeason (string) **required**
+* GraphEndSeason (string) **required**
+* GraphStat (string) **required**
+
+### playerprofilev2.get
+
+
+
+```js
+nba.playerprofilev2.get({
+  "PerMode": "",
+  "PlayerID": ""
+}, context)
+```
+
+#### Parameters
+* PerMode (string) **required**
+* PlayerID (string) **required**
+
+### playersvsplayers.get
+
+
+
+```js
+nba.playersvsplayers.get({
+  "PlayerTeamID": "",
+  "PlayerID1": "",
+  "PlayerID2": "",
+  "PlayerID3": "",
+  "PlayerID4": "",
+  "PlayerID5": "",
+  "VsTeamID": "",
+  "VsPlayerID1": "",
+  "VsPlayerID2": "",
+  "VsPlayerID3": "",
+  "VsPlayerID4": "",
+  "VsPlayerID5": "",
+  "SeasonType": "",
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* PlayerTeamID (string) **required**
+* PlayerID1 (string) **required**
+* PlayerID2 (string) **required**
+* PlayerID3 (string) **required**
+* PlayerID4 (string) **required**
+* PlayerID5 (string) **required**
+* VsTeamID (string) **required**
+* VsPlayerID1 (string) **required**
+* VsPlayerID2 (string) **required**
+* VsPlayerID3 (string) **required**
+* VsPlayerID4 (string) **required**
+* VsPlayerID5 (string) **required**
+* SeasonType (string) **required**
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### playervsplayer.get
+
+
+
+```js
+nba.playervsplayer.get({
+  "PlayerID": "",
+  "VsPlayerID": "",
+  "SeasonType": "",
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* PlayerID (string) **required**
+* VsPlayerID (string) **required**
+* SeasonType (string) **required**
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### playoffpicture.get
+
+
+
+```js
+nba.playoffpicture.get({
+  "LeagueID": "",
+  "SeasonID": ""
+}, context)
+```
+
+#### Parameters
+* LeagueID (string) **required**
+* SeasonID (string) **required**
+
+### scoreboard.get
+
+
+
+```js
+nba.scoreboard.get({
+  "GameDate": "",
+  "LeagueID": "",
+  "DayOffset": ""
+}, context)
+```
+
+#### Parameters
+* GameDate (string) **required**
+* LeagueID (string) **required**
+* DayOffset (string) **required**
+
+### scoreboardV2.get
+
+
+
+```js
+nba.scoreboardV2.get({
+  "GameDate": "",
+  "LeagueID": "",
+  "DayOffset": ""
+}, context)
+```
+
+#### Parameters
+* GameDate (string) **required**
+* LeagueID (string) **required**
+* DayOffset (string) **required**
+
+### shotchartdetail.get
+
+
+
+```js
+nba.shotchartdetail.get({
+  "SeasonType": "",
+  "TeamID": "",
+  "PlayerID": "",
+  "GameID": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "Position": "",
+  "RookieYear": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": "",
+  "ContextMeasure": ""
+}, context)
+```
+
+#### Parameters
+* SeasonType (string) **required**
+* TeamID (string) **required**
+* PlayerID (string) **required**
+* GameID (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* Position (string) **required**
+* RookieYear (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+* ContextMeasure (string) **required**
+
+### shotchartlineupdetail.get
+
+
+
+```js
+nba.shotchartlineupdetail.get({
+  "LeagueID": "",
+  "Season": "",
+  "SeasonType": "",
+  "TeamID": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": "",
+  "GameID": "",
+  "GROUP_ID": "",
+  "ContextMeasure": "",
+  "ContextFilter": ""
+}, context)
+```
+
+#### Parameters
+* LeagueID (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* TeamID (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+* GameID (string) **required**
+* GROUP_ID (string) **required**
+* ContextMeasure (string) **required**
+* ContextFilter (string) **required**
+
+### teamdashboardbyclutch.get
+
+
+
+```js
+nba.teamdashboardbyclutch.get({
+  "TeamID": "",
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* TeamID (string) **required**
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### teamdashboardbygamesplits.get
+
+
+
+```js
+nba.teamdashboardbygamesplits.get({
+  "TeamID": "",
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* TeamID (string) **required**
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### teamdashboardbygeneralsplits.get
+
+
+
+```js
+nba.teamdashboardbygeneralsplits.get({
+  "SeasonType": "",
+  "TeamID": "",
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* SeasonType (string) **required**
+* TeamID (string) **required**
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### teamdashboardbylastngames.get
+
+
+
+```js
+nba.teamdashboardbylastngames.get({
+  "TeamID": "",
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* TeamID (string) **required**
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### teamdashboardbyopponent.get
+
+
+
+```js
+nba.teamdashboardbyopponent.get({
+  "TeamID": "",
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* TeamID (string) **required**
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### teamdashboardbyshootingsplits.get
+
+
+
+```js
+nba.teamdashboardbyshootingsplits.get({
+  "TeamID": "",
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* TeamID (string) **required**
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### teamdashboardbyteamperformance.get
+
+
+
+```js
+nba.teamdashboardbyteamperformance.get({
+  "TeamID": "",
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* TeamID (string) **required**
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### teamdashboardbyyearoveryear.get
+
+
+
+```js
+nba.teamdashboardbyyearoveryear.get({
+  "TeamID": "",
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* TeamID (string) **required**
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### teamdashlineups.get
+
+
+
+```js
+nba.teamdashlineups.get({
+  "GroupQuantity": "",
+  "GameID": "",
+  "SeasonType": "",
+  "TeamID": "",
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* GroupQuantity (string) **required**
+* GameID (string) **required**
+* SeasonType (string) **required**
+* TeamID (string) **required**
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### teamdashptpass.get
+
+
+
+```js
+nba.teamdashptpass.get({
+  "PerMode": "",
+  "Season": "",
+  "SeasonType": "",
+  "TeamID": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* PerMode (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* TeamID (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* LastNGames (string) **required**
+
+### teamdashptreb.get
+
+
+
+```js
+nba.teamdashptreb.get({
+  "PerMode": "",
+  "Season": "",
+  "SeasonType": "",
+  "TeamID": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* PerMode (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* TeamID (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### teamdashptshots.get
+
+
+
+```js
+nba.teamdashptshots.get({
+  "PerMode": "",
+  "Season": "",
+  "SeasonType": "",
+  "TeamID": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* PerMode (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* TeamID (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### teamgamelog.get
+
+
+
+```js
+nba.teamgamelog.get({
+  "TeamID": "",
+  "Season": "",
+  "SeasonType": ""
+}, context)
+```
+
+#### Parameters
+* TeamID (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+
+### teaminfocommon.get
+
+
+
+```js
+nba.teaminfocommon.get({
+  "Season": "",
+  "TeamID": "",
+  "LeagueID": "",
+  "SeasonType": ""
+}, context)
+```
+
+#### Parameters
+* Season (string) **required**
+* TeamID (string) **required**
+* LeagueID (string) **required**
+* SeasonType (string) **required**
+
+### teamplayerdashboard.get
+
+
+
+```js
+nba.teamplayerdashboard.get({
+  "SeasonType": "",
+  "TeamID": "",
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* SeasonType (string) **required**
+* TeamID (string) **required**
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### teamplayeronoffdetails.get
+
+
+
+```js
+nba.teamplayeronoffdetails.get({
+  "TeamID": "",
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* TeamID (string) **required**
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### teamplayeronoffsummary.get
+
+
+
+```js
+nba.teamplayeronoffsummary.get({
+  "TeamID": "",
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "SeasonType": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* TeamID (string) **required**
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* SeasonType (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### teamvsplayer.get
+
+
+
+```js
+nba.teamvsplayer.get({
+  "TeamID": "",
+  "VsPlayerID": "",
+  "SeasonType": "",
+  "MeasureType": "",
+  "PerMode": "",
+  "PlusMinus": "",
+  "PaceAdjust": "",
+  "Rank": "",
+  "Season": "",
+  "Outcome": "",
+  "Location": "",
+  "Month": "",
+  "SeasonSegment": "",
+  "DateFrom": "",
+  "DateTo": "",
+  "OpponentTeamID": "",
+  "VsConference": "",
+  "VsDivision": "",
+  "GameSegment": "",
+  "Period": "",
+  "LastNGames": ""
+}, context)
+```
+
+#### Parameters
+* TeamID (string) **required**
+* VsPlayerID (string) **required**
+* SeasonType (string) **required**
+* MeasureType (string) **required**
+* PerMode (string) **required**
+* PlusMinus (string) **required**
+* PaceAdjust (string) **required**
+* Rank (string) **required**
+* Season (string) **required**
+* Outcome (string) **required**
+* Location (string) **required**
+* Month (string) **required**
+* SeasonSegment (string) **required**
+* DateFrom (string) **required**
+* DateTo (string) **required**
+* OpponentTeamID (string) **required**
+* VsConference (string) **required**
+* VsDivision (string) **required**
+* GameSegment (string) **required**
+* Period (string) **required**
+* LastNGames (string) **required**
+
+### teamyearbyyearstats.get
+
+
+
+```js
+nba.teamyearbyyearstats.get({
+  "LeagueID": "",
+  "SeasonType": "",
+  "PerMode": "",
+  "TeamID": ""
+}, context)
+```
+
+#### Parameters
+* LeagueID (string) **required**
+* SeasonType (string) **required**
+* PerMode (string) **required**
+* TeamID (string) **required**
+
+### videoStatus.get
+
+
+
+```js
+nba.videoStatus.get({
+  "LeagueID": "",
+  "GameDate": ""
+}, context)
+```
+
+#### Parameters
+* LeagueID (string) **required**
+* GameDate (string) **required**
+

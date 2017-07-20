@@ -1,7 +1,38 @@
 # @datafire/apimatic
+
+Client library for APIMATIC API Transformer
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/apimatic
+```
+
+```js
+let datafire = require('datafire');
+let apimatic = require('@datafire/apimatic').actions;
+
+let account = {
+  api-key: "",
+  username: "",
+  password: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    apimatic: account,
+  }
+})
+
+
+apimatic.ConvertAPI({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Transform API Descriptions from/to various formats
 
-## Operation: ConvertAPI
+## Actions
+### ConvertAPI
 Transform API Descriptions from/to various formats e.g., Swagger, API Blueprint, RAML, WADL, Google Discovery, I/O Docs.
 
 ### INPUTS
@@ -27,36 +58,14 @@ Transform API Descriptions from/to various formats e.g., Swagger, API Blueprint,
 * RAML 0.8 - 1.0
 * APIMATIC Format
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "format": {
-      "type": "string",
-      "enum": [
-        "swagger10",
-        "swagger20",
-        "swaggeryaml",
-        "apiblueprint",
-        "wadl2009",
-        "raml",
-        "apimatic"
-      ]
-    },
-    "url": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "format"
-  ]
-}
+
+```js
+apimatic.ConvertAPI({
+  "format": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "object"
-}
-```
+
+#### Parameters
+* format (string) **required**
+* url (string)
+

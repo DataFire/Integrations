@@ -1,59 +1,58 @@
 # @datafire/import_data
 
+Client library for import.io
 
-## Operation: extractor.extractorId.csv.latest.get
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/import_data
+```
+
+```js
+let datafire = require('datafire');
+let import_data = require('@datafire/import_data').actions;
+
+let account = {
+  api_key: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    import_data: account,
+  }
+})
+
+
+import_data.extractor.extractorId.csv.latest.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
+
+
+## Actions
+### extractor.extractorId.csv.latest.get
 Get the latest crawl run results as a csv
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "extractorId": {
-      "type": "string",
-      "description": "the id of the extractor to start get the latest crawl run data"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "extractorId"
-  ]
-}
+
+```js
+import_data.extractor.extractorId.csv.latest.get({
+  "extractorId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "additionalProperties": {
-    "type": "string"
-  },
-  "type": "object"
-}
-```
-## Operation: extractor.extractorId.json.latest.get
+
+#### Parameters
+* extractorId (string) **required** - the id of the extractor to start get the latest crawl run data
+
+### extractor.extractorId.json.latest.get
 Get the latest crawl run results as json
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "extractorId": {
-      "type": "string",
-      "description": "The id of the extractor to start get the latest crawl run data"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "extractorId"
-  ]
-}
+
+```js
+import_data.extractor.extractorId.json.latest.get({
+  "extractorId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "additionalProperties": {
-    "type": "string"
-  },
-  "type": "object"
-}
-```
+
+#### Parameters
+* extractorId (string) **required** - The id of the extractor to start get the latest crawl run data
+

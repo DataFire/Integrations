@@ -1,818 +1,422 @@
 # @datafire/yunbi
+
+Client library for Yunbi
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/yunbi
+```
+
+```js
+let datafire = require('datafire');
+let yunbi = require('@datafire/yunbi').actions;
+let context = new datafire.Context();
+
+yunbi.v2.addresses.address.json.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Professional Cloud Trading Platform for Digital Assets
 
-## Operation: v2.addresses.address.json.get
+## Actions
+### v2.addresses.address.json.get
 Check Deposit Address
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "address": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "address"
-  ]
-}
+
+```js
+yunbi.v2.addresses.address.json.get({
+  "address": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.crowdsales.key.json.get
+
+#### Parameters
+* address (string) **required**
+
+### v2.crowdsales.key.json.get
 Get crowdsales plan info
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "key": {
-      "type": "string",
-      "description": "Crowdsale plan key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "key"
-  ]
-}
+
+```js
+yunbi.v2.crowdsales.key.json.get({
+  "key": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.deposit.json.get
+
+#### Parameters
+* key (string) **required** - Crowdsale plan key
+
+### v2.deposit.json.get
 Get details of specific deposit.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_key": {
-      "type": "string",
-      "description": "Access key."
-    },
-    "tonce": {
-      "type": "integer",
-      "description": "Tonce is an integer represents the milliseconds elapsed since Unix epoch."
-    },
-    "signature": {
-      "type": "string",
-      "description": "The signature of your request payload, generated using your secret key."
-    },
-    "txid": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_key",
-    "tonce",
-    "signature",
-    "txid"
-  ]
-}
+
+```js
+yunbi.v2.deposit.json.get({
+  "access_key": "",
+  "tonce": 0,
+  "signature": "",
+  "txid": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.deposit_address.json.get
+
+#### Parameters
+* access_key (string) **required** - Access key.
+* tonce (integer) **required** - Tonce is an integer represents the milliseconds elapsed since Unix epoch.
+* signature (string) **required** - The signature of your request payload, generated using your secret key.
+* txid (string) **required**
+
+### v2.deposit_address.json.get
 Where to deposit. The address field could be empty when a new address is generating (e.g. for bitcoin), you should try again later in that case.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_key": {
-      "type": "string",
-      "description": "Access key."
-    },
-    "tonce": {
-      "type": "integer",
-      "description": "Tonce is an integer represents the milliseconds elapsed since Unix epoch."
-    },
-    "signature": {
-      "type": "string",
-      "description": "The signature of your request payload, generated using your secret key."
-    },
-    "currency": {
-      "type": "string",
-      "description": "The account to which you want to deposit. Available values: cny, btc, eth, pls, note, bts, bitcny, bitusd, bitbtc, yun, nxt, ltc, doge, sc, dgd, dcs, dao, etc, amp, 1st, rep, ans, zec, zmc, gnt"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_key",
-    "tonce",
-    "signature",
-    "currency"
-  ]
-}
+
+```js
+yunbi.v2.deposit_address.json.get({
+  "access_key": "",
+  "tonce": 0,
+  "signature": "",
+  "currency": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.deposits.json.get
+
+#### Parameters
+* access_key (string) **required** - Access key.
+* tonce (integer) **required** - Tonce is an integer represents the milliseconds elapsed since Unix epoch.
+* signature (string) **required** - The signature of your request payload, generated using your secret key.
+* currency (string) **required** - The account to which you want to deposit. Available values: cny, btc, eth, pls, note, bts, bitcny, bitusd, bitbtc, yun, nxt, ltc, doge, sc, dgd, dcs, dao, etc, amp, 1st, rep, ans, zec, zmc, gnt
+
+### v2.deposits.json.get
 Get your deposits history.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_key": {
-      "type": "string",
-      "description": "Access key."
-    },
-    "tonce": {
-      "type": "integer",
-      "description": "Tonce is an integer represents the milliseconds elapsed since Unix epoch."
-    },
-    "signature": {
-      "type": "string",
-      "description": "The signature of your request payload, generated using your secret key."
-    },
-    "currency": {
-      "type": "string",
-      "description": "Currency value contains  cny,btc,eth,pls,note,bts,bitcny,bitusd,bitbtc,yun,nxt,ltc,doge,sc,dgd,dcs,dao,etc,amp,1st,rep,ans,zec,zmc,gnt"
-    },
-    "limit": {
-      "type": "integer",
-      "description": "Set result limit."
-    },
-    "state": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_key",
-    "tonce",
-    "signature"
-  ]
-}
+
+```js
+yunbi.v2.deposits.json.get({
+  "access_key": "",
+  "tonce": 0,
+  "signature": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.depth.json.get
+
+#### Parameters
+* access_key (string) **required** - Access key.
+* tonce (integer) **required** - Tonce is an integer represents the milliseconds elapsed since Unix epoch.
+* signature (string) **required** - The signature of your request payload, generated using your secret key.
+* currency (string) - Currency value contains  cny,btc,eth,pls,note,bts,bitcny,bitusd,bitbtc,yun,nxt,ltc,doge,sc,dgd,dcs,dao,etc,amp,1st,rep,ans,zec,zmc,gnt
+* limit (integer) - Set result limit.
+* state (string)
+
+### v2.depth.json.get
 Get depth or specified market. Both asks and bids are sorted from highest price to lowest.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "market": {
-      "type": "string",
-      "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets."
-    },
-    "limit": {
-      "type": "integer",
-      "description": "Limit the number of returned price levels. Default to 300."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "market"
-  ]
-}
+
+```js
+yunbi.v2.depth.json.get({
+  "market": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.k.json.get
+
+#### Parameters
+* market (string) **required** - Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets.
+* limit (integer) - Limit the number of returned price levels. Default to 300.
+
+### v2.k.json.get
 Get OHLC(k line) of specific market.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "market": {
-      "type": "string",
-      "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets."
-    },
-    "limit": {
-      "type": "integer",
-      "description": "Limit the number of returned data points, default to 30."
-    },
-    "period": {
-      "type": "integer",
-      "description": "Time period of K line, default to 1. You can choose between 1, 5, 15, 30, 60, 120, 240, 360, 720, 1440, 4320, 10080"
-    },
-    "timestamp": {
-      "type": "integer",
-      "description": "An integer represents the seconds elapsed since Unix epoch. If set, only k-line data after that time will be returned."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "market"
-  ]
-}
+
+```js
+yunbi.v2.k.json.get({
+  "market": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.k_with_pending_trades.json.get
+
+#### Parameters
+* market (string) **required** - Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets.
+* limit (integer) - Limit the number of returned data points, default to 30.
+* period (integer) - Time period of K line, default to 1. You can choose between 1, 5, 15, 30, 60, 120, 240, 360, 720, 1440, 4320, 10080
+* timestamp (integer) - An integer represents the seconds elapsed since Unix epoch. If set, only k-line data after that time will be returned.
+
+### v2.k_with_pending_trades.json.get
 Get K data with pending trades, which are the trades not included in K data yet, because there's delay between trade generated and processed by K data generator.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "market": {
-      "type": "string",
-      "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets."
-    },
-    "trade_id": {
-      "type": "integer",
-      "description": "The trade id of the first trade you received."
-    },
-    "limit": {
-      "type": "integer",
-      "description": "Limit the number of returned data points, default to 30."
-    },
-    "period": {
-      "type": "integer",
-      "description": "Time period of K line, default to 1. You can choose between 1, 5, 15, 30, 60, 120, 240, 360, 720, 1440, 4320, 10080"
-    },
-    "timestamp": {
-      "type": "integer",
-      "description": "An integer represents the seconds elapsed since Unix epoch. If set, only k-line data after that time will be returned."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "market",
-    "trade_id"
-  ]
-}
+
+```js
+yunbi.v2.k_with_pending_trades.json.get({
+  "market": "",
+  "trade_id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.markets.json.get
+
+#### Parameters
+* market (string) **required** - Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets.
+* trade_id (integer) **required** - The trade id of the first trade you received.
+* limit (integer) - Limit the number of returned data points, default to 30.
+* period (integer) - Time period of K line, default to 1. You can choose between 1, 5, 15, 30, 60, 120, 240, 360, 720, 1440, 4320, 10080
+* timestamp (integer) - An integer represents the seconds elapsed since Unix epoch. If set, only k-line data after that time will be returned.
+
+### v2.markets.json.get
 Get all available markets.
 
-### Input Schema
-```json
-{}
+
+```js
+yunbi.v2.markets.json.get(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.members.me.json.get
+
+
+### v2.members.me.json.get
 Get your profile and accounts info.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_key": {
-      "type": "string",
-      "description": "Access key."
-    },
-    "tonce": {
-      "type": "integer",
-      "description": "Tonce is an integer represents the milliseconds elapsed since Unix epoch."
-    },
-    "signature": {
-      "type": "string",
-      "description": "The signature of your request payload, generated using your secret key."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_key",
-    "tonce",
-    "signature"
-  ]
-}
+
+```js
+yunbi.v2.members.me.json.get({
+  "access_key": "",
+  "tonce": 0,
+  "signature": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.order.json.get
+
+#### Parameters
+* access_key (string) **required** - Access key.
+* tonce (integer) **required** - Tonce is an integer represents the milliseconds elapsed since Unix epoch.
+* signature (string) **required** - The signature of your request payload, generated using your secret key.
+
+### v2.order.json.get
 Get information of specified order.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_key": {
-      "type": "string",
-      "description": "Access key."
-    },
-    "tonce": {
-      "type": "integer",
-      "description": "Tonce is an integer represents the milliseconds elapsed since Unix epoch."
-    },
-    "signature": {
-      "type": "string",
-      "description": "The signature of your request payload, generated using your secret key."
-    },
-    "id": {
-      "type": "integer",
-      "description": "Unique order id."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_key",
-    "tonce",
-    "signature",
-    "id"
-  ]
-}
+
+```js
+yunbi.v2.order.json.get({
+  "access_key": "",
+  "tonce": 0,
+  "signature": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.order.delete.json.post
+
+#### Parameters
+* access_key (string) **required** - Access key.
+* tonce (integer) **required** - Tonce is an integer represents the milliseconds elapsed since Unix epoch.
+* signature (string) **required** - The signature of your request payload, generated using your secret key.
+* id (integer) **required** - Unique order id.
+
+### v2.order.delete.json.post
 Cancel an order.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_key": {
-      "type": "string",
-      "description": "Access key."
-    },
-    "tonce": {
-      "type": "integer",
-      "description": "Tonce is an integer represents the milliseconds elapsed since Unix epoch."
-    },
-    "signature": {
-      "type": "string",
-      "description": "The signature of your request payload, generated using your secret key."
-    },
-    "id": {
-      "type": "integer",
-      "description": "Unique order id."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_key",
-    "tonce",
-    "signature",
-    "id"
-  ]
-}
+
+```js
+yunbi.v2.order.delete.json.post({
+  "access_key": "",
+  "tonce": 0,
+  "signature": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.order_book.json.get
+
+#### Parameters
+* access_key (string) **required** - Access key.
+* tonce (integer) **required** - Tonce is an integer represents the milliseconds elapsed since Unix epoch.
+* signature (string) **required** - The signature of your request payload, generated using your secret key.
+* id (integer) **required** - Unique order id.
+
+### v2.order_book.json.get
 Get the order book of specified market.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "market": {
-      "type": "string",
-      "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets."
-    },
-    "asks_limit": {
-      "type": "integer",
-      "description": "Limit the number of returned sell orders. Default to 20."
-    },
-    "bids_limit": {
-      "type": "integer",
-      "description": "Limit the number of returned buy orders. Default to 20."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "market"
-  ]
-}
+
+```js
+yunbi.v2.order_book.json.get({
+  "market": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.orders.json.get
+
+#### Parameters
+* market (string) **required** - Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets.
+* asks_limit (integer) - Limit the number of returned sell orders. Default to 20.
+* bids_limit (integer) - Limit the number of returned buy orders. Default to 20.
+
+### v2.orders.json.get
 Get your orders, results is paginated.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_key": {
-      "type": "string",
-      "description": "Access key."
-    },
-    "tonce": {
-      "type": "integer",
-      "description": "Tonce is an integer represents the milliseconds elapsed since Unix epoch."
-    },
-    "signature": {
-      "type": "string",
-      "description": "The signature of your request payload, generated using your secret key."
-    },
-    "market": {
-      "type": "string",
-      "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets."
-    },
-    "state": {
-      "type": "string",
-      "description": "Filter order by state, default to 'wait' (active orders)."
-    },
-    "limit": {
-      "type": "integer",
-      "description": "Limit the number of returned orders, default to 100."
-    },
-    "page": {
-      "type": "integer",
-      "description": "Specify the page of paginated results."
-    },
-    "order_by": {
-      "type": "string",
-      "description": "If set, returned orders will be sorted in specific order, default to 'asc'."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_key",
-    "tonce",
-    "signature",
-    "market"
-  ]
-}
+
+```js
+yunbi.v2.orders.json.get({
+  "access_key": "",
+  "tonce": 0,
+  "signature": "",
+  "market": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.orders.json.post
+
+#### Parameters
+* access_key (string) **required** - Access key.
+* tonce (integer) **required** - Tonce is an integer represents the milliseconds elapsed since Unix epoch.
+* signature (string) **required** - The signature of your request payload, generated using your secret key.
+* market (string) **required** - Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets.
+* state (string) - Filter order by state, default to 'wait' (active orders).
+* limit (integer) - Limit the number of returned orders, default to 100.
+* page (integer) - Specify the page of paginated results.
+* order_by (string) - If set, returned orders will be sorted in specific order, default to 'asc'.
+
+### v2.orders.json.post
 Create a Sell/Buy order.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_key": {
-      "type": "string",
-      "description": "Access key."
-    },
-    "tonce": {
-      "type": "integer",
-      "description": "Tonce is an integer represents the milliseconds elapsed since Unix epoch."
-    },
-    "signature": {
-      "type": "string",
-      "description": "The signature of your request payload, generated using your secret key."
-    },
-    "market": {
-      "type": "string",
-      "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets."
-    },
-    "side": {
-      "type": "string",
-      "description": "Either 'sell' or 'buy'."
-    },
-    "volume": {
-      "type": "string",
-      "description": "The amount user want to sell/buy. An order could be partially executed, e.g. an order sell 5 btc can be matched with a buy 3 btc order, left 2 btc to be sold; in this case the order's volume would be '5.0', its remaining_volume would be '2.0', its executed volume is '3.0'."
-    },
-    "price": {
-      "type": "string",
-      "description": "Price for each unit. e.g. If you want to sell/buy 1 btc at 3000 CNY, the price is '3000.0'"
-    },
-    "ord_type": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_key",
-    "tonce",
-    "signature",
-    "market",
-    "side",
-    "volume"
-  ]
-}
+
+```js
+yunbi.v2.orders.json.post({
+  "access_key": "",
+  "tonce": 0,
+  "signature": "",
+  "market": "",
+  "side": "",
+  "volume": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.orders.clear.json.post
+
+#### Parameters
+* access_key (string) **required** - Access key.
+* tonce (integer) **required** - Tonce is an integer represents the milliseconds elapsed since Unix epoch.
+* signature (string) **required** - The signature of your request payload, generated using your secret key.
+* market (string) **required** - Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets.
+* side (string) **required** - Either 'sell' or 'buy'.
+* volume (string) **required** - The amount user want to sell/buy. An order could be partially executed, e.g. an order sell 5 btc can be matched with a buy 3 btc order, left 2 btc to be sold; in this case the order's volume would be '5.0', its remaining_volume would be '2.0', its executed volume is '3.0'.
+* price (string) - Price for each unit. e.g. If you want to sell/buy 1 btc at 3000 CNY, the price is '3000.0'
+* ord_type (string)
+
+### v2.orders.clear.json.post
 Cancel all my orders.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_key": {
-      "type": "string",
-      "description": "Access key."
-    },
-    "tonce": {
-      "type": "integer",
-      "description": "Tonce is an integer represents the milliseconds elapsed since Unix epoch."
-    },
-    "signature": {
-      "type": "string",
-      "description": "The signature of your request payload, generated using your secret key."
-    },
-    "side": {
-      "type": "string",
-      "description": "If present, only sell orders (asks) or buy orders (bids) will be canncelled."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_key",
-    "tonce",
-    "signature"
-  ]
-}
+
+```js
+yunbi.v2.orders.clear.json.post({
+  "access_key": "",
+  "tonce": 0,
+  "signature": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.orders.multi.json.post
+
+#### Parameters
+* access_key (string) **required** - Access key.
+* tonce (integer) **required** - Tonce is an integer represents the milliseconds elapsed since Unix epoch.
+* signature (string) **required** - The signature of your request payload, generated using your secret key.
+* side (string) - If present, only sell orders (asks) or buy orders (bids) will be canncelled.
+
+### v2.orders.multi.json.post
 Create multiple sell/buy orders.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_key": {
-      "type": "string",
-      "description": "Access key."
-    },
-    "tonce": {
-      "type": "integer",
-      "description": "Tonce is an integer represents the milliseconds elapsed since Unix epoch."
-    },
-    "signature": {
-      "type": "string",
-      "description": "The signature of your request payload, generated using your secret key."
-    },
-    "market": {
-      "type": "string",
-      "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets."
-    },
-    "orders": {
-      "type": "array"
-    },
-    "orders[side]": {
-      "type": "string",
-      "description": "Either 'sell' or 'buy'."
-    },
-    "orders[volume]": {
-      "type": "string",
-      "description": "The amount user want to sell/buy. An order could be partially executed, e.g. an order sell 5 btc can be matched with a buy 3 btc order, left 2 btc to be sold; in this case the order's volume would be '5.0', its remaining_volume would be '2.0', its executed volume is '3.0'."
-    },
-    "orders[price]": {
-      "type": "string",
-      "description": "Price for each unit. e.g. If you want to sell/buy 1 btc at 3000 CNY, the price is '3000.0'"
-    },
-    "orders[ord_type]": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_key",
-    "tonce",
-    "signature",
-    "market",
-    "orders",
-    "orders[side]",
-    "orders[volume]"
-  ]
-}
+
+```js
+yunbi.v2.orders.multi.json.post({
+  "access_key": "",
+  "tonce": 0,
+  "signature": "",
+  "market": "",
+  "orders": [],
+  "orders[side]": "",
+  "orders[volume]": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.tickers.json.get
+
+#### Parameters
+* access_key (string) **required** - Access key.
+* tonce (integer) **required** - Tonce is an integer represents the milliseconds elapsed since Unix epoch.
+* signature (string) **required** - The signature of your request payload, generated using your secret key.
+* market (string) **required** - Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets.
+* orders (array) **required**
+* orders[side] (string) **required** - Either 'sell' or 'buy'.
+* orders[volume] (string) **required** - The amount user want to sell/buy. An order could be partially executed, e.g. an order sell 5 btc can be matched with a buy 3 btc order, left 2 btc to be sold; in this case the order's volume would be '5.0', its remaining_volume would be '2.0', its executed volume is '3.0'.
+* orders[price] (string) - Price for each unit. e.g. If you want to sell/buy 1 btc at 3000 CNY, the price is '3000.0'
+* orders[ord_type] (string)
+
+### v2.tickers.json.get
 Get ticker of all markets.
 
-### Input Schema
-```json
-{}
+
+```js
+yunbi.v2.tickers.json.get(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.tickers.market.json.get
+
+
+### v2.tickers.market.json.get
 Get ticker of specific market.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "market": {
-      "type": "string",
-      "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "market"
-  ]
-}
+
+```js
+yunbi.v2.tickers.market.json.get({
+  "market": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.timestamp.json.get
+
+#### Parameters
+* market (string) **required** - Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets.
+
+### v2.timestamp.json.get
 Get server current time, in seconds since Unix epoch.
 
-### Input Schema
-```json
-{}
+
+```js
+yunbi.v2.timestamp.json.get(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.trades.json.get
+
+
+### v2.trades.json.get
 Get recent trades on market, each trade is included only once. Trades are sorted in reverse creation order.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "market": {
-      "type": "string",
-      "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets."
-    },
-    "limit": {
-      "type": "integer",
-      "description": "Limit the number of returned trades. Default to 50."
-    },
-    "timestamp": {
-      "type": "integer",
-      "description": "An integer represents the seconds elapsed since Unix epoch. If set, only trades executed before the time will be returned."
-    },
-    "from": {
-      "type": "integer",
-      "description": "Trade id. If set, only trades created after the trade will be returned."
-    },
-    "to": {
-      "type": "integer",
-      "description": "Trade id. If set, only trades created before the trade will be returned."
-    },
-    "order_by": {
-      "type": "string",
-      "description": "If set, returned trades will be sorted in specific order, default to 'desc'."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "market"
-  ]
-}
+
+```js
+yunbi.v2.trades.json.get({
+  "market": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.trades.my.json.get
+
+#### Parameters
+* market (string) **required** - Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets.
+* limit (integer) - Limit the number of returned trades. Default to 50.
+* timestamp (integer) - An integer represents the seconds elapsed since Unix epoch. If set, only trades executed before the time will be returned.
+* from (integer) - Trade id. If set, only trades created after the trade will be returned.
+* to (integer) - Trade id. If set, only trades created before the trade will be returned.
+* order_by (string) - If set, returned trades will be sorted in specific order, default to 'desc'.
+
+### v2.trades.my.json.get
 Get your executed trades. Trades are sorted in reverse creation order.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_key": {
-      "type": "string",
-      "description": "Access key."
-    },
-    "tonce": {
-      "type": "integer",
-      "description": "Tonce is an integer represents the milliseconds elapsed since Unix epoch."
-    },
-    "signature": {
-      "type": "string",
-      "description": "The signature of your request payload, generated using your secret key."
-    },
-    "market": {
-      "type": "string",
-      "description": "Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets."
-    },
-    "limit": {
-      "type": "integer",
-      "description": "Limit the number of returned trades. Default to 50."
-    },
-    "timestamp": {
-      "type": "integer",
-      "description": "An integer represents the seconds elapsed since Unix epoch. If set, only trades executed before the time will be returned."
-    },
-    "from": {
-      "type": "integer",
-      "description": "Trade id. If set, only trades created after the trade will be returned."
-    },
-    "to": {
-      "type": "integer",
-      "description": "Trade id. If set, only trades created before the trade will be returned."
-    },
-    "order_by": {
-      "type": "string",
-      "description": "If set, returned trades will be sorted in specific order, default to 'desc'."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_key",
-    "tonce",
-    "signature",
-    "market"
-  ]
-}
+
+```js
+yunbi.v2.trades.my.json.get({
+  "access_key": "",
+  "tonce": 0,
+  "signature": "",
+  "market": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: v2.withdraw.json.post
+
+#### Parameters
+* access_key (string) **required** - Access key.
+* tonce (integer) **required** - Tonce is an integer represents the milliseconds elapsed since Unix epoch.
+* signature (string) **required** - The signature of your request payload, generated using your secret key.
+* market (string) **required** - Unique market id. It's always in the form of xxxyyy, where xxx is the base currency code, yyy is the quote currency code, e.g. 'btccny'. All available markets can be found at /api/v2/markets.
+* limit (integer) - Limit the number of returned trades. Default to 50.
+* timestamp (integer) - An integer represents the seconds elapsed since Unix epoch. If set, only trades executed before the time will be returned.
+* from (integer) - Trade id. If set, only trades created after the trade will be returned.
+* to (integer) - Trade id. If set, only trades created before the trade will be returned.
+* order_by (string) - If set, returned trades will be sorted in specific order, default to 'desc'.
+
+### v2.withdraw.json.post
 Generate withdrawal application
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_key": {
-      "type": "string",
-      "description": "Access key."
-    },
-    "tonce": {
-      "type": "integer",
-      "description": "Tonce is an integer represents the milliseconds elapsed since Unix epoch."
-    },
-    "signature": {
-      "type": "string",
-      "description": "The signature of your request payload, generated using your secret key."
-    },
-    "amount": {
-      "type": "string",
-      "description": "Withdraw amount"
-    },
-    "id": {
-      "type": "integer",
-      "description": "Withdrawal address ID"
-    },
-    "memo": {
-      "type": "string",
-      "description": "Withdraw Memo"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_key",
-    "tonce",
-    "signature",
-    "amount",
-    "id"
-  ]
-}
+
+```js
+yunbi.v2.withdraw.json.post({
+  "access_key": "",
+  "tonce": 0,
+  "signature": "",
+  "amount": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* access_key (string) **required** - Access key.
+* tonce (integer) **required** - Tonce is an integer represents the milliseconds elapsed since Unix epoch.
+* signature (string) **required** - The signature of your request payload, generated using your secret key.
+* amount (string) **required** - Withdraw amount
+* id (integer) **required** - Withdrawal address ID
+* memo (string) - Withdraw Memo
+

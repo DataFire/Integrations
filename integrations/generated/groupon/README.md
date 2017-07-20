@@ -1,250 +1,139 @@
 # @datafire/groupon
+
+Client library for Groupon API2
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/groupon
+```
+
+```js
+let datafire = require('datafire');
+let groupon = require('@datafire/groupon').actions;
+let context = new datafire.Context();
+
+groupon.status.format.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Put all those great ideas for Groupon improvements, extensions, and multiple-platform interfaces to work.
 
-## Operation: status.format.get
+## Actions
+### status.format.get
 Returns the status of Groupon's API and all the currently available versions of the API.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "format": {
-      "type": "string",
-      "enum": [
-        "json"
-      ]
-    },
-    "client_id": {
-      "type": "string"
-    },
-    "device_id": {
-      "type": "string"
-    },
-    "user_agent": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "format"
-  ]
-}
+
+```js
+groupon.status.format.get({
+  "format": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: divisions.format.get
+
+#### Parameters
+* format (string) **required**
+* client_id (string)
+* device_id (string)
+* user_agent (string)
+
+### divisions.format.get
 Returns the list of all launched divisions.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "format": {
-      "type": "string",
-      "enum": [
-        "json",
-        "xml"
-      ]
-    },
-    "client_id": {
-      "type": "string"
-    },
-    "show": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "format",
-    "client_id",
-    "show"
-  ]
-}
+
+```js
+groupon.divisions.format.get({
+  "format": "",
+  "client_id": "",
+  "show": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: groupon_says.format.get
+
+#### Parameters
+* format (string) **required**
+* client_id (string) **required**
+* show (string) **required**
+
+### groupon_says.format.get
 Returns the list of recent (or random) Groupon Says commentaries.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "format": {
-      "type": "string",
-      "enum": [
-        "json",
-        "xml"
-      ]
-    },
-    "client_id": {
-      "type": "string"
-    },
-    "limit": {
-      "type": "string"
-    },
-    "random": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "format",
-    "client_id",
-    "limit"
-  ]
-}
+
+```js
+groupon.groupon_says.format.get({
+  "format": "",
+  "client_id": "",
+  "limit": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deals.id.format.get
+
+#### Parameters
+* format (string) **required**
+* client_id (string) **required**
+* limit (string) **required**
+* random (string)
+
+### deals.id.format.get
 Returns the detailed information about a specified deal.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string"
-    },
-    "format": {
-      "type": "string",
-      "enum": [
-        "json",
-        "xml"
-      ]
-    },
-    "client_id": {
-      "type": "string"
-    },
-    "show": {
-      "type": "string"
-    },
-    "email_address": {
-      "type": "string"
-    },
-    "area": {
-      "type": "string"
-    },
-    "referral_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "format",
-    "client_id",
-    "show"
-  ]
-}
+
+```js
+groupon.deals.id.format.get({
+  "id": "",
+  "format": "",
+  "client_id": "",
+  "show": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deals.format.get
+
+#### Parameters
+* id (string) **required**
+* format (string) **required**
+* client_id (string) **required**
+* show (string) **required**
+* email_address (string)
+* area (string)
+* referral_id (string)
+
+### deals.format.get
 Returns an ordered list of deals that are currently launched for a specific division.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "format": {
-      "type": "string",
-      "enum": [
-        "json",
-        "xml"
-      ]
-    },
-    "client_id": {
-      "type": "string"
-    },
-    "show": {
-      "type": "string"
-    },
-    "email_address": {
-      "type": "string"
-    },
-    "area": {
-      "type": "string"
-    },
-    "lat": {
-      "type": "string"
-    },
-    "lng": {
-      "type": "string"
-    },
-    "radius": {
-      "type": "string"
-    },
-    "division_id": {
-      "type": "string"
-    },
-    "device_token": {
-      "type": "string"
-    },
-    "subscriber_id ": {
-      "type": "string"
-    },
-    "affiliate": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "format",
-    "client_id",
-    "show"
-  ]
-}
+
+```js
+groupon.deals.format.get({
+  "format": "",
+  "client_id": "",
+  "show": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deals.deal_id.posts.format.get
+
+#### Parameters
+* format (string) **required**
+* client_id (string) **required**
+* show (string) **required**
+* email_address (string)
+* area (string)
+* lat (string)
+* lng (string)
+* radius (string)
+* division_id (string)
+* device_token (string)
+* subscriber_id  (string)
+* affiliate (string)
+
+### deals.deal_id.posts.format.get
 Returns the lists of all the discussion posts for the specified deal.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "format": {
-      "type": "string",
-      "enum": [
-        "json",
-        "xml"
-      ]
-    },
-    "client_id": {
-      "type": "string"
-    },
-    "deal_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "format",
-    "client_id",
-    "deal_id"
-  ]
-}
+
+```js
+groupon.deals.deal_id.posts.format.get({
+  "format": "",
+  "client_id": "",
+  "deal_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* format (string) **required**
+* client_id (string) **required**
+* deal_id (string) **required**
+

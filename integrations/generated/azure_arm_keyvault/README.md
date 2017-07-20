@@ -1,212 +1,118 @@
 # @datafire/azure_arm_keyvault
+
+Client library for KeyVaultManagementClient
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/azure_arm_keyvault
+```
+
+```js
+let datafire = require('datafire');
+let azure_arm_keyvault = require('@datafire/azure_arm_keyvault').actions;
+let context = new datafire.Context();
+
+azure_arm_keyvault.Vaults_ListByResourceGroup({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 The Azure management API provides a RESTful set of web services that interact with Azure Key Vault.
 
-## Operation: Vaults_ListByResourceGroup
+## Actions
+### Vaults_ListByResourceGroup
 The List operation gets information about the vaults associated with the subscription and within the specified resource group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the Resource Group to which the vault belongs."
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum number of results to return."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_keyvault.Vaults_ListByResourceGroup({
+  "resourceGroupName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/VaultListResult"
-}
-```
-## Operation: Vaults_Delete
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the Resource Group to which the vault belongs.
+* $top (integer) - Maximum number of results to return.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Vaults_Delete
 Deletes the specified Azure key vault.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the Resource Group to which the vault belongs."
-    },
-    "vaultName": {
-      "type": "string",
-      "description": "The name of the vault to delete"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "vaultName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_keyvault.Vaults_Delete({
+  "resourceGroupName": "",
+  "vaultName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Vaults_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the Resource Group to which the vault belongs.
+* vaultName (string) **required** - The name of the vault to delete
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Vaults_Get
 Gets the specified Azure key vault.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the Resource Group to which the vault belongs."
-    },
-    "vaultName": {
-      "type": "string",
-      "description": "The name of the vault."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "vaultName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_keyvault.Vaults_Get({
+  "resourceGroupName": "",
+  "vaultName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Vault"
-}
-```
-## Operation: Vaults_CreateOrUpdate
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the Resource Group to which the vault belongs.
+* vaultName (string) **required** - The name of the vault.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Vaults_CreateOrUpdate
 Create or update a key vault in the specified subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the Resource Group to which the server belongs."
-    },
-    "vaultName": {
-      "type": "string",
-      "description": "Name of the vault",
-      "pattern": "^[a-zA-Z0-9-]{3,24}$"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/VaultCreateOrUpdateParameters"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "vaultName",
-    "api-version",
-    "parameters",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_keyvault.Vaults_CreateOrUpdate({
+  "resourceGroupName": "",
+  "vaultName": "",
+  "api-version": "",
+  "parameters": null,
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Vault"
-}
-```
-## Operation: Vaults_List
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the Resource Group to which the server belongs.
+* vaultName (string) **required** - Name of the vault
+* api-version (string) **required** - Client Api Version.
+* parameters (undefined) **required** - Parameters for creating or updating a vault
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Vaults_List
 The List operation gets information about the vaults associated with the subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the operation.",
-      "enum": [
-        "resourceType eq 'Microsoft.KeyVault/vaults'"
-      ]
-    },
-    "$top": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum number of results to return."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Azure Resource Manager Api Version.",
-      "enum": [
-        "2015-11-01"
-      ]
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "$filter",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_keyvault.Vaults_List({
+  "$filter": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ResourceListResult"
-}
-```
+
+#### Parameters
+* $filter (string) **required** - The filter to apply on the operation.
+* $top (integer) - Maximum number of results to return.
+* api-version (string) **required** - Azure Resource Manager Api Version.
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+

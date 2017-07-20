@@ -1,33 +1,38 @@
 # @datafire/apitore_documentfrequencyapis
+
+Client library for Document frequency APIs
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/apitore_documentfrequencyapis
+```
+
+```js
+let datafire = require('datafire');
+let apitore_documentfrequencyapis = require('@datafire/apitore_documentfrequencyapis').actions;
+let context = new datafire.Context();
+
+apitore_documentfrequencyapis.getUsingGET({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Document frequency of Wikipedia.<BR />[Endpoint] https://api.apitore.com/api/16
 
-## Operation: getUsingGET
+## Actions
+### getUsingGET
 Document Frequency by JaWikipedia 2016-9-15 dump.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/summarize-response">summarize-response</a><BR />&nbsp; Class: com.apitore.banana.response.summarize.DocumentFrequencyResponseEntity<BR />
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access Token"
-    },
-    "word": {
-      "type": "string",
-      "description": "word"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "word"
-  ]
-}
+
+```js
+apitore_documentfrequencyapis.getUsingGET({
+  "access_token": "",
+  "word": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DocumentFrequencyResponseEntity"
-}
-```
+
+#### Parameters
+* access_token (string) **required** - Access Token
+* word (string) **required** - word
+

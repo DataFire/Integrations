@@ -1,972 +1,559 @@
 # @datafire/amazonaws_cloudfront
+
+Client library for Amazon CloudFront
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/amazonaws_cloudfront
+```
+
+```js
+let datafire = require('datafire');
+let amazonaws_cloudfront = require('@datafire/amazonaws_cloudfront').actions;
+
+let account = {
+  hmac: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    amazonaws_cloudfront: account,
+  }
+})
+
+
+amazonaws_cloudfront.ListDistributions({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 <fullname>Amazon CloudFront</fullname> <p>This is the <i>Amazon CloudFront API Reference</i>. This guide is for developers who need detailed information about the CloudFront API actions, data types, and errors. For detailed information about CloudFront features and their associated API calls, see the <i>Amazon CloudFront Developer Guide</i>.</p>
 
-## Operation: ListDistributions
+## Actions
+### ListDistributions
 List distributions. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListDistributionsRequest"
-    },
-    "MaxItems": {
-      "type": "string",
-      "description": "Pagination limit"
-    },
-    "Marker": {
-      "type": "string",
-      "description": "Pagination token"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_cloudfront.ListDistributions({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListDistributionsResult"
-}
-```
-## Operation: ListInvalidations
+
+#### Parameters
+* body (object) **required** - The request to list your distributions. 
+* MaxItems (string) - Pagination limit
+* Marker (string) - Pagination token
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ListInvalidations
 Lists invalidation batches. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListInvalidationsRequest"
-    },
-    "MaxItems": {
-      "type": "string",
-      "description": "Pagination limit"
-    },
-    "Marker": {
-      "type": "string",
-      "description": "Pagination token"
-    },
-    "DistributionId": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "DistributionId",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_cloudfront.ListInvalidations({
+  "body": {},
+  "DistributionId": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListInvalidationsResult"
-}
-```
-## Operation: GetInvalidation
+
+#### Parameters
+* body (object) **required** - The request to list invalidations. 
+* MaxItems (string) - Pagination limit
+* Marker (string) - Pagination token
+* DistributionId (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetInvalidation
 Get the information about an invalidation. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetInvalidationRequest"
-    },
-    "DistributionId": {
-      "type": "string"
-    },
-    "Id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "DistributionId",
-    "Id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_cloudfront.GetInvalidation({
+  "body": {},
+  "DistributionId": "",
+  "Id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetInvalidationResult"
-}
-```
-## Operation: GetDistribution
+
+#### Parameters
+* body (object) **required** - The request to get an invalidation's information. 
+* DistributionId (string) **required**
+* Id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetDistribution
 Get the information about a distribution. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetDistributionRequest"
-    },
-    "Id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_cloudfront.GetDistribution({
+  "body": {},
+  "Id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetDistributionResult"
-}
-```
-## Operation: UpdateDistribution
+
+#### Parameters
+* body (object) **required** - The request to get a distribution's information.
+* Id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateDistribution
 Update a distribution. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateDistributionRequest"
-    },
-    "Id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
+
+```js
+amazonaws_cloudfront.UpdateDistribution({
+  "body": {
+    "DistributionConfig": {
+      "CallerReference": "",
+      "Origins": {
+        "Quantity": 0
+      },
+      "DefaultCacheBehavior": {
+        "TargetOriginId": "",
+        "ForwardedValues": {
+          "QueryString": true,
+          "Cookies": {
+            "Forward": ""
+          }
+        },
+        "TrustedSigners": {
+          "Enabled": true,
+          "Quantity": 0
+        },
+        "ViewerProtocolPolicy": "",
+        "MinTTL": 0
+      },
+      "Comment": "",
+      "Enabled": true
     }
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Id",
-    "Action",
-    "Version"
-  ]
-}
+  "Id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdateDistributionResult"
-}
-```
-## Operation: CreateDistributionWithTags
+
+#### Parameters
+* body (object) **required** - The request to update a distribution.
+* Id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### CreateDistributionWithTags
 Create a new distribution with tags.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CreateDistributionWithTagsRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
+
+```js
+amazonaws_cloudfront.CreateDistributionWithTags({
+  "body": {
+    "DistributionConfigWithTags": {
+      "DistributionConfig": {
+        "CallerReference": "",
+        "Origins": {
+          "Quantity": 0
+        },
+        "DefaultCacheBehavior": {
+          "TargetOriginId": "",
+          "ForwardedValues": {
+            "QueryString": true,
+            "Cookies": {
+              "Forward": ""
+            }
+          },
+          "TrustedSigners": {
+            "Enabled": true,
+            "Quantity": 0
+          },
+          "ViewerProtocolPolicy": "",
+          "MinTTL": 0
+        },
+        "Comment": "",
+        "Enabled": true
+      },
+      "Tags": {}
     }
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CreateDistributionWithTagsResult"
-}
-```
-## Operation: ListDistributionsByWebACLId
+
+#### Parameters
+* body (object) **required** - The request to create a new distribution with tags. 
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ListDistributionsByWebACLId
 List the distributions that are associated with a specified AWS WAF web ACL. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListDistributionsByWebACLIdRequest"
-    },
-    "WebACLId": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "WebACLId",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_cloudfront.ListDistributionsByWebACLId({
+  "body": {},
+  "WebACLId": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListDistributionsByWebACLIdResult"
-}
-```
-## Operation: ListCloudFrontOriginAccessIdentities
+
+#### Parameters
+* body (object) **required** - The request to list distributions that are associated with a specified AWS WAF web ACL. 
+* WebACLId (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ListCloudFrontOriginAccessIdentities
 Lists origin access identities.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListCloudFrontOriginAccessIdentitiesRequest"
-    },
-    "MaxItems": {
-      "type": "string",
-      "description": "Pagination limit"
-    },
-    "Marker": {
-      "type": "string",
-      "description": "Pagination token"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_cloudfront.ListCloudFrontOriginAccessIdentities({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListCloudFrontOriginAccessIdentitiesResult"
-}
-```
-## Operation: GetCloudFrontOriginAccessIdentity
+
+#### Parameters
+* body (object) **required** - The request to list origin access identities. 
+* MaxItems (string) - Pagination limit
+* Marker (string) - Pagination token
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetCloudFrontOriginAccessIdentity
 Get the information about an origin access identity. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetCloudFrontOriginAccessIdentityRequest"
-    },
-    "Id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_cloudfront.GetCloudFrontOriginAccessIdentity({
+  "body": {},
+  "Id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetCloudFrontOriginAccessIdentityResult"
-}
-```
-## Operation: UpdateCloudFrontOriginAccessIdentity
+
+#### Parameters
+* body (object) **required** - The request to get an origin access identity's information.
+* Id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateCloudFrontOriginAccessIdentity
 Update an origin access identity. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateCloudFrontOriginAccessIdentityRequest"
-    },
-    "Id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
+
+```js
+amazonaws_cloudfront.UpdateCloudFrontOriginAccessIdentity({
+  "body": {
+    "CloudFrontOriginAccessIdentityConfig": {
+      "CallerReference": "",
+      "Comment": ""
     }
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Id",
-    "Action",
-    "Version"
-  ]
-}
+  "Id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdateCloudFrontOriginAccessIdentityResult"
-}
-```
-## Operation: ListStreamingDistributions
+
+#### Parameters
+* body (object) **required** - The request to update an origin access identity.
+* Id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ListStreamingDistributions
 List streaming distributions. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListStreamingDistributionsRequest"
-    },
-    "MaxItems": {
-      "type": "string",
-      "description": "Pagination limit"
-    },
-    "Marker": {
-      "type": "string",
-      "description": "Pagination token"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_cloudfront.ListStreamingDistributions({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListStreamingDistributionsResult"
-}
-```
-## Operation: GetStreamingDistribution
+
+#### Parameters
+* body (object) **required** - The request to list your streaming distributions. 
+* MaxItems (string) - Pagination limit
+* Marker (string) - Pagination token
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### GetStreamingDistribution
 Gets information about a specified RTMP distribution, including the distribution configuration.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetStreamingDistributionRequest"
-    },
-    "Id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Id",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_cloudfront.GetStreamingDistribution({
+  "body": {},
+  "Id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetStreamingDistributionResult"
-}
-```
-## Operation: UpdateStreamingDistribution
+
+#### Parameters
+* body (object) **required** - The request to get a streaming distribution's information.
+* Id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UpdateStreamingDistribution
 Update a streaming distribution. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UpdateStreamingDistributionRequest"
-    },
-    "Id": {
-      "type": "string"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
+
+```js
+amazonaws_cloudfront.UpdateStreamingDistribution({
+  "body": {
+    "StreamingDistributionConfig": {
+      "CallerReference": "",
+      "S3Origin": {
+        "DomainName": "",
+        "OriginAccessIdentity": ""
+      },
+      "Comment": "",
+      "TrustedSigners": {
+        "Enabled": true,
+        "Quantity": 0
+      },
+      "Enabled": true
     }
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Id",
-    "Action",
-    "Version"
-  ]
-}
+  "Id": "",
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdateStreamingDistributionResult"
-}
-```
-## Operation: CreateStreamingDistributionWithTags
+
+#### Parameters
+* body (object) **required** - The request to update a streaming distribution.
+* Id (string) **required**
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### CreateStreamingDistributionWithTags
 Create a new streaming distribution with tags.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/CreateStreamingDistributionWithTagsRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
+
+```js
+amazonaws_cloudfront.CreateStreamingDistributionWithTags({
+  "body": {
+    "StreamingDistributionConfigWithTags": {
+      "StreamingDistributionConfig": {
+        "CallerReference": "",
+        "S3Origin": {
+          "DomainName": "",
+          "OriginAccessIdentity": ""
+        },
+        "Comment": "",
+        "TrustedSigners": {
+          "Enabled": true,
+          "Quantity": 0
+        },
+        "Enabled": true
+      },
+      "Tags": {}
     }
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CreateStreamingDistributionWithTagsResult"
-}
-```
-## Operation: ListTagsForResource
+
+#### Parameters
+* body (object) **required** - The request to create a new streaming distribution with tags.
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### ListTagsForResource
 List tags for a CloudFront resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListTagsForResourceRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+
+```js
+amazonaws_cloudfront.ListTagsForResource({
+  "body": {},
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListTagsForResourceResult"
-}
-```
-## Operation: TagResource
+
+#### Parameters
+* body (object) **required** -  The request to list tags for a CloudFront resource.
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### TagResource
 Add tags to a CloudFront resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/TagResourceRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_cloudfront.TagResource({
+  "body": {
+    "Tags": {}
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: UntagResource
+
+#### Parameters
+* body (object) **required** -  The request to add tags to a CloudFront resource.
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+
+### UntagResource
 Remove tags from a CloudFront resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/UntagResourceRequest"
-    },
-    "Action": {
-      "type": "string"
-    },
-    "Version": {
-      "type": "string"
-    },
-    "X-Amz-Content-Sha256": {
-      "type": "string"
-    },
-    "X-Amz-Date": {
-      "type": "string"
-    },
-    "X-Amz-Algorithm": {
-      "type": "string"
-    },
-    "X-Amz-Credential": {
-      "type": "string"
-    },
-    "X-Amz-Security-Token": {
-      "type": "string"
-    },
-    "X-Amz-Signature": {
-      "type": "string"
-    },
-    "X-Amz-SignedHeaders": {
-      "type": "string"
-    }
+
+```js
+amazonaws_cloudfront.UntagResource({
+  "body": {
+    "TagKeys": {}
   },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "Action",
-    "Version"
-  ]
-}
+  "Action": "",
+  "Version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* body (object) **required** -  The request to remove tags from a CloudFront resource.
+* Action (string) **required**
+* Version (string) **required**
+* X-Amz-Content-Sha256 (string)
+* X-Amz-Date (string)
+* X-Amz-Algorithm (string)
+* X-Amz-Credential (string)
+* X-Amz-Security-Token (string)
+* X-Amz-Signature (string)
+* X-Amz-SignedHeaders (string)
+

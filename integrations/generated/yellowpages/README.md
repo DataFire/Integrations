@@ -1,190 +1,96 @@
 # @datafire/yellowpages
+
+Client library for Yellow Pages
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/yellowpages
+```
+
+```js
+let datafire = require('datafire');
+let yellowpages = require('@datafire/yellowpages').actions;
+let context = new datafire.Context();
+
+yellowpages.listingmap.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Use YP Places API to power your web and mobile apps with business listings, reviews, maps and much more...
 
-## Operation: listingmap.get
+## Actions
+### listingmap.get
 Returns an URL for a graphical map for a specified business listing.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "listingid": {
-      "type": "string",
-      "description": "YP listing ID."
-    },
-    "pixel_width": {
-      "type": "integer",
-      "description": "Integer representing the width in pixels of the map (Default = 400). Examples: 400, 200, 123."
-    },
-    "pixel_height": {
-      "type": "integer",
-      "description": "Integer representing the height in pixels of the map (Default = 400). Examples: 400, 200, 123."
-    },
-    "image_format": {
-      "type": "string",
-      "description": "String representing the mime-type of map you want returned. Valid values: jpg, png and gif.",
-      "enum": [
-        "jpg",
-        "png",
-        "gif"
-      ]
-    },
-    "zoom": {
-      "description": "Sets the zoom factor for the map, expressed as a fraction from .1 to 1."
-    },
-    "pan_vertical": {
-      "type": "string",
-      "description": "A positive or negative number reflecting the percentage of the map image to pan south (negative) or north (positive). (Default = 0). Examples: 0.5 (50% north) -0.4 (40% south). Postiive numbers tilt to the north, negative numbers tilt to the south."
-    },
-    "pan_horizontal": {
-      "type": "string",
-      "description": "A positive or negative number reflecting the percentage of the map image to pan west (negative) or east (positive). (Default = 0). Examples: 0.5 (50% east) -0.4 (40% west). Postiive numbers tilt to the north, negative numbers tilt to the south."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "listingid"
-  ]
-}
+
+```js
+yellowpages.listingmap.get({
+  "listingid": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: search.get
+
+#### Parameters
+* listingid (string) **required** - YP listing ID.
+* pixel_width (integer) - Integer representing the width in pixels of the map (Default = 400). Examples: 400, 200, 123.
+* pixel_height (integer) - Integer representing the height in pixels of the map (Default = 400). Examples: 400, 200, 123.
+* image_format (string) - String representing the mime-type of map you want returned. Valid values: jpg, png and gif.
+* zoom (undefined) - Sets the zoom factor for the map, expressed as a fraction from .1 to 1.
+* pan_vertical (string) - A positive or negative number reflecting the percentage of the map image to pan south (negative) or north (positive). (Default = 0). Examples: 0.5 (50% north) -0.4 (40% south). Postiive numbers tilt to the north, negative numbers tilt to the south.
+* pan_horizontal (string) - A positive or negative number reflecting the percentage of the map image to pan west (negative) or east (positive). (Default = 0). Examples: 0.5 (50% east) -0.4 (40% west). Postiive numbers tilt to the north, negative numbers tilt to the south.
+
+### search.get
 Supports a number of specific use cases for finding a listing. The search request must include a searchloc value to set the geographic context for the search. The term value can include both name and category keywords. Note that if your implementation uses a single search box, you can combine geograpy and keywords in the term value and the API will parse them. This can potentially cause inaccurate matches if the business name includes place names, however. For example, the "LA wine Company" might be found in a search for "wine+LA" where LA is intended to mean Louisiana. Therefore, where possible, use the searchloc + term combination.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "User-Agent": {
-      "type": "string",
-      "description": "User agent."
-    },
-    "term": {
-      "type": "string",
-      "description": "Unparsed, user-entered search term. Note: For applications where users may provide the search term and location in a single input field (e.g. pizza, Los Angeles), the user-entered value can be sent in the term parameter thus avoiding the need to parse the term and location on the client side. To make this work, do not send a value for searchloc."
-    },
-    "searchloc": {
-      "type": "string",
-      "description": "Unparsed, user-entered search location. Please ensure that all values are URL encoded. If no value is passed for searchloc, then the search engine will attempt to find a valid geo location string in the term parameter's value.\nValid inputs are:\n- city, state (example: searchloc=Glendale%2C+CA).\n- zip code (example: searchloc=91203).\n- lat:long (example: searchloc=37.7752%3A-122.4192 for San Francisco,CA).\n- street1 and street2, city, state (example: searchloc=olive+and+san+fernando%2C+burbank+CA).\n- street1 and street2, zip (example: searchloc=olive+and+san+fernando%2C+91502).\n- street, zip (example: searchloc=611+North+Brand%2C+91203).\n- street, city, state (example: searchloc=611+North+Brand%2C+Glendale+CA).\n- neighborhood, city, state (example: searchloc=chinatown%2C+san+francisco%2C+CA).\n- point of interest, city, state (example: searchloc=golden+gate+bridge%2C+san+francisco%2C+CA)."
-    },
-    "phonesearch": {
-      "type": "boolean",
-      "description": "Indicates that the term parameter contains a phone number, formatted as a 10-digit integer, e.g. 8775551212."
-    },
-    "listingcount": {
-      "type": "integer",
-      "description": "Total number of listings to return. Defaults to 5."
-    },
-    "shorturl": {
-      "type": "boolean",
-      "description": "Enables short URL formats in the API response. Typically only used for SMS applications. Set to true for short URL format. Defaults to false."
-    },
-    "format": {
-      "type": "string",
-      "description": "Desired format of the response. Possible values: xml and json. Defaults to xml.",
-      "enum": [
-        "xml",
-        "json"
-      ]
-    },
-    "pagenum": {
-      "type": "integer",
-      "description": "The page index of the block of results to return. Defaults to 1."
-    },
-    "sort": {
-      "type": "string",
-      "description": "Select the sort criteria for Organic Listings (only).\nValid inputs are:\n- distance: Sort results by distance.\n- name: Sort results alphabetically by name.",
-      "enum": [
-        "distance",
-        "name"
-      ]
-    },
-    "radius": {
-      "type": "integer",
-      "description": "Maximum search radius (in miles) from center of target location for Organic Results (only)."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "User-Agent",
-    "term",
-    "searchloc"
-  ]
-}
+
+```js
+yellowpages.search.get({
+  "User-Agent": "",
+  "term": "",
+  "searchloc": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: details.get
+
+#### Parameters
+* User-Agent (string) **required** - User agent.
+* term (string) **required** - Unparsed, user-entered search term. Note: For applications where users may provide the search term and location in a single input field (e.g. pizza, Los Angeles), the user-entered value can be sent in the term parameter thus avoiding the need to parse the term and location on the client side. To make this work, do not send a value for searchloc.
+* searchloc (string) **required** - Unparsed, user-entered search location. Please ensure that all values are URL encoded. If no value is passed for searchloc, then the search engine will attempt to find a valid geo location string in the term parameter's value.
+* phonesearch (boolean) - Indicates that the term parameter contains a phone number, formatted as a 10-digit integer, e.g. 8775551212.
+* listingcount (integer) - Total number of listings to return. Defaults to 5.
+* shorturl (boolean) - Enables short URL formats in the API response. Typically only used for SMS applications. Set to true for short URL format. Defaults to false.
+* format (string) - Desired format of the response. Possible values: xml and json. Defaults to xml.
+* pagenum (integer) - The page index of the block of results to return. Defaults to 1.
+* sort (string) - Select the sort criteria for Organic Listings (only).
+* radius (integer) - Maximum search radius (in miles) from center of target location for Organic Results (only).
+
+### details.get
 Returns all available data for a given business listing, including hours of operation, website URL, etc.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "User-Agent": {
-      "type": "string",
-      "description": "User agent."
-    },
-    "listingid": {
-      "type": "string",
-      "description": "The unique identifier for the business listing."
-    },
-    "format": {
-      "type": "string",
-      "description": "Desired format of the response. Possible values: xml and json. Defaults to xml.",
-      "enum": [
-        "xml",
-        "json"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "User-Agent",
-    "listingid"
-  ]
-}
+
+```js
+yellowpages.details.get({
+  "User-Agent": "",
+  "listingid": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: reviews.get
+
+#### Parameters
+* User-Agent (string) **required** - User agent.
+* listingid (string) **required** - The unique identifier for the business listing.
+* format (string) - Desired format of the response. Possible values: xml and json. Defaults to xml.
+
+### reviews.get
 Returns all available user reviews for a given business listing.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "listingid": {
-      "type": "string",
-      "description": "The unique identifier for the business listing."
-    },
-    "format": {
-      "type": "string",
-      "description": "Desired format of the response. Possible values: xml and json. Defaults to xml.",
-      "enum": [
-        "xml",
-        "json"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "listingid"
-  ]
-}
+
+```js
+yellowpages.reviews.get({
+  "listingid": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* listingid (string) **required** - The unique identifier for the business listing.
+* format (string) - Desired format of the response. Possible values: xml and json. Defaults to xml.
+

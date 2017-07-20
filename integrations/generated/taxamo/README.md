@@ -1,1215 +1,568 @@
 # @datafire/taxamo
+
+Client library for Taxamo
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/taxamo
+```
+
+```js
+let datafire = require('datafire');
+let taxamo = require('@datafire/taxamo').actions;
+
+let account = {
+  apiKey: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    taxamo: account,
+  }
+})
+
+
+taxamo.listTransactions({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Taxamo’s elegant suite of APIs and comprehensive reporting dashboard enables digital merchants to easily comply with EU regulatory requirements on tax calculation, evidence collection, tax return creation and data storage.
 
-## Operation: getCountriesDict
+## Actions
+### getCountriesDict
 Countries
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "tax_supported": {
-      "type": "boolean",
-      "description": "Should only countries with tax supported be listed?"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+taxamo.getCountriesDict({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/getCountriesDictOut"
-}
-```
-## Operation: getCurrenciesDict
+
+
+### getCurrenciesDict
 Currencies
 
-### Input Schema
-```json
-{}
+
+```js
+taxamo.getCurrenciesDict(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/getCurrenciesDictOut"
-}
-```
-## Operation: getProductTypesDict
+
+
+### getProductTypesDict
 Product types
 
-### Input Schema
-```json
-{}
+
+```js
+taxamo.getProductTypesDict(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/getProductTypesDictOut"
-}
-```
-## Operation: locateMyIP
+
+
+### locateMyIP
 Locate IP
 
-### Input Schema
-```json
-{}
+
+```js
+taxamo.locateMyIP(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/locateMyIPOut"
-}
-```
-## Operation: locateGivenIP
+
+
+### locateGivenIP
 Locate provided IP
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "ip": {
-      "type": "string",
-      "description": "IP address."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "ip"
-  ]
-}
+
+```js
+taxamo.locateGivenIP({
+  "ip": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/locateGivenIPOut"
-}
-```
-## Operation: getDomesticSummaryReport
+
+#### Parameters
+* ip (string) **required** - IP address.
+
+### getDomesticSummaryReport
 Calculate domestic summary
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "format": {
-      "type": "string",
-      "description": "Output format. 'xml' and 'csv' values are accepted. Default format - json"
-    },
-    "country_code": {
-      "type": "string",
-      "description": "ISO 2-letter country code which will be used for determining which country is domestic."
-    },
-    "currency_code": {
-      "type": "string",
-      "description": "ISO 3-letter currency code, e.g. EUR or USD. Defaults to the one assigned to MOSS calculations for a given country code."
-    },
-    "start_month": {
-      "type": "string",
-      "description": "Period start month in yyyy-MM format."
-    },
-    "end_month": {
-      "type": "string",
-      "description": "Period end month in yyyy-MM format."
-    },
-    "fx_date_type": {
-      "type": "string",
-      "description": "Which date should be used for FX."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "country_code",
-    "start_month",
-    "end_month"
-  ]
-}
+
+```js
+taxamo.getDomesticSummaryReport({
+  "country_code": "",
+  "start_month": "",
+  "end_month": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/getDomesticSummaryReportOut"
-}
-```
-## Operation: getEuViesReport
+
+#### Parameters
+* format (string) - Output format. 'xml' and 'csv' values are accepted. Default format - json
+* country_code (string) **required** - ISO 2-letter country code which will be used for determining which country is domestic.
+* currency_code (string) - ISO 3-letter currency code, e.g. EUR or USD. Defaults to the one assigned to MOSS calculations for a given country code.
+* start_month (string) **required** - Period start month in yyyy-MM format.
+* end_month (string) **required** - Period end month in yyyy-MM format.
+* fx_date_type (string) - Which date should be used for FX.
+
+### getEuViesReport
 Calculate EU VIES report
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "period_length": {
-      "type": "string",
-      "description": "Length of report period. 'month', 'quarter' and 'year' values are accepted. Required only if Large Filer Format is requested."
-    },
-    "lff_sequence_number": {
-      "type": "string",
-      "description": "Sequence number used to generate report in Large Filer Format. If not specified then '0000000001' will be used."
-    },
-    "transformation": {
-      "type": "string",
-      "description": "Which transformation should be applied. Please note that transformation will be applied only for xml and csv formats."
-    },
-    "currency_code": {
-      "type": "string",
-      "description": "ISO 3-letter currency code, e.g. EUR or USD. Defaults to the one assigned to MOSS calculations for a given country code."
-    },
-    "end_month": {
-      "type": "string",
-      "description": "Period end month in yyyy-MM format."
-    },
-    "tax_id": {
-      "type": "string",
-      "description": "MOSS-assigned tax ID - if not provided, merchant's national tax number will be used."
-    },
-    "start_month": {
-      "type": "string",
-      "description": "Period start month in yyyy-MM format."
-    },
-    "eu_country_code": {
-      "type": "string",
-      "description": "ISO 2-letter country code which will be used for determining which country is domestic."
-    },
-    "fx_date_type": {
-      "type": "string",
-      "description": "Which date should be used for FX."
-    },
-    "format": {
-      "type": "string",
-      "description": "Output format. 'xml', 'csv' and 'lff' (only for Ireland) values are accepted as well"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "end_month",
-    "start_month",
-    "eu_country_code"
-  ]
-}
+
+```js
+taxamo.getEuViesReport({
+  "end_month": "",
+  "start_month": "",
+  "eu_country_code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/getEuViesReportOut"
-}
-```
-## Operation: getDetailedRefunds
+
+#### Parameters
+* period_length (string) - Length of report period. 'month', 'quarter' and 'year' values are accepted. Required only if Large Filer Format is requested.
+* lff_sequence_number (string) - Sequence number used to generate report in Large Filer Format. If not specified then '0000000001' will be used.
+* transformation (string) - Which transformation should be applied. Please note that transformation will be applied only for xml and csv formats.
+* currency_code (string) - ISO 3-letter currency code, e.g. EUR or USD. Defaults to the one assigned to MOSS calculations for a given country code.
+* end_month (string) **required** - Period end month in yyyy-MM format.
+* tax_id (string) - MOSS-assigned tax ID - if not provided, merchant's national tax number will be used.
+* start_month (string) **required** - Period start month in yyyy-MM format.
+* eu_country_code (string) **required** - ISO 2-letter country code which will be used for determining which country is domestic.
+* fx_date_type (string) - Which date should be used for FX.
+* format (string) - Output format. 'xml', 'csv' and 'lff' (only for Ireland) values are accepted as well
+
+### getDetailedRefunds
 Detailed refunds
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "format": {
-      "type": "string",
-      "description": "Output format. 'json' or 'csv'. Default value is 'json'"
-    },
-    "country_codes": {
-      "type": "string",
-      "description": "Comma separated list of 2-letter country codes"
-    },
-    "date_from": {
-      "type": "string",
-      "description": "Take only refunds issued at or after the date. Format: yyyy-MM-dd"
-    },
-    "date_to": {
-      "type": "string",
-      "description": "Take only refunds issued at or before the date. Format: yyyy-MM-dd"
-    },
-    "limit": {
-      "type": "number",
-      "description": "Limit (no more than 1000, defaults to 100)."
-    },
-    "offset": {
-      "type": "number",
-      "description": "Offset. Defaults to 0"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+taxamo.getDetailedRefunds({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/getDetailedRefundsOut"
-}
-```
-## Operation: getRefunds
+
+
+### getRefunds
 Fetch refunds
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "format": {
-      "type": "string",
-      "description": "Output format. 'csv' value is accepted as well"
-    },
-    "moss_country_code": {
-      "type": "string",
-      "description": "MOSS country code, used to determine currency. If ommited, merchant default setting is used."
-    },
-    "tax_region": {
-      "type": "string",
-      "description": "Tax region key, defaults to EU for backwards compatibility."
-    },
-    "date_from": {
-      "type": "string",
-      "description": "Take only refunds issued at or after the date. Format: yyyy-MM-dd"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "date_from"
-  ]
-}
+
+```js
+taxamo.getRefunds({
+  "date_from": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/getRefundsOut"
-}
-```
-## Operation: getSettlementSummary
+
+#### Parameters
+* format (string) - Output format. 'csv' value is accepted as well
+* moss_country_code (string) - MOSS country code, used to determine currency. If ommited, merchant default setting is used.
+* tax_region (string) - Tax region key, defaults to EU for backwards compatibility.
+* date_from (string) **required** - Take only refunds issued at or after the date. Format: yyyy-MM-dd
+
+### getSettlementSummary
 Fetch summary
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "moss_country_code": {
-      "type": "string",
-      "description": "MOSS country code, used to determine currency. If ommited, merchant default setting is used."
-    },
-    "tax_region": {
-      "type": "string",
-      "description": "Tax region key"
-    },
-    "start_month": {
-      "type": "string",
-      "description": "Period start month in yyyy-MM format. Either quarter or start-month and end-month have to be provided."
-    },
-    "end_month": {
-      "type": "string",
-      "description": "Period end month in yyyy-MM format. Either quarter or start-month and end-month have to be provided."
-    },
-    "quarter": {
-      "type": "string",
-      "description": "Quarter in yyyy-MM format. If start-date and end-date are provided, quarter is ignored and should be set to 'range'."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "quarter"
-  ]
-}
+
+```js
+taxamo.getSettlementSummary({
+  "quarter": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/getSettlementSummaryOut"
-}
-```
-## Operation: getSettlement
+
+#### Parameters
+* moss_country_code (string) - MOSS country code, used to determine currency. If ommited, merchant default setting is used.
+* tax_region (string) - Tax region key
+* start_month (string) - Period start month in yyyy-MM format. Either quarter or start-month and end-month have to be provided.
+* end_month (string) - Period end month in yyyy-MM format. Either quarter or start-month and end-month have to be provided.
+* quarter (string) **required** - Quarter in yyyy-MM format. If start-date and end-date are provided, quarter is ignored and should be set to 'range'.
+
+### getSettlement
 Fetch settlement
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "moss_tax_id": {
-      "type": "string",
-      "description": "MOSS-assigned tax ID - if not provided, merchant's national tax number will be used. Deprecated, please use tax-id."
-    },
-    "currency_code": {
-      "type": "string",
-      "description": "ISO 3-letter currency code, e.g. EUR or USD. If provided, all amounts will be coerced for this currency. Defaults to region's currency code."
-    },
-    "end_month": {
-      "type": "string",
-      "description": "Period end month in yyyy-MM format. Either quarter or start-month and end-month have to be provided."
-    },
-    "tax_id": {
-      "type": "string",
-      "description": "MOSS-assigned tax ID - if not provided, merchant's national tax number will be used. Deprecated, please use tax-id."
-    },
-    "refund_date_kind_override": {
-      "type": "string",
-      "description": "Set to 'order_date' to show only refunds for the transactions in the selected reporting period. Set to 'refund_timestamp' to show refunds that were created in the selected reporting period. Do not set to use the default region's setting."
-    },
-    "start_month": {
-      "type": "string",
-      "description": "Period start month in yyyy-MM format. Either quarter or start-month and end-month have to be provided."
-    },
-    "moss_country_code": {
-      "type": "string",
-      "description": "MOSS country code, used to determine currency/region. If ommited, merchant default setting is used. Deprecated: please use tax-country-code."
-    },
-    "format": {
-      "type": "string",
-      "description": "Output format. 'csv' value is accepted as well"
-    },
-    "tax_country_code": {
-      "type": "string",
-      "description": "Tax entity country code, used to determine currency/region. "
-    },
-    "quarter": {
-      "type": "string",
-      "description": "Quarter in yyyy-MM format. If start-date and end-date are provided, quarter is ignored and should be set to 'range'."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "quarter"
-  ]
-}
+
+```js
+taxamo.getSettlement({
+  "quarter": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/getSettlementOut"
-}
-```
-## Operation: getSettlementStatsByCountry
+
+#### Parameters
+* moss_tax_id (string) - MOSS-assigned tax ID - if not provided, merchant's national tax number will be used. Deprecated, please use tax-id.
+* currency_code (string) - ISO 3-letter currency code, e.g. EUR or USD. If provided, all amounts will be coerced for this currency. Defaults to region's currency code.
+* end_month (string) - Period end month in yyyy-MM format. Either quarter or start-month and end-month have to be provided.
+* tax_id (string) - MOSS-assigned tax ID - if not provided, merchant's national tax number will be used. Deprecated, please use tax-id.
+* refund_date_kind_override (string) - Set to 'order_date' to show only refunds for the transactions in the selected reporting period. Set to 'refund_timestamp' to show refunds that were created in the selected reporting period. Do not set to use the default region's setting.
+* start_month (string) - Period start month in yyyy-MM format. Either quarter or start-month and end-month have to be provided.
+* moss_country_code (string) - MOSS country code, used to determine currency/region. If ommited, merchant default setting is used. Deprecated: please use tax-country-code.
+* format (string) - Output format. 'csv' value is accepted as well
+* tax_country_code (string) - Tax entity country code, used to determine currency/region. 
+* quarter (string) **required** - Quarter in yyyy-MM format. If start-date and end-date are provided, quarter is ignored and should be set to 'range'.
+
+### getSettlementStatsByCountry
 Settlement by country
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "date_from": {
-      "type": "string",
-      "description": "Date from in yyyy-MM format."
-    },
-    "date_to": {
-      "type": "string",
-      "description": "Date to in yyyy-MM format."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "date_from",
-    "date_to"
-  ]
-}
+
+```js
+taxamo.getSettlementStatsByCountry({
+  "date_from": "",
+  "date_to": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/getSettlementStatsByCountryOut"
-}
-```
-## Operation: getSettlementStatsByTaxationType
+
+#### Parameters
+* date_from (string) **required** - Date from in yyyy-MM format.
+* date_to (string) **required** - Date to in yyyy-MM format.
+
+### getSettlementStatsByTaxationType
 Settlement by tax type
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "date_from": {
-      "type": "string",
-      "description": "Date from in yyyy-MM format."
-    },
-    "date_to": {
-      "type": "string",
-      "description": "Date to in yyyy-MM format."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "date_from",
-    "date_to"
-  ]
-}
+
+```js
+taxamo.getSettlementStatsByTaxationType({
+  "date_from": "",
+  "date_to": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/getSettlementStatsByTaxationTypeOut"
-}
-```
-## Operation: getDailySettlementStats
+
+#### Parameters
+* date_from (string) **required** - Date from in yyyy-MM format.
+* date_to (string) **required** - Date to in yyyy-MM format.
+
+### getDailySettlementStats
 Settlement stats over time
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "interval": {
-      "type": "string",
-      "description": "Interval type - day, week, month."
-    },
-    "date_from": {
-      "type": "string",
-      "description": "Date from in yyyy-MM format."
-    },
-    "date_to": {
-      "type": "string",
-      "description": "Date to in yyyy-MM format."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "interval",
-    "date_from",
-    "date_to"
-  ]
-}
+
+```js
+taxamo.getDailySettlementStats({
+  "interval": "",
+  "date_from": "",
+  "date_to": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/getDailySettlementStatsOut"
-}
-```
-## Operation: getTransactionsStats
+
+#### Parameters
+* interval (string) **required** - Interval type - day, week, month.
+* date_from (string) **required** - Date from in yyyy-MM format.
+* date_to (string) **required** - Date to in yyyy-MM format.
+
+### getTransactionsStats
 Transaction stats
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "date_from": {
-      "type": "string",
-      "description": "Date from in yyyy-MM format."
-    },
-    "date_to": {
-      "type": "string",
-      "description": "Date to in yyyy-MM format."
-    },
-    "interval": {
-      "type": "string",
-      "description": "Interval. Accepted values are 'day', 'week' and 'month'."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "date_from",
-    "date_to"
-  ]
-}
+
+```js
+taxamo.getTransactionsStats({
+  "date_from": "",
+  "date_to": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/getTransactionsStatsOut"
-}
-```
-## Operation: getTransactionsStatsByCountry
+
+#### Parameters
+* date_from (string) **required** - Date from in yyyy-MM format.
+* date_to (string) **required** - Date to in yyyy-MM format.
+* interval (string) - Interval. Accepted values are 'day', 'week' and 'month'.
+
+### getTransactionsStatsByCountry
 Settlement by country
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "global_currency_code": {
-      "type": "string",
-      "description": "Global currency code to use for conversion - in addition to country's currency if rate is available. Conversion is indicative and based on most-recent rate from ECB."
-    },
-    "date_from": {
-      "type": "string",
-      "description": "Date from in yyyy-MM format."
-    },
-    "date_to": {
-      "type": "string",
-      "description": "Date to in yyyy-MM format."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "date_from",
-    "date_to"
-  ]
-}
+
+```js
+taxamo.getTransactionsStatsByCountry({
+  "date_from": "",
+  "date_to": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/getTransactionsStatsByCountryOut"
-}
-```
-## Operation: calculateSimpleTax
+
+#### Parameters
+* global_currency_code (string) - Global currency code to use for conversion - in addition to country's currency if rate is available. Conversion is indicative and based on most-recent rate from ECB.
+* date_from (string) **required** - Date from in yyyy-MM format.
+* date_to (string) **required** - Date to in yyyy-MM format.
+
+### calculateSimpleTax
 Simple tax
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "product_type": {
-      "type": "string",
-      "description": "Product type, according to dictionary /dictionaries/product_types. "
-    },
-    "invoice_address_city": {
-      "type": "string",
-      "description": "Invoice address/postal_code"
-    },
-    "buyer_credit_card_prefix": {
-      "type": "string",
-      "description": "First 6 digits of buyer's credit card prefix."
-    },
-    "currency_code": {
-      "type": "string",
-      "description": "Currency code for transaction - e.g. EUR."
-    },
-    "invoice_address_region": {
-      "type": "string",
-      "description": "Invoice address/region"
-    },
-    "unit_price": {
-      "type": "number",
-      "description": "Unit price."
-    },
-    "quantity": {
-      "type": "number",
-      "description": "Quantity Defaults to 1."
-    },
-    "buyer_tax_number": {
-      "type": "string",
-      "description": " Buyer's tax number - EU VAT number for example. If using EU VAT number, it is possible to provide country code in it (e.g. IE1234567X) or simply use billing_country_code field for that. In the first case, if billing_country_code value was provided, it will be overwritten with country code value extracted from VAT number - but only if the VAT has been verified properly."
-    },
-    "force_country_code": {
-      "type": "string",
-      "description": "Two-letter ISO country code, e.g. FR. Use it to force country code for tax calculation."
-    },
-    "order_date": {
-      "type": "string",
-      "description": "Order date in yyyy-MM-dd format, in merchant's timezone. If provided by the API caller, no timezone conversion is performed. Default value is current date and time. When using public token, the default value is used."
-    },
-    "amount": {
-      "type": "number",
-      "description": "Amount. Required if total amount or both unit price and quantity are not provided."
-    },
-    "billing_country_code": {
-      "type": "string",
-      "description": "Billing two letter ISO country code."
-    },
-    "invoice_address_postal_code": {
-      "type": "string",
-      "description": "Invoice address/postal_code"
-    },
-    "total_amount": {
-      "type": "number",
-      "description": "Total amount. Required if amount or both unit price and quantity are not provided."
-    },
-    "tax_deducted": {
-      "type": "boolean",
-      "description": "If the transaction is in a country supported by Taxamo, but the tax is not calculated due to merchant settings or EU B2B transaction for example."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "currency_code"
-  ]
-}
+
+```js
+taxamo.calculateSimpleTax({
+  "currency_code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/calculateSimpleTaxOut"
-}
-```
-## Operation: calculateTax
+
+#### Parameters
+* product_type (string) - Product type, according to dictionary /dictionaries/product_types. 
+* invoice_address_city (string) - Invoice address/postal_code
+* buyer_credit_card_prefix (string) - First 6 digits of buyer's credit card prefix.
+* currency_code (string) **required** - Currency code for transaction - e.g. EUR.
+* invoice_address_region (string) - Invoice address/region
+* unit_price (number) - Unit price.
+* quantity (number) - Quantity Defaults to 1.
+* buyer_tax_number (string) -  Buyer's tax number - EU VAT number for example. If using EU VAT number, it is possible to provide country code in it (e.g. IE1234567X) or simply use billing_country_code field for that. In the first case, if billing_country_code value was provided, it will be overwritten with country code value extracted from VAT number - but only if the VAT has been verified properly.
+* force_country_code (string) - Two-letter ISO country code, e.g. FR. Use it to force country code for tax calculation.
+* order_date (string) - Order date in yyyy-MM-dd format, in merchant's timezone. If provided by the API caller, no timezone conversion is performed. Default value is current date and time. When using public token, the default value is used.
+* amount (number) - Amount. Required if total amount or both unit price and quantity are not provided.
+* billing_country_code (string) - Billing two letter ISO country code.
+* invoice_address_postal_code (string) - Invoice address/postal_code
+* total_amount (number) - Total amount. Required if amount or both unit price and quantity are not provided.
+* tax_deducted (boolean) - If the transaction is in a country supported by Taxamo, but the tax is not calculated due to merchant settings or EU B2B transaction for example.
+
+### calculateTax
 Calculate tax
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "input": {
-      "$ref": "#/definitions/calculateTaxIn"
+
+```js
+taxamo.calculateTax({
+  "input": {
+    "transaction": {
+      "currency_code": "",
+      "transaction_lines": []
     }
-  },
-  "additionalProperties": false,
-  "required": [
-    "input"
-  ]
-}
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/calculateTaxOut"
-}
-```
-## Operation: calculateTaxLocation
+
+#### Parameters
+* input (object) **required**
+
+### calculateTaxLocation
 Calculate location
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "billing_country_code": {
-      "type": "string",
-      "description": "Billing two letter ISO country code."
-    },
-    "buyer_credit_card_prefix": {
-      "type": "string",
-      "description": "First 6 digits of buyer's credit card prefix."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+taxamo.calculateTaxLocation({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/calculateTaxLocationOut"
-}
-```
-## Operation: validateTaxNumber
+
+
+### validateTaxNumber
 Validate VAT number
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "country_code": {
-      "type": "string",
-      "description": "Two-letter ISO country code."
-    },
-    "tax_number": {
-      "type": "string",
-      "description": "Tax number"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "tax_number"
-  ]
-}
+
+```js
+taxamo.validateTaxNumber({
+  "tax_number": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/validateTaxNumberOut"
-}
-```
-## Operation: listTransactions
+
+#### Parameters
+* country_code (string) - Two-letter ISO country code.
+* tax_number (string) **required** - Tax number
+
+### listTransactions
 Browse transactions
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "filter_text": {
-      "type": "string",
-      "description": "Filtering expression"
-    },
-    "offset": {
-      "type": "integer",
-      "description": "Offset"
-    },
-    "has_note": {
-      "type": "boolean",
-      "description": "Return only transactions with a note field set."
-    },
-    "key_or_custom_id": {
-      "type": "string",
-      "description": "Taxamo provided transaction key or custom id"
-    },
-    "currency_code": {
-      "type": "string",
-      "description": "Three letter ISO currency code."
-    },
-    "order_date_to": {
-      "type": "string",
-      "description": "Order date to in yyyy-MM-dd format."
-    },
-    "sort_reverse": {
-      "type": "boolean",
-      "description": "If true, results are sorted in descending order."
-    },
-    "limit": {
-      "type": "integer",
-      "description": "Limit (no more than 1000, defaults to 100)."
-    },
-    "invoice_number": {
-      "type": "string",
-      "description": "Transaction invoice number."
-    },
-    "tax_country_codes": {
-      "type": "string",
-      "description": "Comma separated list of two letter ISO tax country codes."
-    },
-    "statuses": {
-      "type": "string",
-      "description": "Comma separated list of of transaction statuses. 'N' - unconfirmed transaction, 'C' - confirmed transaction."
-    },
-    "original_transaction_key": {
-      "type": "string",
-      "description": "Taxamo provided original transaction key"
-    },
-    "order_date_from": {
-      "type": "string",
-      "description": "Order date from in yyyy-MM-dd format."
-    },
-    "total_amount_greater_than": {
-      "type": "string",
-      "description": "Return only transactions with total amount greater than given number. Transactions with total amount equal to a given number (e.g. 0) are not returned."
-    },
-    "format": {
-      "type": "string",
-      "description": "Output format - supports 'csv' value for this operation."
-    },
-    "total_amount_less_than": {
-      "type": "string",
-      "description": "Return only transactions with total amount less than a given number. Transactions with total amount equal to a given number (e.g. 1) are not returned."
-    },
-    "tax_country_code": {
-      "type": "string",
-      "description": "Two letter ISO tax country code."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+taxamo.listTransactions({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/listTransactionsOut"
-}
-```
-## Operation: createTransaction
+
+
+### createTransaction
 Store transaction
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "input": {
-      "$ref": "#/definitions/createTransactionIn"
+
+```js
+taxamo.createTransaction({
+  "input": {
+    "transaction": {
+      "currency_code": "",
+      "transaction_lines": []
     }
-  },
-  "additionalProperties": false,
-  "required": [
-    "input"
-  ]
-}
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/createTransactionOut"
-}
-```
-## Operation: cancelTransaction
+
+#### Parameters
+* input (object) **required**
+
+### cancelTransaction
 Delete transaction
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "key": {
-      "type": "string",
-      "description": "Transaction key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "key"
-  ]
-}
+
+```js
+taxamo.cancelTransaction({
+  "key": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/cancelTransactionOut"
-}
-```
-## Operation: getTransaction
+
+#### Parameters
+* key (string) **required** - Transaction key
+
+### getTransaction
 Retrieve transaction data.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "key": {
-      "type": "string",
-      "description": "Transaction key"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "key"
-  ]
-}
+
+```js
+taxamo.getTransaction({
+  "key": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/getTransactionOut"
-}
-```
-## Operation: updateTransaction
+
+#### Parameters
+* key (string) **required** - Transaction key
+
+### updateTransaction
 Update transaction
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "key": {
-      "type": "string",
-      "description": "Transaction key."
-    },
-    "input": {
-      "$ref": "#/definitions/updateTransactionIn"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "key",
-    "input"
-  ]
-}
+
+```js
+taxamo.updateTransaction({
+  "key": "",
+  "input": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/updateTransactionOut"
-}
-```
-## Operation: confirmTransaction
+
+#### Parameters
+* key (string) **required** - Transaction key.
+* input (object) **required**
+
+### confirmTransaction
 Confirm transaction
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "key": {
-      "type": "string",
-      "description": "Transaction key."
-    },
-    "input": {
-      "$ref": "#/definitions/confirmTransactionIn"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "key",
-    "input"
-  ]
-}
+
+```js
+taxamo.confirmTransaction({
+  "key": "",
+  "input": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/confirmTransactionOut"
-}
-```
-## Operation: emailRefund
+
+#### Parameters
+* key (string) **required** - Transaction key.
+* input (object) **required**
+
+### emailRefund
 Email credit note
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "key": {
-      "type": "string",
-      "description": "Transaction key."
-    },
-    "refund_note_number": {
-      "type": "string",
-      "description": "Refund note id."
-    },
-    "input": {
-      "$ref": "#/definitions/emailRefundIn"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "key",
-    "refund_note_number",
-    "input"
-  ]
-}
+
+```js
+taxamo.emailRefund({
+  "key": "",
+  "refund_note_number": "",
+  "input": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/emailRefundOut"
-}
-```
-## Operation: emailInvoice
+
+#### Parameters
+* key (string) **required** - Transaction key.
+* refund_note_number (string) **required** - Refund note id.
+* input (object) **required**
+
+### emailInvoice
 Email invoice
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "key": {
-      "type": "string",
-      "description": "Transaction key."
-    },
-    "input": {
-      "$ref": "#/definitions/emailInvoiceIn"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "key",
-    "input"
-  ]
-}
+
+```js
+taxamo.emailInvoice({
+  "key": "",
+  "input": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/emailInvoiceOut"
-}
-```
-## Operation: listPayments
+
+#### Parameters
+* key (string) **required** - Transaction key.
+* input (object) **required**
+
+### listPayments
 List payments
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "limit": {
-      "type": "string",
-      "description": "Max record count (no more than 100, defaults to 10)."
-    },
-    "offset": {
-      "type": "string",
-      "description": "How many records need to be skipped, defaults to 0."
-    },
-    "key": {
-      "type": "string",
-      "description": "Transaction key."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "key"
-  ]
-}
+
+```js
+taxamo.listPayments({
+  "key": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/listPaymentsOut"
-}
-```
-## Operation: createPayment
+
+#### Parameters
+* limit (string) - Max record count (no more than 100, defaults to 10).
+* offset (string) - How many records need to be skipped, defaults to 0.
+* key (string) **required** - Transaction key.
+
+### createPayment
 Register a payment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "key": {
-      "type": "string",
-      "description": "Transaction key."
-    },
-    "input": {
-      "$ref": "#/definitions/createPaymentIn"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "key",
-    "input"
-  ]
-}
+
+```js
+taxamo.createPayment({
+  "key": "",
+  "input": {
+    "amount": 0
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/createPaymentOut"
-}
-```
-## Operation: capturePayment
+
+#### Parameters
+* key (string) **required** - Transaction key.
+* input (object) **required**
+
+### capturePayment
 Capture payment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "key": {
-      "type": "string",
-      "description": "Transaction key."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "key"
-  ]
-}
+
+```js
+taxamo.capturePayment({
+  "key": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/capturePaymentOut"
-}
-```
-## Operation: listRefunds
+
+#### Parameters
+* key (string) **required** - Transaction key.
+
+### listRefunds
 Get transaction refunds
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "key": {
-      "type": "string",
-      "description": "Transaction key."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "key"
-  ]
-}
+
+```js
+taxamo.listRefunds({
+  "key": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/listRefundsOut"
-}
-```
-## Operation: createRefund
+
+#### Parameters
+* key (string) **required** - Transaction key.
+
+### createRefund
 Create a refund
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "key": {
-      "type": "string",
-      "description": "Transaction key."
-    },
-    "input": {
-      "$ref": "#/definitions/createRefundIn"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "key",
-    "input"
-  ]
-}
+
+```js
+taxamo.createRefund({
+  "key": "",
+  "input": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/createRefundOut"
-}
-```
-## Operation: unconfirmTransaction
+
+#### Parameters
+* key (string) **required** - Transaction key.
+* input (object) **required**
+
+### unconfirmTransaction
 Un-confirm the transaction
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "key": {
-      "type": "string",
-      "description": "Transaction key."
-    },
-    "input": {
-      "$ref": "#/definitions/unconfirmTransactionIn"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "key",
-    "input"
-  ]
-}
+
+```js
+taxamo.unconfirmTransaction({
+  "key": "",
+  "input": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/unconfirmTransactionOut"
-}
-```
-## Operation: createSMSToken
+
+#### Parameters
+* key (string) **required** - Transaction key.
+* input (object) **required**
+
+### createSMSToken
 Create SMS token
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "input": {
-      "$ref": "#/definitions/createSMSTokenIn"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "input"
-  ]
-}
+
+```js
+taxamo.createSMSToken({
+  "input": {
+    "country_code": "",
+    "recipient": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/createSMSTokenOut"
-}
-```
-## Operation: verifySMSToken
+
+#### Parameters
+* input (object) **required**
+
+### verifySMSToken
 Verify SMS token
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "Provided token."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token"
-  ]
-}
+
+```js
+taxamo.verifySMSToken({
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/verifySMSTokenOut"
-}
-```
+
+#### Parameters
+* token (string) **required** - Provided token.
+

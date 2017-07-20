@@ -1,196 +1,128 @@
 # @datafire/infermedica
+
+Client library for Infermedica
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/infermedica
+```
+
+```js
+let datafire = require('datafire');
+let infermedica = require('@datafire/infermedica').actions;
+let context = new datafire.Context();
+
+infermedica.getAllConditions({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Empower your healthcare services with intelligent diagnostic insights of Infermedica API.
 
-## Operation: getAllConditions
+## Actions
+### getAllConditions
 Returns a list of all available conditions.
 
-### Input Schema
-```json
-{}
+
+```js
+infermedica.getAllConditions(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Condition"
-  },
-  "type": "array"
-}
-```
-## Operation: getCondition
+
+
+### getCondition
 Returns details of a single condition specified by id parameter.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "condition id"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+infermedica.getCondition({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Condition"
-}
-```
-## Operation: computeDiagnosis
+
+#### Parameters
+* id (string) **required** - condition id
+
+### computeDiagnosis
 Computes possible diagnoses and relevant observations based on provided patient information.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DiagnosisRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+infermedica.computeDiagnosis({
+  "body": {
+    "age": 0,
+    "sex": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DiagnosisResponse"
-}
-```
-## Operation: getDatabaseInfo
+
+#### Parameters
+* body (object) **required**
+
+### getDatabaseInfo
 Returns information about data used by diagnostic engine.
 
-### Input Schema
-```json
-{}
+
+```js
+infermedica.getDatabaseInfo(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DatabaseInfo"
-}
-```
-## Operation: getMatchingObservation
+
+
+### getMatchingObservation
 Returns details of a single observation if matched by the given phrase.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "phrase": {
-      "type": "string",
-      "description": "phrase to match"
-    },
-    "sex": {
-      "type": "string",
-      "description": "sex filter",
-      "enum": [
-        "female",
-        "male"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "phrase"
-  ]
-}
+
+```js
+infermedica.getMatchingObservation({
+  "phrase": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Observation"
-}
-```
-## Operation: getAllObservations
+
+#### Parameters
+* phrase (string) **required** - phrase to match
+* sex (string) - sex filter
+
+### getAllObservations
 Returns a list of all available observations.
 
-### Input Schema
-```json
-{}
+
+```js
+infermedica.getAllObservations(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/Observation"
-  },
-  "type": "array"
-}
-```
-## Operation: getObservation
+
+
+### getObservation
 Returns details of a single observation specified by id parameter.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "observation id"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+infermedica.getObservation({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Observation"
-}
-```
-## Operation: getAllRiskFactors
+
+#### Parameters
+* id (string) **required** - observation id
+
+### getAllRiskFactors
 Returns a list of all available risk factors.
 
-### Input Schema
-```json
-{}
+
+```js
+infermedica.getAllRiskFactors(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/RiskFactor"
-  },
-  "type": "array"
-}
-```
-## Operation: getRiskFactor
+
+
+### getRiskFactor
 Returns details of a single risk factor specified by id parameter.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "risk factor id"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+infermedica.getRiskFactor({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RiskFactor"
-}
-```
+
+#### Parameters
+* id (string) **required** - risk factor id
+

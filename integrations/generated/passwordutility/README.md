@@ -1,61 +1,52 @@
 # @datafire/passwordutility
+
+Client library for PasswordUtility.Web
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/passwordutility
+```
+
+```js
+let datafire = require('datafire');
+let passwordutility = require('@datafire/passwordutility').actions;
+let context = new datafire.Context();
+
+passwordutility.Password_Generate({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Validate and generate passwords using open source tools
 
-## Operation: Password_Generate
+## Actions
+### Password_Generate
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "length": {
-      "type": "integer",
-      "format": "int32"
-    },
-    "upperCase": {
-      "type": "boolean"
-    },
-    "digits": {
-      "type": "boolean"
-    },
-    "specialCharacters": {
-      "type": "boolean"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "length"
-  ]
-}
+
+```js
+passwordutility.Password_Generate({
+  "length": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Object"
-}
-```
-## Operation: Password_Validate
+
+#### Parameters
+* length (integer) **required**
+* upperCase (boolean)
+* digits (boolean)
+* specialCharacters (boolean)
+
+### Password_Validate
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "password": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "password"
-  ]
-}
+
+```js
+passwordutility.Password_Validate({
+  "password": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Object"
-}
-```
+
+#### Parameters
+* password (string) **required**
+

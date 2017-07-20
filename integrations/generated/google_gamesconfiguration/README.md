@@ -1,843 +1,330 @@
 # @datafire/google_gamesconfiguration
+
+Client library for Google Play Game Services Publishing
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/google_gamesconfiguration
+```
+
+```js
+let datafire = require('datafire');
+let google_gamesconfiguration = require('@datafire/google_gamesconfiguration').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    google_gamesconfiguration: account,
+  }
+})
+
+
+google_gamesconfiguration.achievementConfigurations.delete({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 The Publishing API for Google Play Game Services.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+google_gamesconfiguration.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+google_gamesconfiguration.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: achievementConfigurations.delete
+
+
+### achievementConfigurations.delete
 Delete the achievement configuration with the given ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "achievementId": {
-      "type": "string",
-      "description": "The ID of the achievement used by this method."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "achievementId"
-  ]
-}
+
+```js
+google_gamesconfiguration.achievementConfigurations.delete({
+  "achievementId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: achievementConfigurations.get
+
+#### Parameters
+* achievementId (string) **required** - The ID of the achievement used by this method.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### achievementConfigurations.get
 Retrieves the metadata of the achievement configuration with the given ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "achievementId": {
-      "type": "string",
-      "description": "The ID of the achievement used by this method."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "achievementId"
-  ]
-}
+
+```js
+google_gamesconfiguration.achievementConfigurations.get({
+  "achievementId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AchievementConfiguration"
-}
-```
-## Operation: achievementConfigurations.patch
+
+#### Parameters
+* achievementId (string) **required** - The ID of the achievement used by this method.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### achievementConfigurations.patch
 Update the metadata of the achievement configuration with the given ID. This method supports patch semantics.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "achievementId": {
-      "type": "string",
-      "description": "The ID of the achievement used by this method."
-    },
-    "body": {
-      "$ref": "#/definitions/AchievementConfiguration"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "achievementId"
-  ]
-}
+
+```js
+google_gamesconfiguration.achievementConfigurations.patch({
+  "achievementId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AchievementConfiguration"
-}
-```
-## Operation: achievementConfigurations.update
+
+#### Parameters
+* achievementId (string) **required** - The ID of the achievement used by this method.
+* body (object) - This is a JSON template for an achievement configuration resource.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### achievementConfigurations.update
 Update the metadata of the achievement configuration with the given ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "achievementId": {
-      "type": "string",
-      "description": "The ID of the achievement used by this method."
-    },
-    "body": {
-      "$ref": "#/definitions/AchievementConfiguration"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "achievementId"
-  ]
-}
+
+```js
+google_gamesconfiguration.achievementConfigurations.update({
+  "achievementId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AchievementConfiguration"
-}
-```
-## Operation: achievementConfigurations.list
+
+#### Parameters
+* achievementId (string) **required** - The ID of the achievement used by this method.
+* body (object) - This is a JSON template for an achievement configuration resource.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### achievementConfigurations.list
 Returns a list of the achievement configurations in this application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "applicationId": {
-      "type": "string",
-      "description": "The application ID from the Google Play developer console."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of resource configurations to return in the response, used for paging. For any response, the actual number of resources returned may be less than the specified maxResults.",
-      "maximum": 200,
-      "minimum": 1
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "applicationId"
-  ]
-}
+
+```js
+google_gamesconfiguration.achievementConfigurations.list({
+  "applicationId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AchievementConfigurationListResponse"
-}
-```
-## Operation: achievementConfigurations.insert
+
+#### Parameters
+* applicationId (string) **required** - The application ID from the Google Play developer console.
+* maxResults (integer) - The maximum number of resource configurations to return in the response, used for paging. For any response, the actual number of resources returned may be less than the specified maxResults.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### achievementConfigurations.insert
 Insert a new achievement configuration in this application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "applicationId": {
-      "type": "string",
-      "description": "The application ID from the Google Play developer console."
-    },
-    "body": {
-      "$ref": "#/definitions/AchievementConfiguration"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "applicationId"
-  ]
-}
+
+```js
+google_gamesconfiguration.achievementConfigurations.insert({
+  "applicationId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AchievementConfiguration"
-}
-```
-## Operation: leaderboardConfigurations.list
+
+#### Parameters
+* applicationId (string) **required** - The application ID from the Google Play developer console.
+* body (object) - This is a JSON template for an achievement configuration resource.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### leaderboardConfigurations.list
 Returns a list of the leaderboard configurations in this application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "applicationId": {
-      "type": "string",
-      "description": "The application ID from the Google Play developer console."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of resource configurations to return in the response, used for paging. For any response, the actual number of resources returned may be less than the specified maxResults.",
-      "maximum": 200,
-      "minimum": 1
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "applicationId"
-  ]
-}
+
+```js
+google_gamesconfiguration.leaderboardConfigurations.list({
+  "applicationId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LeaderboardConfigurationListResponse"
-}
-```
-## Operation: leaderboardConfigurations.insert
+
+#### Parameters
+* applicationId (string) **required** - The application ID from the Google Play developer console.
+* maxResults (integer) - The maximum number of resource configurations to return in the response, used for paging. For any response, the actual number of resources returned may be less than the specified maxResults.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### leaderboardConfigurations.insert
 Insert a new leaderboard configuration in this application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "applicationId": {
-      "type": "string",
-      "description": "The application ID from the Google Play developer console."
-    },
-    "body": {
-      "$ref": "#/definitions/LeaderboardConfiguration"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "applicationId"
-  ]
-}
+
+```js
+google_gamesconfiguration.leaderboardConfigurations.insert({
+  "applicationId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LeaderboardConfiguration"
-}
-```
-## Operation: imageConfigurations.upload
+
+#### Parameters
+* applicationId (string) **required** - The application ID from the Google Play developer console.
+* body (object) - This is a JSON template for an leaderboard configuration resource.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### imageConfigurations.upload
 Uploads an image for a resource with the given ID and image type.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceId": {
-      "type": "string",
-      "description": "The ID of the resource used by this method."
-    },
-    "imageType": {
-      "type": "string",
-      "description": "Selects which image in a resource for this method.",
-      "enum": [
-        "ACHIEVEMENT_ICON",
-        "LEADERBOARD_ICON"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceId",
-    "imageType"
-  ]
-}
+
+```js
+google_gamesconfiguration.imageConfigurations.upload({
+  "resourceId": "",
+  "imageType": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ImageConfiguration"
-}
-```
-## Operation: leaderboardConfigurations.delete
+
+#### Parameters
+* resourceId (string) **required** - The ID of the resource used by this method.
+* imageType (string) **required** - Selects which image in a resource for this method.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### leaderboardConfigurations.delete
 Delete the leaderboard configuration with the given ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "leaderboardId": {
-      "type": "string",
-      "description": "The ID of the leaderboard."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "leaderboardId"
-  ]
-}
+
+```js
+google_gamesconfiguration.leaderboardConfigurations.delete({
+  "leaderboardId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: leaderboardConfigurations.get
+
+#### Parameters
+* leaderboardId (string) **required** - The ID of the leaderboard.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### leaderboardConfigurations.get
 Retrieves the metadata of the leaderboard configuration with the given ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "leaderboardId": {
-      "type": "string",
-      "description": "The ID of the leaderboard."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "leaderboardId"
-  ]
-}
+
+```js
+google_gamesconfiguration.leaderboardConfigurations.get({
+  "leaderboardId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LeaderboardConfiguration"
-}
-```
-## Operation: leaderboardConfigurations.patch
+
+#### Parameters
+* leaderboardId (string) **required** - The ID of the leaderboard.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### leaderboardConfigurations.patch
 Update the metadata of the leaderboard configuration with the given ID. This method supports patch semantics.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "leaderboardId": {
-      "type": "string",
-      "description": "The ID of the leaderboard."
-    },
-    "body": {
-      "$ref": "#/definitions/LeaderboardConfiguration"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "leaderboardId"
-  ]
-}
+
+```js
+google_gamesconfiguration.leaderboardConfigurations.patch({
+  "leaderboardId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LeaderboardConfiguration"
-}
-```
-## Operation: leaderboardConfigurations.update
+
+#### Parameters
+* leaderboardId (string) **required** - The ID of the leaderboard.
+* body (object) - This is a JSON template for an leaderboard configuration resource.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### leaderboardConfigurations.update
 Update the metadata of the leaderboard configuration with the given ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "leaderboardId": {
-      "type": "string",
-      "description": "The ID of the leaderboard."
-    },
-    "body": {
-      "$ref": "#/definitions/LeaderboardConfiguration"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "leaderboardId"
-  ]
-}
+
+```js
+google_gamesconfiguration.leaderboardConfigurations.update({
+  "leaderboardId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LeaderboardConfiguration"
-}
-```
+
+#### Parameters
+* leaderboardId (string) **required** - The ID of the leaderboard.
+* body (object) - This is a JSON template for an leaderboard configuration resource.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+

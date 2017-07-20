@@ -1,1208 +1,588 @@
 # @datafire/zoomconnect
+
+Client library for Zoom Connect
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/zoomconnect
+```
+
+```js
+let datafire = require('datafire');
+let zoomconnect = require('@datafire/zoomconnect').actions;
+
+let account = {
+  email: "",
+  token: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    zoomconnect: account,
+  }
+})
+
+
+zoomconnect.sms.send_bulk.post({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 The world's greatest SMS API
 
-## Operation: getBalance
+## Actions
+### getBalance
 Returns your account's credit balance
 
-### Input Schema
-```json
-{}
+
+```js
+zoomconnect.getBalance(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceAccount"
-}
-```
-## Operation: transfer
+
+
+### transfer
 Transfers credits between two users in the same team. The <i>account email address</i> fields as well as the <i>number of credits to transfer</i> are required. 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/WebServiceTransferCreditsRequest"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+zoomconnect.transfer({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: search
+
+
+### search
 Find a user for a particular email address
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "searchEmail": {
-      "type": "string",
-      "description": "search by email address"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "searchEmail"
-  ]
-}
+
+```js
+zoomconnect.search({
+  "searchEmail": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceUsers"
-}
-```
-## Operation: account.user.put
+
+#### Parameters
+* searchEmail (string) **required** - search by email address
+
+### account.user.put
 Creates a new sub-account in your team. The following fields are required <i>firstname, lastname, email address, contact number</i> and <i>password.</i>
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/WebServiceUser"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+zoomconnect.account.user.put({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceUser"
-}
-```
-## Operation: getUser
+
+
+### getUser
 Gets a user from a given user id
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "userId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "userId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "userId"
-  ]
-}
+
+```js
+zoomconnect.getUser({
+  "userId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceUser"
-}
-```
-## Operation: account.user.userId.post
+
+#### Parameters
+* userId (integer) **required** - userId
+
+### account.user.userId.post
 Updates a sub-account in your team. The following fields can be updated <i>firstname, lastname, contact number</i> and <i>password.</i>
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "userId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "userId"
-    },
-    "body": {
-      "$ref": "#/definitions/WebServiceUser"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "userId"
-  ]
-}
+
+```js
+zoomconnect.account.user.userId.post({
+  "userId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceUser"
-}
-```
-## Operation: contacts.all.get
+
+#### Parameters
+* userId (integer) **required** - userId
+* body (undefined) - WebServiceUser
+
+### contacts.all.get
 Returns all contacts
 
-### Input Schema
-```json
-{}
+
+```js
+zoomconnect.contacts.all.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceContacts"
-}
-```
-## Operation: contacts.create.post
+
+
+### contacts.create.post
 Creates a  contact
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/WebServiceContact"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+zoomconnect.contacts.create.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceContact"
-}
-```
-## Operation: contacts.contactId.delete
+
+
+### contacts.contactId.delete
 Deletes a  contact
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "contactId": {
-      "type": "string",
-      "description": "contactId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "contactId"
-  ]
-}
+
+```js
+zoomconnect.contacts.contactId.delete({
+  "contactId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: contacts.contactId.get
+
+#### Parameters
+* contactId (string) **required** - contactId
+
+### contacts.contactId.get
 Returns details for a single contact
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "contactId": {
-      "type": "string",
-      "description": "contactId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "contactId"
-  ]
-}
+
+```js
+zoomconnect.contacts.contactId.get({
+  "contactId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceContact"
-}
-```
-## Operation: contacts.contactId.post
+
+#### Parameters
+* contactId (string) **required** - contactId
+
+### contacts.contactId.post
 Updates a  contact
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "contactId": {
-      "type": "string",
-      "description": "contactId"
-    },
-    "body": {
-      "$ref": "#/definitions/WebServiceContact"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "contactId"
-  ]
-}
+
+```js
+zoomconnect.contacts.contactId.post({
+  "contactId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceContact"
-}
-```
-## Operation: contacts.contactId.addFromGroup.groupId.get
+
+#### Parameters
+* contactId (string) **required** - contactId
+* body (undefined) - WebServiceContact
+
+### contacts.contactId.addFromGroup.groupId.get
 Remove a contact from a group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "contactId": {
-      "type": "string",
-      "description": "contactId"
-    },
-    "groupId": {
-      "type": "string",
-      "description": "groupId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "contactId",
-    "groupId"
-  ]
-}
+
+```js
+zoomconnect.contacts.contactId.addFromGroup.groupId.get({
+  "contactId": "",
+  "groupId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: contacts.contactId.addFromGroup.groupId.post
+
+#### Parameters
+* contactId (string) **required** - contactId
+* groupId (string) **required** - groupId
+
+### contacts.contactId.addFromGroup.groupId.post
 Remove a contact from a group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "contactId": {
-      "type": "string",
-      "description": "contactId"
-    },
-    "groupId": {
-      "type": "string",
-      "description": "groupId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "contactId",
-    "groupId"
-  ]
-}
+
+```js
+zoomconnect.contacts.contactId.addFromGroup.groupId.post({
+  "contactId": "",
+  "groupId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: contacts.contactId.addToGroup.groupId.get
+
+#### Parameters
+* contactId (string) **required** - contactId
+* groupId (string) **required** - groupId
+
+### contacts.contactId.addToGroup.groupId.get
 Add a contact to a group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "contactId": {
-      "type": "string",
-      "description": "contactId"
-    },
-    "groupId": {
-      "type": "string",
-      "description": "groupId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "contactId",
-    "groupId"
-  ]
-}
+
+```js
+zoomconnect.contacts.contactId.addToGroup.groupId.get({
+  "contactId": "",
+  "groupId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: contacts.contactId.addToGroup.groupId.post
+
+#### Parameters
+* contactId (string) **required** - contactId
+* groupId (string) **required** - groupId
+
+### contacts.contactId.addToGroup.groupId.post
 Add a contact to a group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "contactId": {
-      "type": "string",
-      "description": "contactId"
-    },
-    "groupId": {
-      "type": "string",
-      "description": "groupId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "contactId",
-    "groupId"
-  ]
-}
+
+```js
+zoomconnect.contacts.contactId.addToGroup.groupId.post({
+  "contactId": "",
+  "groupId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: context.lookup.get
+
+#### Parameters
+* contactId (string) **required** - contactId
+* groupId (string) **required** - groupId
+
+### context.lookup.get
 Returns context information for a single provided
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+zoomconnect.context.lookup.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceNumberContextLookupResponse"
-}
-```
-## Operation: context.lookup.post
+
+
+### context.lookup.post
 Returns context information for a single provided
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+zoomconnect.context.lookup.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceNumberContextLookupResponse"
-}
-```
-## Operation: groups.all.get
+
+
+### groups.all.get
 Returns all groups
 
-### Input Schema
-```json
-{}
+
+```js
+zoomconnect.groups.all.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceGroups"
-}
-```
-## Operation: groups.create.post
+
+
+### groups.create.post
 Create a  group
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/WebServiceGroup"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+zoomconnect.groups.create.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceGroup"
-}
-```
-## Operation: groups.groupId.delete
+
+
+### groups.groupId.delete
 Deletes a  group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "groupId": {
-      "type": "string",
-      "description": "groupId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "groupId"
-  ]
-}
+
+```js
+zoomconnect.groups.groupId.delete({
+  "groupId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: groups.groupId.get
+
+#### Parameters
+* groupId (string) **required** - groupId
+
+### groups.groupId.get
 Returns details for a single group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "groupId": {
-      "type": "string",
-      "description": "groupId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "groupId"
-  ]
-}
+
+```js
+zoomconnect.groups.groupId.get({
+  "groupId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceGroup"
-}
-```
-## Operation: groups.groupId.post
+
+#### Parameters
+* groupId (string) **required** - groupId
+
+### groups.groupId.post
 Update a  group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "groupId": {
-      "type": "string",
-      "description": "groupId"
-    },
-    "body": {
-      "$ref": "#/definitions/WebServiceGroup"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "groupId"
-  ]
-}
+
+```js
+zoomconnect.groups.groupId.post({
+  "groupId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceGroup"
-}
-```
-## Operation: groups.groupId.addContact.contactId.get
+
+#### Parameters
+* groupId (string) **required** - groupId
+* body (undefined) - WebServiceGroup
+
+### groups.groupId.addContact.contactId.get
 Add a contact to a group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "groupId": {
-      "type": "string",
-      "description": "groupId"
-    },
-    "contactId": {
-      "type": "string",
-      "description": "contactId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "groupId",
-    "contactId"
-  ]
-}
+
+```js
+zoomconnect.groups.groupId.addContact.contactId.get({
+  "groupId": "",
+  "contactId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: groups.groupId.addContact.contactId.post
+
+#### Parameters
+* groupId (string) **required** - groupId
+* contactId (string) **required** - contactId
+
+### groups.groupId.addContact.contactId.post
 Add a contact to a group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "groupId": {
-      "type": "string",
-      "description": "groupId"
-    },
-    "contactId": {
-      "type": "string",
-      "description": "contactId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "groupId",
-    "contactId"
-  ]
-}
+
+```js
+zoomconnect.groups.groupId.addContact.contactId.post({
+  "groupId": "",
+  "contactId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: groups.groupId.removeContact.contactId.get
+
+#### Parameters
+* groupId (string) **required** - groupId
+* contactId (string) **required** - contactId
+
+### groups.groupId.removeContact.contactId.get
 Remove a contact from a group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "groupId": {
-      "type": "string",
-      "description": "groupId"
-    },
-    "contactId": {
-      "type": "string",
-      "description": "contactId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "groupId",
-    "contactId"
-  ]
-}
+
+```js
+zoomconnect.groups.groupId.removeContact.contactId.get({
+  "groupId": "",
+  "contactId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: groups.groupId.removeContact.contactId.post
+
+#### Parameters
+* groupId (string) **required** - groupId
+* contactId (string) **required** - contactId
+
+### groups.groupId.removeContact.contactId.post
 Remove a contact from a group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "groupId": {
-      "type": "string",
-      "description": "groupId"
-    },
-    "contactId": {
-      "type": "string",
-      "description": "contactId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "groupId",
-    "contactId"
-  ]
-}
+
+```js
+zoomconnect.groups.groupId.removeContact.contactId.post({
+  "groupId": "",
+  "contactId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: messages.all.get
+
+#### Parameters
+* groupId (string) **required** - groupId
+* contactId (string) **required** - contactId
+
+### messages.all.get
 Returns all messages
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "pageSize": {
-      "type": "integer",
-      "format": "int32",
-      "description": "number of elements to return at a time"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "page number"
-    },
-    "type": {
-      "type": "string",
-      "description": "filter by message type",
-      "enum": [
-        "OUTBOUND",
-        "INBOUND"
-      ]
-    },
-    "status": {
-      "type": "string",
-      "description": "filter by message status",
-      "enum": [
-        "SCHEDULED",
-        "UNKNOWN",
-        "SENT",
-        "FAILED",
-        "FAILED_REFUNDED",
-        "FAILED_OPTOUT",
-        "DELIVERED",
-        "RECEIVED"
-      ]
-    },
-    "fromDateTimeSent": {
-      "type": "string",
-      "format": "date-time",
-      "description": "date format: yyyyMMdd"
-    },
-    "toDateTimeSent": {
-      "type": "string",
-      "format": "date-time",
-      "description": "date format: yyyyMMdd"
-    },
-    "fromDateTimeReceived": {
-      "type": "string",
-      "format": "date-time",
-      "description": "date format: yyyyMMdd"
-    },
-    "toDateTimeReceived": {
-      "type": "string",
-      "format": "date-time",
-      "description": "date format: yyyyMMdd"
-    },
-    "fromNumber": {
-      "type": "string",
-      "description": "phone number the message was sent from"
-    },
-    "toNumber": {
-      "type": "string",
-      "description": "phone number the message was sent to"
-    },
-    "message": {
-      "type": "string",
-      "description": "search matching message text"
-    },
-    "campaign": {
-      "type": "string",
-      "description": "search by campaign"
-    },
-    "dataField": {
-      "type": "string",
-      "description": "search by data field"
-    },
-    "deleted": {
-      "type": "boolean",
-      "description": "return only deleted / not deleted messages"
-    },
-    "read": {
-      "type": "boolean",
-      "description": "return only read / unread messages (inbox messages only)"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+zoomconnect.messages.all.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceMessages"
-}
-```
-## Operation: messages.messageId.delete
+
+
+### messages.messageId.delete
 Deletes a  message
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "messageId": {
-      "type": "string",
-      "description": "messageId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "messageId"
-  ]
-}
+
+```js
+zoomconnect.messages.messageId.delete({
+  "messageId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: messages.messageId.get
+
+#### Parameters
+* messageId (string) **required** - messageId
+
+### messages.messageId.get
 Returns details for a single message
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "messageId": {
-      "type": "string",
-      "description": "messageId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "messageId"
-  ]
-}
+
+```js
+zoomconnect.messages.messageId.get({
+  "messageId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceMessage"
-}
-```
-## Operation: messages.messageId.markRead.post
+
+#### Parameters
+* messageId (string) **required** - messageId
+
+### messages.messageId.markRead.post
 Marks a  message as read
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "messageId": {
-      "type": "string",
-      "description": "messageId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "messageId"
-  ]
-}
+
+```js
+zoomconnect.messages.messageId.markRead.post({
+  "messageId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceMessage"
-}
-```
-## Operation: messages.messageId.markRead.put
+
+#### Parameters
+* messageId (string) **required** - messageId
+
+### messages.messageId.markRead.put
 Marks a  message as read
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "messageId": {
-      "type": "string",
-      "description": "messageId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "messageId"
-  ]
-}
+
+```js
+zoomconnect.messages.messageId.markRead.put({
+  "messageId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceMessage"
-}
-```
-## Operation: messages.messageId.markUnread.post
+
+#### Parameters
+* messageId (string) **required** - messageId
+
+### messages.messageId.markUnread.post
 Marks a  message as unread
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "messageId": {
-      "type": "string",
-      "description": "messageId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "messageId"
-  ]
-}
+
+```js
+zoomconnect.messages.messageId.markUnread.post({
+  "messageId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceMessage"
-}
-```
-## Operation: messages.messageId.markUnread.put
+
+#### Parameters
+* messageId (string) **required** - messageId
+
+### messages.messageId.markUnread.put
 Marks a  message as unread
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "messageId": {
-      "type": "string",
-      "description": "messageId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "messageId"
-  ]
-}
+
+```js
+zoomconnect.messages.messageId.markUnread.put({
+  "messageId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceMessage"
-}
-```
-## Operation: sms.send.get
+
+#### Parameters
+* messageId (string) **required** - messageId
+
+### sms.send.get
 Returns an example of the data to POST to send a single message.
 
-### Input Schema
-```json
-{}
+
+```js
+zoomconnect.sms.send.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceSendSmsRequest"
-}
-```
-## Operation: sms.send.post
+
+
+### sms.send.post
 Sends a single message. The <i>recipientNumber</i> and <i>message</i> fields are required. All other fields are optional.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/WebServiceSendSmsRequest"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+zoomconnect.sms.send.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceSendSmsResponse"
-}
-```
-## Operation: sms.send_bulk.get
+
+
+### sms.send_bulk.get
 Returns an example of the data to POST to send multiple messages in one transaction.
 
-### Input Schema
-```json
-{}
+
+```js
+zoomconnect.sms.send_bulk.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceSendSmsRequests"
-}
-```
-## Operation: sms.send_bulk.post
+
+
+### sms.send_bulk.post
 Send multiple messages in one transaction.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/WebServiceSendSmsRequests"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+zoomconnect.sms.send_bulk.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceSendSmsResponses"
-}
-```
-## Operation: sms.send_url_parameters.get
+
+
+### sms.send_url_parameters.get
 Send a single message using URL parameters.The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipientNumber": {
-      "type": "string",
-      "description": "the phone number of the recipient to send to"
-    },
-    "message": {
-      "type": "string",
-      "description": "the message to send"
-    },
-    "dateToSend": {
-      "type": "string",
-      "format": "date-time",
-      "description": "date format: yyyyMMddHHmm"
-    },
-    "campaign": {
-      "type": "string",
-      "description": "optional campaign name"
-    },
-    "dataField": {
-      "type": "string",
-      "description": "optional extra data"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipientNumber",
-    "message"
-  ]
-}
+
+```js
+zoomconnect.sms.send_url_parameters.get({
+  "recipientNumber": "",
+  "message": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: sms.send_url_parameters.post
+
+#### Parameters
+* recipientNumber (string) **required** - the phone number of the recipient to send to
+* message (string) **required** - the message to send
+* dateToSend (string) - date format: yyyyMMddHHmm
+* campaign (string) - optional campaign name
+* dataField (string) - optional extra data
+
+### sms.send_url_parameters.post
 Send a single message using URL parameters.The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "recipientNumber": {
-      "type": "string",
-      "description": "the phone number of the recipient to send to"
-    },
-    "message": {
-      "type": "string",
-      "description": "the message to send"
-    },
-    "dateToSend": {
-      "type": "string",
-      "format": "date-time",
-      "description": "date format: yyyyMMddHHmm"
-    },
-    "campaign": {
-      "type": "string",
-      "description": "optional campaign name"
-    },
-    "dataField": {
-      "type": "string",
-      "description": "optional extra data"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "recipientNumber",
-    "message"
-  ]
-}
+
+```js
+zoomconnect.sms.send_url_parameters.post({
+  "recipientNumber": "",
+  "message": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: sms.send_url.token.get
+
+#### Parameters
+* recipientNumber (string) **required** - the phone number of the recipient to send to
+* message (string) **required** - the message to send
+* dateToSend (string) - date format: yyyyMMddHHmm
+* campaign (string) - optional campaign name
+* dataField (string) - optional extra data
+
+### sms.send_url.token.get
 Send a single message using your unique URL.The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "token"
-    },
-    "recipientNumber": {
-      "type": "string",
-      "description": "the phone number of the recipient to send to"
-    },
-    "message": {
-      "type": "string",
-      "description": "the message to send"
-    },
-    "dateToSend": {
-      "type": "string",
-      "format": "date-time",
-      "description": "date format: yyyyMMddHHmm"
-    },
-    "campaign": {
-      "type": "string",
-      "description": "optional campaign name"
-    },
-    "dataField": {
-      "type": "string",
-      "description": "optional extra data"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token",
-    "recipientNumber",
-    "message"
-  ]
-}
+
+```js
+zoomconnect.sms.send_url.token.get({
+  "token": "",
+  "recipientNumber": "",
+  "message": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: sms.send_url.token.post
+
+#### Parameters
+* token (string) **required** - token
+* recipientNumber (string) **required** - the phone number of the recipient to send to
+* message (string) **required** - the message to send
+* dateToSend (string) - date format: yyyyMMddHHmm
+* campaign (string) - optional campaign name
+* dataField (string) - optional extra data
+
+### sms.send_url.token.post
 Send a single message using your unique URL.The <i>recipientNumber</i> and <i>message</i> parameters are required. All other parameters are optional.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "token"
-    },
-    "recipientNumber": {
-      "type": "string",
-      "description": "the phone number of the recipient to send to"
-    },
-    "message": {
-      "type": "string",
-      "description": "the message to send"
-    },
-    "dateToSend": {
-      "type": "string",
-      "format": "date-time",
-      "description": "date format: yyyyMMddHHmm"
-    },
-    "campaign": {
-      "type": "string",
-      "description": "optional campaign name"
-    },
-    "dataField": {
-      "type": "string",
-      "description": "optional extra data"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token",
-    "recipientNumber",
-    "message"
-  ]
-}
+
+```js
+zoomconnect.sms.send_url.token.post({
+  "token": "",
+  "recipientNumber": "",
+  "message": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: templates.all.get
+
+#### Parameters
+* token (string) **required** - token
+* recipientNumber (string) **required** - the phone number of the recipient to send to
+* message (string) **required** - the message to send
+* dateToSend (string) - date format: yyyyMMddHHmm
+* campaign (string) - optional campaign name
+* dataField (string) - optional extra data
+
+### templates.all.get
 Returns all templates
 
-### Input Schema
-```json
-{}
+
+```js
+zoomconnect.templates.all.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceTemplates"
-}
-```
-## Operation: templates.templateId.delete
+
+
+### templates.templateId.delete
 Deletes a  template
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "templateId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "templateId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "templateId"
-  ]
-}
+
+```js
+zoomconnect.templates.templateId.delete({
+  "templateId": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: templates.templateId.get
+
+#### Parameters
+* templateId (integer) **required** - templateId
+
+### templates.templateId.get
 Returns details for a single template
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "templateId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "templateId"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "templateId"
-  ]
-}
+
+```js
+zoomconnect.templates.templateId.get({
+  "templateId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WebServiceTemplate"
-}
-```
+
+#### Parameters
+* templateId (integer) **required** - templateId
+

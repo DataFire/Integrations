@@ -1,53 +1,42 @@
 # @datafire/apitore_tweetsummarizationapis
+
+Client library for Tweet summarization APIs
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/apitore_tweetsummarizationapis
+```
+
+```js
+let datafire = require('datafire');
+let apitore_tweetsummarizationapis = require('@datafire/apitore_tweetsummarizationapis').actions;
+let context = new datafire.Context();
+
+apitore_tweetsummarizationapis.getUsingGET({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Tweet summarization.<BR />[Endpoint] https://api.apitore.com/api/27
 
-## Operation: getUsingGET
+## Actions
+### getUsingGET
 Tweet summarization API.<BR />Response<BR />&nbsp; Github: <a href="https://github.com/keigohtr/apitore-response-parent/tree/master/twitter-response">twitter-response</a><BR />&nbsp; Class: com.apitore.banana.response.twitter.TwitterSummarizeResponseEntity<BR />
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access Token"
-    },
-    "q": {
-      "type": "string",
-      "description": "Search query"
-    },
-    "sinceId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Get after this id."
-    },
-    "maxId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Get before this id."
-    },
-    "iter": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Numof search requests. Return up to 100 x iter tweets."
-    },
-    "num": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Numof summarization tweets."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "q"
-  ]
-}
+
+```js
+apitore_tweetsummarizationapis.getUsingGET({
+  "access_token": "",
+  "q": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TwitterSummarizeResponseEntity"
-}
-```
+
+#### Parameters
+* access_token (string) **required** - Access Token
+* q (string) **required** - Search query
+* sinceId (integer) - Get after this id.
+* maxId (integer) - Get before this id.
+* iter (integer) - Numof search requests. Return up to 100 x iter tweets.
+* num (integer) - Numof summarization tweets.
+

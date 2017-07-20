@@ -1,304 +1,180 @@
 # @datafire/azure_arm_servicefabric
 
+Client library for ServiceFabricManagementClient
 
-## Operation: Operations_List
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/azure_arm_servicefabric
+```
+
+```js
+let datafire = require('datafire');
+let azure_arm_servicefabric = require('@datafire/azure_arm_servicefabric').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    azure_arm_servicefabric: account,
+  }
+})
+
+
+azure_arm_servicefabric.Operations_List({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
+
+
+## Actions
+### Operations_List
 Lists all of the available ServiceFabric REST API operations.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The version of the ServiceFabric resouce provider api"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_servicefabric.Operations_List({
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OperationListResult"
-}
-```
-## Operation: Clusters_List
+
+#### Parameters
+* api-version (string) **required** - The version of the ServiceFabric resouce provider api
+
+### Clusters_List
 List cluster resource
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The version of the ServiceFabric resouce provider api"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The customer subscription identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_servicefabric.Clusters_List({
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ClusterListResult"
-}
-```
-## Operation: ClusterVersions_List
+
+#### Parameters
+* api-version (string) **required** - The version of the ServiceFabric resouce provider api
+* subscriptionId (string) **required** - The customer subscription identifier
+
+### ClusterVersions_List
 List cluster code versions by location
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "location": {
-      "type": "string",
-      "description": "The location for the cluster code versions, this is different from cluster location"
-    },
-    "environment": {
-      "type": "string",
-      "description": "Cluster operating system, the default means all",
-      "enum": [
-        "Default",
-        "Windows",
-        "Linux"
-      ]
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The version of the ServiceFabric resouce provider api"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The customer subscription identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "location",
-    "environment",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_servicefabric.ClusterVersions_List({
+  "location": "",
+  "environment": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ClusterCodeVersionsListResult"
-}
-```
-## Operation: Clusters_Delete
+
+#### Parameters
+* location (string) **required** - The location for the cluster code versions, this is different from cluster location
+* environment (string) **required** - Cluster operating system, the default means all
+* api-version (string) **required** - The version of the ServiceFabric resouce provider api
+* subscriptionId (string) **required** - The customer subscription identifier
+
+### Clusters_Delete
 Delete cluster resource
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group to which the resource belongs or get created"
-    },
-    "clusterName": {
-      "type": "string",
-      "description": "The name of the cluster resource"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The version of the ServiceFabric resouce provider api"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The customer subscription identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "clusterName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_servicefabric.Clusters_Delete({
+  "resourceGroupName": "",
+  "clusterName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Clusters_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group to which the resource belongs or get created
+* clusterName (string) **required** - The name of the cluster resource
+* api-version (string) **required** - The version of the ServiceFabric resouce provider api
+* subscriptionId (string) **required** - The customer subscription identifier
+
+### Clusters_Get
 Get cluster resource
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group to which the resource belongs or get created"
-    },
-    "clusterName": {
-      "type": "string",
-      "description": "The name of the cluster resource"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The version of the ServiceFabric resouce provider api"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The customer subscription identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "clusterName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_servicefabric.Clusters_Get({
+  "resourceGroupName": "",
+  "clusterName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Cluster"
-}
-```
-## Operation: Clusters_Update
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group to which the resource belongs or get created
+* clusterName (string) **required** - The name of the cluster resource
+* api-version (string) **required** - The version of the ServiceFabric resouce provider api
+* subscriptionId (string) **required** - The customer subscription identifier
+
+### Clusters_Update
 Update cluster configuration
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group to which the resource belongs or get created"
-    },
-    "clusterName": {
-      "type": "string",
-      "description": "The name of the cluster resource"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The version of the ServiceFabric resouce provider api"
-    },
-    "parameters": {
-      "$ref": "#/definitions/ClusterUpdateParameters"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The customer subscription identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "clusterName",
-    "api-version",
-    "parameters",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_servicefabric.Clusters_Update({
+  "resourceGroupName": "",
+  "clusterName": "",
+  "api-version": "",
+  "parameters": null,
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Cluster"
-}
-```
-## Operation: Clusters_Create
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group to which the resource belongs or get created
+* clusterName (string) **required** - The name of the cluster resource
+* api-version (string) **required** - The version of the ServiceFabric resouce provider api
+* parameters (undefined) **required** - Cluster update request
+* subscriptionId (string) **required** - The customer subscription identifier
+
+### Clusters_Create
 Create cluster resource
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group to which the resource belongs or get created"
-    },
-    "clusterName": {
-      "type": "string",
-      "description": "The name of the cluster resource"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The version of the ServiceFabric resouce provider api"
-    },
-    "parameters": {
-      "$ref": "#/definitions/Cluster"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The customer subscription identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "clusterName",
-    "api-version",
-    "parameters",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_servicefabric.Clusters_Create({
+  "resourceGroupName": "",
+  "clusterName": "",
+  "api-version": "",
+  "parameters": null,
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Cluster"
-}
-```
-## Operation: Clusters_ListByResourceGroup
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group to which the resource belongs or get created
+* clusterName (string) **required** - The name of the cluster resource
+* api-version (string) **required** - The version of the ServiceFabric resouce provider api
+* parameters (undefined) **required** - The cluster resource
+* subscriptionId (string) **required** - The customer subscription identifier
+
+### Clusters_ListByResourceGroup
 List cluster resource by resource group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group to which the resource belongs or get created"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The version of the ServiceFabric resouce provider api"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The customer subscription identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_servicefabric.Clusters_ListByResourceGroup({
+  "resourceGroupName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ClusterListResult"
-}
-```
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group to which the resource belongs or get created
+* api-version (string) **required** - The version of the ServiceFabric resouce provider api
+* subscriptionId (string) **required** - The customer subscription identifier
+

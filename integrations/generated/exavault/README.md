@@ -1,1444 +1,657 @@
 # @datafire/exavault
+
+Client library for ExaVault
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/exavault
+```
+
+```js
+let datafire = require('datafire');
+let exavault = require('@datafire/exavault').actions;
+let context = new datafire.Context();
+
+exavault.authenticateUser({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 ExaVault's API allows you to incorporate ExaVault's suite of file transfer and user management tools into your own application.
 
 ExaVault supports both POST (recommended when requesting large data sets) and GET operations, and requires an API key in order to use.
 
 
-## Operation: authenticateUser
+## Actions
+### authenticateUser
 Returns access token in the Response object
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "Name of of user to authenticate"
-    },
-    "password": {
-      "type": "string",
-      "description": "User's password"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "password"
-  ]
-}
+
+```js
+exavault.authenticateUser({
+  "username": "",
+  "password": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthResponse"
-}
-```
-## Operation: checkFilesExist
+
+#### Parameters
+* username (string) **required** - Name of of user to authenticate
+* password (string) **required** - User's password
+
+### checkFilesExist
 Requires access token obtained via the authenticateUser operation
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "filePaths": {
-      "type": "array",
-      "description": "Array containing paths of the files or folders to check"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "filePaths"
-  ]
-}
+
+```js
+exavault.checkFilesExist({
+  "access_token": "",
+  "filePaths": []
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ExistingResourcesResponse"
-}
-```
-## Operation: copyResources
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* filePaths (array) **required** - Array containing paths of the files or folders to check
+
+### copyResources
 Requires access token obtained via the authenticateUser operation. Available to users with the 'upload' permission.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "filePaths": {
-      "type": "array",
-      "description": "Remote paths of the files or folders to copy"
-    },
-    "destinationPath": {
-      "type": "string",
-      "description": "Remote destination path to copy files/folders to"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "filePaths",
-    "destinationPath"
-  ]
-}
+
+```js
+exavault.copyResources({
+  "access_token": "",
+  "filePaths": [],
+  "destinationPath": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ModifiedResourcesResponse"
-}
-```
-## Operation: createFolder
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* filePaths (array) **required** - Remote paths of the files or folders to copy
+* destinationPath (string) **required** - Remote destination path to copy files/folders to
+
+### createFolder
 Requires access token obtained via the authenticateUser operation. Available to users with the 'upload' permission.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "folderName": {
-      "type": "string",
-      "description": "Name of the folder to create"
-    },
-    "path": {
-      "type": "string",
-      "description": "Where to create the folder"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "folderName",
-    "path"
-  ]
-}
+
+```js
+exavault.createFolder({
+  "access_token": "",
+  "folderName": "",
+  "path": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Response"
-}
-```
-## Operation: createNotification
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* folderName (string) **required** - Name of the folder to create
+* path (string) **required** - Where to create the folder
+
+### createNotification
 Requires access token obtained via the authenticateUser operation. Available to users with 'notification' permission
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "type": {
-      "type": "string",
-      "description": "Type of notification: 'file' or 'folder' "
-    },
-    "path": {
-      "type": "string",
-      "description": "Full path of file/folder where notification is set."
-    },
-    "action": {
-      "type": "string",
-      "description": "Type of action to filter on: 'upload', 'download', 'delete', 'all'"
-    },
-    "usernames": {
-      "type": "array",
-      "description": "Array of usernames or with one flag to filter on: 'notice_user_all', 'notice_user_all_recipients', 'notice_user_all_users'"
-    },
-    "sendEmail": {
-      "type": "boolean",
-      "description": "Set to true if the user should be notified by email when the notification is triggered."
-    },
-    "emails": {
-      "type": "array",
-      "description": "Email addresses to send notification to. If not specified, sends to owner by default."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "type",
-    "path",
-    "action",
-    "usernames",
-    "sendEmail"
-  ]
-}
+
+```js
+exavault.createNotification({
+  "access_token": "",
+  "type": "",
+  "path": "",
+  "action": "",
+  "usernames": [],
+  "sendEmail": true
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Response"
-}
-```
-## Operation: createShare
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* type (string) **required** - Type of notification: 'file' or 'folder' 
+* path (string) **required** - Full path of file/folder where notification is set.
+* action (string) **required** - Type of action to filter on: 'upload', 'download', 'delete', 'all'
+* usernames (array) **required** - Array of usernames or with one flag to filter on: 'notice_user_all', 'notice_user_all_recipients', 'notice_user_all_users'
+* sendEmail (boolean) **required** - Set to true if the user should be notified by email when the notification is triggered.
+* emails (array) - Email addresses to send notification to. If not specified, sends to owner by default.
+
+### createShare
 Requires access token obtained via the authenticateUser operation. Available to users with the 'share' permission
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "type": {
-      "type": "string",
-      "description": "The type of share to create: shared_folder, send, receive."
-    },
-    "name": {
-      "type": "string",
-      "description": "Name of the Share."
-    },
-    "filePaths": {
-      "type": "array",
-      "description": "Array of strings containing the file paths to share."
-    },
-    "accessMode": {
-      "type": "string",
-      "description": "Type of permissions share recipients have: upload, download, download_upload, download_upload_modify, download_upload_modify_delete."
-    },
-    "subject": {
-      "type": "string",
-      "description": "Share message subject (for email invitations)."
-    },
-    "message": {
-      "type": "string",
-      "description": "Share message contents (for email invitations)."
-    },
-    "emails": {
-      "type": "array",
-      "description": "Array of strings for email recipients (for email invitations)."
-    },
-    "ccEmail": {
-      "type": "string",
-      "description": "Specifies a CC email recipient."
-    },
-    "requireEmail": {
-      "type": "boolean",
-      "description": "Requires a user's email to access (defaults to false if not specified)."
-    },
-    "embed": {
-      "type": "boolean",
-      "description": "Allows user to embed a widget with the share. Defaults to false if not specified."
-    },
-    "isPublic": {
-      "type": "boolean",
-      "description": "True if share has a public URL, otherwise defaults to false"
-    },
-    "password": {
-      "type": "string",
-      "description": "If not null, value of password is required to access this Share"
-    },
-    "expiration": {
-      "type": "string",
-      "description": "The date the current Share should expire, formatted YYYY-mm-dd hh:mm:ss"
-    },
-    "hasNotification": {
-      "type": "boolean",
-      "description": "True if the user should be notified about activity on this Share."
-    },
-    "notificationEmails": {
-      "type": "array",
-      "description": "An array of recipients who should receive notification emails."
-    },
-    "fileDropCreateFolders": {
-      "type": "boolean",
-      "description": "If true, all receive folder submissions will be uploaded separate folders (only applicable for Receive folder types)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "type",
-    "name",
-    "filePaths",
-    "accessMode"
-  ]
-}
+
+```js
+exavault.createShare({
+  "access_token": "",
+  "type": "",
+  "name": "",
+  "filePaths": [],
+  "accessMode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Response"
-}
-```
-## Operation: createUser
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* type (string) **required** - The type of share to create: shared_folder, send, receive.
+* name (string) **required** - Name of the Share.
+* filePaths (array) **required** - Array of strings containing the file paths to share.
+* accessMode (string) **required** - Type of permissions share recipients have: upload, download, download_upload, download_upload_modify, download_upload_modify_delete.
+* subject (string) - Share message subject (for email invitations).
+* message (string) - Share message contents (for email invitations).
+* emails (array) - Array of strings for email recipients (for email invitations).
+* ccEmail (string) - Specifies a CC email recipient.
+* requireEmail (boolean) - Requires a user's email to access (defaults to false if not specified).
+* embed (boolean) - Allows user to embed a widget with the share. Defaults to false if not specified.
+* isPublic (boolean) - True if share has a public URL, otherwise defaults to false
+* password (string) - If not null, value of password is required to access this Share
+* expiration (string) - The date the current Share should expire, formatted YYYY-mm-dd hh:mm:ss
+* hasNotification (boolean) - True if the user should be notified about activity on this Share.
+* notificationEmails (array) - An array of recipients who should receive notification emails.
+* fileDropCreateFolders (boolean) - If true, all receive folder submissions will be uploaded separate folders (only applicable for Receive folder types)
+
+### createUser
 Requires access token obtained via the authenticateUser operation. Available to users with the 'manage users' permission
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "username": {
-      "type": "string",
-      "description": "Name of the subaccount user to create"
-    },
-    "destinationFolder": {
-      "type": "string",
-      "description": "The user's home folder"
-    },
-    "email": {
-      "type": "string",
-      "description": "The user's email address"
-    },
-    "password": {
-      "type": "string",
-      "description": "The user's password"
-    },
-    "role": {
-      "type": "string",
-      "description": "The user's role, i.e: 'user' or 'admin'"
-    },
-    "permissions": {
-      "type": "string",
-      "description": "A CSV string of user permissions. The following values are supported: upload, download, delete, modify, list, changePassword, share, notification."
-    },
-    "timeZone": {
-      "type": "string",
-      "description": "The user's timezone, used for accurate time display within SWFT. See <a href='https://php.net/manual/en/timezones.php' target='blank'>this page</a> for allowed values"
-    },
-    "nickname": {
-      "type": "string",
-      "description": "The user's nickname"
-    },
-    "expiration": {
-      "type": "string",
-      "description": "The date when the user should expire, formatted YYYY-mm-dd hh:mm:ss"
-    },
-    "locked": {
-      "type": "boolean",
-      "description": "If true, the user's account is locked by default"
-    },
-    "welcomeEmail": {
-      "type": "boolean",
-      "description": "If true, send a user email upon creation"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "username",
-    "destinationFolder",
-    "email",
-    "password",
-    "role",
-    "permissions",
-    "timeZone"
-  ]
-}
+
+```js
+exavault.createUser({
+  "access_token": "",
+  "username": "",
+  "destinationFolder": "",
+  "email": "",
+  "password": "",
+  "role": "",
+  "permissions": "",
+  "timeZone": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Response"
-}
-```
-## Operation: deleteNotification
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* username (string) **required** - Name of the subaccount user to create
+* destinationFolder (string) **required** - The user's home folder
+* email (string) **required** - The user's email address
+* password (string) **required** - The user's password
+* role (string) **required** - The user's role, i.e: 'user' or 'admin'
+* permissions (string) **required** - A CSV string of user permissions. The following values are supported: upload, download, delete, modify, list, changePassword, share, notification.
+* timeZone (string) **required** - The user's timezone, used for accurate time display within SWFT. See <a href='https://php.net/manual/en/timezones.php' target='blank'>this page</a> for allowed values
+* nickname (string) - The user's nickname
+* expiration (string) - The date when the user should expire, formatted YYYY-mm-dd hh:mm:ss
+* locked (boolean) - If true, the user's account is locked by default
+* welcomeEmail (boolean) - If true, send a user email upon creation
+
+### deleteNotification
 Requires access token obtained via the authenticateUser operation. Available to users with 'notification' permission
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "ID of the Notification to delete."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "id"
-  ]
-}
+
+```js
+exavault.deleteNotification({
+  "access_token": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Response"
-}
-```
-## Operation: deleteResources
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* id (integer) **required** - ID of the Notification to delete.
+
+### deleteResources
 Requires access token obtained via the authenticateUser operation. Available to users with the 'delete' permission
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "filePaths": {
-      "type": "array",
-      "description": "Array containing paths of the files or folder to delete"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "filePaths"
-  ]
-}
+
+```js
+exavault.deleteResources({
+  "access_token": "",
+  "filePaths": []
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeletedResourcesResponse"
-}
-```
-## Operation: deleteShare
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* filePaths (array) **required** - Array containing paths of the files or folder to delete
+
+### deleteShare
 Requires access token obtained via the authenticateUser operation. Available to users with 'share' permission
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "ID of the Share to delete."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "id"
-  ]
-}
+
+```js
+exavault.deleteShare({
+  "access_token": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Response"
-}
-```
-## Operation: deleteUser
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* id (integer) **required** - ID of the Share to delete.
+
+### deleteUser
 Requires access token obtained via the authenticateUser operation. Available to users with 'manage users' permission
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "username": {
-      "type": "string",
-      "description": "Name of the subaccount user to delete"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "username"
-  ]
-}
+
+```js
+exavault.deleteUser({
+  "access_token": "",
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Response"
-}
-```
-## Operation: getAccount
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* username (string) **required** - Name of the subaccount user to delete
+
+### getAccount
 Requires access token obtained via the authenticateUser operation
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token"
-  ]
-}
+
+```js
+exavault.getAccount({
+  "access_token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccountResponse"
-}
-```
-## Operation: getCurrentUser
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+
+### getCurrentUser
 Requires access token obtained via the authenticateUser operation
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token"
-  ]
-}
+
+```js
+exavault.getCurrentUser({
+  "access_token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserResponse"
-}
-```
-## Operation: getDownloadFileUrl
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+
+### getDownloadFileUrl
 Requires access token obtained via the authenticateUser operation. URL points at the appropriate storage server for file download.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "filePaths": {
-      "type": "string",
-      "description": "Path of file to be downloaded"
-    },
-    "downloadName": {
-      "type": "string",
-      "description": "The name of the file to be downloaded"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "filePaths"
-  ]
-}
+
+```js
+exavault.getDownloadFileUrl({
+  "access_token": "",
+  "filePaths": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UrlResponse"
-}
-```
-## Operation: getFileActivityLogs
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* filePaths (string) **required** - Path of file to be downloaded
+* downloadName (string) - The name of the file to be downloaded
+
+### getFileActivityLogs
 Returns a list of account activity. Allows for searching the activity log.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Starting record in the result set. Can be used for pagination."
-    },
-    "sortBy": {
-      "type": "string",
-      "description": "Sort method ['sort_logs_date' or 'sort_logs_ip_address' or 'sort_logs_username' or 'sort_logs_file' or 'sort_logs_file_source' or 'sort_logs_operation', or 'sort_logs_duration', or 'sort_logs_size', or 'sort_logs_protocol']"
-    },
-    "sortOrder": {
-      "type": "string",
-      "description": "Sort in either ascending or descending order: asc, desc"
-    },
-    "filterBy": {
-      "type": "string",
-      "description": "Field to search on ['filter_logs_date' or 'filter_logs_ip_address' or 'filter_logs_username' or 'filter_logs_operation' or 'filter_logs_file']"
-    },
-    "filter": {
-      "type": "string",
-      "description": "Search criteria. For date ranges, use format 'start_date::end_date'"
-    },
-    "itemLimit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Number of logs to return. Can be used for pagination."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token"
-  ]
-}
+
+```js
+exavault.getFileActivityLogs({
+  "access_token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LogResponse"
-}
-```
-## Operation: getFolders
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* offset (integer) - Starting record in the result set. Can be used for pagination.
+* sortBy (string) - Sort method ['sort_logs_date' or 'sort_logs_ip_address' or 'sort_logs_username' or 'sort_logs_file' or 'sort_logs_file_source' or 'sort_logs_operation', or 'sort_logs_duration', or 'sort_logs_size', or 'sort_logs_protocol']
+* sortOrder (string) - Sort in either ascending or descending order: asc, desc
+* filterBy (string) - Field to search on ['filter_logs_date' or 'filter_logs_ip_address' or 'filter_logs_username' or 'filter_logs_operation' or 'filter_logs_file']
+* filter (string) - Search criteria. For date ranges, use format 'start_date::end_date'
+* itemLimit (integer) - Number of logs to return. Can be used for pagination.
+
+### getFolders
 Requires access token obtained via the authenticateUser operation
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "path": {
-      "type": "string",
-      "description": "The remote file path"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "path"
-  ]
-}
+
+```js
+exavault.getFolders({
+  "access_token": "",
+  "path": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ResourcePropertiesResponse"
-}
-```
-## Operation: getNotification
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* path (string) **required** - The remote file path
+
+### getNotification
 Requires access token obtained via the authenticateUser operation. Available to users with the 'notification' permission
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "ID of the Notification"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "id"
-  ]
-}
+
+```js
+exavault.getNotification({
+  "access_token": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NotificationResponse"
-}
-```
-## Operation: getNotificationActivity
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* id (integer) **required** - ID of the Notification
+
+### getNotificationActivity
 Requires access token obtained via the authenticateUser operation. Available to users with the 'notification' permission
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token"
-  ]
-}
+
+```js
+exavault.getNotificationActivity({
+  "access_token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NotificationActivityResponse"
-}
-```
-## Operation: getNotifications
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+
+### getNotifications
 Requires access token obtained via the authenticateUser operation. Available to users with the 'notification' permission
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "type": {
-      "type": "string",
-      "description": "Type of notification to filter on: 'file', 'folder', 'shared_folder', 'send_receipt', 'share_receipt', 'file_drop'"
-    },
-    "sortBy": {
-      "type": "string",
-      "description": "Sort by one of the following: 'sort_notifications_folder_name', 'sort_notifications_path', 'sort_notifications_date'"
-    },
-    "sortOrder": {
-      "type": "string",
-      "description": "Sort by 'asc' or 'desc' order."
-    },
-    "filter": {
-      "type": "string",
-      "description": "Filter by the provided search terms."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "type"
-  ]
-}
+
+```js
+exavault.getNotifications({
+  "access_token": "",
+  "type": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NotificationsResponse"
-}
-```
-## Operation: getResourceList
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* type (string) **required** - Type of notification to filter on: 'file', 'folder', 'shared_folder', 'send_receipt', 'share_receipt', 'file_drop'
+* sortBy (string) - Sort by one of the following: 'sort_notifications_folder_name', 'sort_notifications_path', 'sort_notifications_date'
+* sortOrder (string) - Sort by 'asc' or 'desc' order.
+* filter (string) - Filter by the provided search terms.
+
+### getResourceList
 Requires access token obtained via the authenticateUser operation. Available to users with 'list files' permission.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "path": {
-      "type": "string",
-      "description": "The remote file path"
-    },
-    "sortBy": {
-      "type": "string",
-      "description": "Sort according to attribute: sort_files_name, sort_files_size, sort_files_date, sort_files_type, sort_files_timeline"
-    },
-    "sortOrder": {
-      "type": "string",
-      "description": "Sort in either ascending or descending order: asc, desc"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Determines which item to start on for pagination"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The number of files to limit the result"
-    },
-    "detailed": {
-      "type": "boolean",
-      "description": "If true, returns sharedFolder, notifications or other objects associated with specified path"
-    },
-    "pattern": {
-      "type": "string",
-      "description": "Regex string. If not null, perform a search with specified pattern"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "path",
-    "sortBy",
-    "sortOrder",
-    "offset",
-    "limit"
-  ]
-}
+
+```js
+exavault.getResourceList({
+  "access_token": "",
+  "path": "",
+  "sortBy": "",
+  "sortOrder": "",
+  "offset": 0,
+  "limit": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ResourceResponse"
-}
-```
-## Operation: getResourceProperties
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* path (string) **required** - The remote file path
+* sortBy (string) **required** - Sort according to attribute: sort_files_name, sort_files_size, sort_files_date, sort_files_type, sort_files_timeline
+* sortOrder (string) **required** - Sort in either ascending or descending order: asc, desc
+* offset (integer) **required** - Determines which item to start on for pagination
+* limit (integer) **required** - The number of files to limit the result
+* detailed (boolean) - If true, returns sharedFolder, notifications or other objects associated with specified path
+* pattern (string) - Regex string. If not null, perform a search with specified pattern
+
+### getResourceProperties
 Requires access token obtained via the authenticateUser operation
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "filePaths": {
-      "type": "array",
-      "description": "Array containing paths of the files or folder to get"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "filePaths"
-  ]
-}
+
+```js
+exavault.getResourceProperties({
+  "access_token": "",
+  "filePaths": []
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ResourcePropertiesResponse"
-}
-```
-## Operation: getShare
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* filePaths (array) **required** - Array containing paths of the files or folder to get
+
+### getShare
 Requires access token obtained via the authenticateUser operation. Available to users with the 'share' permission
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "ID of the requested Share"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "id"
-  ]
-}
+
+```js
+exavault.getShare({
+  "access_token": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ShareResponse"
-}
-```
-## Operation: getShareActivity
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* id (integer) **required** - ID of the requested Share
+
+### getShareActivity
 Requires access token obtained via the authenticateUser operation. Available to users with the 'share' permission
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "ID of the Share"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "id"
-  ]
-}
+
+```js
+exavault.getShareActivity({
+  "access_token": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ShareActivityResponse"
-}
-```
-## Operation: getShares
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* id (integer) **required** - ID of the Share
+
+### getShares
 Requires access token obtained via the authenticateUser operation. Available to users with the 'share' permission
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "type": {
-      "type": "string",
-      "description": "The type of share to return: 'shared_folder', 'send', or 'receive'. If no argument specified, will return all Shares types."
-    },
-    "sortBy": {
-      "type": "string",
-      "description": "Sort by one of the following: 'sort_shares_name', 'sort_shares_date', 'sort_shares_user', 'sort_shares_access_mode'."
-    },
-    "sortOrder": {
-      "type": "string",
-      "description": "Sort by 'asc' or 'desc' order."
-    },
-    "filter": {
-      "type": "string",
-      "description": "Filter by the provided search terms."
-    },
-    "include": {
-      "type": "string",
-      "description": "Filter by all, active-only, or current user's only."
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Start position of results to return, for pagination."
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum number of elements to return or 0 if no limit."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token"
-  ]
-}
+
+```js
+exavault.getShares({
+  "access_token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SharesResponse"
-}
-```
-## Operation: getUploadFileUrl
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* type (string) - The type of share to return: 'shared_folder', 'send', or 'receive'. If no argument specified, will return all Shares types.
+* sortBy (string) - Sort by one of the following: 'sort_shares_name', 'sort_shares_date', 'sort_shares_user', 'sort_shares_access_mode'.
+* sortOrder (string) - Sort by 'asc' or 'desc' order.
+* filter (string) - Filter by the provided search terms.
+* include (string) - Filter by all, active-only, or current user's only.
+* offset (integer) - Start position of results to return, for pagination.
+* limit (integer) - Maximum number of elements to return or 0 if no limit.
+
+### getUploadFileUrl
 Requires access token obtained via the authenticateUser operation. Called before an upload is started to get URL to appropriate storage server. Available to users with the 'write' permission.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "fileSize": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Size of the file to upload, in bytes"
-    },
-    "destinationPath": {
-      "type": "string",
-      "description": "Path relative to account's home directory, including file name"
-    },
-    "allowOverwrite": {
-      "type": "boolean",
-      "description": "True if the file should be overwritten, false if different file names should be generated"
-    },
-    "resume": {
-      "type": "boolean",
-      "description": "True if upload resume is supported, false if it isn't"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "fileSize",
-    "destinationPath"
-  ]
-}
+
+```js
+exavault.getUploadFileUrl({
+  "access_token": "",
+  "fileSize": 0,
+  "destinationPath": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UrlResponse"
-}
-```
-## Operation: getUser
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* fileSize (integer) **required** - Size of the file to upload, in bytes
+* destinationPath (string) **required** - Path relative to account's home directory, including file name
+* allowOverwrite (boolean) - True if the file should be overwritten, false if different file names should be generated
+* resume (boolean) - True if upload resume is supported, false if it isn't
+
+### getUser
 Requires access token obtained via the authenticateUser operation
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "username": {
-      "type": "string",
-      "description": "Name of the subaccount user to get"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "username"
-  ]
-}
+
+```js
+exavault.getUser({
+  "access_token": "",
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserResponse"
-}
-```
-## Operation: getUsers
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* username (string) **required** - Name of the subaccount user to get
+
+### getUsers
 Requires access token obtained via the authenticateUser operation. Available to users with the 'manage users' permission set
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "sortBy": {
-      "type": "string",
-      "description": "sort method ['sort_users_username' or 'sort_users_nickname' or 'sort_users_email' or 'sort_users_home_folder']"
-    },
-    "sortOrder": {
-      "type": "string",
-      "description": "sort order, i.e. 'asc' or 'desc'"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "sortBy",
-    "sortOrder"
-  ]
-}
+
+```js
+exavault.getUsers({
+  "access_token": "",
+  "sortBy": "",
+  "sortOrder": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UsersResponse"
-}
-```
-## Operation: logoutUser
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* sortBy (string) **required** - sort method ['sort_users_username' or 'sort_users_nickname' or 'sort_users_email' or 'sort_users_home_folder']
+* sortOrder (string) **required** - sort order, i.e. 'asc' or 'desc'
+
+### logoutUser
 Requires access token obtained via the authenticateUser operation
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token"
-  ]
-}
+
+```js
+exavault.logoutUser({
+  "access_token": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Response"
-}
-```
-## Operation: moveResources
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+
+### moveResources
 Requires access token obtained via the authenticateUser operation. Available to users with the 'upload' permission
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "filePaths": {
-      "type": "array",
-      "description": "Remote paths of the files or folders to move"
-    },
-    "destinationPath": {
-      "type": "string",
-      "description": "Remote destination path to move files/folders to"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "filePaths",
-    "destinationPath"
-  ]
-}
+
+```js
+exavault.moveResources({
+  "access_token": "",
+  "filePaths": [],
+  "destinationPath": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ModifiedResourcesResponse"
-}
-```
-## Operation: previewFile
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* filePaths (array) **required** - Remote paths of the files or folders to move
+* destinationPath (string) **required** - Remote destination path to move files/folders to
+
+### previewFile
 Requires access token obtained via authenticateUser operation
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "path": {
-      "type": "string",
-      "description": "Path of the image relative to the user's home directory"
-    },
-    "size": {
-      "type": "string",
-      "description": "The size of the image: small, medium, large"
-    },
-    "width": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Overrides sizes. Sets to a specific width"
-    },
-    "height": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Overrides sizes. Sets to a specific height"
-    },
-    "page": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Page number for the document"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "path",
-    "size"
-  ]
-}
+
+```js
+exavault.previewFile({
+  "access_token": "",
+  "path": "",
+  "size": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PreviewFileResponse"
-}
-```
-## Operation: renameResource
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* path (string) **required** - Path of the image relative to the user's home directory
+* size (string) **required** - The size of the image: small, medium, large
+* width (integer) - Overrides sizes. Sets to a specific width
+* height (integer) - Overrides sizes. Sets to a specific height
+* page (integer) - Page number for the document
+
+### renameResource
 Requires access token obtained via the authenticateUser operation. Available to users with the 'modify' permission
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "filePath": {
-      "type": "string",
-      "description": "Remote path of the files or folder to rename"
-    },
-    "newName": {
-      "type": "string",
-      "description": "The new name of the file or folder"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "filePath",
-    "newName"
-  ]
-}
+
+```js
+exavault.renameResource({
+  "access_token": "",
+  "filePath": "",
+  "newName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Response"
-}
-```
-## Operation: updateNotification
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* filePath (string) **required** - Remote path of the files or folder to rename
+* newName (string) **required** - The new name of the file or folder
+
+### updateNotification
 Requires access token obtained via the authenticateUser operation. Available to users with 'notification' permission
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The notification ID"
-    },
-    "path": {
-      "type": "string",
-      "description": "Full path of file/folder where notification is set."
-    },
-    "action": {
-      "type": "string",
-      "description": "Type of action to filter on: 'upload', 'download', 'delete', 'all'"
-    },
-    "usernames": {
-      "type": "array",
-      "description": "Array of usernames or with one flag to filter on: 'notice_user_all', 'notice_user_all_recipients', 'notice_user_all_users'"
-    },
-    "emails": {
-      "type": "array",
-      "description": "Email addresses to send notification to. If not specified, sends to owner by default."
-    },
-    "sendEmail": {
-      "type": "boolean",
-      "description": "Set to true if the user should be notified by email when the notification is triggered."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "id"
-  ]
-}
+
+```js
+exavault.updateNotification({
+  "access_token": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Response"
-}
-```
-## Operation: updateShare
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* id (integer) **required** - The notification ID
+* path (string) - Full path of file/folder where notification is set.
+* action (string) - Type of action to filter on: 'upload', 'download', 'delete', 'all'
+* usernames (array) - Array of usernames or with one flag to filter on: 'notice_user_all', 'notice_user_all_recipients', 'notice_user_all_users'
+* emails (array) - Email addresses to send notification to. If not specified, sends to owner by default.
+* sendEmail (boolean) - Set to true if the user should be notified by email when the notification is triggered.
+
+### updateShare
 Requires access token obtained via the authenticateUser operation. Available to users with the 'share' permission
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The ID of the Share to update."
-    },
-    "name": {
-      "type": "string",
-      "description": "Name of the Share."
-    },
-    "filePaths": {
-      "type": "array",
-      "description": "Array of strings containing the file paths to share."
-    },
-    "accessMode": {
-      "type": "string",
-      "description": "Type of permissions share recipients have: upload, download, download_upload, download_upload_modify, download_upload_modify_delete."
-    },
-    "subject": {
-      "type": "string",
-      "description": "Share message subject (for email invitations)."
-    },
-    "message": {
-      "type": "string",
-      "description": "Share message contents (for email invitations)."
-    },
-    "emails": {
-      "type": "array",
-      "description": "Array of strings for email recipients (for email invitations)."
-    },
-    "ccEmail": {
-      "type": "string",
-      "description": "Specifies a CC email recipient."
-    },
-    "requireEmail": {
-      "type": "boolean",
-      "description": "Requires a user's email to access."
-    },
-    "embed": {
-      "type": "boolean",
-      "description": "Allows user to embed a widget with the share."
-    },
-    "isPublic": {
-      "type": "boolean",
-      "description": "True if share has a public URL, otherwise defaults to false"
-    },
-    "password": {
-      "type": "string",
-      "description": "If not null, value of password is required to access this Share"
-    },
-    "expiration": {
-      "type": "string",
-      "description": "The date the current Share should expire, formatted YYYY-mm-dd hh:mm:ss"
-    },
-    "hasNotification": {
-      "type": "boolean",
-      "description": "True if the user should be notified about activity on this Share."
-    },
-    "notificationEmails": {
-      "type": "array",
-      "description": "An array of recipients who should receive notification emails."
-    },
-    "fileDropCreateFolders": {
-      "type": "boolean",
-      "description": "If true, all receive folder submissions will be uploaded separate folders (only applicable for Receive folder types)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "id"
-  ]
-}
+
+```js
+exavault.updateShare({
+  "access_token": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Response"
-}
-```
-## Operation: updateUser
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* id (integer) **required** - The ID of the Share to update.
+* name (string) - Name of the Share.
+* filePaths (array) - Array of strings containing the file paths to share.
+* accessMode (string) - Type of permissions share recipients have: upload, download, download_upload, download_upload_modify, download_upload_modify_delete.
+* subject (string) - Share message subject (for email invitations).
+* message (string) - Share message contents (for email invitations).
+* emails (array) - Array of strings for email recipients (for email invitations).
+* ccEmail (string) - Specifies a CC email recipient.
+* requireEmail (boolean) - Requires a user's email to access.
+* embed (boolean) - Allows user to embed a widget with the share.
+* isPublic (boolean) - True if share has a public URL, otherwise defaults to false
+* password (string) - If not null, value of password is required to access this Share
+* expiration (string) - The date the current Share should expire, formatted YYYY-mm-dd hh:mm:ss
+* hasNotification (boolean) - True if the user should be notified about activity on this Share.
+* notificationEmails (array) - An array of recipients who should receive notification emails.
+* fileDropCreateFolders (boolean) - If true, all receive folder submissions will be uploaded separate folders (only applicable for Receive folder types)
+
+### updateUser
 Requires access token obtained via the authenticateUser operation. Available to users with 'manage users' permission
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "userId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The user ID, must be obtained from getUser method first"
-    },
-    "username": {
-      "type": "string",
-      "description": "Name of the subaccount user to modify"
-    },
-    "nickname": {
-      "type": "string",
-      "description": "The user's nickname"
-    },
-    "expiration": {
-      "type": "string",
-      "description": "The date when use should expire in format: YYYY-mm-dd hh:mm:ss"
-    },
-    "email": {
-      "type": "string",
-      "description": "The user's email"
-    },
-    "destinationFolder": {
-      "type": "string",
-      "description": "The user's home folder"
-    },
-    "password": {
-      "type": "string",
-      "description": "The user's password"
-    },
-    "locked": {
-      "type": "boolean",
-      "description": "If true, the user's account is locked by default"
-    },
-    "role": {
-      "type": "string",
-      "description": "The user's role, i.e: 'user', 'admin', 'master'"
-    },
-    "permissions": {
-      "type": "string",
-      "description": "A CSV string of user permissions."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "userId"
-  ]
-}
+
+```js
+exavault.updateUser({
+  "access_token": "",
+  "userId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Response"
-}
-```
-## Operation: userAvailable
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* userId (integer) **required** - The user ID, must be obtained from getUser method first
+* username (string) - Name of the subaccount user to modify
+* nickname (string) - The user's nickname
+* expiration (string) - The date when use should expire in format: YYYY-mm-dd hh:mm:ss
+* email (string) - The user's email
+* destinationFolder (string) - The user's home folder
+* password (string) - The user's password
+* locked (boolean) - If true, the user's account is locked by default
+* role (string) - The user's role, i.e: 'user', 'admin', 'master'
+* permissions (string) - A CSV string of user permissions.
+
+### userAvailable
 Requires access token obtained via the authenticateUser operation. Available to users with the 'manage users' permission
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "access_token": {
-      "type": "string",
-      "description": "Access token required to make the API call"
-    },
-    "username": {
-      "type": "string",
-      "description": "Username to check"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "access_token",
-    "username"
-  ]
-}
+
+```js
+exavault.userAvailable({
+  "access_token": "",
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AvailableUserResponse"
-}
-```
+
+#### Parameters
+* access_token (string) **required** - Access token required to make the API call
+* username (string) **required** - Username to check
+

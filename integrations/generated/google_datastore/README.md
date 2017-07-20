@@ -1,609 +1,223 @@
 # @datafire/google_datastore
+
+Client library for Google Cloud Datastore
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/google_datastore
+```
+
+```js
+let datafire = require('datafire');
+let google_datastore = require('@datafire/google_datastore').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    google_datastore: account,
+  }
+})
+
+
+google_datastore.projects.allocateIds({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Accesses the schemaless NoSQL database to provide fully managed, robust, scalable storage for your application.
 
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+google_datastore.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+google_datastore.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: projects.allocateIds
+
+
+### projects.allocateIds
 Allocates IDs for the given keys, which is useful for referencing an entity
 before it is inserted.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "The ID of the project against which to make the request."
-    },
-    "body": {
-      "$ref": "#/definitions/AllocateIdsRequest"
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId"
-  ]
-}
+
+```js
+google_datastore.projects.allocateIds({
+  "projectId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AllocateIdsResponse"
-}
-```
-## Operation: projects.beginTransaction
+
+#### Parameters
+* projectId (string) **required** - The ID of the project against which to make the request.
+* body (object) - The request for Datastore.AllocateIds.
+* access_token (string) - OAuth access token.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* alt (string) - Data format for response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.beginTransaction
 Begins a new transaction.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "The ID of the project against which to make the request."
-    },
-    "body": {
-      "$ref": "#/definitions/BeginTransactionRequest"
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId"
-  ]
-}
+
+```js
+google_datastore.projects.beginTransaction({
+  "projectId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BeginTransactionResponse"
-}
-```
-## Operation: projects.commit
+
+#### Parameters
+* projectId (string) **required** - The ID of the project against which to make the request.
+* body (object) - The request for Datastore.BeginTransaction.
+* access_token (string) - OAuth access token.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* alt (string) - Data format for response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.commit
 Commits a transaction, optionally creating, deleting or modifying some
 entities.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "The ID of the project against which to make the request."
-    },
-    "body": {
-      "$ref": "#/definitions/CommitRequest"
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId"
-  ]
-}
+
+```js
+google_datastore.projects.commit({
+  "projectId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CommitResponse"
-}
-```
-## Operation: projects.lookup
+
+#### Parameters
+* projectId (string) **required** - The ID of the project against which to make the request.
+* body (object) - The request for Datastore.Commit.
+* access_token (string) - OAuth access token.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* alt (string) - Data format for response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.lookup
 Looks up entities by key.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "The ID of the project against which to make the request."
-    },
-    "body": {
-      "$ref": "#/definitions/LookupRequest"
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId"
-  ]
-}
+
+```js
+google_datastore.projects.lookup({
+  "projectId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LookupResponse"
-}
-```
-## Operation: projects.rollback
+
+#### Parameters
+* projectId (string) **required** - The ID of the project against which to make the request.
+* body (object) - The request for Datastore.Lookup.
+* access_token (string) - OAuth access token.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* alt (string) - Data format for response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.rollback
 Rolls back a transaction.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "The ID of the project against which to make the request."
-    },
-    "body": {
-      "$ref": "#/definitions/RollbackRequest"
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId"
-  ]
-}
+
+```js
+google_datastore.projects.rollback({
+  "projectId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RollbackResponse"
-}
-```
-## Operation: projects.runQuery
+
+#### Parameters
+* projectId (string) **required** - The ID of the project against which to make the request.
+* body (object) - The request for Datastore.Rollback.
+* access_token (string) - OAuth access token.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* alt (string) - Data format for response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.runQuery
 Queries for entities.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "The ID of the project against which to make the request."
-    },
-    "body": {
-      "$ref": "#/definitions/RunQueryRequest"
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId"
-  ]
-}
+
+```js
+google_datastore.projects.runQuery({
+  "projectId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RunQueryResponse"
-}
-```
+
+#### Parameters
+* projectId (string) **required** - The ID of the project against which to make the request.
+* body (object) - The request for Datastore.RunQuery.
+* access_token (string) - OAuth access token.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* alt (string) - Data format for response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+

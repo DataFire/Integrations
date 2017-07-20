@@ -1,3691 +1,1064 @@
 # @datafire/google_games
+
+Client library for Google Play Game Services
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/google_games
+```
+
+```js
+let datafire = require('datafire');
+let google_games = require('@datafire/google_games').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    google_games: account,
+  }
+})
+
+
+google_games.turnBasedMatches.sync({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 The API for Google Play Game Services.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+google_games.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+google_games.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: achievementDefinitions.list
+
+
+### achievementDefinitions.list
 Lists all the achievement definitions for your application.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of achievement resources to return in the response, used for paging. For any response, the actual number of achievement resources returned may be less than the specified maxResults.",
-      "maximum": 200,
-      "minimum": 1
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_games.achievementDefinitions.list({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AchievementDefinitionsListResponse"
-}
-```
-## Operation: achievements.updateMultiple
+
+
+### achievements.updateMultiple
 Updates multiple achievements for the currently authenticated player.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "body": {
-      "$ref": "#/definitions/AchievementUpdateMultipleRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_games.achievements.updateMultiple({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AchievementUpdateMultipleResponse"
-}
-```
-## Operation: achievements.increment
+
+
+### achievements.increment
 Increments the steps of the achievement with the given ID for the currently authenticated player.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "achievementId": {
-      "type": "string",
-      "description": "The ID of the achievement used by this method."
-    },
-    "stepsToIncrement": {
-      "type": "integer",
-      "description": "The number of steps to increment.",
-      "minimum": 1
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "requestId": {
-      "type": "string",
-      "description": "A randomly generated numeric ID for each request specified by the caller. This number is used at the server to ensure that the request is handled correctly across retries."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "achievementId",
-    "stepsToIncrement"
-  ]
-}
+
+```js
+google_games.achievements.increment({
+  "achievementId": "",
+  "stepsToIncrement": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AchievementIncrementResponse"
-}
-```
-## Operation: achievements.reveal
+
+#### Parameters
+* achievementId (string) **required** - The ID of the achievement used by this method.
+* stepsToIncrement (integer) **required** - The number of steps to increment.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* requestId (string) - A randomly generated numeric ID for each request specified by the caller. This number is used at the server to ensure that the request is handled correctly across retries.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### achievements.reveal
 Sets the state of the achievement with the given ID to REVEALED for the currently authenticated player.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "achievementId": {
-      "type": "string",
-      "description": "The ID of the achievement used by this method."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "achievementId"
-  ]
-}
+
+```js
+google_games.achievements.reveal({
+  "achievementId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AchievementRevealResponse"
-}
-```
-## Operation: achievements.setStepsAtLeast
+
+#### Parameters
+* achievementId (string) **required** - The ID of the achievement used by this method.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### achievements.setStepsAtLeast
 Sets the steps for the currently authenticated player towards unlocking an achievement. If the steps parameter is less than the current number of steps that the player already gained for the achievement, the achievement is not modified.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "achievementId": {
-      "type": "string",
-      "description": "The ID of the achievement used by this method."
-    },
-    "steps": {
-      "type": "integer",
-      "description": "The minimum value to set the steps to.",
-      "minimum": 1
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "achievementId",
-    "steps"
-  ]
-}
+
+```js
+google_games.achievements.setStepsAtLeast({
+  "achievementId": "",
+  "steps": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AchievementSetStepsAtLeastResponse"
-}
-```
-## Operation: achievements.unlock
+
+#### Parameters
+* achievementId (string) **required** - The ID of the achievement used by this method.
+* steps (integer) **required** - The minimum value to set the steps to.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### achievements.unlock
 Unlocks this achievement for the currently authenticated player.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "achievementId": {
-      "type": "string",
-      "description": "The ID of the achievement used by this method."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "achievementId"
-  ]
-}
+
+```js
+google_games.achievements.unlock({
+  "achievementId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AchievementUnlockResponse"
-}
-```
-## Operation: applications.played
+
+#### Parameters
+* achievementId (string) **required** - The ID of the achievement used by this method.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### applications.played
 Indicate that the the currently authenticated user is playing your application.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_games.applications.played({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: applications.get
+
+
+### applications.get
 Retrieves the metadata of the application with the given ID. If the requested application is not available for the specified platformType, the returned response will not include any instance data.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "applicationId": {
-      "type": "string",
-      "description": "The application ID from the Google Play developer console."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "platformType": {
-      "type": "string",
-      "description": "Restrict application details returned to the specific platform.",
-      "enum": [
-        "ANDROID",
-        "IOS",
-        "WEB_APP"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "applicationId"
-  ]
-}
+
+```js
+google_games.applications.get({
+  "applicationId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Application"
-}
-```
-## Operation: applications.verify
+
+#### Parameters
+* applicationId (string) **required** - The application ID from the Google Play developer console.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* platformType (string) - Restrict application details returned to the specific platform.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### applications.verify
 Verifies the auth token provided with this request is for the application with the specified ID, and returns the ID of the player it was granted for.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "applicationId": {
-      "type": "string",
-      "description": "The application ID from the Google Play developer console."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "applicationId"
-  ]
-}
+
+```js
+google_games.applications.verify({
+  "applicationId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApplicationVerifyResponse"
-}
-```
-## Operation: events.listDefinitions
+
+#### Parameters
+* applicationId (string) **required** - The application ID from the Google Play developer console.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### events.listDefinitions
 Returns a list of the event definitions in this application.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of event definitions to return in the response, used for paging. For any response, the actual number of event definitions to return may be less than the specified maxResults.",
-      "maximum": 100,
-      "minimum": 1
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_games.events.listDefinitions({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/EventDefinitionListResponse"
-}
-```
-## Operation: events.listByPlayer
+
+
+### events.listByPlayer
 Returns a list showing the current progress on events in this application for the currently authenticated user.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of events to return in the response, used for paging. For any response, the actual number of events to return may be less than the specified maxResults.",
-      "maximum": 100,
-      "minimum": 1
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_games.events.listByPlayer({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PlayerEventListResponse"
-}
-```
-## Operation: events.record
+
+
+### events.record
 Records a batch of changes to the number of times events have occurred for the currently authenticated user of this application.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "body": {
-      "$ref": "#/definitions/EventRecordRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_games.events.record({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/EventUpdateResponse"
-}
-```
-## Operation: leaderboards.list
+
+
+### leaderboards.list
 Lists all the leaderboard metadata for your application.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of leaderboards to return in the response. For any response, the actual number of leaderboards returned may be less than the specified maxResults.",
-      "maximum": 200,
-      "minimum": 1
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_games.leaderboards.list({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LeaderboardListResponse"
-}
-```
-## Operation: scores.submitMultiple
+
+
+### scores.submitMultiple
 Submits multiple scores to leaderboards.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "body": {
-      "$ref": "#/definitions/PlayerScoreSubmissionList"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_games.scores.submitMultiple({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PlayerScoreListResponse"
-}
-```
-## Operation: leaderboards.get
+
+
+### leaderboards.get
 Retrieves the metadata of the leaderboard with the given ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "leaderboardId": {
-      "type": "string",
-      "description": "The ID of the leaderboard."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "leaderboardId"
-  ]
-}
+
+```js
+google_games.leaderboards.get({
+  "leaderboardId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Leaderboard"
-}
-```
-## Operation: scores.submit
+
+#### Parameters
+* leaderboardId (string) **required** - The ID of the leaderboard.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### scores.submit
 Submits a score to the specified leaderboard.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "leaderboardId": {
-      "type": "string",
-      "description": "The ID of the leaderboard."
-    },
-    "score": {
-      "type": "string",
-      "description": "The score you're submitting. The submitted score is ignored if it is worse than a previously submitted score, where worse depends on the leaderboard sort order. The meaning of the score value depends on the leaderboard format type. For fixed-point, the score represents the raw value. For time, the score represents elapsed time in milliseconds. For currency, the score represents a value in micro units."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "scoreTag": {
-      "type": "string",
-      "description": "Additional information about the score you're submitting. Values must contain no more than 64 URI-safe characters as defined by section 2.3 of RFC 3986."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "leaderboardId",
-    "score"
-  ]
-}
+
+```js
+google_games.scores.submit({
+  "leaderboardId": "",
+  "score": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PlayerScoreResponse"
-}
-```
-## Operation: scores.list
+
+#### Parameters
+* leaderboardId (string) **required** - The ID of the leaderboard.
+* score (string) **required** - The score you're submitting. The submitted score is ignored if it is worse than a previously submitted score, where worse depends on the leaderboard sort order. The meaning of the score value depends on the leaderboard format type. For fixed-point, the score represents the raw value. For time, the score represents elapsed time in milliseconds. For currency, the score represents a value in micro units.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* scoreTag (string) - Additional information about the score you're submitting. Values must contain no more than 64 URI-safe characters as defined by section 2.3 of RFC 3986.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### scores.list
 Lists the scores in a leaderboard, starting from the top.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "leaderboardId": {
-      "type": "string",
-      "description": "The ID of the leaderboard."
-    },
-    "collection": {
-      "type": "string",
-      "description": "The collection of scores you're requesting.",
-      "enum": [
-        "PUBLIC",
-        "SOCIAL",
-        "SOCIAL_1P"
-      ]
-    },
-    "timeSpan": {
-      "type": "string",
-      "description": "The time span for the scores and ranks you're requesting.",
-      "enum": [
-        "ALL_TIME",
-        "DAILY",
-        "WEEKLY"
-      ]
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of leaderboard scores to return in the response. For any response, the actual number of leaderboard scores returned may be less than the specified maxResults.",
-      "maximum": 30,
-      "minimum": 1
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "leaderboardId",
-    "collection",
-    "timeSpan"
-  ]
-}
+
+```js
+google_games.scores.list({
+  "leaderboardId": "",
+  "collection": "",
+  "timeSpan": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LeaderboardScores"
-}
-```
-## Operation: scores.listWindow
+
+#### Parameters
+* leaderboardId (string) **required** - The ID of the leaderboard.
+* collection (string) **required** - The collection of scores you're requesting.
+* timeSpan (string) **required** - The time span for the scores and ranks you're requesting.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* maxResults (integer) - The maximum number of leaderboard scores to return in the response. For any response, the actual number of leaderboard scores returned may be less than the specified maxResults.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### scores.listWindow
 Lists the scores in a leaderboard around (and including) a player's score.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "leaderboardId": {
-      "type": "string",
-      "description": "The ID of the leaderboard."
-    },
-    "collection": {
-      "type": "string",
-      "description": "The collection of scores you're requesting.",
-      "enum": [
-        "PUBLIC",
-        "SOCIAL",
-        "SOCIAL_1P"
-      ]
-    },
-    "timeSpan": {
-      "type": "string",
-      "description": "The time span for the scores and ranks you're requesting.",
-      "enum": [
-        "ALL_TIME",
-        "DAILY",
-        "WEEKLY"
-      ]
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of leaderboard scores to return in the response. For any response, the actual number of leaderboard scores returned may be less than the specified maxResults.",
-      "maximum": 30,
-      "minimum": 1
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "resultsAbove": {
-      "type": "integer",
-      "description": "The preferred number of scores to return above the player's score. More scores may be returned if the player is at the bottom of the leaderboard; fewer may be returned if the player is at the top. Must be less than or equal to maxResults."
-    },
-    "returnTopIfAbsent": {
-      "type": "boolean",
-      "description": "True if the top scores should be returned when the player is not in the leaderboard. Defaults to true."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "leaderboardId",
-    "collection",
-    "timeSpan"
-  ]
-}
+
+```js
+google_games.scores.listWindow({
+  "leaderboardId": "",
+  "collection": "",
+  "timeSpan": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LeaderboardScores"
-}
-```
-## Operation: metagame.getMetagameConfig
+
+#### Parameters
+* leaderboardId (string) **required** - The ID of the leaderboard.
+* collection (string) **required** - The collection of scores you're requesting.
+* timeSpan (string) **required** - The time span for the scores and ranks you're requesting.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* maxResults (integer) - The maximum number of leaderboard scores to return in the response. For any response, the actual number of leaderboard scores returned may be less than the specified maxResults.
+* pageToken (string) - The token returned by the previous request.
+* resultsAbove (integer) - The preferred number of scores to return above the player's score. More scores may be returned if the player is at the bottom of the leaderboard; fewer may be returned if the player is at the top. Must be less than or equal to maxResults.
+* returnTopIfAbsent (boolean) - True if the top scores should be returned when the player is not in the leaderboard. Defaults to true.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### metagame.getMetagameConfig
 Return the metagame configuration data for the calling application.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_games.metagame.getMetagameConfig({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MetagameConfig"
-}
-```
-## Operation: players.list
+
+
+### players.list
 Get the collection of players for the currently authenticated user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "collection": {
-      "type": "string",
-      "description": "Collection of players being retrieved",
-      "enum": [
-        "connected",
-        "playedWith",
-        "played_with",
-        "visible"
-      ]
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of player resources to return in the response, used for paging. For any response, the actual number of player resources returned may be less than the specified maxResults.",
-      "maximum": 50,
-      "minimum": 1
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "collection"
-  ]
-}
+
+```js
+google_games.players.list({
+  "collection": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PlayerListResponse"
-}
-```
-## Operation: players.get
+
+#### Parameters
+* collection (string) **required** - Collection of players being retrieved
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* maxResults (integer) - The maximum number of player resources to return in the response, used for paging. For any response, the actual number of player resources returned may be less than the specified maxResults.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### players.get
 Retrieves the Player resource with the given ID. To retrieve the player for the currently authenticated user, set playerId to me.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "playerId": {
-      "type": "string",
-      "description": "A player ID. A value of me may be used in place of the authenticated player's ID."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "playerId"
-  ]
-}
+
+```js
+google_games.players.get({
+  "playerId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Player"
-}
-```
-## Operation: achievements.list
+
+#### Parameters
+* playerId (string) **required** - A player ID. A value of me may be used in place of the authenticated player's ID.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### achievements.list
 Lists the progress for all your application's achievements for the currently authenticated player.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "playerId": {
-      "type": "string",
-      "description": "A player ID. A value of me may be used in place of the authenticated player's ID."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of achievement resources to return in the response, used for paging. For any response, the actual number of achievement resources returned may be less than the specified maxResults.",
-      "maximum": 200,
-      "minimum": 1
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "state": {
-      "type": "string",
-      "description": "Tells the server to return only achievements with the specified state. If this parameter isn't specified, all achievements are returned.",
-      "enum": [
-        "ALL",
-        "HIDDEN",
-        "REVEALED",
-        "UNLOCKED"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "playerId"
-  ]
-}
+
+```js
+google_games.achievements.list({
+  "playerId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PlayerAchievementListResponse"
-}
-```
-## Operation: metagame.listCategoriesByPlayer
+
+#### Parameters
+* playerId (string) **required** - A player ID. A value of me may be used in place of the authenticated player's ID.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* maxResults (integer) - The maximum number of achievement resources to return in the response, used for paging. For any response, the actual number of achievement resources returned may be less than the specified maxResults.
+* pageToken (string) - The token returned by the previous request.
+* state (string) - Tells the server to return only achievements with the specified state. If this parameter isn't specified, all achievements are returned.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### metagame.listCategoriesByPlayer
 List play data aggregated per category for the player corresponding to playerId.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "playerId": {
-      "type": "string",
-      "description": "A player ID. A value of me may be used in place of the authenticated player's ID."
-    },
-    "collection": {
-      "type": "string",
-      "description": "The collection of categories for which data will be returned.",
-      "enum": [
-        "all"
-      ]
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of category resources to return in the response, used for paging. For any response, the actual number of category resources returned may be less than the specified maxResults.",
-      "maximum": 100,
-      "minimum": 1
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "playerId",
-    "collection"
-  ]
-}
+
+```js
+google_games.metagame.listCategoriesByPlayer({
+  "playerId": "",
+  "collection": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CategoryListResponse"
-}
-```
-## Operation: scores.get
+
+#### Parameters
+* playerId (string) **required** - A player ID. A value of me may be used in place of the authenticated player's ID.
+* collection (string) **required** - The collection of categories for which data will be returned.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* maxResults (integer) - The maximum number of category resources to return in the response, used for paging. For any response, the actual number of category resources returned may be less than the specified maxResults.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### scores.get
 Get high scores, and optionally ranks, in leaderboards for the currently authenticated player. For a specific time span, leaderboardId can be set to ALL to retrieve data for all leaderboards in a given time span.
 NOTE: You cannot ask for 'ALL' leaderboards and 'ALL' timeSpans in the same request; only one parameter may be set to 'ALL'.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "playerId": {
-      "type": "string",
-      "description": "A player ID. A value of me may be used in place of the authenticated player's ID."
-    },
-    "leaderboardId": {
-      "type": "string",
-      "description": "The ID of the leaderboard. Can be set to 'ALL' to retrieve data for all leaderboards for this application."
-    },
-    "timeSpan": {
-      "type": "string",
-      "description": "The time span for the scores and ranks you're requesting.",
-      "enum": [
-        "ALL",
-        "ALL_TIME",
-        "DAILY",
-        "WEEKLY"
-      ]
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "includeRankType": {
-      "type": "string",
-      "description": "The types of ranks to return. If the parameter is omitted, no ranks will be returned.",
-      "enum": [
-        "ALL",
-        "PUBLIC",
-        "SOCIAL"
-      ]
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of leaderboard scores to return in the response. For any response, the actual number of leaderboard scores returned may be less than the specified maxResults.",
-      "maximum": 30,
-      "minimum": 1
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "playerId",
-    "leaderboardId",
-    "timeSpan"
-  ]
-}
+
+```js
+google_games.scores.get({
+  "playerId": "",
+  "leaderboardId": "",
+  "timeSpan": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PlayerLeaderboardScoreListResponse"
-}
-```
-## Operation: quests.list
+
+#### Parameters
+* playerId (string) **required** - A player ID. A value of me may be used in place of the authenticated player's ID.
+* leaderboardId (string) **required** - The ID of the leaderboard. Can be set to 'ALL' to retrieve data for all leaderboards for this application.
+* timeSpan (string) **required** - The time span for the scores and ranks you're requesting.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* includeRankType (string) - The types of ranks to return. If the parameter is omitted, no ranks will be returned.
+* language (string) - The preferred language to use for strings returned by this method.
+* maxResults (integer) - The maximum number of leaderboard scores to return in the response. For any response, the actual number of leaderboard scores returned may be less than the specified maxResults.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### quests.list
 Get a list of quests for your application and the currently authenticated player.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "playerId": {
-      "type": "string",
-      "description": "A player ID. A value of me may be used in place of the authenticated player's ID."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of quest resources to return in the response, used for paging. For any response, the actual number of quest resources returned may be less than the specified maxResults. Acceptable values are 1 to 50, inclusive. (Default: 50).",
-      "maximum": 50,
-      "minimum": 1
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "playerId"
-  ]
-}
+
+```js
+google_games.quests.list({
+  "playerId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/QuestListResponse"
-}
-```
-## Operation: snapshots.list
+
+#### Parameters
+* playerId (string) **required** - A player ID. A value of me may be used in place of the authenticated player's ID.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* maxResults (integer) - The maximum number of quest resources to return in the response, used for paging. For any response, the actual number of quest resources returned may be less than the specified maxResults. Acceptable values are 1 to 50, inclusive. (Default: 50).
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### snapshots.list
 Retrieves a list of snapshots created by your application for the player corresponding to the player ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "playerId": {
-      "type": "string",
-      "description": "A player ID. A value of me may be used in place of the authenticated player's ID."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of snapshot resources to return in the response, used for paging. For any response, the actual number of snapshot resources returned may be less than the specified maxResults.",
-      "maximum": 25,
-      "minimum": 1
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "playerId"
-  ]
-}
+
+```js
+google_games.snapshots.list({
+  "playerId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SnapshotListResponse"
-}
-```
-## Operation: pushtokens.update
+
+#### Parameters
+* playerId (string) **required** - A player ID. A value of me may be used in place of the authenticated player's ID.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* maxResults (integer) - The maximum number of snapshot resources to return in the response, used for paging. For any response, the actual number of snapshot resources returned may be less than the specified maxResults.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### pushtokens.update
 Registers a push token for the current user and application.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "body": {
-      "$ref": "#/definitions/PushToken"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_games.pushtokens.update({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: pushtokens.remove
+
+
+### pushtokens.remove
 Removes a push token for the current user and application. Removing a non-existent push token will report success.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "body": {
-      "$ref": "#/definitions/PushTokenId"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_games.pushtokens.remove({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: quests.accept
+
+
+### quests.accept
 Indicates that the currently authorized user will participate in the quest.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "questId": {
-      "type": "string",
-      "description": "The ID of the quest."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "questId"
-  ]
-}
+
+```js
+google_games.quests.accept({
+  "questId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Quest"
-}
-```
-## Operation: questMilestones.claim
+
+#### Parameters
+* questId (string) **required** - The ID of the quest.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### questMilestones.claim
 Report that a reward for the milestone corresponding to milestoneId for the quest corresponding to questId has been claimed by the currently authorized user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "questId": {
-      "type": "string",
-      "description": "The ID of the quest."
-    },
-    "milestoneId": {
-      "type": "string",
-      "description": "The ID of the milestone."
-    },
-    "requestId": {
-      "type": "string",
-      "description": "A numeric ID to ensure that the request is handled correctly across retries. Your client application must generate this ID randomly."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "questId",
-    "milestoneId",
-    "requestId"
-  ]
-}
+
+```js
+google_games.questMilestones.claim({
+  "questId": "",
+  "milestoneId": "",
+  "requestId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: revisions.check
+
+#### Parameters
+* questId (string) **required** - The ID of the quest.
+* milestoneId (string) **required** - The ID of the milestone.
+* requestId (string) **required** - A numeric ID to ensure that the request is handled correctly across retries. Your client application must generate this ID randomly.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### revisions.check
 Checks whether the games client is out of date.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "clientRevision": {
-      "type": "string",
-      "description": "The revision of the client SDK used by your application. Format:\n[PLATFORM_TYPE]:[VERSION_NUMBER]. Possible values of PLATFORM_TYPE are:\n \n- \"ANDROID\" - Client is running the Android SDK. \n- \"IOS\" - Client is running the iOS SDK. \n- \"WEB_APP\" - Client is running as a Web App."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "clientRevision"
-  ]
-}
+
+```js
+google_games.revisions.check({
+  "clientRevision": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RevisionCheckResponse"
-}
-```
-## Operation: rooms.list
+
+#### Parameters
+* clientRevision (string) **required** - The revision of the client SDK used by your application. Format:
+* consistencyToken (string) - The last-seen mutation timestamp.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### rooms.list
 Returns invitations to join rooms.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of rooms to return in the response, used for paging. For any response, the actual number of rooms to return may be less than the specified maxResults.",
-      "maximum": 500,
-      "minimum": 1
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_games.rooms.list({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RoomList"
-}
-```
-## Operation: rooms.create
+
+
+### rooms.create
 Create a room. For internal use by the Games SDK only. Calling this method directly is unsupported.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "body": {
-      "$ref": "#/definitions/RoomCreateRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_games.rooms.create({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Room"
-}
-```
-## Operation: rooms.get
+
+
+### rooms.get
 Get the data for a room.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "roomId": {
-      "type": "string",
-      "description": "The ID of the room."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "roomId"
-  ]
-}
+
+```js
+google_games.rooms.get({
+  "roomId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Room"
-}
-```
-## Operation: rooms.decline
+
+#### Parameters
+* roomId (string) **required** - The ID of the room.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### rooms.decline
 Decline an invitation to join a room. For internal use by the Games SDK only. Calling this method directly is unsupported.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "roomId": {
-      "type": "string",
-      "description": "The ID of the room."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "roomId"
-  ]
-}
+
+```js
+google_games.rooms.decline({
+  "roomId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Room"
-}
-```
-## Operation: rooms.dismiss
+
+#### Parameters
+* roomId (string) **required** - The ID of the room.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### rooms.dismiss
 Dismiss an invitation to join a room. For internal use by the Games SDK only. Calling this method directly is unsupported.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "roomId": {
-      "type": "string",
-      "description": "The ID of the room."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "roomId"
-  ]
-}
+
+```js
+google_games.rooms.dismiss({
+  "roomId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: rooms.join
+
+#### Parameters
+* roomId (string) **required** - The ID of the room.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### rooms.join
 Join a room. For internal use by the Games SDK only. Calling this method directly is unsupported.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "roomId": {
-      "type": "string",
-      "description": "The ID of the room."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "body": {
-      "$ref": "#/definitions/RoomJoinRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "roomId"
-  ]
-}
+
+```js
+google_games.rooms.join({
+  "roomId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Room"
-}
-```
-## Operation: rooms.leave
+
+#### Parameters
+* roomId (string) **required** - The ID of the room.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* body (object) - This is a JSON template for a join room request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### rooms.leave
 Leave a room. For internal use by the Games SDK only. Calling this method directly is unsupported.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "roomId": {
-      "type": "string",
-      "description": "The ID of the room."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "body": {
-      "$ref": "#/definitions/RoomLeaveRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "roomId"
-  ]
-}
+
+```js
+google_games.rooms.leave({
+  "roomId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Room"
-}
-```
-## Operation: rooms.reportStatus
+
+#### Parameters
+* roomId (string) **required** - The ID of the room.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* body (object) - This is a JSON template for a leave room request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### rooms.reportStatus
 Updates sent by a client reporting the status of peers in a room. For internal use by the Games SDK only. Calling this method directly is unsupported.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "roomId": {
-      "type": "string",
-      "description": "The ID of the room."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "body": {
-      "$ref": "#/definitions/RoomP2PStatuses"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "roomId"
-  ]
-}
+
+```js
+google_games.rooms.reportStatus({
+  "roomId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RoomStatus"
-}
-```
-## Operation: snapshots.get
+
+#### Parameters
+* roomId (string) **required** - The ID of the room.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* body (object) - This is a JSON template for an update on the status of peers in a room.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### snapshots.get
 Retrieves the metadata for a given snapshot ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "snapshotId": {
-      "type": "string",
-      "description": "The ID of the snapshot."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "snapshotId"
-  ]
-}
+
+```js
+google_games.snapshots.get({
+  "snapshotId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Snapshot"
-}
-```
-## Operation: turnBasedMatches.list
+
+#### Parameters
+* snapshotId (string) **required** - The ID of the snapshot.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### turnBasedMatches.list
 Returns turn-based matches the player is or was involved in.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "includeMatchData": {
-      "type": "boolean",
-      "description": "True if match data should be returned in the response. Note that not all data will necessarily be returned if include_match_data is true; the server may decide to only return data for some of the matches to limit download size for the client. The remainder of the data for these matches will be retrievable on request."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "maxCompletedMatches": {
-      "type": "integer",
-      "description": "The maximum number of completed or canceled matches to return in the response. If not set, all matches returned could be completed or canceled.",
-      "maximum": 500,
-      "minimum": 0
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of matches to return in the response, used for paging. For any response, the actual number of matches to return may be less than the specified maxResults.",
-      "maximum": 500,
-      "minimum": 1
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_games.turnBasedMatches.list({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TurnBasedMatchList"
-}
-```
-## Operation: turnBasedMatches.create
+
+
+### turnBasedMatches.create
 Create a turn-based match.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "body": {
-      "$ref": "#/definitions/TurnBasedMatchCreateRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_games.turnBasedMatches.create({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TurnBasedMatch"
-}
-```
-## Operation: turnBasedMatches.sync
+
+
+### turnBasedMatches.sync
 Returns turn-based matches the player is or was involved in that changed since the last sync call, with the least recent changes coming first. Matches that should be removed from the local cache will have a status of MATCH_DELETED.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "includeMatchData": {
-      "type": "boolean",
-      "description": "True if match data should be returned in the response. Note that not all data will necessarily be returned if include_match_data is true; the server may decide to only return data for some of the matches to limit download size for the client. The remainder of the data for these matches will be retrievable on request."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "maxCompletedMatches": {
-      "type": "integer",
-      "description": "The maximum number of completed or canceled matches to return in the response. If not set, all matches returned could be completed or canceled.",
-      "maximum": 500,
-      "minimum": 0
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of matches to return in the response, used for paging. For any response, the actual number of matches to return may be less than the specified maxResults.",
-      "maximum": 500,
-      "minimum": 1
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_games.turnBasedMatches.sync({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TurnBasedMatchSync"
-}
-```
-## Operation: turnBasedMatches.get
+
+
+### turnBasedMatches.get
 Get the data for a turn-based match.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "matchId": {
-      "type": "string",
-      "description": "The ID of the match."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "includeMatchData": {
-      "type": "boolean",
-      "description": "Get match data along with metadata."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "matchId"
-  ]
-}
+
+```js
+google_games.turnBasedMatches.get({
+  "matchId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TurnBasedMatch"
-}
-```
-## Operation: turnBasedMatches.cancel
+
+#### Parameters
+* matchId (string) **required** - The ID of the match.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* includeMatchData (boolean) - Get match data along with metadata.
+* language (string) - The preferred language to use for strings returned by this method.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### turnBasedMatches.cancel
 Cancel a turn-based match.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "matchId": {
-      "type": "string",
-      "description": "The ID of the match."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "matchId"
-  ]
-}
+
+```js
+google_games.turnBasedMatches.cancel({
+  "matchId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: turnBasedMatches.decline
+
+#### Parameters
+* matchId (string) **required** - The ID of the match.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### turnBasedMatches.decline
 Decline an invitation to play a turn-based match.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "matchId": {
-      "type": "string",
-      "description": "The ID of the match."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "matchId"
-  ]
-}
+
+```js
+google_games.turnBasedMatches.decline({
+  "matchId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TurnBasedMatch"
-}
-```
-## Operation: turnBasedMatches.dismiss
+
+#### Parameters
+* matchId (string) **required** - The ID of the match.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### turnBasedMatches.dismiss
 Dismiss a turn-based match from the match list. The match will no longer show up in the list and will not generate notifications.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "matchId": {
-      "type": "string",
-      "description": "The ID of the match."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "matchId"
-  ]
-}
+
+```js
+google_games.turnBasedMatches.dismiss({
+  "matchId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: turnBasedMatches.finish
+
+#### Parameters
+* matchId (string) **required** - The ID of the match.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### turnBasedMatches.finish
 Finish a turn-based match. Each player should make this call once, after all results are in. Only the player whose turn it is may make the first call to Finish, and can pass in the final match state.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "matchId": {
-      "type": "string",
-      "description": "The ID of the match."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "body": {
-      "$ref": "#/definitions/TurnBasedMatchResults"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "matchId"
-  ]
-}
+
+```js
+google_games.turnBasedMatches.finish({
+  "matchId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TurnBasedMatch"
-}
-```
-## Operation: turnBasedMatches.join
+
+#### Parameters
+* matchId (string) **required** - The ID of the match.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* body (object) - This is a JSON template for a turn-based match results object.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### turnBasedMatches.join
 Join a turn-based match.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "matchId": {
-      "type": "string",
-      "description": "The ID of the match."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "matchId"
-  ]
-}
+
+```js
+google_games.turnBasedMatches.join({
+  "matchId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TurnBasedMatch"
-}
-```
-## Operation: turnBasedMatches.leave
+
+#### Parameters
+* matchId (string) **required** - The ID of the match.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### turnBasedMatches.leave
 Leave a turn-based match when it is not the current player's turn, without canceling the match.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "matchId": {
-      "type": "string",
-      "description": "The ID of the match."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "matchId"
-  ]
-}
+
+```js
+google_games.turnBasedMatches.leave({
+  "matchId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TurnBasedMatch"
-}
-```
-## Operation: turnBasedMatches.leaveTurn
+
+#### Parameters
+* matchId (string) **required** - The ID of the match.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### turnBasedMatches.leaveTurn
 Leave a turn-based match during the current player's turn, without canceling the match.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "matchId": {
-      "type": "string",
-      "description": "The ID of the match."
-    },
-    "matchVersion": {
-      "type": "integer",
-      "description": "The version of the match being updated."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "pendingParticipantId": {
-      "type": "string",
-      "description": "The ID of another participant who should take their turn next. If not set, the match will wait for other player(s) to join via automatching; this is only valid if automatch criteria is set on the match with remaining slots for automatched players."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "matchId",
-    "matchVersion"
-  ]
-}
+
+```js
+google_games.turnBasedMatches.leaveTurn({
+  "matchId": "",
+  "matchVersion": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TurnBasedMatch"
-}
-```
-## Operation: turnBasedMatches.rematch
+
+#### Parameters
+* matchId (string) **required** - The ID of the match.
+* matchVersion (integer) **required** - The version of the match being updated.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* pendingParticipantId (string) - The ID of another participant who should take their turn next. If not set, the match will wait for other player(s) to join via automatching; this is only valid if automatch criteria is set on the match with remaining slots for automatched players.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### turnBasedMatches.rematch
 Create a rematch of a match that was previously completed, with the same participants. This can be called by only one player on a match still in their list; the player must have called Finish first. Returns the newly created match; it will be the caller's turn.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "matchId": {
-      "type": "string",
-      "description": "The ID of the match."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "requestId": {
-      "type": "string",
-      "description": "A randomly generated numeric ID for each request specified by the caller. This number is used at the server to ensure that the request is handled correctly across retries."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "matchId"
-  ]
-}
+
+```js
+google_games.turnBasedMatches.rematch({
+  "matchId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TurnBasedMatchRematch"
-}
-```
-## Operation: turnBasedMatches.takeTurn
+
+#### Parameters
+* matchId (string) **required** - The ID of the match.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* requestId (string) - A randomly generated numeric ID for each request specified by the caller. This number is used at the server to ensure that the request is handled correctly across retries.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### turnBasedMatches.takeTurn
 Commit the results of a player turn.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "matchId": {
-      "type": "string",
-      "description": "The ID of the match."
-    },
-    "consistencyToken": {
-      "type": "string",
-      "description": "The last-seen mutation timestamp."
-    },
-    "language": {
-      "type": "string",
-      "description": "The preferred language to use for strings returned by this method."
-    },
-    "body": {
-      "$ref": "#/definitions/TurnBasedMatchTurn"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "matchId"
-  ]
-}
+
+```js
+google_games.turnBasedMatches.takeTurn({
+  "matchId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TurnBasedMatch"
-}
-```
+
+#### Parameters
+* matchId (string) **required** - The ID of the match.
+* consistencyToken (string) - The last-seen mutation timestamp.
+* language (string) - The preferred language to use for strings returned by this method.
+* body (object) - This is a JSON template for the object representing a turn.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+

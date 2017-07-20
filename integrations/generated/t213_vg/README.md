@@ -1,10907 +1,4331 @@
 # @datafire/t213_vg
+
+Client library for Magento Enterprise
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/t213_vg
+```
+
+```js
+let datafire = require('datafire');
+let t213_vg = require('@datafire/t213_vg').actions;
+let context = new datafire.Context();
+
+t213_vg.salesTransactionRepositoryV1GetListGet({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Magento Commerce is the leading provider of open omnichannel innovation.
 
-## Operation: customerAddressRepositoryV1DeleteByIdDelete
+## Actions
+### customerAddressRepositoryV1DeleteByIdDelete
 Delete customer address by ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "addressId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "addressId"
-  ]
-}
+
+```js
+t213_vg.customerAddressRepositoryV1DeleteByIdDelete({
+  "addressId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "true on success",
-  "type": "boolean"
-}
-```
-## Operation: customerCustomerMetadataV1GetAllAttributesMetadataGet
+
+#### Parameters
+* addressId (integer) **required**
+
+### customerCustomerMetadataV1GetAllAttributesMetadataGet
 Get all attribute metadata.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.customerCustomerMetadataV1GetAllAttributesMetadataGet(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/customer-data-attribute-metadata-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: customerCustomerMetadataV1GetAttributeMetadataGet
+
+
+### customerCustomerMetadataV1GetAttributeMetadataGet
 Retrieve attribute metadata.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "attributeCode": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "attributeCode"
-  ]
-}
+
+```js
+t213_vg.customerCustomerMetadataV1GetAttributeMetadataGet({
+  "attributeCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-attribute-metadata-interface"
-}
-```
-## Operation: customerCustomerMetadataV1GetCustomAttributesMetadataGet
+
+#### Parameters
+* attributeCode (string) **required**
+
+### customerCustomerMetadataV1GetCustomAttributesMetadataGet
 Get custom attributes metadata for the given data interface.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "dataInterfaceName": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.customerCustomerMetadataV1GetCustomAttributesMetadataGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/customer-data-attribute-metadata-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: customerCustomerMetadataV1GetAttributesGet
+
+
+### customerCustomerMetadataV1GetAttributesGet
 Retrieve all attributes filtered by form code
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "formCode": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "formCode"
-  ]
-}
+
+```js
+t213_vg.customerCustomerMetadataV1GetAttributesGet({
+  "formCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/customer-data-attribute-metadata-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: customerAddressMetadataV1GetAllAttributesMetadataGet
+
+#### Parameters
+* formCode (string) **required**
+
+### customerAddressMetadataV1GetAllAttributesMetadataGet
 Get all attribute metadata.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.customerAddressMetadataV1GetAllAttributesMetadataGet(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/customer-data-attribute-metadata-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: customerAddressMetadataV1GetAttributeMetadataGet
+
+
+### customerAddressMetadataV1GetAttributeMetadataGet
 Retrieve attribute metadata.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "attributeCode": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "attributeCode"
-  ]
-}
+
+```js
+t213_vg.customerAddressMetadataV1GetAttributeMetadataGet({
+  "attributeCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-attribute-metadata-interface"
-}
-```
-## Operation: customerAddressMetadataV1GetCustomAttributesMetadataGet
+
+#### Parameters
+* attributeCode (string) **required**
+
+### customerAddressMetadataV1GetCustomAttributesMetadataGet
 Get custom attributes metadata for the given data interface.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "dataInterfaceName": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.customerAddressMetadataV1GetCustomAttributesMetadataGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/customer-data-attribute-metadata-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: customerAddressMetadataV1GetAttributesGet
+
+
+### customerAddressMetadataV1GetAttributesGet
 Retrieve all attributes filtered by form code
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "formCode": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "formCode"
-  ]
-}
+
+```js
+t213_vg.customerAddressMetadataV1GetAttributesGet({
+  "formCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/customer-data-attribute-metadata-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: bundleProductOptionManagementV1SavePost
+
+#### Parameters
+* formCode (string) **required**
+
+### bundleProductOptionManagementV1SavePost
 Add new option for bundle product
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "option": {
-          "$ref": "#/definitions/bundle-data-option-interface"
-        }
-      },
-      "required": [
-        "option"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.bundleProductOptionManagementV1SavePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "integer"
-}
-```
-## Operation: bundleProductOptionTypeListV1GetItemsGet
+
+
+### bundleProductOptionTypeListV1GetItemsGet
 Get all types for options for bundle products
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.bundleProductOptionTypeListV1GetItemsGet(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/bundle-data-option-type-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: bundleProductOptionManagementV1SavePut
+
+
+### bundleProductOptionManagementV1SavePut
 Add new option for bundle product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "optionId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "option": {
-          "$ref": "#/definitions/bundle-data-option-interface"
-        }
-      },
-      "required": [
-        "option"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "optionId"
-  ]
-}
+
+```js
+t213_vg.bundleProductOptionManagementV1SavePut({
+  "optionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "integer"
-}
-```
-## Operation: bundleProductLinkManagementV1GetChildrenGet
+
+#### Parameters
+* optionId (string) **required**
+* $body (object)
+
+### bundleProductLinkManagementV1GetChildrenGet
 Get all children for Bundle product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "productSku": {
-      "type": "string"
-    },
-    "optionId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "productSku"
-  ]
-}
+
+```js
+t213_vg.bundleProductLinkManagementV1GetChildrenGet({
+  "productSku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/bundle-data-link-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: bundleProductLinkManagementV1SaveChildPut
+
+#### Parameters
+* productSku (string) **required**
+* optionId (integer)
+
+### bundleProductLinkManagementV1SaveChildPut
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "id": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "linkedProduct": {
-          "$ref": "#/definitions/bundle-data-link-interface"
-        }
-      },
-      "required": [
-        "linkedProduct"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "id"
-  ]
-}
+
+```js
+t213_vg.bundleProductLinkManagementV1SaveChildPut({
+  "sku": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: bundleProductLinkManagementV1AddChildByProductSkuPost
+
+#### Parameters
+* sku (string) **required**
+* id (string) **required**
+* $body (object)
+
+### bundleProductLinkManagementV1AddChildByProductSkuPost
 Add child product to specified Bundle option by product sku
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "optionId": {
-      "type": "integer"
-    },
-    "$body": {
-      "properties": {
-        "linkedProduct": {
-          "$ref": "#/definitions/bundle-data-link-interface"
-        }
-      },
-      "required": [
-        "linkedProduct"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "optionId"
-  ]
-}
+
+```js
+t213_vg.bundleProductLinkManagementV1AddChildByProductSkuPost({
+  "sku": "",
+  "optionId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "integer"
-}
-```
-## Operation: bundleProductOptionRepositoryV1GetListGet
+
+#### Parameters
+* sku (string) **required**
+* optionId (integer) **required**
+* $body (object)
+
+### bundleProductOptionRepositoryV1GetListGet
 Get all options for bundle product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku"
-  ]
-}
+
+```js
+t213_vg.bundleProductOptionRepositoryV1GetListGet({
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/bundle-data-option-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: bundleProductOptionRepositoryV1DeleteByIdDelete
+
+#### Parameters
+* sku (string) **required**
+
+### bundleProductOptionRepositoryV1DeleteByIdDelete
 Remove bundle option
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "optionId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "optionId"
-  ]
-}
+
+```js
+t213_vg.bundleProductOptionRepositoryV1DeleteByIdDelete({
+  "sku": "",
+  "optionId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: bundleProductOptionRepositoryV1GetGet
+
+#### Parameters
+* sku (string) **required**
+* optionId (integer) **required**
+
+### bundleProductOptionRepositoryV1GetGet
 Get option for bundle product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "optionId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "optionId"
-  ]
-}
+
+```js
+t213_vg.bundleProductOptionRepositoryV1GetGet({
+  "sku": "",
+  "optionId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/bundle-data-option-interface"
-}
-```
-## Operation: bundleProductLinkManagementV1RemoveChildDelete
+
+#### Parameters
+* sku (string) **required**
+* optionId (integer) **required**
+
+### bundleProductLinkManagementV1RemoveChildDelete
 Remove product from Bundle product option
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "optionId": {
-      "type": "integer"
-    },
-    "childSku": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "optionId",
-    "childSku"
-  ]
-}
+
+```js
+t213_vg.bundleProductLinkManagementV1RemoveChildDelete({
+  "sku": "",
+  "optionId": 0,
+  "childSku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: quoteCartManagementV1CreateEmptyCartPost
+
+#### Parameters
+* sku (string) **required**
+* optionId (integer) **required**
+* childSku (string) **required**
+
+### quoteCartManagementV1CreateEmptyCartPost
 Creates an empty cart and quote for a guest.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.quoteCartManagementV1CreateEmptyCartPost(null, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Cart ID.",
-  "type": "integer"
-}
-```
-## Operation: giftCardAccountGuestGiftCardAccountManagementV1CheckGiftCardGet
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string"
-    },
-    "giftCardCode": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId",
-    "giftCardCode"
-  ]
-}
-```
-### Output Schema
-```json
-{
-  "type": "number"
-}
-```
-## Operation: giftCardAccountGuestGiftCardAccountManagementV1AddGiftCardPost
+### giftCardAccountGuestGiftCardAccountManagementV1CheckGiftCardGet
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "giftCardAccountData": {
-          "$ref": "#/definitions/gift-card-account-data-gift-card-account-interface"
-        }
-      },
-      "required": [
-        "giftCardAccountData"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.giftCardAccountGuestGiftCardAccountManagementV1CheckGiftCardGet({
+  "cartId": "",
+  "giftCardCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
+
+#### Parameters
+* cartId (string) **required**
+* giftCardCode (string) **required**
+
+### giftCardAccountGuestGiftCardAccountManagementV1AddGiftCardPost
+
+
+
+```js
+t213_vg.giftCardAccountGuestGiftCardAccountManagementV1AddGiftCardPost({
+  "cartId": ""
+}, context)
 ```
-## Operation: giftCardAccountGuestGiftCardAccountManagementV1DeleteByQuoteIdDelete
+
+#### Parameters
+* cartId (string) **required**
+* $body (object)
+
+### giftCardAccountGuestGiftCardAccountManagementV1DeleteByQuoteIdDelete
 Remove GiftCard Account entity
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string"
-    },
-    "giftCardCode": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId",
-    "giftCardCode"
-  ]
-}
+
+```js
+t213_vg.giftCardAccountGuestGiftCardAccountManagementV1DeleteByQuoteIdDelete({
+  "cartId": "",
+  "giftCardCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: checkoutAgreementsCheckoutAgreementsRepositoryV1GetListGet
+
+#### Parameters
+* cartId (string) **required**
+* giftCardCode (string) **required**
+
+### checkoutAgreementsCheckoutAgreementsRepositoryV1GetListGet
 Lists active checkout agreements.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.checkoutAgreementsCheckoutAgreementsRepositoryV1GetListGet(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/checkout-agreements-data-agreement-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: quoteCartManagementV1GetCartForCustomerGet
+
+
+### quoteCartManagementV1GetCartForCustomerGet
 Returns information for the cart for a specified customer.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.quoteCartManagementV1GetCartForCustomerGet(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-cart-interface"
-}
-```
-## Operation: V1.carts.mine.post
+
+
+### V1.carts.mine.post
 Creates an empty cart and quote for a specified customer.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.V1.carts.mine.post(null, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Cart ID.",
-  "type": "integer"
-}
-```
-## Operation: quoteCartRepositoryV1SavePut
+
+
+### quoteCartRepositoryV1SavePut
 Save quote
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "quote": {
-          "$ref": "#/definitions/quote-data-cart-interface"
-        }
-      },
-      "required": [
-        "quote"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.quoteCartRepositoryV1SavePut({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/error-response"
-}
-```
-## Operation: customerBalanceBalanceManagementV1ApplyPost
+
+
+### customerBalanceBalanceManagementV1ApplyPost
 Apply store credit
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.customerBalanceBalanceManagementV1ApplyPost(null, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: V1.carts.mine.billing_address.get
+
+
+### V1.carts.mine.billing_address.get
 Returns the billing address for a specified quote.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.V1.carts.mine.billing_address.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-address-interface"
-}
-```
-## Operation: V1.carts.mine.billing_address.post
+
+
+### V1.carts.mine.billing_address.post
 Assigns a specified billing address to a specified cart.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "address": {
-          "$ref": "#/definitions/quote-data-address-interface"
-        },
-        "useForShipping": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "address"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.V1.carts.mine.billing_address.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Address ID.",
-  "type": "integer"
-}
-```
-## Operation: giftCardAccountGiftCardAccountManagementV1CheckGiftCardGet
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "giftCardCode": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "giftCardCode"
-  ]
-}
+### giftCardAccountGiftCardAccountManagementV1CheckGiftCardGet
+
+
+
+```js
+t213_vg.giftCardAccountGiftCardAccountManagementV1CheckGiftCardGet({
+  "giftCardCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "number"
-}
-```
-## Operation: quoteCartTotalManagementV1CollectTotalsPut
+
+#### Parameters
+* giftCardCode (string) **required**
+
+### quoteCartTotalManagementV1CollectTotalsPut
 Set shipping/billing methods and additional data for cart and collect totals.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "additionalData": {
-          "$ref": "#/definitions/quote-data-totals-additional-data-interface"
-        },
-        "paymentMethod": {
-          "$ref": "#/definitions/quote-data-payment-interface"
-        },
-        "shippingCarrierCode": {
-          "description": "The carrier code.",
-          "type": "string"
-        },
-        "shippingMethodCode": {
-          "description": "The shipping method code.",
-          "type": "string"
-        }
-      },
-      "required": [
-        "paymentMethod"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.quoteCartTotalManagementV1CollectTotalsPut({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-totals-interface"
-}
-```
-## Operation: V1.carts.mine.coupons.delete
+
+
+### V1.carts.mine.coupons.delete
 Deletes a coupon from a specified cart.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.V1.carts.mine.coupons.delete(null, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: V1.carts.mine.coupons.get
+
+
+### V1.carts.mine.coupons.get
 Returns information for a coupon in a specified cart.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.V1.carts.mine.coupons.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "description": "The coupon code data.",
-  "type": "string"
-}
-```
-## Operation: V1.carts.mine.coupons.couponCode.put
+
+
+### V1.carts.mine.coupons.couponCode.put
 Adds a coupon by code to a specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "couponCode": {
-      "type": "string",
-      "description": "The coupon code data."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "couponCode"
-  ]
-}
+
+```js
+t213_vg.V1.carts.mine.coupons.couponCode.put({
+  "couponCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: V1.carts.mine.estimate_shipping_methods.post
+
+#### Parameters
+* couponCode (string) **required** - The coupon code data.
+
+### V1.carts.mine.estimate_shipping_methods.post
 Estimate shipping by address and return list of available shipping methods
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "address": {
-          "$ref": "#/definitions/quote-data-address-interface"
-        }
-      },
-      "required": [
-        "address"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.V1.carts.mine.estimate_shipping_methods.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "An array of shipping methods",
-  "items": {
-    "$ref": "#/definitions/quote-data-shipping-method-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: V1.carts.mine.estimate_shipping_methods_by_address_id.post
+
+
+### V1.carts.mine.estimate_shipping_methods_by_address_id.post
 Estimate shipping
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "addressId": {
-          "description": "The estimate address id",
-          "type": "integer"
-        }
-      },
-      "required": [
-        "addressId"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.V1.carts.mine.estimate_shipping_methods_by_address_id.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "An array of shipping methods.",
-  "items": {
-    "$ref": "#/definitions/quote-data-shipping-method-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: V1.carts.mine.gift_message.get
+
+
+### V1.carts.mine.gift_message.get
 Return the gift message for a specified order.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.V1.carts.mine.gift_message.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gift-message-data-message-interface"
-}
-```
-## Operation: V1.carts.mine.gift_message.post
+
+
+### V1.carts.mine.gift_message.post
 Set the gift message for an entire order.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "giftMessage": {
-          "$ref": "#/definitions/gift-message-data-message-interface"
-        }
-      },
-      "required": [
-        "giftMessage"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.V1.carts.mine.gift_message.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: V1.carts.mine.gift_message.itemId.get
+
+
+### V1.carts.mine.gift_message.itemId.get
 Return the gift message for a specified item in a specified shopping cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "itemId": {
-      "type": "integer",
-      "description": "The item ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "itemId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.mine.gift_message.itemId.get({
+  "itemId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gift-message-data-message-interface"
-}
-```
-## Operation: V1.carts.mine.gift_message.itemId.post
+
+#### Parameters
+* itemId (integer) **required** - The item ID.
+
+### V1.carts.mine.gift_message.itemId.post
 Set the gift message for a specified item in a specified shopping cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "itemId": {
-      "type": "integer",
-      "description": "The item ID."
-    },
-    "$body": {
-      "properties": {
-        "giftMessage": {
-          "$ref": "#/definitions/gift-message-data-message-interface"
-        }
-      },
-      "required": [
-        "giftMessage"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "itemId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.mine.gift_message.itemId.post({
+  "itemId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: giftCardAccountGiftCardAccountManagementV1SaveByQuoteIdPost
+
+#### Parameters
+* itemId (integer) **required** - The item ID.
+* $body (object)
+
+### giftCardAccountGiftCardAccountManagementV1SaveByQuoteIdPost
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "giftCardAccountData": {
-          "$ref": "#/definitions/gift-card-account-data-gift-card-account-interface"
-        }
-      },
-      "required": [
-        "giftCardAccountData"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.giftCardAccountGiftCardAccountManagementV1SaveByQuoteIdPost({}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: V1.carts.mine.giftCards.giftCardCode.delete
+
+
+### V1.carts.mine.giftCards.giftCardCode.delete
 Remove GiftCard Account entity
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "giftCardCode": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "giftCardCode"
-  ]
-}
+
+```js
+t213_vg.V1.carts.mine.giftCards.giftCardCode.delete({
+  "giftCardCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: V1.carts.mine.items.get
+
+#### Parameters
+* giftCardCode (string) **required**
+
+### V1.carts.mine.items.get
 Lists items that are assigned to a specified cart.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.V1.carts.mine.items.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Array of items.",
-  "items": {
-    "$ref": "#/definitions/quote-data-cart-item-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: V1.carts.mine.items.post
+
+
+### V1.carts.mine.items.post
 Add/update the specified cart item.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "cartItem": {
-          "$ref": "#/definitions/quote-data-cart-item-interface"
-        }
-      },
-      "required": [
-        "cartItem"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.V1.carts.mine.items.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-cart-item-interface"
-}
-```
-## Operation: V1.carts.mine.items.itemId.delete
+
+
+### V1.carts.mine.items.itemId.delete
 Removes the specified item from the specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "itemId": {
-      "type": "integer",
-      "description": "The item ID of the item to be removed."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "itemId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.mine.items.itemId.delete({
+  "itemId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: V1.carts.mine.items.itemId.put
+
+#### Parameters
+* itemId (integer) **required** - The item ID of the item to be removed.
+
+### V1.carts.mine.items.itemId.put
 Add/update the specified cart item.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "itemId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "cartItem": {
-          "$ref": "#/definitions/quote-data-cart-item-interface"
-        }
-      },
-      "required": [
-        "cartItem"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "itemId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.mine.items.itemId.put({
+  "itemId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-cart-item-interface"
-}
-```
-## Operation: V1.carts.mine.order.put
+
+#### Parameters
+* itemId (string) **required**
+* $body (object)
+
+### V1.carts.mine.order.put
 Places an order for a specified cart.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "paymentMethod": {
-          "$ref": "#/definitions/quote-data-payment-interface"
-        }
-      },
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.V1.carts.mine.order.put({}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Order ID.",
-  "type": "integer"
-}
-```
-## Operation: checkoutPaymentInformationManagementV1GetPaymentInformationGet
+
+
+### checkoutPaymentInformationManagementV1GetPaymentInformationGet
 Get payment information
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.checkoutPaymentInformationManagementV1GetPaymentInformationGet(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/checkout-data-payment-details-interface"
-}
-```
-## Operation: checkoutPaymentInformationManagementV1SavePaymentInformationAndPlaceOrderPost
+
+
+### checkoutPaymentInformationManagementV1SavePaymentInformationAndPlaceOrderPost
 Set payment information and place order for a specified cart.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "billingAddress": {
-          "$ref": "#/definitions/quote-data-address-interface"
-        },
-        "paymentMethod": {
-          "$ref": "#/definitions/quote-data-payment-interface"
-        }
-      },
-      "required": [
-        "paymentMethod"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.checkoutPaymentInformationManagementV1SavePaymentInformationAndPlaceOrderPost({}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Order ID.",
-  "type": "integer"
-}
-```
-## Operation: V1.carts.mine.payment_methods.get
+
+
+### V1.carts.mine.payment_methods.get
 Lists available payment methods for a specified shopping cart. This call returns an array of objects, but detailed information about each object’s attributes might not be included.  See http://devdocs.magento.com/codelinks/attributes.html#PaymentMethodManagementInterface to determine which call to use to get detailed information about all attributes for an object.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.V1.carts.mine.payment_methods.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Array of payment methods.",
-  "items": {
-    "$ref": "#/definitions/quote-data-payment-method-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: V1.carts.mine.selected_payment_method.get
+
+
+### V1.carts.mine.selected_payment_method.get
 Returns the payment method for a specified shopping cart.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.V1.carts.mine.selected_payment_method.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-payment-interface"
-}
-```
-## Operation: V1.carts.mine.selected_payment_method.put
+
+
+### V1.carts.mine.selected_payment_method.put
 Adds a specified payment method to a specified shopping cart.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "method": {
-          "$ref": "#/definitions/quote-data-payment-interface"
-        }
-      },
-      "required": [
-        "method"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.V1.carts.mine.selected_payment_method.put({}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "redirect url or error message.",
-  "type": "string"
-}
-```
-## Operation: checkoutPaymentInformationManagementV1SavePaymentInformationPost
+
+
+### checkoutPaymentInformationManagementV1SavePaymentInformationPost
 Set payment information for a specified cart.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "billingAddress": {
-          "$ref": "#/definitions/quote-data-address-interface"
-        },
-        "paymentMethod": {
-          "$ref": "#/definitions/quote-data-payment-interface"
-        }
-      },
-      "required": [
-        "paymentMethod"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.checkoutPaymentInformationManagementV1SavePaymentInformationPost({}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Order ID.",
-  "type": "integer"
-}
-```
-## Operation: V1.carts.mine.shipping_information.post
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "addressInformation": {
-          "$ref": "#/definitions/checkout-data-shipping-information-interface"
-        }
-      },
-      "required": [
-        "addressInformation"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+### V1.carts.mine.shipping_information.post
+
+
+
+```js
+t213_vg.V1.carts.mine.shipping_information.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/checkout-data-payment-details-interface"
-}
-```
-## Operation: V1.carts.mine.shipping_methods.get
+
+
+### V1.carts.mine.shipping_methods.get
 Lists applicable shipping methods for a specified quote.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.V1.carts.mine.shipping_methods.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "description": "An array of shipping methods.",
-  "items": {
-    "$ref": "#/definitions/quote-data-shipping-method-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: V1.carts.mine.totals.get
+
+
+### V1.carts.mine.totals.get
 Returns quote totals data for a specified cart.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.V1.carts.mine.totals.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-totals-interface"
-}
-```
-## Operation: V1.carts.mine.totals_information.post
+
+
+### V1.carts.mine.totals_information.post
 Calculate quote totals based on address and shipping method.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "addressInformation": {
-          "$ref": "#/definitions/checkout-data-totals-information-interface"
-        }
-      },
-      "required": [
-        "addressInformation"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.V1.carts.mine.totals_information.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-totals-interface"
-}
-```
-## Operation: quoteCartRepositoryV1GetListGet
+
+
+### quoteCartRepositoryV1GetListGet
 Enables administrative users to list carts that match specified search criteria. This call returns an array of objects, but detailed information about each object’s attributes might not be included.  See http://devdocs.magento.com/codelinks/attributes.html#CartRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.quoteCartRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-cart-search-results-interface"
-}
-```
-## Operation: quoteCartRepositoryV1GetGet
+
+
+### quoteCartRepositoryV1GetGet
 Enables an administrative user to return information for a specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.quoteCartRepositoryV1GetGet({
+  "cartId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-cart-interface"
-}
-```
-## Operation: quoteCartManagementV1AssignCustomerPut
+
+#### Parameters
+* cartId (integer) **required**
+
+### quoteCartManagementV1AssignCustomerPut
 Assigns a specified customer to a specified shopping cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer",
-      "description": "The cart ID."
-    },
-    "$body": {
-      "properties": {
-        "customerId": {
-          "description": "The customer ID.",
-          "type": "integer"
-        },
-        "storeId": {
-          "type": "integer"
-        }
-      },
-      "required": [
-        "customerId",
-        "storeId"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.quoteCartManagementV1AssignCustomerPut({
+  "cartId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: V1.carts.cartId.billing_address.get
+
+#### Parameters
+* cartId (integer) **required** - The cart ID.
+* $body (object)
+
+### V1.carts.cartId.billing_address.get
 Returns the billing address for a specified quote.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer",
-      "description": "The cart ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.billing_address.get({
+  "cartId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-address-interface"
-}
-```
-## Operation: V1.carts.cartId.billing_address.post
+
+#### Parameters
+* cartId (integer) **required** - The cart ID.
+
+### V1.carts.cartId.billing_address.post
 Assigns a specified billing address to a specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer",
-      "description": "The cart ID."
-    },
-    "$body": {
-      "properties": {
-        "address": {
-          "$ref": "#/definitions/quote-data-address-interface"
-        },
-        "useForShipping": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "address"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.billing_address.post({
+  "cartId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Address ID.",
-  "type": "integer"
-}
-```
-## Operation: V1.carts.cartId.coupons.delete
+
+#### Parameters
+* cartId (integer) **required** - The cart ID.
+* $body (object)
+
+### V1.carts.cartId.coupons.delete
 Deletes a coupon from a specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer",
-      "description": "The cart ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.coupons.delete({
+  "cartId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: V1.carts.cartId.coupons.get
+
+#### Parameters
+* cartId (integer) **required** - The cart ID.
+
+### V1.carts.cartId.coupons.get
 Returns information for a coupon in a specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer",
-      "description": "The cart ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.coupons.get({
+  "cartId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "The coupon code data.",
-  "type": "string"
-}
-```
-## Operation: V1.carts.cartId.coupons.couponCode.put
+
+#### Parameters
+* cartId (integer) **required** - The cart ID.
+
+### V1.carts.cartId.coupons.couponCode.put
 Adds a coupon by code to a specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer",
-      "description": "The cart ID."
-    },
-    "couponCode": {
-      "type": "string",
-      "description": "The coupon code data."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId",
-    "couponCode"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.coupons.couponCode.put({
+  "cartId": 0,
+  "couponCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: V1.carts.cartId.estimate_shipping_methods.post
+
+#### Parameters
+* cartId (integer) **required** - The cart ID.
+* couponCode (string) **required** - The coupon code data.
+
+### V1.carts.cartId.estimate_shipping_methods.post
 Estimate shipping by address and return list of available shipping methods
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "address": {
-          "$ref": "#/definitions/quote-data-address-interface"
-        }
-      },
-      "required": [
-        "address"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.estimate_shipping_methods.post({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "An array of shipping methods",
-  "items": {
-    "$ref": "#/definitions/quote-data-shipping-method-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: V1.carts.cartId.estimate_shipping_methods_by_address_id.post
+
+#### Parameters
+* cartId (string) **required**
+* $body (object)
+
+### V1.carts.cartId.estimate_shipping_methods_by_address_id.post
 Estimate shipping
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer",
-      "description": "The shopping cart ID."
-    },
-    "$body": {
-      "properties": {
-        "addressId": {
-          "description": "The estimate address id",
-          "type": "integer"
-        }
-      },
-      "required": [
-        "addressId"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.estimate_shipping_methods_by_address_id.post({
+  "cartId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "An array of shipping methods.",
-  "items": {
-    "$ref": "#/definitions/quote-data-shipping-method-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: V1.carts.cartId.gift_message.get
+
+#### Parameters
+* cartId (integer) **required** - The shopping cart ID.
+* $body (object)
+
+### V1.carts.cartId.gift_message.get
 Return the gift message for a specified order.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer",
-      "description": "The shopping cart ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.gift_message.get({
+  "cartId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gift-message-data-message-interface"
-}
-```
-## Operation: V1.carts.cartId.gift_message.post
+
+#### Parameters
+* cartId (integer) **required** - The shopping cart ID.
+
+### V1.carts.cartId.gift_message.post
 Set the gift message for an entire order.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer",
-      "description": "The cart ID."
-    },
-    "$body": {
-      "properties": {
-        "giftMessage": {
-          "$ref": "#/definitions/gift-message-data-message-interface"
-        }
-      },
-      "required": [
-        "giftMessage"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.gift_message.post({
+  "cartId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: V1.carts.cartId.gift_message.itemId.get
+
+#### Parameters
+* cartId (integer) **required** - The cart ID.
+* $body (object)
+
+### V1.carts.cartId.gift_message.itemId.get
 Return the gift message for a specified item in a specified shopping cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer",
-      "description": "The shopping cart ID."
-    },
-    "itemId": {
-      "type": "integer",
-      "description": "The item ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId",
-    "itemId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.gift_message.itemId.get({
+  "cartId": 0,
+  "itemId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gift-message-data-message-interface"
-}
-```
-## Operation: V1.carts.cartId.gift_message.itemId.post
+
+#### Parameters
+* cartId (integer) **required** - The shopping cart ID.
+* itemId (integer) **required** - The item ID.
+
+### V1.carts.cartId.gift_message.itemId.post
 Set the gift message for a specified item in a specified shopping cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer",
-      "description": "The cart ID."
-    },
-    "itemId": {
-      "type": "integer",
-      "description": "The item ID."
-    },
-    "$body": {
-      "properties": {
-        "giftMessage": {
-          "$ref": "#/definitions/gift-message-data-message-interface"
-        }
-      },
-      "required": [
-        "giftMessage"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId",
-    "itemId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.gift_message.itemId.post({
+  "cartId": 0,
+  "itemId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: giftCardAccountGiftCardAccountManagementV1SaveByQuoteIdPut
+
+#### Parameters
+* cartId (integer) **required** - The cart ID.
+* itemId (integer) **required** - The item ID.
+* $body (object)
+
+### giftCardAccountGiftCardAccountManagementV1SaveByQuoteIdPut
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer"
-    },
-    "$body": {
-      "properties": {
-        "giftCardAccountData": {
-          "$ref": "#/definitions/gift-card-account-data-gift-card-account-interface"
-        }
-      },
-      "required": [
-        "giftCardAccountData"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.giftCardAccountGiftCardAccountManagementV1SaveByQuoteIdPut({
+  "cartId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: V1.carts.cartId.giftCards.giftCardCode.delete
+
+#### Parameters
+* cartId (integer) **required**
+* $body (object)
+
+### V1.carts.cartId.giftCards.giftCardCode.delete
 Remove GiftCard Account entity
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer"
-    },
-    "giftCardCode": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId",
-    "giftCardCode"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.giftCards.giftCardCode.delete({
+  "cartId": 0,
+  "giftCardCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: V1.carts.cartId.items.get
+
+#### Parameters
+* cartId (integer) **required**
+* giftCardCode (string) **required**
+
+### V1.carts.cartId.items.get
 Lists items that are assigned to a specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer",
-      "description": "The cart ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.items.get({
+  "cartId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Array of items.",
-  "items": {
-    "$ref": "#/definitions/quote-data-cart-item-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: V1.carts.cartId.items.itemId.delete
+
+#### Parameters
+* cartId (integer) **required** - The cart ID.
+
+### V1.carts.cartId.items.itemId.delete
 Removes the specified item from the specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer",
-      "description": "The cart ID."
-    },
-    "itemId": {
-      "type": "integer",
-      "description": "The item ID of the item to be removed."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId",
-    "itemId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.items.itemId.delete({
+  "cartId": 0,
+  "itemId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: V1.carts.cartId.items.itemId.put
+
+#### Parameters
+* cartId (integer) **required** - The cart ID.
+* itemId (integer) **required** - The item ID of the item to be removed.
+
+### V1.carts.cartId.items.itemId.put
 Add/update the specified cart item.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string"
-    },
-    "itemId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "cartItem": {
-          "$ref": "#/definitions/quote-data-cart-item-interface"
-        }
-      },
-      "required": [
-        "cartItem"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId",
-    "itemId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.items.itemId.put({
+  "cartId": "",
+  "itemId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-cart-item-interface"
-}
-```
-## Operation: V1.carts.cartId.order.put
+
+#### Parameters
+* cartId (string) **required**
+* itemId (string) **required**
+* $body (object)
+
+### V1.carts.cartId.order.put
 Places an order for a specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer",
-      "description": "The cart ID."
-    },
-    "$body": {
-      "properties": {
-        "paymentMethod": {
-          "$ref": "#/definitions/quote-data-payment-interface"
-        }
-      },
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.order.put({
+  "cartId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Order ID.",
-  "type": "integer"
-}
-```
-## Operation: V1.carts.cartId.payment_methods.get
+
+#### Parameters
+* cartId (integer) **required** - The cart ID.
+* $body (object)
+
+### V1.carts.cartId.payment_methods.get
 Lists available payment methods for a specified shopping cart. This call returns an array of objects, but detailed information about each object’s attributes might not be included.  See http://devdocs.magento.com/codelinks/attributes.html#PaymentMethodManagementInterface to determine which call to use to get detailed information about all attributes for an object.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer",
-      "description": "The cart ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.payment_methods.get({
+  "cartId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Array of payment methods.",
-  "items": {
-    "$ref": "#/definitions/quote-data-payment-method-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: V1.carts.cartId.selected_payment_method.get
+
+#### Parameters
+* cartId (integer) **required** - The cart ID.
+
+### V1.carts.cartId.selected_payment_method.get
 Returns the payment method for a specified shopping cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer",
-      "description": "The cart ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.selected_payment_method.get({
+  "cartId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-payment-interface"
-}
-```
-## Operation: V1.carts.cartId.selected_payment_method.put
+
+#### Parameters
+* cartId (integer) **required** - The cart ID.
+
+### V1.carts.cartId.selected_payment_method.put
 Adds a specified payment method to a specified shopping cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer",
-      "description": "The cart ID."
-    },
-    "$body": {
-      "properties": {
-        "method": {
-          "$ref": "#/definitions/quote-data-payment-interface"
-        }
-      },
-      "required": [
-        "method"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.selected_payment_method.put({
+  "cartId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "redirect url or error message.",
-  "type": "string"
-}
-```
-## Operation: V1.carts.cartId.shipping_information.post
+
+#### Parameters
+* cartId (integer) **required** - The cart ID.
+* $body (object)
+
+### V1.carts.cartId.shipping_information.post
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer"
-    },
-    "$body": {
-      "properties": {
-        "addressInformation": {
-          "$ref": "#/definitions/checkout-data-shipping-information-interface"
-        }
-      },
-      "required": [
-        "addressInformation"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.shipping_information.post({
+  "cartId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/checkout-data-payment-details-interface"
-}
-```
-## Operation: V1.carts.cartId.shipping_methods.get
+
+#### Parameters
+* cartId (integer) **required**
+* $body (object)
+
+### V1.carts.cartId.shipping_methods.get
 Lists applicable shipping methods for a specified quote.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer",
-      "description": "The shopping cart ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.shipping_methods.get({
+  "cartId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "An array of shipping methods.",
-  "items": {
-    "$ref": "#/definitions/quote-data-shipping-method-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: V1.carts.cartId.totals.get
+
+#### Parameters
+* cartId (integer) **required** - The shopping cart ID.
+
+### V1.carts.cartId.totals.get
 Returns quote totals data for a specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer",
-      "description": "The cart ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.totals.get({
+  "cartId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-totals-interface"
-}
-```
-## Operation: V1.carts.cartId.totals_information.post
+
+#### Parameters
+* cartId (integer) **required** - The cart ID.
+
+### V1.carts.cartId.totals_information.post
 Calculate quote totals based on address and shipping method.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "integer"
-    },
-    "$body": {
-      "properties": {
-        "addressInformation": {
-          "$ref": "#/definitions/checkout-data-totals-information-interface"
-        }
-      },
-      "required": [
-        "addressInformation"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.cartId.totals_information.post({
+  "cartId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-totals-interface"
-}
-```
-## Operation: giftCardAccountGiftCardAccountManagementV1GetListByQuoteIdGet
+
+#### Parameters
+* cartId (integer) **required**
+* $body (object)
+
+### giftCardAccountGiftCardAccountManagementV1GetListByQuoteIdGet
 Return GiftCard Account cards
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "quoteId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "quoteId"
-  ]
-}
+
+```js
+t213_vg.giftCardAccountGiftCardAccountManagementV1GetListByQuoteIdGet({
+  "quoteId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gift-card-account-data-gift-card-account-interface"
-}
-```
-## Operation: V1.carts.quoteId.items.post
+
+#### Parameters
+* quoteId (integer) **required**
+
+### V1.carts.quoteId.items.post
 Add/update the specified cart item.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "quoteId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "cartItem": {
-          "$ref": "#/definitions/quote-data-cart-item-interface"
-        }
-      },
-      "required": [
-        "cartItem"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "quoteId"
-  ]
-}
+
+```js
+t213_vg.V1.carts.quoteId.items.post({
+  "quoteId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-cart-item-interface"
-}
-```
-## Operation: catalogCategoryManagementV1GetTreeGet
+
+#### Parameters
+* quoteId (string) **required**
+* $body (object)
+
+### catalogCategoryManagementV1GetTreeGet
 Retrieve list of categories
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "rootCategoryId": {
-      "type": "integer"
-    },
-    "depth": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.catalogCategoryManagementV1GetTreeGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/catalog-data-category-tree-interface"
-}
-```
-## Operation: catalogCategoryRepositoryV1SavePost
+
+
+### catalogCategoryRepositoryV1SavePost
 Create category service
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "category": {
-          "$ref": "#/definitions/catalog-data-category-interface"
-        }
-      },
-      "required": [
-        "category"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.catalogCategoryRepositoryV1SavePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/catalog-data-category-interface"
-}
-```
-## Operation: catalogCategoryAttributeRepositoryV1GetListGet
+
+
+### catalogCategoryAttributeRepositoryV1GetListGet
 Retrieve all attributes for entity type
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.catalogCategoryAttributeRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/catalog-data-category-attribute-search-results-interface"
-}
-```
-## Operation: catalogCategoryAttributeRepositoryV1GetGet
+
+
+### catalogCategoryAttributeRepositoryV1GetGet
 Retrieve specific attribute
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "attributeCode": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "attributeCode"
-  ]
-}
+
+```js
+t213_vg.catalogCategoryAttributeRepositoryV1GetGet({
+  "attributeCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/catalog-data-category-attribute-interface"
-}
-```
-## Operation: catalogCategoryAttributeOptionManagementV1GetItemsGet
+
+#### Parameters
+* attributeCode (string) **required**
+
+### catalogCategoryAttributeOptionManagementV1GetItemsGet
 Retrieve list of attribute options
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "attributeCode": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "attributeCode"
-  ]
-}
+
+```js
+t213_vg.catalogCategoryAttributeOptionManagementV1GetItemsGet({
+  "attributeCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/eav-data-attribute-option-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: catalogCategoryRepositoryV1DeleteByIdentifierDelete
+
+#### Parameters
+* attributeCode (string) **required**
+
+### catalogCategoryRepositoryV1DeleteByIdentifierDelete
 Delete category by identifier
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "categoryId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "categoryId"
-  ]
-}
+
+```js
+t213_vg.catalogCategoryRepositoryV1DeleteByIdentifierDelete({
+  "categoryId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Will returned True if deleted",
-  "type": "boolean"
-}
-```
-## Operation: catalogCategoryRepositoryV1GetGet
+
+#### Parameters
+* categoryId (integer) **required**
+
+### catalogCategoryRepositoryV1GetGet
 Get info about category by category id
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "categoryId": {
-      "type": "integer"
-    },
-    "storeId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "categoryId"
-  ]
-}
+
+```js
+t213_vg.catalogCategoryRepositoryV1GetGet({
+  "categoryId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/catalog-data-category-interface"
-}
-```
-## Operation: catalogCategoryManagementV1MovePut
+
+#### Parameters
+* categoryId (integer) **required**
+* storeId (integer)
+
+### catalogCategoryManagementV1MovePut
 Move category
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "categoryId": {
-      "type": "integer"
-    },
-    "$body": {
-      "properties": {
-        "afterId": {
-          "type": "integer"
-        },
-        "parentId": {
-          "type": "integer"
-        }
-      },
-      "required": [
-        "parentId"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "categoryId"
-  ]
-}
+
+```js
+t213_vg.catalogCategoryManagementV1MovePut({
+  "categoryId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: catalogCategoryLinkManagementV1GetAssignedProductsGet
+
+#### Parameters
+* categoryId (integer) **required**
+* $body (object)
+
+### catalogCategoryLinkManagementV1GetAssignedProductsGet
 Get products assigned to category
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "categoryId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "categoryId"
-  ]
-}
+
+```js
+t213_vg.catalogCategoryLinkManagementV1GetAssignedProductsGet({
+  "categoryId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/catalog-data-category-product-link-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: catalogCategoryLinkRepositoryV1SavePost
+
+#### Parameters
+* categoryId (integer) **required**
+
+### catalogCategoryLinkRepositoryV1SavePost
 Assign a product to the required category
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "categoryId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "productLink": {
-          "$ref": "#/definitions/catalog-data-category-product-link-interface"
-        }
-      },
-      "required": [
-        "productLink"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "categoryId"
-  ]
-}
+
+```js
+t213_vg.catalogCategoryLinkRepositoryV1SavePost({
+  "categoryId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "will returned True if assigned",
-  "type": "boolean"
-}
-```
-## Operation: catalogCategoryLinkRepositoryV1SavePut
+
+#### Parameters
+* categoryId (string) **required**
+* $body (object)
+
+### catalogCategoryLinkRepositoryV1SavePut
 Assign a product to the required category
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "categoryId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "productLink": {
-          "$ref": "#/definitions/catalog-data-category-product-link-interface"
-        }
-      },
-      "required": [
-        "productLink"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "categoryId"
-  ]
-}
+
+```js
+t213_vg.catalogCategoryLinkRepositoryV1SavePut({
+  "categoryId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "will returned True if assigned",
-  "type": "boolean"
-}
-```
-## Operation: catalogCategoryLinkRepositoryV1DeleteByIdsDelete
+
+#### Parameters
+* categoryId (string) **required**
+* $body (object)
+
+### catalogCategoryLinkRepositoryV1DeleteByIdsDelete
 Remove the product assignment from the category by category id and sku
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "categoryId": {
-      "type": "string"
-    },
-    "sku": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "categoryId",
-    "sku"
-  ]
-}
+
+```js
+t213_vg.catalogCategoryLinkRepositoryV1DeleteByIdsDelete({
+  "categoryId": "",
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "will returned True if products successfully deleted",
-  "type": "boolean"
-}
-```
-## Operation: catalogCategoryRepositoryV1SavePut
+
+#### Parameters
+* categoryId (string) **required**
+* sku (string) **required**
+
+### catalogCategoryRepositoryV1SavePut
 Create category service
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "category": {
-          "$ref": "#/definitions/catalog-data-category-interface"
-        }
-      },
-      "required": [
-        "category"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.catalogCategoryRepositoryV1SavePut({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/catalog-data-category-interface"
-}
-```
-## Operation: cmsBlockRepositoryV1SavePost
+
+#### Parameters
+* id (string) **required**
+* $body (object)
+
+### cmsBlockRepositoryV1SavePost
 Save block.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "block": {
-          "$ref": "#/definitions/cms-data-block-interface"
-        }
-      },
-      "required": [
-        "block"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.cmsBlockRepositoryV1SavePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/cms-data-block-interface"
-}
-```
-## Operation: cmsBlockRepositoryV1GetListGet
+
+
+### cmsBlockRepositoryV1GetListGet
 Retrieve blocks matching the specified criteria.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.cmsBlockRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/cms-data-block-search-results-interface"
-}
-```
-## Operation: cmsBlockRepositoryV1DeleteByIdDelete
+
+
+### cmsBlockRepositoryV1DeleteByIdDelete
 Delete block by ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "blockId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "blockId"
-  ]
-}
+
+```js
+t213_vg.cmsBlockRepositoryV1DeleteByIdDelete({
+  "blockId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "true on success",
-  "type": "boolean"
-}
-```
-## Operation: cmsBlockRepositoryV1GetByIdGet
+
+#### Parameters
+* blockId (integer) **required**
+
+### cmsBlockRepositoryV1GetByIdGet
 Retrieve block.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "blockId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "blockId"
-  ]
-}
+
+```js
+t213_vg.cmsBlockRepositoryV1GetByIdGet({
+  "blockId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/cms-data-block-interface"
-}
-```
-## Operation: cmsBlockRepositoryV1SavePut
+
+#### Parameters
+* blockId (integer) **required**
+
+### cmsBlockRepositoryV1SavePut
 Save block.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "block": {
-          "$ref": "#/definitions/cms-data-block-interface"
-        }
-      },
-      "required": [
-        "block"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.cmsBlockRepositoryV1SavePut({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/cms-data-block-interface"
-}
-```
-## Operation: cmsPageRepositoryV1SavePost
+
+#### Parameters
+* id (string) **required**
+* $body (object)
+
+### cmsPageRepositoryV1SavePost
 Save page.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "page": {
-          "$ref": "#/definitions/cms-data-page-interface"
-        }
-      },
-      "required": [
-        "page"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.cmsPageRepositoryV1SavePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/cms-data-page-interface"
-}
-```
-## Operation: cmsPageRepositoryV1GetListGet
+
+
+### cmsPageRepositoryV1GetListGet
 Retrieve pages matching the specified criteria.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.cmsPageRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/cms-data-page-search-results-interface"
-}
-```
-## Operation: cmsPageRepositoryV1SavePut
+
+
+### cmsPageRepositoryV1SavePut
 Save page.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "page": {
-          "$ref": "#/definitions/cms-data-page-interface"
-        }
-      },
-      "required": [
-        "page"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.cmsPageRepositoryV1SavePut({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/cms-data-page-interface"
-}
-```
-## Operation: cmsPageRepositoryV1DeleteByIdDelete
+
+#### Parameters
+* id (string) **required**
+* $body (object)
+
+### cmsPageRepositoryV1DeleteByIdDelete
 Delete page by ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "pageId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "pageId"
-  ]
-}
+
+```js
+t213_vg.cmsPageRepositoryV1DeleteByIdDelete({
+  "pageId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "true on success",
-  "type": "boolean"
-}
-```
-## Operation: cmsPageRepositoryV1GetByIdGet
+
+#### Parameters
+* pageId (integer) **required**
+
+### cmsPageRepositoryV1GetByIdGet
 Retrieve page.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "pageId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "pageId"
-  ]
-}
+
+```js
+t213_vg.cmsPageRepositoryV1GetByIdGet({
+  "pageId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/cms-data-page-interface"
-}
-```
-## Operation: configurableProductConfigurableProductManagementV1GenerateVariationPut
+
+#### Parameters
+* pageId (integer) **required**
+
+### configurableProductConfigurableProductManagementV1GenerateVariationPut
 Generate variation based on same product
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "options": {
-          "items": {
-            "$ref": "#/definitions/configurable-product-data-option-interface"
-          },
-          "type": "array"
-        },
-        "product": {
-          "$ref": "#/definitions/catalog-data-product-interface"
-        }
-      },
-      "required": [
-        "product",
-        "options"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.configurableProductConfigurableProductManagementV1GenerateVariationPut({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/catalog-data-product-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: configurableProductLinkManagementV1AddChildPost
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "childSku": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "childSku"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku"
-  ]
-}
+### configurableProductLinkManagementV1AddChildPost
+
+
+
+```js
+t213_vg.configurableProductLinkManagementV1AddChildPost({
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: configurableProductLinkManagementV1GetChildrenGet
+
+#### Parameters
+* sku (string) **required**
+* $body (object)
+
+### configurableProductLinkManagementV1GetChildrenGet
 Get all children for Configurable product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku"
-  ]
-}
+
+```js
+t213_vg.configurableProductLinkManagementV1GetChildrenGet({
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/catalog-data-product-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: configurableProductLinkManagementV1RemoveChildDelete
+
+#### Parameters
+* sku (string) **required**
+
+### configurableProductLinkManagementV1RemoveChildDelete
 Remove configurable product option
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "childSku": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "childSku"
-  ]
-}
+
+```js
+t213_vg.configurableProductLinkManagementV1RemoveChildDelete({
+  "sku": "",
+  "childSku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: configurableProductOptionRepositoryV1SavePost
+
+#### Parameters
+* sku (string) **required**
+* childSku (string) **required**
+
+### configurableProductOptionRepositoryV1SavePost
 Save option
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "option": {
-          "$ref": "#/definitions/configurable-product-data-option-interface"
-        }
-      },
-      "required": [
-        "option"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku"
-  ]
-}
+
+```js
+t213_vg.configurableProductOptionRepositoryV1SavePost({
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "integer"
-}
-```
-## Operation: configurableProductOptionRepositoryV1GetListGet
+
+#### Parameters
+* sku (string) **required**
+* $body (object)
+
+### configurableProductOptionRepositoryV1GetListGet
 Get all options for configurable product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku"
-  ]
-}
+
+```js
+t213_vg.configurableProductOptionRepositoryV1GetListGet({
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/configurable-product-data-option-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: configurableProductOptionRepositoryV1DeleteByIdDelete
+
+#### Parameters
+* sku (string) **required**
+
+### configurableProductOptionRepositoryV1DeleteByIdDelete
 Remove option from configurable product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "id"
-  ]
-}
+
+```js
+t213_vg.configurableProductOptionRepositoryV1DeleteByIdDelete({
+  "sku": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: configurableProductOptionRepositoryV1GetGet
+
+#### Parameters
+* sku (string) **required**
+* id (integer) **required**
+
+### configurableProductOptionRepositoryV1GetGet
 Get option for configurable product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "id"
-  ]
-}
+
+```js
+t213_vg.configurableProductOptionRepositoryV1GetGet({
+  "sku": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/configurable-product-data-option-interface"
-}
-```
-## Operation: configurableProductOptionRepositoryV1SavePut
+
+#### Parameters
+* sku (string) **required**
+* id (integer) **required**
+
+### configurableProductOptionRepositoryV1SavePut
 Save option
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "id": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "option": {
-          "$ref": "#/definitions/configurable-product-data-option-interface"
-        }
-      },
-      "required": [
-        "option"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "id"
-  ]
-}
+
+```js
+t213_vg.configurableProductOptionRepositoryV1SavePut({
+  "sku": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "integer"
-}
-```
-## Operation: salesRuleCouponRepositoryV1SavePost
+
+#### Parameters
+* sku (string) **required**
+* id (string) **required**
+* $body (object)
+
+### salesRuleCouponRepositoryV1SavePost
 Save a coupon.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "coupon": {
-          "$ref": "#/definitions/sales-rule-data-coupon-interface"
-        }
-      },
-      "required": [
-        "coupon"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.salesRuleCouponRepositoryV1SavePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-rule-data-coupon-interface"
-}
-```
-## Operation: salesRuleCouponManagementV1DeleteByCodesPost
+
+
+### salesRuleCouponManagementV1DeleteByCodesPost
 Delete coupon by coupon codes.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "codes": {
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "ignoreInvalidCoupons": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "codes"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.salesRuleCouponManagementV1DeleteByCodesPost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-rule-data-coupon-mass-delete-result-interface"
-}
-```
-## Operation: salesRuleCouponManagementV1DeleteByIdsPost
+
+
+### salesRuleCouponManagementV1DeleteByIdsPost
 Delete coupon by coupon ids.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "ids": {
-          "items": {
-            "type": "integer"
-          },
-          "type": "array"
-        },
-        "ignoreInvalidCoupons": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "ids"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.salesRuleCouponManagementV1DeleteByIdsPost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-rule-data-coupon-mass-delete-result-interface"
-}
-```
-## Operation: salesRuleCouponManagementV1GeneratePost
+
+
+### salesRuleCouponManagementV1GeneratePost
 Generate coupon for a rule
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "couponSpec": {
-          "$ref": "#/definitions/sales-rule-data-coupon-generation-spec-interface"
-        }
-      },
-      "required": [
-        "couponSpec"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.salesRuleCouponManagementV1GeneratePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "type": "string"
-  },
-  "type": "array"
-}
-```
-## Operation: salesRuleCouponRepositoryV1GetListGet
+
+
+### salesRuleCouponRepositoryV1GetListGet
 Retrieve a coupon using the specified search criteria. This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#CouponRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.salesRuleCouponRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-rule-data-coupon-search-result-interface"
-}
-```
-## Operation: salesRuleCouponRepositoryV1DeleteByIdDelete
+
+
+### salesRuleCouponRepositoryV1DeleteByIdDelete
 Delete coupon by coupon id.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "couponId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "couponId"
-  ]
-}
+
+```js
+t213_vg.salesRuleCouponRepositoryV1DeleteByIdDelete({
+  "couponId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "true on success",
-  "type": "boolean"
-}
-```
-## Operation: salesRuleCouponRepositoryV1GetByIdGet
+
+#### Parameters
+* couponId (integer) **required**
+
+### salesRuleCouponRepositoryV1GetByIdGet
 Get coupon by coupon id.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "couponId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "couponId"
-  ]
-}
+
+```js
+t213_vg.salesRuleCouponRepositoryV1GetByIdGet({
+  "couponId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-rule-data-coupon-interface"
-}
-```
-## Operation: salesRuleCouponRepositoryV1SavePut
+
+#### Parameters
+* couponId (integer) **required**
+
+### salesRuleCouponRepositoryV1SavePut
 Save a coupon.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "couponId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "coupon": {
-          "$ref": "#/definitions/sales-rule-data-coupon-interface"
-        }
-      },
-      "required": [
-        "coupon"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "couponId"
-  ]
-}
+
+```js
+t213_vg.salesRuleCouponRepositoryV1SavePut({
+  "couponId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-rule-data-coupon-interface"
-}
-```
-## Operation: salesCreditmemoRepositoryV1SavePost
+
+#### Parameters
+* couponId (string) **required**
+* $body (object)
+
+### salesCreditmemoRepositoryV1SavePost
 Performs persist operations for a specified credit memo.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/sales-data-creditmemo-interface"
-        }
-      },
-      "required": [
-        "entity"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.salesCreditmemoRepositoryV1SavePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-creditmemo-interface"
-}
-```
-## Operation: salesCreditmemoManagementV1RefundPost
+
+
+### salesCreditmemoManagementV1RefundPost
 Prepare creditmemo to refund and save it.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "creditmemo": {
-          "$ref": "#/definitions/sales-data-creditmemo-interface"
-        },
-        "offlineRequested": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "creditmemo"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.salesCreditmemoManagementV1RefundPost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-creditmemo-interface"
-}
-```
-## Operation: salesCreditmemoRepositoryV1GetGet
+
+
+### salesCreditmemoRepositoryV1GetGet
 Loads a specified credit memo.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The credit memo ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesCreditmemoRepositoryV1GetGet({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-creditmemo-interface"
-}
-```
-## Operation: salesCreditmemoManagementV1CancelPut
+
+#### Parameters
+* id (integer) **required** - The credit memo ID.
+
+### salesCreditmemoManagementV1CancelPut
 Cancels a specified credit memo.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The credit memo ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesCreditmemoManagementV1CancelPut({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: salesCreditmemoManagementV1GetCommentsListGet
+
+#### Parameters
+* id (integer) **required** - The credit memo ID.
+
+### salesCreditmemoManagementV1GetCommentsListGet
 Lists comments for a specified credit memo.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The credit memo ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesCreditmemoManagementV1GetCommentsListGet({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-creditmemo-comment-search-result-interface"
-}
-```
-## Operation: salesCreditmemoCommentRepositoryV1SavePost
+
+#### Parameters
+* id (integer) **required** - The credit memo ID.
+
+### salesCreditmemoCommentRepositoryV1SavePost
 Performs persist operations for a specified entity.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/sales-data-creditmemo-comment-interface"
-        }
-      },
-      "required": [
-        "entity"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesCreditmemoCommentRepositoryV1SavePost({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-creditmemo-comment-interface"
-}
-```
-## Operation: salesCreditmemoManagementV1NotifyPost
+
+#### Parameters
+* id (string) **required**
+* $body (object)
+
+### salesCreditmemoManagementV1NotifyPost
 Emails a user a specified credit memo.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The credit memo ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesCreditmemoManagementV1NotifyPost({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: salesCreditmemoRepositoryV1GetListGet
+
+#### Parameters
+* id (integer) **required** - The credit memo ID.
+
+### salesCreditmemoRepositoryV1GetListGet
 Lists credit memos that match specified search criteria. This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#CreditmemoRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.salesCreditmemoRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-creditmemo-search-result-interface"
-}
-```
-## Operation: customerGroupRepositoryV1SavePost
+
+
+### customerGroupRepositoryV1SavePost
 Save customer group.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "group": {
-          "$ref": "#/definitions/customer-data-group-interface"
-        }
-      },
-      "required": [
-        "group"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.customerGroupRepositoryV1SavePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-group-interface"
-}
-```
-## Operation: V1.customerGroups.default.get
+
+
+### V1.customerGroups.default.get
 Get default customer group.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "storeId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.V1.customerGroups.default.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-group-interface"
-}
-```
-## Operation: V1.customerGroups.default.storeId.get
+
+
+### V1.customerGroups.default.storeId.get
 Get default customer group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "storeId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "storeId"
-  ]
-}
+
+```js
+t213_vg.V1.customerGroups.default.storeId.get({
+  "storeId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-group-interface"
-}
-```
-## Operation: customerGroupRepositoryV1GetListGet
+
+#### Parameters
+* storeId (integer) **required**
+
+### customerGroupRepositoryV1GetListGet
 Retrieve customer groups. The list of groups can be filtered to exclude the NOT_LOGGED_IN group using the first parameter and/or it can be filtered by tax class. This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#GroupRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.customerGroupRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-group-search-results-interface"
-}
-```
-## Operation: customerGroupRepositoryV1DeleteByIdDelete
+
+
+### customerGroupRepositoryV1DeleteByIdDelete
 Delete customer group by ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.customerGroupRepositoryV1DeleteByIdDelete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "true on success",
-  "type": "boolean"
-}
-```
-## Operation: customerGroupRepositoryV1GetByIdGet
+
+#### Parameters
+* id (integer) **required**
+
+### customerGroupRepositoryV1GetByIdGet
 Get customer group by group ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.customerGroupRepositoryV1GetByIdGet({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-group-interface"
-}
-```
-## Operation: customerGroupRepositoryV1SavePut
+
+#### Parameters
+* id (integer) **required**
+
+### customerGroupRepositoryV1SavePut
 Save customer group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "group": {
-          "$ref": "#/definitions/customer-data-group-interface"
-        }
-      },
-      "required": [
-        "group"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.customerGroupRepositoryV1SavePut({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-group-interface"
-}
-```
-## Operation: customerGroupManagementV1IsReadonlyGet
+
+#### Parameters
+* id (string) **required**
+* $body (object)
+
+### customerGroupManagementV1IsReadonlyGet
 Check if customer group can be deleted.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.customerGroupManagementV1IsReadonlyGet({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: customerAccountManagementV1CreateAccountPost
+
+#### Parameters
+* id (integer) **required**
+
+### customerAccountManagementV1CreateAccountPost
 Create customer account. Perform necessary business operations like sending email.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "customer": {
-          "$ref": "#/definitions/customer-data-customer-interface"
-        },
-        "password": {
-          "type": "string"
-        },
-        "redirectUrl": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "customer"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.customerAccountManagementV1CreateAccountPost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-customer-interface"
-}
-```
-## Operation: customerAddressRepositoryV1GetByIdGet
+
+
+### customerAddressRepositoryV1GetByIdGet
 Retrieve customer address.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "addressId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "addressId"
-  ]
-}
+
+```js
+t213_vg.customerAddressRepositoryV1GetByIdGet({
+  "addressId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-address-interface"
-}
-```
-## Operation: customerAccountManagementV1ResendConfirmationPost
+
+#### Parameters
+* addressId (integer) **required**
+
+### customerAccountManagementV1ResendConfirmationPost
 Resend confirmation email.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "email": {
-          "type": "string"
-        },
-        "redirectUrl": {
-          "type": "string"
-        },
-        "websiteId": {
-          "type": "integer"
-        }
-      },
-      "required": [
-        "email",
-        "websiteId"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.customerAccountManagementV1ResendConfirmationPost({}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "true on success",
-  "type": "boolean"
-}
-```
-## Operation: customerAccountManagementV1IsEmailAvailablePost
+
+
+### customerAccountManagementV1IsEmailAvailablePost
 Check if given email is associated with a customer account in given website.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "customerEmail": {
-          "type": "string"
-        },
-        "websiteId": {
-          "description": "If not set, will use the current websiteId",
-          "type": "integer"
-        }
-      },
-      "required": [
-        "customerEmail"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.customerAccountManagementV1IsEmailAvailablePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: V1.customers.me.get
+
+
+### V1.customers.me.get
 Get customer by customer ID.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.V1.customers.me.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-customer-interface"
-}
-```
-## Operation: V1.customers.me.put
+
+
+### V1.customers.me.put
 Create or update a customer.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "customer": {
-          "$ref": "#/definitions/customer-data-customer-interface"
-        },
-        "passwordHash": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "customer"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.V1.customers.me.put({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-customer-interface"
-}
-```
-## Operation: customerAccountManagementV1ActivateByIdPut
+
+
+### customerAccountManagementV1ActivateByIdPut
 Activate a customer account using a key that was sent in a confirmation email.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "confirmationKey": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "confirmationKey"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.customerAccountManagementV1ActivateByIdPut({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-customer-interface"
-}
-```
-## Operation: V1.customers.me.billingAddress.get
+
+
+### V1.customers.me.billingAddress.get
 Retrieve default billing address for the given customerId.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.V1.customers.me.billingAddress.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-address-interface"
-}
-```
-## Operation: customerAccountManagementV1ChangePasswordByIdPut
+
+
+### customerAccountManagementV1ChangePasswordByIdPut
 Change customer password.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "currentPassword": {
-          "type": "string"
-        },
-        "newPassword": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "currentPassword",
-        "newPassword"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.customerAccountManagementV1ChangePasswordByIdPut({}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "true on success",
-  "type": "boolean"
-}
-```
-## Operation: V1.customers.me.shippingAddress.get
+
+
+### V1.customers.me.shippingAddress.get
 Retrieve default shipping address for the given customerId.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.V1.customers.me.shippingAddress.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-address-interface"
-}
-```
-## Operation: customerAccountManagementV1InitiatePasswordResetPut
+
+
+### customerAccountManagementV1InitiatePasswordResetPut
 Send an email to the customer with a password reset link.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "email": {
-          "type": "string"
-        },
-        "template": {
-          "type": "string"
-        },
-        "websiteId": {
-          "type": "integer"
-        }
-      },
-      "required": [
-        "email",
-        "template"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.customerAccountManagementV1InitiatePasswordResetPut({}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "true on success",
-  "type": "boolean"
-}
-```
-## Operation: customerCustomerRepositoryV1GetListGet
+
+
+### customerCustomerRepositoryV1GetListGet
 Retrieve customers which match a specified criteria. This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#CustomerRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.customerCustomerRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-customer-search-results-interface"
-}
-```
-## Operation: customerAccountManagementV1ValidatePut
+
+
+### customerAccountManagementV1ValidatePut
 Validate customer data.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "customer": {
-          "$ref": "#/definitions/customer-data-customer-interface"
-        }
-      },
-      "required": [
-        "customer"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.customerAccountManagementV1ValidatePut({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-validation-results-interface"
-}
-```
-## Operation: customerCustomerRepositoryV1DeleteByIdDelete
+
+
+### customerCustomerRepositoryV1DeleteByIdDelete
 Delete customer by ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "customerId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "customerId"
-  ]
-}
+
+```js
+t213_vg.customerCustomerRepositoryV1DeleteByIdDelete({
+  "customerId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "true on success",
-  "type": "boolean"
-}
-```
-## Operation: V1.customers.customerId.get
+
+#### Parameters
+* customerId (integer) **required**
+
+### V1.customers.customerId.get
 Get customer by customer ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "customerId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "customerId"
-  ]
-}
+
+```js
+t213_vg.V1.customers.customerId.get({
+  "customerId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-customer-interface"
-}
-```
-## Operation: V1.customers.customerId.billingAddress.get
+
+#### Parameters
+* customerId (integer) **required**
+
+### V1.customers.customerId.billingAddress.get
 Retrieve default billing address for the given customerId.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "customerId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "customerId"
-  ]
-}
+
+```js
+t213_vg.V1.customers.customerId.billingAddress.get({
+  "customerId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-address-interface"
-}
-```
-## Operation: V1.customers.customerId.carts.post
+
+#### Parameters
+* customerId (integer) **required**
+
+### V1.customers.customerId.carts.post
 Creates an empty cart and quote for a specified customer.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "customerId": {
-      "type": "integer",
-      "description": "The customer ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "customerId"
-  ]
-}
+
+```js
+t213_vg.V1.customers.customerId.carts.post({
+  "customerId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Cart ID.",
-  "type": "integer"
-}
-```
-## Operation: customerAccountManagementV1GetConfirmationStatusGet
+
+#### Parameters
+* customerId (integer) **required** - The customer ID.
+
+### customerAccountManagementV1GetConfirmationStatusGet
 Gets the account confirmation status.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "customerId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "customerId"
-  ]
-}
+
+```js
+t213_vg.customerAccountManagementV1GetConfirmationStatusGet({
+  "customerId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: customerAccountManagementV1ValidateResetPasswordLinkTokenGet
+
+#### Parameters
+* customerId (integer) **required**
+
+### customerAccountManagementV1ValidateResetPasswordLinkTokenGet
 Check if password reset token is valid.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "customerId": {
-      "type": "integer"
-    },
-    "resetPasswordLinkToken": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "customerId",
-    "resetPasswordLinkToken"
-  ]
-}
+
+```js
+t213_vg.customerAccountManagementV1ValidateResetPasswordLinkTokenGet({
+  "customerId": 0,
+  "resetPasswordLinkToken": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "True if the token is valid",
-  "type": "boolean"
-}
-```
-## Operation: customerAccountManagementV1IsReadonlyGet
+
+#### Parameters
+* customerId (integer) **required**
+* resetPasswordLinkToken (string) **required**
+
+### customerAccountManagementV1IsReadonlyGet
 Check if customer can be deleted.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "customerId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "customerId"
-  ]
-}
+
+```js
+t213_vg.customerAccountManagementV1IsReadonlyGet({
+  "customerId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: V1.customers.customerId.shippingAddress.get
+
+#### Parameters
+* customerId (integer) **required**
+
+### V1.customers.customerId.shippingAddress.get
 Retrieve default shipping address for the given customerId.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "customerId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "customerId"
-  ]
-}
+
+```js
+t213_vg.V1.customers.customerId.shippingAddress.get({
+  "customerId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-address-interface"
-}
-```
-## Operation: customerAccountManagementV1ActivatePut
+
+#### Parameters
+* customerId (integer) **required**
+
+### customerAccountManagementV1ActivatePut
 Activate a customer account using a key that was sent in a confirmation email.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "email": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "confirmationKey": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "confirmationKey"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "email"
-  ]
-}
+
+```js
+t213_vg.customerAccountManagementV1ActivatePut({
+  "email": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-customer-interface"
-}
-```
-## Operation: V1.customers.id.put
+
+#### Parameters
+* email (string) **required**
+* $body (object)
+
+### V1.customers.id.put
 Create or update a customer.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "customer": {
-          "$ref": "#/definitions/customer-data-customer-interface"
-        },
-        "passwordHash": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "customer"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.V1.customers.id.put({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-customer-interface"
-}
-```
-## Operation: directoryCountryInformationAcquirerV1GetCountriesInfoGet
+
+#### Parameters
+* id (string) **required**
+* $body (object)
+
+### directoryCountryInformationAcquirerV1GetCountriesInfoGet
 Get all countries and regions information for the store.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.directoryCountryInformationAcquirerV1GetCountriesInfoGet(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/directory-data-country-information-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: directoryCountryInformationAcquirerV1GetCountryInfoGet
+
+
+### directoryCountryInformationAcquirerV1GetCountryInfoGet
 Get country and region information for the store.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "countryId": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "countryId"
-  ]
-}
+
+```js
+t213_vg.directoryCountryInformationAcquirerV1GetCountryInfoGet({
+  "countryId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/directory-data-country-information-interface"
-}
-```
-## Operation: directoryCurrencyInformationAcquirerV1GetCurrencyInfoGet
+
+#### Parameters
+* countryId (string) **required**
+
+### directoryCurrencyInformationAcquirerV1GetCurrencyInfoGet
 Get currency information for the store.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.directoryCurrencyInformationAcquirerV1GetCurrencyInfoGet(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/directory-data-currency-information-interface"
-}
-```
-## Operation: eavAttributeSetManagementV1CreatePost
+
+
+### eavAttributeSetManagementV1CreatePost
 Create attribute set from data
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "attributeSet": {
-          "$ref": "#/definitions/eav-data-attribute-set-interface"
-        },
-        "entityTypeCode": {
-          "type": "string"
-        },
-        "skeletonId": {
-          "type": "integer"
-        }
-      },
-      "required": [
-        "entityTypeCode",
-        "attributeSet",
-        "skeletonId"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.eavAttributeSetManagementV1CreatePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/eav-data-attribute-set-interface"
-}
-```
-## Operation: eavAttributeSetRepositoryV1GetListGet
+
+
+### eavAttributeSetRepositoryV1GetListGet
 Retrieve list of Attribute Sets This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#AttributeSetRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.eavAttributeSetRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/eav-data-attribute-set-search-results-interface"
-}
-```
-## Operation: eavAttributeSetRepositoryV1DeleteByIdDelete
+
+
+### eavAttributeSetRepositoryV1DeleteByIdDelete
 Remove attribute set by given ID
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "attributeSetId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "attributeSetId"
-  ]
-}
+
+```js
+t213_vg.eavAttributeSetRepositoryV1DeleteByIdDelete({
+  "attributeSetId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: eavAttributeSetRepositoryV1GetGet
+
+#### Parameters
+* attributeSetId (integer) **required**
+
+### eavAttributeSetRepositoryV1GetGet
 Retrieve attribute set information based on given ID
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "attributeSetId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "attributeSetId"
-  ]
-}
+
+```js
+t213_vg.eavAttributeSetRepositoryV1GetGet({
+  "attributeSetId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/eav-data-attribute-set-interface"
-}
-```
-## Operation: eavAttributeSetRepositoryV1SavePut
+
+#### Parameters
+* attributeSetId (integer) **required**
+
+### eavAttributeSetRepositoryV1SavePut
 Save attribute set data
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "attributeSetId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "attributeSet": {
-          "$ref": "#/definitions/eav-data-attribute-set-interface"
-        }
-      },
-      "required": [
-        "attributeSet"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "attributeSetId"
-  ]
-}
+
+```js
+t213_vg.eavAttributeSetRepositoryV1SavePut({
+  "attributeSetId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/eav-data-attribute-set-interface"
-}
-```
-## Operation: giftWrappingWrappingRepositoryV1GetListGet
+
+#### Parameters
+* attributeSetId (string) **required**
+* $body (object)
+
+### giftWrappingWrappingRepositoryV1GetListGet
 Return list of gift wrapping data objects based on search criteria
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.giftWrappingWrappingRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gift-wrapping-data-wrapping-search-results-interface"
-}
-```
-## Operation: giftWrappingWrappingRepositoryV1SavePost
+
+
+### giftWrappingWrappingRepositoryV1SavePost
 Create/Update new gift wrapping with data object values
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "data": {
-          "$ref": "#/definitions/gift-wrapping-data-wrapping-interface"
-        },
-        "storeId": {
-          "type": "integer"
-        }
-      },
-      "required": [
-        "data"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.giftWrappingWrappingRepositoryV1SavePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gift-wrapping-data-wrapping-interface"
-}
-```
-## Operation: giftWrappingWrappingRepositoryV1DeleteByIdDelete
+
+
+### giftWrappingWrappingRepositoryV1DeleteByIdDelete
 Delete gift wrapping
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.giftWrappingWrappingRepositoryV1DeleteByIdDelete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: giftWrappingWrappingRepositoryV1GetGet
+
+#### Parameters
+* id (integer) **required**
+
+### giftWrappingWrappingRepositoryV1GetGet
 Return data object for specified wrapping ID and store.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "storeId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.giftWrappingWrappingRepositoryV1GetGet({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gift-wrapping-data-wrapping-interface"
-}
-```
-## Operation: giftWrappingWrappingRepositoryV1SavePut
+
+#### Parameters
+* id (integer) **required**
+* storeId (integer)
+
+### giftWrappingWrappingRepositoryV1SavePut
 Create/Update new gift wrapping with data object values
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "wrappingId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "data": {
-          "$ref": "#/definitions/gift-wrapping-data-wrapping-interface"
-        },
-        "storeId": {
-          "type": "integer"
-        }
-      },
-      "required": [
-        "data"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "wrappingId"
-  ]
-}
+
+```js
+t213_vg.giftWrappingWrappingRepositoryV1SavePut({
+  "wrappingId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gift-wrapping-data-wrapping-interface"
-}
-```
-## Operation: giftRegistryShippingMethodManagementV1EstimateByRegistryIdPost
+
+#### Parameters
+* wrappingId (string) **required**
+* $body (object)
+
+### giftRegistryShippingMethodManagementV1EstimateByRegistryIdPost
 Estimate shipping
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "registryId": {
-          "description": "The estimate registry id",
-          "type": "integer"
-        }
-      },
-      "required": [
-        "registryId"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.giftRegistryShippingMethodManagementV1EstimateByRegistryIdPost({}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "An array of shipping methods.",
-  "items": {
-    "$ref": "#/definitions/quote-data-shipping-method-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: quoteGuestCartManagementV1CreateEmptyCartPost
+
+
+### quoteGuestCartManagementV1CreateEmptyCartPost
 Enable an customer or guest user to create an empty cart and quote for an anonymous customer.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.quoteGuestCartManagementV1CreateEmptyCartPost(null, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Cart ID.",
-  "type": "string"
-}
-```
-## Operation: quoteGuestCartRepositoryV1GetGet
+
+
+### quoteGuestCartRepositoryV1GetGet
 Enable a guest user to return information for a specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.quoteGuestCartRepositoryV1GetGet({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-cart-interface"
-}
-```
-## Operation: quoteGuestCartManagementV1AssignCustomerPut
+
+#### Parameters
+* cartId (string) **required**
+
+### quoteGuestCartManagementV1AssignCustomerPut
 Assign a specified customer to a specified shopping cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string",
-      "description": "The cart ID."
-    },
-    "$body": {
-      "properties": {
-        "customerId": {
-          "description": "The customer ID.",
-          "type": "integer"
-        },
-        "storeId": {
-          "type": "integer"
-        }
-      },
-      "required": [
-        "customerId",
-        "storeId"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.quoteGuestCartManagementV1AssignCustomerPut({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: quoteGuestBillingAddressManagementV1GetGet
+
+#### Parameters
+* cartId (string) **required** - The cart ID.
+* $body (object)
+
+### quoteGuestBillingAddressManagementV1GetGet
 Return the billing address for a specified quote.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string",
-      "description": "The cart ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.quoteGuestBillingAddressManagementV1GetGet({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-address-interface"
-}
-```
-## Operation: quoteGuestBillingAddressManagementV1AssignPost
+
+#### Parameters
+* cartId (string) **required** - The cart ID.
+
+### quoteGuestBillingAddressManagementV1AssignPost
 Assign a specified billing address to a specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string",
-      "description": "The cart ID."
-    },
-    "$body": {
-      "properties": {
-        "address": {
-          "$ref": "#/definitions/quote-data-address-interface"
-        }
-      },
-      "required": [
-        "address"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.quoteGuestBillingAddressManagementV1AssignPost({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Address ID.",
-  "type": "integer"
-}
-```
-## Operation: quoteGuestCartTotalManagementV1CollectTotalsPut
+
+#### Parameters
+* cartId (string) **required** - The cart ID.
+* $body (object)
+
+### quoteGuestCartTotalManagementV1CollectTotalsPut
 Set shipping/billing methods and additional data for cart and collect totals for guest.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string",
-      "description": "The cart ID."
-    },
-    "$body": {
-      "properties": {
-        "additionalData": {
-          "$ref": "#/definitions/quote-data-totals-additional-data-interface"
-        },
-        "paymentMethod": {
-          "$ref": "#/definitions/quote-data-payment-interface"
-        },
-        "shippingCarrierCode": {
-          "description": "The carrier code.",
-          "type": "string"
-        },
-        "shippingMethodCode": {
-          "description": "The shipping method code.",
-          "type": "string"
-        }
-      },
-      "required": [
-        "paymentMethod"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.quoteGuestCartTotalManagementV1CollectTotalsPut({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-totals-interface"
-}
-```
-## Operation: quoteGuestCouponManagementV1RemoveDelete
+
+#### Parameters
+* cartId (string) **required** - The cart ID.
+* $body (object)
+
+### quoteGuestCouponManagementV1RemoveDelete
 Delete a coupon from a specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string",
-      "description": "The cart ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.quoteGuestCouponManagementV1RemoveDelete({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: quoteGuestCouponManagementV1GetGet
+
+#### Parameters
+* cartId (string) **required** - The cart ID.
+
+### quoteGuestCouponManagementV1GetGet
 Return information for a coupon in a specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string",
-      "description": "The cart ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.quoteGuestCouponManagementV1GetGet({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "The coupon code data.",
-  "type": "string"
-}
-```
-## Operation: quoteGuestCouponManagementV1SetPut
+
+#### Parameters
+* cartId (string) **required** - The cart ID.
+
+### quoteGuestCouponManagementV1SetPut
 Add a coupon by code to a specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string",
-      "description": "The cart ID."
-    },
-    "couponCode": {
-      "type": "string",
-      "description": "The coupon code data."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId",
-    "couponCode"
-  ]
-}
+
+```js
+t213_vg.quoteGuestCouponManagementV1SetPut({
+  "cartId": "",
+  "couponCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: quoteGuestShipmentEstimationV1EstimateByExtendedAddressPost
+
+#### Parameters
+* cartId (string) **required** - The cart ID.
+* couponCode (string) **required** - The coupon code data.
+
+### quoteGuestShipmentEstimationV1EstimateByExtendedAddressPost
 Estimate shipping by address and return list of available shipping methods
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "address": {
-          "$ref": "#/definitions/quote-data-address-interface"
-        }
-      },
-      "required": [
-        "address"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.quoteGuestShipmentEstimationV1EstimateByExtendedAddressPost({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "An array of shipping methods",
-  "items": {
-    "$ref": "#/definitions/quote-data-shipping-method-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: giftMessageGuestCartRepositoryV1GetGet
+
+#### Parameters
+* cartId (string) **required**
+* $body (object)
+
+### giftMessageGuestCartRepositoryV1GetGet
 Return the gift message for a specified order.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string",
-      "description": "The shopping cart ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.giftMessageGuestCartRepositoryV1GetGet({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gift-message-data-message-interface"
-}
-```
-## Operation: giftMessageGuestCartRepositoryV1SavePost
+
+#### Parameters
+* cartId (string) **required** - The shopping cart ID.
+
+### giftMessageGuestCartRepositoryV1SavePost
 Set the gift message for an entire order.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string",
-      "description": "The cart ID."
-    },
-    "$body": {
-      "properties": {
-        "giftMessage": {
-          "$ref": "#/definitions/gift-message-data-message-interface"
-        }
-      },
-      "required": [
-        "giftMessage"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.giftMessageGuestCartRepositoryV1SavePost({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: giftMessageGuestItemRepositoryV1GetGet
+
+#### Parameters
+* cartId (string) **required** - The cart ID.
+* $body (object)
+
+### giftMessageGuestItemRepositoryV1GetGet
 Return the gift message for a specified item in a specified shopping cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string",
-      "description": "The shopping cart ID."
-    },
-    "itemId": {
-      "type": "integer",
-      "description": "The item ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId",
-    "itemId"
-  ]
-}
+
+```js
+t213_vg.giftMessageGuestItemRepositoryV1GetGet({
+  "cartId": "",
+  "itemId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gift-message-data-message-interface"
-}
-```
-## Operation: giftMessageGuestItemRepositoryV1SavePost
+
+#### Parameters
+* cartId (string) **required** - The shopping cart ID.
+* itemId (integer) **required** - The item ID.
+
+### giftMessageGuestItemRepositoryV1SavePost
 Set the gift message for a specified item in a specified shopping cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string",
-      "description": "The cart ID."
-    },
-    "itemId": {
-      "type": "integer",
-      "description": "The item ID."
-    },
-    "$body": {
-      "properties": {
-        "giftMessage": {
-          "$ref": "#/definitions/gift-message-data-message-interface"
-        }
-      },
-      "required": [
-        "giftMessage"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId",
-    "itemId"
-  ]
-}
+
+```js
+t213_vg.giftMessageGuestItemRepositoryV1SavePost({
+  "cartId": "",
+  "itemId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: quoteGuestCartItemRepositoryV1GetListGet
+
+#### Parameters
+* cartId (string) **required** - The cart ID.
+* itemId (integer) **required** - The item ID.
+* $body (object)
+
+### quoteGuestCartItemRepositoryV1GetListGet
 List items that are assigned to a specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string",
-      "description": "The cart ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.quoteGuestCartItemRepositoryV1GetListGet({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Array of items.",
-  "items": {
-    "$ref": "#/definitions/quote-data-cart-item-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: quoteGuestCartItemRepositoryV1SavePost
+
+#### Parameters
+* cartId (string) **required** - The cart ID.
+
+### quoteGuestCartItemRepositoryV1SavePost
 Add the specified item to the specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "cartItem": {
-          "$ref": "#/definitions/quote-data-cart-item-interface"
-        }
-      },
-      "required": [
-        "cartItem"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.quoteGuestCartItemRepositoryV1SavePost({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-cart-item-interface"
-}
-```
-## Operation: quoteGuestCartItemRepositoryV1DeleteByIdDelete
+
+#### Parameters
+* cartId (string) **required**
+* $body (object)
+
+### quoteGuestCartItemRepositoryV1DeleteByIdDelete
 Remove the specified item from the specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string",
-      "description": "The cart ID."
-    },
-    "itemId": {
-      "type": "integer",
-      "description": "The item ID of the item to be removed."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId",
-    "itemId"
-  ]
-}
+
+```js
+t213_vg.quoteGuestCartItemRepositoryV1DeleteByIdDelete({
+  "cartId": "",
+  "itemId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: quoteGuestCartItemRepositoryV1SavePut
+
+#### Parameters
+* cartId (string) **required** - The cart ID.
+* itemId (integer) **required** - The item ID of the item to be removed.
+
+### quoteGuestCartItemRepositoryV1SavePut
 Add the specified item to the specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string"
-    },
-    "itemId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "cartItem": {
-          "$ref": "#/definitions/quote-data-cart-item-interface"
-        }
-      },
-      "required": [
-        "cartItem"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId",
-    "itemId"
-  ]
-}
+
+```js
+t213_vg.quoteGuestCartItemRepositoryV1SavePut({
+  "cartId": "",
+  "itemId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-cart-item-interface"
-}
-```
-## Operation: quoteGuestCartManagementV1PlaceOrderPut
+
+#### Parameters
+* cartId (string) **required**
+* itemId (string) **required**
+* $body (object)
+
+### quoteGuestCartManagementV1PlaceOrderPut
 Place an order for a specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string",
-      "description": "The cart ID."
-    },
-    "$body": {
-      "properties": {
-        "paymentMethod": {
-          "$ref": "#/definitions/quote-data-payment-interface"
-        }
-      },
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.quoteGuestCartManagementV1PlaceOrderPut({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Order ID.",
-  "type": "integer"
-}
-```
-## Operation: checkoutGuestPaymentInformationManagementV1GetPaymentInformationGet
+
+#### Parameters
+* cartId (string) **required** - The cart ID.
+* $body (object)
+
+### checkoutGuestPaymentInformationManagementV1GetPaymentInformationGet
 Get payment information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.checkoutGuestPaymentInformationManagementV1GetPaymentInformationGet({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/checkout-data-payment-details-interface"
-}
-```
-## Operation: checkoutGuestPaymentInformationManagementV1SavePaymentInformationAndPlaceOrderPost
+
+#### Parameters
+* cartId (string) **required**
+
+### checkoutGuestPaymentInformationManagementV1SavePaymentInformationAndPlaceOrderPost
 Set payment information and place order for a specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "billingAddress": {
-          "$ref": "#/definitions/quote-data-address-interface"
-        },
-        "email": {
-          "type": "string"
-        },
-        "paymentMethod": {
-          "$ref": "#/definitions/quote-data-payment-interface"
-        }
-      },
-      "required": [
-        "email",
-        "paymentMethod"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.checkoutGuestPaymentInformationManagementV1SavePaymentInformationAndPlaceOrderPost({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Order ID.",
-  "type": "integer"
-}
-```
-## Operation: quoteGuestPaymentMethodManagementV1GetListGet
+
+#### Parameters
+* cartId (string) **required**
+* $body (object)
+
+### quoteGuestPaymentMethodManagementV1GetListGet
 List available payment methods for a specified shopping cart. This call returns an array of objects, but detailed information about each object’s attributes might not be included.  See http://devdocs.magento.com/codelinks/attributes.html#GuestPaymentMethodManagementInterface to determine which call to use to get detailed information about all attributes for an object.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string",
-      "description": "The cart ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.quoteGuestPaymentMethodManagementV1GetListGet({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Array of payment methods.",
-  "items": {
-    "$ref": "#/definitions/quote-data-payment-method-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: quoteGuestPaymentMethodManagementV1GetGet
+
+#### Parameters
+* cartId (string) **required** - The cart ID.
+
+### quoteGuestPaymentMethodManagementV1GetGet
 Return the payment method for a specified shopping cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string",
-      "description": "The cart ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.quoteGuestPaymentMethodManagementV1GetGet({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-payment-interface"
-}
-```
-## Operation: quoteGuestPaymentMethodManagementV1SetPut
+
+#### Parameters
+* cartId (string) **required** - The cart ID.
+
+### quoteGuestPaymentMethodManagementV1SetPut
 Add a specified payment method to a specified shopping cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string",
-      "description": "The cart ID."
-    },
-    "$body": {
-      "properties": {
-        "method": {
-          "$ref": "#/definitions/quote-data-payment-interface"
-        }
-      },
-      "required": [
-        "method"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.quoteGuestPaymentMethodManagementV1SetPut({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Payment method ID.",
-  "type": "integer"
-}
-```
-## Operation: checkoutGuestPaymentInformationManagementV1SavePaymentInformationPost
+
+#### Parameters
+* cartId (string) **required** - The cart ID.
+* $body (object)
+
+### checkoutGuestPaymentInformationManagementV1SavePaymentInformationPost
 Set payment information for a specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "billingAddress": {
-          "$ref": "#/definitions/quote-data-address-interface"
-        },
-        "email": {
-          "type": "string"
-        },
-        "paymentMethod": {
-          "$ref": "#/definitions/quote-data-payment-interface"
-        }
-      },
-      "required": [
-        "email",
-        "paymentMethod"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.checkoutGuestPaymentInformationManagementV1SavePaymentInformationPost({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Order ID.",
-  "type": "integer"
-}
-```
-## Operation: checkoutGuestShippingInformationManagementV1SaveAddressInformationPost
+
+#### Parameters
+* cartId (string) **required**
+* $body (object)
+
+### checkoutGuestShippingInformationManagementV1SaveAddressInformationPost
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "addressInformation": {
-          "$ref": "#/definitions/checkout-data-shipping-information-interface"
-        }
-      },
-      "required": [
-        "addressInformation"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.checkoutGuestShippingInformationManagementV1SaveAddressInformationPost({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/checkout-data-payment-details-interface"
-}
-```
-## Operation: quoteGuestShippingMethodManagementV1GetListGet
+
+#### Parameters
+* cartId (string) **required**
+* $body (object)
+
+### quoteGuestShippingMethodManagementV1GetListGet
 List applicable shipping methods for a specified quote.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string",
-      "description": "The shopping cart ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.quoteGuestShippingMethodManagementV1GetListGet({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "An array of shipping methods.",
-  "items": {
-    "$ref": "#/definitions/quote-data-shipping-method-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: quoteGuestCartTotalRepositoryV1GetGet
+
+#### Parameters
+* cartId (string) **required** - The shopping cart ID.
+
+### quoteGuestCartTotalRepositoryV1GetGet
 Return quote totals data for a specified cart.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string",
-      "description": "The cart ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.quoteGuestCartTotalRepositoryV1GetGet({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-totals-interface"
-}
-```
-## Operation: checkoutGuestTotalsInformationManagementV1CalculatePost
+
+#### Parameters
+* cartId (string) **required** - The cart ID.
+
+### checkoutGuestTotalsInformationManagementV1CalculatePost
 Calculate quote totals based on address and shipping method.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "addressInformation": {
-          "$ref": "#/definitions/checkout-data-totals-information-interface"
-        }
-      },
-      "required": [
-        "addressInformation"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.checkoutGuestTotalsInformationManagementV1CalculatePost({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/quote-data-totals-interface"
-}
-```
-## Operation: giftRegistryGuestCartShippingMethodManagementV1EstimateByRegistryIdPost
+
+#### Parameters
+* cartId (string) **required**
+* $body (object)
+
+### giftRegistryGuestCartShippingMethodManagementV1EstimateByRegistryIdPost
 Estimate shipping
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string",
-      "description": "The shopping cart ID."
-    },
-    "$body": {
-      "properties": {
-        "registryId": {
-          "description": "The estimate registry id",
-          "type": "integer"
-        }
-      },
-      "required": [
-        "registryId"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.giftRegistryGuestCartShippingMethodManagementV1EstimateByRegistryIdPost({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "An array of shipping methods.",
-  "items": {
-    "$ref": "#/definitions/quote-data-shipping-method-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: integrationAdminTokenServiceV1CreateAdminAccessTokenPost
+
+#### Parameters
+* cartId (string) **required** - The shopping cart ID.
+* $body (object)
+
+### integrationAdminTokenServiceV1CreateAdminAccessTokenPost
 Create access token for admin given the admin credentials.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "password": {
-          "type": "string"
-        },
-        "username": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "username",
-        "password"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.integrationAdminTokenServiceV1CreateAdminAccessTokenPost({}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Token created",
-  "type": "string"
-}
-```
-## Operation: integrationCustomerTokenServiceV1CreateCustomerAccessTokenPost
+
+
+### integrationCustomerTokenServiceV1CreateCustomerAccessTokenPost
 Create access token for admin given the customer credentials.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "password": {
-          "type": "string"
-        },
-        "username": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "username",
-        "password"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.integrationCustomerTokenServiceV1CreateCustomerAccessTokenPost({}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Token created",
-  "type": "string"
-}
-```
-## Operation: salesRefundInvoiceV1ExecutePost
+
+
+### salesRefundInvoiceV1ExecutePost
 Create refund for invoice
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "invoiceId": {
-      "type": "integer"
-    },
-    "$body": {
-      "properties": {
-        "appendComment": {
-          "type": "boolean"
-        },
-        "arguments": {
-          "$ref": "#/definitions/sales-data-creditmemo-creation-arguments-interface"
-        },
-        "comment": {
-          "$ref": "#/definitions/sales-data-creditmemo-comment-creation-interface"
-        },
-        "isOnline": {
-          "type": "boolean"
-        },
-        "items": {
-          "items": {
-            "$ref": "#/definitions/sales-data-creditmemo-item-creation-interface"
-          },
-          "type": "array"
-        },
-        "notify": {
-          "type": "boolean"
-        }
-      },
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "invoiceId"
-  ]
-}
+
+```js
+t213_vg.salesRefundInvoiceV1ExecutePost({
+  "invoiceId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "integer"
-}
-```
-## Operation: salesInvoiceRepositoryV1GetListGet
+
+#### Parameters
+* invoiceId (integer) **required**
+* $body (object)
+
+### salesInvoiceRepositoryV1GetListGet
 Lists invoices that match specified search criteria. This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#InvoiceRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.salesInvoiceRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-invoice-search-result-interface"
-}
-```
-## Operation: salesInvoiceRepositoryV1SavePost
+
+
+### salesInvoiceRepositoryV1SavePost
 Performs persist operations for a specified invoice.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/sales-data-invoice-interface"
-        }
-      },
-      "required": [
-        "entity"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.salesInvoiceRepositoryV1SavePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-invoice-interface"
-}
-```
-## Operation: salesInvoiceCommentRepositoryV1SavePost
+
+
+### salesInvoiceCommentRepositoryV1SavePost
 Performs persist operations for a specified invoice comment.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/sales-data-invoice-comment-interface"
-        }
-      },
-      "required": [
-        "entity"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.salesInvoiceCommentRepositoryV1SavePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-invoice-comment-interface"
-}
-```
-## Operation: salesInvoiceRepositoryV1GetGet
+
+
+### salesInvoiceRepositoryV1GetGet
 Loads a specified invoice.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The invoice ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesInvoiceRepositoryV1GetGet({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-invoice-interface"
-}
-```
-## Operation: salesInvoiceManagementV1SetCapturePost
+
+#### Parameters
+* id (integer) **required** - The invoice ID.
+
+### salesInvoiceManagementV1SetCapturePost
 Sets invoice capture.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesInvoiceManagementV1SetCapturePost({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: salesInvoiceManagementV1GetCommentsListGet
+
+#### Parameters
+* id (integer) **required**
+
+### salesInvoiceManagementV1GetCommentsListGet
 Lists comments for a specified invoice.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The invoice ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesInvoiceManagementV1GetCommentsListGet({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-invoice-comment-search-result-interface"
-}
-```
-## Operation: salesInvoiceManagementV1NotifyPost
+
+#### Parameters
+* id (integer) **required** - The invoice ID.
+
+### salesInvoiceManagementV1NotifyPost
 Emails a user a specified invoice.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The invoice ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesInvoiceManagementV1NotifyPost({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: salesInvoiceManagementV1SetVoidPost
+
+#### Parameters
+* id (integer) **required** - The invoice ID.
+
+### salesInvoiceManagementV1SetVoidPost
 Voids a specified invoice.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The invoice ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesInvoiceManagementV1SetVoidPost({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: backendModuleServiceV1GetModulesGet
+
+#### Parameters
+* id (integer) **required** - The invoice ID.
+
+### backendModuleServiceV1GetModulesGet
 Returns an array of enabled modules
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.backendModuleServiceV1GetModulesGet(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "type": "string"
-  },
-  "type": "array"
-}
-```
-## Operation: salesInvoiceOrderV1ExecutePost
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "orderId": {
-      "type": "integer"
-    },
-    "$body": {
-      "properties": {
-        "appendComment": {
-          "type": "boolean"
-        },
-        "arguments": {
-          "$ref": "#/definitions/sales-data-invoice-creation-arguments-interface"
-        },
-        "capture": {
-          "type": "boolean"
-        },
-        "comment": {
-          "$ref": "#/definitions/sales-data-invoice-comment-creation-interface"
-        },
-        "items": {
-          "items": {
-            "$ref": "#/definitions/sales-data-invoice-item-creation-interface"
-          },
-          "type": "array"
-        },
-        "notify": {
-          "type": "boolean"
-        }
-      },
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "orderId"
-  ]
-}
+### salesInvoiceOrderV1ExecutePost
+
+
+
+```js
+t213_vg.salesInvoiceOrderV1ExecutePost({
+  "orderId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "integer"
-}
-```
-## Operation: salesRefundOrderV1ExecutePost
+
+#### Parameters
+* orderId (integer) **required**
+* $body (object)
+
+### salesRefundOrderV1ExecutePost
 Create offline refund for order
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "orderId": {
-      "type": "integer"
-    },
-    "$body": {
-      "properties": {
-        "appendComment": {
-          "type": "boolean"
-        },
-        "arguments": {
-          "$ref": "#/definitions/sales-data-creditmemo-creation-arguments-interface"
-        },
-        "comment": {
-          "$ref": "#/definitions/sales-data-creditmemo-comment-creation-interface"
-        },
-        "items": {
-          "items": {
-            "$ref": "#/definitions/sales-data-creditmemo-item-creation-interface"
-          },
-          "type": "array"
-        },
-        "notify": {
-          "type": "boolean"
-        }
-      },
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "orderId"
-  ]
-}
+
+```js
+t213_vg.salesRefundOrderV1ExecutePost({
+  "orderId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "integer"
-}
-```
-## Operation: salesShipOrderV1ExecutePost
+
+#### Parameters
+* orderId (integer) **required**
+* $body (object)
+
+### salesShipOrderV1ExecutePost
 Creates new Shipment for given Order.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "orderId": {
-      "type": "integer"
-    },
-    "$body": {
-      "properties": {
-        "appendComment": {
-          "type": "boolean"
-        },
-        "arguments": {
-          "$ref": "#/definitions/sales-data-shipment-creation-arguments-interface"
-        },
-        "comment": {
-          "$ref": "#/definitions/sales-data-shipment-comment-creation-interface"
-        },
-        "items": {
-          "items": {
-            "$ref": "#/definitions/sales-data-shipment-item-creation-interface"
-          },
-          "type": "array"
-        },
-        "notify": {
-          "type": "boolean"
-        },
-        "packages": {
-          "items": {
-            "$ref": "#/definitions/sales-data-shipment-package-creation-interface"
-          },
-          "type": "array"
-        },
-        "tracks": {
-          "items": {
-            "$ref": "#/definitions/sales-data-shipment-track-creation-interface"
-          },
-          "type": "array"
-        }
-      },
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "orderId"
-  ]
-}
+
+```js
+t213_vg.salesShipOrderV1ExecutePost({
+  "orderId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Id of created Shipment.",
-  "type": "integer"
-}
-```
-## Operation: salesOrderRepositoryV1GetListGet
+
+#### Parameters
+* orderId (integer) **required**
+* $body (object)
+
+### salesOrderRepositoryV1GetListGet
 Lists orders that match specified search criteria. This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#OrderRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.salesOrderRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-order-search-result-interface"
-}
-```
-## Operation: salesOrderRepositoryV1SavePost
+
+
+### salesOrderRepositoryV1SavePost
 Performs persist operations for a specified order.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/sales-data-order-interface"
-        }
-      },
-      "required": [
-        "entity"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.salesOrderRepositoryV1SavePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-order-interface"
-}
-```
-## Operation: salesOrderRepositoryV1SavePut
+
+
+### salesOrderRepositoryV1SavePut
 Performs persist operations for a specified order.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/sales-data-order-interface"
-        }
-      },
-      "required": [
-        "entity"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.salesOrderRepositoryV1SavePut({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-order-interface"
-}
-```
-## Operation: salesOrderItemRepositoryV1GetListGet
+
+
+### salesOrderItemRepositoryV1GetListGet
 Lists order items that match specified search criteria. This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#OrderItemRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.salesOrderItemRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-order-item-search-result-interface"
-}
-```
-## Operation: salesOrderItemRepositoryV1GetGet
+
+
+### salesOrderItemRepositoryV1GetGet
 Loads a specified order item.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The order item ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesOrderItemRepositoryV1GetGet({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-order-item-interface"
-}
-```
-## Operation: salesOrderRepositoryV1GetGet
+
+#### Parameters
+* id (integer) **required** - The order item ID.
+
+### salesOrderRepositoryV1GetGet
 Loads a specified order.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The order ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesOrderRepositoryV1GetGet({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-order-interface"
-}
-```
-## Operation: salesOrderManagementV1CancelPost
+
+#### Parameters
+* id (integer) **required** - The order ID.
+
+### salesOrderManagementV1CancelPost
 Cancels a specified order.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The order ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesOrderManagementV1CancelPost({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: salesOrderManagementV1GetCommentsListGet
+
+#### Parameters
+* id (integer) **required** - The order ID.
+
+### salesOrderManagementV1GetCommentsListGet
 Lists comments for a specified order.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The order ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesOrderManagementV1GetCommentsListGet({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-order-status-history-search-result-interface"
-}
-```
-## Operation: salesOrderManagementV1AddCommentPost
+
+#### Parameters
+* id (integer) **required** - The order ID.
+
+### salesOrderManagementV1AddCommentPost
 Adds a comment to a specified order.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The order ID."
-    },
-    "$body": {
-      "properties": {
-        "statusHistory": {
-          "$ref": "#/definitions/sales-data-order-status-history-interface"
-        }
-      },
-      "required": [
-        "statusHistory"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesOrderManagementV1AddCommentPost({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: salesOrderManagementV1NotifyPost
+
+#### Parameters
+* id (integer) **required** - The order ID.
+* $body (object)
+
+### salesOrderManagementV1NotifyPost
 Emails a user a specified order.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The order ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesOrderManagementV1NotifyPost({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: salesOrderManagementV1HoldPost
+
+#### Parameters
+* id (integer) **required** - The order ID.
+
+### salesOrderManagementV1HoldPost
 Holds a specified order.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The order ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesOrderManagementV1HoldPost({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: salesOrderManagementV1GetStatusGet
+
+#### Parameters
+* id (integer) **required** - The order ID.
+
+### salesOrderManagementV1GetStatusGet
 Gets the status for a specified order.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The order ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesOrderManagementV1GetStatusGet({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Order status.",
-  "type": "string"
-}
-```
-## Operation: salesOrderManagementV1UnHoldPost
+
+#### Parameters
+* id (integer) **required** - The order ID.
+
+### salesOrderManagementV1UnHoldPost
 Releases a specified order from hold status.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The order ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesOrderManagementV1UnHoldPost({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: salesOrderAddressRepositoryV1SavePut
+
+#### Parameters
+* id (integer) **required** - The order ID.
+
+### salesOrderAddressRepositoryV1SavePut
 Performs persist operations for a specified order address.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "parent_id": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/sales-data-order-address-interface"
-        }
-      },
-      "required": [
-        "entity"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "parent_id"
-  ]
-}
+
+```js
+t213_vg.salesOrderAddressRepositoryV1SavePut({
+  "parent_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-order-address-interface"
-}
-```
-## Operation: catalogProductRepositoryV1GetListGet
+
+#### Parameters
+* parent_id (string) **required**
+* $body (object)
+
+### catalogProductRepositoryV1GetListGet
 Get product list
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.catalogProductRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/catalog-data-product-search-results-interface"
-}
-```
-## Operation: catalogProductRepositoryV1SavePost
+
+
+### catalogProductRepositoryV1SavePost
 Create product
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "product": {
-          "$ref": "#/definitions/catalog-data-product-interface"
-        },
-        "saveOptions": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "product"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.catalogProductRepositoryV1SavePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/catalog-data-product-interface"
-}
-```
-## Operation: catalogAttributeSetManagementV1CreatePost
+
+
+### catalogAttributeSetManagementV1CreatePost
 Create attribute set from data
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "attributeSet": {
-          "$ref": "#/definitions/eav-data-attribute-set-interface"
-        },
-        "skeletonId": {
-          "type": "integer"
-        }
-      },
-      "required": [
-        "attributeSet",
-        "skeletonId"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.catalogAttributeSetManagementV1CreatePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/eav-data-attribute-set-interface"
-}
-```
-## Operation: catalogProductAttributeManagementV1AssignPost
+
+
+### catalogProductAttributeManagementV1AssignPost
 Assign attribute to attribute set
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "attributeCode": {
-          "type": "string"
-        },
-        "attributeGroupId": {
-          "type": "integer"
-        },
-        "attributeSetId": {
-          "type": "integer"
-        },
-        "sortOrder": {
-          "type": "integer"
-        }
-      },
-      "required": [
-        "attributeSetId",
-        "attributeGroupId",
-        "attributeCode",
-        "sortOrder"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.catalogProductAttributeManagementV1AssignPost({}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "integer"
-}
-```
-## Operation: catalogProductAttributeGroupRepositoryV1SavePost
+
+
+### catalogProductAttributeGroupRepositoryV1SavePost
 Save attribute group
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "group": {
-          "$ref": "#/definitions/eav-data-attribute-group-interface"
-        }
-      },
-      "required": [
-        "group"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.catalogProductAttributeGroupRepositoryV1SavePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/eav-data-attribute-group-interface"
-}
-```
-## Operation: catalogProductAttributeGroupRepositoryV1GetListGet
+
+
+### catalogProductAttributeGroupRepositoryV1GetListGet
 Retrieve list of attribute groups
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.catalogProductAttributeGroupRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/eav-data-attribute-group-search-results-interface"
-}
-```
-## Operation: catalogProductAttributeGroupRepositoryV1DeleteByIdDelete
+
+
+### catalogProductAttributeGroupRepositoryV1DeleteByIdDelete
 Remove attribute group by id
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "groupId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "groupId"
-  ]
-}
+
+```js
+t213_vg.catalogProductAttributeGroupRepositoryV1DeleteByIdDelete({
+  "groupId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: catalogAttributeSetRepositoryV1GetListGet
+
+#### Parameters
+* groupId (integer) **required**
+
+### catalogAttributeSetRepositoryV1GetListGet
 Retrieve list of Attribute Sets
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.catalogAttributeSetRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/eav-data-attribute-set-search-results-interface"
-}
-```
-## Operation: catalogAttributeSetRepositoryV1DeleteByIdDelete
+
+
+### catalogAttributeSetRepositoryV1DeleteByIdDelete
 Remove attribute set by given ID
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "attributeSetId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "attributeSetId"
-  ]
-}
+
+```js
+t213_vg.catalogAttributeSetRepositoryV1DeleteByIdDelete({
+  "attributeSetId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: catalogAttributeSetRepositoryV1GetGet
+
+#### Parameters
+* attributeSetId (integer) **required**
+
+### catalogAttributeSetRepositoryV1GetGet
 Retrieve attribute set information based on given ID
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "attributeSetId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "attributeSetId"
-  ]
-}
+
+```js
+t213_vg.catalogAttributeSetRepositoryV1GetGet({
+  "attributeSetId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/eav-data-attribute-set-interface"
-}
-```
-## Operation: catalogAttributeSetRepositoryV1SavePut
+
+#### Parameters
+* attributeSetId (integer) **required**
+
+### catalogAttributeSetRepositoryV1SavePut
 Save attribute set data
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "attributeSetId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "attributeSet": {
-          "$ref": "#/definitions/eav-data-attribute-set-interface"
-        }
-      },
-      "required": [
-        "attributeSet"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "attributeSetId"
-  ]
-}
+
+```js
+t213_vg.catalogAttributeSetRepositoryV1SavePut({
+  "attributeSetId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/eav-data-attribute-set-interface"
-}
-```
-## Operation: catalogProductAttributeManagementV1GetAttributesGet
+
+#### Parameters
+* attributeSetId (string) **required**
+* $body (object)
+
+### catalogProductAttributeManagementV1GetAttributesGet
 Retrieve related attributes based on given attribute set ID
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "attributeSetId": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "attributeSetId"
-  ]
-}
+
+```js
+t213_vg.catalogProductAttributeManagementV1GetAttributesGet({
+  "attributeSetId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/catalog-data-product-attribute-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: catalogProductAttributeManagementV1UnassignDelete
+
+#### Parameters
+* attributeSetId (string) **required**
+
+### catalogProductAttributeManagementV1UnassignDelete
 Remove attribute from attribute set
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "attributeSetId": {
-      "type": "string"
-    },
-    "attributeCode": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "attributeSetId",
-    "attributeCode"
-  ]
-}
+
+```js
+t213_vg.catalogProductAttributeManagementV1UnassignDelete({
+  "attributeSetId": "",
+  "attributeCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: catalogProductAttributeGroupRepositoryV1SavePut
+
+#### Parameters
+* attributeSetId (string) **required**
+* attributeCode (string) **required**
+
+### catalogProductAttributeGroupRepositoryV1SavePut
 Save attribute group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "attributeSetId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "group": {
-          "$ref": "#/definitions/eav-data-attribute-group-interface"
-        }
-      },
-      "required": [
-        "group"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "attributeSetId"
-  ]
-}
+
+```js
+t213_vg.catalogProductAttributeGroupRepositoryV1SavePut({
+  "attributeSetId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/eav-data-attribute-group-interface"
-}
-```
-## Operation: catalogProductAttributeRepositoryV1GetListGet
+
+#### Parameters
+* attributeSetId (string) **required**
+* $body (object)
+
+### catalogProductAttributeRepositoryV1GetListGet
 Retrieve all attributes for entity type
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.catalogProductAttributeRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/catalog-data-product-attribute-search-results-interface"
-}
-```
-## Operation: catalogProductAttributeRepositoryV1SavePost
+
+
+### catalogProductAttributeRepositoryV1SavePost
 Save attribute data
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "attribute": {
-          "$ref": "#/definitions/catalog-data-product-attribute-interface"
-        }
-      },
-      "required": [
-        "attribute"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.catalogProductAttributeRepositoryV1SavePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/catalog-data-product-attribute-interface"
-}
-```
-## Operation: catalogProductAttributeTypesListV1GetItemsGet
+
+
+### catalogProductAttributeTypesListV1GetItemsGet
 Retrieve list of product attribute types
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.catalogProductAttributeTypesListV1GetItemsGet(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/catalog-data-product-attribute-type-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: catalogProductAttributeRepositoryV1DeleteByIdDelete
+
+
+### catalogProductAttributeRepositoryV1DeleteByIdDelete
 Delete Attribute by id
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "attributeCode": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "attributeCode"
-  ]
-}
+
+```js
+t213_vg.catalogProductAttributeRepositoryV1DeleteByIdDelete({
+  "attributeCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: catalogProductAttributeRepositoryV1GetGet
+
+#### Parameters
+* attributeCode (string) **required**
+
+### catalogProductAttributeRepositoryV1GetGet
 Retrieve specific attribute
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "attributeCode": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "attributeCode"
-  ]
-}
+
+```js
+t213_vg.catalogProductAttributeRepositoryV1GetGet({
+  "attributeCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/catalog-data-product-attribute-interface"
-}
-```
-## Operation: catalogProductAttributeRepositoryV1SavePut
+
+#### Parameters
+* attributeCode (string) **required**
+
+### catalogProductAttributeRepositoryV1SavePut
 Save attribute data
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "attributeCode": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "attribute": {
-          "$ref": "#/definitions/catalog-data-product-attribute-interface"
-        }
-      },
-      "required": [
-        "attribute"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "attributeCode"
-  ]
-}
+
+```js
+t213_vg.catalogProductAttributeRepositoryV1SavePut({
+  "attributeCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/catalog-data-product-attribute-interface"
-}
-```
-## Operation: catalogProductAttributeOptionManagementV1GetItemsGet
+
+#### Parameters
+* attributeCode (string) **required**
+* $body (object)
+
+### catalogProductAttributeOptionManagementV1GetItemsGet
 Retrieve list of attribute options
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "attributeCode": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "attributeCode"
-  ]
-}
+
+```js
+t213_vg.catalogProductAttributeOptionManagementV1GetItemsGet({
+  "attributeCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/eav-data-attribute-option-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: catalogProductAttributeOptionManagementV1AddPost
+
+#### Parameters
+* attributeCode (string) **required**
+
+### catalogProductAttributeOptionManagementV1AddPost
 Add option to attribute
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "attributeCode": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "option": {
-          "$ref": "#/definitions/eav-data-attribute-option-interface"
-        }
-      },
-      "required": [
-        "option"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "attributeCode"
-  ]
-}
+
+```js
+t213_vg.catalogProductAttributeOptionManagementV1AddPost({
+  "attributeCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: catalogProductAttributeOptionManagementV1DeleteDelete
+
+#### Parameters
+* attributeCode (string) **required**
+* $body (object)
+
+### catalogProductAttributeOptionManagementV1DeleteDelete
 Delete option from attribute
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "attributeCode": {
-      "type": "string"
-    },
-    "optionId": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "attributeCode",
-    "optionId"
-  ]
-}
+
+```js
+t213_vg.catalogProductAttributeOptionManagementV1DeleteDelete({
+  "attributeCode": "",
+  "optionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: downloadableSampleRepositoryV1DeleteDelete
+
+#### Parameters
+* attributeCode (string) **required**
+* optionId (string) **required**
+
+### downloadableSampleRepositoryV1DeleteDelete
 Delete downloadable sample
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.downloadableSampleRepositoryV1DeleteDelete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: downloadableLinkRepositoryV1DeleteDelete
+
+#### Parameters
+* id (integer) **required**
+
+### downloadableLinkRepositoryV1DeleteDelete
 Delete downloadable link
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.downloadableLinkRepositoryV1DeleteDelete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: catalogProductLinkTypeListV1GetItemsGet
+
+#### Parameters
+* id (integer) **required**
+
+### catalogProductLinkTypeListV1GetItemsGet
 Retrieve information about available product link types
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.catalogProductLinkTypeListV1GetItemsGet(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/catalog-data-product-link-type-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: catalogProductLinkTypeListV1GetItemAttributesGet
+
+
+### catalogProductLinkTypeListV1GetItemAttributesGet
 Provide a list of the product link type attributes
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "type": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "type"
-  ]
-}
+
+```js
+t213_vg.catalogProductLinkTypeListV1GetItemAttributesGet({
+  "type": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/catalog-data-product-link-attribute-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: catalogProductMediaAttributeManagementV1GetListGet
+
+#### Parameters
+* type (string) **required**
+
+### catalogProductMediaAttributeManagementV1GetListGet
 Retrieve the list of media attributes (fronted input type is media_image) assigned to the given attribute set.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "attributeSetName": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "attributeSetName"
-  ]
-}
+
+```js
+t213_vg.catalogProductMediaAttributeManagementV1GetListGet({
+  "attributeSetName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "list of media attributes",
-  "items": {
-    "$ref": "#/definitions/catalog-data-product-attribute-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: catalogProductCustomOptionRepositoryV1SavePost
+
+#### Parameters
+* attributeSetName (string) **required**
+
+### catalogProductCustomOptionRepositoryV1SavePost
 Save Custom Option
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "option": {
-          "$ref": "#/definitions/catalog-data-product-custom-option-interface"
-        }
-      },
-      "required": [
-        "option"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.catalogProductCustomOptionRepositoryV1SavePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/catalog-data-product-custom-option-interface"
-}
-```
-## Operation: catalogProductCustomOptionTypeListV1GetItemsGet
+
+
+### catalogProductCustomOptionTypeListV1GetItemsGet
 Get custom option types
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.catalogProductCustomOptionTypeListV1GetItemsGet(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/catalog-data-product-custom-option-type-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: catalogProductCustomOptionRepositoryV1SavePut
+
+
+### catalogProductCustomOptionRepositoryV1SavePut
 Save Custom Option
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "optionId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "option": {
-          "$ref": "#/definitions/catalog-data-product-custom-option-interface"
-        }
-      },
-      "required": [
-        "option"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "optionId"
-  ]
-}
+
+```js
+t213_vg.catalogProductCustomOptionRepositoryV1SavePut({
+  "optionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/catalog-data-product-custom-option-interface"
-}
-```
-## Operation: catalogProductTypeListV1GetProductTypesGet
+
+#### Parameters
+* optionId (string) **required**
+* $body (object)
+
+### catalogProductTypeListV1GetProductTypesGet
 Retrieve available product types
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.catalogProductTypeListV1GetProductTypesGet(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/catalog-data-product-type-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: catalogInventoryStockRegistryV1UpdateStockItemBySkuPut
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "productSku": {
-      "type": "string"
-    },
-    "itemId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "stockItem": {
-          "$ref": "#/definitions/catalog-inventory-data-stock-item-interface"
-        }
-      },
-      "required": [
-        "stockItem"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "productSku",
-    "itemId"
-  ]
-}
-```
-### Output Schema
-```json
-{
-  "type": "integer"
-}
-```
-## Operation: catalogProductRepositoryV1DeleteByIdDelete
+### catalogInventoryStockRegistryV1UpdateStockItemBySkuPut
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku"
-  ]
-}
+
+```js
+t213_vg.catalogInventoryStockRegistryV1UpdateStockItemBySkuPut({
+  "productSku": "",
+  "itemId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Will returned True if deleted",
-  "type": "boolean"
-}
+
+#### Parameters
+* productSku (string) **required**
+* itemId (string) **required**
+* $body (object)
+
+### catalogProductRepositoryV1DeleteByIdDelete
+
+
+
+```js
+t213_vg.catalogProductRepositoryV1DeleteByIdDelete({
+  "sku": ""
+}, context)
 ```
-## Operation: catalogProductRepositoryV1GetGet
+
+#### Parameters
+* sku (string) **required**
+
+### catalogProductRepositoryV1GetGet
 Get info about product by product SKU
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "editMode": {
-      "type": "boolean"
-    },
-    "storeId": {
-      "type": "integer"
-    },
-    "forceReload": {
-      "type": "boolean"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku"
-  ]
-}
+
+```js
+t213_vg.catalogProductRepositoryV1GetGet({
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/catalog-data-product-interface"
-}
-```
-## Operation: catalogProductRepositoryV1SavePut
+
+#### Parameters
+* sku (string) **required**
+* editMode (boolean)
+* storeId (integer)
+* forceReload (boolean)
+
+### catalogProductRepositoryV1SavePut
 Create product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "product": {
-          "$ref": "#/definitions/catalog-data-product-interface"
-        },
-        "saveOptions": {
-          "type": "boolean"
-        }
-      },
-      "required": [
-        "product"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku"
-  ]
-}
+
+```js
+t213_vg.catalogProductRepositoryV1SavePut({
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/catalog-data-product-interface"
-}
-```
-## Operation: downloadableLinkRepositoryV1GetListGet
+
+#### Parameters
+* sku (string) **required**
+* $body (object)
+
+### downloadableLinkRepositoryV1GetListGet
 List of links with associated samples
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku"
-  ]
-}
+
+```js
+t213_vg.downloadableLinkRepositoryV1GetListGet({
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/downloadable-data-link-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: downloadableLinkRepositoryV1SavePost
+
+#### Parameters
+* sku (string) **required**
+
+### downloadableLinkRepositoryV1SavePost
 Update downloadable link of the given product (link type and its resources cannot be changed)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "isGlobalScopeContent": {
-          "type": "boolean"
-        },
-        "link": {
-          "$ref": "#/definitions/downloadable-data-link-interface"
-        }
-      },
-      "required": [
-        "link"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku"
-  ]
-}
+
+```js
+t213_vg.downloadableLinkRepositoryV1SavePost({
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "integer"
-}
-```
-## Operation: downloadableSampleRepositoryV1GetListGet
+
+#### Parameters
+* sku (string) **required**
+* $body (object)
+
+### downloadableSampleRepositoryV1GetListGet
 List of samples for downloadable product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku"
-  ]
-}
+
+```js
+t213_vg.downloadableSampleRepositoryV1GetListGet({
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/downloadable-data-sample-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: downloadableSampleRepositoryV1SavePost
+
+#### Parameters
+* sku (string) **required**
+
+### downloadableSampleRepositoryV1SavePost
 Update downloadable sample of the given product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "isGlobalScopeContent": {
-          "type": "boolean"
-        },
-        "sample": {
-          "$ref": "#/definitions/downloadable-data-sample-interface"
-        }
-      },
-      "required": [
-        "sample"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku"
-  ]
-}
+
+```js
+t213_vg.downloadableSampleRepositoryV1SavePost({
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "integer"
-}
-```
-## Operation: downloadableSampleRepositoryV1SavePut
+
+#### Parameters
+* sku (string) **required**
+* $body (object)
+
+### downloadableSampleRepositoryV1SavePut
 Update downloadable sample of the given product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "id": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "isGlobalScopeContent": {
-          "type": "boolean"
-        },
-        "sample": {
-          "$ref": "#/definitions/downloadable-data-sample-interface"
-        }
-      },
-      "required": [
-        "sample"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "id"
-  ]
-}
+
+```js
+t213_vg.downloadableSampleRepositoryV1SavePut({
+  "sku": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "integer"
-}
-```
-## Operation: downloadableLinkRepositoryV1SavePut
+
+#### Parameters
+* sku (string) **required**
+* id (string) **required**
+* $body (object)
+
+### downloadableLinkRepositoryV1SavePut
 Update downloadable link of the given product (link type and its resources cannot be changed)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "id": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "isGlobalScopeContent": {
-          "type": "boolean"
-        },
-        "link": {
-          "$ref": "#/definitions/downloadable-data-link-interface"
-        }
-      },
-      "required": [
-        "link"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "id"
-  ]
-}
+
+```js
+t213_vg.downloadableLinkRepositoryV1SavePut({
+  "sku": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "integer"
-}
-```
-## Operation: catalogProductTierPriceManagementV1GetListGet
+
+#### Parameters
+* sku (string) **required**
+* id (string) **required**
+* $body (object)
+
+### catalogProductTierPriceManagementV1GetListGet
 Get tier price of product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "customerGroupId": {
-      "type": "string",
-      "description": "'all' can be used to specify 'ALL GROUPS'"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "customerGroupId"
-  ]
-}
+
+```js
+t213_vg.catalogProductTierPriceManagementV1GetListGet({
+  "sku": "",
+  "customerGroupId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/catalog-data-product-tier-price-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: catalogProductTierPriceManagementV1RemoveDelete
+
+#### Parameters
+* sku (string) **required**
+* customerGroupId (string) **required** - 'all' can be used to specify 'ALL GROUPS'
+
+### catalogProductTierPriceManagementV1RemoveDelete
 Remove tier price from product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "customerGroupId": {
-      "type": "string",
-      "description": "'all' can be used to specify 'ALL GROUPS'"
-    },
-    "qty": {
-      "type": "number"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "customerGroupId",
-    "qty"
-  ]
-}
+
+```js
+t213_vg.catalogProductTierPriceManagementV1RemoveDelete({
+  "sku": "",
+  "customerGroupId": "",
+  "qty": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: catalogProductTierPriceManagementV1AddPost
+
+#### Parameters
+* sku (string) **required**
+* customerGroupId (string) **required** - 'all' can be used to specify 'ALL GROUPS'
+* qty (number) **required**
+
+### catalogProductTierPriceManagementV1AddPost
 Create tier price for product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "customerGroupId": {
-      "type": "string",
-      "description": "'all' can be used to specify 'ALL GROUPS'"
-    },
-    "price": {
-      "type": "number"
-    },
-    "qty": {
-      "type": "number"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "customerGroupId",
-    "price",
-    "qty"
-  ]
-}
+
+```js
+t213_vg.catalogProductTierPriceManagementV1AddPost({
+  "sku": "",
+  "customerGroupId": "",
+  "price": 0,
+  "qty": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: catalogProductLinkManagementV1SetProductLinksPost
+
+#### Parameters
+* sku (string) **required**
+* customerGroupId (string) **required** - 'all' can be used to specify 'ALL GROUPS'
+* price (number) **required**
+* qty (number) **required**
+
+### catalogProductLinkManagementV1SetProductLinksPost
 Assign a product link to another product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "items": {
-          "items": {
-            "$ref": "#/definitions/catalog-data-product-link-interface"
-          },
-          "type": "array"
-        }
-      },
-      "required": [
-        "items"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku"
-  ]
-}
+
+```js
+t213_vg.catalogProductLinkManagementV1SetProductLinksPost({
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: catalogProductLinkRepositoryV1SavePut
+
+#### Parameters
+* sku (string) **required**
+* $body (object)
+
+### catalogProductLinkRepositoryV1SavePut
 Save product link
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/catalog-data-product-link-interface"
-        }
-      },
-      "required": [
-        "entity"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku"
-  ]
-}
+
+```js
+t213_vg.catalogProductLinkRepositoryV1SavePut({
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: catalogProductLinkManagementV1GetLinkedItemsByTypeGet
+
+#### Parameters
+* sku (string) **required**
+* $body (object)
+
+### catalogProductLinkManagementV1GetLinkedItemsByTypeGet
 Provide the list of links for a specific product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "type": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "type"
-  ]
-}
+
+```js
+t213_vg.catalogProductLinkManagementV1GetLinkedItemsByTypeGet({
+  "sku": "",
+  "type": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/catalog-data-product-link-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: catalogProductLinkRepositoryV1DeleteByIdDelete
+
+#### Parameters
+* sku (string) **required**
+* type (string) **required**
+
+### catalogProductLinkRepositoryV1DeleteByIdDelete
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "type": {
-      "type": "string"
-    },
-    "linkedProductSku": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "type",
-    "linkedProductSku"
-  ]
-}
+
+```js
+t213_vg.catalogProductLinkRepositoryV1DeleteByIdDelete({
+  "sku": "",
+  "type": "",
+  "linkedProductSku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: catalogProductAttributeMediaGalleryManagementV1GetListGet
+
+#### Parameters
+* sku (string) **required**
+* type (string) **required**
+* linkedProductSku (string) **required**
+
+### catalogProductAttributeMediaGalleryManagementV1GetListGet
 Retrieve the list of gallery entries associated with given product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku"
-  ]
-}
+
+```js
+t213_vg.catalogProductAttributeMediaGalleryManagementV1GetListGet({
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/catalog-data-product-attribute-media-gallery-entry-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: catalogProductAttributeMediaGalleryManagementV1CreatePost
+
+#### Parameters
+* sku (string) **required**
+
+### catalogProductAttributeMediaGalleryManagementV1CreatePost
 Create new gallery entry
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "entry": {
-          "$ref": "#/definitions/catalog-data-product-attribute-media-gallery-entry-interface"
-        }
-      },
-      "required": [
-        "entry"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku"
-  ]
-}
+
+```js
+t213_vg.catalogProductAttributeMediaGalleryManagementV1CreatePost({
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "gallery entry ID",
-  "type": "integer"
-}
-```
-## Operation: catalogProductAttributeMediaGalleryManagementV1RemoveDelete
+
+#### Parameters
+* sku (string) **required**
+* $body (object)
+
+### catalogProductAttributeMediaGalleryManagementV1RemoveDelete
 Remove gallery entry
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "entryId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "entryId"
-  ]
-}
+
+```js
+t213_vg.catalogProductAttributeMediaGalleryManagementV1RemoveDelete({
+  "sku": "",
+  "entryId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: catalogProductAttributeMediaGalleryManagementV1GetGet
+
+#### Parameters
+* sku (string) **required**
+* entryId (integer) **required**
+
+### catalogProductAttributeMediaGalleryManagementV1GetGet
 Return information about gallery entry
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "entryId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "entryId"
-  ]
-}
+
+```js
+t213_vg.catalogProductAttributeMediaGalleryManagementV1GetGet({
+  "sku": "",
+  "entryId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/catalog-data-product-attribute-media-gallery-entry-interface"
-}
-```
-## Operation: catalogProductAttributeMediaGalleryManagementV1UpdatePut
+
+#### Parameters
+* sku (string) **required**
+* entryId (integer) **required**
+
+### catalogProductAttributeMediaGalleryManagementV1UpdatePut
 Update gallery entry
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "entryId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "entry": {
-          "$ref": "#/definitions/catalog-data-product-attribute-media-gallery-entry-interface"
-        }
-      },
-      "required": [
-        "entry"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "entryId"
-  ]
-}
+
+```js
+t213_vg.catalogProductAttributeMediaGalleryManagementV1UpdatePut({
+  "sku": "",
+  "entryId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: catalogProductCustomOptionRepositoryV1GetListGet
+
+#### Parameters
+* sku (string) **required**
+* entryId (string) **required**
+* $body (object)
+
+### catalogProductCustomOptionRepositoryV1GetListGet
 Get the list of custom options for a specific product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku"
-  ]
-}
+
+```js
+t213_vg.catalogProductCustomOptionRepositoryV1GetListGet({
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/catalog-data-product-custom-option-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: catalogProductCustomOptionRepositoryV1DeleteByIdentifierDelete
+
+#### Parameters
+* sku (string) **required**
+
+### catalogProductCustomOptionRepositoryV1DeleteByIdentifierDelete
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "optionId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "optionId"
-  ]
-}
+
+```js
+t213_vg.catalogProductCustomOptionRepositoryV1DeleteByIdentifierDelete({
+  "sku": "",
+  "optionId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: catalogProductCustomOptionRepositoryV1GetGet
+
+#### Parameters
+* sku (string) **required**
+* optionId (integer) **required**
+
+### catalogProductCustomOptionRepositoryV1GetGet
 Get custom option for a specific product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "optionId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "optionId"
-  ]
-}
+
+```js
+t213_vg.catalogProductCustomOptionRepositoryV1GetGet({
+  "sku": "",
+  "optionId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/catalog-data-product-custom-option-interface"
-}
-```
-## Operation: catalogProductWebsiteLinkRepositoryV1SavePost
+
+#### Parameters
+* sku (string) **required**
+* optionId (integer) **required**
+
+### catalogProductWebsiteLinkRepositoryV1SavePost
 Assign a product to the website
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "productWebsiteLink": {
-          "$ref": "#/definitions/catalog-data-product-website-link-interface"
-        }
-      },
-      "required": [
-        "productWebsiteLink"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku"
-  ]
-}
+
+```js
+t213_vg.catalogProductWebsiteLinkRepositoryV1SavePost({
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "will returned True if website successfully assigned to product",
-  "type": "boolean"
-}
-```
-## Operation: catalogProductWebsiteLinkRepositoryV1SavePut
+
+#### Parameters
+* sku (string) **required**
+* $body (object)
+
+### catalogProductWebsiteLinkRepositoryV1SavePut
 Assign a product to the website
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "productWebsiteLink": {
-          "$ref": "#/definitions/catalog-data-product-website-link-interface"
-        }
-      },
-      "required": [
-        "productWebsiteLink"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku"
-  ]
-}
+
+```js
+t213_vg.catalogProductWebsiteLinkRepositoryV1SavePut({
+  "sku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "will returned True if website successfully assigned to product",
-  "type": "boolean"
-}
-```
-## Operation: catalogProductWebsiteLinkRepositoryV1DeleteByIdDelete
+
+#### Parameters
+* sku (string) **required**
+* $body (object)
+
+### catalogProductWebsiteLinkRepositoryV1DeleteByIdDelete
 Remove the website assignment from the product by product sku
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "sku": {
-      "type": "string"
-    },
-    "websiteId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "sku",
-    "websiteId"
-  ]
-}
+
+```js
+t213_vg.catalogProductWebsiteLinkRepositoryV1DeleteByIdDelete({
+  "sku": "",
+  "websiteId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "will returned True if website successfully unassigned from product",
-  "type": "boolean"
-}
-```
-## Operation: rmaRmaManagementV1SearchGet
+
+#### Parameters
+* sku (string) **required**
+* websiteId (integer) **required**
+
+### rmaRmaManagementV1SearchGet
 Return list of rma data objects based on search criteria
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.rmaRmaManagementV1SearchGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/rma-data-rma-search-result-interface"
-}
-```
-## Operation: rmaRmaManagementV1SaveRmaPost
+
+
+### rmaRmaManagementV1SaveRmaPost
 Save RMA
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "rmaDataObject": {
-          "$ref": "#/definitions/rma-data-rma-interface"
-        }
-      },
-      "required": [
-        "rmaDataObject"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.rmaRmaManagementV1SaveRmaPost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/rma-data-rma-interface"
-}
-```
-## Operation: rmaRmaRepositoryV1DeleteDelete
+
+
+### rmaRmaRepositoryV1DeleteDelete
 Delete RMA
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "rmaDataObject": {
-          "$ref": "#/definitions/rma-data-rma-interface"
-        }
-      },
-      "required": [
-        "rmaDataObject"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.rmaRmaRepositoryV1DeleteDelete({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: rmaRmaRepositoryV1GetGet
+
+#### Parameters
+* id (string) **required**
+* $body (object)
+
+### rmaRmaRepositoryV1GetGet
 Return data object for specified RMA id
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.rmaRmaRepositoryV1GetGet({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/rma-data-rma-interface"
-}
-```
-## Operation: rmaRmaManagementV1SaveRmaPut
+
+#### Parameters
+* id (integer) **required**
+
+### rmaRmaManagementV1SaveRmaPut
 Save RMA
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "rmaDataObject": {
-          "$ref": "#/definitions/rma-data-rma-interface"
-        }
-      },
-      "required": [
-        "rmaDataObject"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.rmaRmaManagementV1SaveRmaPut({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/rma-data-rma-interface"
-}
-```
-## Operation: rmaCommentManagementV1CommentsListGet
+
+#### Parameters
+* id (string) **required**
+* $body (object)
+
+### rmaCommentManagementV1CommentsListGet
 Comments list
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.rmaCommentManagementV1CommentsListGet({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/rma-data-comment-search-result-interface"
-}
-```
-## Operation: rmaCommentManagementV1AddCommentPost
+
+#### Parameters
+* id (integer) **required**
+
+### rmaCommentManagementV1AddCommentPost
 Add comment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "data": {
-          "$ref": "#/definitions/rma-data-comment-interface"
-        }
-      },
-      "required": [
-        "data"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.rmaCommentManagementV1AddCommentPost({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: rmaTrackManagementV1GetShippingLabelPdfGet
+
+#### Parameters
+* id (string) **required**
+* $body (object)
+
+### rmaTrackManagementV1GetShippingLabelPdfGet
 Get shipping label int the PDF format
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.rmaTrackManagementV1GetShippingLabelPdfGet({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: rmaTrackManagementV1GetTracksGet
+
+#### Parameters
+* id (integer) **required**
+
+### rmaTrackManagementV1GetTracksGet
 Get track list
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.rmaTrackManagementV1GetTracksGet({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/rma-data-track-search-result-interface"
-}
-```
-## Operation: rmaTrackManagementV1AddTrackPost
+
+#### Parameters
+* id (integer) **required**
+
+### rmaTrackManagementV1AddTrackPost
 Add track
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "$body": {
-      "properties": {
-        "track": {
-          "$ref": "#/definitions/rma-data-track-interface"
-        }
-      },
-      "required": [
-        "track"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.rmaTrackManagementV1AddTrackPost({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: rmaTrackManagementV1RemoveTrackByIdDelete
+
+#### Parameters
+* id (integer) **required**
+* $body (object)
+
+### rmaTrackManagementV1RemoveTrackByIdDelete
 Remove track by id
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "trackId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "trackId"
-  ]
-}
+
+```js
+t213_vg.rmaTrackManagementV1RemoveTrackByIdDelete({
+  "id": 0,
+  "trackId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: rmaRmaAttributesManagementV1GetAllAttributesMetadataGet
+
+#### Parameters
+* id (integer) **required**
+* trackId (integer) **required**
+
+### rmaRmaAttributesManagementV1GetAllAttributesMetadataGet
 Get all attribute metadata.
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.rmaRmaAttributesManagementV1GetAllAttributesMetadataGet(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/customer-data-attribute-metadata-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: rmaRmaAttributesManagementV1GetCustomAttributesMetadataGet
+
+
+### rmaRmaAttributesManagementV1GetCustomAttributesMetadataGet
 Get custom attribute metadata for the given Data object's attribute set
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "dataObjectClassName": {
-      "type": "string",
-      "description": "Data object class name"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.rmaRmaAttributesManagementV1GetCustomAttributesMetadataGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/framework-metadata-object-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: rmaRmaAttributesManagementV1GetAttributesGet
+
+
+### rmaRmaAttributesManagementV1GetAttributesGet
 Retrieve all attributes filtered by form code
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "formCode": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "formCode"
-  ]
-}
+
+```js
+t213_vg.rmaRmaAttributesManagementV1GetAttributesGet({
+  "formCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/customer-data-attribute-metadata-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: rmaRmaAttributesManagementV1GetAttributeMetadataGet
+
+#### Parameters
+* formCode (string) **required**
+
+### rmaRmaAttributesManagementV1GetAttributeMetadataGet
 Retrieve attribute metadata.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "attributeCode": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "attributeCode"
-  ]
-}
+
+```js
+t213_vg.rmaRmaAttributesManagementV1GetAttributeMetadataGet({
+  "attributeCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/customer-data-attribute-metadata-interface"
-}
-```
-## Operation: rewardRewardManagementV1SetPost
+
+#### Parameters
+* attributeCode (string) **required**
+
+### rewardRewardManagementV1SetPost
 Set reward points to quote
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.rewardRewardManagementV1SetPost(null, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: salesRuleRuleRepositoryV1SavePost
+
+
+### salesRuleRuleRepositoryV1SavePost
 Save sales rule.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "rule": {
-          "$ref": "#/definitions/sales-rule-data-rule-interface"
-        }
-      },
-      "required": [
-        "rule"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.salesRuleRuleRepositoryV1SavePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-rule-data-rule-interface"
-}
-```
-## Operation: salesRuleRuleRepositoryV1GetListGet
+
+
+### salesRuleRuleRepositoryV1GetListGet
 Retrieve sales rules that match te specified criteria. This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#RuleRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.salesRuleRuleRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-rule-data-rule-search-result-interface"
-}
-```
-## Operation: salesRuleRuleRepositoryV1DeleteByIdDelete
+
+
+### salesRuleRuleRepositoryV1DeleteByIdDelete
 Delete rule by ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "ruleId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "ruleId"
-  ]
-}
+
+```js
+t213_vg.salesRuleRuleRepositoryV1DeleteByIdDelete({
+  "ruleId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "true on success",
-  "type": "boolean"
-}
-```
-## Operation: salesRuleRuleRepositoryV1GetByIdGet
+
+#### Parameters
+* ruleId (integer) **required**
+
+### salesRuleRuleRepositoryV1GetByIdGet
 Get rule by ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "ruleId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "ruleId"
-  ]
-}
+
+```js
+t213_vg.salesRuleRuleRepositoryV1GetByIdGet({
+  "ruleId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-rule-data-rule-interface"
-}
-```
-## Operation: salesRuleRuleRepositoryV1SavePut
+
+#### Parameters
+* ruleId (integer) **required**
+
+### salesRuleRuleRepositoryV1SavePut
 Save sales rule.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "ruleId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "rule": {
-          "$ref": "#/definitions/sales-rule-data-rule-interface"
-        }
-      },
-      "required": [
-        "rule"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "ruleId"
-  ]
-}
+
+```js
+t213_vg.salesRuleRuleRepositoryV1SavePut({
+  "ruleId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-rule-data-rule-interface"
-}
-```
-## Operation: searchV1SearchGet
+
+#### Parameters
+* ruleId (string) **required**
+* $body (object)
+
+### searchV1SearchGet
 Make Full Text Search and return found Documents
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[requestName]": {
-      "type": "string"
-    },
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.searchV1SearchGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/framework-search-search-result-interface"
-}
-```
-## Operation: salesShipmentRepositoryV1SavePost
+
+
+### salesShipmentRepositoryV1SavePost
 Performs persist operations for a specified shipment.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/sales-data-shipment-interface"
-        }
-      },
-      "required": [
-        "entity"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.salesShipmentRepositoryV1SavePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-shipment-interface"
-}
-```
-## Operation: salesShipmentTrackRepositoryV1SavePost
+
+
+### salesShipmentTrackRepositoryV1SavePost
 Performs persist operations for a specified shipment track.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/sales-data-shipment-track-interface"
-        }
-      },
-      "required": [
-        "entity"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.salesShipmentTrackRepositoryV1SavePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-shipment-track-interface"
-}
-```
-## Operation: salesShipmentTrackRepositoryV1DeleteByIdDelete
+
+
+### salesShipmentTrackRepositoryV1DeleteByIdDelete
 Deletes a specified shipment track by ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The shipment track ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesShipmentTrackRepositoryV1DeleteByIdDelete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: salesShipmentRepositoryV1GetGet
+
+#### Parameters
+* id (integer) **required** - The shipment track ID.
+
+### salesShipmentRepositoryV1GetGet
 Loads a specified shipment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The shipment ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesShipmentRepositoryV1GetGet({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-shipment-interface"
-}
-```
-## Operation: salesShipmentManagementV1GetCommentsListGet
+
+#### Parameters
+* id (integer) **required** - The shipment ID.
+
+### salesShipmentManagementV1GetCommentsListGet
 Lists comments for a specified shipment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The shipment ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesShipmentManagementV1GetCommentsListGet({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-shipment-comment-search-result-interface"
-}
-```
-## Operation: salesShipmentCommentRepositoryV1SavePost
+
+#### Parameters
+* id (integer) **required** - The shipment ID.
+
+### salesShipmentCommentRepositoryV1SavePost
 Performs persist operations for a specified shipment comment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "entity": {
-          "$ref": "#/definitions/sales-data-shipment-comment-interface"
-        }
-      },
-      "required": [
-        "entity"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesShipmentCommentRepositoryV1SavePost({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-shipment-comment-interface"
-}
-```
-## Operation: salesShipmentManagementV1NotifyPost
+
+#### Parameters
+* id (string) **required**
+* $body (object)
+
+### salesShipmentManagementV1NotifyPost
 Emails user a specified shipment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The shipment ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesShipmentManagementV1NotifyPost({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: salesShipmentManagementV1GetLabelGet
+
+#### Parameters
+* id (integer) **required** - The shipment ID.
+
+### salesShipmentManagementV1GetLabelGet
 Gets a specified shipment label.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The shipment label ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesShipmentManagementV1GetLabelGet({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Shipment label.",
-  "type": "string"
-}
-```
-## Operation: salesShipmentRepositoryV1GetListGet
+
+#### Parameters
+* id (integer) **required** - The shipment label ID.
+
+### salesShipmentRepositoryV1GetListGet
 Lists shipments that match specified search criteria. This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#ShipmentRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.salesShipmentRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-shipment-search-result-interface"
-}
-```
-## Operation: catalogInventoryStockRegistryV1GetLowStockItemsGet
+
+
+### catalogInventoryStockRegistryV1GetLowStockItemsGet
 Retrieves a list of SKU's with low inventory qty
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "scopeId": {
-      "type": "integer"
-    },
-    "qty": {
-      "type": "number"
-    },
-    "currentPage": {
-      "type": "integer"
-    },
-    "pageSize": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "scopeId",
-    "qty"
-  ]
-}
+
+```js
+t213_vg.catalogInventoryStockRegistryV1GetLowStockItemsGet({
+  "scopeId": 0,
+  "qty": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/catalog-inventory-data-stock-status-collection-interface"
-}
-```
-## Operation: catalogInventoryStockRegistryV1GetStockItemBySkuGet
+
+#### Parameters
+* scopeId (integer) **required**
+* qty (number) **required**
+* currentPage (integer)
+* pageSize (integer)
+
+### catalogInventoryStockRegistryV1GetStockItemBySkuGet
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "productSku": {
-      "type": "string"
-    },
-    "scopeId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "productSku"
-  ]
-}
+
+```js
+t213_vg.catalogInventoryStockRegistryV1GetStockItemBySkuGet({
+  "productSku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/catalog-inventory-data-stock-item-interface"
-}
-```
-## Operation: catalogInventoryStockRegistryV1GetStockStatusBySkuGet
+
+#### Parameters
+* productSku (string) **required**
+* scopeId (integer)
+
+### catalogInventoryStockRegistryV1GetStockStatusBySkuGet
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "productSku": {
-      "type": "string"
-    },
-    "scopeId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "productSku"
-  ]
-}
+
+```js
+t213_vg.catalogInventoryStockRegistryV1GetStockStatusBySkuGet({
+  "productSku": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/catalog-inventory-data-stock-status-interface"
-}
-```
-## Operation: storeStoreConfigManagerV1GetStoreConfigsGet
+
+#### Parameters
+* productSku (string) **required**
+* scopeId (integer)
+
+### storeStoreConfigManagerV1GetStoreConfigsGet
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "storeCodes": {
-      "type": "array"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.storeStoreConfigManagerV1GetStoreConfigsGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/store-data-store-config-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: storeGroupRepositoryV1GetListGet
+
+
+### storeGroupRepositoryV1GetListGet
 Retrieve list of all groups
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.storeGroupRepositoryV1GetListGet(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/store-data-group-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: storeStoreRepositoryV1GetListGet
+
+
+### storeStoreRepositoryV1GetListGet
 Retrieve list of all stores
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.storeStoreRepositoryV1GetListGet(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/store-data-store-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: storeWebsiteRepositoryV1GetListGet
+
+
+### storeWebsiteRepositoryV1GetListGet
 Retrieve list of all websites
 
-### Input Schema
-```json
-{}
+
+```js
+t213_vg.storeWebsiteRepositoryV1GetListGet(null, context)
 ```
-### Output Schema
-```json
-{
-  "items": {
-    "$ref": "#/definitions/store-data-website-interface"
-  },
-  "type": "array"
-}
-```
-## Operation: taxTaxClassRepositoryV1SavePost
+
+
+### taxTaxClassRepositoryV1SavePost
 Create a Tax Class
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "taxClass": {
-          "$ref": "#/definitions/tax-data-tax-class-interface"
-        }
-      },
-      "required": [
-        "taxClass"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.taxTaxClassRepositoryV1SavePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "id for the newly created Tax class",
-  "type": "string"
-}
-```
-## Operation: taxTaxClassRepositoryV1GetListGet
+
+
+### taxTaxClassRepositoryV1GetListGet
 Retrieve tax classes which match a specific criteria. This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#TaxClassRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.taxTaxClassRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/tax-data-tax-class-search-results-interface"
-}
-```
-## Operation: taxTaxClassRepositoryV1SavePut
+
+
+### taxTaxClassRepositoryV1SavePut
 Create a Tax Class
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "classId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "taxClass": {
-          "$ref": "#/definitions/tax-data-tax-class-interface"
-        }
-      },
-      "required": [
-        "taxClass"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "classId"
-  ]
-}
+
+```js
+t213_vg.taxTaxClassRepositoryV1SavePut({
+  "classId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "id for the newly created Tax class",
-  "type": "string"
-}
-```
-## Operation: taxTaxClassRepositoryV1DeleteByIdDelete
+
+#### Parameters
+* classId (string) **required**
+* $body (object)
+
+### taxTaxClassRepositoryV1DeleteByIdDelete
 Delete a tax class with the given tax class id.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "taxClassId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "taxClassId"
-  ]
-}
+
+```js
+t213_vg.taxTaxClassRepositoryV1DeleteByIdDelete({
+  "taxClassId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "True if the tax class was deleted, false otherwise",
-  "type": "boolean"
-}
-```
-## Operation: taxTaxClassRepositoryV1GetGet
+
+#### Parameters
+* taxClassId (integer) **required**
+
+### taxTaxClassRepositoryV1GetGet
 Get a tax class with the given tax class id.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "taxClassId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "taxClassId"
-  ]
-}
+
+```js
+t213_vg.taxTaxClassRepositoryV1GetGet({
+  "taxClassId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/tax-data-tax-class-interface"
-}
-```
-## Operation: taxTaxRateRepositoryV1SavePost
+
+#### Parameters
+* taxClassId (integer) **required**
+
+### taxTaxRateRepositoryV1SavePost
 Create or update tax rate
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "taxRate": {
-          "$ref": "#/definitions/tax-data-tax-rate-interface"
-        }
-      },
-      "required": [
-        "taxRate"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.taxTaxRateRepositoryV1SavePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/tax-data-tax-rate-interface"
-}
-```
-## Operation: taxTaxRateRepositoryV1SavePut
+
+
+### taxTaxRateRepositoryV1SavePut
 Create or update tax rate
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "taxRate": {
-          "$ref": "#/definitions/tax-data-tax-rate-interface"
-        }
-      },
-      "required": [
-        "taxRate"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.taxTaxRateRepositoryV1SavePut({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/tax-data-tax-rate-interface"
-}
-```
-## Operation: taxTaxRateRepositoryV1GetListGet
+
+
+### taxTaxRateRepositoryV1GetListGet
 Search TaxRates This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#TaxRateRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.taxTaxRateRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/tax-data-tax-rate-search-results-interface"
-}
-```
-## Operation: taxTaxRateRepositoryV1DeleteByIdDelete
+
+
+### taxTaxRateRepositoryV1DeleteByIdDelete
 Delete tax rate
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "rateId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "rateId"
-  ]
-}
+
+```js
+t213_vg.taxTaxRateRepositoryV1DeleteByIdDelete({
+  "rateId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: taxTaxRateRepositoryV1GetGet
+
+#### Parameters
+* rateId (integer) **required**
+
+### taxTaxRateRepositoryV1GetGet
 Get tax rate
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "rateId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "rateId"
-  ]
-}
+
+```js
+t213_vg.taxTaxRateRepositoryV1GetGet({
+  "rateId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/tax-data-tax-rate-interface"
-}
-```
-## Operation: taxTaxRuleRepositoryV1SavePost
+
+#### Parameters
+* rateId (integer) **required**
+
+### taxTaxRuleRepositoryV1SavePost
 Save TaxRule
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "rule": {
-          "$ref": "#/definitions/tax-data-tax-rule-interface"
-        }
-      },
-      "required": [
-        "rule"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.taxTaxRuleRepositoryV1SavePost({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/tax-data-tax-rule-interface"
-}
-```
-## Operation: taxTaxRuleRepositoryV1SavePut
+
+
+### taxTaxRuleRepositoryV1SavePut
 Save TaxRule
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "$body": {
-      "properties": {
-        "rule": {
-          "$ref": "#/definitions/tax-data-tax-rule-interface"
-        }
-      },
-      "required": [
-        "rule"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.taxTaxRuleRepositoryV1SavePut({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/tax-data-tax-rule-interface"
-}
-```
-## Operation: taxTaxRuleRepositoryV1GetListGet
+
+
+### taxTaxRuleRepositoryV1GetListGet
 Search TaxRules This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#TaxRuleRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.taxTaxRuleRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/tax-data-tax-rule-search-results-interface"
-}
-```
-## Operation: taxTaxRuleRepositoryV1DeleteByIdDelete
+
+
+### taxTaxRuleRepositoryV1DeleteByIdDelete
 Delete TaxRule
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "ruleId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "ruleId"
-  ]
-}
+
+```js
+t213_vg.taxTaxRuleRepositoryV1DeleteByIdDelete({
+  "ruleId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "boolean"
-}
-```
-## Operation: taxTaxRuleRepositoryV1GetGet
+
+#### Parameters
+* ruleId (integer) **required**
+
+### taxTaxRuleRepositoryV1GetGet
 Get TaxRule
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "ruleId": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "ruleId"
-  ]
-}
+
+```js
+t213_vg.taxTaxRuleRepositoryV1GetGet({
+  "ruleId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/tax-data-tax-rule-interface"
-}
-```
-## Operation: salesTransactionRepositoryV1GetListGet
+
+#### Parameters
+* ruleId (integer) **required**
+
+### salesTransactionRepositoryV1GetListGet
 Lists transactions that match specified search criteria. This call returns an array of objects, but detailed information about each object’s attributes might not be included. See http://devdocs.magento.com/codelinks/attributes.html#TransactionRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "searchCriteria[filterGroups][][filters][][field]": {
-      "type": "string",
-      "description": "Field"
-    },
-    "searchCriteria[filterGroups][][filters][][value]": {
-      "type": "string",
-      "description": "Value"
-    },
-    "searchCriteria[filterGroups][][filters][][conditionType]": {
-      "type": "string",
-      "description": "Condition type"
-    },
-    "searchCriteria[sortOrders][][field]": {
-      "type": "string",
-      "description": "Sorting field."
-    },
-    "searchCriteria[sortOrders][][direction]": {
-      "type": "string",
-      "description": "Sorting direction."
-    },
-    "searchCriteria[pageSize]": {
-      "type": "integer",
-      "description": "Page size."
-    },
-    "searchCriteria[currentPage]": {
-      "type": "integer",
-      "description": "Current page."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+t213_vg.salesTransactionRepositoryV1GetListGet({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-transaction-search-result-interface"
-}
-```
-## Operation: salesTransactionRepositoryV1GetGet
+
+
+### salesTransactionRepositoryV1GetGet
 Loads a specified transaction.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "The transaction ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+t213_vg.salesTransactionRepositoryV1GetGet({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/sales-data-transaction-interface"
-}
-```
-## Operation: worldpayGuestPaymentInformationManagementProxyV1SavePaymentInformationAndPlaceOrderPost
+
+#### Parameters
+* id (integer) **required** - The transaction ID.
+
+### worldpayGuestPaymentInformationManagementProxyV1SavePaymentInformationAndPlaceOrderPost
 Proxy handler for guest place order
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "cartId": {
-      "type": "string"
-    },
-    "$body": {
-      "properties": {
-        "billingAddress": {
-          "$ref": "#/definitions/quote-data-address-interface"
-        },
-        "email": {
-          "type": "string"
-        },
-        "paymentMethod": {
-          "$ref": "#/definitions/quote-data-payment-interface"
-        }
-      },
-      "required": [
-        "email",
-        "paymentMethod"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "cartId"
-  ]
-}
+
+```js
+t213_vg.worldpayGuestPaymentInformationManagementProxyV1SavePaymentInformationAndPlaceOrderPost({
+  "cartId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "description": "Order ID.",
-  "type": "integer"
-}
-```
+
+#### Parameters
+* cartId (string) **required**
+* $body (object)
+

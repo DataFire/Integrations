@@ -1,503 +1,243 @@
 # @datafire/rummblelabs
+
+Client library for Seldon
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/rummblelabs
+```
+
+```js
+let datafire = require('datafire');
+let rummblelabs = require('@datafire/rummblelabs').actions;
+let context = new datafire.Context();
+
+rummblelabs.getUsers({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Seldon is an Open Predictive Platform that currently allows item recommendations and general predictive models to be deployed based on structured historical data.
 
-## Operation: postAction
+## Actions
+### postAction
 post new action between a user and an item
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "oauth_token": {
-      "type": "string",
-      "description": "oauth token"
-    },
-    "body": {
-      "$ref": "#/definitions/Action"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rummblelabs.postAction({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getItems
+
+#### Parameters
+* oauth_token (string) - oauth token
+* body (undefined) **required**
+
+### getItems
 get items
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "oauth_token": {
-      "type": "string",
-      "description": "oauth token"
-    },
-    "full": {
-      "type": "boolean",
-      "description": "get all attributes for item"
-    },
-    "name": {
-      "type": "string",
-      "description": "keywords to match"
-    },
-    "dimension": {
-      "type": "integer",
-      "description": "limit items to a particular dimension"
-    },
-    "type": {
-      "type": "integer",
-      "description": "limit items to a particular type"
-    },
-    "limit": {
-      "type": "integer",
-      "description": "limit number of items returned"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rummblelabs.getItems({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postItem
+
+
+### postItem
 post new item
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "oauth_token": {
-      "type": "string",
-      "description": "oauth token"
-    },
-    "body": {
-      "$ref": "#/definitions/Item"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rummblelabs.postItem({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: putItem
+
+#### Parameters
+* oauth_token (string) - oauth token
+* body (undefined) **required**
+
+### putItem
 update item
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "oauth_token": {
-      "type": "string",
-      "description": "oauth token"
-    },
-    "body": {
-      "$ref": "#/definitions/Item"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rummblelabs.putItem({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getItemTypes
+
+#### Parameters
+* oauth_token (string) - oauth token
+* body (undefined) **required**
+
+### getItemTypes
 get item type
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "oauth_token": {
-      "type": "string",
-      "description": "oauth token"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rummblelabs.getItemTypes({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getItem
+
+
+### getItem
 get item
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "oauth_token": {
-      "type": "string",
-      "description": "oauth token"
-    },
-    "itemId": {
-      "type": "string",
-      "description": "the item id to get"
-    },
-    "full": {
-      "type": "boolean",
-      "description": "get all attributes for item"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "itemId"
-  ]
-}
+
+```js
+rummblelabs.getItem({
+  "itemId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addAction
+
+#### Parameters
+* oauth_token (string) - oauth token
+* itemId (string) **required** - the item id to get
+* full (boolean) - get all attributes for item
+
+### addAction
 Add a user interaction
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "consumer_key": {
-      "type": "string",
-      "description": "consumer key"
-    },
-    "user": {
-      "type": "string",
-      "description": "user id"
-    },
-    "item": {
-      "type": "string",
-      "description": "item id"
-    },
-    "type": {
-      "type": "string",
-      "description": "type"
-    },
-    "jsonpCallback": {
-      "type": "string",
-      "description": "JSONP callback"
-    },
-    "timestamp": {
-      "type": "integer",
-      "description": "time"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "consumer_key",
-    "user",
-    "item",
-    "type",
-    "jsonpCallback"
-  ]
-}
+
+```js
+rummblelabs.addAction({
+  "consumer_key": "",
+  "user": "",
+  "item": "",
+  "type": "",
+  "jsonpCallback": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getRecommendation
+
+#### Parameters
+* consumer_key (string) **required** - consumer key
+* user (string) **required** - user id
+* item (string) **required** - item id
+* type (string) **required** - type
+* jsonpCallback (string) **required** - JSONP callback
+* timestamp (integer) - time
+
+### getRecommendation
 Get recommendations for a user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "consumer_key": {
-      "type": "string",
-      "description": "consumer key"
-    },
-    "user": {
-      "type": "string",
-      "description": "user id"
-    },
-    "item": {
-      "type": "string",
-      "description": "currently viewed item id"
-    },
-    "limit": {
-      "type": "integer",
-      "description": "max number of recommendations to return"
-    },
-    "dimension": {
-      "type": "integer",
-      "description": "get recommendations for a particular item dimension (e.g., just sports articles)"
-    },
-    "attributes": {
-      "type": "string",
-      "format": "command separated list",
-      "description": "the fields to return"
-    },
-    "algorithms": {
-      "type": "string",
-      "description": "override default algorithms with specified algorithms"
-    },
-    "jsonpCallback": {
-      "type": "string",
-      "description": "JSONP callback"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "consumer_key",
-    "user",
-    "jsonpCallback"
-  ]
-}
+
+```js
+rummblelabs.getRecommendation({
+  "consumer_key": "",
+  "user": "",
+  "jsonpCallback": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getToken
+
+#### Parameters
+* consumer_key (string) **required** - consumer key
+* user (string) **required** - user id
+* item (string) - currently viewed item id
+* limit (integer) - max number of recommendations to return
+* dimension (integer) - get recommendations for a particular item dimension (e.g., just sports articles)
+* attributes (string) - the fields to return
+* algorithms (string) - override default algorithms with specified algorithms
+* jsonpCallback (string) **required** - JSONP callback
+
+### getToken
 get token
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "consumer_key": {
-      "type": "string",
-      "description": "consumer key"
-    },
-    "consumer_secret": {
-      "type": "string",
-      "description": "consumer secret"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "consumer_key",
-    "consumer_secret"
-  ]
-}
+
+```js
+rummblelabs.getToken({
+  "consumer_key": "",
+  "consumer_secret": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getUsers
+
+#### Parameters
+* consumer_key (string) **required** - consumer key
+* consumer_secret (string) **required** - consumer secret
+
+### getUsers
 get users
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "oauth_token": {
-      "type": "string",
-      "description": "oauth token"
-    },
-    "full": {
-      "type": "boolean",
-      "description": "get all attributes for user"
-    },
-    "name": {
-      "type": "string",
-      "description": "keywords to match"
-    },
-    "limit": {
-      "type": "integer",
-      "description": "limit number of users returned"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+rummblelabs.getUsers({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: postUser
+
+
+### postUser
 post new user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "oauth_token": {
-      "type": "string",
-      "description": "oauth token"
-    },
-    "body": {
-      "$ref": "#/definitions/User"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rummblelabs.postUser({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateUser
+
+#### Parameters
+* oauth_token (string) - oauth token
+* body (undefined) **required**
+
+### updateUser
 update user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "oauth_token": {
-      "type": "string",
-      "description": "oauth token"
-    },
-    "body": {
-      "$ref": "#/definitions/User"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+rummblelabs.updateUser({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getUser
+
+#### Parameters
+* oauth_token (string) - oauth token
+* body (undefined) **required**
+
+### getUser
 get a user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "oauth_token": {
-      "type": "string",
-      "description": "oauth token"
-    },
-    "userId": {
-      "type": "string",
-      "description": "the user id to get"
-    },
-    "full": {
-      "type": "boolean",
-      "description": "get all attributes for user"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "userId"
-  ]
-}
+
+```js
+rummblelabs.getUser({
+  "userId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getUserActions
+
+#### Parameters
+* oauth_token (string) - oauth token
+* userId (string) **required** - the user id to get
+* full (boolean) - get all attributes for user
+
+### getUserActions
 get a user's recent actions
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "oauth_token": {
-      "type": "string",
-      "description": "oauth token"
-    },
-    "userId": {
-      "type": "string",
-      "description": "the user id to get"
-    },
-    "full": {
-      "type": "boolean",
-      "description": "get all attributes for user"
-    },
-    "limit": {
-      "type": "integer",
-      "description": "limit number of actions returned"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "userId"
-  ]
-}
+
+```js
+rummblelabs.getUserActions({
+  "userId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getUserRecommendations
+
+#### Parameters
+* oauth_token (string) - oauth token
+* userId (string) **required** - the user id to get
+* full (boolean) - get all attributes for user
+* limit (integer) - limit number of actions returned
+
+### getUserRecommendations
 get recommendations for a user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "oauth_token": {
-      "type": "string",
-      "description": "oauth token"
-    },
-    "userId": {
-      "type": "string",
-      "description": "the user id to get"
-    },
-    "full": {
-      "type": "boolean",
-      "description": "get all attributes for user"
-    },
-    "limit": {
-      "type": "integer",
-      "description": "limit number of actions returned"
-    },
-    "dimension": {
-      "type": "integer",
-      "description": "get recommendations for a particular item dimension (e.g., just sports articles)"
-    },
-    "algorithms": {
-      "type": "string",
-      "description": "override default algorithms with specified algorithms"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "userId"
-  ]
-}
+
+```js
+rummblelabs.getUserRecommendations({
+  "userId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* oauth_token (string) - oauth token
+* userId (string) **required** - the user id to get
+* full (boolean) - get all attributes for user
+* limit (integer) - limit number of actions returned
+* dimension (integer) - get recommendations for a particular item dimension (e.g., just sports articles)
+* algorithms (string) - override default algorithms with specified algorithms
+

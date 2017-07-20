@@ -1,5062 +1,2739 @@
 # @datafire/facebook
+
+Client library for Facebook
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/facebook
+```
+
+```js
+let datafire = require('datafire');
+let facebook = require('@datafire/facebook').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    facebook: account,
+  }
+})
+
+
+facebook.video.picture.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Connect to the social network with the Graph API.
 
-## Operation: video.picture.get
+## Actions
+### video.picture.get
 The image which represents the content of the video
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "video": {
-      "type": "string",
-      "description": "Represents the ID of the video object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "video"
-  ]
-}
+
+```js
+facebook.video.picture.get({
+  "video": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: video.likes.delete
+
+#### Parameters
+* video (string) **required** - Represents the ID of the video object.
+
+### video.likes.delete
 Unlikes this video.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "video": {
-      "type": "string",
-      "description": "Represents the ID of the video object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "video"
-  ]
-}
+
+```js
+facebook.video.likes.delete({
+  "video": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: video.likes.post
+
+#### Parameters
+* video (string) **required** - Represents the ID of the video object.
+
+### video.likes.post
 Likes this video.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "video": {
-      "type": "string",
-      "description": "Represents the ID of the video object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "video"
-  ]
-}
+
+```js
+facebook.video.likes.post({
+  "video": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: video.likes.get
+
+#### Parameters
+* video (string) **required** - Represents the ID of the video object.
+
+### video.likes.get
 Users who like this video.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "video": {
-      "type": "string",
-      "description": "Represents the ID of the video object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "video"
-  ]
-}
+
+```js
+facebook.video.likes.get({
+  "video": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: video.comments.post
+
+#### Parameters
+* video (string) **required** - Represents the ID of the video object.
+
+### video.comments.post
 Posts a comment to this video.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string",
-      "description": "Comment text"
-    },
-    "video": {
-      "type": "string",
-      "description": "Represents the ID of the video object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "message",
-    "video"
-  ]
-}
+
+```js
+facebook.video.comments.post({
+  "message": "",
+  "video": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: video.comments.get
+
+#### Parameters
+* message (string) **required** - Comment text
+* video (string) **required** - Represents the ID of the video object.
+
+### video.comments.get
 All of the comments on this video.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "video": {
-      "type": "string",
-      "description": "Represents the ID of the video object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "video"
-  ]
-}
+
+```js
+facebook.video.comments.get({
+  "video": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: video.get
+
+#### Parameters
+* video (string) **required** - Represents the ID of the video object.
+
+### video.get
 An individual video
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "video": {
-      "type": "string",
-      "description": "Represents the ID of the video object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "video"
-  ]
-}
+
+```js
+facebook.video.get({
+  "video": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: notification.post
+
+#### Parameters
+* video (string) **required** - Represents the ID of the video object.
+
+### notification.post
 Marks the notification as read
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "unread": {
-      "type": "boolean"
-    },
-    "notification": {
-      "type": "string",
-      "description": "Represents the ID of the notification."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "unread",
-    "notification"
-  ]
-}
+
+```js
+facebook.notification.post({
+  "unread": true,
+  "notification": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.videos.post
+
+#### Parameters
+* unread (boolean) **required**
+* notification (string) **required** - Represents the ID of the notification.
+
+### user.videos.post
 Publishes a video on behalf of the user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "title": {
-      "type": "string",
-      "description": "Video title"
-    },
-    "description": {
-      "type": "string",
-      "description": "Video description"
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.videos.post({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.videos.get
+
+#### Parameters
+* title (string) - Video title
+* description (string) - Video description
+* user (string) **required** - Represents the ID of the user object.
+
+### user.videos.get
 The videos this user has been tagged in
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.videos.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.updates.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.updates.get
 The updates in this user's inbox.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.updates.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.television.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.television.get
 The television listed on the user's profile
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.television.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.tagged.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.tagged.get
 Posts the user is tagged in
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.tagged.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.statuses.post
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.statuses.post
 Posts a status message on the user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string",
-      "description": "Status Message content"
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "message",
-    "user"
-  ]
-}
+
+```js
+facebook.user.statuses.post({
+  "message": "",
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.statuses.get
+
+#### Parameters
+* message (string) **required** - Status Message content
+* user (string) **required** - Represents the ID of the user object.
+
+### user.statuses.get
 The user's status updates
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.statuses.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.scores.post
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.scores.post
 Posts a score for the user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "score": {
-      "type": "integer",
-      "description": "Numeric score with value < 0."
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "score",
-    "user"
-  ]
-}
+
+```js
+facebook.user.scores.post({
+  "score": 0,
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.scores.get
+
+#### Parameters
+* score (integer) **required** - Numeric score with value < 0.
+* user (string) **required** - Represents the ID of the user object.
+
+### user.scores.get
 The scores for the user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.scores.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.posts.post
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.posts.post
 Creates a post on behalf of the user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string",
-      "description": "Post message"
-    },
-    "link": {
-      "type": "string",
-      "description": "Post URL"
-    },
-    "picture": {
-      "type": "string",
-      "description": "Post thumbnail image"
-    },
-    "name": {
-      "type": "string",
-      "description": "Post name"
-    },
-    "caption": {
-      "type": "string",
-      "description": "Post caption"
-    },
-    "description": {
-      "type": "string",
-      "description": "Post description"
-    },
-    "actions": {
-      "type": "string",
-      "description": "Post actions"
-    },
-    "privacy": {
-      "type": "string",
-      "description": "Post privacy settings"
-    },
-    "object_attachment": {
-      "type": "string",
-      "description": "Facebook ID for an existing picture in the User's photo albums to use as the thumbnail image. The User must be the owner of the photo, and the photo cannot be part of a message attachment."
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "message",
-    "link",
-    "user"
-  ]
-}
+
+```js
+facebook.user.posts.post({
+  "message": "",
+  "link": "",
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.posts.get
+
+#### Parameters
+* message (string) **required** - Post message
+* link (string) **required** - Post URL
+* picture (string) - Post thumbnail image
+* name (string) - Post name
+* caption (string) - Post caption
+* description (string) - Post description
+* actions (string) - Post actions
+* privacy (string) - Post privacy settings
+* object_attachment (string) - Facebook ID for an existing picture in the User's photo albums to use as the thumbnail image. The User must be the owner of the photo, and the photo cannot be part of a message attachment.
+* user (string) **required** - Represents the ID of the user object.
+
+### user.posts.get
 The user's posts
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.posts.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.pokes.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.pokes.get
 The user's pokes
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.pokes.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.picture.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.picture.get
 The user's profile picture
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "type": {
-      "type": "string",
-      "description": "One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,\n                            variable height)",
-      "enum": [
-        "square",
-        "small",
-        "large"
-      ]
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.picture.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.photos.post
+
+#### Parameters
+* type (string) - One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,
+* user (string) **required** - Represents the ID of the user object.
+
+### user.photos.post
 Posts a photo to the user's Wall
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string",
-      "description": "Photo description"
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.photos.post({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.photos.get
+
+#### Parameters
+* message (string) - Photo description
+* user (string) **required** - Represents the ID of the user object.
+
+### user.photos.get
 The photos the user is tagged in
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.photos.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.permissions.delete
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.permissions.delete
 De-authorizes an application or revokes a specific extended permissions on behalf of a user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "permission": {
-      "type": "string",
-      "description": "The permission you wish to revoke. If you don't specify a permission then this will de-authorize the application completely."
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.permissions.delete({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.permissions.get
+
+#### Parameters
+* permission (string) - The permission you wish to revoke. If you don't specify a permission then this will de-authorize the application completely.
+* user (string) **required** - Represents the ID of the user object.
+
+### user.permissions.get
 The permissions that user has granted the application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.permissions.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.payments.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.payments.get
 The transactions the user placed with an application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.payments.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.outbox.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.outbox.get
 The messages in this user's outbox.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.outbox.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.notifications.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.notifications.get
 The user's notifications
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "include_read": {
-      "type": "boolean",
-      "description": "Enables you to see notifications that the user has already read in addition to the ones which are unread"
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.notifications.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.notes.post
+
+#### Parameters
+* include_read (boolean) - Enables you to see notifications that the user has already read in addition to the ones which are unread
+* user (string) **required** - Represents the ID of the user object.
+
+### user.notes.post
 Creates a note on behalf of the user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subject": {
-      "type": "string",
-      "description": "The subject of the Note"
-    },
-    "message": {
-      "type": "string",
-      "description": "Note content"
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subject",
-    "user"
-  ]
-}
+
+```js
+facebook.user.notes.post({
+  "subject": "",
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.notes.get
+
+#### Parameters
+* subject (string) **required** - The subject of the Note
+* message (string) - Note content
+* user (string) **required** - Represents the ID of the user object.
+
+### user.notes.get
 The user's notes
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.notes.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.music.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.music.get
 The music listed on the user's profile
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.music.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.movies.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.movies.get
 The movies listed on the user's profile
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.movies.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.links.post
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.links.post
 Posts a link on the user's profile page
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "link": {
-      "type": "string",
-      "description": "Link URL"
-    },
-    "message": {
-      "type": "string",
-      "description": "Link message"
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "link",
-    "user"
-  ]
-}
+
+```js
+facebook.user.links.post({
+  "link": "",
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.links.get
+
+#### Parameters
+* link (string) **required** - Link URL
+* message (string) - Link message
+* user (string) **required** - Represents the ID of the user object.
+
+### user.links.get
 The user's posted links.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.links.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.likes.page.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.likes.page.get
 Checks if the user likes the given page.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    },
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user",
-    "page"
-  ]
-}
+
+```js
+facebook.user.likes.page.get({
+  "user": "",
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.likes.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+* page (string) **required** - Represents the ID of the page.
+
+### user.likes.get
 All the pages this user has liked.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.likes.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.interests.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.interests.get
 The interests listed on the user's profile
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.interests.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.inbox.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.inbox.get
 The threads in this user's inbox.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.inbox.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.home.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.home.get
 The user's news feed
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.home.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.groups.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.groups.get
 The Groups that the user belongs to.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.groups.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.games.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.games.get
 Games the user has added to the Arts and Entertainment section of their profile.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.games.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.friends.friend.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.friends.friend.get
 Checks if the given user is a friend of the current user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    },
-    "friend": {
-      "type": "string",
-      "description": "Represents the ID of the user's friend."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user",
-    "friend"
-  ]
-}
+
+```js
+facebook.user.friends.friend.get({
+  "user": "",
+  "friend": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.friends.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+* friend (string) **required** - Represents the ID of the user's friend.
+
+### user.friends.get
 The user's friends
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.friends.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.friendlists.post
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.friendlists.post
 Creates a FriendList for the user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Friend list name"
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "user"
-  ]
-}
+
+```js
+facebook.user.friendlists.post({
+  "name": "",
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.feed.post
+
+#### Parameters
+* name (string) **required** - Friend list name
+* user (string) **required** - Represents the ID of the user object.
+
+### user.feed.post
 Posts a status message on this user's wall
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string",
-      "description": "Status Message content"
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "message",
-    "user"
-  ]
-}
+
+```js
+facebook.user.feed.post({
+  "message": "",
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.feed.get
+
+#### Parameters
+* message (string) **required** - Status Message content
+* user (string) **required** - Represents the ID of the user object.
+
+### user.feed.get
 This user's wall
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.feed.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.events.post
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.events.post
 Creates an event for the user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Event name"
-    },
-    "start_time": {
-      "type": "integer",
-      "description": "Event start time",
-      "maximum": 9223372036854776000,
-      "minimum": -9223372036854776000
-    },
-    "end_time": {
-      "type": "integer",
-      "description": "Event end time",
-      "maximum": 9223372036854776000,
-      "minimum": -9223372036854776000
-    },
-    "message": {
-      "type": "string",
-      "description": "Event description"
-    },
-    "location": {
-      "type": "string",
-      "description": "Event location"
-    },
-    "privacy_type": {
-      "type": "string",
-      "description": "Event privacy setting",
-      "enum": [
-        "OPEN",
-        "CLOSED",
-        "SECRET"
-      ]
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "start_time",
-    "user"
-  ]
-}
+
+```js
+facebook.user.events.post({
+  "name": "",
+  "start_time": 0,
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.events.get
+
+#### Parameters
+* name (string) **required** - Event name
+* start_time (integer) **required** - Event start time
+* end_time (integer) - Event end time
+* message (string) - Event description
+* location (string) - Event location
+* privacy_type (string) - Event privacy setting
+* user (string) **required** - Represents the ID of the user object.
+
+### user.events.get
 The events this user is attending.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.events.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.checkins.post
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.checkins.post
 Checks the user into a place
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "place": {
-      "type": "string",
-      "description": "Checkin Place ID; for example 110506962309835 for Facebook HQ"
-    },
-    "coordinates": {
-      "type": "string",
-      "description": "The user's location, as a string containing latitude and longitude: {\"latitude\":\"...\", \"longitude\": \"...\"}"
-    },
-    "tags": {
-      "type": "string",
-      "description": "Comma-separated list of tagged friends' user IDs"
-    },
-    "message": {
-      "type": "string",
-      "description": "Checkin description"
-    },
-    "link": {
-      "type": "string",
-      "description": "Checkin link"
-    },
-    "picture": {
-      "type": "string",
-      "description": "Checkin picture"
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "place",
-    "coordinates",
-    "user"
-  ]
-}
+
+```js
+facebook.user.checkins.post({
+  "place": "",
+  "coordinates": "",
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.checkins.get
+
+#### Parameters
+* place (string) **required** - Checkin Place ID; for example 110506962309835 for Facebook HQ
+* coordinates (string) **required** - The user's location, as a string containing latitude and longitude: {"latitude":"...", "longitude": "..."}
+* tags (string) - Comma-separated list of tagged friends' user IDs
+* message (string) - Checkin description
+* link (string) - Checkin link
+* picture (string) - Checkin picture
+* user (string) **required** - Represents the ID of the user object.
+
+### user.checkins.get
 The places that the user has checked-into
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.checkins.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.books.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.books.get
 The books listed on the user's profile.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.books.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.apprequests.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.apprequests.get
 The user's outstanding requests from an app.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.apprequests.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.albums.post
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.albums.post
 Creates an album for the user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Album name"
-    },
-    "message": {
-      "type": "string",
-      "description": "Album description"
-    },
-    "privacy": {
-      "type": "string",
-      "description": "Privacy settings for the Album. Format: A JSON-encoded object that defines the privacy setting for the album, for example: {\"value\":\"SELF\"}. Only the user can specify the privacy settings for the post."
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "user"
-  ]
-}
+
+```js
+facebook.user.albums.post({
+  "name": "",
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.albums.get
+
+#### Parameters
+* name (string) **required** - Album name
+* message (string) - Album description
+* privacy (string) - Privacy settings for the Album. Format: A JSON-encoded object that defines the privacy setting for the album, for example: {"value":"SELF"}. Only the user can specify the privacy settings for the post.
+* user (string) **required** - Represents the ID of the user object.
+
+### user.albums.get
 The photo albums this user has created
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.albums.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.activities.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.activities.get
 The activities listed on the user's profile
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.activities.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.achievements.delete
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.achievements.delete
 Deletes an achievement for the user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "achievement": {
-      "type": "string",
-      "description": "The unique URL of the achievement you wish to delete."
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "achievement",
-    "user"
-  ]
-}
+
+```js
+facebook.user.achievements.delete({
+  "achievement": "",
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.achievements.post
+
+#### Parameters
+* achievement (string) **required** - The unique URL of the achievement you wish to delete.
+* user (string) **required** - Represents the ID of the user object.
+
+### user.achievements.post
 Posts an achievement for the user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "achievement": {
-      "type": "string",
-      "description": "The unique URL of the achievement which the user achieved."
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "achievement",
-    "user"
-  ]
-}
+
+```js
+facebook.user.achievements.post({
+  "achievement": "",
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.accounts.get
+
+#### Parameters
+* achievement (string) **required** - The unique URL of the achievement which the user achieved.
+* user (string) **required** - Represents the ID of the user object.
+
+### user.accounts.get
 The Facebook apps and pages owned by the current user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.accounts.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.get
+
+#### Parameters
+* user (string) **required** - Represents the ID of the user object.
+
+### user.get
 A user profile.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "fields": {
-      "type": "string",
-      "description": "The fields to return"
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user"
-  ]
-}
+
+```js
+facebook.user.get({
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: status.likes.delete
+
+#### Parameters
+* fields (string) - The fields to return
+* user (string) **required** - Represents the ID of the user object.
+
+### status.likes.delete
 Unlikes this status.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "status": {
-      "type": "string",
-      "description": "Represents the ID of the status object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "status"
-  ]
-}
+
+```js
+facebook.status.likes.delete({
+  "status": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: status.likes.post
+
+#### Parameters
+* status (string) **required** - Represents the ID of the status object.
+
+### status.likes.post
 Likes this status.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "status": {
-      "type": "string",
-      "description": "Represents the ID of the status object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "status"
-  ]
-}
+
+```js
+facebook.status.likes.post({
+  "status": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: status.likes.get
+
+#### Parameters
+* status (string) **required** - Represents the ID of the status object.
+
+### status.likes.get
 Users who like this status.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "status": {
-      "type": "string",
-      "description": "Represents the ID of the status object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "status"
-  ]
-}
+
+```js
+facebook.status.likes.get({
+  "status": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: status.comments.post
+
+#### Parameters
+* status (string) **required** - Represents the ID of the status object.
+
+### status.comments.post
 Posts a comment to this status.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string",
-      "description": "Comment text"
-    },
-    "status": {
-      "type": "string",
-      "description": "Represents the ID of the status object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "message",
-    "status"
-  ]
-}
+
+```js
+facebook.status.comments.post({
+  "message": "",
+  "status": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: status.comments.get
+
+#### Parameters
+* message (string) **required** - Comment text
+* status (string) **required** - Represents the ID of the status object.
+
+### status.comments.get
 All of the comments on this status.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "status": {
-      "type": "string",
-      "description": "Represents the ID of the status object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "status"
-  ]
-}
+
+```js
+facebook.status.comments.get({
+  "status": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: status.get
+
+#### Parameters
+* status (string) **required** - Represents the ID of the status object.
+
+### status.get
 A Facebook status
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "status": {
-      "type": "string",
-      "description": "Represents the ID of the status object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "status"
-  ]
-}
+
+```js
+facebook.status.get({
+  "status": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: post.likes.delete
+
+#### Parameters
+* status (string) **required** - Represents the ID of the status object.
+
+### post.likes.delete
 Unlikes this post.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "post": {
-      "type": "string",
-      "description": "Represents the ID of the post object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "post"
-  ]
-}
+
+```js
+facebook.post.likes.delete({
+  "post": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: post.likes.post
+
+#### Parameters
+* post (string) **required** - Represents the ID of the post object.
+
+### post.likes.post
 Likes this post.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "post": {
-      "type": "string",
-      "description": "Represents the ID of the post object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "post"
-  ]
-}
+
+```js
+facebook.post.likes.post({
+  "post": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: post.likes.get
+
+#### Parameters
+* post (string) **required** - Represents the ID of the post object.
+
+### post.likes.get
 Users who like this post.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "post": {
-      "type": "string",
-      "description": "Represents the ID of the post object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "post"
-  ]
-}
+
+```js
+facebook.post.likes.get({
+  "post": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: post.comments.post
+
+#### Parameters
+* post (string) **required** - Represents the ID of the post object.
+
+### post.comments.post
 Posts a comment to this post.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string",
-      "description": "Comment text"
-    },
-    "post": {
-      "type": "string",
-      "description": "Represents the ID of the post object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "message",
-    "post"
-  ]
-}
+
+```js
+facebook.post.comments.post({
+  "message": "",
+  "post": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: post.comments.get
+
+#### Parameters
+* message (string) **required** - Comment text
+* post (string) **required** - Represents the ID of the post object.
+
+### post.comments.get
 All of the comments on this post.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "post": {
-      "type": "string",
-      "description": "Represents the ID of the post object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "post"
-  ]
-}
+
+```js
+facebook.post.comments.get({
+  "post": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: post.get
+
+#### Parameters
+* post (string) **required** - Represents the ID of the post object.
+
+### post.get
 A Facebook post
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "post": {
-      "type": "string",
-      "description": "Represents the ID of the post object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "post"
-  ]
-}
+
+```js
+facebook.post.get({
+  "post": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: photo.tags.user.post
+
+#### Parameters
+* post (string) **required** - Represents the ID of the post object.
+
+### photo.tags.user.post
 Updates the position of a tag on this photo for the user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "x": {
-      "type": "string",
-      "description": "x coordinate of tag, as a percentage offset from the left edge of the picture"
-    },
-    "y": {
-      "type": "string",
-      "description": "y coordinate of tag, as a percentage offset from the top edge of the picture"
-    },
-    "photo": {
-      "type": "string",
-      "description": "Represents the ID of the photo object."
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the user."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "photo",
-    "user"
-  ]
-}
+
+```js
+facebook.photo.tags.user.post({
+  "photo": "",
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: photo.tags.post
+
+#### Parameters
+* x (string) - x coordinate of tag, as a percentage offset from the left edge of the picture
+* y (string) - y coordinate of tag, as a percentage offset from the top edge of the picture
+* photo (string) **required** - Represents the ID of the photo object.
+* user (string) **required** - Represents the ID of the user.
+
+### photo.tags.post
 Creates a tag on this photo.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "to": {
-      "type": "string",
-      "description": "USER_ID of the User to tag; can also be provided in URL path"
-    },
-    "x": {
-      "type": "string",
-      "description": "x coordinate of tag, as a percentage offset from the left edge of the picture"
-    },
-    "y": {
-      "type": "string",
-      "description": "y coordinate of tag, as a percentage offset from the top edge of the picture"
-    },
-    "photo": {
-      "type": "string",
-      "description": "Represents the ID of the photo object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "to",
-    "photo"
-  ]
-}
+
+```js
+facebook.photo.tags.post({
+  "to": "",
+  "photo": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: photo.tags.get
+
+#### Parameters
+* to (string) **required** - USER_ID of the User to tag; can also be provided in URL path
+* x (string) - x coordinate of tag, as a percentage offset from the left edge of the picture
+* y (string) - y coordinate of tag, as a percentage offset from the top edge of the picture
+* photo (string) **required** - Represents the ID of the photo object.
+
+### photo.tags.get
 Tags for this photo.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "photo": {
-      "type": "string",
-      "description": "Represents the ID of the photo object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "photo"
-  ]
-}
+
+```js
+facebook.photo.tags.get({
+  "photo": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: photo.picture.get
+
+#### Parameters
+* photo (string) **required** - Represents the ID of the photo object.
+
+### photo.picture.get
 The album-sized view of the photo
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "photo": {
-      "type": "string",
-      "description": "Represents the ID of the photo object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "photo"
-  ]
-}
+
+```js
+facebook.photo.picture.get({
+  "photo": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: photo.likes.delete
+
+#### Parameters
+* photo (string) **required** - Represents the ID of the photo object.
+
+### photo.likes.delete
 Unlikes this photo.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "photo": {
-      "type": "string",
-      "description": "Represents the ID of the photo object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "photo"
-  ]
-}
+
+```js
+facebook.photo.likes.delete({
+  "photo": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: photo.likes.post
+
+#### Parameters
+* photo (string) **required** - Represents the ID of the photo object.
+
+### photo.likes.post
 Likes this photo.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "photo": {
-      "type": "string",
-      "description": "Represents the ID of the photo object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "photo"
-  ]
-}
+
+```js
+facebook.photo.likes.post({
+  "photo": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: photo.likes.get
+
+#### Parameters
+* photo (string) **required** - Represents the ID of the photo object.
+
+### photo.likes.get
 Users who like this photo.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "photo": {
-      "type": "string",
-      "description": "Represents the ID of the photo object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "photo"
-  ]
-}
+
+```js
+facebook.photo.likes.get({
+  "photo": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: photo.comments.post
+
+#### Parameters
+* photo (string) **required** - Represents the ID of the photo object.
+
+### photo.comments.post
 Posts a comment to this photo.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string",
-      "description": "Comment text"
-    },
-    "photo": {
-      "type": "string",
-      "description": "Represents the ID of the photo object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "message",
-    "photo"
-  ]
-}
+
+```js
+facebook.photo.comments.post({
+  "message": "",
+  "photo": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: photo.comments.get
+
+#### Parameters
+* message (string) **required** - Comment text
+* photo (string) **required** - Represents the ID of the photo object.
+
+### photo.comments.get
 All of the comments on this photo.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "photo": {
-      "type": "string",
-      "description": "Represents the ID of the photo object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "photo"
-  ]
-}
+
+```js
+facebook.photo.comments.get({
+  "photo": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: photo.get
+
+#### Parameters
+* photo (string) **required** - Represents the ID of the photo object.
+
+### photo.get
 An individual photo
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "photo": {
-      "type": "string",
-      "description": "Represents the ID of the photo object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "photo"
-  ]
-}
+
+```js
+facebook.photo.get({
+  "photo": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.blocked.user.get
+
+#### Parameters
+* photo (string) **required** - Represents the ID of the photo object.
+
+### page.blocked.user.get
 Checks if a user is blocked from the page
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of a user."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page",
-    "user"
-  ]
-}
+
+```js
+facebook.page.blocked.user.get({
+  "page": "",
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.blocked.delete
+
+#### Parameters
+* page (string) **required** - Represents the ID of the page object.
+* user (string) **required** - Represents the ID of a user.
+
+### page.blocked.delete
 Unblocks a user (or users) for the page
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "uids": {
-      "type": "string",
-      "description": "Comma-separated list of the user IDs you wish to unblock"
-    },
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "uids",
-    "page"
-  ]
-}
+
+```js
+facebook.page.blocked.delete({
+  "uids": "",
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.blocked.post
+
+#### Parameters
+* uids (string) **required** - Comma-separated list of the user IDs you wish to unblock
+* page (string) **required** - Represents the ID of the page object.
+
+### page.blocked.post
 Blocks a user (or users) from posting content to the page
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "uids": {
-      "type": "string",
-      "description": "Comma-separated list of the user IDs you wish to block"
-    },
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "uids",
-    "page"
-  ]
-}
+
+```js
+facebook.page.blocked.post({
+  "uids": "",
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.blocked.get
+
+#### Parameters
+* uids (string) **required** - Comma-separated list of the user IDs you wish to block
+* page (string) **required** - Represents the ID of the page object.
+
+### page.blocked.get
 A list of the users blocked from the page.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page"
-  ]
-}
+
+```js
+facebook.page.blocked.get({
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.admins.get
+
+#### Parameters
+* page (string) **required** - Represents the ID of the page object.
+
+### page.admins.get
 A list of the Page's admins.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page"
-  ]
-}
+
+```js
+facebook.page.admins.get({
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.tabs.tab.delete
+
+#### Parameters
+* page (string) **required** - Represents the ID of the page object.
+
+### page.tabs.tab.delete
 Deletes an installed profile tab (where is_permanent is not true) for a page
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    },
-    "tab": {
-      "type": "string",
-      "description": "Represents the ID of the tab."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page",
-    "tab"
-  ]
-}
+
+```js
+facebook.page.tabs.tab.delete({
+  "page": "",
+  "tab": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.tabs.tab.post
+
+#### Parameters
+* page (string) **required** - Represents the ID of the page object.
+* tab (string) **required** - Represents the ID of the tab.
+
+### page.tabs.tab.post
 Updates an installed profile tab for a page
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "position": {
-      "type": "integer",
-      "description": "Order in which the tab will appear on the profile. Must be after permanent tabs and less than the number of installed tabs. Index starts at 0"
-    },
-    "custom_name": {
-      "type": "string",
-      "description": "Name to be used for the tab. If this is set to an empty string, the tab will use the application’s default tab name."
-    },
-    "is_non_connection_landing_tab": {
-      "type": "boolean",
-      "description": "Set this tab as the default landing tab for users who have not liked and are not admins of the Page. If provided, value must be true."
-    },
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    },
-    "tab": {
-      "type": "string",
-      "description": "Represents the ID of the tab."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page",
-    "tab"
-  ]
-}
+
+```js
+facebook.page.tabs.tab.post({
+  "page": "",
+  "tab": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.tabs.post
+
+#### Parameters
+* position (integer) - Order in which the tab will appear on the profile. Must be after permanent tabs and less than the number of installed tabs. Index starts at 0
+* custom_name (string) - Name to be used for the tab. If this is set to an empty string, the tab will use the application’s default tab name.
+* is_non_connection_landing_tab (boolean) - Set this tab as the default landing tab for users who have not liked and are not admins of the Page. If provided, value must be true.
+* page (string) **required** - Represents the ID of the page object.
+* tab (string) **required** - Represents the ID of the tab.
+
+### page.tabs.post
 Installs a profile tab at the end of the current list of installed tabs for the page
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "app_id": {
-      "type": "string",
-      "description": "ID of the application for which to install the tab"
-    },
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "app_id",
-    "page"
-  ]
-}
+
+```js
+facebook.page.tabs.post({
+  "app_id": "",
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.tabs.get
+
+#### Parameters
+* app_id (string) **required** - ID of the application for which to install the tab
+* page (string) **required** - Represents the ID of the page object.
+
+### page.tabs.get
 The page's profile tabs
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page"
-  ]
-}
+
+```js
+facebook.page.tabs.get({
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.checkins.get
+
+#### Parameters
+* page (string) **required** - Represents the ID of the page object.
+
+### page.checkins.get
 Checkins made to this Place Page by the current user, and friends of the current user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page"
-  ]
-}
+
+```js
+facebook.page.checkins.get({
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.events.post
+
+#### Parameters
+* page (string) **required** - Represents the ID of the page object.
+
+### page.events.post
 Creates an event for the page
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Event name"
-    },
-    "start_time": {
-      "type": "integer",
-      "description": "Event start time",
-      "maximum": 9223372036854776000,
-      "minimum": -9223372036854776000
-    },
-    "end_time": {
-      "type": "integer",
-      "description": "Event end time",
-      "maximum": 9223372036854776000,
-      "minimum": -9223372036854776000
-    },
-    "message": {
-      "type": "string",
-      "description": "Event description"
-    },
-    "location": {
-      "type": "string",
-      "description": "Event location"
-    },
-    "privacy_type": {
-      "type": "string",
-      "description": "Event privacy setting",
-      "enum": [
-        "OPEN",
-        "CLOSED",
-        "SECRET"
-      ]
-    },
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name",
-    "start_time",
-    "page"
-  ]
-}
+
+```js
+facebook.page.events.post({
+  "name": "",
+  "start_time": 0,
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.events.get
+
+#### Parameters
+* name (string) **required** - Event name
+* start_time (integer) **required** - Event start time
+* end_time (integer) - Event end time
+* message (string) - Event description
+* location (string) - Event location
+* privacy_type (string) - Event privacy setting
+* page (string) **required** - Represents the ID of the page object.
+
+### page.events.get
 The events the Page is attending
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page"
-  ]
-}
+
+```js
+facebook.page.events.get({
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.posts.get
+
+#### Parameters
+* page (string) **required** - Represents the ID of the page object.
+
+### page.posts.get
 The page's own posts
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page"
-  ]
-}
+
+```js
+facebook.page.posts.get({
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.notes.post
+
+#### Parameters
+* page (string) **required** - Represents the ID of the page object.
+
+### page.notes.post
 Creates a note on the page
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subject": {
-      "type": "string",
-      "description": "The subject of the Note"
-    },
-    "message": {
-      "type": "string",
-      "description": "Note content"
-    },
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subject",
-    "page"
-  ]
-}
+
+```js
+facebook.page.notes.post({
+  "subject": "",
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.notes.get
+
+#### Parameters
+* subject (string) **required** - The subject of the Note
+* message (string) - Note content
+* page (string) **required** - Represents the ID of the page object.
+
+### page.notes.get
 The notes contained on this page
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page"
-  ]
-}
+
+```js
+facebook.page.notes.get({
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.videos.post
+
+#### Parameters
+* page (string) **required** - Represents the ID of the page object.
+
+### page.videos.post
 Publishes a video to the page
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "title": {
-      "type": "string",
-      "description": "Video title"
-    },
-    "description": {
-      "type": "string",
-      "description": "Video description"
-    },
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page"
-  ]
-}
+
+```js
+facebook.page.videos.post({
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.videos.get
+
+#### Parameters
+* title (string) - Video title
+* description (string) - Video description
+* page (string) **required** - Represents the ID of the page object.
+
+### page.videos.get
 The videos contained on this page
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page"
-  ]
-}
+
+```js
+facebook.page.videos.get({
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.statuses.post
+
+#### Parameters
+* page (string) **required** - Represents the ID of the page object.
+
+### page.statuses.post
 Posts a status message on the page
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string",
-      "description": "Status Message content"
-    },
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "message",
-    "page"
-  ]
-}
+
+```js
+facebook.page.statuses.post({
+  "message": "",
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.statuses.get
+
+#### Parameters
+* message (string) **required** - Status Message content
+* page (string) **required** - Represents the ID of the page object.
+
+### page.statuses.get
 The page's status updates
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page"
-  ]
-}
+
+```js
+facebook.page.statuses.get({
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.albums.get
+
+#### Parameters
+* page (string) **required** - Represents the ID of the page object.
+
+### page.albums.get
 The photo albums this Page has uploaded
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page"
-  ]
-}
+
+```js
+facebook.page.albums.get({
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.groups.get
+
+#### Parameters
+* page (string) **required** - Represents the ID of the page object.
+
+### page.groups.get
 The groups this page is a member of
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page"
-  ]
-}
+
+```js
+facebook.page.groups.get({
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.photos.post
+
+#### Parameters
+* page (string) **required** - Represents the ID of the page object.
+
+### page.photos.post
 Adds a photo to the page
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string",
-      "description": "Photo description"
-    },
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page"
-  ]
-}
+
+```js
+facebook.page.photos.post({
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.photos.get
+
+#### Parameters
+* message (string) - Photo description
+* page (string) **required** - Represents the ID of the page object.
+
+### page.photos.get
 The photos contained on this page
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page"
-  ]
-}
+
+```js
+facebook.page.photos.get({
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.links.post
+
+#### Parameters
+* page (string) **required** - Represents the ID of the page object.
+
+### page.links.post
 Posts a link on the page
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "link": {
-      "type": "string",
-      "description": "Link URL"
-    },
-    "message": {
-      "type": "string",
-      "description": "Link message"
-    },
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "link",
-    "page"
-  ]
-}
+
+```js
+facebook.page.links.post({
+  "link": "",
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.links.get
+
+#### Parameters
+* link (string) **required** - Link URL
+* message (string) - Link message
+* page (string) **required** - Represents the ID of the page object.
+
+### page.links.get
 The page's posted links
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page"
-  ]
-}
+
+```js
+facebook.page.links.get({
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.tagged.get
+
+#### Parameters
+* page (string) **required** - Represents the ID of the page object.
+
+### page.tagged.get
 The photos, videos, and posts in which this page has been tagged
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page"
-  ]
-}
+
+```js
+facebook.page.tagged.get({
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.settings.post
+
+#### Parameters
+* page (string) **required** - Represents the ID of the page object.
+
+### page.settings.post
 The page's post permission settings
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "setting": {
-      "type": "string",
-      "description": "Which single setting to update: USERS_CAN_POST, USERS_CAN_POST_PHOTOS, USERS_CAN_TAG_PHOTOS, USERS_CAN_POST_VIDEOS",
-      "enum": [
-        "USERS_CAN_POST",
-        "USERS_CAN_POST_PHOTOS",
-        "USERS_CAN_TAG_PHOTOS",
-        "USERS_CAN_POST_VIDEOS"
-      ]
-    },
-    "value": {
-      "type": "boolean"
-    },
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "setting",
-    "value",
-    "page"
-  ]
-}
+
+```js
+facebook.page.settings.post({
+  "setting": "",
+  "value": true,
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.settings.get
+
+#### Parameters
+* setting (string) **required** - Which single setting to update: USERS_CAN_POST, USERS_CAN_POST_PHOTOS, USERS_CAN_TAG_PHOTOS, USERS_CAN_POST_VIDEOS
+* value (boolean) **required**
+* page (string) **required** - Represents the ID of the page object.
+
+### page.settings.get
 The page's post permission settings
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page"
-  ]
-}
+
+```js
+facebook.page.settings.get({
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.picture.get
+
+#### Parameters
+* page (string) **required** - Represents the ID of the page object.
+
+### page.picture.get
 The page's profile picture
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "type": {
-      "type": "string",
-      "description": "One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,\n                            variable height)",
-      "enum": [
-        "square",
-        "small",
-        "large"
-      ]
-    },
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page"
-  ]
-}
+
+```js
+facebook.page.picture.get({
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.feed.post
+
+#### Parameters
+* type (string) - One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,
+* page (string) **required** - Represents the ID of the page object.
+
+### page.feed.post
 Posts a status message on this page's wall
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string",
-      "description": "Status Message content"
-    },
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "message",
-    "page"
-  ]
-}
+
+```js
+facebook.page.feed.post({
+  "message": "",
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.feed.get
+
+#### Parameters
+* message (string) **required** - Status Message content
+* page (string) **required** - Represents the ID of the page object.
+
+### page.feed.get
 This page's wall
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page"
-  ]
-}
+
+```js
+facebook.page.feed.get({
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: page.get
+
+#### Parameters
+* page (string) **required** - Represents the ID of the page object.
+
+### page.get
 Returns a Page
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "page": {
-      "type": "string",
-      "description": "Represents the ID of the page object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "page"
-  ]
-}
+
+```js
+facebook.page.get({
+  "page": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: note.likes.delete
+
+#### Parameters
+* page (string) **required** - Represents the ID of the page object.
+
+### note.likes.delete
 Unlikes this note.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "note": {
-      "type": "string",
-      "description": "Represents the ID of the note object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "note"
-  ]
-}
+
+```js
+facebook.note.likes.delete({
+  "note": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: note.likes.post
+
+#### Parameters
+* note (string) **required** - Represents the ID of the note object.
+
+### note.likes.post
 Likes this note.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "note": {
-      "type": "string",
-      "description": "Represents the ID of the note object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "note"
-  ]
-}
+
+```js
+facebook.note.likes.post({
+  "note": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: note.likes.get
+
+#### Parameters
+* note (string) **required** - Represents the ID of the note object.
+
+### note.likes.get
 Users who like this note.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "note": {
-      "type": "string",
-      "description": "Represents the ID of the note object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "note"
-  ]
-}
+
+```js
+facebook.note.likes.get({
+  "note": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: note.comments.post
+
+#### Parameters
+* note (string) **required** - Represents the ID of the note object.
+
+### note.comments.post
 Posts a comment to this note.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string",
-      "description": "Comment text"
-    },
-    "note": {
-      "type": "string",
-      "description": "Represents the ID of the note object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "message",
-    "note"
-  ]
-}
+
+```js
+facebook.note.comments.post({
+  "message": "",
+  "note": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: note.comments.get
+
+#### Parameters
+* message (string) **required** - Comment text
+* note (string) **required** - Represents the ID of the note object.
+
+### note.comments.get
 All of the comments on this note.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "note": {
-      "type": "string",
-      "description": "Represents the ID of the note object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "note"
-  ]
-}
+
+```js
+facebook.note.comments.get({
+  "note": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: note.get
+
+#### Parameters
+* note (string) **required** - Represents the ID of the note object.
+
+### note.get
 A Facebook note
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "note": {
-      "type": "string",
-      "description": "Represents the ID of the note object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "note"
-  ]
-}
+
+```js
+facebook.note.get({
+  "note": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: link.likes.delete
+
+#### Parameters
+* note (string) **required** - Represents the ID of the note object.
+
+### link.likes.delete
 Unlikes this link.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "link": {
-      "type": "string",
-      "description": "Represents the ID of the link object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "link"
-  ]
-}
+
+```js
+facebook.link.likes.delete({
+  "link": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: link.likes.post
+
+#### Parameters
+* link (string) **required** - Represents the ID of the link object.
+
+### link.likes.post
 Likes this link.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "link": {
-      "type": "string",
-      "description": "Represents the ID of the link object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "link"
-  ]
-}
+
+```js
+facebook.link.likes.post({
+  "link": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: link.likes.get
+
+#### Parameters
+* link (string) **required** - Represents the ID of the link object.
+
+### link.likes.get
 Users who like this link.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "link": {
-      "type": "string",
-      "description": "Represents the ID of the link object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "link"
-  ]
-}
+
+```js
+facebook.link.likes.get({
+  "link": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: link.comments.post
+
+#### Parameters
+* link (string) **required** - Represents the ID of the link object.
+
+### link.comments.post
 Posts a comment to this link.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string",
-      "description": "Comment text"
-    },
-    "link": {
-      "type": "string",
-      "description": "Represents the ID of the link object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "message",
-    "link"
-  ]
-}
+
+```js
+facebook.link.comments.post({
+  "message": "",
+  "link": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: link.comments.get
+
+#### Parameters
+* message (string) **required** - Comment text
+* link (string) **required** - Represents the ID of the link object.
+
+### link.comments.get
 All of the comments on this link.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "link": {
-      "type": "string",
-      "description": "Represents the ID of the link object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "link"
-  ]
-}
+
+```js
+facebook.link.comments.get({
+  "link": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: link.get
+
+#### Parameters
+* link (string) **required** - Represents the ID of the link object.
+
+### link.get
 A link shared on a user's wall
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "link": {
-      "type": "string",
-      "description": "Represents the ID of the link object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "link"
-  ]
-}
+
+```js
+facebook.link.get({
+  "link": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: group.docs.get
+
+#### Parameters
+* link (string) **required** - Represents the ID of the link object.
+
+### group.docs.get
 The docs in this group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "group": {
-      "type": "string",
-      "description": "Represents the ID of the group object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "group"
-  ]
-}
+
+```js
+facebook.group.docs.get({
+  "group": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: group.picture.get
+
+#### Parameters
+* group (string) **required** - Represents the ID of the group object.
+
+### group.picture.get
 The profile picture of this group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "type": {
-      "type": "string",
-      "description": "One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,\n                            variable height)",
-      "enum": [
-        "square",
-        "small",
-        "large"
-      ]
-    },
-    "group": {
-      "type": "string",
-      "description": "Represents the ID of the group object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "group"
-  ]
-}
+
+```js
+facebook.group.picture.get({
+  "group": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: group.members.get
+
+#### Parameters
+* type (string) - One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,
+* group (string) **required** - Represents the ID of the group object.
+
+### group.members.get
 All of the users who are members of this group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "group": {
-      "type": "string",
-      "description": "Represents the ID of the group object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "group"
-  ]
-}
+
+```js
+facebook.group.members.get({
+  "group": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: group.feed.post
+
+#### Parameters
+* group (string) **required** - Represents the ID of the group object.
+
+### group.feed.post
 Posts a status message on this group's wall
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string",
-      "description": "Status Message content"
-    },
-    "group": {
-      "type": "string",
-      "description": "Represents the ID of the group object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "message",
-    "group"
-  ]
-}
+
+```js
+facebook.group.feed.post({
+  "message": "",
+  "group": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: group.feed.get
+
+#### Parameters
+* message (string) **required** - Status Message content
+* group (string) **required** - Represents the ID of the group object.
+
+### group.feed.get
 This group's wall
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "group": {
-      "type": "string",
-      "description": "Represents the ID of the group object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "group"
-  ]
-}
+
+```js
+facebook.group.feed.get({
+  "group": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: group.get
+
+#### Parameters
+* group (string) **required** - Represents the ID of the group object.
+
+### group.get
 A Facebook group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "group": {
-      "type": "string",
-      "description": "Represents the ID of the group object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "group"
-  ]
-}
+
+```js
+facebook.group.get({
+  "group": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: friendlist.members.user.delete
+
+#### Parameters
+* group (string) **required** - Represents the ID of the group object.
+
+### friendlist.members.user.delete
 Removes a user from the friend list
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "friendlist": {
-      "type": "string",
-      "description": "Represents the ID of the FriendList object."
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the User to add to or remove from the friend list."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "friendlist",
-    "user"
-  ]
-}
+
+```js
+facebook.friendlist.members.user.delete({
+  "friendlist": "",
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: friendlist.members.user.post
+
+#### Parameters
+* friendlist (string) **required** - Represents the ID of the FriendList object.
+* user (string) **required** - Represents the ID of the User to add to or remove from the friend list.
+
+### friendlist.members.user.post
 Adds a user to the friend list
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "friendlist": {
-      "type": "string",
-      "description": "Represents the ID of the FriendList object."
-    },
-    "user": {
-      "type": "string",
-      "description": "Represents the ID of the User to add to or remove from the friend list."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "friendlist",
-    "user"
-  ]
-}
+
+```js
+facebook.friendlist.members.user.post({
+  "friendlist": "",
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: friendlist.members.get
+
+#### Parameters
+* friendlist (string) **required** - Represents the ID of the FriendList object.
+* user (string) **required** - Represents the ID of the User to add to or remove from the friend list.
+
+### friendlist.members.get
 All of the users who are members of this list.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "friendlist": {
-      "type": "string",
-      "description": "Represents the ID of the FriendList object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "friendlist"
-  ]
-}
+
+```js
+facebook.friendlist.members.get({
+  "friendlist": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: friendlist.delete
+
+#### Parameters
+* friendlist (string) **required** - Represents the ID of the FriendList object.
+
+### friendlist.delete
 Deletes the FriendList.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "friendlist": {
-      "type": "string",
-      "description": "Represents the ID of the FriendList object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "friendlist"
-  ]
-}
+
+```js
+facebook.friendlist.delete({
+  "friendlist": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: friendlist.get
+
+#### Parameters
+* friendlist (string) **required** - Represents the ID of the FriendList object.
+
+### friendlist.get
 A Facebook friend list. This object represents the list itself and not the members of the list.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "friendlist": {
-      "type": "string",
-      "description": "Represents the ID of the FriendList object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "friendlist"
-  ]
-}
+
+```js
+facebook.friendlist.get({
+  "friendlist": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: event.picture.get
+
+#### Parameters
+* friendlist (string) **required** - Represents the ID of the FriendList object.
+
+### event.picture.get
 The event's profile picture
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "type": {
-      "type": "string",
-      "description": "One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,\n                            variable height)",
-      "enum": [
-        "square",
-        "small",
-        "large"
-      ]
-    },
-    "event": {
-      "type": "string",
-      "description": "Represents the ID of the event object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "event"
-  ]
-}
+
+```js
+facebook.event.picture.get({
+  "event": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: event.declined.post
+
+#### Parameters
+* type (string) - One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,
+* event (string) **required** - Represents the ID of the event object.
+
+### event.declined.post
 RSVPs the user as 'declined' for the event
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "event": {
-      "type": "string",
-      "description": "Represents the ID of the event object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "event"
-  ]
-}
+
+```js
+facebook.event.declined.post({
+  "event": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: event.declined.get
+
+#### Parameters
+* event (string) **required** - Represents the ID of the event object.
+
+### event.declined.get
 All of the users who declined their invitation to this event
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "event": {
-      "type": "string",
-      "description": "Represents the ID of the event object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "event"
-  ]
-}
+
+```js
+facebook.event.declined.get({
+  "event": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: event.attending.post
+
+#### Parameters
+* event (string) **required** - Represents the ID of the event object.
+
+### event.attending.post
 RSVPs the user as 'attending' for the event
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "event": {
-      "type": "string",
-      "description": "Represents the ID of the event object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "event"
-  ]
-}
+
+```js
+facebook.event.attending.post({
+  "event": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: event.attending.get
+
+#### Parameters
+* event (string) **required** - Represents the ID of the event object.
+
+### event.attending.get
 All of the users who are attending this event
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "event": {
-      "type": "string",
-      "description": "Represents the ID of the event object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "event"
-  ]
-}
+
+```js
+facebook.event.attending.get({
+  "event": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: event.invited.get
+
+#### Parameters
+* event (string) **required** - Represents the ID of the event object.
+
+### event.invited.get
 All of the users who have been invited to this event
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "event": {
-      "type": "string",
-      "description": "Represents the ID of the event object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "event"
-  ]
-}
+
+```js
+facebook.event.invited.get({
+  "event": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: event.maybe.post
+
+#### Parameters
+* event (string) **required** - Represents the ID of the event object.
+
+### event.maybe.post
 RSVPs the user as a 'maybe' for the event
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "event": {
-      "type": "string",
-      "description": "Represents the ID of the event object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "event"
-  ]
-}
+
+```js
+facebook.event.maybe.post({
+  "event": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: event.maybe.get
+
+#### Parameters
+* event (string) **required** - Represents the ID of the event object.
+
+### event.maybe.get
 All of the users who have been responded "Maybe" to their invitation to this event
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "event": {
-      "type": "string",
-      "description": "Represents the ID of the event object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "event"
-  ]
-}
+
+```js
+facebook.event.maybe.get({
+  "event": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: event.noreply.get
+
+#### Parameters
+* event (string) **required** - Represents the ID of the event object.
+
+### event.noreply.get
 All of the users who have been not yet responded to their invitation to this event
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "event": {
-      "type": "string",
-      "description": "Represents the ID of the event object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "event"
-  ]
-}
+
+```js
+facebook.event.noreply.get({
+  "event": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: event.feed.post
+
+#### Parameters
+* event (string) **required** - Represents the ID of the event object.
+
+### event.feed.post
 Posts a status message on this event's wall
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string",
-      "description": "Status Message content"
-    },
-    "event": {
-      "type": "string",
-      "description": "Represents the ID of the event object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "message",
-    "event"
-  ]
-}
+
+```js
+facebook.event.feed.post({
+  "message": "",
+  "event": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: event.feed.get
+
+#### Parameters
+* message (string) **required** - Status Message content
+* event (string) **required** - Represents the ID of the event object.
+
+### event.feed.get
 This event's wall
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "event": {
-      "type": "string",
-      "description": "Represents the ID of the event object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "event"
-  ]
-}
+
+```js
+facebook.event.feed.get({
+  "event": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: event.get
+
+#### Parameters
+* event (string) **required** - Represents the ID of the event object.
+
+### event.get
 Specifies information about an event, including the location, event name, and which invitees plan to attend.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "event": {
-      "type": "string",
-      "description": "Represents the ID of the event object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "event"
-  ]
-}
+
+```js
+facebook.event.get({
+  "event": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: comment.likes.delete
+
+#### Parameters
+* event (string) **required** - Represents the ID of the event object.
+
+### comment.likes.delete
 Unlikes the comment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "comment": {
-      "type": "string",
-      "description": "Represents the ID of the comment object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "comment"
-  ]
-}
+
+```js
+facebook.comment.likes.delete({
+  "comment": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: comment.likes.post
+
+#### Parameters
+* comment (string) **required** - Represents the ID of the comment object.
+
+### comment.likes.post
 Likes the comment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "comment": {
-      "type": "string",
-      "description": "Represents the ID of the comment object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "comment"
-  ]
-}
+
+```js
+facebook.comment.likes.post({
+  "comment": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: comment.likes.get
+
+#### Parameters
+* comment (string) **required** - Represents the ID of the comment object.
+
+### comment.likes.get
 All the likes on this comment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "comment": {
-      "type": "string",
-      "description": "Represents the ID of the comment object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "comment"
-  ]
-}
+
+```js
+facebook.comment.likes.get({
+  "comment": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: comment.delete
+
+#### Parameters
+* comment (string) **required** - Represents the ID of the comment object.
+
+### comment.delete
 Deletes a comment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "comment": {
-      "type": "string",
-      "description": "Represents the ID of the comment object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "comment"
-  ]
-}
+
+```js
+facebook.comment.delete({
+  "comment": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: comment.get
+
+#### Parameters
+* comment (string) **required** - Represents the ID of the comment object.
+
+### comment.get
 Returns a comment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "comment": {
-      "type": "string",
-      "description": "Represents the ID of the comment object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "comment"
-  ]
-}
+
+```js
+facebook.comment.get({
+  "comment": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: checkin.likes.delete
+
+#### Parameters
+* comment (string) **required** - Represents the ID of the comment object.
+
+### checkin.likes.delete
 Unlikes this checkin.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "checkin": {
-      "type": "string",
-      "description": "Represents the ID of the checkin object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "checkin"
-  ]
-}
+
+```js
+facebook.checkin.likes.delete({
+  "checkin": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: checkin.likes.post
+
+#### Parameters
+* checkin (string) **required** - Represents the ID of the checkin object.
+
+### checkin.likes.post
 Likes this checkin.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "checkin": {
-      "type": "string",
-      "description": "Represents the ID of the checkin object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "checkin"
-  ]
-}
+
+```js
+facebook.checkin.likes.post({
+  "checkin": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: checkin.likes.get
+
+#### Parameters
+* checkin (string) **required** - Represents the ID of the checkin object.
+
+### checkin.likes.get
 Users who like this checkin.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "checkin": {
-      "type": "string",
-      "description": "Represents the ID of the checkin object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "checkin"
-  ]
-}
+
+```js
+facebook.checkin.likes.get({
+  "checkin": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: checkin.comments.post
+
+#### Parameters
+* checkin (string) **required** - Represents the ID of the checkin object.
+
+### checkin.comments.post
 Posts a comment to this checkin.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string",
-      "description": "Comment text"
-    },
-    "checkin": {
-      "type": "string",
-      "description": "Represents the ID of the checkin object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "message",
-    "checkin"
-  ]
-}
+
+```js
+facebook.checkin.comments.post({
+  "message": "",
+  "checkin": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: checkin.comments.get
+
+#### Parameters
+* message (string) **required** - Comment text
+* checkin (string) **required** - Represents the ID of the checkin object.
+
+### checkin.comments.get
 All of the comments on this checkin.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "checkin": {
-      "type": "string",
-      "description": "Represents the ID of the checkin object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "checkin"
-  ]
-}
+
+```js
+facebook.checkin.comments.get({
+  "checkin": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: checkin.get
+
+#### Parameters
+* checkin (string) **required** - Represents the ID of the checkin object.
+
+### checkin.get
 Represents a single visit by a user to a location
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "checkin": {
-      "type": "string",
-      "description": "Represents the ID of the checkin object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "checkin"
-  ]
-}
+
+```js
+facebook.checkin.get({
+  "checkin": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.achievements.delete
+
+#### Parameters
+* checkin (string) **required** - Represents the ID of the checkin object.
+
+### application.achievements.delete
 Unregisters an achievement for the application
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "achievement": {
-      "type": "string",
-      "description": "Unique URL to the achievement."
-    },
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "achievement",
-    "application"
-  ]
-}
+
+```js
+facebook.application.achievements.delete({
+  "achievement": "",
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.achievements.post
+
+#### Parameters
+* achievement (string) **required** - Unique URL to the achievement.
+* application (string) **required** - Represents the ID of the application object.
+
+### application.achievements.post
 Registers an achievement for the application
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "achievement": {
-      "type": "string",
-      "description": "Unique URL to the achievement."
-    },
-    "display_order": {
-      "type": "integer",
-      "description": "Order of this achievement as it shows up in the achievement stories UI (low to high). For example a display order of 100 will be displayed in the UI before 200. We use this value to surface achievements according to the order the developer has specified. Please make sure this value is unique and increments in the correct order for your achievements."
-    },
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "achievement",
-    "display_order",
-    "application"
-  ]
-}
+
+```js
+facebook.application.achievements.post({
+  "achievement": "",
+  "display_order": 0,
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.scores.delete
+
+#### Parameters
+* achievement (string) **required** - Unique URL to the achievement.
+* display_order (integer) **required** - Order of this achievement as it shows up in the achievement stories UI (low to high). For example a display order of 100 will be displayed in the UI before 200. We use this value to surface achievements according to the order the developer has specified. Please make sure this value is unique and increments in the correct order for your achievements.
+* application (string) **required** - Represents the ID of the application object.
+
+### application.scores.delete
 Deletes all the scores for the application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "application"
-  ]
-}
+
+```js
+facebook.application.scores.delete({
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.scores.get
+
+#### Parameters
+* application (string) **required** - Represents the ID of the application object.
+
+### application.scores.get
 Scores for the user and their friends.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "application"
-  ]
-}
+
+```js
+facebook.application.scores.get({
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.translations.delete
+
+#### Parameters
+* application (string) **required** - Represents the ID of the application object.
+
+### application.translations.delete
 Deletes a translation string for this application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "native_hashes": {
-      "type": "string",
-      "description": "An array of native hashes. The native hash is a unique identifier of the native string and a description and is generated by the Translations application."
-    },
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "native_hashes",
-    "application"
-  ]
-}
+
+```js
+facebook.application.translations.delete({
+  "native_hashes": "",
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.translations.post
+
+#### Parameters
+* native_hashes (string) **required** - An array of native hashes. The native hash is a unique identifier of the native string and a description and is generated by the Translations application.
+* application (string) **required** - Represents the ID of the application object.
+
+### application.translations.post
 Uploads translated strings for this application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "native_strings": {
-      "type": "string",
-      "description": "A JSON-encoded array of strings to translate. Each element of the string array is an object, with text storing the actual string, description storing the description of the text."
-    },
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "native_strings",
-    "application"
-  ]
-}
+
+```js
+facebook.application.translations.post({
+  "native_strings": "",
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.translations.get
+
+#### Parameters
+* native_strings (string) **required** - A JSON-encoded array of strings to translate. Each element of the string array is an object, with text storing the actual string, description storing the description of the text.
+* application (string) **required** - Represents the ID of the application object.
+
+### application.translations.get
 The translated strings for this application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "application"
-  ]
-}
+
+```js
+facebook.application.translations.get({
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.tagged.get
+
+#### Parameters
+* application (string) **required** - Represents the ID of the application object.
+
+### application.tagged.get
 The photos, videos, and posts in which this application has been tagged.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "application"
-  ]
-}
+
+```js
+facebook.application.tagged.get({
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.subscriptions.delete
+
+#### Parameters
+* application (string) **required** - Represents the ID of the application object.
+
+### application.subscriptions.delete
 Deletes a real-time notification subscription for this application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "object": {
-      "type": "string",
-      "description": "Object to monitor - `user`, `permissions`, or `page`. If no object is specified all subscriptions are deleted.",
-      "enum": [
-        "user",
-        "permissions",
-        "page"
-      ]
-    },
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "application"
-  ]
-}
+
+```js
+facebook.application.subscriptions.delete({
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.subscriptions.post
+
+#### Parameters
+* object (string) - Object to monitor - `user`, `permissions`, or `page`. If no object is specified all subscriptions are deleted.
+* application (string) **required** - Represents the ID of the application object.
+
+### application.subscriptions.post
 Adds a real-time notification subscription for this application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "object": {
-      "type": "string",
-      "description": "Object to monitor - `user`, `permissions`, or `page`.",
-      "enum": [
-        "user",
-        "permissions",
-        "page"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "List of properties for the `object` to monitor."
-    },
-    "callback_url": {
-      "type": "string",
-      "description": "A callback URL to which Facebook will post subscription updates."
-    },
-    "verify_token": {
-      "type": "string",
-      "description": "Token sent in the verification request."
-    },
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "object",
-    "callback_url",
-    "application"
-  ]
-}
+
+```js
+facebook.application.subscriptions.post({
+  "object": "",
+  "callback_url": "",
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.subscriptions.get
+
+#### Parameters
+* object (string) **required** - Object to monitor - `user`, `permissions`, or `page`.
+* fields (string) - List of properties for the `object` to monitor.
+* callback_url (string) **required** - A callback URL to which Facebook will post subscription updates.
+* verify_token (string) - Token sent in the verification request.
+* application (string) **required** - Represents the ID of the application object.
+
+### application.subscriptions.get
 All of the subscriptions this application has for real-time notifications.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "application"
-  ]
-}
+
+```js
+facebook.application.subscriptions.get({
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.statuses.post
+
+#### Parameters
+* application (string) **required** - Represents the ID of the application object.
+
+### application.statuses.post
 Posts a status message on the application's profile page
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string",
-      "description": "Status Message content"
-    },
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "message",
-    "application"
-  ]
-}
+
+```js
+facebook.application.statuses.post({
+  "message": "",
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.statuses.get
+
+#### Parameters
+* message (string) **required** - Status Message content
+* application (string) **required** - Represents the ID of the application object.
+
+### application.statuses.get
 The application's status updates
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "application"
-  ]
-}
+
+```js
+facebook.application.statuses.get({
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.staticresources.get
+
+#### Parameters
+* application (string) **required** - Represents the ID of the application object.
+
+### application.staticresources.get
 Usage stats about the canvas application's static resources, such as javascript and CSS, and which ones are being flushed to browsers early.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "application"
-  ]
-}
+
+```js
+facebook.application.staticresources.get({
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.reviews.get
+
+#### Parameters
+* application (string) **required** - Represents the ID of the application object.
+
+### application.reviews.get
 Reviews of this application
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "application"
-  ]
-}
+
+```js
+facebook.application.reviews.get({
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.posts.get
+
+#### Parameters
+* application (string) **required** - Represents the ID of the application object.
+
+### application.posts.get
 The application's own posts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "application"
-  ]
-}
+
+```js
+facebook.application.posts.get({
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.picture.get
+
+#### Parameters
+* application (string) **required** - Represents the ID of the application object.
+
+### application.picture.get
 The application's logo
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "type": {
-      "type": "string",
-      "description": "One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,\n                            variable height)",
-      "enum": [
-        "square",
-        "small",
-        "large"
-      ]
-    },
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "application"
-  ]
-}
+
+```js
+facebook.application.picture.get({
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.links.post
+
+#### Parameters
+* type (string) - One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,
+* application (string) **required** - Represents the ID of the application object.
+
+### application.links.post
 Posts a link on the application's profile page
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "link": {
-      "type": "string",
-      "description": "Link URL"
-    },
-    "message": {
-      "type": "string",
-      "description": "Link message"
-    },
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "link",
-    "application"
-  ]
-}
+
+```js
+facebook.application.links.post({
+  "link": "",
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.links.get
+
+#### Parameters
+* link (string) **required** - Link URL
+* message (string) - Link message
+* application (string) **required** - Represents the ID of the application object.
+
+### application.links.get
 The application's posted links.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "application"
-  ]
-}
+
+```js
+facebook.application.links.get({
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.insights.get
+
+#### Parameters
+* application (string) **required** - Represents the ID of the application object.
+
+### application.insights.get
 Usage metrics for this application
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "application"
-  ]
-}
+
+```js
+facebook.application.insights.get({
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.feed.post
+
+#### Parameters
+* application (string) **required** - Represents the ID of the application object.
+
+### application.feed.post
 Posts a status message on the application's profile page
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string",
-      "description": "Status Message content"
-    },
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "message",
-    "application"
-  ]
-}
+
+```js
+facebook.application.feed.post({
+  "message": "",
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.feed.get
+
+#### Parameters
+* message (string) **required** - Status Message content
+* application (string) **required** - Represents the ID of the application object.
+
+### application.feed.get
 The application's wall.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "application"
-  ]
-}
+
+```js
+facebook.application.feed.get({
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.albums.get
+
+#### Parameters
+* application (string) **required** - Represents the ID of the application object.
+
+### application.albums.get
 The photo albums this application has created.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "application"
-  ]
-}
+
+```js
+facebook.application.albums.get({
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.accounts.test_users.post
+
+#### Parameters
+* application (string) **required** - Represents the ID of the application object.
+
+### application.accounts.test_users.post
 Creates a test account for the application
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "installed": {
-      "type": "boolean",
-      "description": "Install app for the test user upon creation"
-    },
-    "permissions": {
-      "type": "string",
-      "description": "List of extended permissions app granted for the new test user if installed is true"
-    },
-    "name": {
-      "type": "string",
-      "description": "A name for the test user. The specified name will also be used in the email address assigned to the test user."
-    },
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "application"
-  ]
-}
+
+```js
+facebook.application.accounts.test_users.post({
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.accounts.get
+
+#### Parameters
+* installed (boolean) - Install app for the test user upon creation
+* permissions (string) - List of extended permissions app granted for the new test user if installed is true
+* name (string) - A name for the test user. The specified name will also be used in the email address assigned to the test user.
+* application (string) **required** - Represents the ID of the application object.
+
+### application.accounts.get
 Test User accounts associated with the application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "application"
-  ]
-}
+
+```js
+facebook.application.accounts.get({
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: application.get
+
+#### Parameters
+* application (string) **required** - Represents the ID of the application object.
+
+### application.get
 An application's profile
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "application": {
-      "type": "string",
-      "description": "Represents the ID of the application object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "application"
-  ]
-}
+
+```js
+facebook.application.get({
+  "application": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: album.picture.get
+
+#### Parameters
+* application (string) **required** - Represents the ID of the application object.
+
+### album.picture.get
 The album's cover photo; the first picture uploaded to an album becomes the cover photo for the album.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "type": {
-      "type": "string",
-      "description": "One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,\n                            variable height)",
-      "enum": [
-        "square",
-        "small",
-        "large"
-      ]
-    },
-    "album": {
-      "type": "string",
-      "description": "Represents the ID of the album object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "album"
-  ]
-}
+
+```js
+facebook.album.picture.get({
+  "album": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: album.comments.post
+
+#### Parameters
+* type (string) - One of square (50x50), small (50 pixels wide, variable height), and large (about 200 pixels wide,
+* album (string) **required** - Represents the ID of the album object.
+
+### album.comments.post
 Posts a comment on the album
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string",
-      "description": "Comment text"
-    },
-    "album": {
-      "type": "string",
-      "description": "Represents the ID of the album object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "message",
-    "album"
-  ]
-}
+
+```js
+facebook.album.comments.post({
+  "message": "",
+  "album": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: album.comments.get
+
+#### Parameters
+* message (string) **required** - Comment text
+* album (string) **required** - Represents the ID of the album object.
+
+### album.comments.get
 The comments made on this album
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "album": {
-      "type": "string",
-      "description": "Represents the ID of the album object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "album"
-  ]
-}
+
+```js
+facebook.album.comments.get({
+  "album": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: album.likes.delete
+
+#### Parameters
+* album (string) **required** - Represents the ID of the album object.
+
+### album.likes.delete
 Unlikes the album
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "album": {
-      "type": "string",
-      "description": "Represents the ID of the album object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "album"
-  ]
-}
+
+```js
+facebook.album.likes.delete({
+  "album": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: album.likes.post
+
+#### Parameters
+* album (string) **required** - Represents the ID of the album object.
+
+### album.likes.post
 Likes the album
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "album": {
-      "type": "string",
-      "description": "Represents the ID of the album object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "album"
-  ]
-}
+
+```js
+facebook.album.likes.post({
+  "album": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: album.likes.get
+
+#### Parameters
+* album (string) **required** - Represents the ID of the album object.
+
+### album.likes.get
 The likes made on this album
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "album": {
-      "type": "string",
-      "description": "Represents the ID of the album object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "album"
-  ]
-}
+
+```js
+facebook.album.likes.get({
+  "album": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: album.photos.post
+
+#### Parameters
+* album (string) **required** - Represents the ID of the album object.
+
+### album.photos.post
 Adds a photo to the album
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "message": {
-      "type": "string",
-      "description": "Photo description"
-    },
-    "album": {
-      "type": "string",
-      "description": "Represents the ID of the album object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "album"
-  ]
-}
+
+```js
+facebook.album.photos.post({
+  "album": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: album.photos.get
+
+#### Parameters
+* message (string) - Photo description
+* album (string) **required** - Represents the ID of the album object.
+
+### album.photos.get
 The photos contained in this album
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "album": {
-      "type": "string",
-      "description": "Represents the ID of the album object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "album"
-  ]
-}
+
+```js
+facebook.album.photos.get({
+  "album": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: album.get
+
+#### Parameters
+* album (string) **required** - Represents the ID of the album object.
+
+### album.get
 A photo album
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "album": {
-      "type": "string",
-      "description": "Represents the ID of the album object."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "album"
-  ]
-}
+
+```js
+facebook.album.get({
+  "album": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: search.get
+
+#### Parameters
+* album (string) **required** - Represents the ID of the album object.
+
+### search.get
 Search over all public objects in the social graph
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "q": {
-      "type": "string",
-      "description": "The search string"
-    },
-    "type": {
-      "type": "string",
-      "description": "Supports these types of objects: All public posts (post), people (user), pages (page), events\n                            (event), groups (group), check-ins (checkin)",
-      "enum": [
-        "post",
-        "user",
-        "page",
-        "event",
-        "group",
-        "checkin"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "q"
-  ]
-}
+
+```js
+facebook.search.get({
+  "q": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* q (string) **required** - The search string
+* type (string) - Supports these types of objects: All public posts (post), people (user), pages (page), events
+

@@ -1,379 +1,194 @@
 # @datafire/azure_arm_cognitiveservices
+
+Client library for CognitiveServicesManagementClient
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/azure_arm_cognitiveservices
+```
+
+```js
+let datafire = require('datafire');
+let azure_arm_cognitiveservices = require('@datafire/azure_arm_cognitiveservices').actions;
+let context = new datafire.Context();
+
+azure_arm_cognitiveservices.CognitiveServicesAccounts_List({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Cognitive Services Management Client
 
-## Operation: CognitiveServicesAccounts_List
+## Actions
+### CognitiveServicesAccounts_List
 Returns all the resources of a particular type belonging to a subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request. Current version is 2016-02-01-preview"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure Subscription ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_cognitiveservices.CognitiveServicesAccounts_List({
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CognitiveServicesAccountListResult"
-}
-```
-## Operation: CognitiveServicesAccounts_ListByResourceGroup
+
+#### Parameters
+* api-version (string) **required** - Version of the API to be used with the client request. Current version is 2016-02-01-preview
+* subscriptionId (string) **required** - Azure Subscription ID.
+
+### CognitiveServicesAccounts_ListByResourceGroup
 Returns all the resources of a particular type belonging to a resource group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group within the user's subscription."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure Subscription ID."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request. Current version is 2016-02-01-preview"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "subscriptionId",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_cognitiveservices.CognitiveServicesAccounts_ListByResourceGroup({
+  "resourceGroupName": "",
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CognitiveServicesAccountListResult"
-}
-```
-## Operation: CognitiveServicesAccounts_Delete
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group within the user's subscription.
+* subscriptionId (string) **required** - Azure Subscription ID.
+* api-version (string) **required** - Version of the API to be used with the client request. Current version is 2016-02-01-preview
+
+### CognitiveServicesAccounts_Delete
 Deletes a Cognitive Services account from the resource group. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group within the user's subscription."
-    },
-    "accountName": {
-      "type": "string",
-      "description": "The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 24,
-      "minLength": 3
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request. Current version is 2016-02-01-preview"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure Subscription ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "accountName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_cognitiveservices.CognitiveServicesAccounts_Delete({
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: CognitiveServicesAccounts_GetProperties
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group within the user's subscription.
+* accountName (string) **required** - The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+* api-version (string) **required** - Version of the API to be used with the client request. Current version is 2016-02-01-preview
+* subscriptionId (string) **required** - Azure Subscription ID.
+
+### CognitiveServicesAccounts_GetProperties
 Returns a Cognitive Services account specified by the parameters.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group within the user's subscription."
-    },
-    "accountName": {
-      "type": "string",
-      "description": "The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 24,
-      "minLength": 3
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request. Current version is 2016-02-01-preview"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure Subscription ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "accountName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_cognitiveservices.CognitiveServicesAccounts_GetProperties({
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CognitiveServicesAccount"
-}
-```
-## Operation: CognitiveServicesAccounts_Update
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group within the user's subscription.
+* accountName (string) **required** - The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+* api-version (string) **required** - Version of the API to be used with the client request. Current version is 2016-02-01-preview
+* subscriptionId (string) **required** - Azure Subscription ID.
+
+### CognitiveServicesAccounts_Update
 Updates a Cognitive Services account
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group within the user's subscription."
-    },
-    "accountName": {
-      "type": "string",
-      "description": "The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 24,
-      "minLength": 3
-    },
-    "body": {
-      "$ref": "#/definitions/CognitiveServicesAccountUpdateParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request. Current version is 2016-02-01-preview"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure Subscription ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "accountName",
-    "body",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_cognitiveservices.CognitiveServicesAccounts_Update({
+  "resourceGroupName": "",
+  "accountName": "",
+  "body": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CognitiveServicesAccount"
-}
-```
-## Operation: CognitiveServicesAccounts_Create
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group within the user's subscription.
+* accountName (string) **required** - The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+* body (undefined) **required** - The parameters to provide for the account.
+* api-version (string) **required** - Version of the API to be used with the client request. Current version is 2016-02-01-preview
+* subscriptionId (string) **required** - Azure Subscription ID.
+
+### CognitiveServicesAccounts_Create
 Create Cognitive Services Account. Accounts is a resource group wide resource type. It holds the keys for developer to access intelligent APIs. It's also the resource type for billing.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group within the user's subscription."
-    },
-    "accountName": {
-      "type": "string",
-      "description": "The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 24,
-      "minLength": 3
-    },
-    "parameters": {
-      "$ref": "#/definitions/CognitiveServicesAccountCreateParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request. Current version is 2016-02-01-preview"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure Subscription ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "accountName",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_cognitiveservices.CognitiveServicesAccounts_Create({
+  "resourceGroupName": "",
+  "accountName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CognitiveServicesAccount"
-}
-```
-## Operation: CognitiveServicesAccounts_ListKeys
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group within the user's subscription.
+* accountName (string) **required** - The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+* parameters (undefined) **required** - The parameters to provide for the account.
+* api-version (string) **required** - Version of the API to be used with the client request. Current version is 2016-02-01-preview
+* subscriptionId (string) **required** - Azure Subscription ID.
+
+### CognitiveServicesAccounts_ListKeys
 Lists the account keys for the specified Cognitive Services account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group within the user's subscription."
-    },
-    "accountName": {
-      "type": "string",
-      "description": "The name of the cognitive services account within the specified resource group. Congitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.  ",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 24,
-      "minLength": 3
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request. Current version is 2016-02-01-preview"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure Subscription ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "accountName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_cognitiveservices.CognitiveServicesAccounts_ListKeys({
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CognitiveServicesAccountKeys"
-}
-```
-## Operation: CognitiveServicesAccounts_RegenerateKey
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group within the user's subscription.
+* accountName (string) **required** - The name of the cognitive services account within the specified resource group. Congitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.  
+* api-version (string) **required** - Version of the API to be used with the client request. Current version is 2016-02-01-preview
+* subscriptionId (string) **required** - Azure Subscription ID.
+
+### CognitiveServicesAccounts_RegenerateKey
 Regenerates the specified account key for the specified Cognitive Services account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group within the user's subscription."
-    },
-    "accountName": {
-      "type": "string",
-      "description": "The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.  ",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 24,
-      "minLength": 3
-    },
-    "body": {
-      "$ref": "#/definitions/RegenerateKeyParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request. Current version is 2016-02-01-preview"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure Subscription ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "accountName",
-    "body",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_cognitiveservices.CognitiveServicesAccounts_RegenerateKey({
+  "resourceGroupName": "",
+  "accountName": "",
+  "body": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CognitiveServicesAccountKeys"
-}
-```
-## Operation: CognitiveServicesAccounts_ListSkus
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group within the user's subscription.
+* accountName (string) **required** - The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.  
+* body (undefined) **required** - Regenerate key parameters.
+* api-version (string) **required** - Version of the API to be used with the client request. Current version is 2016-02-01-preview
+* subscriptionId (string) **required** - Azure Subscription ID.
+
+### CognitiveServicesAccounts_ListSkus
 List available SKUs for the requested Cognitive Services account
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group within the user's subscription."
-    },
-    "accountName": {
-      "type": "string",
-      "description": "The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.  ",
-      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.-]*$",
-      "maxLength": 24,
-      "minLength": 3
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Version of the API to be used with the client request. Current version is 2016-02-01-preview"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Azure Subscription ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "accountName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_cognitiveservices.CognitiveServicesAccounts_ListSkus({
+  "resourceGroupName": "",
+  "accountName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CognitiveServicesAccountEnumerateSkusResult"
-}
-```
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group within the user's subscription.
+* accountName (string) **required** - The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.  
+* api-version (string) **required** - Version of the API to be used with the client request. Current version is 2016-02-01-preview
+* subscriptionId (string) **required** - Azure Subscription ID.
+

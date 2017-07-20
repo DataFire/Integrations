@@ -1,797 +1,415 @@
 # @datafire/azure_arm_iothub
+
+Client library for iotHubClient
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/azure_arm_iothub
+```
+
+```js
+let datafire = require('datafire');
+let azure_arm_iothub = require('@datafire/azure_arm_iothub').actions;
+let context = new datafire.Context();
+
+azure_arm_iothub.IotHubResource_ListBySubscription({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Use this API to manage the IoT hubs in your Azure subscription.
 
-## Operation: IotHubResource_ListBySubscription
+## Actions
+### IotHubResource_ListBySubscription
 Get all the IoT hubs in a subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The version of the API."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription identifier."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_iothub.IotHubResource_ListBySubscription({
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/IotHubDescriptionListResult"
-}
-```
-## Operation: IotHubResource_CheckNameAvailability
+
+#### Parameters
+* api-version (string) **required** - The version of the API.
+* subscriptionId (string) **required** - The subscription identifier.
+
+### IotHubResource_CheckNameAvailability
 Check if an IoT hub name is available.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The version of the API."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription identifier."
-    },
-    "operationInputs": {
-      "$ref": "#/definitions/OperationInputs"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId",
-    "operationInputs"
-  ]
-}
+
+```js
+azure_arm_iothub.IotHubResource_CheckNameAvailability({
+  "api-version": "",
+  "subscriptionId": "",
+  "operationInputs": {
+    "Name": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/IotHubNameAvailabilityInfo"
-}
-```
-## Operation: IotHubResource_ListByResourceGroup
+
+#### Parameters
+* api-version (string) **required** - The version of the API.
+* subscriptionId (string) **required** - The subscription identifier.
+* operationInputs (object) **required** - Input values.
+
+### IotHubResource_ListByResourceGroup
 Get all the IoT hubs in a resource group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The version of the API."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription identifier."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group that contains the IoT hubs."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId",
-    "resourceGroupName"
-  ]
-}
+
+```js
+azure_arm_iothub.IotHubResource_ListByResourceGroup({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/IotHubDescriptionListResult"
-}
-```
-## Operation: IotHubResource_Delete
+
+#### Parameters
+* api-version (string) **required** - The version of the API.
+* subscriptionId (string) **required** - The subscription identifier.
+* resourceGroupName (string) **required** - The name of the resource group that contains the IoT hubs.
+
+### IotHubResource_Delete
 Delete an IoT hub.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The version of the API."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription identifier."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group that contains the IoT hub."
-    },
-    "resourceName": {
-      "type": "string",
-      "description": "The name of the IoT hub to delete."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId",
-    "resourceGroupName",
-    "resourceName"
-  ]
-}
+
+```js
+azure_arm_iothub.IotHubResource_Delete({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "resourceName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/IotHubDescription"
-}
-```
-## Operation: IotHubResource_Get
+
+#### Parameters
+* api-version (string) **required** - The version of the API.
+* subscriptionId (string) **required** - The subscription identifier.
+* resourceGroupName (string) **required** - The name of the resource group that contains the IoT hub.
+* resourceName (string) **required** - The name of the IoT hub to delete.
+
+### IotHubResource_Get
 Get the non-security related metadata of an IoT hub.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The version of the API."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription identifier."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group that contains the IoT hub."
-    },
-    "resourceName": {
-      "type": "string",
-      "description": "The name of the IoT hub."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId",
-    "resourceGroupName",
-    "resourceName"
-  ]
-}
+
+```js
+azure_arm_iothub.IotHubResource_Get({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "resourceName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/IotHubDescription"
-}
-```
-## Operation: IotHubResource_CreateOrUpdate
+
+#### Parameters
+* api-version (string) **required** - The version of the API.
+* subscriptionId (string) **required** - The subscription identifier.
+* resourceGroupName (string) **required** - The name of the resource group that contains the IoT hub.
+* resourceName (string) **required** - The name of the IoT hub.
+
+### IotHubResource_CreateOrUpdate
 Create or update the metadata of an Iot hub. The usual pattern to modify a property is to retrieve the IoT hub metadata and security metadata, and then combine them with the modified values in a new body to update the IoT hub.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The version of the API."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription identifier."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group that contains the IoT hub."
-    },
-    "resourceName": {
-      "type": "string",
-      "description": "The name of the IoT hub to create or update."
-    },
-    "iotHubDescription": {
-      "$ref": "#/definitions/IotHubDescription"
+
+```js
+azure_arm_iothub.IotHubResource_CreateOrUpdate({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "resourceName": "",
+  "iotHubDescription": {
+    "subscriptionid": "",
+    "resourcegroup": "",
+    "sku": {
+      "name": "",
+      "capacity": 0
     }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId",
-    "resourceGroupName",
-    "resourceName",
-    "iotHubDescription"
-  ]
-}
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/IotHubDescription"
-}
-```
-## Operation: IotHubResource_GetKeysForKeyName
+
+#### Parameters
+* api-version (string) **required** - The version of the API.
+* subscriptionId (string) **required** - The subscription identifier.
+* resourceGroupName (string) **required** - The name of the resource group that contains the IoT hub.
+* resourceName (string) **required** - The name of the IoT hub to create or update.
+* iotHubDescription (object) **required** - The description of the IoT hub.
+
+### IotHubResource_GetKeysForKeyName
 Get a shared access policy by name from an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The version of the API."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription identifier."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group that contains the IoT hub."
-    },
-    "resourceName": {
-      "type": "string",
-      "description": "The name of the IoT hub."
-    },
-    "keyName": {
-      "type": "string",
-      "description": "The name of the shared access policy."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId",
-    "resourceGroupName",
-    "resourceName",
-    "keyName"
-  ]
-}
+
+```js
+azure_arm_iothub.IotHubResource_GetKeysForKeyName({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "resourceName": "",
+  "keyName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SharedAccessSignatureAuthorizationRule"
-}
-```
-## Operation: IotHubResource_GetStats
+
+#### Parameters
+* api-version (string) **required** - The version of the API.
+* subscriptionId (string) **required** - The subscription identifier.
+* resourceGroupName (string) **required** - The name of the resource group that contains the IoT hub.
+* resourceName (string) **required** - The name of the IoT hub.
+* keyName (string) **required** - The name of the shared access policy.
+
+### IotHubResource_GetStats
 Get the statistics from an IoT hub.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The version of the API."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription identifier."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group that contains the IoT hub."
-    },
-    "resourceName": {
-      "type": "string",
-      "description": "The name of the IoT hub."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId",
-    "resourceGroupName",
-    "resourceName"
-  ]
-}
+
+```js
+azure_arm_iothub.IotHubResource_GetStats({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "resourceName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RegistryStatistics"
-}
-```
-## Operation: IotHubResource_ListEventHubConsumerGroups
+
+#### Parameters
+* api-version (string) **required** - The version of the API.
+* subscriptionId (string) **required** - The subscription identifier.
+* resourceGroupName (string) **required** - The name of the resource group that contains the IoT hub.
+* resourceName (string) **required** - The name of the IoT hub.
+
+### IotHubResource_ListEventHubConsumerGroups
 Get a list of the consumer groups in the Event Hub-compatible device-to-cloud endpoint in an IoT hub.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The version of the API."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription identifier."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group that contains the IoT hub."
-    },
-    "resourceName": {
-      "type": "string",
-      "description": "The name of the IoT hub."
-    },
-    "eventHubEndpointName": {
-      "type": "string",
-      "description": "The name of the Event Hub-compatible endpoint."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId",
-    "resourceGroupName",
-    "resourceName",
-    "eventHubEndpointName"
-  ]
-}
+
+```js
+azure_arm_iothub.IotHubResource_ListEventHubConsumerGroups({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "resourceName": "",
+  "eventHubEndpointName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/EventHubConsumerGroupsListResult"
-}
-```
-## Operation: IotHubResource_DeleteEventHubConsumerGroup
+
+#### Parameters
+* api-version (string) **required** - The version of the API.
+* subscriptionId (string) **required** - The subscription identifier.
+* resourceGroupName (string) **required** - The name of the resource group that contains the IoT hub.
+* resourceName (string) **required** - The name of the IoT hub.
+* eventHubEndpointName (string) **required** - The name of the Event Hub-compatible endpoint.
+
+### IotHubResource_DeleteEventHubConsumerGroup
 Delete a consumer group from an Event Hub-compatible endpoint in an IoT hub.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The version of the API."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription identifier."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group that contains the IoT hub."
-    },
-    "resourceName": {
-      "type": "string",
-      "description": "The name of the IoT hub."
-    },
-    "eventHubEndpointName": {
-      "type": "string",
-      "description": "The name of the Event Hub-compatible endpoint in the IoT hub."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the consumer group to delete."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId",
-    "resourceGroupName",
-    "resourceName",
-    "eventHubEndpointName",
-    "name"
-  ]
-}
+
+```js
+azure_arm_iothub.IotHubResource_DeleteEventHubConsumerGroup({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "resourceName": "",
+  "eventHubEndpointName": "",
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: IotHubResource_GetEventHubConsumerGroup
+
+#### Parameters
+* api-version (string) **required** - The version of the API.
+* subscriptionId (string) **required** - The subscription identifier.
+* resourceGroupName (string) **required** - The name of the resource group that contains the IoT hub.
+* resourceName (string) **required** - The name of the IoT hub.
+* eventHubEndpointName (string) **required** - The name of the Event Hub-compatible endpoint in the IoT hub.
+* name (string) **required** - The name of the consumer group to delete.
+
+### IotHubResource_GetEventHubConsumerGroup
 Get a consumer group from the Event Hub-compatible device-to-cloud endpoint for an IoT hub.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The version of the API."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription identifier."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group that contains the IoT hub."
-    },
-    "resourceName": {
-      "type": "string",
-      "description": "The name of the IoT hub."
-    },
-    "eventHubEndpointName": {
-      "type": "string",
-      "description": "The name of the Event Hub-compatible endpoint in the IoT hub."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the consumer group to retrieve."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId",
-    "resourceGroupName",
-    "resourceName",
-    "eventHubEndpointName",
-    "name"
-  ]
-}
+
+```js
+azure_arm_iothub.IotHubResource_GetEventHubConsumerGroup({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "resourceName": "",
+  "eventHubEndpointName": "",
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/EventHubConsumerGroupInfo"
-}
-```
-## Operation: IotHubResource_CreateEventHubConsumerGroup
+
+#### Parameters
+* api-version (string) **required** - The version of the API.
+* subscriptionId (string) **required** - The subscription identifier.
+* resourceGroupName (string) **required** - The name of the resource group that contains the IoT hub.
+* resourceName (string) **required** - The name of the IoT hub.
+* eventHubEndpointName (string) **required** - The name of the Event Hub-compatible endpoint in the IoT hub.
+* name (string) **required** - The name of the consumer group to retrieve.
+
+### IotHubResource_CreateEventHubConsumerGroup
 Add a consumer group to an Event Hub-compatible endpoint in an IoT hub.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The version of the API."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription identifier."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group that contains the IoT hub."
-    },
-    "resourceName": {
-      "type": "string",
-      "description": "The name of the IoT hub."
-    },
-    "eventHubEndpointName": {
-      "type": "string",
-      "description": "The name of the Event Hub-compatible endpoint in the IoT hub."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the consumer group to add."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId",
-    "resourceGroupName",
-    "resourceName",
-    "eventHubEndpointName",
-    "name"
-  ]
-}
+
+```js
+azure_arm_iothub.IotHubResource_CreateEventHubConsumerGroup({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "resourceName": "",
+  "eventHubEndpointName": "",
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/EventHubConsumerGroupInfo"
-}
-```
-## Operation: IotHubResource_ExportDevices
+
+#### Parameters
+* api-version (string) **required** - The version of the API.
+* subscriptionId (string) **required** - The subscription identifier.
+* resourceGroupName (string) **required** - The name of the resource group that contains the IoT hub.
+* resourceName (string) **required** - The name of the IoT hub.
+* eventHubEndpointName (string) **required** - The name of the Event Hub-compatible endpoint in the IoT hub.
+* name (string) **required** - The name of the consumer group to add.
+
+### IotHubResource_ExportDevices
 Exports all the device identities in the IoT hub identity registry to an Azure Storage blob container. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#import-and-export-device-identities.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The version of the API."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription identifier."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group that contains the IoT hub."
-    },
-    "resourceName": {
-      "type": "string",
-      "description": "The name of the IoT hub."
-    },
-    "exportDevicesParameters": {
-      "$ref": "#/definitions/ExportDevicesRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId",
-    "resourceGroupName",
-    "resourceName",
-    "exportDevicesParameters"
-  ]
-}
+
+```js
+azure_arm_iothub.IotHubResource_ExportDevices({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "resourceName": "",
+  "exportDevicesParameters": {
+    "ExportBlobContainerUri": "",
+    "ExcludeKeys": true
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/JobResponse"
-}
-```
-## Operation: IotHubResource_ImportDevices
+
+#### Parameters
+* api-version (string) **required** - The version of the API.
+* subscriptionId (string) **required** - The subscription identifier.
+* resourceGroupName (string) **required** - The name of the resource group that contains the IoT hub.
+* resourceName (string) **required** - The name of the IoT hub.
+* exportDevicesParameters (object) **required** - Use to provide parameters when requesting an export of all devices in the IoT hub.
+
+### IotHubResource_ImportDevices
 Import, update, or delete device identities in the IoT hub identity registry from a blob. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#import-and-export-device-identities.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The version of the API."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription identifier."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group that contains the IoT hub."
-    },
-    "resourceName": {
-      "type": "string",
-      "description": "The name of the IoT hub."
-    },
-    "importDevicesParameters": {
-      "$ref": "#/definitions/ImportDevicesRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId",
-    "resourceGroupName",
-    "resourceName",
-    "importDevicesParameters"
-  ]
-}
+
+```js
+azure_arm_iothub.IotHubResource_ImportDevices({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "resourceName": "",
+  "importDevicesParameters": {
+    "InputBlobContainerUri": "",
+    "OutputBlobContainerUri": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/JobResponse"
-}
-```
-## Operation: IotHubResource_ListJobs
+
+#### Parameters
+* api-version (string) **required** - The version of the API.
+* subscriptionId (string) **required** - The subscription identifier.
+* resourceGroupName (string) **required** - The name of the resource group that contains the IoT hub.
+* resourceName (string) **required** - The name of the IoT hub.
+* importDevicesParameters (object) **required** - Use to provide parameters when requesting an import of all devices in the hub.
+
+### IotHubResource_ListJobs
 Get a list of all the jobs in an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The version of the API."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription identifier."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group that contains the IoT hub."
-    },
-    "resourceName": {
-      "type": "string",
-      "description": "The name of the IoT hub."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId",
-    "resourceGroupName",
-    "resourceName"
-  ]
-}
+
+```js
+azure_arm_iothub.IotHubResource_ListJobs({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "resourceName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/JobResponseListResult"
-}
-```
-## Operation: IotHubResource_GetJob
+
+#### Parameters
+* api-version (string) **required** - The version of the API.
+* subscriptionId (string) **required** - The subscription identifier.
+* resourceGroupName (string) **required** - The name of the resource group that contains the IoT hub.
+* resourceName (string) **required** - The name of the IoT hub.
+
+### IotHubResource_GetJob
 Get the details of a job from an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The version of the API."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription identifier."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group that contains the IoT hub."
-    },
-    "resourceName": {
-      "type": "string",
-      "description": "The name of the IoT hub."
-    },
-    "jobId": {
-      "type": "string",
-      "description": "The job identifier."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId",
-    "resourceGroupName",
-    "resourceName",
-    "jobId"
-  ]
-}
+
+```js
+azure_arm_iothub.IotHubResource_GetJob({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "resourceName": "",
+  "jobId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/JobResponse"
-}
-```
-## Operation: IotHubResource_ListKeys
+
+#### Parameters
+* api-version (string) **required** - The version of the API.
+* subscriptionId (string) **required** - The subscription identifier.
+* resourceGroupName (string) **required** - The name of the resource group that contains the IoT hub.
+* resourceName (string) **required** - The name of the IoT hub.
+* jobId (string) **required** - The job identifier.
+
+### IotHubResource_ListKeys
 Get the security metadata for an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The version of the API."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription identifier."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group that contains the IoT hub."
-    },
-    "resourceName": {
-      "type": "string",
-      "description": "The name of the IoT hub."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId",
-    "resourceGroupName",
-    "resourceName"
-  ]
-}
+
+```js
+azure_arm_iothub.IotHubResource_ListKeys({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "resourceName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SharedAccessSignatureAuthorizationRuleListResult"
-}
-```
-## Operation: IotHubResource_GetQuotaMetrics
+
+#### Parameters
+* api-version (string) **required** - The version of the API.
+* subscriptionId (string) **required** - The subscription identifier.
+* resourceGroupName (string) **required** - The name of the resource group that contains the IoT hub.
+* resourceName (string) **required** - The name of the IoT hub.
+
+### IotHubResource_GetQuotaMetrics
 Get the quota metrics for an IoT hub.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The version of the API."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription identifier."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group that contains the IoT hub."
-    },
-    "resourceName": {
-      "type": "string",
-      "description": "The name of the IoT hub."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId",
-    "resourceGroupName",
-    "resourceName"
-  ]
-}
+
+```js
+azure_arm_iothub.IotHubResource_GetQuotaMetrics({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "resourceName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/IotHubQuotaMetricInfoListResult"
-}
-```
-## Operation: IotHubResource_GetValidSkus
+
+#### Parameters
+* api-version (string) **required** - The version of the API.
+* subscriptionId (string) **required** - The subscription identifier.
+* resourceGroupName (string) **required** - The name of the resource group that contains the IoT hub.
+* resourceName (string) **required** - The name of the IoT hub.
+
+### IotHubResource_GetValidSkus
 Get the list of valid SKUs for an IoT hub.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "The version of the API."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription identifier."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group that contains the IoT hub."
-    },
-    "resourceName": {
-      "type": "string",
-      "description": "The name of the IoT hub."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId",
-    "resourceGroupName",
-    "resourceName"
-  ]
-}
+
+```js
+azure_arm_iothub.IotHubResource_GetValidSkus({
+  "api-version": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "resourceName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/IotHubSkuDescriptionListResult"
-}
-```
+
+#### Parameters
+* api-version (string) **required** - The version of the API.
+* subscriptionId (string) **required** - The subscription identifier.
+* resourceGroupName (string) **required** - The name of the resource group that contains the IoT hub.
+* resourceName (string) **required** - The name of the IoT hub.
+

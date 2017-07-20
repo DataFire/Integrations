@@ -1,35 +1,41 @@
 # @datafire/1forge
+
+Client library for 1Forge Finance APIs
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/1forge
+```
+
+```js
+let datafire = require('datafire');
+let 1forge = require('@datafire/1forge').actions;
+let context = new datafire.Context();
+
+1forge.quotes.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Stock and Forex Data and Realtime Quotes
 
-## Operation: quotes.get
+## Actions
+### quotes.get
 Get quotes
 
-### Input Schema
-```json
-{}
+
+```js
+1forge.quotes.get(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: symbols.get
+
+
+### symbols.get
 Symbol List
 
-### Input Schema
-```json
-{}
+
+```js
+1forge.symbols.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "example": [
-    "EURUSD",
-    "GBPJPY",
-    "AUDUSD"
-  ],
-  "items": {
-    "type": "string"
-  },
-  "type": "array"
-}
-```
+
+

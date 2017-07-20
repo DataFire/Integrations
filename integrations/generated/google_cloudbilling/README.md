@@ -1,345 +1,130 @@
 # @datafire/google_cloudbilling
+
+Client library for Google Cloud Billing
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/google_cloudbilling
+```
+
+```js
+let datafire = require('datafire');
+let google_cloudbilling = require('@datafire/google_cloudbilling').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    google_cloudbilling: account,
+  }
+})
+
+
+google_cloudbilling.billingAccounts.list({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Allows developers to manage billing for their Google Cloud Platform projects
     programmatically.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+google_cloudbilling.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+google_cloudbilling.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: billingAccounts.list
+
+
+### billingAccounts.list
 Lists the billing accounts that the current authenticated user
 [owns](https://support.google.com/cloud/answer/4430947).
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "pageSize": {
-      "type": "integer",
-      "description": "Requested page size. The maximum page size is 100; this is also the\ndefault."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "A token identifying a page of results to return. This should be a\n`next_page_token` value returned from a previous `ListBillingAccounts`\ncall. If unspecified, the first page of results is returned."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_cloudbilling.billingAccounts.list({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListBillingAccountsResponse"
-}
-```
-## Operation: billingAccounts.get
+
+
+### billingAccounts.get
 Gets information about a billing account. The current authenticated user
 must be an [owner of the billing
 account](https://support.google.com/cloud/answer/4430947).
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The resource name of the billing account to retrieve. For example,\n`billingAccounts/012345-567890-ABCDEF`."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+google_cloudbilling.billingAccounts.get({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BillingAccount"
-}
-```
-## Operation: projects.getBillingInfo
+
+#### Parameters
+* name (string) **required** - The resource name of the billing account to retrieve. For example,
+* access_token (string) - OAuth access token.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* alt (string) - Data format for response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.getBillingInfo
 Gets the billing information for a project. The current authenticated user
 must have [permission to view the
 project](https://cloud.google.com/docs/permissions-overview#h.bgs0oxofvnoo
 ).
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The resource name of the project for which billing information is\nretrieved. For example, `projects/tokyo-rain-123`."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+google_cloudbilling.projects.getBillingInfo({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectBillingInfo"
-}
-```
-## Operation: projects.updateBillingInfo
+
+#### Parameters
+* name (string) **required** - The resource name of the project for which billing information is
+* access_token (string) - OAuth access token.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* alt (string) - Data format for response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### projects.updateBillingInfo
 Sets or updates the billing account associated with a project. You specify
 the new billing account by setting the `billing_account_name` in the
 `ProjectBillingInfo` resource to the resource name of a billing account.
@@ -372,185 +157,57 @@ resources used by the project will be shut down. Thus, unless you wish to
 disable billing, you should always call this method with the name of an
 *open* billing account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The resource name of the project associated with the billing information\nthat you want to update. For example, `projects/tokyo-rain-123`."
-    },
-    "body": {
-      "$ref": "#/definitions/ProjectBillingInfo"
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+google_cloudbilling.projects.updateBillingInfo({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProjectBillingInfo"
-}
-```
-## Operation: billingAccounts.projects.list
+
+#### Parameters
+* name (string) **required** - The resource name of the project associated with the billing information
+* body (object) - Encapsulation of billing information for a Cloud Console project. A project
+* access_token (string) - OAuth access token.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* alt (string) - Data format for response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### billingAccounts.projects.list
 Lists the projects associated with a billing account. The current
 authenticated user must be an [owner of the billing
 account](https://support.google.com/cloud/answer/4430947).
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The resource name of the billing account associated with the projects that\nyou want to list. For example, `billingAccounts/012345-567890-ABCDEF`."
-    },
-    "pageSize": {
-      "type": "integer",
-      "description": "Requested page size. The maximum page size is 100; this is also the\ndefault."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "A token identifying a page of results to be returned. This should be a\n`next_page_token` value returned from a previous `ListProjectBillingInfo`\ncall. If unspecified, the first page of results is returned."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+google_cloudbilling.billingAccounts.projects.list({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListProjectBillingInfoResponse"
-}
-```
+
+#### Parameters
+* name (string) **required** - The resource name of the billing account associated with the projects that
+* pageSize (integer) - Requested page size. The maximum page size is 100; this is also the
+* pageToken (string) - A token identifying a page of results to be returned. This should be a
+* access_token (string) - OAuth access token.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* alt (string) - Data format for response.
+* $.xgafv (string) - V1 error format.
+* callback (string) - JSONP
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* bearer_token (string) - OAuth bearer token.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+

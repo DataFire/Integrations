@@ -1,4 +1,37 @@
 # @datafire/instagram
+
+Client library for Instagram
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/instagram
+```
+
+```js
+let datafire = require('datafire');
+let instagram = require('@datafire/instagram').actions;
+
+let account = {
+  api_key: "",
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    instagram: account,
+  }
+})
+
+
+instagram.users.self.media.liked.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Description of Instagram RESTful API.
 
 Current limitations:
@@ -15,7 +48,8 @@ containing media objects no longer return the `data` field in `comments` and `li
 Last update: 2015-11-28
 
 
-## Operation: geographies.geo_id.media.recent.get
+## Actions
+### geographies.geo_id.media.recent.get
 Get recent media from a geography subscription that you created.
 
 **Note:** You can only access Geographies that were explicitly created by your OAuth client. Check the
@@ -27,248 +61,107 @@ can be used in this query. To backfill photos from the location covered by this 
 **Warning:** [Deprecated](http://instagram.com/developer/changelog/) for Apps created **on or after** Nov 17, 2015
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "geo-id": {
-      "type": "string",
-      "description": "The geography ID."
-    },
-    "count": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Max number of media to return."
-    },
-    "min_id": {
-      "type": "string",
-      "description": "Return media before this `min_id`."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "geo-id"
-  ]
-}
+
+```js
+instagram.geographies.geo_id.media.recent.get({
+  "geo-id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MediaListResponse"
-}
-```
-## Operation: locations.search.get
+
+#### Parameters
+* geo-id (string) **required** - The geography ID.
+* count (integer) - Max number of media to return.
+* min_id (string) - Return media before this `min_id`.
+
+### locations.search.get
 Search for a location by geographic coordinate.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "distance": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Default is 1000m (distance=1000), max distance is 5000."
-    },
-    "facebook_places_id": {
-      "type": "string",
-      "description": "Returns a location mapped off of a Facebook places id. If used, a Foursquare id and `lat`, `lng` are not required."
-    },
-    "foursquare_id": {
-      "type": "string",
-      "description": "Returns a location mapped off of a foursquare v1 api location id. If used, you are not required to use\n`lat` and `lng`. Note that this method is deprecated; you should use the new foursquare IDs with V2 of their API.\n"
-    },
-    "lat": {
-      "type": "number",
-      "format": "double",
-      "description": "Latitude of the center search coordinate. If used, `lng` is required."
-    },
-    "lng": {
-      "type": "number",
-      "format": "double",
-      "description": "Longitude of the center search coordinate. If used, `lat` is required."
-    },
-    "foursquare_v2_id": {
-      "type": "string",
-      "description": "Returns a location mapped off of a foursquare v2 api location id. If used, you are not required to use\n`lat` and `lng`.\n"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+instagram.locations.search.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LocationSearchResponse"
-}
-```
-## Operation: locations.location_id.get
+
+
+### locations.location_id.get
 Get information about a location.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "location-id": {
-      "type": "string",
-      "description": "The location ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "location-id"
-  ]
-}
+
+```js
+instagram.locations.location_id.get({
+  "location-id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LocationInfoResponse"
-}
-```
-## Operation: locations.location_id.media.recent.get
+
+#### Parameters
+* location-id (string) **required** - The location ID.
+
+### locations.location_id.media.recent.get
 Get a list of recent media objects from a given location.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "location-id": {
-      "type": "string",
-      "description": "The location ID."
-    },
-    "min_timestamp": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Return media after this UNIX timestamp."
-    },
-    "max_timestamp": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Return media before this UNIX timestamp."
-    },
-    "min_id": {
-      "type": "string",
-      "description": "Return media before this `min_id`."
-    },
-    "max_id": {
-      "type": "string",
-      "description": "Return media after this `max_id`."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "location-id"
-  ]
-}
+
+```js
+instagram.locations.location_id.media.recent.get({
+  "location-id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MediaListResponse"
-}
-```
-## Operation: media.popular.get
+
+#### Parameters
+* location-id (string) **required** - The location ID.
+* min_timestamp (integer) - Return media after this UNIX timestamp.
+* max_timestamp (integer) - Return media before this UNIX timestamp.
+* min_id (string) - Return media before this `min_id`.
+* max_id (string) - Return media after this `max_id`.
+
+### media.popular.get
 Get a list of what media is most popular at the moment. Can return mix of `image` and `video` types.
 
 **Warning:** [Deprecated](http://instagram.com/developer/changelog/) for Apps created **on or after** Nov 17, 2015
 
 
-### Input Schema
-```json
-{}
+
+```js
+instagram.media.popular.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MediaSearchResponse"
-}
-```
-## Operation: media.search.get
+
+
+### media.search.get
 Search for media in a given area. The default time span is set to 5 days. The time span must not exceed 7 days.
 Defaults time stamps cover the last 5 days. Can return mix of `image` and `video` types.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "lat": {
-      "type": "number",
-      "format": "double",
-      "description": "Latitude of the center search coordinate. If used, `lng` is required."
-    },
-    "lng": {
-      "type": "number",
-      "format": "double",
-      "description": "Longitude of the center search coordinate. If used, `lat` is required."
-    },
-    "min_timestamp": {
-      "type": "integer",
-      "format": "int64",
-      "description": "A unix timestamp. All media returned will be taken later than this timestamp."
-    },
-    "max_timestamp": {
-      "type": "integer",
-      "format": "int64",
-      "description": "A unix timestamp. All media returned will be taken earlier than this timestamp."
-    },
-    "distance": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Default is 1km (distance=1000), max distance is 5km."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "lat",
-    "lng"
-  ]
-}
+
+```js
+instagram.media.search.get({
+  "lat": 0,
+  "lng": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MediaSearchResponse"
-}
-```
-## Operation: media.shortcode.shortcode.get
+
+#### Parameters
+* lat (number) **required** - Latitude of the center search coordinate. If used, `lng` is required.
+* lng (number) **required** - Longitude of the center search coordinate. If used, `lat` is required.
+* min_timestamp (integer) - A unix timestamp. All media returned will be taken later than this timestamp.
+* max_timestamp (integer) - A unix timestamp. All media returned will be taken earlier than this timestamp.
+* distance (integer) - Default is 1km (distance=1000), max distance is 5km.
+
+### media.shortcode.shortcode.get
 This endpoint returns the same response as `GET /media/{media-id}`.
 
 A media object's shortcode can be found in its shortlink URL. An example shortlink is
 `http://instagram.com/p/D/`, its corresponding shortcode is `D`.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "shortcode": {
-      "type": "string",
-      "description": "The short code of the media resource."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "shortcode"
-  ]
-}
+
+```js
+instagram.media.shortcode.shortcode.get({
+  "shortcode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MediaEntryResponse"
-}
-```
-## Operation: media.media_id.get
+
+#### Parameters
+* shortcode (string) **required** - The short code of the media resource.
+
+### media.media_id.get
 Get information about a media object. The returned type key will allow you to differentiate between image and
 video media.
 
@@ -276,54 +169,30 @@ video media.
 you whether the current user has liked this media item.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "media-id": {
-      "type": "string",
-      "description": "The ID of the media resource."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "media-id"
-  ]
-}
+
+```js
+instagram.media.media_id.get({
+  "media-id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MediaEntryResponse"
-}
-```
-## Operation: media.media_id.comments.get
+
+#### Parameters
+* media-id (string) **required** - The ID of the media resource.
+
+### media.media_id.comments.get
 Get a list of recent comments on a media object.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "media-id": {
-      "type": "string",
-      "description": "The ID of the media resource."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "media-id"
-  ]
-}
+
+```js
+instagram.media.media_id.comments.get({
+  "media-id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CommentsResponse"
-}
-```
-## Operation: media.media_id.comments.post
+
+#### Parameters
+* media-id (string) **required** - The ID of the media resource.
+
+### media.media_id.comments.post
 Create a comment on a media object with the following rules:
 
   * The total length of the comment cannot exceed 300 characters.
@@ -332,532 +201,258 @@ Create a comment on a media object with the following rules:
   * The comment cannot consist of all capital letters.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "media-id": {
-      "type": "string",
-      "description": "The ID of the media resource."
-    },
-    "text": {
-      "type": "string",
-      "description": "Text to post as a comment on the media object as specified in `media-id`."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "media-id",
-    "text"
-  ]
-}
+
+```js
+instagram.media.media_id.comments.post({
+  "media-id": "",
+  "text": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/StatusResponse"
-}
-```
-## Operation: media.media_id.comments.comment_id.delete
+
+#### Parameters
+* media-id (string) **required** - The ID of the media resource.
+* text (string) **required** - Text to post as a comment on the media object as specified in `media-id`.
+
+### media.media_id.comments.comment_id.delete
 Remove a comment either on the authenticated user's media object or authored by the authenticated user.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "media-id": {
-      "type": "string",
-      "description": "The ID of the media resource."
-    },
-    "comment-id": {
-      "type": "string",
-      "description": "The ID of the comment entry."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "media-id",
-    "comment-id"
-  ]
-}
+
+```js
+instagram.media.media_id.comments.comment_id.delete({
+  "media-id": "",
+  "comment-id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/StatusResponse"
-}
-```
-## Operation: media.media_id.likes.delete
+
+#### Parameters
+* media-id (string) **required** - The ID of the media resource.
+* comment-id (string) **required** - The ID of the comment entry.
+
+### media.media_id.likes.delete
 Remove a like on this media by the currently authenticated user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "media-id": {
-      "type": "string",
-      "description": "The ID of the media resource."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "media-id"
-  ]
-}
+
+```js
+instagram.media.media_id.likes.delete({
+  "media-id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/StatusResponse"
-}
-```
-## Operation: media.media_id.likes.get
+
+#### Parameters
+* media-id (string) **required** - The ID of the media resource.
+
+### media.media_id.likes.get
 Get a list of users who have liked this media.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "media-id": {
-      "type": "string",
-      "description": "The ID of the media resource."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "media-id"
-  ]
-}
+
+```js
+instagram.media.media_id.likes.get({
+  "media-id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UsersInfoResponse"
-}
-```
-## Operation: media.media_id.likes.post
+
+#### Parameters
+* media-id (string) **required** - The ID of the media resource.
+
+### media.media_id.likes.post
 Set a like on this media by the currently authenticated user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "media-id": {
-      "type": "string",
-      "description": "The ID of the media resource."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "media-id"
-  ]
-}
+
+```js
+instagram.media.media_id.likes.post({
+  "media-id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/StatusResponse"
-}
-```
-## Operation: tags.search.get
+
+#### Parameters
+* media-id (string) **required** - The ID of the media resource.
+
+### tags.search.get
 Search for tags by name.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "q": {
-      "type": "string",
-      "description": "A valid tag name without a leading \\#. (eg. snowy, nofilter)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "q"
-  ]
-}
+
+```js
+instagram.tags.search.get({
+  "q": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TagSearchResponse"
-}
-```
-## Operation: tags.tag_name.get
+
+#### Parameters
+* q (string) **required** - A valid tag name without a leading \#. (eg. snowy, nofilter)
+
+### tags.tag_name.get
 Get information about a tag object.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "tag-name": {
-      "type": "string",
-      "description": "The tag name."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "tag-name"
-  ]
-}
+
+```js
+instagram.tags.tag_name.get({
+  "tag-name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TagInfoResponse"
-}
-```
-## Operation: tags.tag_name.media.recent.get
+
+#### Parameters
+* tag-name (string) **required** - The tag name.
+
+### tags.tag_name.media.recent.get
 Get a list of recently tagged media. Use the `max_tag_id` and `min_tag_id` parameters in the pagination
 response to paginate through these objects.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "tag-name": {
-      "type": "string",
-      "description": "The tag name."
-    },
-    "count": {
-      "type": "integer",
-      "description": "Count of tagged media to return."
-    },
-    "min_tag_id": {
-      "type": "string",
-      "description": "Return media before this `min_tag_id`."
-    },
-    "max_tag_id": {
-      "type": "string",
-      "description": "Return media after this `max_tag_id`."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "tag-name"
-  ]
-}
+
+```js
+instagram.tags.tag_name.media.recent.get({
+  "tag-name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TagMediaListResponse"
-}
-```
-## Operation: users.search.get
+
+#### Parameters
+* tag-name (string) **required** - The tag name.
+* count (integer) - Count of tagged media to return.
+* min_tag_id (string) - Return media before this `min_tag_id`.
+* max_tag_id (string) - Return media after this `max_tag_id`.
+
+### users.search.get
 Search for a user by name.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "q": {
-      "type": "string",
-      "description": "A query string."
-    },
-    "count": {
-      "type": "integer",
-      "description": "Number of users to return."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "q"
-  ]
-}
+
+```js
+instagram.users.search.get({
+  "q": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UsersInfoResponse"
-}
-```
-## Operation: users.self.feed.get
+
+#### Parameters
+* q (string) **required** - A query string.
+* count (integer) - Number of users to return.
+
+### users.self.feed.get
 See the authenticated user's feed.
 
 **Warning:** [Deprecated](http://instagram.com/developer/changelog/) for Apps created **on or after** Nov 17, 2015
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "count": {
-      "type": "integer",
-      "description": "Count of media to return."
-    },
-    "min_id": {
-      "type": "string",
-      "description": "Return media later than this `min_id`."
-    },
-    "max_id": {
-      "type": "string",
-      "description": "Return media earlier than this `max_id`."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+instagram.users.self.feed.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MediaListResponse"
-}
-```
-## Operation: users.self.media.liked.get
+
+
+### users.self.media.liked.get
 See the list of media liked by the authenticated user. Private media is returned as long as the authenticated
 user has permission to view that media. Liked media lists are only available for the currently authenticated
 user.
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "count": {
-      "type": "integer",
-      "description": "Count of media to return."
-    },
-    "max_like_id": {
-      "type": "string",
-      "description": "Return media liked before this id."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+instagram.users.self.media.liked.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MediaListResponse"
-}
-```
-## Operation: users.self.requested_by.get
+
+
+### users.self.requested_by.get
 List the users who have requested this user's permission to follow.
 
-### Input Schema
-```json
-{}
+
+```js
+instagram.users.self.requested_by.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UsersInfoResponse"
-}
-```
-## Operation: users.user_id.get
+
+
+### users.user_id.get
 Get basic information about a user. To get information about the owner of the access token, you can use
 **self** instead of the `user-id`.
 
 Security scope `public_content` is required to read information about other users.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user-id": {
-      "type": "string",
-      "description": "The ID of a user to get information about, or **self** to retrieve information about authenticated user."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user-id"
-  ]
-}
+
+```js
+instagram.users.user_id.get({
+  "user-id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserResponse"
-}
-```
-## Operation: users.user_id.followed_by.get
+
+#### Parameters
+* user-id (string) **required** - The ID of a user to get information about, or **self** to retrieve information about authenticated user.
+
+### users.user_id.followed_by.get
 Get the list of users this user is followed by. To get users followed by the owner of the access token, you
 can use **self** instead of the `user-id`.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user-id": {
-      "type": "string",
-      "description": "The ID of a user, or **self** to retrieve information about authenticated user."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user-id"
-  ]
-}
+
+```js
+instagram.users.user_id.followed_by.get({
+  "user-id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UsersPagingResponse"
-}
-```
-## Operation: users.user_id.follows.get
+
+#### Parameters
+* user-id (string) **required** - The ID of a user, or **self** to retrieve information about authenticated user.
+
+### users.user_id.follows.get
 Get the list of users this user follows. To get follows of the owner of the access token, you can use **self**
 instead of the `user-id`.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user-id": {
-      "type": "string",
-      "description": "The ID of a user, or **self** to retrieve information about authenticated user."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user-id"
-  ]
-}
+
+```js
+instagram.users.user_id.follows.get({
+  "user-id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UsersPagingResponse"
-}
-```
-## Operation: users.user_id.media.recent.get
+
+#### Parameters
+* user-id (string) **required** - The ID of a user, or **self** to retrieve information about authenticated user.
+
+### users.user_id.media.recent.get
 Get the most recent media published by a user. To get the most recent media published by the owner of the
 access token, you can use **self** instead of the `user-id`.
 
 Security scope `public_content` is required to read information about other users.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user-id": {
-      "type": "string",
-      "description": "The ID of a user to get recent media of, or **self** to retrieve media of authenticated user."
-    },
-    "count": {
-      "type": "integer",
-      "description": "Count of media to return."
-    },
-    "max_timestamp": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Return media before this UNIX timestamp."
-    },
-    "min_timestamp": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Return media after this UNIX timestamp."
-    },
-    "min_id": {
-      "type": "string",
-      "description": "Return media later than this `min_id`."
-    },
-    "max_id": {
-      "type": "string",
-      "description": "Return media earlier than this `max_id`."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user-id"
-  ]
-}
+
+```js
+instagram.users.user_id.media.recent.get({
+  "user-id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MediaListResponse"
-}
-```
-## Operation: users.user_id.relationship.get
+
+#### Parameters
+* user-id (string) **required** - The ID of a user to get recent media of, or **self** to retrieve media of authenticated user.
+* count (integer) - Count of media to return.
+* max_timestamp (integer) - Return media before this UNIX timestamp.
+* min_timestamp (integer) - Return media after this UNIX timestamp.
+* min_id (string) - Return media later than this `min_id`.
+* max_id (string) - Return media earlier than this `max_id`.
+
+### users.user_id.relationship.get
 Get information about a relationship to another user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user-id": {
-      "type": "string",
-      "description": "The ID of a user to get information about."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user-id"
-  ]
-}
+
+```js
+instagram.users.user_id.relationship.get({
+  "user-id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RelationshipResponse"
-}
-```
-## Operation: users.user_id.relationship.post
+
+#### Parameters
+* user-id (string) **required** - The ID of a user to get information about.
+
+### users.user_id.relationship.post
 Modify the relationship between the current user and the target user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user-id": {
-      "type": "string",
-      "description": "The ID of the target user."
-    },
-    "action": {
-      "type": "string",
-      "description": "Type of action to apply for relationship with the user.",
-      "enum": [
-        "follow",
-        "unfollow",
-        "block",
-        "unblock",
-        "approve",
-        "ignore"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user-id",
-    "action"
-  ]
-}
+
+```js
+instagram.users.user_id.relationship.post({
+  "user-id": "",
+  "action": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RelationshipPostResponse"
-}
-```
+
+#### Parameters
+* user-id (string) **required** - The ID of the target user.
+* action (string) **required** - Type of action to apply for relationship with the user.
+

@@ -1,551 +1,229 @@
 # @datafire/google_licensing
+
+Client library for Enterprise License Manager
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/google_licensing
+```
+
+```js
+let datafire = require('datafire');
+let google_licensing = require('@datafire/google_licensing').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    google_licensing: account,
+  }
+})
+
+
+google_licensing.licenseAssignments.insert({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Views and manages licenses for your domain.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+google_licensing.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+google_licensing.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: licenseAssignments.insert
+
+
+### licenseAssignments.insert
 Assign License.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "productId": {
-      "type": "string",
-      "description": "Name for product"
-    },
-    "skuId": {
-      "type": "string",
-      "description": "Name for sku"
-    },
-    "body": {
-      "$ref": "#/definitions/LicenseAssignmentInsert"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "productId",
-    "skuId"
-  ]
-}
+
+```js
+google_licensing.licenseAssignments.insert({
+  "productId": "",
+  "skuId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LicenseAssignment"
-}
-```
-## Operation: licenseAssignments.delete
+
+#### Parameters
+* productId (string) **required** - Name for product
+* skuId (string) **required** - Name for sku
+* body (object) - Template for LicenseAssignment Insert request
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### licenseAssignments.delete
 Revoke License.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "productId": {
-      "type": "string",
-      "description": "Name for product"
-    },
-    "skuId": {
-      "type": "string",
-      "description": "Name for sku"
-    },
-    "userId": {
-      "type": "string",
-      "description": "email id or unique Id of the user"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "productId",
-    "skuId",
-    "userId"
-  ]
-}
+
+```js
+google_licensing.licenseAssignments.delete({
+  "productId": "",
+  "skuId": "",
+  "userId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: licenseAssignments.get
+
+#### Parameters
+* productId (string) **required** - Name for product
+* skuId (string) **required** - Name for sku
+* userId (string) **required** - email id or unique Id of the user
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### licenseAssignments.get
 Get license assignment of a particular product and sku for a user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "productId": {
-      "type": "string",
-      "description": "Name for product"
-    },
-    "skuId": {
-      "type": "string",
-      "description": "Name for sku"
-    },
-    "userId": {
-      "type": "string",
-      "description": "email id or unique Id of the user"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "productId",
-    "skuId",
-    "userId"
-  ]
-}
+
+```js
+google_licensing.licenseAssignments.get({
+  "productId": "",
+  "skuId": "",
+  "userId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LicenseAssignment"
-}
-```
-## Operation: licenseAssignments.patch
+
+#### Parameters
+* productId (string) **required** - Name for product
+* skuId (string) **required** - Name for sku
+* userId (string) **required** - email id or unique Id of the user
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### licenseAssignments.patch
 Assign License. This method supports patch semantics.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "productId": {
-      "type": "string",
-      "description": "Name for product"
-    },
-    "skuId": {
-      "type": "string",
-      "description": "Name for sku for which license would be revoked"
-    },
-    "userId": {
-      "type": "string",
-      "description": "email id or unique Id of the user"
-    },
-    "body": {
-      "$ref": "#/definitions/LicenseAssignment"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "productId",
-    "skuId",
-    "userId"
-  ]
-}
+
+```js
+google_licensing.licenseAssignments.patch({
+  "productId": "",
+  "skuId": "",
+  "userId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LicenseAssignment"
-}
-```
-## Operation: licenseAssignments.update
+
+#### Parameters
+* productId (string) **required** - Name for product
+* skuId (string) **required** - Name for sku for which license would be revoked
+* userId (string) **required** - email id or unique Id of the user
+* body (object) - Template for LiscenseAssignment Resource
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### licenseAssignments.update
 Assign License.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "productId": {
-      "type": "string",
-      "description": "Name for product"
-    },
-    "skuId": {
-      "type": "string",
-      "description": "Name for sku for which license would be revoked"
-    },
-    "userId": {
-      "type": "string",
-      "description": "email id or unique Id of the user"
-    },
-    "body": {
-      "$ref": "#/definitions/LicenseAssignment"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "productId",
-    "skuId",
-    "userId"
-  ]
-}
+
+```js
+google_licensing.licenseAssignments.update({
+  "productId": "",
+  "skuId": "",
+  "userId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LicenseAssignment"
-}
-```
-## Operation: licenseAssignments.listForProductAndSku
+
+#### Parameters
+* productId (string) **required** - Name for product
+* skuId (string) **required** - Name for sku for which license would be revoked
+* userId (string) **required** - email id or unique Id of the user
+* body (object) - Template for LiscenseAssignment Resource
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### licenseAssignments.listForProductAndSku
 List license assignments for given product and sku of the customer.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "productId": {
-      "type": "string",
-      "description": "Name for product"
-    },
-    "skuId": {
-      "type": "string",
-      "description": "Name for sku"
-    },
-    "customerId": {
-      "type": "string",
-      "description": "CustomerId represents the customer for whom licenseassignments are queried"
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "Maximum number of campaigns to return at one time. Must be positive. Optional. Default value is 100.",
-      "maximum": 1000,
-      "minimum": 1
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "Token to fetch the next page.Optional. By default server will return first page"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "productId",
-    "skuId",
-    "customerId"
-  ]
-}
+
+```js
+google_licensing.licenseAssignments.listForProductAndSku({
+  "productId": "",
+  "skuId": "",
+  "customerId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LicenseAssignmentList"
-}
-```
-## Operation: licenseAssignments.listForProduct
+
+#### Parameters
+* productId (string) **required** - Name for product
+* skuId (string) **required** - Name for sku
+* customerId (string) **required** - CustomerId represents the customer for whom licenseassignments are queried
+* maxResults (integer) - Maximum number of campaigns to return at one time. Must be positive. Optional. Default value is 100.
+* pageToken (string) - Token to fetch the next page.Optional. By default server will return first page
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### licenseAssignments.listForProduct
 List license assignments for given product of the customer.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "productId": {
-      "type": "string",
-      "description": "Name for product"
-    },
-    "customerId": {
-      "type": "string",
-      "description": "CustomerId represents the customer for whom licenseassignments are queried"
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "Maximum number of campaigns to return at one time. Must be positive. Optional. Default value is 100.",
-      "maximum": 1000,
-      "minimum": 1
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "Token to fetch the next page.Optional. By default server will return first page"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "productId",
-    "customerId"
-  ]
-}
+
+```js
+google_licensing.licenseAssignments.listForProduct({
+  "productId": "",
+  "customerId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/LicenseAssignmentList"
-}
-```
+
+#### Parameters
+* productId (string) **required** - Name for product
+* customerId (string) **required** - CustomerId represents the customer for whom licenseassignments are queried
+* maxResults (integer) - Maximum number of campaigns to return at one time. Must be positive. Optional. Default value is 100.
+* pageToken (string) - Token to fetch the next page.Optional. By default server will return first page
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+

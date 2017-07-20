@@ -1,273 +1,77 @@
 # @datafire/nytimes_most_popular_api
+
+Client library for Most Popular
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/nytimes_most_popular_api
+```
+
+```js
+let datafire = require('datafire');
+let nytimes_most_popular_api = require('@datafire/nytimes_most_popular_api').actions;
+
+let account = {
+  api-key: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    nytimes_most_popular_api: account,
+  }
+})
+
+
+nytimes_most_popular_api.mostemailed.section.time_period.json.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Get lists of NYT Articles based on shares, emails, and views.
 
-## Operation: mostemailed.section.time_period.json.get
+## Actions
+### mostemailed.section.time_period.json.get
 Most Emailed by Section & Time Period
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "section": {
-      "type": "string",
-      "description": "Limits the results by one or more sections. You can use\n`all-sections` or one or more section names seperated by semicolons. See `viewed/sections.json` call to get a list of sections. \n",
-      "enum": [
-        "Arts",
-        "Automobiles",
-        "Blogs",
-        "Books",
-        "Business Day",
-        "Education",
-        "Fashion & Style",
-        "Food",
-        "Health",
-        "Job Market",
-        "Magazine",
-        "membercenter",
-        "Movies",
-        "Multimedia",
-        "N.Y.%20%2F%20Region",
-        "NYT Now",
-        "Obituaries",
-        "Open",
-        "Opinion",
-        "Public Editor",
-        "Real Estate",
-        "Science",
-        "Sports",
-        "Style",
-        "Sunday Review",
-        "T Magazine",
-        "Technology",
-        "The Upshot",
-        "Theater",
-        "Times Insider",
-        "Today’s Paper",
-        "Travel",
-        "U.S.",
-        "World",
-        "Your Money",
-        "all-sections"
-      ]
-    },
-    "time-period": {
-      "type": "string",
-      "description": "Number of days `1 | 7 | 30 ` corresponds to a day, a week, or a month of content.",
-      "enum": [
-        "1",
-        "7",
-        "30"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "section",
-    "time-period"
-  ]
-}
+
+```js
+nytimes_most_popular_api.mostemailed.section.time_period.json.get({
+  "section": "",
+  "time-period": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "copyright": {
-      "type": "string"
-    },
-    "num_results": {
-      "type": "integer"
-    },
-    "results": {
-      "items": {
-        "$ref": "#/definitions/ArticleWithCountType"
-      },
-      "type": "array"
-    },
-    "status": {
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: mostshared.section.time_period.json.get
+
+#### Parameters
+* section (string) **required** - Limits the results by one or more sections. You can use
+* time-period (string) **required** - Number of days `1 | 7 | 30 ` corresponds to a day, a week, or a month of content.
+
+### mostshared.section.time_period.json.get
 Most Shared by Section & Time Period
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "section": {
-      "type": "string",
-      "description": "Limits the results by one or more sections. You can use\n`all-sections` or one or more section names seperated by semicolons. See `viewed/sections.json` call to get a list of sections. \n",
-      "enum": [
-        "Arts",
-        "Automobiles",
-        "Blogs",
-        "Books",
-        "Business Day",
-        "Education",
-        "Fashion & Style",
-        "Food",
-        "Health",
-        "Job Market",
-        "Magazine",
-        "membercenter",
-        "Movies",
-        "Multimedia",
-        "N.Y.%20%2F%20Region",
-        "NYT Now",
-        "Obituaries",
-        "Open",
-        "Opinion",
-        "Public Editor",
-        "Real Estate",
-        "Science",
-        "Sports",
-        "Style",
-        "Sunday Review",
-        "T Magazine",
-        "Technology",
-        "The Upshot",
-        "Theater",
-        "Times Insider",
-        "Today’s Paper",
-        "Travel",
-        "U.S.",
-        "World",
-        "Your Money",
-        "all-sections"
-      ]
-    },
-    "time-period": {
-      "type": "string",
-      "description": "Number of days `1 | 7 | 30 ` corresponds to a day, a week, or a month of content.",
-      "enum": [
-        "1",
-        "7",
-        "30"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "section",
-    "time-period"
-  ]
-}
+
+```js
+nytimes_most_popular_api.mostshared.section.time_period.json.get({
+  "section": "",
+  "time-period": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "copyright": {
-      "type": "string"
-    },
-    "num_results": {
-      "type": "integer"
-    },
-    "results": {
-      "items": {
-        "$ref": "#/definitions/Article"
-      },
-      "type": "array"
-    },
-    "status": {
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: mostviewed.section.time_period.json.get
+
+#### Parameters
+* section (string) **required** - Limits the results by one or more sections. You can use
+* time-period (string) **required** - Number of days `1 | 7 | 30 ` corresponds to a day, a week, or a month of content.
+
+### mostviewed.section.time_period.json.get
 Most Viewed by Section & Time Period
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "section": {
-      "type": "string",
-      "description": "Limits the results by one or more sections. You can use\n`all-sections` or one or more section names seperated by semicolons. See `viewed/sections.json` call to get a list of sections. \n",
-      "enum": [
-        "Arts",
-        "Automobiles",
-        "Blogs",
-        "Books",
-        "Business Day",
-        "Education",
-        "Fashion & Style",
-        "Food",
-        "Health",
-        "Job Market",
-        "Magazine",
-        "membercenter",
-        "Movies",
-        "Multimedia",
-        "N.Y.%20%2F%20Region",
-        "NYT Now",
-        "Obituaries",
-        "Open",
-        "Opinion",
-        "Public Editor",
-        "Real Estate",
-        "Science",
-        "Sports",
-        "Style",
-        "Sunday Review",
-        "T Magazine",
-        "Technology",
-        "The Upshot",
-        "Theater",
-        "Times Insider",
-        "Today’s Paper",
-        "Travel",
-        "U.S.",
-        "World",
-        "Your Money",
-        "all-sections"
-      ]
-    },
-    "time-period": {
-      "type": "string",
-      "description": "Number of days `1 | 7 | 30 ` corresponds to a day, a week, or a month of content.",
-      "enum": [
-        "1",
-        "7",
-        "30"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "section",
-    "time-period"
-  ]
-}
+
+```js
+nytimes_most_popular_api.mostviewed.section.time_period.json.get({
+  "section": "",
+  "time-period": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "copyright": {
-      "type": "string"
-    },
-    "num_results": {
-      "type": "integer"
-    },
-    "results": {
-      "items": {
-        "$ref": "#/definitions/Article"
-      },
-      "type": "array"
-    },
-    "status": {
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
+
+#### Parameters
+* section (string) **required** - Limits the results by one or more sections. You can use
+* time-period (string) **required** - Number of days `1 | 7 | 30 ` corresponds to a day, a week, or a month of content.
+

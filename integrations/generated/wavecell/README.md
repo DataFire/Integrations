@@ -1,95 +1,84 @@
 # @datafire/wavecell
+
+Client library for Wavecell.Sms.Api
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/wavecell
+```
+
+```js
+let datafire = require('datafire');
+let wavecell = require('@datafire/wavecell').actions;
+
+let account = {
+  username: "",
+  password: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    wavecell: account,
+  }
+})
+
+
+wavecell.SmsV1StatusGet({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 This API allows Wavecell customers to originate request to send SMS messages anywhere in the World. The messages can be send individually or as a bulk request.
 
-## Operation: SmsV1StatusGet
+## Actions
+### SmsV1StatusGet
 
 
-### Input Schema
-```json
-{}
+
+```js
+wavecell.SmsV1StatusGet(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: SendManyMessages
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subAccountId": {
-      "type": "string"
-    },
-    "body": {
-      "$ref": "#/definitions/BulkSmsRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subAccountId"
-  ]
-}
-```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BulkSmsResponse"
-}
-```
-## Operation: SendManyMessagesInCompactForm
+### SendManyMessages
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subAccountId": {
-      "type": "string"
-    },
-    "body": {
-      "$ref": "#/definitions/BulkSmsRequestCompact"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subAccountId"
-  ]
-}
+
+```js
+wavecell.SendManyMessages({
+  "subAccountId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/BulkSmsResponse"
-}
-```
-## Operation: SendSingleMessage
+
+#### Parameters
+* subAccountId (string) **required**
+* body (object)
+
+### SendManyMessagesInCompactForm
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subAccountId": {
-      "type": "string"
-    },
-    "body": {
-      "$ref": "#/definitions/SmsRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subAccountId"
-  ]
-}
+
+```js
+wavecell.SendManyMessagesInCompactForm({
+  "subAccountId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SmsResponse"
-}
+
+#### Parameters
+* subAccountId (string) **required**
+* body (object)
+
+### SendSingleMessage
+
+
+
+```js
+wavecell.SendSingleMessage({
+  "subAccountId": ""
+}, context)
 ```
+
+#### Parameters
+* subAccountId (string) **required**
+* body (object)
+

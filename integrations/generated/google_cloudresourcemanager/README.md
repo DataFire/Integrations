@@ -1,174 +1,75 @@
 # @datafire/google_cloudresourcemanager
+
+Client library for Google Cloud Resource Manager
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/google_cloudresourcemanager
+```
+
+```js
+let datafire = require('datafire');
+let google_cloudresourcemanager = require('@datafire/google_cloudresourcemanager').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    google_cloudresourcemanager: account,
+  }
+})
+
+
+google_cloudresourcemanager.projects.create({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 The Google Cloud Resource Manager API provides methods for creating, reading, and updating project metadata.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+google_cloudresourcemanager.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+google_cloudresourcemanager.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: liens.list
+
+
+### liens.list
 List all Liens applied to the `parent` resource.
 
 Callers of this method will require permission on the `parent` resource.
 For example, a Lien with a `parent` of `projects/1234` requires permission
 `resourcemanager.projects.get`.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "pageToken": {
-      "type": "string",
-      "description": "The `next_page_token` value returned from a previous List request, if any."
-    },
-    "pageSize": {
-      "type": "integer",
-      "description": "The maximum number of items to return. This is a suggestion for the server."
-    },
-    "parent": {
-      "type": "string",
-      "description": "The name of the resource to list all attached Liens.\nFor example, `projects/1234`."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_cloudresourcemanager.liens.list({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListLiensResponse"
-}
-```
-## Operation: liens.create
+
+
+### liens.create
 Create a Lien which applies to the resource denoted by the `parent` field.
 
 Callers of this method will require permission on the `parent` resource.
@@ -177,273 +78,36 @@ For example, applying to `projects/1234` requires permission
 
 NOTE: Some resources may limit the number of Liens which may be applied.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Lien"
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_cloudresourcemanager.liens.create({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Lien"
-}
-```
-## Operation: organizations.search
+
+
+### organizations.search
 Searches Organization resources that are visible to the user and satisfy
 the specified filter. This method returns Organizations in an unspecified
 order. New Organizations do not necessarily appear at the end of the
 results.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/SearchOrganizationsRequest"
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_cloudresourcemanager.organizations.search({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SearchOrganizationsResponse"
-}
-```
-## Operation: projects.list
+
+
+### projects.list
 Lists Projects that are visible to the user and satisfy the
 specified filter. This method returns Projects in an unspecified order.
 New Projects do not necessarily appear at the end of the list.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "filter": {
-      "type": "string",
-      "description": "An expression for filtering the results of the request.  Filter rules are\ncase insensitive. The fields eligible for filtering are:\n\n+ `name`\n+ `id`\n+ <code>labels.<em>key</em></code> where *key* is the name of a label\n\nSome examples of using labels as filters:\n\n|Filter|Description|\n|------|-----------|\n|name:how*|The project's name starts with \"how\".|\n|name:Howl|The project's name is `Howl` or `howl`.|\n|name:HOWL|Equivalent to above.|\n|NAME:howl|Equivalent to above.|\n|labels.color:*|The project has the label `color`.|\n|labels.color:red|The project's label `color` has the value `red`.|\n|labels.color:red&nbsp;labels.size:big|The project's label `color` has the\nvalue `red` and its label `size` has the value `big`.\n\nOptional."
-    },
-    "pageSize": {
-      "type": "integer",
-      "description": "The maximum number of Projects to return in the response.\nThe server can return fewer Projects than requested.\nIf unspecified, server picks an appropriate default.\n\nOptional."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "A pagination token returned from a previous call to ListProjects\nthat indicates from where listing should continue.\n\nOptional."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_cloudresourcemanager.projects.list({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListProjectsResponse"
-}
-```
-## Operation: projects.create
+
+
+### projects.create
 Request that a new Project be created. The result is an Operation which
 can be used to track the creation process. It is automatically deleted
 after a few hours, so there is no need to call DeleteOperation.
@@ -453,89 +117,13 @@ percentile. As of 2016-08-29, we are observing 6 seconds 50th percentile
 latency. 95th percentile latency is around 11 seconds. We recommend
 polling at the 5th second with an exponential backoff.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Project"
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_cloudresourcemanager.projects.create({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: projects.delete
+
+
+### projects.delete
 Marks the Project identified by the specified
 `project_id` (for example, `my-project-123`) for deletion.
 This method will only affect the Project if the following criteria are met:
@@ -561,363 +149,119 @@ ListProjects methods.
 
 The caller must have modify permissions for this Project.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "The Project ID (for example, `foo-bar-123`).\n\nRequired."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId"
-  ]
-}
+
+```js
+google_cloudresourcemanager.projects.delete({
+  "projectId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Empty"
-}
-```
-## Operation: projects.get
+
+#### Parameters
+* projectId (string) **required** - The Project ID (for example, `foo-bar-123`).
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+
+### projects.get
 Retrieves the Project identified by the specified
 `project_id` (for example, `my-project-123`).
 
 The caller must have read permissions for this Project.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "The Project ID (for example, `my-project-123`).\n\nRequired."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId"
-  ]
-}
+
+```js
+google_cloudresourcemanager.projects.get({
+  "projectId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Project"
-}
-```
-## Operation: projects.update
+
+#### Parameters
+* projectId (string) **required** - The Project ID (for example, `my-project-123`).
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+
+### projects.update
 Updates the attributes of the Project identified by the specified
 `project_id` (for example, `my-project-123`).
 
 The caller must have modify permissions for this Project.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "The project ID (for example, `my-project-123`).\n\nRequired."
-    },
-    "body": {
-      "$ref": "#/definitions/Project"
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId"
-  ]
-}
+
+```js
+google_cloudresourcemanager.projects.update({
+  "projectId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Project"
-}
-```
-## Operation: projects.getAncestry
+
+#### Parameters
+* projectId (string) **required** - The project ID (for example, `my-project-123`).
+* body (object) - A Project is a high-level Google Cloud Platform entity.  It is a
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+
+### projects.getAncestry
 Gets a list of ancestors in the resource hierarchy for the Project
 identified by the specified `project_id` (for example, `my-project-123`).
 
 The caller must have read permissions for this Project.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "The Project ID (for example, `my-project-123`).\n\nRequired."
-    },
-    "body": {
-      "$ref": "#/definitions/GetAncestryRequest"
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId"
-  ]
-}
+
+```js
+google_cloudresourcemanager.projects.getAncestry({
+  "projectId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetAncestryResponse"
-}
-```
-## Operation: projects.undelete
+
+#### Parameters
+* projectId (string) **required** - The Project ID (for example, `my-project-123`).
+* body (object) - The request sent to the
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+
+### projects.undelete
 Restores the Project identified by the specified
 `project_id` (for example, `my-project-123`).
 You can only use this method for a Project that has a lifecycle state of
@@ -926,183 +270,59 @@ After deletion starts, the Project cannot be restored.
 
 The caller must have modify permissions for this Project.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "projectId": {
-      "type": "string",
-      "description": "The project ID (for example, `foo-bar-123`).\n\nRequired."
-    },
-    "body": {
-      "$ref": "#/definitions/UndeleteProjectRequest"
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "projectId"
-  ]
-}
+
+```js
+google_cloudresourcemanager.projects.undelete({
+  "projectId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Empty"
-}
-```
-## Operation: projects.getIamPolicy
+
+#### Parameters
+* projectId (string) **required** - The project ID (for example, `foo-bar-123`).
+* body (object) - The request sent to the UndeleteProject
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+
+### projects.getIamPolicy
 Returns the IAM access control policy for the specified Project.
 Permission is denied if the policy or the resource does not exist.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resource": {
-      "type": "string",
-      "description": "REQUIRED: The resource for which the policy is being requested.\nSee the operation documentation for the appropriate value for this field."
-    },
-    "body": {
-      "$ref": "#/definitions/GetIamPolicyRequest"
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resource"
-  ]
-}
+
+```js
+google_cloudresourcemanager.projects.getIamPolicy({
+  "resource": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Policy"
-}
-```
-## Operation: projects.setIamPolicy
+
+#### Parameters
+* resource (string) **required** - REQUIRED: The resource for which the policy is being requested.
+* body (object) - Request message for `GetIamPolicy` method.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+
+### projects.setIamPolicy
 Sets the IAM access control policy for the specified Project. Replaces
 any existing policy.
 
@@ -1142,631 +362,201 @@ can render services completely inoperable. It is important to understand
 how the service account is being used before removing or updating its
 roles.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resource": {
-      "type": "string",
-      "description": "REQUIRED: The resource for which the policy is being specified.\nSee the operation documentation for the appropriate value for this field."
-    },
-    "body": {
-      "$ref": "#/definitions/SetIamPolicyRequest"
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resource"
-  ]
-}
+
+```js
+google_cloudresourcemanager.projects.setIamPolicy({
+  "resource": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Policy"
-}
-```
-## Operation: projects.testIamPermissions
+
+#### Parameters
+* resource (string) **required** - REQUIRED: The resource for which the policy is being specified.
+* body (object) - Request message for `SetIamPolicy` method.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+
+### projects.testIamPermissions
 Returns permissions that a caller has on the specified Project.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resource": {
-      "type": "string",
-      "description": "REQUIRED: The resource for which the policy detail is being requested.\nSee the operation documentation for the appropriate value for this field."
-    },
-    "body": {
-      "$ref": "#/definitions/TestIamPermissionsRequest"
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resource"
-  ]
-}
+
+```js
+google_cloudresourcemanager.projects.testIamPermissions({
+  "resource": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TestIamPermissionsResponse"
-}
-```
-## Operation: liens.delete
+
+#### Parameters
+* resource (string) **required** - REQUIRED: The resource for which the policy detail is being requested.
+* body (object) - Request message for `TestIamPermissions` method.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+
+### liens.delete
 Delete a Lien by `name`.
 
 Callers of this method will require permission on the `parent` resource.
 For example, a Lien with a `parent` of `projects/1234` requires permission
 `resourcemanager.projects.updateLiens`.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name/identifier of the Lien to delete."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+google_cloudresourcemanager.liens.delete({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Empty"
-}
-```
-## Operation: operations.get
+
+#### Parameters
+* name (string) **required** - The name/identifier of the Lien to delete.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+
+### operations.get
 Gets the latest state of a long-running operation.  Clients can use this
 method to poll the operation result at intervals as recommended by the API
 service.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "The name of the operation resource."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "name"
-  ]
-}
+
+```js
+google_cloudresourcemanager.operations.get({
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Operation"
-}
-```
-## Operation: folders.clearOrgPolicy
+
+#### Parameters
+* name (string) **required** - The name of the operation resource.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+
+### folders.clearOrgPolicy
 Clears a `Policy` from a resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ClearOrgPolicyRequest"
-    },
-    "resource": {
-      "type": "string",
-      "description": "Name of the resource for the `Policy` to clear."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resource"
-  ]
-}
+
+```js
+google_cloudresourcemanager.folders.clearOrgPolicy({
+  "resource": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Empty"
-}
-```
-## Operation: folders.getEffectiveOrgPolicy
+
+#### Parameters
+* body (object) - The request sent to the ClearOrgPolicy method.
+* resource (string) **required** - Name of the resource for the `Policy` to clear.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### folders.getEffectiveOrgPolicy
 Gets the effective `Policy` on a resource. This is the result of merging
 `Policies` in the resource hierarchy. The returned `Policy` will not have
 an `etag`set because it is a computed `Policy` across multiple resources.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetEffectiveOrgPolicyRequest"
-    },
-    "resource": {
-      "type": "string",
-      "description": "The name of the resource to start computing the effective `Policy`."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resource"
-  ]
-}
+
+```js
+google_cloudresourcemanager.folders.getEffectiveOrgPolicy({
+  "resource": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OrgPolicy"
-}
-```
-## Operation: organizations.getIamPolicy
+
+#### Parameters
+* body (object) - The request sent to the GetEffectiveOrgPolicy method.
+* resource (string) **required** - The name of the resource to start computing the effective `Policy`.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### organizations.getIamPolicy
 Gets the access control policy for an Organization resource. May be empty
 if no such policy or resource exists. The `resource` field should be the
 organization's resource name, e.g. "organizations/123".
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resource": {
-      "type": "string",
-      "description": "REQUIRED: The resource for which the policy is being requested.\nSee the operation documentation for the appropriate value for this field."
-    },
-    "body": {
-      "$ref": "#/definitions/GetIamPolicyRequest"
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resource"
-  ]
-}
+
+```js
+google_cloudresourcemanager.organizations.getIamPolicy({
+  "resource": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Policy"
-}
-```
-## Operation: folders.getOrgPolicy
+
+#### Parameters
+* resource (string) **required** - REQUIRED: The resource for which the policy is being requested.
+* body (object) - Request message for `GetIamPolicy` method.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+
+### folders.getOrgPolicy
 Gets a `Policy` on a resource.
 
 If no `Policy` is set on the resource, a `Policy` is returned with default
@@ -1774,542 +564,170 @@ values including `POLICY_TYPE_NOT_SET` for the `policy_type oneof`. The
 `etag` value can be used with `SetOrgPolicy()` to create or update a
 `Policy` during read-modify-write.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/GetOrgPolicyRequest"
-    },
-    "resource": {
-      "type": "string",
-      "description": "Name of the resource the `Policy` is set on."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resource"
-  ]
-}
+
+```js
+google_cloudresourcemanager.folders.getOrgPolicy({
+  "resource": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OrgPolicy"
-}
-```
-## Operation: folders.listAvailableOrgPolicyConstraints
+
+#### Parameters
+* body (object) - The request sent to the GetOrgPolicy method.
+* resource (string) **required** - Name of the resource the `Policy` is set on.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### folders.listAvailableOrgPolicyConstraints
 Lists `Constraints` that could be applied on the specified resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListAvailableOrgPolicyConstraintsRequest"
-    },
-    "resource": {
-      "type": "string",
-      "description": "Name of the resource to list `Constraints` for."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resource"
-  ]
-}
+
+```js
+google_cloudresourcemanager.folders.listAvailableOrgPolicyConstraints({
+  "resource": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListAvailableOrgPolicyConstraintsResponse"
-}
-```
-## Operation: folders.listOrgPolicies
+
+#### Parameters
+* body (object) - The request sent to the [ListAvailableOrgPolicyConstraints]
+* resource (string) **required** - Name of the resource to list `Constraints` for.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### folders.listOrgPolicies
 Lists all the `Policies` set for a particular resource.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ListOrgPoliciesRequest"
-    },
-    "resource": {
-      "type": "string",
-      "description": "Name of the resource to list Policies for."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resource"
-  ]
-}
+
+```js
+google_cloudresourcemanager.folders.listOrgPolicies({
+  "resource": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListOrgPoliciesResponse"
-}
-```
-## Operation: organizations.setIamPolicy
+
+#### Parameters
+* body (object) - The request sent to the ListOrgPolicies method.
+* resource (string) **required** - Name of the resource to list Policies for.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### organizations.setIamPolicy
 Sets the access control policy on an Organization resource. Replaces any
 existing policy. The `resource` field should be the organization's resource
 name, e.g. "organizations/123".
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resource": {
-      "type": "string",
-      "description": "REQUIRED: The resource for which the policy is being specified.\nSee the operation documentation for the appropriate value for this field."
-    },
-    "body": {
-      "$ref": "#/definitions/SetIamPolicyRequest"
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resource"
-  ]
-}
+
+```js
+google_cloudresourcemanager.organizations.setIamPolicy({
+  "resource": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Policy"
-}
-```
-## Operation: folders.setOrgPolicy
+
+#### Parameters
+* resource (string) **required** - REQUIRED: The resource for which the policy is being specified.
+* body (object) - Request message for `SetIamPolicy` method.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+
+### folders.setOrgPolicy
 Updates the specified `Policy` on the resource. Creates a new `Policy` for
 that `Constraint` on the resource if one does not exist.
 
 Not supplying an `etag` on the request `Policy` results in an unconditional
 write of the `Policy`.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/SetOrgPolicyRequest"
-    },
-    "resource": {
-      "type": "string",
-      "description": "Resource name of the resource to attach the `Policy`."
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resource"
-  ]
-}
+
+```js
+google_cloudresourcemanager.folders.setOrgPolicy({
+  "resource": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OrgPolicy"
-}
-```
-## Operation: organizations.testIamPermissions
+
+#### Parameters
+* body (object) - The request sent to the SetOrgPolicyRequest method.
+* resource (string) **required** - Resource name of the resource to attach the `Policy`.
+* $.xgafv (string) - V1 error format.
+* access_token (string) - OAuth access token.
+* alt (string) - Data format for response.
+* bearer_token (string) - OAuth bearer token.
+* callback (string) - JSONP
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* pp (boolean) - Pretty-print response.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+
+### organizations.testIamPermissions
 Returns permissions that a caller has on the specified Organization.
 The `resource` field should be the organization's resource name,
 e.g. "organizations/123".
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resource": {
-      "type": "string",
-      "description": "REQUIRED: The resource for which the policy detail is being requested.\nSee the operation documentation for the appropriate value for this field."
-    },
-    "body": {
-      "$ref": "#/definitions/TestIamPermissionsRequest"
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resource"
-  ]
-}
+
+```js
+google_cloudresourcemanager.organizations.testIamPermissions({
+  "resource": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TestIamPermissionsResponse"
-}
-```
+
+#### Parameters
+* resource (string) **required** - REQUIRED: The resource for which the policy detail is being requested.
+* body (object) - Request message for `TestIamPermissions` method.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+

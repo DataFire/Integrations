@@ -1,13694 +1,6515 @@
 # @datafire/trello
+
+Client library for Trello
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/trello
+```
+
+```js
+let datafire = require('datafire');
+let trello = require('@datafire/trello').actions;
+
+let account = {
+  api_key: "",
+  api_token: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    trello: account,
+  }
+})
+
+
+trello.deleteActionsByIdAction({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 This document describes the REST API of Trello as published by Trello.com.
  - <a href='https://trello.com/docs/index.html' target='_blank'>Official Documentation</a>
  - <a href='https://trello.com/docs/api' target='_blank'>The HTML pages that were scraped in order to generate this specification.</a>
 
-## Operation: deleteActionsByIdAction
+## Actions
+### deleteActionsByIdAction
 deleteActionsByIdAction()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idAction": {
-      "type": "string",
-      "description": "idAction"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idAction",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteActionsByIdAction({
+  "idAction": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getActionsByIdAction
+
+#### Parameters
+* idAction (string) **required** - idAction
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getActionsByIdAction
 getActionsByIdAction()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idAction": {
-      "type": "string",
-      "description": "idAction"
-    },
-    "display": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "entities": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
-    },
-    "member": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "memberCreator": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "memberCreator_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idAction",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getActionsByIdAction({
+  "idAction": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateActionsByIdAction
+
+#### Parameters
+* idAction (string) **required** - idAction
+* display (string) -  true or false
+* entities (string) -  true or false
+* fields (string) - all or a comma-separated list of: data, date, idMemberCreator or type
+* member (string) -  true or false
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* memberCreator (string) -  true or false
+* memberCreator_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateActionsByIdAction
 updateActionsByIdAction()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idAction": {
-      "type": "string",
-      "description": "idAction"
-    },
-    "body": {
-      "$ref": "#/definitions/actions"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idAction",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateActionsByIdAction({
+  "idAction": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getActionsBoardByIdAction
+
+#### Parameters
+* idAction (string) **required** - idAction
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getActionsBoardByIdAction
 getActionsBoardByIdAction()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idAction": {
-      "type": "string",
-      "description": "idAction"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idAction",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getActionsBoardByIdAction({
+  "idAction": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getActionsBoardByIdActionByField
+
+#### Parameters
+* idAction (string) **required** - idAction
+* fields (string) - all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getActionsBoardByIdActionByField
 getActionsBoardByIdActionByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idAction": {
-      "type": "string",
-      "description": "idAction"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idAction",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getActionsBoardByIdActionByField({
+  "idAction": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getActionsCardByIdAction
+
+#### Parameters
+* idAction (string) **required** - idAction
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getActionsCardByIdAction
 getActionsCardByIdAction()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idAction": {
-      "type": "string",
-      "description": "idAction"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idAction",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getActionsCardByIdAction({
+  "idAction": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getActionsCardByIdActionByField
+
+#### Parameters
+* idAction (string) **required** - idAction
+* fields (string) - all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getActionsCardByIdActionByField
 getActionsCardByIdActionByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idAction": {
-      "type": "string",
-      "description": "idAction"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idAction",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getActionsCardByIdActionByField({
+  "idAction": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getActionsDisplayByIdAction
+
+#### Parameters
+* idAction (string) **required** - idAction
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getActionsDisplayByIdAction
 getActionsDisplayByIdAction()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idAction": {
-      "type": "string",
-      "description": "idAction"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idAction",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getActionsDisplayByIdAction({
+  "idAction": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getActionsEntitiesByIdAction
+
+#### Parameters
+* idAction (string) **required** - idAction
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getActionsEntitiesByIdAction
 getActionsEntitiesByIdAction()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idAction": {
-      "type": "string",
-      "description": "idAction"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idAction",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getActionsEntitiesByIdAction({
+  "idAction": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getActionsListByIdAction
+
+#### Parameters
+* idAction (string) **required** - idAction
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getActionsListByIdAction
 getActionsListByIdAction()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idAction": {
-      "type": "string",
-      "description": "idAction"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idAction",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getActionsListByIdAction({
+  "idAction": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getActionsListByIdActionByField
+
+#### Parameters
+* idAction (string) **required** - idAction
+* fields (string) - all or a comma-separated list of: closed, idBoard, name, pos or subscribed
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getActionsListByIdActionByField
 getActionsListByIdActionByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idAction": {
-      "type": "string",
-      "description": "idAction"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idAction",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getActionsListByIdActionByField({
+  "idAction": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getActionsMemberByIdAction
+
+#### Parameters
+* idAction (string) **required** - idAction
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getActionsMemberByIdAction
 getActionsMemberByIdAction()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idAction": {
-      "type": "string",
-      "description": "idAction"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idAction",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getActionsMemberByIdAction({
+  "idAction": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getActionsMemberByIdActionByField
+
+#### Parameters
+* idAction (string) **required** - idAction
+* fields (string) - all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getActionsMemberByIdActionByField
 getActionsMemberByIdActionByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idAction": {
-      "type": "string",
-      "description": "idAction"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idAction",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getActionsMemberByIdActionByField({
+  "idAction": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getActionsMemberCreatorByIdAction
+
+#### Parameters
+* idAction (string) **required** - idAction
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getActionsMemberCreatorByIdAction
 getActionsMemberCreatorByIdAction()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idAction": {
-      "type": "string",
-      "description": "idAction"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idAction",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getActionsMemberCreatorByIdAction({
+  "idAction": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getActionsMemberCreatorByIdActionByField
+
+#### Parameters
+* idAction (string) **required** - idAction
+* fields (string) - all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getActionsMemberCreatorByIdActionByField
 getActionsMemberCreatorByIdActionByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idAction": {
-      "type": "string",
-      "description": "idAction"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idAction",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getActionsMemberCreatorByIdActionByField({
+  "idAction": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getActionsOrganizationByIdAction
+
+#### Parameters
+* idAction (string) **required** - idAction
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getActionsOrganizationByIdAction
 getActionsOrganizationByIdAction()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idAction": {
-      "type": "string",
-      "description": "idAction"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idAction",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getActionsOrganizationByIdAction({
+  "idAction": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getActionsOrganizationByIdActionByField
+
+#### Parameters
+* idAction (string) **required** - idAction
+* fields (string) - all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getActionsOrganizationByIdActionByField
 getActionsOrganizationByIdActionByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idAction": {
-      "type": "string",
-      "description": "idAction"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idAction",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getActionsOrganizationByIdActionByField({
+  "idAction": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateActionsTextByIdAction
+
+#### Parameters
+* idAction (string) **required** - idAction
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateActionsTextByIdAction
 updateActionsTextByIdAction()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idAction": {
-      "type": "string",
-      "description": "idAction"
-    },
-    "body": {
-      "$ref": "#/definitions/actions_text"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idAction",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateActionsTextByIdAction({
+  "idAction": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getActionsByIdActionByField
+
+#### Parameters
+* idAction (string) **required** - idAction
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getActionsByIdActionByField
 getActionsByIdActionByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idAction": {
-      "type": "string",
-      "description": "idAction"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idAction",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getActionsByIdActionByField({
+  "idAction": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBatch
+
+#### Parameters
+* idAction (string) **required** - idAction
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBatch
 getBatch()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "urls": {
-      "type": "string",
-      "description": "list of API v1 GET routes, not including the version prefix"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "urls",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBatch({
+  "urls": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addBoards
+
+#### Parameters
+* urls (string) **required** - list of API v1 GET routes, not including the version prefix
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addBoards
 addBoards()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/boards"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addBoards({
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsByIdBoard
+
+#### Parameters
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsByIdBoard
 getBoardsByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "actions": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
-    },
-    "actions_entities": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "actions_display": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "actions_format": {
-      "type": "string",
-      "description": "One of: count, list or minimal"
-    },
-    "actions_since": {
-      "type": "string",
-      "description": "A date, null or lastView"
-    },
-    "actions_limit": {
-      "type": "string",
-      "description": "a number from 0 to 1000"
-    },
-    "action_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
-    },
-    "action_member": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "action_member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "action_memberCreator": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "action_memberCreator_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "cards": {
-      "type": "string",
-      "description": "One of: all, closed, none, open or visible"
-    },
-    "card_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
-    },
-    "card_attachments": {
-      "type": "string",
-      "description": "A boolean value or &quot;cover&quot; for only card cover attachments"
-    },
-    "card_attachment_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
-    },
-    "card_checklists": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "card_stickers": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "boardStars": {
-      "type": "string",
-      "description": "One of: mine or none"
-    },
-    "labels": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "label_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: color, idBoard, name or uses"
-    },
-    "labels_limit": {
-      "type": "string",
-      "description": "a number from 0 to 1000"
-    },
-    "lists": {
-      "type": "string",
-      "description": "One of: all, closed, none or open"
-    },
-    "list_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed"
-    },
-    "memberships": {
-      "type": "string",
-      "description": "all or a comma-separated list of: active, admin, deactivated, me or normal"
-    },
-    "memberships_member": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "memberships_member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "members": {
-      "type": "string",
-      "description": "One of: admins, all, none, normal or owners"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "membersInvited": {
-      "type": "string",
-      "description": "One of: admins, all, none, normal or owners"
-    },
-    "membersInvited_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "checklists": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "checklist_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: idBoard, idCard, name or pos"
-    },
-    "organization": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "organization_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
-    },
-    "organization_memberships": {
-      "type": "string",
-      "description": "all or a comma-separated list of: active, admin, deactivated, me or normal"
-    },
-    "myPrefs": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsByIdBoard({
+  "idBoard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* actions (string) - all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization
+* actions_entities (string) -  true or false
+* actions_display (string) -  true or false
+* actions_format (string) - One of: count, list or minimal
+* actions_since (string) - A date, null or lastView
+* actions_limit (string) - a number from 0 to 1000
+* action_fields (string) - all or a comma-separated list of: data, date, idMemberCreator or type
+* action_member (string) -  true or false
+* action_member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* action_memberCreator (string) -  true or false
+* action_memberCreator_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* cards (string) - One of: all, closed, none, open or visible
+* card_fields (string) - all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url
+* card_attachments (string) - A boolean value or &quot;cover&quot; for only card cover attachments
+* card_attachment_fields (string) - all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url
+* card_checklists (string) - One of: all or none
+* card_stickers (string) -  true or false
+* boardStars (string) - One of: mine or none
+* labels (string) - One of: all or none
+* label_fields (string) - all or a comma-separated list of: color, idBoard, name or uses
+* labels_limit (string) - a number from 0 to 1000
+* lists (string) - One of: all, closed, none or open
+* list_fields (string) - all or a comma-separated list of: closed, idBoard, name, pos or subscribed
+* memberships (string) - all or a comma-separated list of: active, admin, deactivated, me or normal
+* memberships_member (string) -  true or false
+* memberships_member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* members (string) - One of: admins, all, none, normal or owners
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* membersInvited (string) - One of: admins, all, none, normal or owners
+* membersInvited_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* checklists (string) - One of: all or none
+* checklist_fields (string) - all or a comma-separated list of: idBoard, idCard, name or pos
+* organization (string) -  true or false
+* organization_fields (string) - all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website
+* organization_memberships (string) - all or a comma-separated list of: active, admin, deactivated, me or normal
+* myPrefs (string) -  true or false
+* fields (string) - all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsByIdBoard
 updateBoardsByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/boards"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsActionsByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsActionsByIdBoard
 getBoardsActionsByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "entities": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "display": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "filter": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
-    },
-    "limit": {
-      "type": "string",
-      "description": "a number from 0 to 1000"
-    },
-    "format": {
-      "type": "string",
-      "description": "One of: count, list or minimal"
-    },
-    "since": {
-      "type": "string",
-      "description": "A date, null or lastView"
-    },
-    "before": {
-      "type": "string",
-      "description": "A date, or null"
-    },
-    "page": {
-      "type": "string",
-      "description": "Page * limit must be less than 1000"
-    },
-    "idModels": {
-      "type": "string",
-      "description": "Only return actions related to these model ids"
-    },
-    "member": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "memberCreator": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "memberCreator_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsActionsByIdBoard({
+  "idBoard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsBoardStarsByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* entities (string) -  true or false
+* display (string) -  true or false
+* filter (string) - all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization
+* fields (string) - all or a comma-separated list of: data, date, idMemberCreator or type
+* limit (string) - a number from 0 to 1000
+* format (string) - One of: count, list or minimal
+* since (string) - A date, null or lastView
+* before (string) - A date, or null
+* page (string) - Page * limit must be less than 1000
+* idModels (string) - Only return actions related to these model ids
+* member (string) -  true or false
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* memberCreator (string) -  true or false
+* memberCreator_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsBoardStarsByIdBoard
 getBoardsBoardStarsByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "filter": {
-      "type": "string",
-      "description": "One of: mine or none"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsBoardStarsByIdBoard({
+  "idBoard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addBoardsCalendarKeyGenerateByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* filter (string) - One of: mine or none
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addBoardsCalendarKeyGenerateByIdBoard
 addBoardsCalendarKeyGenerateByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addBoardsCalendarKeyGenerateByIdBoard({
+  "idBoard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsCardsByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsCardsByIdBoard
 getBoardsCardsByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "actions": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
-    },
-    "attachments": {
-      "type": "string",
-      "description": "A boolean value or &quot;cover&quot; for only card cover attachments"
-    },
-    "attachment_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
-    },
-    "stickers": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "members": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "checkItemStates": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "checklists": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "limit": {
-      "type": "string",
-      "description": "a number from 1 to 1000"
-    },
-    "since": {
-      "type": "string",
-      "description": "A date, or null"
-    },
-    "before": {
-      "type": "string",
-      "description": "A date, or null"
-    },
-    "filter": {
-      "type": "string",
-      "description": "One of: all, closed, none, open or visible"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsCardsByIdBoard({
+  "idBoard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsCardsByIdBoardByFilter
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* actions (string) - all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization
+* attachments (string) - A boolean value or &quot;cover&quot; for only card cover attachments
+* attachment_fields (string) - all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url
+* stickers (string) -  true or false
+* members (string) -  true or false
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* checkItemStates (string) -  true or false
+* checklists (string) - One of: all or none
+* limit (string) - a number from 1 to 1000
+* since (string) - A date, or null
+* before (string) - A date, or null
+* filter (string) - One of: all, closed, none, open or visible
+* fields (string) - all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsCardsByIdBoardByFilter
 getBoardsCardsByIdBoardByFilter()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "filter": {
-      "type": "string",
-      "description": "filter"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "filter",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsCardsByIdBoardByFilter({
+  "idBoard": "",
+  "filter": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsCardsByIdBoardByIdCard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* filter (string) **required** - filter
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsCardsByIdBoardByIdCard
 getBoardsCardsByIdBoardByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "idCard": {
-      "type": "string",
-      "description": "idCard"
-    },
-    "attachments": {
-      "type": "string",
-      "description": "A boolean value or &quot;cover&quot; for only card cover attachments"
-    },
-    "attachment_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
-    },
-    "actions": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
-    },
-    "actions_entities": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "actions_display": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "actions_limit": {
-      "type": "string",
-      "description": "a number from 0 to 1000"
-    },
-    "action_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
-    },
-    "action_memberCreator_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "members": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "checkItemStates": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "checkItemState_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: idCheckItem or state"
-    },
-    "labels": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "checklists": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "checklist_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: idBoard, idCard, name or pos"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "idCard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsCardsByIdBoardByIdCard({
+  "idBoard": "",
+  "idCard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsChecklistsByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* idCard (string) **required** - idCard
+* attachments (string) - A boolean value or &quot;cover&quot; for only card cover attachments
+* attachment_fields (string) - all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url
+* actions (string) - all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization
+* actions_entities (string) -  true or false
+* actions_display (string) -  true or false
+* actions_limit (string) - a number from 0 to 1000
+* action_fields (string) - all or a comma-separated list of: data, date, idMemberCreator or type
+* action_memberCreator_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* members (string) -  true or false
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* checkItemStates (string) -  true or false
+* checkItemState_fields (string) - all or a comma-separated list of: idCheckItem or state
+* labels (string) -  true or false
+* checklists (string) - One of: all or none
+* checklist_fields (string) - all or a comma-separated list of: idBoard, idCard, name or pos
+* fields (string) - all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsChecklistsByIdBoard
 getBoardsChecklistsByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "cards": {
-      "type": "string",
-      "description": "One of: all, closed, none, open or visible"
-    },
-    "card_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
-    },
-    "checkItems": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "checkItem_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: name, nameData, pos, state or type"
-    },
-    "filter": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: idBoard, idCard, name or pos"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsChecklistsByIdBoard({
+  "idBoard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addBoardsChecklistsByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* cards (string) - One of: all, closed, none, open or visible
+* card_fields (string) - all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url
+* checkItems (string) - One of: all or none
+* checkItem_fields (string) - all or a comma-separated list of: name, nameData, pos, state or type
+* filter (string) - One of: all or none
+* fields (string) - all or a comma-separated list of: idBoard, idCard, name or pos
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addBoardsChecklistsByIdBoard
 addBoardsChecklistsByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/boards_checklists"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addBoardsChecklistsByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsClosedByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsClosedByIdBoard
 updateBoardsClosedByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/boards_closed"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsClosedByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsDeltasByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsDeltasByIdBoard
 getBoardsDeltasByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "tags": {
-      "type": "string",
-      "description": "A valid tag for subscribing"
-    },
-    "ixLastUpdate": {
-      "type": "string",
-      "description": "a number from -1 to Infinity"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "tags",
-    "ixLastUpdate",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsDeltasByIdBoard({
+  "idBoard": "",
+  "tags": "",
+  "ixLastUpdate": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsDescByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* tags (string) **required** - A valid tag for subscribing
+* ixLastUpdate (string) **required** - a number from -1 to Infinity
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsDescByIdBoard
 updateBoardsDescByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/boards_desc"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsDescByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addBoardsEmailKeyGenerateByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addBoardsEmailKeyGenerateByIdBoard
 addBoardsEmailKeyGenerateByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addBoardsEmailKeyGenerateByIdBoard({
+  "idBoard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsIdOrganizationByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsIdOrganizationByIdBoard
 updateBoardsIdOrganizationByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/boards_idOrganization"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsIdOrganizationByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsLabelNamesBlueByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsLabelNamesBlueByIdBoard
 updateBoardsLabelNamesBlueByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/labelNames_blue"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsLabelNamesBlueByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsLabelNamesGreenByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsLabelNamesGreenByIdBoard
 updateBoardsLabelNamesGreenByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/labelNames_green"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsLabelNamesGreenByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsLabelNamesOrangeByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsLabelNamesOrangeByIdBoard
 updateBoardsLabelNamesOrangeByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/labelNames_orange"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsLabelNamesOrangeByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsLabelNamesPurpleByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsLabelNamesPurpleByIdBoard
 updateBoardsLabelNamesPurpleByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/labelNames_purple"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsLabelNamesPurpleByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsLabelNamesRedByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsLabelNamesRedByIdBoard
 updateBoardsLabelNamesRedByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/labelNames_red"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsLabelNamesRedByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsLabelNamesYellowByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsLabelNamesYellowByIdBoard
 updateBoardsLabelNamesYellowByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/labelNames_yellow"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsLabelNamesYellowByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsLabelsByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsLabelsByIdBoard
 getBoardsLabelsByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: color, idBoard, name or uses"
-    },
-    "limit": {
-      "type": "string",
-      "description": "a number from 0 to 1000"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsLabelsByIdBoard({
+  "idBoard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addBoardsLabelsByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* fields (string) - all or a comma-separated list of: color, idBoard, name or uses
+* limit (string) - a number from 0 to 1000
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addBoardsLabelsByIdBoard
 addBoardsLabelsByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/boards_labels"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addBoardsLabelsByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsLabelsByIdBoardByIdLabel
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsLabelsByIdBoardByIdLabel
 getBoardsLabelsByIdBoardByIdLabel()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "idLabel": {
-      "type": "string",
-      "description": "idLabel"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: color, idBoard, name or uses"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "idLabel",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsLabelsByIdBoardByIdLabel({
+  "idBoard": "",
+  "idLabel": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsListsByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* idLabel (string) **required** - idLabel
+* fields (string) - all or a comma-separated list of: color, idBoard, name or uses
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsListsByIdBoard
 getBoardsListsByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "cards": {
-      "type": "string",
-      "description": "One of: all, closed, none, open or visible"
-    },
-    "card_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
-    },
-    "filter": {
-      "type": "string",
-      "description": "One of: all, closed, none or open"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsListsByIdBoard({
+  "idBoard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addBoardsListsByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* cards (string) - One of: all, closed, none, open or visible
+* card_fields (string) - all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url
+* filter (string) - One of: all, closed, none or open
+* fields (string) - all or a comma-separated list of: closed, idBoard, name, pos or subscribed
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addBoardsListsByIdBoard
 addBoardsListsByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/boards_lists"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addBoardsListsByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsListsByIdBoardByFilter
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsListsByIdBoardByFilter
 getBoardsListsByIdBoardByFilter()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "filter": {
-      "type": "string",
-      "description": "filter"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "filter",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsListsByIdBoardByFilter({
+  "idBoard": "",
+  "filter": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addBoardsMarkAsViewedByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* filter (string) **required** - filter
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addBoardsMarkAsViewedByIdBoard
 addBoardsMarkAsViewedByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addBoardsMarkAsViewedByIdBoard({
+  "idBoard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsMembersByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsMembersByIdBoard
 getBoardsMembersByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "filter": {
-      "type": "string",
-      "description": "One of: admins, all, none, normal or owners"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "activity": {
-      "type": "string",
-      "description": "true or false ; works for premium organizations only."
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsMembersByIdBoard({
+  "idBoard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsMembersByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* filter (string) - One of: admins, all, none, normal or owners
+* fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* activity (string) - true or false ; works for premium organizations only.
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsMembersByIdBoard
 updateBoardsMembersByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/boards_members"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsMembersByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsMembersByIdBoardByFilter
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsMembersByIdBoardByFilter
 getBoardsMembersByIdBoardByFilter()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "filter": {
-      "type": "string",
-      "description": "filter"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "filter",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsMembersByIdBoardByFilter({
+  "idBoard": "",
+  "filter": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteBoardsMembersByIdBoardByIdMember
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* filter (string) **required** - filter
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteBoardsMembersByIdBoardByIdMember
 deleteBoardsMembersByIdBoardByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "idMember": {
-      "type": "string",
-      "description": "idMember"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteBoardsMembersByIdBoardByIdMember({
+  "idBoard": "",
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsMembersByIdBoardByIdMember
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* idMember (string) **required** - idMember
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsMembersByIdBoardByIdMember
 updateBoardsMembersByIdBoardByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "idMember": {
-      "type": "string",
-      "description": "idMember"
-    },
-    "body": {
-      "$ref": "#/definitions/boards_members"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "idMember",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsMembersByIdBoardByIdMember({
+  "idBoard": "",
+  "idMember": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsMembersCardsByIdBoardByIdMember
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* idMember (string) **required** - idMember
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsMembersCardsByIdBoardByIdMember
 getBoardsMembersCardsByIdBoardByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "idMember": {
-      "type": "string",
-      "description": "idMember"
-    },
-    "actions": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
-    },
-    "attachments": {
-      "type": "string",
-      "description": "A boolean value or &quot;cover&quot; for only card cover attachments"
-    },
-    "attachment_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
-    },
-    "members": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "checkItemStates": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "checklists": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "board": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "board_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
-    },
-    "list": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "list_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed"
-    },
-    "filter": {
-      "type": "string",
-      "description": "One of: all, closed, none, open or visible"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsMembersCardsByIdBoardByIdMember({
+  "idBoard": "",
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsMembersInvitedByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* idMember (string) **required** - idMember
+* actions (string) - all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization
+* attachments (string) - A boolean value or &quot;cover&quot; for only card cover attachments
+* attachment_fields (string) - all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url
+* members (string) -  true or false
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* checkItemStates (string) -  true or false
+* checklists (string) - One of: all or none
+* board (string) -  true or false
+* board_fields (string) - all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url
+* list (string) -  true or false
+* list_fields (string) - all or a comma-separated list of: closed, idBoard, name, pos or subscribed
+* filter (string) - One of: all, closed, none, open or visible
+* fields (string) - all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsMembersInvitedByIdBoard
 getBoardsMembersInvitedByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsMembersInvitedByIdBoard({
+  "idBoard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsMembersInvitedByIdBoardByField
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* fields (string) - all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsMembersInvitedByIdBoardByField
 getBoardsMembersInvitedByIdBoardByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsMembersInvitedByIdBoardByField({
+  "idBoard": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsMembershipsByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsMembershipsByIdBoard
 getBoardsMembershipsByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "filter": {
-      "type": "string",
-      "description": "all or a comma-separated list of: active, admin, deactivated, me or normal"
-    },
-    "member": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsMembershipsByIdBoard({
+  "idBoard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsMembershipsByIdBoardByIdMembership
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* filter (string) - all or a comma-separated list of: active, admin, deactivated, me or normal
+* member (string) -  true or false
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsMembershipsByIdBoardByIdMembership
 getBoardsMembershipsByIdBoardByIdMembership()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "idMembership": {
-      "type": "string",
-      "description": "idMembership"
-    },
-    "member": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "idMembership",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsMembershipsByIdBoardByIdMembership({
+  "idBoard": "",
+  "idMembership": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsMembershipsByIdBoardByIdMembership
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* idMembership (string) **required** - idMembership
+* member (string) -  true or false
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsMembershipsByIdBoardByIdMembership
 updateBoardsMembershipsByIdBoardByIdMembership()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "idMembership": {
-      "type": "string",
-      "description": "idMembership"
-    },
-    "body": {
-      "$ref": "#/definitions/boards_memberships"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "idMembership",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsMembershipsByIdBoardByIdMembership({
+  "idBoard": "",
+  "idMembership": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsMyPrefsByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* idMembership (string) **required** - idMembership
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsMyPrefsByIdBoard
 getBoardsMyPrefsByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsMyPrefsByIdBoard({
+  "idBoard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsMyPrefsEmailPositionByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsMyPrefsEmailPositionByIdBoard
 updateBoardsMyPrefsEmailPositionByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/myPrefs_emailPosition"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsMyPrefsEmailPositionByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsMyPrefsIdEmailListByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsMyPrefsIdEmailListByIdBoard
 updateBoardsMyPrefsIdEmailListByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/myPrefs_idEmailList"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsMyPrefsIdEmailListByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsMyPrefsShowListGuideByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsMyPrefsShowListGuideByIdBoard
 updateBoardsMyPrefsShowListGuideByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/myPrefs_showListGuide"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsMyPrefsShowListGuideByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsMyPrefsShowSidebarByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsMyPrefsShowSidebarByIdBoard
 updateBoardsMyPrefsShowSidebarByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/myPrefs_showSidebar"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsMyPrefsShowSidebarByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsMyPrefsShowSidebarActivityByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsMyPrefsShowSidebarActivityByIdBoard
 updateBoardsMyPrefsShowSidebarActivityByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/myPrefs_showSidebarActivity"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsMyPrefsShowSidebarActivityByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsMyPrefsShowSidebarBoardActionsByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsMyPrefsShowSidebarBoardActionsByIdBoard
 updateBoardsMyPrefsShowSidebarBoardActionsByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/myPrefs_showSidebarBoardActions"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsMyPrefsShowSidebarBoardActionsByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsMyPrefsShowSidebarMembersByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsMyPrefsShowSidebarMembersByIdBoard
 updateBoardsMyPrefsShowSidebarMembersByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/myPrefs_showSidebarMembers"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsMyPrefsShowSidebarMembersByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsNameByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsNameByIdBoard
 updateBoardsNameByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/boards_name"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsNameByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsOrganizationByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsOrganizationByIdBoard
 getBoardsOrganizationByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsOrganizationByIdBoard({
+  "idBoard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsOrganizationByIdBoardByField
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* fields (string) - all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsOrganizationByIdBoardByField
 getBoardsOrganizationByIdBoardByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsOrganizationByIdBoardByField({
+  "idBoard": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addBoardsPowerUpsByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addBoardsPowerUpsByIdBoard
 addBoardsPowerUpsByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/boards_powerUps"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addBoardsPowerUpsByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteBoardsPowerUpsByIdBoardByPowerUp
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteBoardsPowerUpsByIdBoardByPowerUp
 deleteBoardsPowerUpsByIdBoardByPowerUp()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "powerUp": {
-      "type": "string",
-      "description": "powerUp"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "powerUp",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteBoardsPowerUpsByIdBoardByPowerUp({
+  "idBoard": "",
+  "powerUp": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsPrefsBackgroundByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* powerUp (string) **required** - powerUp
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsPrefsBackgroundByIdBoard
 updateBoardsPrefsBackgroundByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/prefs_background"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsPrefsBackgroundByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsPrefsCalendarFeedEnabledByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsPrefsCalendarFeedEnabledByIdBoard
 updateBoardsPrefsCalendarFeedEnabledByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/prefs_calendarFeedEnabled"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsPrefsCalendarFeedEnabledByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsPrefsCardAgingByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsPrefsCardAgingByIdBoard
 updateBoardsPrefsCardAgingByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/prefs_cardAging"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsPrefsCardAgingByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsPrefsCardCoversByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsPrefsCardCoversByIdBoard
 updateBoardsPrefsCardCoversByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/prefs_cardCovers"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsPrefsCardCoversByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsPrefsCommentsByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsPrefsCommentsByIdBoard
 updateBoardsPrefsCommentsByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/prefs_comments"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsPrefsCommentsByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsPrefsInvitationsByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsPrefsInvitationsByIdBoard
 updateBoardsPrefsInvitationsByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/prefs_invitations"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsPrefsInvitationsByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsPrefsPermissionLevelByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsPrefsPermissionLevelByIdBoard
 updateBoardsPrefsPermissionLevelByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/prefs_permissionLevel"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsPrefsPermissionLevelByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsPrefsSelfJoinByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsPrefsSelfJoinByIdBoard
 updateBoardsPrefsSelfJoinByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/prefs_selfJoin"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsPrefsSelfJoinByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsPrefsVotingByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsPrefsVotingByIdBoard
 updateBoardsPrefsVotingByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/prefs_voting"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsPrefsVotingByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateBoardsSubscribedByIdBoard
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateBoardsSubscribedByIdBoard
 updateBoardsSubscribedByIdBoard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "body": {
-      "$ref": "#/definitions/boards_subscribed"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateBoardsSubscribedByIdBoard({
+  "idBoard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getBoardsByIdBoardByField
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getBoardsByIdBoardByField
 getBoardsByIdBoardByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idBoard": {
-      "type": "string",
-      "description": "board_id"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idBoard",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getBoardsByIdBoardByField({
+  "idBoard": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addCards
+
+#### Parameters
+* idBoard (string) **required** - board_id
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addCards
 addCards()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/cards"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addCards({
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteCardsByIdCard
+
+#### Parameters
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteCardsByIdCard
 deleteCardsByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteCardsByIdCard({
+  "idCard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCardsByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getCardsByIdCard
 getCardsByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "actions": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
-    },
-    "actions_entities": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "actions_display": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "actions_limit": {
-      "type": "string",
-      "description": "a number from 0 to 1000"
-    },
-    "action_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
-    },
-    "action_memberCreator_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "attachments": {
-      "type": "string",
-      "description": "A boolean value or &quot;cover&quot; for only card cover attachments"
-    },
-    "attachment_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
-    },
-    "members": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "membersVoted": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "memberVoted_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "checkItemStates": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "checkItemState_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: idCheckItem or state"
-    },
-    "checklists": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "checklist_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: idBoard, idCard, name or pos"
-    },
-    "board": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "board_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
-    },
-    "list": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "list_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed"
-    },
-    "stickers": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "sticker_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: image, imageScaled, imageUrl, left, rotate, top or zIndex"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getCardsByIdCard({
+  "idCard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateCardsByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* actions (string) - all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization
+* actions_entities (string) -  true or false
+* actions_display (string) -  true or false
+* actions_limit (string) - a number from 0 to 1000
+* action_fields (string) - all or a comma-separated list of: data, date, idMemberCreator or type
+* action_memberCreator_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* attachments (string) - A boolean value or &quot;cover&quot; for only card cover attachments
+* attachment_fields (string) - all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url
+* members (string) -  true or false
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* membersVoted (string) -  true or false
+* memberVoted_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* checkItemStates (string) -  true or false
+* checkItemState_fields (string) - all or a comma-separated list of: idCheckItem or state
+* checklists (string) - One of: all or none
+* checklist_fields (string) - all or a comma-separated list of: idBoard, idCard, name or pos
+* board (string) -  true or false
+* board_fields (string) - all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url
+* list (string) -  true or false
+* list_fields (string) - all or a comma-separated list of: closed, idBoard, name, pos or subscribed
+* stickers (string) -  true or false
+* sticker_fields (string) - all or a comma-separated list of: image, imageScaled, imageUrl, left, rotate, top or zIndex
+* fields (string) - all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateCardsByIdCard
 updateCardsByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "body": {
-      "$ref": "#/definitions/cards"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateCardsByIdCard({
+  "idCard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCardsActionsByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getCardsActionsByIdCard
 getCardsActionsByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "entities": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "display": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "filter": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
-    },
-    "limit": {
-      "type": "string",
-      "description": "a number from 0 to 1000"
-    },
-    "format": {
-      "type": "string",
-      "description": "One of: count, list or minimal"
-    },
-    "since": {
-      "type": "string",
-      "description": "A date, null or lastView"
-    },
-    "before": {
-      "type": "string",
-      "description": "A date, or null"
-    },
-    "page": {
-      "type": "string",
-      "description": "Page * limit must be less than 1000"
-    },
-    "idModels": {
-      "type": "string",
-      "description": "Only return actions related to these model ids"
-    },
-    "member": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "memberCreator": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "memberCreator_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getCardsActionsByIdCard({
+  "idCard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addCardsActionsCommentsByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* entities (string) -  true or false
+* display (string) -  true or false
+* filter (string) - all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization
+* fields (string) - all or a comma-separated list of: data, date, idMemberCreator or type
+* limit (string) - a number from 0 to 1000
+* format (string) - One of: count, list or minimal
+* since (string) - A date, null or lastView
+* before (string) - A date, or null
+* page (string) - Page * limit must be less than 1000
+* idModels (string) - Only return actions related to these model ids
+* member (string) -  true or false
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* memberCreator (string) -  true or false
+* memberCreator_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addCardsActionsCommentsByIdCard
 addCardsActionsCommentsByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "body": {
-      "$ref": "#/definitions/actions_comments"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addCardsActionsCommentsByIdCard({
+  "idCard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteCardsActionsCommentsByIdCardByIdAction
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteCardsActionsCommentsByIdCardByIdAction
 This can only be done by the original author of the comment, or someone with higher permissions than the original author.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "idAction": {
-      "type": "string",
-      "description": "idAction"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "idAction",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteCardsActionsCommentsByIdCardByIdAction({
+  "idCard": "",
+  "idAction": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateCardsActionsCommentsByIdCardByIdAction
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* idAction (string) **required** - idAction
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateCardsActionsCommentsByIdCardByIdAction
 This can only be done by the original author of the comment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "idAction": {
-      "type": "string",
-      "description": "idAction"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_actions_comments"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "idAction",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateCardsActionsCommentsByIdCardByIdAction({
+  "idCard": "",
+  "idAction": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCardsAttachmentsByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* idAction (string) **required** - idAction
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getCardsAttachmentsByIdCard
 getCardsAttachmentsByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
-    },
-    "filter": {
-      "type": "string",
-      "description": "A boolean value or &quot;cover&quot; for only card cover attachments"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getCardsAttachmentsByIdCard({
+  "idCard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addCardsAttachmentsByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* fields (string) - all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url
+* filter (string) - A boolean value or &quot;cover&quot; for only card cover attachments
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addCardsAttachmentsByIdCard
 addCardsAttachmentsByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_attachments"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addCardsAttachmentsByIdCard({
+  "idCard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteCardsAttachmentsByIdCardByIdAttachment
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteCardsAttachmentsByIdCardByIdAttachment
 deleteCardsAttachmentsByIdCardByIdAttachment()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "idAttachment": {
-      "type": "string",
-      "description": "idAttachment"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "idAttachment",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteCardsAttachmentsByIdCardByIdAttachment({
+  "idCard": "",
+  "idAttachment": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCardsAttachmentsByIdCardByIdAttachment
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* idAttachment (string) **required** - idAttachment
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getCardsAttachmentsByIdCardByIdAttachment
 getCardsAttachmentsByIdCardByIdAttachment()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "idAttachment": {
-      "type": "string",
-      "description": "idAttachment"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "idAttachment",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getCardsAttachmentsByIdCardByIdAttachment({
+  "idCard": "",
+  "idAttachment": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCardsBoardByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* idAttachment (string) **required** - idAttachment
+* fields (string) - all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getCardsBoardByIdCard
 getCardsBoardByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getCardsBoardByIdCard({
+  "idCard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCardsBoardByIdCardByField
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* fields (string) - all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getCardsBoardByIdCardByField
 getCardsBoardByIdCardByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getCardsBoardByIdCardByField({
+  "idCard": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCardsCheckItemStatesByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getCardsCheckItemStatesByIdCard
 getCardsCheckItemStatesByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: idCheckItem or state"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getCardsCheckItemStatesByIdCard({
+  "idCard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateCardsChecklistCheckItemByIdCardByIdChecklistCurrentByIdCheckItem
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* fields (string) - all or a comma-separated list of: idCheckItem or state
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateCardsChecklistCheckItemByIdCardByIdChecklistCurrentByIdCheckItem
 updateCardsChecklistCheckItemByIdCardByIdChecklistCurrentByIdCheckItem()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "idChecklistCurrent": {
-      "type": "string",
-      "description": "idChecklistCurrent"
-    },
-    "idCheckItem": {
-      "type": "string",
-      "description": "idCheckItem"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_checklist_idChecklistCurrent_checkItem"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "idChecklistCurrent",
-    "idCheckItem",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateCardsChecklistCheckItemByIdCardByIdChecklistCurrentByIdCheckItem({
+  "idCard": "",
+  "idChecklistCurrent": "",
+  "idCheckItem": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addCardsChecklistCheckItemByIdCardByIdChecklist
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* idChecklistCurrent (string) **required** - idChecklistCurrent
+* idCheckItem (string) **required** - idCheckItem
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addCardsChecklistCheckItemByIdCardByIdChecklist
 addCardsChecklistCheckItemByIdCardByIdChecklist()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_checklist_checkItem"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "idChecklist",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addCardsChecklistCheckItemByIdCardByIdChecklist({
+  "idCard": "",
+  "idChecklist": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteCardsChecklistCheckItemByIdCardByIdChecklistByIdCheckItem
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* idChecklist (string) **required** - idChecklist
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteCardsChecklistCheckItemByIdCardByIdChecklistByIdCheckItem
 deleteCardsChecklistCheckItemByIdCardByIdChecklistByIdCheckItem()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "idCheckItem": {
-      "type": "string",
-      "description": "idCheckItem"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "idChecklist",
-    "idCheckItem",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteCardsChecklistCheckItemByIdCardByIdChecklistByIdCheckItem({
+  "idCard": "",
+  "idChecklist": "",
+  "idCheckItem": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addCardsChecklistCheckItemConvertToCardByIdCardByIdChecklistByIdCheckItem
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* idChecklist (string) **required** - idChecklist
+* idCheckItem (string) **required** - idCheckItem
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addCardsChecklistCheckItemConvertToCardByIdCardByIdChecklistByIdCheckItem
 addCardsChecklistCheckItemConvertToCardByIdCardByIdChecklistByIdCheckItem()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "idCheckItem": {
-      "type": "string",
-      "description": "idCheckItem"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "idChecklist",
-    "idCheckItem",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addCardsChecklistCheckItemConvertToCardByIdCardByIdChecklistByIdCheckItem({
+  "idCard": "",
+  "idChecklist": "",
+  "idCheckItem": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateCardsChecklistCheckItemNameByIdCardByIdChecklistByIdCheckItem
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* idChecklist (string) **required** - idChecklist
+* idCheckItem (string) **required** - idCheckItem
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateCardsChecklistCheckItemNameByIdCardByIdChecklistByIdCheckItem
 updateCardsChecklistCheckItemNameByIdCardByIdChecklistByIdCheckItem()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "idCheckItem": {
-      "type": "string",
-      "description": "idCheckItem"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_checklist_checkItem_name"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "idChecklist",
-    "idCheckItem",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateCardsChecklistCheckItemNameByIdCardByIdChecklistByIdCheckItem({
+  "idCard": "",
+  "idChecklist": "",
+  "idCheckItem": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateCardsChecklistCheckItemPosByIdCardByIdChecklistByIdCheckItem
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* idChecklist (string) **required** - idChecklist
+* idCheckItem (string) **required** - idCheckItem
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateCardsChecklistCheckItemPosByIdCardByIdChecklistByIdCheckItem
 updateCardsChecklistCheckItemPosByIdCardByIdChecklistByIdCheckItem()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "idCheckItem": {
-      "type": "string",
-      "description": "idCheckItem"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_checklist_checkItem_pos"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "idChecklist",
-    "idCheckItem",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateCardsChecklistCheckItemPosByIdCardByIdChecklistByIdCheckItem({
+  "idCard": "",
+  "idChecklist": "",
+  "idCheckItem": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateCardsChecklistCheckItemStateByIdCardByIdChecklistByIdCheckItem
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* idChecklist (string) **required** - idChecklist
+* idCheckItem (string) **required** - idCheckItem
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateCardsChecklistCheckItemStateByIdCardByIdChecklistByIdCheckItem
 updateCardsChecklistCheckItemStateByIdCardByIdChecklistByIdCheckItem()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "idCheckItem": {
-      "type": "string",
-      "description": "idCheckItem"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_checklist_checkItem_state"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "idChecklist",
-    "idCheckItem",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateCardsChecklistCheckItemStateByIdCardByIdChecklistByIdCheckItem({
+  "idCard": "",
+  "idChecklist": "",
+  "idCheckItem": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCardsChecklistsByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* idChecklist (string) **required** - idChecklist
+* idCheckItem (string) **required** - idCheckItem
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getCardsChecklistsByIdCard
 getCardsChecklistsByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "cards": {
-      "type": "string",
-      "description": "One of: all, closed, none, open or visible"
-    },
-    "card_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
-    },
-    "checkItems": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "checkItem_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: name, nameData, pos, state or type"
-    },
-    "filter": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: idBoard, idCard, name or pos"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getCardsChecklistsByIdCard({
+  "idCard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addCardsChecklistsByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* cards (string) - One of: all, closed, none, open or visible
+* card_fields (string) - all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url
+* checkItems (string) - One of: all or none
+* checkItem_fields (string) - all or a comma-separated list of: name, nameData, pos, state or type
+* filter (string) - One of: all or none
+* fields (string) - all or a comma-separated list of: idBoard, idCard, name or pos
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addCardsChecklistsByIdCard
 addCardsChecklistsByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_checklists"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addCardsChecklistsByIdCard({
+  "idCard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteCardsChecklistsByIdCardByIdChecklist
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteCardsChecklistsByIdCardByIdChecklist
 deleteCardsChecklistsByIdCardByIdChecklist()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "idChecklist",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteCardsChecklistsByIdCardByIdChecklist({
+  "idCard": "",
+  "idChecklist": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateCardsClosedByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* idChecklist (string) **required** - idChecklist
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateCardsClosedByIdCard
 updateCardsClosedByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_closed"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateCardsClosedByIdCard({
+  "idCard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateCardsDescByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateCardsDescByIdCard
 updateCardsDescByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_desc"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateCardsDescByIdCard({
+  "idCard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateCardsDueByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateCardsDueByIdCard
 updateCardsDueByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_due"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateCardsDueByIdCard({
+  "idCard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateCardsIdAttachmentCoverByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateCardsIdAttachmentCoverByIdCard
 updateCardsIdAttachmentCoverByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_idAttachmentCover"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateCardsIdAttachmentCoverByIdCard({
+  "idCard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateCardsIdBoardByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateCardsIdBoardByIdCard
 updateCardsIdBoardByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_idBoard"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateCardsIdBoardByIdCard({
+  "idCard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addCardsIdLabelsByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addCardsIdLabelsByIdCard
 addCardsIdLabelsByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_idLabels"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addCardsIdLabelsByIdCard({
+  "idCard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteCardsIdLabelsByIdCardByIdLabel
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteCardsIdLabelsByIdCardByIdLabel
 deleteCardsIdLabelsByIdCardByIdLabel()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "idLabel": {
-      "type": "string",
-      "description": "idLabel"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "idLabel",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteCardsIdLabelsByIdCardByIdLabel({
+  "idCard": "",
+  "idLabel": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateCardsIdListByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* idLabel (string) **required** - idLabel
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateCardsIdListByIdCard
 updateCardsIdListByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_idList"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateCardsIdListByIdCard({
+  "idCard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addCardsIdMembersByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addCardsIdMembersByIdCard
 addCardsIdMembersByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_idMembers"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addCardsIdMembersByIdCard({
+  "idCard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateCardsIdMembersByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateCardsIdMembersByIdCard
 updateCardsIdMembersByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_idMembers"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateCardsIdMembersByIdCard({
+  "idCard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteCardsIdMembersByIdCardByIdMember
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteCardsIdMembersByIdCardByIdMember
 deleteCardsIdMembersByIdCardByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "idMember": {
-      "type": "string",
-      "description": "idMember"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteCardsIdMembersByIdCardByIdMember({
+  "idCard": "",
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addCardsLabelsByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* idMember (string) **required** - idMember
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addCardsLabelsByIdCard
 addCardsLabelsByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_labels"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addCardsLabelsByIdCard({
+  "idCard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateCardsLabelsByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateCardsLabelsByIdCard
 updateCardsLabelsByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_labels"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateCardsLabelsByIdCard({
+  "idCard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteCardsLabelsByIdCardByColor
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteCardsLabelsByIdCardByColor
 deleteCardsLabelsByIdCardByColor()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "color": {
-      "type": "string",
-      "description": "color"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "color",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteCardsLabelsByIdCardByColor({
+  "idCard": "",
+  "color": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCardsListByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* color (string) **required** - color
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getCardsListByIdCard
 getCardsListByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getCardsListByIdCard({
+  "idCard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCardsListByIdCardByField
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* fields (string) - all or a comma-separated list of: closed, idBoard, name, pos or subscribed
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getCardsListByIdCardByField
 getCardsListByIdCardByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getCardsListByIdCardByField({
+  "idCard": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addCardsMarkAssociatedNotificationsReadByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addCardsMarkAssociatedNotificationsReadByIdCard
 addCardsMarkAssociatedNotificationsReadByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addCardsMarkAssociatedNotificationsReadByIdCard({
+  "idCard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCardsMembersByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getCardsMembersByIdCard
 getCardsMembersByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getCardsMembersByIdCard({
+  "idCard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCardsMembersVotedByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getCardsMembersVotedByIdCard
 getCardsMembersVotedByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getCardsMembersVotedByIdCard({
+  "idCard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addCardsMembersVotedByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addCardsMembersVotedByIdCard
 addCardsMembersVotedByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_membersVoted"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addCardsMembersVotedByIdCard({
+  "idCard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteCardsMembersVotedByIdCardByIdMember
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteCardsMembersVotedByIdCardByIdMember
 deleteCardsMembersVotedByIdCardByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "idMember": {
-      "type": "string",
-      "description": "idMember"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteCardsMembersVotedByIdCardByIdMember({
+  "idCard": "",
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateCardsNameByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* idMember (string) **required** - idMember
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateCardsNameByIdCard
 updateCardsNameByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_name"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateCardsNameByIdCard({
+  "idCard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateCardsPosByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateCardsPosByIdCard
 updateCardsPosByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_pos"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateCardsPosByIdCard({
+  "idCard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCardsStickersByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getCardsStickersByIdCard
 getCardsStickersByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: image, imageScaled, imageUrl, left, rotate, top or zIndex"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getCardsStickersByIdCard({
+  "idCard": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addCardsStickersByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* fields (string) - all or a comma-separated list of: image, imageScaled, imageUrl, left, rotate, top or zIndex
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addCardsStickersByIdCard
 addCardsStickersByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_stickers"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addCardsStickersByIdCard({
+  "idCard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteCardsStickersByIdCardByIdSticker
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteCardsStickersByIdCardByIdSticker
 deleteCardsStickersByIdCardByIdSticker()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "idSticker": {
-      "type": "string",
-      "description": "idSticker"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "idSticker",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteCardsStickersByIdCardByIdSticker({
+  "idCard": "",
+  "idSticker": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCardsStickersByIdCardByIdSticker
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* idSticker (string) **required** - idSticker
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getCardsStickersByIdCardByIdSticker
 getCardsStickersByIdCardByIdSticker()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "idSticker": {
-      "type": "string",
-      "description": "idSticker"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: image, imageScaled, imageUrl, left, rotate, top or zIndex"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "idSticker",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getCardsStickersByIdCardByIdSticker({
+  "idCard": "",
+  "idSticker": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateCardsStickersByIdCardByIdSticker
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* idSticker (string) **required** - idSticker
+* fields (string) - all or a comma-separated list of: image, imageScaled, imageUrl, left, rotate, top or zIndex
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateCardsStickersByIdCardByIdSticker
 updateCardsStickersByIdCardByIdSticker()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "idSticker": {
-      "type": "string",
-      "description": "idSticker"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_stickers"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "idSticker",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateCardsStickersByIdCardByIdSticker({
+  "idCard": "",
+  "idSticker": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateCardsSubscribedByIdCard
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* idSticker (string) **required** - idSticker
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateCardsSubscribedByIdCard
 updateCardsSubscribedByIdCard()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "body": {
-      "$ref": "#/definitions/cards_subscribed"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateCardsSubscribedByIdCard({
+  "idCard": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getCardsByIdCardByField
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getCardsByIdCardByField
 getCardsByIdCardByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idCard": {
-      "type": "string",
-      "description": "card id or shortlink"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idCard",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getCardsByIdCardByField({
+  "idCard": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addChecklists
+
+#### Parameters
+* idCard (string) **required** - card id or shortlink
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addChecklists
 addChecklists()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/checklists"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addChecklists({
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteChecklistsByIdChecklist
+
+#### Parameters
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteChecklistsByIdChecklist
 deleteChecklistsByIdChecklist()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idChecklist",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteChecklistsByIdChecklist({
+  "idChecklist": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getChecklistsByIdChecklist
+
+#### Parameters
+* idChecklist (string) **required** - idChecklist
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getChecklistsByIdChecklist
 getChecklistsByIdChecklist()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "cards": {
-      "type": "string",
-      "description": "One of: all, closed, none, open or visible"
-    },
-    "card_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
-    },
-    "checkItems": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "checkItem_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: name, nameData, pos, state or type"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: idBoard, idCard, name or pos"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idChecklist",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getChecklistsByIdChecklist({
+  "idChecklist": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateChecklistsByIdChecklist
+
+#### Parameters
+* idChecklist (string) **required** - idChecklist
+* cards (string) - One of: all, closed, none, open or visible
+* card_fields (string) - all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url
+* checkItems (string) - One of: all or none
+* checkItem_fields (string) - all or a comma-separated list of: name, nameData, pos, state or type
+* fields (string) - all or a comma-separated list of: idBoard, idCard, name or pos
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateChecklistsByIdChecklist
 updateChecklistsByIdChecklist()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "body": {
-      "$ref": "#/definitions/checklists"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idChecklist",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateChecklistsByIdChecklist({
+  "idChecklist": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getChecklistsBoardByIdChecklist
+
+#### Parameters
+* idChecklist (string) **required** - idChecklist
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getChecklistsBoardByIdChecklist
 getChecklistsBoardByIdChecklist()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idChecklist",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getChecklistsBoardByIdChecklist({
+  "idChecklist": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getChecklistsBoardByIdChecklistByField
+
+#### Parameters
+* idChecklist (string) **required** - idChecklist
+* fields (string) - all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getChecklistsBoardByIdChecklistByField
 getChecklistsBoardByIdChecklistByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idChecklist",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getChecklistsBoardByIdChecklistByField({
+  "idChecklist": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getChecklistsCardsByIdChecklist
+
+#### Parameters
+* idChecklist (string) **required** - idChecklist
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getChecklistsCardsByIdChecklist
 getChecklistsCardsByIdChecklist()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "actions": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
-    },
-    "attachments": {
-      "type": "string",
-      "description": "A boolean value or &quot;cover&quot; for only card cover attachments"
-    },
-    "attachment_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
-    },
-    "stickers": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "members": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "checkItemStates": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "checklists": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "limit": {
-      "type": "string",
-      "description": "a number from 1 to 1000"
-    },
-    "since": {
-      "type": "string",
-      "description": "A date, or null"
-    },
-    "before": {
-      "type": "string",
-      "description": "A date, or null"
-    },
-    "filter": {
-      "type": "string",
-      "description": "One of: all, closed, none or open"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idChecklist",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getChecklistsCardsByIdChecklist({
+  "idChecklist": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getChecklistsCardsByIdChecklistByFilter
+
+#### Parameters
+* idChecklist (string) **required** - idChecklist
+* actions (string) - all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization
+* attachments (string) - A boolean value or &quot;cover&quot; for only card cover attachments
+* attachment_fields (string) - all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url
+* stickers (string) -  true or false
+* members (string) -  true or false
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* checkItemStates (string) -  true or false
+* checklists (string) - One of: all or none
+* limit (string) - a number from 1 to 1000
+* since (string) - A date, or null
+* before (string) - A date, or null
+* filter (string) - One of: all, closed, none or open
+* fields (string) - all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getChecklistsCardsByIdChecklistByFilter
 getChecklistsCardsByIdChecklistByFilter()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "filter": {
-      "type": "string",
-      "description": "filter"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idChecklist",
-    "filter",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getChecklistsCardsByIdChecklistByFilter({
+  "idChecklist": "",
+  "filter": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getChecklistsCheckItemsByIdChecklist
+
+#### Parameters
+* idChecklist (string) **required** - idChecklist
+* filter (string) **required** - filter
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getChecklistsCheckItemsByIdChecklist
 getChecklistsCheckItemsByIdChecklist()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "filter": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: name, nameData, pos, state or type"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idChecklist",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getChecklistsCheckItemsByIdChecklist({
+  "idChecklist": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addChecklistsCheckItemsByIdChecklist
+
+#### Parameters
+* idChecklist (string) **required** - idChecklist
+* filter (string) - One of: all or none
+* fields (string) - all or a comma-separated list of: name, nameData, pos, state or type
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addChecklistsCheckItemsByIdChecklist
 addChecklistsCheckItemsByIdChecklist()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "body": {
-      "$ref": "#/definitions/checklists_checkItems"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idChecklist",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addChecklistsCheckItemsByIdChecklist({
+  "idChecklist": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteChecklistsCheckItemsByIdChecklistByIdCheckItem
+
+#### Parameters
+* idChecklist (string) **required** - idChecklist
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteChecklistsCheckItemsByIdChecklistByIdCheckItem
 deleteChecklistsCheckItemsByIdChecklistByIdCheckItem()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "idCheckItem": {
-      "type": "string",
-      "description": "idCheckItem"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idChecklist",
-    "idCheckItem",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteChecklistsCheckItemsByIdChecklistByIdCheckItem({
+  "idChecklist": "",
+  "idCheckItem": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getChecklistsCheckItemsByIdChecklistByIdCheckItem
+
+#### Parameters
+* idChecklist (string) **required** - idChecklist
+* idCheckItem (string) **required** - idCheckItem
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getChecklistsCheckItemsByIdChecklistByIdCheckItem
 getChecklistsCheckItemsByIdChecklistByIdCheckItem()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "idCheckItem": {
-      "type": "string",
-      "description": "idCheckItem"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: name, nameData, pos, state or type"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idChecklist",
-    "idCheckItem",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getChecklistsCheckItemsByIdChecklistByIdCheckItem({
+  "idChecklist": "",
+  "idCheckItem": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateChecklistsIdCardByIdChecklist
+
+#### Parameters
+* idChecklist (string) **required** - idChecklist
+* idCheckItem (string) **required** - idCheckItem
+* fields (string) - all or a comma-separated list of: name, nameData, pos, state or type
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateChecklistsIdCardByIdChecklist
 updateChecklistsIdCardByIdChecklist()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "body": {
-      "$ref": "#/definitions/checklists_idCard"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idChecklist",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateChecklistsIdCardByIdChecklist({
+  "idChecklist": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateChecklistsNameByIdChecklist
+
+#### Parameters
+* idChecklist (string) **required** - idChecklist
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateChecklistsNameByIdChecklist
 updateChecklistsNameByIdChecklist()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "body": {
-      "$ref": "#/definitions/checklists_name"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idChecklist",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateChecklistsNameByIdChecklist({
+  "idChecklist": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateChecklistsPosByIdChecklist
+
+#### Parameters
+* idChecklist (string) **required** - idChecklist
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateChecklistsPosByIdChecklist
 updateChecklistsPosByIdChecklist()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "body": {
-      "$ref": "#/definitions/checklists_pos"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idChecklist",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateChecklistsPosByIdChecklist({
+  "idChecklist": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getChecklistsByIdChecklistByField
+
+#### Parameters
+* idChecklist (string) **required** - idChecklist
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getChecklistsByIdChecklistByField
 getChecklistsByIdChecklistByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idChecklist": {
-      "type": "string",
-      "description": "idChecklist"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idChecklist",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getChecklistsByIdChecklistByField({
+  "idChecklist": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addLabels
+
+#### Parameters
+* idChecklist (string) **required** - idChecklist
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addLabels
 addLabels()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/labels"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addLabels({
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteLabelsByIdLabel
+
+#### Parameters
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteLabelsByIdLabel
 deleteLabelsByIdLabel()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idLabel": {
-      "type": "string",
-      "description": "idLabel"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idLabel",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteLabelsByIdLabel({
+  "idLabel": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getLabelsByIdLabel
+
+#### Parameters
+* idLabel (string) **required** - idLabel
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getLabelsByIdLabel
 getLabelsByIdLabel()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idLabel": {
-      "type": "string",
-      "description": "idLabel"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: color, idBoard, name or uses"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idLabel",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getLabelsByIdLabel({
+  "idLabel": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateLabelsByIdLabel
+
+#### Parameters
+* idLabel (string) **required** - idLabel
+* fields (string) - all or a comma-separated list of: color, idBoard, name or uses
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateLabelsByIdLabel
 updateLabelsByIdLabel()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idLabel": {
-      "type": "string",
-      "description": "idLabel"
-    },
-    "body": {
-      "$ref": "#/definitions/labels"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idLabel",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateLabelsByIdLabel({
+  "idLabel": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getLabelsBoardByIdLabel
+
+#### Parameters
+* idLabel (string) **required** - idLabel
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getLabelsBoardByIdLabel
 getLabelsBoardByIdLabel()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idLabel": {
-      "type": "string",
-      "description": "idLabel"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idLabel",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getLabelsBoardByIdLabel({
+  "idLabel": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getLabelsBoardByIdLabelByField
+
+#### Parameters
+* idLabel (string) **required** - idLabel
+* fields (string) - all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getLabelsBoardByIdLabelByField
 getLabelsBoardByIdLabelByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idLabel": {
-      "type": "string",
-      "description": "idLabel"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idLabel",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getLabelsBoardByIdLabelByField({
+  "idLabel": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateLabelsColorByIdLabel
+
+#### Parameters
+* idLabel (string) **required** - idLabel
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateLabelsColorByIdLabel
 updateLabelsColorByIdLabel()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idLabel": {
-      "type": "string",
-      "description": "idLabel"
-    },
-    "body": {
-      "$ref": "#/definitions/labels_color"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idLabel",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateLabelsColorByIdLabel({
+  "idLabel": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateLabelsNameByIdLabel
+
+#### Parameters
+* idLabel (string) **required** - idLabel
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateLabelsNameByIdLabel
 updateLabelsNameByIdLabel()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idLabel": {
-      "type": "string",
-      "description": "idLabel"
-    },
-    "body": {
-      "$ref": "#/definitions/labels_name"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idLabel",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateLabelsNameByIdLabel({
+  "idLabel": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addLists
+
+#### Parameters
+* idLabel (string) **required** - idLabel
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addLists
 addLists()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/lists"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addLists({
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getListsByIdList
+
+#### Parameters
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getListsByIdList
 getListsByIdList()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idList": {
-      "type": "string",
-      "description": "idList"
-    },
-    "cards": {
-      "type": "string",
-      "description": "One of: all, closed, none or open"
-    },
-    "card_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
-    },
-    "board": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "board_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idList",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getListsByIdList({
+  "idList": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateListsByIdList
+
+#### Parameters
+* idList (string) **required** - idList
+* cards (string) - One of: all, closed, none or open
+* card_fields (string) - all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url
+* board (string) -  true or false
+* board_fields (string) - all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url
+* fields (string) - all or a comma-separated list of: closed, idBoard, name, pos or subscribed
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateListsByIdList
 updateListsByIdList()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idList": {
-      "type": "string",
-      "description": "idList"
-    },
-    "body": {
-      "$ref": "#/definitions/lists"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idList",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateListsByIdList({
+  "idList": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getListsActionsByIdList
+
+#### Parameters
+* idList (string) **required** - idList
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getListsActionsByIdList
 getListsActionsByIdList()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idList": {
-      "type": "string",
-      "description": "idList"
-    },
-    "entities": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "display": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "filter": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
-    },
-    "limit": {
-      "type": "string",
-      "description": "a number from 0 to 1000"
-    },
-    "format": {
-      "type": "string",
-      "description": "One of: count, list or minimal"
-    },
-    "since": {
-      "type": "string",
-      "description": "A date, null or lastView"
-    },
-    "before": {
-      "type": "string",
-      "description": "A date, or null"
-    },
-    "page": {
-      "type": "string",
-      "description": "Page * limit must be less than 1000"
-    },
-    "idModels": {
-      "type": "string",
-      "description": "Only return actions related to these model ids"
-    },
-    "member": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "memberCreator": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "memberCreator_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idList",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getListsActionsByIdList({
+  "idList": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addListsArchiveAllCardsByIdList
+
+#### Parameters
+* idList (string) **required** - idList
+* entities (string) -  true or false
+* display (string) -  true or false
+* filter (string) - all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization
+* fields (string) - all or a comma-separated list of: data, date, idMemberCreator or type
+* limit (string) - a number from 0 to 1000
+* format (string) - One of: count, list or minimal
+* since (string) - A date, null or lastView
+* before (string) - A date, or null
+* page (string) - Page * limit must be less than 1000
+* idModels (string) - Only return actions related to these model ids
+* member (string) -  true or false
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* memberCreator (string) -  true or false
+* memberCreator_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addListsArchiveAllCardsByIdList
 addListsArchiveAllCardsByIdList()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idList": {
-      "type": "string",
-      "description": "idList"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idList",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addListsArchiveAllCardsByIdList({
+  "idList": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getListsBoardByIdList
+
+#### Parameters
+* idList (string) **required** - idList
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getListsBoardByIdList
 getListsBoardByIdList()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idList": {
-      "type": "string",
-      "description": "idList"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idList",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getListsBoardByIdList({
+  "idList": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getListsBoardByIdListByField
+
+#### Parameters
+* idList (string) **required** - idList
+* fields (string) - all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getListsBoardByIdListByField
 getListsBoardByIdListByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idList": {
-      "type": "string",
-      "description": "idList"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idList",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getListsBoardByIdListByField({
+  "idList": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getListsCardsByIdList
+
+#### Parameters
+* idList (string) **required** - idList
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getListsCardsByIdList
 getListsCardsByIdList()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idList": {
-      "type": "string",
-      "description": "idList"
-    },
-    "actions": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
-    },
-    "attachments": {
-      "type": "string",
-      "description": "A boolean value or &quot;cover&quot; for only card cover attachments"
-    },
-    "attachment_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
-    },
-    "stickers": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "members": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "checkItemStates": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "checklists": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "limit": {
-      "type": "string",
-      "description": "a number from 1 to 1000"
-    },
-    "since": {
-      "type": "string",
-      "description": "A date, or null"
-    },
-    "before": {
-      "type": "string",
-      "description": "A date, or null"
-    },
-    "filter": {
-      "type": "string",
-      "description": "One of: all, closed, none or open"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idList",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getListsCardsByIdList({
+  "idList": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addListsCardsByIdList
+
+#### Parameters
+* idList (string) **required** - idList
+* actions (string) - all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization
+* attachments (string) - A boolean value or &quot;cover&quot; for only card cover attachments
+* attachment_fields (string) - all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url
+* stickers (string) -  true or false
+* members (string) -  true or false
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* checkItemStates (string) -  true or false
+* checklists (string) - One of: all or none
+* limit (string) - a number from 1 to 1000
+* since (string) - A date, or null
+* before (string) - A date, or null
+* filter (string) - One of: all, closed, none or open
+* fields (string) - all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addListsCardsByIdList
 addListsCardsByIdList()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idList": {
-      "type": "string",
-      "description": "idList"
-    },
-    "body": {
-      "$ref": "#/definitions/lists_cards"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idList",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addListsCardsByIdList({
+  "idList": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getListsCardsByIdListByFilter
+
+#### Parameters
+* idList (string) **required** - idList
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getListsCardsByIdListByFilter
 getListsCardsByIdListByFilter()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idList": {
-      "type": "string",
-      "description": "idList"
-    },
-    "filter": {
-      "type": "string",
-      "description": "filter"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idList",
-    "filter",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getListsCardsByIdListByFilter({
+  "idList": "",
+  "filter": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateListsClosedByIdList
+
+#### Parameters
+* idList (string) **required** - idList
+* filter (string) **required** - filter
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateListsClosedByIdList
 updateListsClosedByIdList()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idList": {
-      "type": "string",
-      "description": "idList"
-    },
-    "body": {
-      "$ref": "#/definitions/lists_closed"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idList",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateListsClosedByIdList({
+  "idList": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateListsIdBoardByIdList
+
+#### Parameters
+* idList (string) **required** - idList
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateListsIdBoardByIdList
 updateListsIdBoardByIdList()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idList": {
-      "type": "string",
-      "description": "idList"
-    },
-    "body": {
-      "$ref": "#/definitions/lists_idBoard"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idList",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateListsIdBoardByIdList({
+  "idList": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addListsMoveAllCardsByIdList
+
+#### Parameters
+* idList (string) **required** - idList
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addListsMoveAllCardsByIdList
 addListsMoveAllCardsByIdList()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idList": {
-      "type": "string",
-      "description": "idList"
-    },
-    "body": {
-      "$ref": "#/definitions/lists_moveAllCards"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idList",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addListsMoveAllCardsByIdList({
+  "idList": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateListsNameByIdList
+
+#### Parameters
+* idList (string) **required** - idList
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateListsNameByIdList
 updateListsNameByIdList()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idList": {
-      "type": "string",
-      "description": "idList"
-    },
-    "body": {
-      "$ref": "#/definitions/lists_name"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idList",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateListsNameByIdList({
+  "idList": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateListsPosByIdList
+
+#### Parameters
+* idList (string) **required** - idList
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateListsPosByIdList
 updateListsPosByIdList()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idList": {
-      "type": "string",
-      "description": "idList"
-    },
-    "body": {
-      "$ref": "#/definitions/lists_pos"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idList",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateListsPosByIdList({
+  "idList": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateListsSubscribedByIdList
+
+#### Parameters
+* idList (string) **required** - idList
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateListsSubscribedByIdList
 updateListsSubscribedByIdList()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idList": {
-      "type": "string",
-      "description": "idList"
-    },
-    "body": {
-      "$ref": "#/definitions/lists_subscribed"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idList",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateListsSubscribedByIdList({
+  "idList": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getListsByIdListByField
+
+#### Parameters
+* idList (string) **required** - idList
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getListsByIdListByField
 getListsByIdListByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idList": {
-      "type": "string",
-      "description": "idList"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idList",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getListsByIdListByField({
+  "idList": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersByIdMember
+
+#### Parameters
+* idList (string) **required** - idList
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersByIdMember
 If you specify 'me' as the username, this call will respond as if you had supplied the username associated with the supplied token
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "actions": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
-    },
-    "actions_entities": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "actions_display": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "actions_limit": {
-      "type": "string",
-      "description": "a number from 0 to 1000"
-    },
-    "action_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
-    },
-    "action_since": {
-      "type": "string",
-      "description": "A date, null or lastView"
-    },
-    "action_before": {
-      "type": "string",
-      "description": "A date, or null"
-    },
-    "cards": {
-      "type": "string",
-      "description": "One of: all, closed, none, open or visible"
-    },
-    "card_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
-    },
-    "card_members": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "card_member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "card_attachments": {
-      "type": "string",
-      "description": "A boolean value or &quot;cover&quot; for only card cover attachments"
-    },
-    "card_attachment_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
-    },
-    "card_stickers": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "boards": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, members, open, organization, pinned, public, starred or unpinned"
-    },
-    "board_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
-    },
-    "board_actions": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
-    },
-    "board_actions_entities": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "board_actions_display": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "board_actions_format": {
-      "type": "string",
-      "description": "One of: count, list or minimal"
-    },
-    "board_actions_since": {
-      "type": "string",
-      "description": "A date, null or lastView"
-    },
-    "board_actions_limit": {
-      "type": "string",
-      "description": "a number from 0 to 1000"
-    },
-    "board_action_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
-    },
-    "board_lists": {
-      "type": "string",
-      "description": "One of: all, closed, none or open"
-    },
-    "board_memberships": {
-      "type": "string",
-      "description": "all or a comma-separated list of: active, admin, deactivated, me or normal"
-    },
-    "board_organization": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "board_organization_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
-    },
-    "boardsInvited": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, members, open, organization, pinned, public, starred or unpinned"
-    },
-    "boardsInvited_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
-    },
-    "boardStars": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "savedSearches": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "organizations": {
-      "type": "string",
-      "description": "One of: all, members, none or public"
-    },
-    "organization_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
-    },
-    "organization_paid_account": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "organizationsInvited": {
-      "type": "string",
-      "description": "One of: all, members, none or public"
-    },
-    "organizationsInvited_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
-    },
-    "notifications": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAdminToBoard, addAdminToOrganization, addedAttachmentToCard, addedMemberToCard, addedToBoard, addedToCard, addedToOrganization, cardDueSoon, changeCard, closeBoard, commentCard, createdCard, declinedInvitationToBoard, declinedInvitationToOrganization, invitedToBoard, invitedToOrganization, makeAdminOfBoard, makeAdminOfOrganization, memberJoinedTrello, mentionedOnCard, removedFromBoard, removedFromCard, removedFromOrganization, removedMemberFromCard, unconfirmedInvitedToBoard, unconfirmedInvitedToOrganization or updateCheckItemStateOnCard"
-    },
-    "notifications_entities": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "notifications_display": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "notifications_limit": {
-      "type": "string",
-      "description": "a number from 1 to 1000"
-    },
-    "notification_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: data, date, idMemberCreator, type or unread"
-    },
-    "notification_memberCreator": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "notification_memberCreator_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "notification_before": {
-      "type": "string",
-      "description": "An id, or null"
-    },
-    "notification_since": {
-      "type": "string",
-      "description": "An id, or null"
-    },
-    "tokens": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "paid_account": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "boardBackgrounds": {
-      "type": "string",
-      "description": "One of: all, custom, default, none or premium"
-    },
-    "customBoardBackgrounds": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "customStickers": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "customEmoji": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersByIdMember({
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateMembersByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* actions (string) - all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization
+* actions_entities (string) -  true or false
+* actions_display (string) -  true or false
+* actions_limit (string) - a number from 0 to 1000
+* action_fields (string) - all or a comma-separated list of: data, date, idMemberCreator or type
+* action_since (string) - A date, null or lastView
+* action_before (string) - A date, or null
+* cards (string) - One of: all, closed, none, open or visible
+* card_fields (string) - all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url
+* card_members (string) -  true or false
+* card_member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* card_attachments (string) - A boolean value or &quot;cover&quot; for only card cover attachments
+* card_attachment_fields (string) - all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url
+* card_stickers (string) -  true or false
+* boards (string) - all or a comma-separated list of: closed, members, open, organization, pinned, public, starred or unpinned
+* board_fields (string) - all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url
+* board_actions (string) - all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization
+* board_actions_entities (string) -  true or false
+* board_actions_display (string) -  true or false
+* board_actions_format (string) - One of: count, list or minimal
+* board_actions_since (string) - A date, null or lastView
+* board_actions_limit (string) - a number from 0 to 1000
+* board_action_fields (string) - all or a comma-separated list of: data, date, idMemberCreator or type
+* board_lists (string) - One of: all, closed, none or open
+* board_memberships (string) - all or a comma-separated list of: active, admin, deactivated, me or normal
+* board_organization (string) -  true or false
+* board_organization_fields (string) - all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website
+* boardsInvited (string) - all or a comma-separated list of: closed, members, open, organization, pinned, public, starred or unpinned
+* boardsInvited_fields (string) - all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url
+* boardStars (string) -  true or false
+* savedSearches (string) -  true or false
+* organizations (string) - One of: all, members, none or public
+* organization_fields (string) - all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website
+* organization_paid_account (string) -  true or false
+* organizationsInvited (string) - One of: all, members, none or public
+* organizationsInvited_fields (string) - all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website
+* notifications (string) - all or a comma-separated list of: addAdminToBoard, addAdminToOrganization, addedAttachmentToCard, addedMemberToCard, addedToBoard, addedToCard, addedToOrganization, cardDueSoon, changeCard, closeBoard, commentCard, createdCard, declinedInvitationToBoard, declinedInvitationToOrganization, invitedToBoard, invitedToOrganization, makeAdminOfBoard, makeAdminOfOrganization, memberJoinedTrello, mentionedOnCard, removedFromBoard, removedFromCard, removedFromOrganization, removedMemberFromCard, unconfirmedInvitedToBoard, unconfirmedInvitedToOrganization or updateCheckItemStateOnCard
+* notifications_entities (string) -  true or false
+* notifications_display (string) -  true or false
+* notifications_limit (string) - a number from 1 to 1000
+* notification_fields (string) - all or a comma-separated list of: data, date, idMemberCreator, type or unread
+* notification_memberCreator (string) -  true or false
+* notification_memberCreator_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* notification_before (string) - An id, or null
+* notification_since (string) - An id, or null
+* tokens (string) - One of: all or none
+* paid_account (string) -  true or false
+* boardBackgrounds (string) - One of: all, custom, default, none or premium
+* customBoardBackgrounds (string) - One of: all or none
+* customStickers (string) - One of: all or none
+* customEmoji (string) - One of: all or none
+* fields (string) - all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateMembersByIdMember
 updateMembersByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "body": {
-      "$ref": "#/definitions/members"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateMembersByIdMember({
+  "idMember": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersActionsByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersActionsByIdMember
 getMembersActionsByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "entities": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "display": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "filter": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
-    },
-    "limit": {
-      "type": "string",
-      "description": "a number from 0 to 1000"
-    },
-    "format": {
-      "type": "string",
-      "description": "One of: count, list or minimal"
-    },
-    "since": {
-      "type": "string",
-      "description": "A date, null or lastView"
-    },
-    "before": {
-      "type": "string",
-      "description": "A date, or null"
-    },
-    "page": {
-      "type": "string",
-      "description": "Page * limit must be less than 1000"
-    },
-    "idModels": {
-      "type": "string",
-      "description": "Only return actions related to these model ids"
-    },
-    "member": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "memberCreator": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "memberCreator_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersActionsByIdMember({
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addMembersAvatarByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* entities (string) -  true or false
+* display (string) -  true or false
+* filter (string) - all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization
+* fields (string) - all or a comma-separated list of: data, date, idMemberCreator or type
+* limit (string) - a number from 0 to 1000
+* format (string) - One of: count, list or minimal
+* since (string) - A date, null or lastView
+* before (string) - A date, or null
+* page (string) - Page * limit must be less than 1000
+* idModels (string) - Only return actions related to these model ids
+* member (string) -  true or false
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* memberCreator (string) -  true or false
+* memberCreator_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addMembersAvatarByIdMember
 addMembersAvatarByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "body": {
-      "$ref": "#/definitions/members_avatar"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addMembersAvatarByIdMember({
+  "idMember": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateMembersAvatarSourceByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateMembersAvatarSourceByIdMember
 updateMembersAvatarSourceByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "body": {
-      "$ref": "#/definitions/members_avatarSource"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateMembersAvatarSourceByIdMember({
+  "idMember": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateMembersBioByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateMembersBioByIdMember
 updateMembersBioByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "body": {
-      "$ref": "#/definitions/members_bio"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateMembersBioByIdMember({
+  "idMember": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersBoardBackgroundsByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersBoardBackgroundsByIdMember
 getMembersBoardBackgroundsByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "filter": {
-      "type": "string",
-      "description": "One of: all, custom, default, none or premium"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersBoardBackgroundsByIdMember({
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addMembersBoardBackgroundsByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* filter (string) - One of: all, custom, default, none or premium
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addMembersBoardBackgroundsByIdMember
 addMembersBoardBackgroundsByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "body": {
-      "$ref": "#/definitions/members_boardBackgrounds"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addMembersBoardBackgroundsByIdMember({
+  "idMember": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteMembersBoardBackgroundsByIdMemberByIdBoardBackground
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteMembersBoardBackgroundsByIdMemberByIdBoardBackground
 deleteMembersBoardBackgroundsByIdMemberByIdBoardBackground()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "idBoardBackground": {
-      "type": "string",
-      "description": "idBoardBackground"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "idBoardBackground",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteMembersBoardBackgroundsByIdMemberByIdBoardBackground({
+  "idMember": "",
+  "idBoardBackground": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersBoardBackgroundsByIdMemberByIdBoardBackground
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* idBoardBackground (string) **required** - idBoardBackground
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersBoardBackgroundsByIdMemberByIdBoardBackground
 getMembersBoardBackgroundsByIdMemberByIdBoardBackground()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "idBoardBackground": {
-      "type": "string",
-      "description": "idBoardBackground"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: brightness, fullSizeUrl, scaled or tile"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "idBoardBackground",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersBoardBackgroundsByIdMemberByIdBoardBackground({
+  "idMember": "",
+  "idBoardBackground": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateMembersBoardBackgroundsByIdMemberByIdBoardBackground
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* idBoardBackground (string) **required** - idBoardBackground
+* fields (string) - all or a comma-separated list of: brightness, fullSizeUrl, scaled or tile
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateMembersBoardBackgroundsByIdMemberByIdBoardBackground
 updateMembersBoardBackgroundsByIdMemberByIdBoardBackground()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "idBoardBackground": {
-      "type": "string",
-      "description": "idBoardBackground"
-    },
-    "body": {
-      "$ref": "#/definitions/members_boardBackgrounds"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "idBoardBackground",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateMembersBoardBackgroundsByIdMemberByIdBoardBackground({
+  "idMember": "",
+  "idBoardBackground": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersBoardStarsByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* idBoardBackground (string) **required** - idBoardBackground
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersBoardStarsByIdMember
 getMembersBoardStarsByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersBoardStarsByIdMember({
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addMembersBoardStarsByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addMembersBoardStarsByIdMember
 addMembersBoardStarsByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "body": {
-      "$ref": "#/definitions/members_boardStars"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addMembersBoardStarsByIdMember({
+  "idMember": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteMembersBoardStarsByIdMemberByIdBoardStar
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteMembersBoardStarsByIdMemberByIdBoardStar
 deleteMembersBoardStarsByIdMemberByIdBoardStar()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "idBoardStar": {
-      "type": "string",
-      "description": "idBoardStar"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "idBoardStar",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteMembersBoardStarsByIdMemberByIdBoardStar({
+  "idMember": "",
+  "idBoardStar": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersBoardStarsByIdMemberByIdBoardStar
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* idBoardStar (string) **required** - idBoardStar
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersBoardStarsByIdMemberByIdBoardStar
 getMembersBoardStarsByIdMemberByIdBoardStar()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "idBoardStar": {
-      "type": "string",
-      "description": "idBoardStar"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "idBoardStar",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersBoardStarsByIdMemberByIdBoardStar({
+  "idMember": "",
+  "idBoardStar": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateMembersBoardStarsByIdMemberByIdBoardStar
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* idBoardStar (string) **required** - idBoardStar
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateMembersBoardStarsByIdMemberByIdBoardStar
 updateMembersBoardStarsByIdMemberByIdBoardStar()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "idBoardStar": {
-      "type": "string",
-      "description": "idBoardStar"
-    },
-    "body": {
-      "$ref": "#/definitions/members_boardStars"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "idBoardStar",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateMembersBoardStarsByIdMemberByIdBoardStar({
+  "idMember": "",
+  "idBoardStar": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateMembersBoardStarsIdBoardByIdMemberByIdBoardStar
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* idBoardStar (string) **required** - idBoardStar
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateMembersBoardStarsIdBoardByIdMemberByIdBoardStar
 updateMembersBoardStarsIdBoardByIdMemberByIdBoardStar()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "idBoardStar": {
-      "type": "string",
-      "description": "idBoardStar"
-    },
-    "body": {
-      "$ref": "#/definitions/members_boardStars_idBoard"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "idBoardStar",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateMembersBoardStarsIdBoardByIdMemberByIdBoardStar({
+  "idMember": "",
+  "idBoardStar": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateMembersBoardStarsPosByIdMemberByIdBoardStar
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* idBoardStar (string) **required** - idBoardStar
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateMembersBoardStarsPosByIdMemberByIdBoardStar
 updateMembersBoardStarsPosByIdMemberByIdBoardStar()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "idBoardStar": {
-      "type": "string",
-      "description": "idBoardStar"
-    },
-    "body": {
-      "$ref": "#/definitions/members_boardStars_pos"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "idBoardStar",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateMembersBoardStarsPosByIdMemberByIdBoardStar({
+  "idMember": "",
+  "idBoardStar": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersBoardsByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* idBoardStar (string) **required** - idBoardStar
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersBoardsByIdMember
 getMembersBoardsByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "filter": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, members, open, organization, pinned, public, starred or unpinned"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
-    },
-    "actions": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
-    },
-    "actions_entities": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "actions_limit": {
-      "type": "string",
-      "description": "a number from 0 to 1000"
-    },
-    "actions_format": {
-      "type": "string",
-      "description": "One of: count, list or minimal"
-    },
-    "actions_since": {
-      "type": "string",
-      "description": "A date, null or lastView"
-    },
-    "action_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
-    },
-    "memberships": {
-      "type": "string",
-      "description": "all or a comma-separated list of: active, admin, deactivated, me or normal"
-    },
-    "organization": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "organization_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
-    },
-    "lists": {
-      "type": "string",
-      "description": "One of: all, closed, none or open"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersBoardsByIdMember({
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersBoardsByIdMemberByFilter
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* filter (string) - all or a comma-separated list of: closed, members, open, organization, pinned, public, starred or unpinned
+* fields (string) - all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url
+* actions (string) - all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization
+* actions_entities (string) -  true or false
+* actions_limit (string) - a number from 0 to 1000
+* actions_format (string) - One of: count, list or minimal
+* actions_since (string) - A date, null or lastView
+* action_fields (string) - all or a comma-separated list of: data, date, idMemberCreator or type
+* memberships (string) - all or a comma-separated list of: active, admin, deactivated, me or normal
+* organization (string) -  true or false
+* organization_fields (string) - all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website
+* lists (string) - One of: all, closed, none or open
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersBoardsByIdMemberByFilter
 getMembersBoardsByIdMemberByFilter()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "filter": {
-      "type": "string",
-      "description": "filter"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "filter",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersBoardsByIdMemberByFilter({
+  "idMember": "",
+  "filter": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersBoardsInvitedByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* filter (string) **required** - filter
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersBoardsInvitedByIdMember
 getMembersBoardsInvitedByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersBoardsInvitedByIdMember({
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersBoardsInvitedByIdMemberByField
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* fields (string) - all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersBoardsInvitedByIdMemberByField
 getMembersBoardsInvitedByIdMemberByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersBoardsInvitedByIdMemberByField({
+  "idMember": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersCardsByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersCardsByIdMember
 getMembersCardsByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "actions": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
-    },
-    "attachments": {
-      "type": "string",
-      "description": "A boolean value or &quot;cover&quot; for only card cover attachments"
-    },
-    "attachment_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
-    },
-    "stickers": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "members": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "checkItemStates": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "checklists": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "limit": {
-      "type": "string",
-      "description": "a number from 1 to 1000"
-    },
-    "since": {
-      "type": "string",
-      "description": "A date, or null"
-    },
-    "before": {
-      "type": "string",
-      "description": "A date, or null"
-    },
-    "filter": {
-      "type": "string",
-      "description": "One of: all, closed, none, open or visible"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersCardsByIdMember({
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersCardsByIdMemberByFilter
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* actions (string) - all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization
+* attachments (string) - A boolean value or &quot;cover&quot; for only card cover attachments
+* attachment_fields (string) - all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url
+* stickers (string) -  true or false
+* members (string) -  true or false
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* checkItemStates (string) -  true or false
+* checklists (string) - One of: all or none
+* limit (string) - a number from 1 to 1000
+* since (string) - A date, or null
+* before (string) - A date, or null
+* filter (string) - One of: all, closed, none, open or visible
+* fields (string) - all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersCardsByIdMemberByFilter
 getMembersCardsByIdMemberByFilter()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "filter": {
-      "type": "string",
-      "description": "filter"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "filter",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersCardsByIdMemberByFilter({
+  "idMember": "",
+  "filter": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersCustomBoardBackgroundsByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* filter (string) **required** - filter
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersCustomBoardBackgroundsByIdMember
 getMembersCustomBoardBackgroundsByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "filter": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersCustomBoardBackgroundsByIdMember({
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addMembersCustomBoardBackgroundsByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* filter (string) - One of: all or none
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addMembersCustomBoardBackgroundsByIdMember
 addMembersCustomBoardBackgroundsByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "body": {
-      "$ref": "#/definitions/members_customBoardBackgrounds"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addMembersCustomBoardBackgroundsByIdMember({
+  "idMember": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteMembersCustomBoardBackgroundsByIdMemberByIdBoardBackground
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteMembersCustomBoardBackgroundsByIdMemberByIdBoardBackground
 deleteMembersCustomBoardBackgroundsByIdMemberByIdBoardBackground()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "idBoardBackground": {
-      "type": "string",
-      "description": "idBoardBackground"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "idBoardBackground",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteMembersCustomBoardBackgroundsByIdMemberByIdBoardBackground({
+  "idMember": "",
+  "idBoardBackground": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersCustomBoardBackgroundsByIdMemberByIdBoardBackground
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* idBoardBackground (string) **required** - idBoardBackground
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersCustomBoardBackgroundsByIdMemberByIdBoardBackground
 getMembersCustomBoardBackgroundsByIdMemberByIdBoardBackground()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "idBoardBackground": {
-      "type": "string",
-      "description": "idBoardBackground"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: brightness, fullSizeUrl, scaled or tile"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "idBoardBackground",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersCustomBoardBackgroundsByIdMemberByIdBoardBackground({
+  "idMember": "",
+  "idBoardBackground": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateMembersCustomBoardBackgroundsByIdMemberByIdBoardBackground
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* idBoardBackground (string) **required** - idBoardBackground
+* fields (string) - all or a comma-separated list of: brightness, fullSizeUrl, scaled or tile
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateMembersCustomBoardBackgroundsByIdMemberByIdBoardBackground
 updateMembersCustomBoardBackgroundsByIdMemberByIdBoardBackground()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "idBoardBackground": {
-      "type": "string",
-      "description": "idBoardBackground"
-    },
-    "body": {
-      "$ref": "#/definitions/members_customBoardBackgrounds"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "idBoardBackground",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateMembersCustomBoardBackgroundsByIdMemberByIdBoardBackground({
+  "idMember": "",
+  "idBoardBackground": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersCustomEmojiByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* idBoardBackground (string) **required** - idBoardBackground
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersCustomEmojiByIdMember
 This gets the list of all of the user’s uploaded emoji
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "filter": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersCustomEmojiByIdMember({
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addMembersCustomEmojiByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* filter (string) - One of: all or none
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addMembersCustomEmojiByIdMember
 addMembersCustomEmojiByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "body": {
-      "$ref": "#/definitions/members_customEmoji"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addMembersCustomEmojiByIdMember({
+  "idMember": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersCustomEmojiByIdMemberByIdCustomEmoji
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersCustomEmojiByIdMemberByIdCustomEmoji
 getMembersCustomEmojiByIdMemberByIdCustomEmoji()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "idCustomEmoji": {
-      "type": "string",
-      "description": "idCustomEmoji"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: name or url"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "idCustomEmoji",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersCustomEmojiByIdMemberByIdCustomEmoji({
+  "idMember": "",
+  "idCustomEmoji": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersCustomStickersByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* idCustomEmoji (string) **required** - idCustomEmoji
+* fields (string) - all or a comma-separated list of: name or url
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersCustomStickersByIdMember
 This gets a list of all of the user’s uploaded stickers
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "filter": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersCustomStickersByIdMember({
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addMembersCustomStickersByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* filter (string) - One of: all or none
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addMembersCustomStickersByIdMember
 addMembersCustomStickersByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "body": {
-      "$ref": "#/definitions/members_customStickers"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addMembersCustomStickersByIdMember({
+  "idMember": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteMembersCustomStickersByIdMemberByIdCustomSticker
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteMembersCustomStickersByIdMemberByIdCustomSticker
 deleteMembersCustomStickersByIdMemberByIdCustomSticker()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "idCustomSticker": {
-      "type": "string",
-      "description": "idCustomSticker"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "idCustomSticker",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteMembersCustomStickersByIdMemberByIdCustomSticker({
+  "idMember": "",
+  "idCustomSticker": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersCustomStickersByIdMemberByIdCustomSticker
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* idCustomSticker (string) **required** - idCustomSticker
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersCustomStickersByIdMemberByIdCustomSticker
 getMembersCustomStickersByIdMemberByIdCustomSticker()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "idCustomSticker": {
-      "type": "string",
-      "description": "idCustomSticker"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: scaled or url"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "idCustomSticker",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersCustomStickersByIdMemberByIdCustomSticker({
+  "idMember": "",
+  "idCustomSticker": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersDeltasByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* idCustomSticker (string) **required** - idCustomSticker
+* fields (string) - all or a comma-separated list of: scaled or url
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersDeltasByIdMember
 getMembersDeltasByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "tags": {
-      "type": "string",
-      "description": "A valid tag for subscribing"
-    },
-    "ixLastUpdate": {
-      "type": "string",
-      "description": "a number from -1 to Infinity"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "tags",
-    "ixLastUpdate",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersDeltasByIdMember({
+  "idMember": "",
+  "tags": "",
+  "ixLastUpdate": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateMembersFullNameByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* tags (string) **required** - A valid tag for subscribing
+* ixLastUpdate (string) **required** - a number from -1 to Infinity
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateMembersFullNameByIdMember
 updateMembersFullNameByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "body": {
-      "$ref": "#/definitions/members_fullName"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateMembersFullNameByIdMember({
+  "idMember": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateMembersInitialsByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateMembersInitialsByIdMember
 updateMembersInitialsByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "body": {
-      "$ref": "#/definitions/members_initials"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateMembersInitialsByIdMember({
+  "idMember": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersNotificationsByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersNotificationsByIdMember
 You can only read the notifications for the member associated with the supplied token
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "entities": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "display": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "filter": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAdminToBoard, addAdminToOrganization, addedAttachmentToCard, addedMemberToCard, addedToBoard, addedToCard, addedToOrganization, cardDueSoon, changeCard, closeBoard, commentCard, createdCard, declinedInvitationToBoard, declinedInvitationToOrganization, invitedToBoard, invitedToOrganization, makeAdminOfBoard, makeAdminOfOrganization, memberJoinedTrello, mentionedOnCard, removedFromBoard, removedFromCard, removedFromOrganization, removedMemberFromCard, unconfirmedInvitedToBoard, unconfirmedInvitedToOrganization or updateCheckItemStateOnCard"
-    },
-    "read_filter": {
-      "type": "string",
-      "description": "One of: all, read or unread"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: data, date, idMemberCreator, type or unread"
-    },
-    "limit": {
-      "type": "string",
-      "description": "a number from 1 to 1000"
-    },
-    "page": {
-      "type": "string",
-      "description": "a number from 0 to 100"
-    },
-    "before": {
-      "type": "string",
-      "description": "An id, or null"
-    },
-    "since": {
-      "type": "string",
-      "description": "An id, or null"
-    },
-    "memberCreator": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "memberCreator_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersNotificationsByIdMember({
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersNotificationsByIdMemberByFilter
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* entities (string) -  true or false
+* display (string) -  true or false
+* filter (string) - all or a comma-separated list of: addAdminToBoard, addAdminToOrganization, addedAttachmentToCard, addedMemberToCard, addedToBoard, addedToCard, addedToOrganization, cardDueSoon, changeCard, closeBoard, commentCard, createdCard, declinedInvitationToBoard, declinedInvitationToOrganization, invitedToBoard, invitedToOrganization, makeAdminOfBoard, makeAdminOfOrganization, memberJoinedTrello, mentionedOnCard, removedFromBoard, removedFromCard, removedFromOrganization, removedMemberFromCard, unconfirmedInvitedToBoard, unconfirmedInvitedToOrganization or updateCheckItemStateOnCard
+* read_filter (string) - One of: all, read or unread
+* fields (string) - all or a comma-separated list of: data, date, idMemberCreator, type or unread
+* limit (string) - a number from 1 to 1000
+* page (string) - a number from 0 to 100
+* before (string) - An id, or null
+* since (string) - An id, or null
+* memberCreator (string) -  true or false
+* memberCreator_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersNotificationsByIdMemberByFilter
 getMembersNotificationsByIdMemberByFilter()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "filter": {
-      "type": "string",
-      "description": "filter"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "filter",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersNotificationsByIdMemberByFilter({
+  "idMember": "",
+  "filter": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addMembersOneTimeMessagesDismissedByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* filter (string) **required** - filter
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addMembersOneTimeMessagesDismissedByIdMember
 addMembersOneTimeMessagesDismissedByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "body": {
-      "$ref": "#/definitions/members_oneTimeMessagesDismissed"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addMembersOneTimeMessagesDismissedByIdMember({
+  "idMember": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersOrganizationsByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersOrganizationsByIdMember
 getMembersOrganizationsByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "filter": {
-      "type": "string",
-      "description": "One of: all, members, none or public"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
-    },
-    "paid_account": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersOrganizationsByIdMember({
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersOrganizationsByIdMemberByFilter
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* filter (string) - One of: all, members, none or public
+* fields (string) - all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website
+* paid_account (string) -  true or false
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersOrganizationsByIdMemberByFilter
 getMembersOrganizationsByIdMemberByFilter()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "filter": {
-      "type": "string",
-      "description": "filter"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "filter",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersOrganizationsByIdMemberByFilter({
+  "idMember": "",
+  "filter": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersOrganizationsInvitedByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* filter (string) **required** - filter
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersOrganizationsInvitedByIdMember
 getMembersOrganizationsInvitedByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersOrganizationsInvitedByIdMember({
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersOrganizationsInvitedByIdMemberByField
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* fields (string) - all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersOrganizationsInvitedByIdMemberByField
 getMembersOrganizationsInvitedByIdMemberByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersOrganizationsInvitedByIdMemberByField({
+  "idMember": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateMembersPrefsColorBlindByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateMembersPrefsColorBlindByIdMember
 updateMembersPrefsColorBlindByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "body": {
-      "$ref": "#/definitions/prefs_colorBlind"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateMembersPrefsColorBlindByIdMember({
+  "idMember": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateMembersPrefsLocaleByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateMembersPrefsLocaleByIdMember
 updateMembersPrefsLocaleByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "body": {
-      "$ref": "#/definitions/prefs_locale"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateMembersPrefsLocaleByIdMember({
+  "idMember": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateMembersPrefsMinutesBetweenSummariesByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateMembersPrefsMinutesBetweenSummariesByIdMember
 updateMembersPrefsMinutesBetweenSummariesByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "body": {
-      "$ref": "#/definitions/prefs_minutesBetweenSummaries"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateMembersPrefsMinutesBetweenSummariesByIdMember({
+  "idMember": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersSavedSearchesByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersSavedSearchesByIdMember
 getMembersSavedSearchesByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersSavedSearchesByIdMember({
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addMembersSavedSearchesByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addMembersSavedSearchesByIdMember
 addMembersSavedSearchesByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "body": {
-      "$ref": "#/definitions/members_savedSearches"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addMembersSavedSearchesByIdMember({
+  "idMember": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteMembersSavedSearchesByIdMemberByIdSavedSearch
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteMembersSavedSearchesByIdMemberByIdSavedSearch
 deleteMembersSavedSearchesByIdMemberByIdSavedSearch()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "idSavedSearch": {
-      "type": "string",
-      "description": "idSavedSearch"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "idSavedSearch",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteMembersSavedSearchesByIdMemberByIdSavedSearch({
+  "idMember": "",
+  "idSavedSearch": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersSavedSearchesByIdMemberByIdSavedSearch
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* idSavedSearch (string) **required** - idSavedSearch
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersSavedSearchesByIdMemberByIdSavedSearch
 getMembersSavedSearchesByIdMemberByIdSavedSearch()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "idSavedSearch": {
-      "type": "string",
-      "description": "idSavedSearch"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "idSavedSearch",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersSavedSearchesByIdMemberByIdSavedSearch({
+  "idMember": "",
+  "idSavedSearch": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateMembersSavedSearchesByIdMemberByIdSavedSearch
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* idSavedSearch (string) **required** - idSavedSearch
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateMembersSavedSearchesByIdMemberByIdSavedSearch
 updateMembersSavedSearchesByIdMemberByIdSavedSearch()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "idSavedSearch": {
-      "type": "string",
-      "description": "idSavedSearch"
-    },
-    "body": {
-      "$ref": "#/definitions/members_savedSearches"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "idSavedSearch",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateMembersSavedSearchesByIdMemberByIdSavedSearch({
+  "idMember": "",
+  "idSavedSearch": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateMembersSavedSearchesNameByIdMemberByIdSavedSearch
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* idSavedSearch (string) **required** - idSavedSearch
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateMembersSavedSearchesNameByIdMemberByIdSavedSearch
 updateMembersSavedSearchesNameByIdMemberByIdSavedSearch()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "idSavedSearch": {
-      "type": "string",
-      "description": "idSavedSearch"
-    },
-    "body": {
-      "$ref": "#/definitions/members_savedSearches_name"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "idSavedSearch",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateMembersSavedSearchesNameByIdMemberByIdSavedSearch({
+  "idMember": "",
+  "idSavedSearch": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateMembersSavedSearchesPosByIdMemberByIdSavedSearch
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* idSavedSearch (string) **required** - idSavedSearch
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateMembersSavedSearchesPosByIdMemberByIdSavedSearch
 updateMembersSavedSearchesPosByIdMemberByIdSavedSearch()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "idSavedSearch": {
-      "type": "string",
-      "description": "idSavedSearch"
-    },
-    "body": {
-      "$ref": "#/definitions/members_savedSearches_pos"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "idSavedSearch",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateMembersSavedSearchesPosByIdMemberByIdSavedSearch({
+  "idMember": "",
+  "idSavedSearch": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateMembersSavedSearchesQueryByIdMemberByIdSavedSearch
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* idSavedSearch (string) **required** - idSavedSearch
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateMembersSavedSearchesQueryByIdMemberByIdSavedSearch
 updateMembersSavedSearchesQueryByIdMemberByIdSavedSearch()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "idSavedSearch": {
-      "type": "string",
-      "description": "idSavedSearch"
-    },
-    "body": {
-      "$ref": "#/definitions/members_savedSearches_query"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "idSavedSearch",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateMembersSavedSearchesQueryByIdMemberByIdSavedSearch({
+  "idMember": "",
+  "idSavedSearch": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersTokensByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* idSavedSearch (string) **required** - idSavedSearch
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersTokensByIdMember
 getMembersTokensByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "filter": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersTokensByIdMember({
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateMembersUsernameByIdMember
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* filter (string) - One of: all or none
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateMembersUsernameByIdMember
 updateMembersUsernameByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "body": {
-      "$ref": "#/definitions/members_username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateMembersUsernameByIdMember({
+  "idMember": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getMembersByIdMemberByField
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getMembersByIdMemberByField
 getMembersByIdMemberByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idMember": {
-      "type": "string",
-      "description": "idMember or username"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idMember",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getMembersByIdMemberByField({
+  "idMember": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addNotificationsAllRead
+
+#### Parameters
+* idMember (string) **required** - idMember or username
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addNotificationsAllRead
 addNotificationsAllRead()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addNotificationsAllRead({
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getNotificationsByIdNotification
+
+#### Parameters
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getNotificationsByIdNotification
 getNotificationsByIdNotification()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idNotification": {
-      "type": "string",
-      "description": "idNotification"
-    },
-    "display": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "entities": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: data, date, idMemberCreator, type or unread"
-    },
-    "memberCreator": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "memberCreator_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "board": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "board_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
-    },
-    "list": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "card": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "card_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
-    },
-    "organization": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "organization_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
-    },
-    "member": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idNotification",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getNotificationsByIdNotification({
+  "idNotification": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateNotificationsByIdNotification
+
+#### Parameters
+* idNotification (string) **required** - idNotification
+* display (string) -  true or false
+* entities (string) -  true or false
+* fields (string) - all or a comma-separated list of: data, date, idMemberCreator, type or unread
+* memberCreator (string) -  true or false
+* memberCreator_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* board (string) -  true or false
+* board_fields (string) - all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url
+* list (string) -  true or false
+* card (string) -  true or false
+* card_fields (string) - all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url
+* organization (string) -  true or false
+* organization_fields (string) - all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website
+* member (string) -  true or false
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateNotificationsByIdNotification
 updateNotificationsByIdNotification()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idNotification": {
-      "type": "string",
-      "description": "idNotification"
-    },
-    "body": {
-      "$ref": "#/definitions/notifications"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idNotification",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateNotificationsByIdNotification({
+  "idNotification": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getNotificationsBoardByIdNotification
+
+#### Parameters
+* idNotification (string) **required** - idNotification
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getNotificationsBoardByIdNotification
 getNotificationsBoardByIdNotification()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idNotification": {
-      "type": "string",
-      "description": "idNotification"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idNotification",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getNotificationsBoardByIdNotification({
+  "idNotification": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getNotificationsBoardByIdNotificationByField
+
+#### Parameters
+* idNotification (string) **required** - idNotification
+* fields (string) - all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getNotificationsBoardByIdNotificationByField
 getNotificationsBoardByIdNotificationByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idNotification": {
-      "type": "string",
-      "description": "idNotification"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idNotification",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getNotificationsBoardByIdNotificationByField({
+  "idNotification": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getNotificationsCardByIdNotification
+
+#### Parameters
+* idNotification (string) **required** - idNotification
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getNotificationsCardByIdNotification
 getNotificationsCardByIdNotification()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idNotification": {
-      "type": "string",
-      "description": "idNotification"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idNotification",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getNotificationsCardByIdNotification({
+  "idNotification": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getNotificationsCardByIdNotificationByField
+
+#### Parameters
+* idNotification (string) **required** - idNotification
+* fields (string) - all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getNotificationsCardByIdNotificationByField
 getNotificationsCardByIdNotificationByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idNotification": {
-      "type": "string",
-      "description": "idNotification"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idNotification",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getNotificationsCardByIdNotificationByField({
+  "idNotification": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getNotificationsDisplayByIdNotification
+
+#### Parameters
+* idNotification (string) **required** - idNotification
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getNotificationsDisplayByIdNotification
 getNotificationsDisplayByIdNotification()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idNotification": {
-      "type": "string",
-      "description": "idNotification"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idNotification",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getNotificationsDisplayByIdNotification({
+  "idNotification": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getNotificationsEntitiesByIdNotification
+
+#### Parameters
+* idNotification (string) **required** - idNotification
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getNotificationsEntitiesByIdNotification
 getNotificationsEntitiesByIdNotification()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idNotification": {
-      "type": "string",
-      "description": "idNotification"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idNotification",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getNotificationsEntitiesByIdNotification({
+  "idNotification": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getNotificationsListByIdNotification
+
+#### Parameters
+* idNotification (string) **required** - idNotification
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getNotificationsListByIdNotification
 getNotificationsListByIdNotification()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idNotification": {
-      "type": "string",
-      "description": "idNotification"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idNotification",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getNotificationsListByIdNotification({
+  "idNotification": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getNotificationsListByIdNotificationByField
+
+#### Parameters
+* idNotification (string) **required** - idNotification
+* fields (string) - all or a comma-separated list of: closed, idBoard, name, pos or subscribed
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getNotificationsListByIdNotificationByField
 getNotificationsListByIdNotificationByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idNotification": {
-      "type": "string",
-      "description": "idNotification"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idNotification",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getNotificationsListByIdNotificationByField({
+  "idNotification": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getNotificationsMemberByIdNotification
+
+#### Parameters
+* idNotification (string) **required** - idNotification
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getNotificationsMemberByIdNotification
 getNotificationsMemberByIdNotification()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idNotification": {
-      "type": "string",
-      "description": "idNotification"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idNotification",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getNotificationsMemberByIdNotification({
+  "idNotification": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getNotificationsMemberByIdNotificationByField
+
+#### Parameters
+* idNotification (string) **required** - idNotification
+* fields (string) - all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getNotificationsMemberByIdNotificationByField
 getNotificationsMemberByIdNotificationByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idNotification": {
-      "type": "string",
-      "description": "idNotification"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idNotification",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getNotificationsMemberByIdNotificationByField({
+  "idNotification": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getNotificationsMemberCreatorByIdNotification
+
+#### Parameters
+* idNotification (string) **required** - idNotification
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getNotificationsMemberCreatorByIdNotification
 getNotificationsMemberCreatorByIdNotification()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idNotification": {
-      "type": "string",
-      "description": "idNotification"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idNotification",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getNotificationsMemberCreatorByIdNotification({
+  "idNotification": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getNotificationsMemberCreatorByIdNotificationByField
+
+#### Parameters
+* idNotification (string) **required** - idNotification
+* fields (string) - all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getNotificationsMemberCreatorByIdNotificationByField
 getNotificationsMemberCreatorByIdNotificationByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idNotification": {
-      "type": "string",
-      "description": "idNotification"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idNotification",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getNotificationsMemberCreatorByIdNotificationByField({
+  "idNotification": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getNotificationsOrganizationByIdNotification
+
+#### Parameters
+* idNotification (string) **required** - idNotification
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getNotificationsOrganizationByIdNotification
 getNotificationsOrganizationByIdNotification()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idNotification": {
-      "type": "string",
-      "description": "idNotification"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idNotification",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getNotificationsOrganizationByIdNotification({
+  "idNotification": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getNotificationsOrganizationByIdNotificationByField
+
+#### Parameters
+* idNotification (string) **required** - idNotification
+* fields (string) - all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getNotificationsOrganizationByIdNotificationByField
 getNotificationsOrganizationByIdNotificationByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idNotification": {
-      "type": "string",
-      "description": "idNotification"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idNotification",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getNotificationsOrganizationByIdNotificationByField({
+  "idNotification": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateNotificationsUnreadByIdNotification
+
+#### Parameters
+* idNotification (string) **required** - idNotification
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateNotificationsUnreadByIdNotification
 updateNotificationsUnreadByIdNotification()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idNotification": {
-      "type": "string",
-      "description": "idNotification"
-    },
-    "body": {
-      "$ref": "#/definitions/notifications_unread"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idNotification",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateNotificationsUnreadByIdNotification({
+  "idNotification": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getNotificationsByIdNotificationByField
+
+#### Parameters
+* idNotification (string) **required** - idNotification
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getNotificationsByIdNotificationByField
 getNotificationsByIdNotificationByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idNotification": {
-      "type": "string",
-      "description": "idNotification"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idNotification",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getNotificationsByIdNotificationByField({
+  "idNotification": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addOrganizations
+
+#### Parameters
+* idNotification (string) **required** - idNotification
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addOrganizations
 addOrganizations()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/organizations"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addOrganizations({
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteOrganizationsByIdOrg
+
+#### Parameters
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteOrganizationsByIdOrg
 deleteOrganizationsByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteOrganizationsByIdOrg({
+  "idOrg": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getOrganizationsByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getOrganizationsByIdOrg
 getOrganizationsByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "actions": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
-    },
-    "actions_entities": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "actions_display": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "actions_limit": {
-      "type": "string",
-      "description": "a number from 0 to 1000"
-    },
-    "action_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
-    },
-    "memberships": {
-      "type": "string",
-      "description": "all or a comma-separated list of: active, admin, deactivated, me or normal"
-    },
-    "memberships_member": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "memberships_member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "members": {
-      "type": "string",
-      "description": "One of: admins, all, none, normal or owners"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "member_activity": {
-      "type": "string",
-      "description": "true or false ; works for premium organizations only."
-    },
-    "membersInvited": {
-      "type": "string",
-      "description": "One of: admins, all, none, normal or owners"
-    },
-    "membersInvited_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "boards": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, members, open, organization, pinned, public, starred or unpinned"
-    },
-    "board_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
-    },
-    "board_actions": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
-    },
-    "board_actions_entities": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "board_actions_display": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "board_actions_format": {
-      "type": "string",
-      "description": "One of: count, list or minimal"
-    },
-    "board_actions_since": {
-      "type": "string",
-      "description": "A date, null or lastView"
-    },
-    "board_actions_limit": {
-      "type": "string",
-      "description": "a number from 0 to 1000"
-    },
-    "board_action_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
-    },
-    "board_lists": {
-      "type": "string",
-      "description": "One of: all, closed, none or open"
-    },
-    "paid_account": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getOrganizationsByIdOrg({
+  "idOrg": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateOrganizationsByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* actions (string) - all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization
+* actions_entities (string) -  true or false
+* actions_display (string) -  true or false
+* actions_limit (string) - a number from 0 to 1000
+* action_fields (string) - all or a comma-separated list of: data, date, idMemberCreator or type
+* memberships (string) - all or a comma-separated list of: active, admin, deactivated, me or normal
+* memberships_member (string) -  true or false
+* memberships_member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* members (string) - One of: admins, all, none, normal or owners
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* member_activity (string) - true or false ; works for premium organizations only.
+* membersInvited (string) - One of: admins, all, none, normal or owners
+* membersInvited_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* boards (string) - all or a comma-separated list of: closed, members, open, organization, pinned, public, starred or unpinned
+* board_fields (string) - all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url
+* board_actions (string) - all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization
+* board_actions_entities (string) -  true or false
+* board_actions_display (string) -  true or false
+* board_actions_format (string) - One of: count, list or minimal
+* board_actions_since (string) - A date, null or lastView
+* board_actions_limit (string) - a number from 0 to 1000
+* board_action_fields (string) - all or a comma-separated list of: data, date, idMemberCreator or type
+* board_lists (string) - One of: all, closed, none or open
+* paid_account (string) -  true or false
+* fields (string) - all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateOrganizationsByIdOrg
 updateOrganizationsByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "body": {
-      "$ref": "#/definitions/organizations"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateOrganizationsByIdOrg({
+  "idOrg": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getOrganizationsActionsByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getOrganizationsActionsByIdOrg
 getOrganizationsActionsByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "entities": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "display": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "filter": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
-    },
-    "limit": {
-      "type": "string",
-      "description": "a number from 0 to 1000"
-    },
-    "format": {
-      "type": "string",
-      "description": "One of: count, list or minimal"
-    },
-    "since": {
-      "type": "string",
-      "description": "A date, null or lastView"
-    },
-    "before": {
-      "type": "string",
-      "description": "A date, or null"
-    },
-    "page": {
-      "type": "string",
-      "description": "Page * limit must be less than 1000"
-    },
-    "idModels": {
-      "type": "string",
-      "description": "Only return actions related to these model ids"
-    },
-    "member": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "memberCreator": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "memberCreator_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getOrganizationsActionsByIdOrg({
+  "idOrg": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getOrganizationsBoardsByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* entities (string) -  true or false
+* display (string) -  true or false
+* filter (string) - all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization
+* fields (string) - all or a comma-separated list of: data, date, idMemberCreator or type
+* limit (string) - a number from 0 to 1000
+* format (string) - One of: count, list or minimal
+* since (string) - A date, null or lastView
+* before (string) - A date, or null
+* page (string) - Page * limit must be less than 1000
+* idModels (string) - Only return actions related to these model ids
+* member (string) -  true or false
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* memberCreator (string) -  true or false
+* memberCreator_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getOrganizationsBoardsByIdOrg
 getOrganizationsBoardsByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "filter": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, members, open, organization, pinned, public, starred or unpinned"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
-    },
-    "actions": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
-    },
-    "actions_entities": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "actions_limit": {
-      "type": "string",
-      "description": "a number from 0 to 1000"
-    },
-    "actions_format": {
-      "type": "string",
-      "description": "One of: count, list or minimal"
-    },
-    "actions_since": {
-      "type": "string",
-      "description": "A date, null or lastView"
-    },
-    "action_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: data, date, idMemberCreator or type"
-    },
-    "memberships": {
-      "type": "string",
-      "description": "all or a comma-separated list of: active, admin, deactivated, me or normal"
-    },
-    "organization": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "organization_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
-    },
-    "lists": {
-      "type": "string",
-      "description": "One of: all, closed, none or open"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getOrganizationsBoardsByIdOrg({
+  "idOrg": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getOrganizationsBoardsByIdOrgByFilter
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* filter (string) - all or a comma-separated list of: closed, members, open, organization, pinned, public, starred or unpinned
+* fields (string) - all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url
+* actions (string) - all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization
+* actions_entities (string) -  true or false
+* actions_limit (string) - a number from 0 to 1000
+* actions_format (string) - One of: count, list or minimal
+* actions_since (string) - A date, null or lastView
+* action_fields (string) - all or a comma-separated list of: data, date, idMemberCreator or type
+* memberships (string) - all or a comma-separated list of: active, admin, deactivated, me or normal
+* organization (string) -  true or false
+* organization_fields (string) - all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website
+* lists (string) - One of: all, closed, none or open
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getOrganizationsBoardsByIdOrgByFilter
 getOrganizationsBoardsByIdOrgByFilter()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "filter": {
-      "type": "string",
-      "description": "filter"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "filter",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getOrganizationsBoardsByIdOrgByFilter({
+  "idOrg": "",
+  "filter": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getOrganizationsDeltasByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* filter (string) **required** - filter
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getOrganizationsDeltasByIdOrg
 getOrganizationsDeltasByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "tags": {
-      "type": "string",
-      "description": "A valid tag for subscribing"
-    },
-    "ixLastUpdate": {
-      "type": "string",
-      "description": "a number from -1 to Infinity"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "tags",
-    "ixLastUpdate",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getOrganizationsDeltasByIdOrg({
+  "idOrg": "",
+  "tags": "",
+  "ixLastUpdate": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateOrganizationsDescByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* tags (string) **required** - A valid tag for subscribing
+* ixLastUpdate (string) **required** - a number from -1 to Infinity
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateOrganizationsDescByIdOrg
 updateOrganizationsDescByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "body": {
-      "$ref": "#/definitions/organizations_desc"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateOrganizationsDescByIdOrg({
+  "idOrg": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateOrganizationsDisplayNameByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateOrganizationsDisplayNameByIdOrg
 updateOrganizationsDisplayNameByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "body": {
-      "$ref": "#/definitions/organizations_displayName"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateOrganizationsDisplayNameByIdOrg({
+  "idOrg": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteOrganizationsLogoByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteOrganizationsLogoByIdOrg
 deleteOrganizationsLogoByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteOrganizationsLogoByIdOrg({
+  "idOrg": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addOrganizationsLogoByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addOrganizationsLogoByIdOrg
 addOrganizationsLogoByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "body": {
-      "$ref": "#/definitions/organizations_logo"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addOrganizationsLogoByIdOrg({
+  "idOrg": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getOrganizationsMembersByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getOrganizationsMembersByIdOrg
 getOrganizationsMembersByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "filter": {
-      "type": "string",
-      "description": "One of: admins, all, none, normal or owners"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "activity": {
-      "type": "string",
-      "description": "true or false ; works for premium organizations only."
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getOrganizationsMembersByIdOrg({
+  "idOrg": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateOrganizationsMembersByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* filter (string) - One of: admins, all, none, normal or owners
+* fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* activity (string) - true or false ; works for premium organizations only.
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateOrganizationsMembersByIdOrg
 updateOrganizationsMembersByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "body": {
-      "$ref": "#/definitions/organizations_members"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateOrganizationsMembersByIdOrg({
+  "idOrg": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getOrganizationsMembersByIdOrgByFilter
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getOrganizationsMembersByIdOrgByFilter
 getOrganizationsMembersByIdOrgByFilter()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "filter": {
-      "type": "string",
-      "description": "filter"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "filter",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getOrganizationsMembersByIdOrgByFilter({
+  "idOrg": "",
+  "filter": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteOrganizationsMembersByIdOrgByIdMember
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* filter (string) **required** - filter
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteOrganizationsMembersByIdOrgByIdMember
 deleteOrganizationsMembersByIdOrgByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "idMember": {
-      "type": "string",
-      "description": "idMember"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteOrganizationsMembersByIdOrgByIdMember({
+  "idOrg": "",
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateOrganizationsMembersByIdOrgByIdMember
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* idMember (string) **required** - idMember
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateOrganizationsMembersByIdOrgByIdMember
 updateOrganizationsMembersByIdOrgByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "idMember": {
-      "type": "string",
-      "description": "idMember"
-    },
-    "body": {
-      "$ref": "#/definitions/organizations_members"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "idMember",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateOrganizationsMembersByIdOrgByIdMember({
+  "idOrg": "",
+  "idMember": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteOrganizationsMembersAllByIdOrgByIdMember
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* idMember (string) **required** - idMember
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteOrganizationsMembersAllByIdOrgByIdMember
 deleteOrganizationsMembersAllByIdOrgByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "idMember": {
-      "type": "string",
-      "description": "idMember"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteOrganizationsMembersAllByIdOrgByIdMember({
+  "idOrg": "",
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getOrganizationsMembersCardsByIdOrgByIdMember
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* idMember (string) **required** - idMember
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getOrganizationsMembersCardsByIdOrgByIdMember
 getOrganizationsMembersCardsByIdOrgByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "idMember": {
-      "type": "string",
-      "description": "idMember"
-    },
-    "actions": {
-      "type": "string",
-      "description": "all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization"
-    },
-    "attachments": {
-      "type": "string",
-      "description": "A boolean value or &quot;cover&quot; for only card cover attachments"
-    },
-    "attachment_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url"
-    },
-    "members": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "checkItemStates": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "checklists": {
-      "type": "string",
-      "description": "One of: all or none"
-    },
-    "board": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "board_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
-    },
-    "list": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "list_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, idBoard, name, pos or subscribed"
-    },
-    "filter": {
-      "type": "string",
-      "description": "One of: all, closed, none, open or visible"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "idMember",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getOrganizationsMembersCardsByIdOrgByIdMember({
+  "idOrg": "",
+  "idMember": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateOrganizationsMembersDeactivatedByIdOrgByIdMember
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* idMember (string) **required** - idMember
+* actions (string) - all or a comma-separated list of: addAttachmentToCard, addChecklistToCard, addMemberToBoard, addMemberToCard, addMemberToOrganization, addToOrganizationBoard, commentCard, convertToCardFromCheckItem, copyBoard, copyCard, copyCommentCard, createBoard, createCard, createList, createOrganization, deleteAttachmentFromCard, deleteBoardInvitation, deleteCard, deleteOrganizationInvitation, disablePowerUp, emailCard, enablePowerUp, makeAdminOfBoard, makeNormalMemberOfBoard, makeNormalMemberOfOrganization, makeObserverOfBoard, memberJoinedTrello, moveCardFromBoard, moveCardToBoard, moveListFromBoard, moveListToBoard, removeChecklistFromCard, removeFromOrganizationBoard, removeMemberFromCard, unconfirmedBoardInvitation, unconfirmedOrganizationInvitation, updateBoard, updateCard, updateCard:closed, updateCard:desc, updateCard:idList, updateCard:name, updateCheckItemStateOnCard, updateChecklist, updateList, updateList:closed, updateList:name, updateMember or updateOrganization
+* attachments (string) - A boolean value or &quot;cover&quot; for only card cover attachments
+* attachment_fields (string) - all or a comma-separated list of: bytes, date, edgeColor, idMember, isUpload, mimeType, name, previews or url
+* members (string) -  true or false
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* checkItemStates (string) -  true or false
+* checklists (string) - One of: all or none
+* board (string) -  true or false
+* board_fields (string) - all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url
+* list (string) -  true or false
+* list_fields (string) - all or a comma-separated list of: closed, idBoard, name, pos or subscribed
+* filter (string) - One of: all, closed, none, open or visible
+* fields (string) - all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateOrganizationsMembersDeactivatedByIdOrgByIdMember
 updateOrganizationsMembersDeactivatedByIdOrgByIdMember()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "idMember": {
-      "type": "string",
-      "description": "idMember"
-    },
-    "body": {
-      "$ref": "#/definitions/organizations_members_deactivated"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "idMember",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateOrganizationsMembersDeactivatedByIdOrgByIdMember({
+  "idOrg": "",
+  "idMember": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getOrganizationsMembersInvitedByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* idMember (string) **required** - idMember
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getOrganizationsMembersInvitedByIdOrg
 getOrganizationsMembersInvitedByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getOrganizationsMembersInvitedByIdOrg({
+  "idOrg": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getOrganizationsMembersInvitedByIdOrgByField
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* fields (string) - all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getOrganizationsMembersInvitedByIdOrgByField
 getOrganizationsMembersInvitedByIdOrgByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getOrganizationsMembersInvitedByIdOrgByField({
+  "idOrg": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getOrganizationsMembershipsByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getOrganizationsMembershipsByIdOrg
 getOrganizationsMembershipsByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "filter": {
-      "type": "string",
-      "description": "all or a comma-separated list of: active, admin, deactivated, me or normal"
-    },
-    "member": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getOrganizationsMembershipsByIdOrg({
+  "idOrg": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getOrganizationsMembershipsByIdOrgByIdMembership
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* filter (string) - all or a comma-separated list of: active, admin, deactivated, me or normal
+* member (string) -  true or false
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getOrganizationsMembershipsByIdOrgByIdMembership
 getOrganizationsMembershipsByIdOrgByIdMembership()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "idMembership": {
-      "type": "string",
-      "description": "idMembership"
-    },
-    "member": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "idMembership",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getOrganizationsMembershipsByIdOrgByIdMembership({
+  "idOrg": "",
+  "idMembership": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateOrganizationsMembershipsByIdOrgByIdMembership
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* idMembership (string) **required** - idMembership
+* member (string) -  true or false
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateOrganizationsMembershipsByIdOrgByIdMembership
 updateOrganizationsMembershipsByIdOrgByIdMembership()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "idMembership": {
-      "type": "string",
-      "description": "idMembership"
-    },
-    "body": {
-      "$ref": "#/definitions/organizations_memberships"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "idMembership",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateOrganizationsMembershipsByIdOrgByIdMembership({
+  "idOrg": "",
+  "idMembership": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateOrganizationsNameByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* idMembership (string) **required** - idMembership
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateOrganizationsNameByIdOrg
 updateOrganizationsNameByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "body": {
-      "$ref": "#/definitions/organizations_name"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateOrganizationsNameByIdOrg({
+  "idOrg": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteOrganizationsPrefsAssociatedDomainByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteOrganizationsPrefsAssociatedDomainByIdOrg
 deleteOrganizationsPrefsAssociatedDomainByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteOrganizationsPrefsAssociatedDomainByIdOrg({
+  "idOrg": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateOrganizationsPrefsAssociatedDomainByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateOrganizationsPrefsAssociatedDomainByIdOrg
 updateOrganizationsPrefsAssociatedDomainByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "body": {
-      "$ref": "#/definitions/prefs_associatedDomain"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateOrganizationsPrefsAssociatedDomainByIdOrg({
+  "idOrg": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateOrganizationsPrefsBoardVisibilityRestrictOrgByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateOrganizationsPrefsBoardVisibilityRestrictOrgByIdOrg
 updateOrganizationsPrefsBoardVisibilityRestrictOrgByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "body": {
-      "$ref": "#/definitions/prefs_boardVisibilityRestrict"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateOrganizationsPrefsBoardVisibilityRestrictOrgByIdOrg({
+  "idOrg": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateOrganizationsPrefsBoardVisibilityRestrictPrivateByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateOrganizationsPrefsBoardVisibilityRestrictPrivateByIdOrg
 updateOrganizationsPrefsBoardVisibilityRestrictPrivateByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "body": {
-      "$ref": "#/definitions/prefs_boardVisibilityRestrict"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateOrganizationsPrefsBoardVisibilityRestrictPrivateByIdOrg({
+  "idOrg": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateOrganizationsPrefsBoardVisibilityRestrictPublicByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateOrganizationsPrefsBoardVisibilityRestrictPublicByIdOrg
 updateOrganizationsPrefsBoardVisibilityRestrictPublicByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "body": {
-      "$ref": "#/definitions/prefs_boardVisibilityRestrict"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateOrganizationsPrefsBoardVisibilityRestrictPublicByIdOrg({
+  "idOrg": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateOrganizationsPrefsExternalMembersDisabledByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateOrganizationsPrefsExternalMembersDisabledByIdOrg
 updateOrganizationsPrefsExternalMembersDisabledByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "body": {
-      "$ref": "#/definitions/prefs_externalMembersDisabled"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateOrganizationsPrefsExternalMembersDisabledByIdOrg({
+  "idOrg": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateOrganizationsPrefsGoogleAppsVersionByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateOrganizationsPrefsGoogleAppsVersionByIdOrg
 updateOrganizationsPrefsGoogleAppsVersionByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "body": {
-      "$ref": "#/definitions/prefs_googleAppsVersion"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateOrganizationsPrefsGoogleAppsVersionByIdOrg({
+  "idOrg": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteOrganizationsPrefsOrgInviteRestrictByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteOrganizationsPrefsOrgInviteRestrictByIdOrg
 deleteOrganizationsPrefsOrgInviteRestrictByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "value": {
-      "type": "string",
-      "description": "An email address with optional expansion tokens"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "value",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteOrganizationsPrefsOrgInviteRestrictByIdOrg({
+  "idOrg": "",
+  "value": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateOrganizationsPrefsOrgInviteRestrictByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* value (string) **required** - An email address with optional expansion tokens
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateOrganizationsPrefsOrgInviteRestrictByIdOrg
 updateOrganizationsPrefsOrgInviteRestrictByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "body": {
-      "$ref": "#/definitions/prefs_orgInviteRestrict"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateOrganizationsPrefsOrgInviteRestrictByIdOrg({
+  "idOrg": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateOrganizationsPrefsPermissionLevelByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateOrganizationsPrefsPermissionLevelByIdOrg
 updateOrganizationsPrefsPermissionLevelByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "body": {
-      "$ref": "#/definitions/prefs_permissionLevel"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateOrganizationsPrefsPermissionLevelByIdOrg({
+  "idOrg": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateOrganizationsWebsiteByIdOrg
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateOrganizationsWebsiteByIdOrg
 updateOrganizationsWebsiteByIdOrg()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "body": {
-      "$ref": "#/definitions/organizations_website"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateOrganizationsWebsiteByIdOrg({
+  "idOrg": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getOrganizationsByIdOrgByField
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getOrganizationsByIdOrgByField
 getOrganizationsByIdOrgByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idOrg": {
-      "type": "string",
-      "description": "idOrg or name"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idOrg",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getOrganizationsByIdOrgByField({
+  "idOrg": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getSearch
+
+#### Parameters
+* idOrg (string) **required** - idOrg or name
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getSearch
 getSearch()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "query": {
-      "type": "string",
-      "description": "a string with a length from 1 to 16384"
-    },
-    "idBoards": {
-      "type": "string",
-      "description": "A comma-separated list of objectIds, 24-character hex strings"
-    },
-    "idOrganizations": {
-      "type": "string",
-      "description": "A comma-separated list of objectIds, 24-character hex strings"
-    },
-    "idCards": {
-      "type": "string",
-      "description": "A comma-separated list of objectIds, 24-character hex strings"
-    },
-    "modelTypes": {
-      "type": "string",
-      "description": "all or a comma-separated list of: actions, boards, cards, members or organizations"
-    },
-    "board_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url"
-    },
-    "boards_limit": {
-      "type": "string",
-      "description": "a number from 1 to 1000"
-    },
-    "card_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url"
-    },
-    "cards_limit": {
-      "type": "string",
-      "description": "a number from 1 to 1000"
-    },
-    "cards_page": {
-      "type": "string",
-      "description": "a number from 0 to 100"
-    },
-    "card_board": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "card_list": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "card_members": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "card_stickers": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "card_attachments": {
-      "type": "string",
-      "description": "A boolean value or &quot;cover&quot; for only card cover attachments"
-    },
-    "organization_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website"
-    },
-    "organizations_limit": {
-      "type": "string",
-      "description": "a number from 1 to 1000"
-    },
-    "member_fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username"
-    },
-    "members_limit": {
-      "type": "string",
-      "description": "a number from 1 to 1000"
-    },
-    "partial": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "query",
-    "idOrganizations",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getSearch({
+  "query": "",
+  "idOrganizations": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getSearchMembers
+
+#### Parameters
+* query (string) **required** - a string with a length from 1 to 16384
+* idBoards (string) - A comma-separated list of objectIds, 24-character hex strings
+* idOrganizations (string) **required** - A comma-separated list of objectIds, 24-character hex strings
+* idCards (string) - A comma-separated list of objectIds, 24-character hex strings
+* modelTypes (string) - all or a comma-separated list of: actions, boards, cards, members or organizations
+* board_fields (string) - all or a comma-separated list of: closed, dateLastActivity, dateLastView, desc, descData, idOrganization, invitations, invited, labelNames, memberships, name, pinned, powerUps, prefs, shortLink, shortUrl, starred, subscribed or url
+* boards_limit (string) - a number from 1 to 1000
+* card_fields (string) - all or a comma-separated list of: badges, checkItemStates, closed, dateLastActivity, desc, descData, due, email, idAttachmentCover, idBoard, idChecklists, idLabels, idList, idMembers, idMembersVoted, idShort, labels, manualCoverAttachment, name, pos, shortLink, shortUrl, subscribed or url
+* cards_limit (string) - a number from 1 to 1000
+* cards_page (string) - a number from 0 to 100
+* card_board (string) -  true or false
+* card_list (string) -  true or false
+* card_members (string) -  true or false
+* card_stickers (string) -  true or false
+* card_attachments (string) - A boolean value or &quot;cover&quot; for only card cover attachments
+* organization_fields (string) - all or a comma-separated list of: billableMemberCount, desc, descData, displayName, idBoards, invitations, invited, logoHash, memberships, name, powerUps, prefs, premiumFeatures, products, url or website
+* organizations_limit (string) - a number from 1 to 1000
+* member_fields (string) - all or a comma-separated list of: avatarHash, bio, bioData, confirmed, fullName, idPremOrgsAdmin, initials, memberType, products, status, url or username
+* members_limit (string) - a number from 1 to 1000
+* partial (string) -  true or false
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getSearchMembers
 getSearchMembers()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "query": {
-      "type": "string",
-      "description": "a string with a length from 1 to 16384"
-    },
-    "limit": {
-      "type": "string",
-      "description": "a number from 1 to 20"
-    },
-    "idBoard": {
-      "type": "string",
-      "description": "An id, or null"
-    },
-    "idOrganization": {
-      "type": "string",
-      "description": "An id, or null"
-    },
-    "onlyOrgMembers": {
-      "type": "string",
-      "description": "A boolean"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "query",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getSearchMembers({
+  "query": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addSessions
+
+#### Parameters
+* query (string) **required** - a string with a length from 1 to 16384
+* limit (string) - a number from 1 to 20
+* idBoard (string) - An id, or null
+* idOrganization (string) - An id, or null
+* onlyOrgMembers (string) - A boolean
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addSessions
 addSessions()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/sessions"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addSessions({
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getSessionsSocket
+
+#### Parameters
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getSessionsSocket
 This is the route for WebSocket requests.  See the socket API reference for a description of WebSocket usage.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getSessionsSocket({
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateSessionsByIdSession
+
+#### Parameters
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateSessionsByIdSession
 updateSessionsByIdSession()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idSession": {
-      "type": "string",
-      "description": "idSession"
-    },
-    "body": {
-      "$ref": "#/definitions/sessions"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idSession",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateSessionsByIdSession({
+  "idSession": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateSessionsStatusByIdSession
+
+#### Parameters
+* idSession (string) **required** - idSession
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateSessionsStatusByIdSession
 updateSessionsStatusByIdSession()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idSession": {
-      "type": "string",
-      "description": "idSession"
-    },
-    "body": {
-      "$ref": "#/definitions/sessions_status"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idSession",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateSessionsStatusByIdSession({
+  "idSession": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteTokensByToken
+
+#### Parameters
+* idSession (string) **required** - idSession
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteTokensByToken
 deleteTokensByToken()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "token"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token_query": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token",
-    "key",
-    "token_query"
-  ]
-}
+
+```js
+trello.deleteTokensByToken({
+  "token": "",
+  "key": "",
+  "token_query": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getTokensByToken
+
+#### Parameters
+* token (string) **required** - token
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token_query (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getTokensByToken
 getTokensByToken()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "token"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: dateCreated, dateExpires, idMember, identifier or permissions"
-    },
-    "webhooks": {
-      "type": "string",
-      "description": " true or false"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token_query": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token",
-    "key",
-    "token_query"
-  ]
-}
+
+```js
+trello.getTokensByToken({
+  "token": "",
+  "key": "",
+  "token_query": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getTokensMemberByToken
+
+#### Parameters
+* token (string) **required** - token
+* fields (string) - all or a comma-separated list of: dateCreated, dateExpires, idMember, identifier or permissions
+* webhooks (string) -  true or false
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token_query (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getTokensMemberByToken
 getTokensMemberByToken()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "token"
-    },
-    "fields": {
-      "type": "string",
-      "description": "all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token_query": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token",
-    "key",
-    "token_query"
-  ]
-}
+
+```js
+trello.getTokensMemberByToken({
+  "token": "",
+  "key": "",
+  "token_query": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getTokensMemberByTokenByField
+
+#### Parameters
+* token (string) **required** - token
+* fields (string) - all or a comma-separated list of: avatarHash, avatarSource, bio, bioData, confirmed, email, fullName, gravatarHash, idBoards, idBoardsPinned, idOrganizations, idPremOrgsAdmin, initials, loginTypes, memberType, oneTimeMessagesDismissed, prefs, premiumFeatures, products, status, status, trophies, uploadedAvatarHash, url or username
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token_query (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getTokensMemberByTokenByField
 getTokensMemberByTokenByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "token"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token_query": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token",
-    "field",
-    "key",
-    "token_query"
-  ]
-}
+
+```js
+trello.getTokensMemberByTokenByField({
+  "token": "",
+  "field": "",
+  "key": "",
+  "token_query": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getTokensWebhooksByToken
+
+#### Parameters
+* token (string) **required** - token
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token_query (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getTokensWebhooksByToken
 getTokensWebhooksByToken()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "token"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token_query": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token",
-    "key",
-    "token_query"
-  ]
-}
+
+```js
+trello.getTokensWebhooksByToken({
+  "token": "",
+  "key": "",
+  "token_query": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addTokensWebhooksByToken
+
+#### Parameters
+* token (string) **required** - token
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token_query (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addTokensWebhooksByToken
 addTokensWebhooksByToken()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "token"
-    },
-    "body": {
-      "$ref": "#/definitions/tokens_webhooks"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token_query": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token",
-    "body",
-    "key",
-    "token_query"
-  ]
-}
+
+```js
+trello.addTokensWebhooksByToken({
+  "token": "",
+  "body": {},
+  "key": "",
+  "token_query": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateTokensWebhooksByToken
+
+#### Parameters
+* token (string) **required** - token
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token_query (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateTokensWebhooksByToken
 updateTokensWebhooksByToken()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "token"
-    },
-    "body": {
-      "$ref": "#/definitions/tokens_webhooks"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token_query": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token",
-    "body",
-    "key",
-    "token_query"
-  ]
-}
+
+```js
+trello.updateTokensWebhooksByToken({
+  "token": "",
+  "body": {},
+  "key": "",
+  "token_query": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteTokensWebhooksByTokenByIdWebhook
+
+#### Parameters
+* token (string) **required** - token
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token_query (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteTokensWebhooksByTokenByIdWebhook
 deleteTokensWebhooksByTokenByIdWebhook()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "token"
-    },
-    "idWebhook": {
-      "type": "string",
-      "description": "idWebhook"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token_query": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token",
-    "idWebhook",
-    "key",
-    "token_query"
-  ]
-}
+
+```js
+trello.deleteTokensWebhooksByTokenByIdWebhook({
+  "token": "",
+  "idWebhook": "",
+  "key": "",
+  "token_query": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getTokensWebhooksByTokenByIdWebhook
+
+#### Parameters
+* token (string) **required** - token
+* idWebhook (string) **required** - idWebhook
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token_query (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getTokensWebhooksByTokenByIdWebhook
 getTokensWebhooksByTokenByIdWebhook()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "token"
-    },
-    "idWebhook": {
-      "type": "string",
-      "description": "idWebhook"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token_query": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token",
-    "idWebhook",
-    "key",
-    "token_query"
-  ]
-}
+
+```js
+trello.getTokensWebhooksByTokenByIdWebhook({
+  "token": "",
+  "idWebhook": "",
+  "key": "",
+  "token_query": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getTokensByTokenByField
+
+#### Parameters
+* token (string) **required** - token
+* idWebhook (string) **required** - idWebhook
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token_query (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getTokensByTokenByField
 getTokensByTokenByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "token": {
-      "type": "string",
-      "description": "token"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token_query": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "token",
-    "field",
-    "key",
-    "token_query"
-  ]
-}
+
+```js
+trello.getTokensByTokenByField({
+  "token": "",
+  "field": "",
+  "key": "",
+  "token_query": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getTypesById
+
+#### Parameters
+* token (string) **required** - token
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token_query (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getTypesById
 getTypesById()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "id"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getTypesById({
+  "id": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: addWebhooks
+
+#### Parameters
+* id (string) **required** - id
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### addWebhooks
 addWebhooks()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/webhooks"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.addWebhooks({
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateWebhooks
+
+#### Parameters
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateWebhooks
 updateWebhooks()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/webhooks"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateWebhooks({
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: deleteWebhooksByIdWebhook
+
+#### Parameters
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### deleteWebhooksByIdWebhook
 deleteWebhooksByIdWebhook()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idWebhook": {
-      "type": "string",
-      "description": "idWebhook"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idWebhook",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.deleteWebhooksByIdWebhook({
+  "idWebhook": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getWebhooksByIdWebhook
+
+#### Parameters
+* idWebhook (string) **required** - idWebhook
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getWebhooksByIdWebhook
 getWebhooksByIdWebhook()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idWebhook": {
-      "type": "string",
-      "description": "idWebhook"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idWebhook",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getWebhooksByIdWebhook({
+  "idWebhook": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateWebhooksByIdWebhook
+
+#### Parameters
+* idWebhook (string) **required** - idWebhook
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateWebhooksByIdWebhook
 updateWebhooksByIdWebhook()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idWebhook": {
-      "type": "string",
-      "description": "idWebhook"
-    },
-    "body": {
-      "$ref": "#/definitions/webhooks"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idWebhook",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateWebhooksByIdWebhook({
+  "idWebhook": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateWebhooksActiveByIdWebhook
+
+#### Parameters
+* idWebhook (string) **required** - idWebhook
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateWebhooksActiveByIdWebhook
 updateWebhooksActiveByIdWebhook()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idWebhook": {
-      "type": "string",
-      "description": "idWebhook"
-    },
-    "body": {
-      "$ref": "#/definitions/webhooks_active"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idWebhook",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateWebhooksActiveByIdWebhook({
+  "idWebhook": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateWebhooksCallbackURLByIdWebhook
+
+#### Parameters
+* idWebhook (string) **required** - idWebhook
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateWebhooksCallbackURLByIdWebhook
 updateWebhooksCallbackURLByIdWebhook()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idWebhook": {
-      "type": "string",
-      "description": "idWebhook"
-    },
-    "body": {
-      "$ref": "#/definitions/webhooks_callbackURL"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idWebhook",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateWebhooksCallbackURLByIdWebhook({
+  "idWebhook": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateWebhooksDescriptionByIdWebhook
+
+#### Parameters
+* idWebhook (string) **required** - idWebhook
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateWebhooksDescriptionByIdWebhook
 updateWebhooksDescriptionByIdWebhook()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idWebhook": {
-      "type": "string",
-      "description": "idWebhook"
-    },
-    "body": {
-      "$ref": "#/definitions/webhooks_description"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idWebhook",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateWebhooksDescriptionByIdWebhook({
+  "idWebhook": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: updateWebhooksIdModelByIdWebhook
+
+#### Parameters
+* idWebhook (string) **required** - idWebhook
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### updateWebhooksIdModelByIdWebhook
 updateWebhooksIdModelByIdWebhook()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idWebhook": {
-      "type": "string",
-      "description": "idWebhook"
-    },
-    "body": {
-      "$ref": "#/definitions/webhooks_idModel"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idWebhook",
-    "body",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.updateWebhooksIdModelByIdWebhook({
+  "idWebhook": "",
+  "body": {},
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getWebhooksByIdWebhookByField
+
+#### Parameters
+* idWebhook (string) **required** - idWebhook
+* body (object) **required**
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+
+### getWebhooksByIdWebhookByField
 getWebhooksByIdWebhookByField()
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "idWebhook": {
-      "type": "string",
-      "description": "idWebhook"
-    },
-    "field": {
-      "type": "string",
-      "description": "field"
-    },
-    "key": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/1/appKey/generate\"  target=\"_blank\">Generate your application key</a>"
-    },
-    "token": {
-      "type": "string",
-      "description": "<a href=\"https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user\"  target=\"_blank\">Getting a token from a user</a>"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "idWebhook",
-    "field",
-    "key",
-    "token"
-  ]
-}
+
+```js
+trello.getWebhooksByIdWebhookByField({
+  "idWebhook": "",
+  "field": "",
+  "key": "",
+  "token": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* idWebhook (string) **required** - idWebhook
+* field (string) **required** - field
+* key (string) **required** - <a href="https://trello.com/1/appKey/generate"  target="_blank">Generate your application key</a>
+* token (string) **required** - <a href="https://trello.com/docs/gettingstarted/index.html#getting-a-token-from-a-user"  target="_blank">Getting a token from a user</a>
+

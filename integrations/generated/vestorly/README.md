@@ -1,1002 +1,517 @@
 # @datafire/vestorly
+
+Client library for Vestorly
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/vestorly
+```
+
+```js
+let datafire = require('datafire');
+let vestorly = require('@datafire/vestorly').actions;
+let context = new datafire.Context();
+
+vestorly.findAdvisorByID({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Vestorly Developers API
 
-## Operation: findAdvisorByID
+## Actions
+### findAdvisorByID
 Returns a single advisor given their ID
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    },
-    "id": {
-      "type": "string",
-      "description": "Advisor Id to fetch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth",
-    "id"
-  ]
-}
+
+```js
+vestorly.findAdvisorByID({
+  "vestorly_auth": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Advisor"
-}
-```
-## Operation: findArticles
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+* id (string) **required** - Advisor Id to fetch
+
+### findArticles
 Returns all articles
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Limit on the number of articles to return"
-    },
-    "text_query": {
-      "type": "string",
-      "description": "Search query parameter"
-    },
-    "sort_direction": {
-      "type": "string",
-      "description": "Direction of sort (used with sort_by parameter)"
-    },
-    "sort_by": {
-      "type": "string",
-      "description": "Field on model to sort by"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth"
-  ]
-}
+
+```js
+vestorly.findArticles({
+  "vestorly_auth": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Articles"
-}
-```
-## Operation: findArticleByID
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+* limit (integer) - Limit on the number of articles to return
+* text_query (string) - Search query parameter
+* sort_direction (string) - Direction of sort (used with sort_by parameter)
+* sort_by (string) - Field on model to sort by
+
+### findArticleByID
 Returns a single article
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    },
-    "id": {
-      "type": "string",
-      "format": "string",
-      "description": "Article Id to fetch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth",
-    "id"
-  ]
-}
+
+```js
+vestorly.findArticleByID({
+  "vestorly_auth": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Articleresponse"
-}
-```
-## Operation: findEvents
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+* id (string) **required** - Article Id to fetch
+
+### findEvents
 Returns all events
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth"
-  ]
-}
+
+```js
+vestorly.findEvents({
+  "vestorly_auth": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Events"
-}
-```
-## Operation: createEvent
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+
+### createEvent
 Creates a new event in the system
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    },
-    "event": {
-      "$ref": "#/definitions/EventInput"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth",
-    "event"
-  ]
-}
+
+```js
+vestorly.createEvent({
+  "vestorly_auth": "",
+  "event": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Eventcreateresponse"
-}
-```
-## Operation: findEventByID
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+* event (undefined) **required**
+
+### findEventByID
 Returns a single event if the user has access
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Mongo ID of event to fetch"
-    },
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "vestorly_auth"
-  ]
-}
+
+```js
+vestorly.findEventByID({
+  "id": "",
+  "vestorly_auth": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Eventresponse"
-}
-```
-## Operation: findGroups
+
+#### Parameters
+* id (string) **required** - Mongo ID of event to fetch
+* vestorly_auth (string) **required** - Vestorly Auth Token
+
+### findGroups
 Returns all groups
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "format": "string",
-      "description": "Vestorly Auth Token"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth"
-  ]
-}
+
+```js
+vestorly.findGroups({
+  "vestorly_auth": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Groups"
-}
-```
-## Operation: createGroup
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+
+### createGroup
 Creates a new Group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "format": "string",
-      "description": "Vestorly Auth Token"
-    },
-    "group": {
-      "$ref": "#/definitions/GroupInput"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth",
-    "group"
-  ]
-}
+
+```js
+vestorly.createGroup({
+  "vestorly_auth": "",
+  "group": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Groupresponse"
-}
-```
-## Operation: deleteGroup
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+* group (undefined) **required**
+
+### deleteGroup
 Deletes a Group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "format": "string",
-      "description": "Vestorly Auth Token"
-    },
-    "id": {
-      "type": "string",
-      "description": "id of group to delete"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth",
-    "id"
-  ]
-}
+
+```js
+vestorly.deleteGroup({
+  "vestorly_auth": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Groupresponse"
-}
-```
-## Operation: findGroupByID
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+* id (string) **required** - id of group to delete
+
+### findGroupByID
 Returns a single group if user has access
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "format": "string",
-      "description": "Vestorly Auth Token"
-    },
-    "id": {
-      "type": "string",
-      "format": "string",
-      "description": "Mongo ID of group to fetch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth",
-    "id"
-  ]
-}
+
+```js
+vestorly.findGroupByID({
+  "vestorly_auth": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Groupresponse"
-}
-```
-## Operation: updateGroupById
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+* id (string) **required** - Mongo ID of group to fetch
+
+### updateGroupById
 Updates a Group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    },
-    "id": {
-      "type": "string",
-      "description": "id of group to update"
-    },
-    "group": {
-      "$ref": "#/definitions/GroupInput"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth",
-    "id",
-    "group"
-  ]
-}
+
+```js
+vestorly.updateGroupById({
+  "vestorly_auth": "",
+  "id": "",
+  "group": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Groupresponse"
-}
-```
-## Operation: findMemberEvents
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+* id (string) **required** - id of group to update
+* group (undefined) **required**
+
+### findMemberEvents
 Returns all MemberEvents
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth"
-  ]
-}
+
+```js
+vestorly.findMemberEvents({
+  "vestorly_auth": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MemberEvents"
-}
-```
-## Operation: findMemberReports
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+
+### findMemberReports
 Returns all member reports
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth"
-  ]
-}
+
+```js
+vestorly.findMemberReports({
+  "vestorly_auth": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/MemberReports"
-}
-```
-## Operation: findMembers
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+
+### findMembers
 Returns all members
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "format": "string",
-      "description": "Vestorly Auth Token"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth"
-  ]
-}
+
+```js
+vestorly.findMembers({
+  "vestorly_auth": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Members"
-}
-```
-## Operation: createMember
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+
+### createMember
 Create a new member in the Vestorly Platform
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    },
-    "member": {
-      "$ref": "#/definitions/Member"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth",
-    "member"
-  ]
-}
+
+```js
+vestorly.createMember({
+  "vestorly_auth": "",
+  "member": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Memberresponse"
-}
-```
-## Operation: findMemberByID
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+* member (undefined) **required**
+
+### findMemberByID
 Returns a single member
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "format": "string",
-      "description": "Mongo ID of member to fetch"
-    },
-    "vestorly_auth": {
-      "type": "string",
-      "format": "string",
-      "description": "Vestorly Auth Token"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "vestorly_auth"
-  ]
-}
+
+```js
+vestorly.findMemberByID({
+  "id": "",
+  "vestorly_auth": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Memberresponse"
-}
-```
-## Operation: updateMemberByID
+
+#### Parameters
+* id (string) **required** - Mongo ID of member to fetch
+* vestorly_auth (string) **required** - Vestorly Auth Token
+
+### updateMemberByID
 Updates a single member
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "format": "string",
-      "description": "Mongo ID of member to fetch"
-    },
-    "vestorly_auth": {
-      "type": "string",
-      "format": "string",
-      "description": "Vestorly Auth Token"
-    },
-    "member": {
-      "$ref": "#/definitions/Member"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "vestorly_auth",
-    "member"
-  ]
-}
+
+```js
+vestorly.updateMemberByID({
+  "id": "",
+  "vestorly_auth": "",
+  "member": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Memberresponse"
-}
-```
-## Operation: findNewsletterSettings
+
+#### Parameters
+* id (string) **required** - Mongo ID of member to fetch
+* vestorly_auth (string) **required** - Vestorly Auth Token
+* member (undefined) **required**
+
+### findNewsletterSettings
 Returns all newsletter settings
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth"
-  ]
-}
+
+```js
+vestorly.findNewsletterSettings({
+  "vestorly_auth": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/NewsletterSettings"
-}
-```
-## Operation: findNewsletterSettingsByID
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+
+### findNewsletterSettingsByID
 Returns a single newsletter settings if the user has access
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Mongo ID of newsletter settings to fetch"
-    },
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "vestorly_auth"
-  ]
-}
+
+```js
+vestorly.findNewsletterSettingsByID({
+  "id": "",
+  "vestorly_auth": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Newslettersettingresponse"
-}
-```
-## Operation: updateNewsletterSettingsByID
+
+#### Parameters
+* id (string) **required** - Mongo ID of newsletter settings to fetch
+* vestorly_auth (string) **required** - Vestorly Auth Token
+
+### updateNewsletterSettingsByID
 Update a single newsletter setting by ID
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Mongo ID of newsletter settings to update"
-    },
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    },
-    "newsletter_setting": {
-      "$ref": "#/definitions/NewsletterSettingsInput"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "vestorly_auth",
-    "newsletter_setting"
-  ]
-}
+
+```js
+vestorly.updateNewsletterSettingsByID({
+  "id": "",
+  "vestorly_auth": "",
+  "newsletter_setting": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Newslettersettingresponse"
-}
-```
-## Operation: findNewsletters
+
+#### Parameters
+* id (string) **required** - Mongo ID of newsletter settings to update
+* vestorly_auth (string) **required** - Vestorly Auth Token
+* newsletter_setting (undefined) **required**
+
+### findNewsletters
 Returns all newsletters
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth"
-  ]
-}
+
+```js
+vestorly.findNewsletters({
+  "vestorly_auth": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Newsletters"
-}
-```
-## Operation: getNewsletterByID
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+
+### getNewsletterByID
 Get a newsletter by ID
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    },
-    "id": {
-      "type": "string",
-      "description": "Mongo ID of event to get"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth",
-    "id"
-  ]
-}
+
+```js
+vestorly.getNewsletterByID({
+  "vestorly_auth": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Newsletterresponse"
-}
-```
-## Operation: updateNewsletterByID
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+* id (string) **required** - Mongo ID of event to get
+
+### updateNewsletterByID
 Updates a newsletter
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    },
-    "id": {
-      "type": "string",
-      "description": "Mongo ID of event to update"
-    },
-    "newsletter": {
-      "$ref": "#/definitions/NewsletterInput"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth",
-    "id",
-    "newsletter"
-  ]
-}
+
+```js
+vestorly.updateNewsletterByID({
+  "vestorly_auth": "",
+  "id": "",
+  "newsletter": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Newsletterresponse"
-}
-```
-## Operation: findPosts
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+* id (string) **required** - Mongo ID of event to update
+* newsletter (undefined) **required**
+
+### findPosts
 Query all posts
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    },
-    "text_query": {
-      "type": "string",
-      "description": "Filter post by parameters"
-    },
-    "external_url": {
-      "type": "string",
-      "description": "Filter by External URL"
-    },
-    "is_published": {
-      "type": "string",
-      "description": "Filter by is_published boolean"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth"
-  ]
-}
+
+```js
+vestorly.findPosts({
+  "vestorly_auth": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Posts"
-}
-```
-## Operation: createPost
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+* text_query (string) - Filter post by parameters
+* external_url (string) - Filter by External URL
+* is_published (string) - Filter by is_published boolean
+
+### createPost
 Create a new post in the Vestorly Platform
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    },
-    "post": {
-      "$ref": "#/definitions/PostInput"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth",
-    "post"
-  ]
-}
+
+```js
+vestorly.createPost({
+  "vestorly_auth": "",
+  "post": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Postresponse"
-}
-```
-## Operation: getPostByID
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+* post (undefined) **required**
+
+### getPostByID
 Query all posts
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    },
-    "id": {
-      "type": "string",
-      "description": "ID of post to fetch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth",
-    "id"
-  ]
-}
+
+```js
+vestorly.getPostByID({
+  "vestorly_auth": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Postresponse"
-}
-```
-## Operation: updatePostByID
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+* id (string) **required** - ID of post to fetch
+
+### updatePostByID
 Update A Post
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    },
-    "id": {
-      "type": "string",
-      "description": "id of post to update"
-    },
-    "post": {
-      "$ref": "#/definitions/Post"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth",
-    "id",
-    "post"
-  ]
-}
+
+```js
+vestorly.updatePostByID({
+  "vestorly_auth": "",
+  "id": "",
+  "post": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Postresponse"
-}
-```
-## Operation: login
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+* id (string) **required** - id of post to update
+* post (undefined) **required**
+
+### login
 Login To Vestorly Platform
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "Username in the vestorly platform"
-    },
-    "password": {
-      "type": "string",
-      "description": "Password in Vestorly Platform"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "password"
-  ]
-}
+
+```js
+vestorly.login({
+  "username": "",
+  "password": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Session"
-}
-```
-## Operation: logout
+
+#### Parameters
+* username (string) **required** - Username in the vestorly platform
+* password (string) **required** - Password in Vestorly Platform
+
+### logout
 Logout of the vestorly platform
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Authenication token"
-    },
-    "id": {
-      "type": "string",
-      "description": "ID of pet to session"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth",
-    "id"
-  ]
-}
+
+```js
+vestorly.logout({
+  "vestorly_auth": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SessionLogoutResponse"
-}
-```
-## Operation: findSources
+
+#### Parameters
+* vestorly_auth (string) **required** - Authenication token
+* id (string) **required** - ID of pet to session
+
+### findSources
 Returns all sources
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth"
-  ]
-}
+
+```js
+vestorly.findSources({
+  "vestorly_auth": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Sources"
-}
-```
-## Operation: createSource
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+
+### createSource
 Create source
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    },
-    "source": {
-      "$ref": "#/definitions/SourceInput"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth",
-    "source"
-  ]
-}
+
+```js
+vestorly.createSource({
+  "vestorly_auth": "",
+  "source": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Sourceresponse"
-}
-```
-## Operation: getSourceByID
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+* source (undefined) **required**
+
+### getSourceByID
 Get Source By ID
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    },
-    "id": {
-      "type": "string",
-      "description": "ID of source to fetch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth",
-    "id"
-  ]
-}
+
+```js
+vestorly.getSourceByID({
+  "vestorly_auth": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Sourceresponse"
-}
-```
-## Operation: updateSourceByID
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+* id (string) **required** - ID of source to fetch
+
+### updateSourceByID
 Update Source By ID
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vestorly_auth": {
-      "type": "string",
-      "description": "Vestorly Auth Token"
-    },
-    "id": {
-      "type": "string",
-      "description": "ID of source to fetch"
-    },
-    "source": {
-      "$ref": "#/definitions/SourceInput"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vestorly_auth",
-    "id",
-    "source"
-  ]
-}
+
+```js
+vestorly.updateSourceByID({
+  "vestorly_auth": "",
+  "id": "",
+  "source": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Sourceresponse"
-}
-```
+
+#### Parameters
+* vestorly_auth (string) **required** - Vestorly Auth Token
+* id (string) **required** - ID of source to fetch
+* source (undefined) **required**
+

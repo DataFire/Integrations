@@ -1,648 +1,330 @@
 # @datafire/visagecloud
+
+Client library for VisageCloud
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/visagecloud
+```
+
+```js
+let datafire = require('datafire');
+let visagecloud = require('@datafire/visagecloud').actions;
+
+let account = {
+  accessKey: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    visagecloud: account,
+  }
+})
+
+
+visagecloud.performAnalysisUsingPOST({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Face search, recognition & classification API. Just make a call to our REST API each time your app needs to access face recognition and classification capabilities.
 
-## Operation: performAnalysisUsingPOST
+## Actions
+### performAnalysisUsingPOST
 Perform detection on a given picture or picture URL
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "secretKey": {
-      "type": "string",
-      "description": "The secretKey or readOnlyKey provided by VisageCloud"
-    },
-    "storePicture": {
-      "type": "boolean",
-      "description": "Boolean value indicating whether you want the original picture to be stored for later retrieval"
-    },
-    "pictureURL": {
-      "type": "string",
-      "description": "The URL of the picture, assuming it is served by a third party server. Server should be accesible from the Internet or through another netwoek by VisageCloud infrastructure"
-    },
-    "picture": {
-      "type": "string",
-      "description": "The multipart/form-data version of the image, in case a direct upload is used. At least one of picture or pictureURL must be present"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "secretKey"
-  ]
-}
+
+```js
+visagecloud.performAnalysisUsingPOST({
+  "secretKey": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RestResponse"
-}
-```
-## Operation: retriveLatestUsingGET
+
+#### Parameters
+* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
+* storePicture (boolean) - Boolean value indicating whether you want the original picture to be stored for later retrieval
+* pictureURL (string) - The URL of the picture, assuming it is served by a third party server. Server should be accesible from the Internet or through another netwoek by VisageCloud infrastructure
+* picture (string) - The multipart/form-data version of the image, in case a direct upload is used. At least one of picture or pictureURL must be present
+
+### retriveLatestUsingGET
 Retrieve the last *count* operations per current account
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "secretKey": {
-      "type": "string",
-      "description": "The secretKey or readOnlyKey provided by VisageCloud"
-    },
-    "count": {
-      "type": "integer",
-      "format": "int32",
-      "description": "How many records to retrieve at a time"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "secretKey"
-  ]
-}
+
+```js
+visagecloud.retriveLatestUsingGET({
+  "secretKey": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RestResponse"
-}
-```
-## Operation: performRecognitionUsingPOST
+
+#### Parameters
+* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
+* count (integer) - How many records to retrieve at a time
+
+### performRecognitionUsingPOST
 Perform labeled recognition on a given picture or picture URL
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "secretKey": {
-      "type": "string",
-      "description": "The secretKey or readOnlyKey provided by VisageCloud"
-    },
-    "storePicture": {
-      "type": "boolean",
-      "description": "Boolean value indicating whether you want the original picture to be stored for later retrieval"
-    },
-    "collectionId": {
-      "type": "string",
-      "description": "Uniquely identified collection that can store multiple profiles"
-    },
-    "labels": {
-      "type": "array",
-      "description": "Labels associated with the given picture or picture URL"
-    },
-    "attributeFilters": {
-      "type": "array",
-      "description": "Filters that will be applied on the recognition operation",
-      "enum": [
-        "GENDER_FILTER",
-        "AGE_GROUP_FILTER"
-      ]
-    },
-    "pictureURL": {
-      "type": "string",
-      "description": "The URL of the picture"
-    },
-    "picture": {
-      "type": "string",
-      "description": "The picture itself"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "secretKey",
-    "collectionId"
-  ]
-}
+
+```js
+visagecloud.performRecognitionUsingPOST({
+  "secretKey": "",
+  "collectionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RestResponse"
-}
-```
-## Operation: retrieveAnalysisUsingGET
+
+#### Parameters
+* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
+* storePicture (boolean) - Boolean value indicating whether you want the original picture to be stored for later retrieval
+* collectionId (string) **required** - Uniquely identified collection that can store multiple profiles
+* labels (array) - Labels associated with the given picture or picture URL
+* attributeFilters (array) - Filters that will be applied on the recognition operation
+* pictureURL (string) - The URL of the picture
+* picture (string) - The picture itself
+
+### retrieveAnalysisUsingGET
 Retrieve a complete analysis object including both detection and recognition information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "secretKey": {
-      "type": "string",
-      "description": "The secretKey or readOnlyKey provided by VisageCloud"
-    },
-    "analysisId": {
-      "type": "string",
-      "description": "The ID of the analysis for which the data will be retrieved"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "secretKey",
-    "analysisId"
-  ]
-}
+
+```js
+visagecloud.retrieveAnalysisUsingGET({
+  "secretKey": "",
+  "analysisId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RestResponse"
-}
-```
-## Operation: getAllCollectionsUsingGET
+
+#### Parameters
+* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
+* analysisId (string) **required** - The ID of the analysis for which the data will be retrieved
+
+### getAllCollectionsUsingGET
 Retrieve all collections
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "secretKey": {
-      "type": "string",
-      "description": "The secretKey or readOnlyKey provided by VisageCloud"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "secretKey"
-  ]
-}
+
+```js
+visagecloud.getAllCollectionsUsingGET({
+  "secretKey": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RestResponse"
-}
-```
-## Operation: removeFaceFromProfileUsingDELETE
+
+#### Parameters
+* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
+
+### removeFaceFromProfileUsingDELETE
 Delete existing collection
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "secretKey": {
-      "type": "string",
-      "description": "The secretKey or readOnlyKey provided by VisageCloud"
-    },
-    "collectionId": {
-      "type": "string",
-      "description": "The id of the collection that will be removed"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "secretKey",
-    "collectionId"
-  ]
-}
+
+```js
+visagecloud.removeFaceFromProfileUsingDELETE({
+  "secretKey": "",
+  "collectionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RestResponse"
-}
-```
-## Operation: getProfilesFromCollectionUsingGET
+
+#### Parameters
+* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
+* collectionId (string) **required** - The id of the collection that will be removed
+
+### getProfilesFromCollectionUsingGET
 Retrieve existing collection content
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "secretKey": {
-      "type": "string",
-      "description": "The secretKey or readOnlyKey provided by VisageCloud"
-    },
-    "collectionId": {
-      "type": "string",
-      "description": "The id of the collection for which the data will be retrieved"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "secretKey",
-    "collectionId"
-  ]
-}
+
+```js
+visagecloud.getProfilesFromCollectionUsingGET({
+  "secretKey": "",
+  "collectionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RestResponse"
-}
-```
-## Operation: addCollectionUsingPOST
+
+#### Parameters
+* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
+* collectionId (string) **required** - The id of the collection for which the data will be retrieved
+
+### addCollectionUsingPOST
 Create new empty collection with given name
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "secretKey": {
-      "type": "string",
-      "description": "The secretKey or readOnlyKey provided by VisageCloud"
-    },
-    "collectionName": {
-      "type": "string",
-      "description": "The name of the collection that will be created"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "secretKey",
-    "collectionName"
-  ]
-}
+
+```js
+visagecloud.addCollectionUsingPOST({
+  "secretKey": "",
+  "collectionName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RestResponse"
-}
-```
-## Operation: getProfileEnrollmentStatusUsingGET
+
+#### Parameters
+* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
+* collectionName (string) **required** - The name of the collection that will be created
+
+### getProfileEnrollmentStatusUsingGET
 Gets the enrollment status of a profile: information on whether it is suitable for authentication.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "secretKey": {
-      "type": "string",
-      "description": "The secretKey or readOnlyKey provided by VisageCloud"
-    },
-    "profileId": {
-      "type": "string",
-      "description": "The profile that contains the faces"
-    },
-    "collectionId": {
-      "type": "string",
-      "description": "The collection that contains the profile"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "secretKey",
-    "profileId",
-    "collectionId"
-  ]
-}
+
+```js
+visagecloud.getProfileEnrollmentStatusUsingGET({
+  "secretKey": "",
+  "profileId": "",
+  "collectionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RestResponse"
-}
-```
-## Operation: removeFaceFromProfileUsingDELETE_1
+
+#### Parameters
+* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
+* profileId (string) **required** - The profile that contains the faces
+* collectionId (string) **required** - The collection that contains the profile
+
+### removeFaceFromProfileUsingDELETE_1
 Removes (unmaps) a face, identified by faceHash, from a profile, identified by profileId
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "secretKey": {
-      "type": "string",
-      "description": "The secretKey or readOnlyKey provided by VisageCloud"
-    },
-    "faceHash": {
-      "type": "string",
-      "description": "The face that will be removed from a profile"
-    },
-    "profileId": {
-      "type": "string",
-      "description": "The profile that contains the face"
-    },
-    "collectionId": {
-      "type": "string",
-      "description": "The collection that contains the profile"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "secretKey",
-    "faceHash",
-    "profileId",
-    "collectionId"
-  ]
-}
+
+```js
+visagecloud.removeFaceFromProfileUsingDELETE_1({
+  "secretKey": "",
+  "faceHash": "",
+  "profileId": "",
+  "collectionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RestResponse"
-}
-```
-## Operation: getFacesFromProfileUsingGET
+
+#### Parameters
+* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
+* faceHash (string) **required** - The face that will be removed from a profile
+* profileId (string) **required** - The profile that contains the face
+* collectionId (string) **required** - The collection that contains the profile
+
+### getFacesFromProfileUsingGET
 Gets all the faceHashes associated to a profile
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "secretKey": {
-      "type": "string",
-      "description": "The secretKey or readOnlyKey provided by VisageCloud"
-    },
-    "profileId": {
-      "type": "string",
-      "description": "The profile that contains the faces"
-    },
-    "collectionId": {
-      "type": "string",
-      "description": "The collection that contains the profile"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "secretKey",
-    "profileId",
-    "collectionId"
-  ]
-}
+
+```js
+visagecloud.getFacesFromProfileUsingGET({
+  "secretKey": "",
+  "profileId": "",
+  "collectionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RestResponse"
-}
-```
-## Operation: mapFaceToProfileUsingPOST
+
+#### Parameters
+* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
+* profileId (string) **required** - The profile that contains the faces
+* collectionId (string) **required** - The collection that contains the profile
+
+### mapFaceToProfileUsingPOST
 Adds (maps) a face, identified by faceHash, to a profile, identified by profileId
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "secretKey": {
-      "type": "string",
-      "description": "The secretKey or readOnlyKey provided by VisageCloud"
-    },
-    "faceHash": {
-      "type": "string",
-      "description": "The face that will be added to a profile"
-    },
-    "profileId": {
-      "type": "string",
-      "description": "The profile that will store the face"
-    },
-    "collectionId": {
-      "type": "string",
-      "description": "The collection that contains the profile"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "secretKey",
-    "faceHash",
-    "profileId",
-    "collectionId"
-  ]
-}
+
+```js
+visagecloud.mapFaceToProfileUsingPOST({
+  "secretKey": "",
+  "faceHash": "",
+  "profileId": "",
+  "collectionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RestResponse"
-}
-```
-## Operation: addProfileUsingPOST
+
+#### Parameters
+* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
+* faceHash (string) **required** - The face that will be added to a profile
+* profileId (string) **required** - The profile that will store the face
+* collectionId (string) **required** - The collection that contains the profile
+
+### addProfileUsingPOST
 Creates a new profile with no faces associated to it (empty profile)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "secretKey": {
-      "type": "string",
-      "description": "The secretKey or readOnlyKey provided by VisageCloud"
-    },
-    "collectionId": {
-      "type": "string",
-      "description": "Uniquely identified collection that can store multiple profiles"
-    },
-    "externalId": {
-      "type": "string",
-      "description": "External reference to additional information you don’t want to share with VisageCloud"
-    },
-    "screenName": {
-      "type": "string",
-      "description": "Human-readable label for the profile"
-    },
-    "labels": {
-      "type": "array",
-      "description": "Allows you to do finer filtering in face recognition"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "secretKey",
-    "collectionId"
-  ]
-}
+
+```js
+visagecloud.addProfileUsingPOST({
+  "secretKey": "",
+  "collectionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RestResponse"
-}
-```
-## Operation: getLastNFramesUsingGET
+
+#### Parameters
+* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
+* collectionId (string) **required** - Uniquely identified collection that can store multiple profiles
+* externalId (string) - External reference to additional information you don’t want to share with VisageCloud
+* screenName (string) - Human-readable label for the profile
+* labels (array) - Allows you to do finer filtering in face recognition
+
+### getLastNFramesUsingGET
 Get last processed N frames from stream
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "secretKey": {
-      "type": "string",
-      "description": "The secretKey or readOnlyKey provided by VisageCloud"
-    },
-    "streamId": {
-      "type": "string",
-      "description": "The id of the stream for which the frames will be retrieved"
-    },
-    "count": {
-      "type": "integer",
-      "format": "int32",
-      "description": "How many frames to retrieve at a time"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "secretKey",
-    "streamId"
-  ]
-}
+
+```js
+visagecloud.getLastNFramesUsingGET({
+  "secretKey": "",
+  "streamId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RestResponse"
-}
-```
-## Operation: startStreamUsingPATCH
+
+#### Parameters
+* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
+* streamId (string) **required** - The id of the stream for which the frames will be retrieved
+* count (integer) - How many frames to retrieve at a time
+
+### startStreamUsingPATCH
 Start existing stream
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "secretKey": {
-      "type": "string",
-      "description": "The secretKey or readOnlyKey provided by VisageCloud"
-    },
-    "id": {
-      "type": "string",
-      "description": "The id of the stream that will be started"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "secretKey",
-    "id"
-  ]
-}
+
+```js
+visagecloud.startStreamUsingPATCH({
+  "secretKey": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RestResponse"
-}
-```
-## Operation: stopStreamUsingPATCH
+
+#### Parameters
+* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
+* id (string) **required** - The id of the stream that will be started
+
+### stopStreamUsingPATCH
 Stop existing stream
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "secretKey": {
-      "type": "string",
-      "description": "The secretKey or readOnlyKey provided by VisageCloud"
-    },
-    "id": {
-      "type": "string",
-      "description": "The id of the stream that will be stopped"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "secretKey",
-    "id"
-  ]
-}
+
+```js
+visagecloud.stopStreamUsingPATCH({
+  "secretKey": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RestResponse"
-}
-```
-## Operation: removeStreamUsingDELETE
+
+#### Parameters
+* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
+* id (string) **required** - The id of the stream that will be stopped
+
+### removeStreamUsingDELETE
 Delete existing stream
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "secretKey": {
-      "type": "string",
-      "description": "The secretKey or readOnlyKey provided by VisageCloud"
-    },
-    "id": {
-      "type": "string",
-      "description": "The id of the stream that will be removed"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "secretKey",
-    "id"
-  ]
-}
+
+```js
+visagecloud.removeStreamUsingDELETE({
+  "secretKey": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RestResponse"
-}
-```
-## Operation: addStreamUsingPOST
+
+#### Parameters
+* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
+* id (string) **required** - The id of the stream that will be removed
+
+### addStreamUsingPOST
 Create new stream with given name
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "secretKey": {
-      "type": "string",
-      "description": "The secretKey or readOnlyKey provided by VisageCloud"
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the stream that will be created"
-    },
-    "url": {
-      "type": "string",
-      "description": "The url of the stream"
-    },
-    "method": {
-      "type": "string",
-      "description": "Streaming method",
-      "enum": [
-        "WEBRTC_PULL",
-        "WEBRTC_PUSH",
-        "SNAPSHOT_PULL"
-      ]
-    },
-    "username": {
-      "type": "string",
-      "description": "Username"
-    },
-    "password": {
-      "type": "string",
-      "description": "Password"
-    },
-    "storeOriginalFrames": {
-      "type": "boolean",
-      "description": "Boolean value indicating whether you want the original picture to be stored for later retrieval"
-    },
-    "isActive": {
-      "type": "boolean",
-      "description": "Boolean value indicating whether the stream is currently active or not"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "secretKey",
-    "name",
-    "url",
-    "username",
-    "password"
-  ]
-}
+
+```js
+visagecloud.addStreamUsingPOST({
+  "secretKey": "",
+  "name": "",
+  "url": "",
+  "username": "",
+  "password": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RestResponse"
-}
-```
+
+#### Parameters
+* secretKey (string) **required** - The secretKey or readOnlyKey provided by VisageCloud
+* name (string) **required** - The name of the stream that will be created
+* url (string) **required** - The url of the stream
+* method (string) - Streaming method
+* username (string) **required** - Username
+* password (string) **required** - Password
+* storeOriginalFrames (boolean) - Boolean value indicating whether you want the original picture to be stored for later retrieval
+* isActive (boolean) - Boolean value indicating whether the stream is currently active or not
+

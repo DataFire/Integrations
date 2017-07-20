@@ -1,4 +1,33 @@
 # @datafire/apacta
+
+Client library for Apacta
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/apacta
+```
+
+```js
+let datafire = require('datafire');
+let apacta = require('@datafire/apacta').actions;
+
+let account = {
+  X-Auth-Token: "",
+  api_key: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    apacta: account,
+  }
+})
+
+
+apacta.wall_posts.post({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 API for a tool to craftsmen used to register working hours, material usage and quality assurance.    
 # Endpoint
 The endpoint `https://app.apacta.com/api/v1` should be used to communicate with the API. API access is only allowed with SSL encrypted connection (https).
@@ -205,5227 +234,1473 @@ Running examples of how to retrieve the 5 most recent forms registered and embed
   
 ```
 
-## Operation: cities.get
+## Actions
+### cities.get
 Get list of cities supported in Apacta
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "zip_code": {
-      "type": "string",
-      "description": "Used to search for a city with specific zip code"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.cities.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/City"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: cities.city_id.get
+
+
+### cities.city_id.get
 Get details about one city
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "city_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "city_id"
-  ]
-}
+
+```js
+apacta.cities.city_id.get({
+  "city_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/City"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: clocking_records.get
+
+#### Parameters
+* city_id (string) **required**
+
+### clocking_records.get
 Get a list of clocking records
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "active": {
-      "type": "boolean",
-      "description": "Used to search for active clocking records"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.clocking_records.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/ClockingRecord"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: clocking_records.post
+
+
+### clocking_records.post
 Create clocking record for authenticated user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "clocking_record": {
-      "properties": {
-        "checkin_latitude": {
-          "type": "string"
-        },
-        "checkin_longitude": {
-          "type": "string"
-        },
-        "checkout_latitude": {
-          "type": "string"
-        },
-        "checkout_longitude": {
-          "type": "string"
-        },
-        "project_id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "clocking_record"
-  ]
-}
+
+```js
+apacta.clocking_records.post({
+  "clocking_record": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: clocking_records.checkout.post
+
+#### Parameters
+* clocking_record (object) **required**
+
+### clocking_records.checkout.post
 Checkout active clocking record for authenticated user
 
-### Input Schema
-```json
-{}
+
+```js
+apacta.clocking_records.checkout.post(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: clocking_records.clocking_record_id.delete
+
+
+### clocking_records.clocking_record_id.delete
 Delete a clocking record
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "clocking_record_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "clocking_record_id"
-  ]
-}
+
+```js
+apacta.clocking_records.clocking_record_id.delete({
+  "clocking_record_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "string"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: clocking_records.clocking_record_id.get
+
+#### Parameters
+* clocking_record_id (string) **required**
+
+### clocking_records.clocking_record_id.get
 Details of 1 clocking_record
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "clocking_record_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "clocking_record_id"
-  ]
-}
+
+```js
+apacta.clocking_records.clocking_record_id.get({
+  "clocking_record_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/ClockingRecord"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: clocking_records.clocking_record_id.put
+
+#### Parameters
+* clocking_record_id (string) **required**
+
+### clocking_records.clocking_record_id.put
 Edit a clocking record
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "clocking_record_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "clocking_record_id"
-  ]
-}
+
+```js
+apacta.clocking_records.clocking_record_id.put({
+  "clocking_record_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: contact_types.get
+
+#### Parameters
+* clocking_record_id (string) **required**
+
+### contact_types.get
 Get list of contact types supported in Apacta
 
-### Input Schema
-```json
-{}
+
+```js
+apacta.contact_types.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/ContactType"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: contact_types.contact_type_id.get
+
+
+### contact_types.contact_type_id.get
 Get details about one contact type
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "contact_type_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "contact_type_id"
-  ]
-}
+
+```js
+apacta.contact_types.contact_type_id.get({
+  "contact_type_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/ContactType"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: contacts.get
+
+#### Parameters
+* contact_type_id (string) **required**
+
+### contacts.get
 Get a list of contacts
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Used to search for a contact with a specific name"
-    },
-    "cvr": {
-      "type": "string",
-      "description": "Search for values in CVR field"
-    },
-    "ean": {
-      "type": "string",
-      "description": "Search for values in EAN field"
-    },
-    "erp_id": {
-      "type": "string",
-      "description": "Search for values in ERP id field"
-    },
-    "contact_type": {
-      "type": "string",
-      "format": "uuid",
-      "description": "Used to show only contacts with with one specific `ContactType`"
-    },
-    "city": {
-      "type": "string",
-      "description": "Used to show only contacts with with one specific `City`"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.contacts.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/Contact"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: contacts.post
+
+
+### contacts.post
 Add a new contact
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "contact": {
-      "properties": {
-        "address": {
-          "description": "Street address",
-          "maxLength": 255,
-          "type": "string"
-        },
-        "city_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "contact_types": {
-          "properties": {
-            "_ids": {
-              "items": {
-                "type": "string"
-              },
-              "type": "array"
-            }
-          },
-          "type": "object"
-        },
-        "cvr": {
-          "maxLength": 255,
-          "type": "string"
-        },
-        "description": {
-          "maxLength": 8192,
-          "type": "string"
-        },
-        "email": {
-          "maxLength": 255,
-          "type": "string"
-        },
-        "erp_id": {
-          "description": "If company has integration to an ERP system, and the contacts are synchronized, this will be the ERP-systems ID of this contact",
-          "maxLength": 255,
-          "type": "string"
-        },
-        "name": {
-          "maxLength": 255,
-          "type": "string"
-        },
-        "phone": {
-          "description": "Format like eg. `28680133` or `046158971404`",
-          "maxLength": 32,
-          "type": "string"
-        },
-        "website": {
-          "maxLength": 255,
-          "type": "string"
-        }
-      },
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.contacts.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: contacts.contact_id.delete
+
+
+### contacts.contact_id.delete
 Delete a contact
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "contact_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "contact_id"
-  ]
-}
+
+```js
+apacta.contacts.contact_id.delete({
+  "contact_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "string"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: contacts.contact_id.get
+
+#### Parameters
+* contact_id (string) **required**
+
+### contacts.contact_id.get
 Details of 1 contact
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "contact_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "contact_id"
-  ]
-}
+
+```js
+apacta.contacts.contact_id.get({
+  "contact_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/Contact"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: contacts.contact_id.put
+
+#### Parameters
+* contact_id (string) **required**
+
+### contacts.contact_id.put
 Edit a contact
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "contact_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "contact_id"
-  ]
-}
+
+```js
+apacta.contacts.contact_id.put({
+  "contact_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: currencies.get
+
+#### Parameters
+* contact_id (string) **required**
+
+### currencies.get
 Get list of currencies supported in Apacta
 
-### Input Schema
-```json
-{}
+
+```js
+apacta.currencies.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/Currency"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: currencies.currency_id.get
+
+
+### currencies.currency_id.get
 Get details about one currency
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "currency_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "currency_id"
-  ]
-}
+
+```js
+apacta.currencies.currency_id.get({
+  "currency_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/Currency"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: employee_hours.get
+
+#### Parameters
+* currency_id (string) **required**
+
+### employee_hours.get
 Used to retrieve details about the logged in user's hours
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "date_from": {
-      "type": "string",
-      "description": "Date formatted as Y-m-d (2016-06-28)"
-    },
-    "date_to": {
-      "type": "string",
-      "description": "Date formatted as Y-m-d (2016-06-28)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "date_from",
-    "date_to"
-  ]
-}
+
+```js
+apacta.employee_hours.get({
+  "date_from": "",
+  "date_to": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "description": "One element per form in the period",
-      "items": {
-        "properties": {
-          "form_date": {
-            "description": "Y-m-d formatted",
-            "format": "date",
-            "type": "string"
-          },
-          "form_id": {
-            "format": "uuid",
-            "type": "string"
-          },
-          "project_name": {
-            "type": "string"
-          },
-          "total_hours": {
-            "description": "The amount of hours in seconds",
-            "format": "int32",
-            "type": "integer"
-          },
-          "working_description": {
-            "description": "Trimmed at 50 characters",
-            "type": "string"
-          },
-          "working_description_full": {
-            "description": "Full work description (if available)",
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: expense_files.get
+
+#### Parameters
+* date_from (string) **required** - Date formatted as Y-m-d (2016-06-28)
+* date_to (string) **required** - Date formatted as Y-m-d (2016-06-28)
+
+### expense_files.get
 Show list of expense files
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "created_by_id": {
-      "type": "string",
-      "format": "uuid"
-    },
-    "expense_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.expense_files.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/ExpenseFile"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: expense_files.post
+
+
+### expense_files.post
 Add file to expense
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "file": {
-      "type": "string"
-    },
-    "description": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "file"
-  ]
-}
+
+```js
+apacta.expense_files.post({
+  "file": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: expense_files.expense_file_id.delete
+
+#### Parameters
+* file (string) **required**
+* description (string)
+
+### expense_files.expense_file_id.delete
 Delete file
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "expense_file_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "expense_file_id"
-  ]
-}
+
+```js
+apacta.expense_files.expense_file_id.delete({
+  "expense_file_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "string"
-      },
-      "type": "array"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: expense_files.expense_file_id.get
+
+#### Parameters
+* expense_file_id (string) **required**
+
+### expense_files.expense_file_id.get
 Show file
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "expense_file_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "expense_file_id"
-  ]
-}
+
+```js
+apacta.expense_files.expense_file_id.get({
+  "expense_file_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "string"
-      },
-      "type": "array"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: expense_files.expense_file_id.put
+
+#### Parameters
+* expense_file_id (string) **required**
+
+### expense_files.expense_file_id.put
 Edit file
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "expense_file_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "expense_file_id"
-  ]
-}
+
+```js
+apacta.expense_files.expense_file_id.put({
+  "expense_file_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: expense_lines.get
+
+#### Parameters
+* expense_file_id (string) **required**
+
+### expense_lines.get
 Show list of expense lines
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "created_by_id": {
-      "type": "string",
-      "format": "uuid"
-    },
-    "currency_id": {
-      "type": "string",
-      "format": "uuid"
-    },
-    "expense_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.expense_lines.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/ExpenseLine"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: expense_lines.post
+
+
+### expense_lines.post
 Add line to expense
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "expense_line": {
-      "properties": {
-        "buying_price": {
-          "format": "float",
-          "type": "number"
-        },
-        "currency_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "expense_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "quantity": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "selling_price": {
-          "format": "float",
-          "type": "number"
-        },
-        "text": {
-          "maxLength": 255,
-          "type": "string"
-        }
-      },
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.expense_lines.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: expense_lines.expense_line_id.delete
+
+
+### expense_lines.expense_line_id.delete
 Delete expense line
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "expense_line_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "expense_line_id"
-  ]
-}
+
+```js
+apacta.expense_lines.expense_line_id.delete({
+  "expense_line_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/ExpenseLine"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: expense_lines.expense_line_id.get
+
+#### Parameters
+* expense_line_id (string) **required**
+
+### expense_lines.expense_line_id.get
 Show expense line
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "expense_line_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "expense_line_id"
-  ]
-}
+
+```js
+apacta.expense_lines.expense_line_id.get({
+  "expense_line_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/ExpenseLine"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: expense_lines.expense_line_id.put
+
+#### Parameters
+* expense_line_id (string) **required**
+
+### expense_lines.expense_line_id.put
 Edit expense line
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "expense_line_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "expense_line_id"
-  ]
-}
+
+```js
+apacta.expense_lines.expense_line_id.put({
+  "expense_line_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/ExpenseLine"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: expenses.get
+
+#### Parameters
+* expense_line_id (string) **required**
+
+### expenses.get
 Show list of expenses
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "created_by_id": {
-      "type": "string",
-      "format": "uuid"
-    },
-    "company_id": {
-      "type": "string",
-      "format": "uuid"
-    },
-    "contact_id": {
-      "type": "string",
-      "format": "uuid"
-    },
-    "project_id": {
-      "type": "string",
-      "format": "uuid"
-    },
-    "gt_created": {
-      "type": "string",
-      "format": "date",
-      "description": "Created after date"
-    },
-    "lt_created": {
-      "type": "string",
-      "format": "date",
-      "description": "Created before date"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.expenses.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/Expense"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: expenses.post
+
+
+### expenses.post
 Add line to expense
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "expense_line": {
-      "properties": {
-        "contact_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "currency_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "delivery_date": {
-          "format": "date",
-          "type": "string"
-        },
-        "description": {
-          "maxLength": 8192,
-          "type": "string"
-        },
-        "project_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "reference": {
-          "maxLength": 8192,
-          "type": "string"
-        },
-        "short_text": {
-          "maxLength": 255,
-          "type": "string"
-        },
-        "supplier_invoice_number": {
-          "maxLength": 255,
-          "type": "string"
-        }
-      },
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.expenses.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: expenses.expense_id.delete
+
+
+### expenses.expense_id.delete
 Delete expense
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "expense_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "expense_id"
-  ]
-}
+
+```js
+apacta.expenses.expense_id.delete({
+  "expense_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/Expense"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: expenses.expense_id.get
+
+#### Parameters
+* expense_id (string) **required**
+
+### expenses.expense_id.get
 Show expense
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "expense_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "expense_id"
-  ]
-}
+
+```js
+apacta.expenses.expense_id.get({
+  "expense_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/Expense"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: expenses.expense_id.put
+
+#### Parameters
+* expense_id (string) **required**
+
+### expenses.expense_id.put
 Edit expense
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "expense_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "expense_id"
-  ]
-}
+
+```js
+apacta.expenses.expense_id.put({
+  "expense_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/Expense"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: form_field_types.get
+
+#### Parameters
+* expense_id (string) **required**
+
+### form_field_types.get
 Get list of form field types
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Used to filter on the `name` of the form_fields"
-    },
-    "identifier": {
-      "type": "string",
-      "description": "Used to filter on the `identifier` of the form_fields"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.form_field_types.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/FormFieldType"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: form_field_types.form_field_type_id.get
+
+
+### form_field_types.form_field_type_id.get
 Get details about single `FormField`
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "form_field_type_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "form_field_type_id"
-  ]
-}
+
+```js
+apacta.form_field_types.form_field_type_id.get({
+  "form_field_type_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/FormFieldType"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: form_fields.post
+
+#### Parameters
+* form_field_type_id (string) **required**
+
+### form_fields.post
 Add a new field to a `Form`
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "form_field": {
-      "properties": {
-        "comment": {
-          "maxLength": 8192,
-          "type": "string"
-        },
-        "content_value": {
-          "maxLength": 255,
-          "type": "string"
-        },
-        "file_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "form_field_type_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "form_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "form_template_field_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "placement": {
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.form_fields.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: form_fields.form_field_id.get
+
+
+### form_fields.form_field_id.get
 Get details about single `FormField`
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "form_field_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "form_field_id"
-  ]
-}
+
+```js
+apacta.form_fields.form_field_id.get({
+  "form_field_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/FormField"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: form_templates.get
+
+#### Parameters
+* form_field_id (string) **required**
+
+### form_templates.get
 Get array of form_templates for your company
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Used to filter on the `name` of the form_templates"
-    },
-    "identifier": {
-      "type": "string",
-      "description": "Used to filter on the `identifier` of the form_templates"
-    },
-    "pdf_template_identifier": {
-      "type": "string",
-      "description": "Used to filter on the `pdf_template_identifier` of the form_templates"
-    },
-    "description": {
-      "type": "string",
-      "description": "Used to filter on the `description` of the form_templates"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.form_templates.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/FormTemplate"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: form_templates.form_template_id.get
+
+
+### form_templates.form_template_id.get
 View one form template
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "form_template_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "form_template_id"
-  ]
-}
+
+```js
+apacta.form_templates.form_template_id.get({
+  "form_template_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/FormTemplate"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: forms.get
+
+#### Parameters
+* form_template_id (string) **required**
+
+### forms.get
 Retrieve array of forms
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "extended": {
-      "type": "string",
-      "description": "Used to have extended details from the forms from the `Form`'s `FormFields`",
-      "enum": [
-        true,
-        false
-      ]
-    },
-    "date_from": {
-      "type": "string",
-      "format": "Y-m-d",
-      "description": "Used in conjunction with `date_to` to only show forms within these dates - format like `2016-28-05`"
-    },
-    "date_to": {
-      "type": "string",
-      "format": "Y-m-d",
-      "description": "Used in conjunction with `date_from` to only show forms within these dates - format like `2016-28-30`"
-    },
-    "project_id": {
-      "type": "string",
-      "format": "uuid",
-      "description": "Used to filter on the `project_id` of the forms"
-    },
-    "created_by_id": {
-      "type": "string",
-      "description": "Used to filter on the `created_by_id` of the forms"
-    },
-    "form_template_id": {
-      "type": "string",
-      "description": "Used to filter on the `form_template_id` of the forms"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.forms.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/Form"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: forms.post
+
+
+### forms.post
 Used to add a form into the system
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "form": {
-      "properties": {
-        "form_template_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "project_id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "required": [
-        "project_id",
-        "form_template_id"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.forms.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: forms.form_id.delete
+
+
+### forms.form_id.delete
 You can only delete the forms that you've submitted yourself
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "form_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "form_id"
-  ]
-}
+
+```js
+apacta.forms.form_id.delete({
+  "form_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: forms.form_id.get
+
+#### Parameters
+* form_id (string) **required**
+
+### forms.form_id.get
 View form
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "form_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "form_id"
-  ]
-}
+
+```js
+apacta.forms.form_id.get({
+  "form_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/Form"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: forms.form_id.put
+
+#### Parameters
+* form_id (string) **required**
+
+### forms.form_id.put
 Edit a form
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "form_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "form_id"
-  ]
-}
+
+```js
+apacta.forms.form_id.put({
+  "form_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: invoice_lines.get
+
+#### Parameters
+* form_id (string) **required**
+
+### invoice_lines.get
 View list of invoice lines
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "invoice_id": {
-      "type": "string",
-      "format": "uuid"
-    },
-    "product_id": {
-      "type": "string",
-      "format": "uuid"
-    },
-    "user_id": {
-      "type": "string",
-      "format": "uuid"
-    },
-    "name": {
-      "type": "string"
-    },
-    "discount_text": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.invoice_lines.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/InvoiceLine"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: invoice_lines.post
+
+
+### invoice_lines.post
 Add invoice
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "invoice_line": {
-      "properties": {
-        "description": {
-          "maxLength": 8192,
-          "type": "string"
-        },
-        "discount_percent": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "discount_text": {
-          "maxLength": 255,
-          "type": "string"
-        },
-        "invoice_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "name": {
-          "maxLength": 2048,
-          "type": "string"
-        },
-        "product_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "quantity": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "selling_price": {
-          "format": "float",
-          "type": "number"
-        },
-        "user_id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.invoice_lines.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: invoice_lines.invoice_line_id.delete
+
+
+### invoice_lines.invoice_line_id.delete
 Delete invoice line
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "invoice_line_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "invoice_line_id"
-  ]
-}
+
+```js
+apacta.invoice_lines.invoice_line_id.delete({
+  "invoice_line_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: invoice_lines.invoice_line_id.get
+
+#### Parameters
+* invoice_line_id (string) **required**
+
+### invoice_lines.invoice_line_id.get
 View invoice line
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "invoice_line_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "invoice_line_id"
-  ]
-}
+
+```js
+apacta.invoice_lines.invoice_line_id.get({
+  "invoice_line_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/InvoiceLine"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: invoice_lines.invoice_line_id.put
+
+#### Parameters
+* invoice_line_id (string) **required**
+
+### invoice_lines.invoice_line_id.put
 Edit invoice line
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "invoice_line_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "invoice_line_id"
-  ]
-}
+
+```js
+apacta.invoice_lines.invoice_line_id.put({
+  "invoice_line_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: invoices.get
+
+#### Parameters
+* invoice_line_id (string) **required**
+
+### invoices.get
 View list of invoices
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "contact_id": {
-      "type": "string",
-      "format": "uuid",
-      "description": "Used to filter on the `contact_id` of the invoices"
-    },
-    "project_id": {
-      "type": "string",
-      "format": "uuid",
-      "description": "Used to filter on the `project_id` of the invoices"
-    },
-    "invoice_number": {
-      "type": "string",
-      "description": "Used to filter on the `invoice_number` of the invoices"
-    },
-    "offer_number": {
-      "type": "string"
-    },
-    "is_draft": {
-      "type": "integer",
-      "enum": [
-        0,
-        1
-      ]
-    },
-    "is_offer": {
-      "type": "integer",
-      "enum": [
-        0,
-        1
-      ]
-    },
-    "is_locked": {
-      "type": "integer",
-      "enum": [
-        0,
-        1
-      ]
-    },
-    "date_from": {
-      "type": "string",
-      "format": "date"
-    },
-    "date_to": {
-      "type": "string",
-      "format": "date"
-    },
-    "issued_date": {
-      "type": "string",
-      "format": "date"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.invoices.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/Invoice"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: invoices.post
+
+
+### invoices.post
 Add invoice
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "invoice": {
-      "properties": {
-        "contact_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "date_from": {
-          "format": "date",
-          "type": "string"
-        },
-        "date_to": {
-          "format": "date",
-          "type": "string"
-        },
-        "erp_id": {
-          "maxLength": 255,
-          "type": "string"
-        },
-        "erp_payment_term_id": {
-          "maxLength": 255,
-          "type": "string"
-        },
-        "invoice_number": {
-          "format": "int32",
-          "maxLength": 8,
-          "type": "integer"
-        },
-        "is_draft": {
-          "type": "boolean"
-        },
-        "is_locked": {
-          "type": "boolean"
-        },
-        "is_offer": {
-          "type": "boolean"
-        },
-        "issued_date": {
-          "format": "date",
-          "type": "string"
-        },
-        "message": {
-          "maxLength": 8192,
-          "type": "string"
-        },
-        "offer_number": {
-          "format": "int32",
-          "maxLength": 8,
-          "type": "integer"
-        },
-        "payment_due_date": {
-          "format": "date",
-          "type": "string"
-        },
-        "payment_term_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "project_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "reference": {
-          "maxLength": 255,
-          "type": "string"
-        },
-        "vat_percent": {
-          "format": "int32",
-          "maxLength": 2,
-          "type": "integer"
-        }
-      },
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.invoices.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: invoices.invoice_id.delete
+
+
+### invoices.invoice_id.delete
 Delete invoice
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "invoice_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "invoice_id"
-  ]
-}
+
+```js
+apacta.invoices.invoice_id.delete({
+  "invoice_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: invoices.invoice_id.get
+
+#### Parameters
+* invoice_id (string) **required**
+
+### invoices.invoice_id.get
 View invoice
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "invoice_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "invoice_id"
-  ]
-}
+
+```js
+apacta.invoices.invoice_id.get({
+  "invoice_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/Invoice"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: invoices.invoice_id.put
+
+#### Parameters
+* invoice_id (string) **required**
+
+### invoices.invoice_id.put
 Edit invoice
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "invoice_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "invoice_id"
-  ]
-}
+
+```js
+apacta.invoices.invoice_id.put({
+  "invoice_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: materials.get
+
+#### Parameters
+* invoice_id (string) **required**
+
+### materials.get
 View list of all materials
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "barcode": {
-      "type": "string",
-      "description": "Used to filter on the `barcode` of the materials"
-    },
-    "name": {
-      "type": "string",
-      "description": "Used to filter on the `name` of the materials"
-    },
-    "project_id": {
-      "type": "string",
-      "format": "uuid",
-      "description": "Used to find materials used in specific project by `project_id`"
-    },
-    "currently_rented": {
-      "type": "boolean",
-      "description": "Used to find currently rented materials"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.materials.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/Material"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: materials.material_id.delete
+
+
+### materials.material_id.delete
 Delete material
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "material_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "material_id"
-  ]
-}
+
+```js
+apacta.materials.material_id.delete({
+  "material_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: materials.material_id.get
+
+#### Parameters
+* material_id (string) **required**
+
+### materials.material_id.get
 View material
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "material_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "material_id"
-  ]
-}
+
+```js
+apacta.materials.material_id.get({
+  "material_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/Material"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: materials.material_id.put
+
+#### Parameters
+* material_id (string) **required**
+
+### materials.material_id.put
 Edit material
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "material_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "material_id"
-  ]
-}
+
+```js
+apacta.materials.material_id.put({
+  "material_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: materials.material_id.rentals.get
+
+#### Parameters
+* material_id (string) **required**
+
+### materials.material_id.rentals.get
 Show list of rentals for specific material
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "material_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "material_id"
-  ]
-}
+
+```js
+apacta.materials.material_id.rentals.get({
+  "material_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/MaterialRental"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: materials.material_id.rentals.post
+
+#### Parameters
+* material_id (string) **required**
+
+### materials.material_id.rentals.post
 Add material rental
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "material_rental": {
-      "properties": {
-        "form_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "from_date": {
-          "format": "dateTime",
-          "type": "string"
-        },
-        "is_invoiced": {
-          "format": "dateTime",
-          "type": "string"
-        },
-        "material_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "project_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "quantity": {
-          "format": "float",
-          "type": "number"
-        },
-        "to_date": {
-          "format": "dateTime",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "material_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "material_id"
-  ]
-}
+
+```js
+apacta.materials.material_id.rentals.post({
+  "material_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: materials.material_id.rentals.checkout.post
+
+#### Parameters
+* material_rental (object)
+* material_id (string) **required**
+
+### materials.material_id.rentals.checkout.post
 Checkout material rental
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "material_id": {
-      "type": "string"
-    },
-    "material_rental": {
-      "properties": {
-        "form_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "material_rental_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "to_date": {
-          "format": "dateTime",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "material_id"
-  ]
-}
+
+```js
+apacta.materials.material_id.rentals.checkout.post({
+  "material_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: materials.material_id.rentals.material_rental_id.delete
+
+#### Parameters
+* material_id (string) **required**
+* material_rental (object)
+
+### materials.material_id.rentals.material_rental_id.delete
 Delete rental for material
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "material_id": {
-      "type": "string",
-      "format": "uuid"
-    },
-    "material_rental_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "material_id",
-    "material_rental_id"
-  ]
-}
+
+```js
+apacta.materials.material_id.rentals.material_rental_id.delete({
+  "material_id": "",
+  "material_rental_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: materials.material_id.rentals.material_rental_id.get
+
+#### Parameters
+* material_id (string) **required**
+* material_rental_id (string) **required**
+
+### materials.material_id.rentals.material_rental_id.get
 Show rental foor materi
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "material_id": {
-      "type": "string"
-    },
-    "material_rental_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "material_id",
-    "material_rental_id"
-  ]
-}
+
+```js
+apacta.materials.material_id.rentals.material_rental_id.get({
+  "material_id": "",
+  "material_rental_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/MaterialRental"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: materials.material_id.rentals.material_rental_id.post
+
+#### Parameters
+* material_id (string) **required**
+* material_rental_id (string) **required**
+
+### materials.material_id.rentals.material_rental_id.post
 Add material
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "material": {
-      "properties": {
-        "barcode": {
-          "type": "string"
-        },
-        "billing_cysle": {
-          "enum": [
-            "hourly",
-            "daily",
-            "weekly"
-          ],
-          "type": "string"
-        },
-        "cost_price": {
-          "format": "float",
-          "type": "number"
-        },
-        "description": {
-          "type": "string"
-        },
-        "is_single_usage": {
-          "type": "boolean"
-        },
-        "name": {
-          "type": "string"
-        },
-        "selling_price": {
-          "format": "float",
-          "type": "number"
-        }
-      },
-      "type": "object"
-    },
-    "material_id": {
-      "type": "string"
-    },
-    "material_rental_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "material_id",
-    "material_rental_id"
-  ]
-}
+
+```js
+apacta.materials.material_id.rentals.material_rental_id.post({
+  "material_id": "",
+  "material_rental_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: materials.material_id.rentals.material_rental_id.put
+
+#### Parameters
+* material (object)
+* material_id (string) **required**
+* material_rental_id (string) **required**
+
+### materials.material_id.rentals.material_rental_id.put
 Edit material rental
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "material_id": {
-      "type": "string",
-      "format": "uuid"
-    },
-    "material_rental_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "material_id",
-    "material_rental_id"
-  ]
-}
+
+```js
+apacta.materials.material_id.rentals.material_rental_id.put({
+  "material_id": "",
+  "material_rental_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: ping.get
+
+#### Parameters
+* material_id (string) **required**
+* material_rental_id (string) **required**
+
+### ping.get
 Check if API is up and API key works
 
-### Input Schema
-```json
-{}
+
+```js
+apacta.ping.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "status": {
-      "default": "ok",
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: products.get
+
+
+### products.get
 List products
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Used to filter on the `name` of the products"
-    },
-    "product_number": {
-      "type": "string",
-      "format": "uuid",
-      "description": "Used to filter on the `product_number` of the products"
-    },
-    "barcode": {
-      "type": "string",
-      "description": "Used to filter on the `barcode` of the products"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.products.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/Product"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: products.post
+
+
+### products.post
 Add new product
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "product": {
-      "properties": {
-        "barcode": {
-          "maxLength": 255,
-          "type": "string"
-        },
-        "buying_price": {
-          "format": "double",
-          "type": "number"
-        },
-        "description": {
-          "maxLength": 8192,
-          "type": "string"
-        },
-        "erp_id": {
-          "maxLength": 255,
-          "type": "string"
-        },
-        "name": {
-          "maxLength": 255,
-          "type": "string"
-        },
-        "product_number": {
-          "maxLength": 255,
-          "type": "string"
-        },
-        "selling_price": {
-          "format": "double",
-          "type": "number"
-        }
-      },
-      "required": [
-        "name"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.products.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: products.product_id.delete
+
+
+### products.product_id.delete
 Delete a product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "product_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "product_id"
-  ]
-}
+
+```js
+apacta.products.product_id.delete({
+  "product_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "string"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: products.product_id.get
+
+#### Parameters
+* product_id (string) **required**
+
+### products.product_id.get
 View single product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "product_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "product_id"
-  ]
-}
+
+```js
+apacta.products.product_id.get({
+  "product_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/Product"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: products.product_id.put
+
+#### Parameters
+* product_id (string) **required**
+
+### products.product_id.put
 Edit a product
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "product_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "product_id"
-  ]
-}
+
+```js
+apacta.products.product_id.put({
+  "product_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: project_statuses.get
+
+#### Parameters
+* product_id (string) **required**
+
+### project_statuses.get
 Get list of project statuses
 
-### Input Schema
-```json
-{}
+
+```js
+apacta.project_statuses.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/ProjectStatus"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: project_statuses.project_status_id.get
+
+
+### project_statuses.project_status_id.get
 Get details about one contact type
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project_status_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project_status_id"
-  ]
-}
+
+```js
+apacta.project_statuses.project_status_id.get({
+  "project_status_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/ProjectStatus"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: projects.get
+
+#### Parameters
+* project_status_id (string) **required**
+
+### projects.get
 View list of projects
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "show_all": {
-      "type": "boolean",
-      "description": "Unless this is set to `true` only open projects will be shown"
-    },
-    "project_status": {
-      "type": "array",
-      "description": "ID's of `ProjectStatus(s)` only to look in"
-    },
-    "project_status_id": {
-      "type": "string",
-      "format": "uuid",
-      "description": "Used to filter on the `project_status_id` of the projects"
-    },
-    "name": {
-      "type": "string",
-      "description": "Used to filter on the `name` of the projects"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.projects.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/Project"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: projects.post
+
+
+### projects.post
 Add a project
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "project": {
-      "properties": {
-        "contact_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "description": {
-          "maxLength": 8192,
-          "type": "string"
-        },
-        "erp_project_id": {
-          "maxLength": 255,
-          "type": "string"
-        },
-        "erp_task_id": {
-          "maxLength": 255,
-          "type": "string"
-        },
-        "name": {
-          "maxLength": 255,
-          "type": "string"
-        },
-        "project_status_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "start_time": {
-          "format": "datetime",
-          "type": "string"
-        },
-        "street_name": {
-          "maxLength": 255,
-          "type": "string"
-        }
-      },
-      "required": [
-        "name"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.projects.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: projects.project_id.delete
+
+
+### projects.project_id.delete
 Delete a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project_id"
-  ]
-}
+
+```js
+apacta.projects.project_id.delete({
+  "project_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "string"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: projects.project_id.get
+
+#### Parameters
+* project_id (string) **required**
+
+### projects.project_id.get
 View specific project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project_id"
-  ]
-}
+
+```js
+apacta.projects.project_id.get({
+  "project_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/Project"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: projects.project_id.put
+
+#### Parameters
+* project_id (string) **required**
+
+### projects.project_id.put
 Edit a project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project_id"
-  ]
-}
+
+```js
+apacta.projects.project_id.put({
+  "project_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: projects.project_id.files.get
+
+#### Parameters
+* project_id (string) **required**
+
+### projects.project_id.files.get
 Used to show files uploaded to a project from wall post or form
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project_id"
-  ]
-}
+
+```js
+apacta.projects.project_id.files.get({
+  "project_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "string"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: projects.project_id.files.file_id.delete
+
+#### Parameters
+* project_id (string) **required**
+
+### projects.project_id.files.file_id.delete
 Delete file uploaded to a project from wall post or form
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project_id": {
-      "type": "string",
-      "format": "uuid"
-    },
-    "file_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project_id",
-    "file_id"
-  ]
-}
+
+```js
+apacta.projects.project_id.files.file_id.delete({
+  "project_id": "",
+  "file_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: projects.project_id.files.file_id.get
+
+#### Parameters
+* project_id (string) **required**
+* file_id (string) **required**
+
+### projects.project_id.files.file_id.get
 Show file uploaded to a project from wall post or form
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project_id": {
-      "type": "string"
-    },
-    "file_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project_id",
-    "file_id"
-  ]
-}
+
+```js
+apacta.projects.project_id.files.file_id.get({
+  "project_id": "",
+  "file_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: projects.project_id.files.file_id.put
+
+#### Parameters
+* project_id (string) **required**
+* file_id (string) **required**
+
+### projects.project_id.files.file_id.put
 Edit file uploaded to a project from wall post or form
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project_id": {
-      "type": "string",
-      "format": "uuid"
-    },
-    "file_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project_id",
-    "file_id"
-  ]
-}
+
+```js
+apacta.projects.project_id.files.file_id.put({
+  "project_id": "",
+  "file_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: projects.project_id.project_files.get
+
+#### Parameters
+* project_id (string) **required**
+* file_id (string) **required**
+
+### projects.project_id.project_files.get
 Returns files belonging to the project, not uploaded from wall post or form
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project_id"
-  ]
-}
+
+```js
+apacta.projects.project_id.project_files.get({
+  "project_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "string"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: projects.project_id.project_files.post
+
+#### Parameters
+* project_id (string) **required**
+
+### projects.project_id.project_files.post
 Add project file to projects
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project_id": {
-      "type": "string"
-    },
-    "file": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project_id",
-    "file"
-  ]
-}
+
+```js
+apacta.projects.project_id.project_files.post({
+  "project_id": "",
+  "file": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: projects.project_id.project_files.project_file_id.delete
+
+#### Parameters
+* project_id (string) **required**
+* file (string) **required**
+
+### projects.project_id.project_files.project_file_id.delete
 Delete project file
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project_file_id": {
-      "type": "string",
-      "format": "uuid"
-    },
-    "project_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project_file_id",
-    "project_id"
-  ]
-}
+
+```js
+apacta.projects.project_id.project_files.project_file_id.delete({
+  "project_file_id": "",
+  "project_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: projects.project_id.project_files.project_file_id.get
+
+#### Parameters
+* project_file_id (string) **required**
+* project_id (string) **required**
+
+### projects.project_id.project_files.project_file_id.get
 Show project file
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project_id": {
-      "type": "string"
-    },
-    "project_file_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project_id",
-    "project_file_id"
-  ]
-}
+
+```js
+apacta.projects.project_id.project_files.project_file_id.get({
+  "project_id": "",
+  "project_file_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: projects.project_id.project_files.project_file_id.put
+
+#### Parameters
+* project_id (string) **required**
+* project_file_id (string) **required**
+
+### projects.project_id.project_files.project_file_id.put
 Edit project file
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project_id": {
-      "type": "string",
-      "format": "uuid"
-    },
-    "project_file_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project_id",
-    "project_file_id"
-  ]
-}
+
+```js
+apacta.projects.project_id.project_files.project_file_id.put({
+  "project_id": "",
+  "project_file_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: projects.project_id.users.get
+
+#### Parameters
+* project_id (string) **required**
+* project_file_id (string) **required**
+
+### projects.project_id.users.get
 Show list of users added to project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project_id"
-  ]
-}
+
+```js
+apacta.projects.project_id.users.get({
+  "project_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/User"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: projects.project_id.users.post
+
+#### Parameters
+* project_id (string) **required**
+
+### projects.project_id.users.post
 Add user to project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project_id": {
-      "type": "string"
-    },
-    "user_id": {
-      "properties": {
-        "user_id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "required": [
-        "user_id"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project_id"
-  ]
-}
+
+```js
+apacta.projects.project_id.users.post({
+  "project_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: projects.project_id.users.user_id.delete
+
+#### Parameters
+* project_id (string) **required**
+* user_id (object)
+
+### projects.project_id.users.user_id.delete
 Delete user from project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "string"
-    },
-    "project_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id",
-    "project_id"
-  ]
-}
+
+```js
+apacta.projects.project_id.users.user_id.delete({
+  "user_id": "",
+  "project_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: projects.project_id.users.user_id.get
+
+#### Parameters
+* user_id (string) **required**
+* project_id (string) **required**
+
+### projects.project_id.users.user_id.get
 View specific user assigned to project
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "string"
-    },
-    "project_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id",
-    "project_id"
-  ]
-}
+
+```js
+apacta.projects.project_id.users.user_id.get({
+  "user_id": "",
+  "project_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/User"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: stock_locations.get
+
+#### Parameters
+* user_id (string) **required**
+* project_id (string) **required**
+
+### stock_locations.get
 List stock_locations
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Used to filter on the `name` of the stock_locations"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.stock_locations.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/StockLocation"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: stock_locations.post
+
+
+### stock_locations.post
 Add new stock_locations
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "location": {
-      "properties": {
-        "name": {
-          "maxLength": 255,
-          "type": "string"
-        }
-      },
-      "required": [
-        "name"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.stock_locations.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: stock_locations.location_id.delete
+
+
+### stock_locations.location_id.delete
 Delete location
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "location_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "location_id"
-  ]
-}
+
+```js
+apacta.stock_locations.location_id.delete({
+  "location_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: stock_locations.location_id.get
+
+#### Parameters
+* location_id (string) **required**
+
+### stock_locations.location_id.get
 View single location
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "location_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "location_id"
-  ]
-}
+
+```js
+apacta.stock_locations.location_id.get({
+  "location_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/StockLocation"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: stock_locations.location_id.put
+
+#### Parameters
+* location_id (string) **required**
+
+### stock_locations.location_id.put
 Edit location
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "location_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "location_id"
-  ]
-}
+
+```js
+apacta.stock_locations.location_id.put({
+  "location_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: time_entries.get
+
+#### Parameters
+* location_id (string) **required**
+
+### time_entries.get
 List time entries
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "user_id": {
-      "type": "string"
-    },
-    "form_id": {
-      "type": "string"
-    },
-    "project_id": {
-      "type": "string"
-    },
-    "gt_from_time": {
-      "type": "string"
-    },
-    "lt_from_time": {
-      "type": "string"
-    },
-    "gt_to_time": {
-      "type": "string"
-    },
-    "lt_to_time": {
-      "type": "string"
-    },
-    "lt_sum": {
-      "type": "string"
-    },
-    "gt_sum": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.time_entries.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/TimeEntry"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: time_entries.post
+
+
+### time_entries.post
 Add new time entry
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "time_entry": {
-      "properties": {
-        "form_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "from_time": {
-          "format": "dateTime",
-          "type": "string"
-        },
-        "is_all_day": {
-          "type": "boolean"
-        },
-        "project_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "sum": {
-          "description": "Amount of seconds - should only be included when using is_all_day, otherwise will be calculated from from_time and to_time",
-          "format": "int32",
-          "type": "integer"
-        },
-        "time_entry_type_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "to_time": {
-          "format": "dateTime",
-          "type": "string"
-        },
-        "user_id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "required": [
-        "user_id",
-        "time_entry_type_id"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.time_entries.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: time_entries.time_entry_id.delete
+
+
+### time_entries.time_entry_id.delete
 Delete time entry
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "time_entry_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "time_entry_id"
-  ]
-}
+
+```js
+apacta.time_entries.time_entry_id.delete({
+  "time_entry_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: time_entries.time_entry_id.get
+
+#### Parameters
+* time_entry_id (string) **required**
+
+### time_entries.time_entry_id.get
 View time entry
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "time_entry_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "time_entry_id"
-  ]
-}
+
+```js
+apacta.time_entries.time_entry_id.get({
+  "time_entry_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/TimeEntry"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: time_entries.time_entry_id.put
+
+#### Parameters
+* time_entry_id (string) **required**
+
+### time_entries.time_entry_id.put
 Edit time entry
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "time_entry_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "time_entry_id"
-  ]
-}
+
+```js
+apacta.time_entries.time_entry_id.put({
+  "time_entry_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: time_entry_intervals.get
+
+#### Parameters
+* time_entry_id (string) **required**
+
+### time_entry_intervals.get
 List possible time entry intervals
 
-### Input Schema
-```json
-{}
+
+```js
+apacta.time_entry_intervals.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/TimeEntryInterval"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: time_entry_intervals.time_entry_interval_id.get
+
+
+### time_entry_intervals.time_entry_interval_id.get
 View time entry interval
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "time_entry_interval_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "time_entry_interval_id"
-  ]
-}
+
+```js
+apacta.time_entry_intervals.time_entry_interval_id.get({
+  "time_entry_interval_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/TimeEntryInterval"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: time_entry_types.get
+
+#### Parameters
+* time_entry_interval_id (string) **required**
+
+### time_entry_types.get
 List time entries types
 
-### Input Schema
-```json
-{}
+
+```js
+apacta.time_entry_types.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/TimeEntryType"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: time_entry_types.post
+
+
+### time_entry_types.post
 Add new time entry type
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "time_entry_type": {
-      "properties": {
-        "description": {
-          "maxLength": 8192,
-          "type": "string"
-        },
-        "name": {
-          "maxLength": 255,
-          "type": "string"
-        },
-        "time_entry_interval_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "time_entry_value_type_id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "required": [
-        "time_entry_interval_id",
-        "time_entry_value_type_id",
-        "name"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.time_entry_types.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: time_entry_types.time_entry_type_id.delete
+
+
+### time_entry_types.time_entry_type_id.delete
 Delete time entry type
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "time_entry_type_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "time_entry_type_id"
-  ]
-}
+
+```js
+apacta.time_entry_types.time_entry_type_id.delete({
+  "time_entry_type_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: time_entry_types.time_entry_type_id.get
+
+#### Parameters
+* time_entry_type_id (string) **required**
+
+### time_entry_types.time_entry_type_id.get
 View time entry type
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "time_entry_type_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "time_entry_type_id"
-  ]
-}
+
+```js
+apacta.time_entry_types.time_entry_type_id.get({
+  "time_entry_type_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/TimeEntryType"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: time_entry_types.time_entry_type_id.put
+
+#### Parameters
+* time_entry_type_id (string) **required**
+
+### time_entry_types.time_entry_type_id.put
 Edit time entry type
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "time_entry_type_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "time_entry_type_id"
-  ]
-}
+
+```js
+apacta.time_entry_types.time_entry_type_id.put({
+  "time_entry_type_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: time_entry_unit_types.get
+
+#### Parameters
+* time_entry_type_id (string) **required**
+
+### time_entry_unit_types.get
 List possible time entry unit types
 
-### Input Schema
-```json
-{}
+
+```js
+apacta.time_entry_unit_types.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/TimeEntryUnitType"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: time_entry_unit_types.time_entry_unit_type_id.get
+
+
+### time_entry_unit_types.time_entry_unit_type_id.get
 View time entry unit type
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "time_entry_unit_type_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "time_entry_unit_type_id"
-  ]
-}
+
+```js
+apacta.time_entry_unit_types.time_entry_unit_type_id.get({
+  "time_entry_unit_type_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/TimeEntryUnitType"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: time_entry_value_types.get
+
+#### Parameters
+* time_entry_unit_type_id (string) **required**
+
+### time_entry_value_types.get
 List possible time entry value types
 
-### Input Schema
-```json
-{}
+
+```js
+apacta.time_entry_value_types.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/TimeEntryValueType"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: time_entry_value_types.time_entry_value_type_id.get
+
+
+### time_entry_value_types.time_entry_value_type_id.get
 View time entry value type
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "time_entry_value_type_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "time_entry_value_type_id"
-  ]
-}
+
+```js
+apacta.time_entry_value_types.time_entry_value_type_id.get({
+  "time_entry_value_type_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/TimeEntryValueType"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: users.get
+
+#### Parameters
+* time_entry_value_type_id (string) **required**
+
+### users.get
 Get list of users in company
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "first_name": {
-      "type": "string",
-      "description": "Used to filter on the `first_name` of the users"
-    },
-    "last_name": {
-      "type": "string",
-      "description": "Used to filter on the `last_name` of the users"
-    },
-    "email": {
-      "type": "string",
-      "description": "Used to filter on the `email` of the users"
-    },
-    "stock_location_id": {
-      "type": "string",
-      "description": "Used to filter on the `stock_location_id` of the users"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.users.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/User"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: users.post
+
+
+### users.post
 Add user to company
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "user": {
-      "properties": {
-        "city_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "cost_price": {
-          "description": "Cost of salaries",
-          "format": "float",
-          "type": "number"
-        },
-        "email": {
-          "format": "email",
-          "maxLength": 255,
-          "type": "string"
-        },
-        "extra_price": {
-          "description": "Additional cost on this employee (pension, vacation etc.)",
-          "format": "float",
-          "type": "number"
-        },
-        "first_name": {
-          "maxLength": 255,
-          "type": "string"
-        },
-        "is_active": {
-          "type": "boolean"
-        },
-        "language_id": {
-          "format": "uuid",
-          "type": "string"
-        },
-        "last_name": {
-          "maxLength": 255,
-          "type": "string"
-        },
-        "mobile": {
-          "maxLength": 32,
-          "type": "string"
-        },
-        "mobile_countrycode": {
-          "maxLength": 8,
-          "type": "string"
-        },
-        "password": {
-          "format": "password",
-          "maxLength": 255,
-          "type": "string"
-        },
-        "phone": {
-          "maxLength": 32,
-          "type": "string"
-        },
-        "phone_countrycode": {
-          "maxLength": 8,
-          "type": "string"
-        },
-        "receive_form_mails": {
-          "description": "If `true` the employee will receive an email receipt of every form submitted",
-          "type": "boolean"
-        },
-        "sale_price": {
-          "description": "The price this employee costs per hour when working",
-          "format": "float",
-          "type": "number"
-        },
-        "street_name": {
-          "maxLength": 255,
-          "type": "string"
-        }
-      },
-      "required": [
-        "first_name"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.users.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: users.user_id.delete
+
+
+### users.user_id.delete
 Delete user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id"
-  ]
-}
+
+```js
+apacta.users.user_id.delete({
+  "user_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: users.user_id.get
+
+#### Parameters
+* user_id (string) **required**
+
+### users.user_id.get
 View user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id"
-  ]
-}
+
+```js
+apacta.users.user_id.get({
+  "user_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/User"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: users.user_id.put
+
+#### Parameters
+* user_id (string) **required**
+
+### users.user_id.put
 Edit user
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "user_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "user_id"
-  ]
-}
+
+```js
+apacta.users.user_id.put({
+  "user_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "type": "object"
-      },
-      "type": "array"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: wall_comments.post
+
+#### Parameters
+* user_id (string) **required**
+
+### wall_comments.post
 Add wall comment
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "wall_comment": {
-      "properties": {
-        "message": {
-          "type": "string"
-        },
-        "wall_post_id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "required": [
-        "wall_post_id",
-        "message"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.wall_comments.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: wall_comments.wall_comment_id.get
+
+
+### wall_comments.wall_comment_id.get
 View wall comment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "wall_comment_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "wall_comment_id"
-  ]
-}
+
+```js
+apacta.wall_comments.wall_comment_id.get({
+  "wall_comment_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/WallComment"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: wall_posts.get
+
+#### Parameters
+* wall_comment_id (string) **required**
+
+### wall_posts.get
 View list of wall posts
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "project_id": {
-      "type": "string",
-      "format": "uuid"
-    },
-    "user_id": {
-      "type": "string",
-      "format": "uuid"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "project_id"
-  ]
-}
+
+```js
+apacta.wall_posts.get({
+  "project_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/WallPost"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: wall_posts.post
+
+#### Parameters
+* project_id (string) **required**
+* user_id (string)
+
+### wall_posts.post
 Add a wall post
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "wall_post": {
-      "properties": {
-        "message": {
-          "type": "string"
-        },
-        "project_id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "required": [
-        "project_id",
-        "message"
-      ],
-      "type": "object"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+apacta.wall_posts.post({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "properties": {
-        "id": {
-          "format": "uuid",
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "success": {
-      "default": true,
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: wall_posts.wall_post_id.get
+
+
+### wall_posts.wall_post_id.get
 View wall post
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "wall_post_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "wall_post_id"
-  ]
-}
+
+```js
+apacta.wall_posts.wall_post_id.get({
+  "wall_post_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "$ref": "#/definitions/WallPost"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: wall_posts.wall_post_id.wall_comments.get
+
+#### Parameters
+* wall_post_id (string) **required**
+
+### wall_posts.wall_post_id.wall_comments.get
 See wall comments to a wall post
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "wall_post_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "wall_post_id"
-  ]
-}
+
+```js
+apacta.wall_posts.wall_post_id.wall_comments.get({
+  "wall_post_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "$ref": "#/definitions/WallComment"
-      },
-      "type": "array"
-    },
-    "pagination": {
-      "$ref": "#/definitions/PaginationDetails"
-    },
-    "success": {
-      "type": "boolean"
-    }
-  },
-  "type": "object"
-}
-```
+
+#### Parameters
+* wall_post_id (string) **required**
+

@@ -1,1022 +1,287 @@
 # @datafire/mozilla_kinto
 
+Client library for kinto
 
-## Operation: server_info
-
-
-### Input Schema
-```json
-{}
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/mozilla_kinto
 ```
-### Output Schema
-```json
-{
-  "additionalProperties": {},
-  "title": "SchemaNode",
-  "type": "object"
+
+```js
+let datafire = require('datafire');
+let mozilla_kinto = require('@datafire/mozilla_kinto').actions;
+
+let account = {
+  username: "",
+  password: "",
 }
-```
-## Operation: get_openapi_spec
+let context = new datafire.Context({
+  accounts: {
+    mozilla_kinto: account,
+  }
+})
 
 
-### Input Schema
-```json
-{}
+mozilla_kinto.get_changess({}, context).then(data => {
+  console.log(data);
+})
 ```
-### Output Schema
-```json
-{
-  "additionalProperties": {},
-  "title": "SchemaNode",
-  "type": "object"
-}
-```
-## Operation: __heartbeat__
+
+## Description
 
 
-### Input Schema
-```json
-{}
-```
-### Output Schema
-```json
-{
-  "additionalProperties": {},
-  "title": "SchemaNode",
-  "type": "object"
-}
-```
-## Operation: __lbheartbeat__
+## Actions
+### server_info
 
 
-### Input Schema
-```json
-{}
+
+```js
+mozilla_kinto.server_info(null, context)
 ```
-### Output Schema
-```json
-{
-  "title": "SchemaNode",
-  "type": "object"
-}
-```
-## Operation: __version__
 
 
-### Input Schema
-```json
-{}
-```
-### Output Schema
-```json
-{
-  "additionalProperties": {},
-  "title": "SchemaNode",
-  "type": "object"
-}
-```
-## Operation: batch
+### get_openapi_spec
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "BatchPayloadSchema": {
-      "properties": {
-        "defaults": {
-          "properties": {
-            "body": {
-              "additionalProperties": {},
-              "title": "Body",
-              "type": "object"
-            },
-            "headers": {
-              "additionalProperties": {},
-              "title": "Headers",
-              "type": "object"
-            },
-            "method": {
-              "enum": [
-                "GET",
-                "HEAD",
-                "DELETE",
-                "TRACE",
-                "POST",
-                "PUT",
-                "PATCH"
-              ],
-              "title": "Method",
-              "type": "string"
-            },
-            "path": {
-              "pattern": "^/",
-              "title": "Path",
-              "type": "string"
-            }
-          },
-          "title": "Defaults",
-          "type": "object"
-        },
-        "requests": {
-          "items": {
-            "properties": {
-              "body": {
-                "additionalProperties": {},
-                "title": "Body",
-                "type": "object"
-              },
-              "headers": {
-                "additionalProperties": {},
-                "title": "Headers",
-                "type": "object"
-              },
-              "method": {
-                "enum": [
-                  "GET",
-                  "HEAD",
-                  "DELETE",
-                  "TRACE",
-                  "POST",
-                  "PUT",
-                  "PATCH"
-                ],
-                "title": "Method",
-                "type": "string"
-              },
-              "path": {
-                "pattern": "^/",
-                "title": "Path",
-                "type": "string"
-              }
-            },
-            "required": [
-              "path"
-            ],
-            "type": "object"
-          },
-          "title": "Requests",
-          "type": "array"
-        }
-      },
-      "required": [
-        "requests"
-      ],
-      "title": "BatchPayloadSchema",
-      "type": "object"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "BatchPayloadSchema"
-  ]
-}
+
+```js
+mozilla_kinto.get_openapi_spec(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "responses": {
-      "items": {
-        "properties": {
-          "body": {
-            "additionalProperties": {},
-            "title": "Body",
-            "type": "object"
-          },
-          "headers": {
-            "additionalProperties": {},
-            "title": "Headers",
-            "type": "object"
-          },
-          "path": {
-            "title": "Path",
-            "type": "string"
-          },
-          "status": {
-            "title": "Status",
-            "type": "integer"
-          }
-        },
-        "required": [
-          "status",
-          "path"
-        ],
-        "type": "object"
-      },
-      "title": "Responses",
-      "type": "array"
-    }
-  },
-  "required": [
-    "responses"
-  ],
-  "title": "BatchResponseBodySchema",
-  "type": "object"
-}
-```
-## Operation: get_buckets
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "_limit": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "_sort": {
-      "type": "array"
-    },
-    "_token": {
-      "type": "string"
-    },
-    "_since": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "_to": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "_before": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "id": {
-      "type": "string"
-    },
-    "last_modified": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "_fields": {
-      "type": "array"
-    },
-    "If-Match": {
-      "type": "string",
-      "pattern": "^\"([0-9]+?)\"$|\\*"
-    },
-    "If-None-Match": {
-      "type": "string",
-      "pattern": "^\"([0-9]+?)\"$|\\*"
-    }
-  },
-  "additionalProperties": false
-}
-```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "additionalProperties": {},
-        "default": {},
-        "type": "object"
-      },
-      "type": "array"
-    }
-  },
-  "title": "Schema",
-  "type": "object"
-}
-```
-## Operation: get_changess
+### __heartbeat__
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "_limit": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "_sort": {
-      "type": "array"
-    },
-    "_token": {
-      "type": "string"
-    },
-    "_since": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "_to": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "_before": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "id": {
-      "type": "string"
-    },
-    "last_modified": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "_fields": {
-      "type": "array"
-    },
-    "If-Match": {
-      "type": "string",
-      "pattern": "^\"([0-9]+?)\"$|\\*"
-    },
-    "If-None-Match": {
-      "type": "string",
-      "pattern": "^\"([0-9]+?)\"$|\\*"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+mozilla_kinto.__heartbeat__(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "properties": {
-          "bucket": {
-            "title": "Bucket",
-            "type": "string"
-          },
-          "collection": {
-            "title": "Collection",
-            "type": "string"
-          },
-          "host": {
-            "title": "Host",
-            "type": "string"
-          }
-        },
-        "required": [
-          "host",
-          "bucket",
-          "collection"
-        ],
-        "type": "object"
-      },
-      "type": "array"
-    }
-  },
-  "title": "Schema",
-  "type": "object"
-}
-```
-## Operation: get_collections
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_limit": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "_sort": {
-      "type": "array"
-    },
-    "_token": {
-      "type": "string"
-    },
-    "_since": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "_to": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "_before": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "id": {
-      "type": "string"
-    },
-    "last_modified": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "_fields": {
-      "type": "array"
-    },
-    "If-Match": {
-      "type": "string",
-      "pattern": "^\"([0-9]+?)\"$|\\*"
-    },
-    "If-None-Match": {
-      "type": "string",
-      "pattern": "^\"([0-9]+?)\"$|\\*"
-    },
-    "bucket_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucket_id"
-  ]
-}
-```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "additionalProperties": {},
-        "default": {},
-        "properties": {
-          "cache_expires": {
-            "title": "Cache Expires",
-            "type": "integer"
-          },
-          "schema": {
-            "additionalProperties": {},
-            "title": "Schema",
-            "type": "object"
-          }
-        },
-        "type": "object"
-      },
-      "type": "array"
-    }
-  },
-  "title": "Schema",
-  "type": "object"
-}
-```
-## Operation: get_records
+### __lbheartbeat__
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_limit": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "_sort": {
-      "type": "array"
-    },
-    "_token": {
-      "type": "string"
-    },
-    "_since": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "_to": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "_before": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "id": {
-      "type": "string"
-    },
-    "last_modified": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "_fields": {
-      "type": "array"
-    },
-    "If-Match": {
-      "type": "string",
-      "pattern": "^\"([0-9]+?)\"$|\\*"
-    },
-    "If-None-Match": {
-      "type": "string",
-      "pattern": "^\"([0-9]+?)\"$|\\*"
-    },
-    "bucket_id": {
-      "type": "string"
-    },
-    "collection_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucket_id",
-    "collection_id"
-  ]
-}
+
+```js
+mozilla_kinto.__lbheartbeat__(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "additionalProperties": {},
-        "default": {},
-        "type": "object"
-      },
-      "type": "array"
-    }
-  },
-  "title": "Schema",
-  "type": "object"
-}
-```
-## Operation: get_record
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_fields": {
-      "type": "array"
-    },
-    "If-Match": {
-      "type": "string",
-      "pattern": "^\"([0-9]+?)\"$|\\*"
-    },
-    "If-None-Match": {
-      "type": "string",
-      "pattern": "^\"([0-9]+?)\"$|\\*"
-    },
-    "bucket_id": {
-      "type": "string"
-    },
-    "collection_id": {
-      "type": "string"
-    },
-    "id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucket_id",
-    "collection_id",
-    "id"
-  ]
-}
-```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "additionalProperties": {},
-      "default": {},
-      "type": "object"
-    },
-    "permissions": {
-      "properties": {
-        "read": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Read",
-          "type": "array"
-        },
-        "write": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Write",
-          "type": "array"
-        }
-      },
-      "title": "Permissions",
-      "type": "object"
-    }
-  },
-  "title": "RecordSchema",
-  "type": "object"
-}
-```
-## Operation: get_collection
+### __version__
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_fields": {
-      "type": "array"
-    },
-    "If-Match": {
-      "type": "string",
-      "pattern": "^\"([0-9]+?)\"$|\\*"
-    },
-    "If-None-Match": {
-      "type": "string",
-      "pattern": "^\"([0-9]+?)\"$|\\*"
-    },
-    "bucket_id": {
-      "type": "string"
-    },
-    "id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucket_id",
-    "id"
-  ]
-}
+
+```js
+mozilla_kinto.__version__(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "additionalProperties": {},
-      "default": {},
-      "properties": {
-        "cache_expires": {
-          "title": "Cache Expires",
-          "type": "integer"
-        },
-        "schema": {
-          "additionalProperties": {},
-          "title": "Schema",
-          "type": "object"
-        }
-      },
-      "type": "object"
-    },
-    "permissions": {
-      "properties": {
-        "read": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Read",
-          "type": "array"
-        },
-        "record:create": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Record:Create",
-          "type": "array"
-        },
-        "write": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Write",
-          "type": "array"
-        }
-      },
-      "title": "Permissions",
-      "type": "object"
-    }
-  },
-  "title": "RecordSchema",
-  "type": "object"
-}
-```
-## Operation: get_groups
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_limit": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "_sort": {
-      "type": "array"
-    },
-    "_token": {
-      "type": "string"
-    },
-    "_since": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "_to": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "_before": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "id": {
-      "type": "string"
-    },
-    "last_modified": {
-      "type": "integer",
-      "maximum": 9223372036854776000,
-      "minimum": 0
-    },
-    "_fields": {
-      "type": "array"
-    },
-    "If-Match": {
-      "type": "string",
-      "pattern": "^\"([0-9]+?)\"$|\\*"
-    },
-    "If-None-Match": {
-      "type": "string",
-      "pattern": "^\"([0-9]+?)\"$|\\*"
-    },
-    "bucket_id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucket_id"
-  ]
-}
-```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "items": {
-        "additionalProperties": {},
-        "properties": {
-          "members": {
-            "items": {
-              "type": "string"
-            },
-            "title": "Members",
-            "type": "array"
-          }
-        },
-        "required": [
-          "members"
-        ],
-        "type": "object"
-      },
-      "type": "array"
-    }
-  },
-  "title": "Schema",
-  "type": "object"
-}
-```
-## Operation: get_group
+### batch
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_fields": {
-      "type": "array"
-    },
-    "If-Match": {
-      "type": "string",
-      "pattern": "^\"([0-9]+?)\"$|\\*"
-    },
-    "If-None-Match": {
-      "type": "string",
-      "pattern": "^\"([0-9]+?)\"$|\\*"
-    },
-    "bucket_id": {
-      "type": "string"
-    },
-    "id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "bucket_id",
-    "id"
-  ]
-}
+
+```js
+mozilla_kinto.batch({
+  "BatchPayloadSchema": {
+    "requests": []
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "additionalProperties": {},
-      "properties": {
-        "members": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Members",
-          "type": "array"
-        }
-      },
-      "required": [
-        "members"
-      ],
-      "type": "object"
-    },
-    "permissions": {
-      "properties": {
-        "read": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Read",
-          "type": "array"
-        },
-        "write": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Write",
-          "type": "array"
-        }
-      },
-      "title": "Permissions",
-      "type": "object"
-    }
-  },
-  "required": [
-    "data"
-  ],
-  "title": "RecordSchema",
-  "type": "object"
-}
-```
-## Operation: get_bucket
+
+#### Parameters
+* BatchPayloadSchema (object) **required**
+
+### get_buckets
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "_fields": {
-      "type": "array"
-    },
-    "If-Match": {
-      "type": "string",
-      "pattern": "^\"([0-9]+?)\"$|\\*"
-    },
-    "If-None-Match": {
-      "type": "string",
-      "pattern": "^\"([0-9]+?)\"$|\\*"
-    },
-    "id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+mozilla_kinto.get_buckets({}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "data": {
-      "additionalProperties": {},
-      "default": {},
-      "type": "object"
-    },
-    "permissions": {
-      "properties": {
-        "collection:create": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Collection:Create",
-          "type": "array"
-        },
-        "group:create": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Group:Create",
-          "type": "array"
-        },
-        "read": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Read",
-          "type": "array"
-        },
-        "write": {
-          "items": {
-            "type": "string"
-          },
-          "title": "Write",
-          "type": "array"
-        }
-      },
-      "title": "Permissions",
-      "type": "object"
-    }
-  },
-  "title": "RecordSchema",
-  "type": "object"
-}
-```
-## Operation: contribute
 
 
-### Input Schema
-```json
-{}
-```
-### Output Schema
-```json
-{
-  "additionalProperties": {},
-  "title": "SchemaNode",
-  "type": "object"
-}
-```
-## Operation: get_blocklist
+### get_changess
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api_ver:\\d+": {
-      "type": "string"
-    },
-    "metrics:.*": {
-      "type": "string"
-    },
-    "prefix": {
-      "type": "string"
-    },
-    "application_guid": {
-      "type": "string"
-    },
-    "application_ver": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api_ver:\\d+",
-    "metrics:.*",
-    "prefix",
-    "application_guid",
-    "application_ver"
-  ]
-}
+
+```js
+mozilla_kinto.get_changess({}, context)
 ```
-### Output Schema
-```json
-{}
+
+
+### get_collections
+
+
+
+```js
+mozilla_kinto.get_collections({
+  "bucket_id": ""
+}, context)
 ```
+
+#### Parameters
+* _limit (integer)
+* _sort (array)
+* _token (string)
+* _since (integer)
+* _to (integer)
+* _before (integer)
+* id (string)
+* last_modified (integer)
+* _fields (array)
+* If-Match (string)
+* If-None-Match (string)
+* bucket_id (string) **required**
+
+### get_records
+
+
+
+```js
+mozilla_kinto.get_records({
+  "bucket_id": "",
+  "collection_id": ""
+}, context)
+```
+
+#### Parameters
+* _limit (integer)
+* _sort (array)
+* _token (string)
+* _since (integer)
+* _to (integer)
+* _before (integer)
+* id (string)
+* last_modified (integer)
+* _fields (array)
+* If-Match (string)
+* If-None-Match (string)
+* bucket_id (string) **required**
+* collection_id (string) **required**
+
+### get_record
+
+
+
+```js
+mozilla_kinto.get_record({
+  "bucket_id": "",
+  "collection_id": "",
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* _fields (array)
+* If-Match (string)
+* If-None-Match (string)
+* bucket_id (string) **required**
+* collection_id (string) **required**
+* id (string) **required**
+
+### get_collection
+
+
+
+```js
+mozilla_kinto.get_collection({
+  "bucket_id": "",
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* _fields (array)
+* If-Match (string)
+* If-None-Match (string)
+* bucket_id (string) **required**
+* id (string) **required**
+
+### get_groups
+
+
+
+```js
+mozilla_kinto.get_groups({
+  "bucket_id": ""
+}, context)
+```
+
+#### Parameters
+* _limit (integer)
+* _sort (array)
+* _token (string)
+* _since (integer)
+* _to (integer)
+* _before (integer)
+* id (string)
+* last_modified (integer)
+* _fields (array)
+* If-Match (string)
+* If-None-Match (string)
+* bucket_id (string) **required**
+
+### get_group
+
+
+
+```js
+mozilla_kinto.get_group({
+  "bucket_id": "",
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* _fields (array)
+* If-Match (string)
+* If-None-Match (string)
+* bucket_id (string) **required**
+* id (string) **required**
+
+### get_bucket
+
+
+
+```js
+mozilla_kinto.get_bucket({
+  "id": ""
+}, context)
+```
+
+#### Parameters
+* _fields (array)
+* If-Match (string)
+* If-None-Match (string)
+* id (string) **required**
+
+### contribute
+
+
+
+```js
+mozilla_kinto.contribute(null, context)
+```
+
+
+### get_blocklist
+
+
+
+```js
+mozilla_kinto.get_blocklist({
+  "api_ver:\\d+": "",
+  "metrics:.*": "",
+  "prefix": "",
+  "application_guid": "",
+  "application_ver": ""
+}, context)
+```
+
+#### Parameters
+* api_ver:\d+ (string) **required**
+* metrics:.* (string) **required**
+* prefix (string) **required**
+* application_guid (string) **required**
+* application_ver (string) **required**
+

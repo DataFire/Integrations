@@ -1,1969 +1,901 @@
 # @datafire/azure_arm_mobileengagement
+
+Client library for Engagement.ManagementClient
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/azure_arm_mobileengagement
+```
+
+```js
+let datafire = require('datafire');
+let azure_arm_mobileengagement = require('@datafire/azure_arm_mobileengagement').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    azure_arm_mobileengagement: account,
+  }
+})
+
+
+azure_arm_mobileengagement.AppCollections_List({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Microsoft Azure Mobile Engagement REST APIs.
 
-## Operation: AppCollections_List
+## Actions
+### AppCollections_List
 Lists app collections in a subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.AppCollections_List({
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AppCollectionListResult"
-}
-```
-## Operation: AppCollections_CheckNameAvailability
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client Api Version.
+
+### AppCollections_CheckNameAvailability
 Checks availability of an app collection name in the Engagement domain.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/AppCollectionNameAvailability"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.AppCollections_CheckNameAvailability({
+  "subscriptionId": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AppCollectionNameAvailability"
-}
-```
-## Operation: SupportedPlatforms_List
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client Api Version.
+* parameters (undefined) **required**
+
+### SupportedPlatforms_List
 Lists supported platforms for Engagement applications.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.SupportedPlatforms_List({
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SupportedPlatformsListResult"
-}
-```
-## Operation: Apps_List
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client Api Version.
+
+### Apps_List
 Lists apps in an appCollection.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version",
-    "resourceGroupName",
-    "appCollection"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.Apps_List({
+  "subscriptionId": "",
+  "api-version": "",
+  "resourceGroupName": "",
+  "appCollection": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AppListResult"
-}
-```
-## Operation: Campaigns_List
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* api-version (string) **required** - Client Api Version.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+
+### Campaigns_List
 Get the list of campaigns.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "kind": {
-      "type": "string",
-      "description": "Campaign kind.",
-      "enum": [
-        "announcements",
-        "polls",
-        "dataPushes",
-        "nativePushes"
-      ]
-    },
-    "$skip": {
-      "type": "integer",
-      "description": "Control paging of campaigns, start results at the given offset, defaults to 0 (1st page of data)."
-    },
-    "$top": {
-      "type": "integer",
-      "description": "Control paging of campaigns, number of campaigns to return with each call. It returns all campaigns by default. When specifying $top parameter, the response contains a `nextLink` property describing the path to get the next page if there are more results."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "Filter can be used to restrict the results to campaigns matching a specific state. The syntax is `$filter=state eq 'draft'`. Valid state values are: draft, scheduled, in-progress, and finished. Only the eq operator and the state property are supported."
-    },
-    "$orderby": {
-      "type": "string",
-      "description": "Sort results by an expression which looks like `$orderby=id asc` (this example is actually the default behavior). The syntax is orderby={property} {direction} or just orderby={property}. The available sorting properties are id, name, state, activatedDate, and finishedDate. The available directions are asc (for ascending order) and desc (for descending order). When not specified the asc direction is used. Only one property at a time can be used for sorting."
-    },
-    "$search": {
-      "type": "string",
-      "description": "Restrict results to campaigns matching the optional `search` expression. This currently performs the search based on the name on the campaign only, case insensitive. If the campaign contains the value of the `search` parameter anywhere in the name, it matches."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version",
-    "kind"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.Campaigns_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": "",
+  "kind": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CampaignsListResult"
-}
-```
-## Operation: Campaigns_Create
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* kind (string) **required** - Campaign kind.
+* $skip (integer) - Control paging of campaigns, start results at the given offset, defaults to 0 (1st page of data).
+* $top (integer) - Control paging of campaigns, number of campaigns to return with each call. It returns all campaigns by default. When specifying $top parameter, the response contains a `nextLink` property describing the path to get the next page if there are more results.
+* $filter (string) - Filter can be used to restrict the results to campaigns matching a specific state. The syntax is `$filter=state eq 'draft'`. Valid state values are: draft, scheduled, in-progress, and finished. Only the eq operator and the state property are supported.
+* $orderby (string) - Sort results by an expression which looks like `$orderby=id asc` (this example is actually the default behavior). The syntax is orderby={property} {direction} or just orderby={property}. The available sorting properties are id, name, state, activatedDate, and finishedDate. The available directions are asc (for ascending order) and desc (for descending order). When not specified the asc direction is used. Only one property at a time can be used for sorting.
+* $search (string) - Restrict results to campaigns matching the optional `search` expression. This currently performs the search based on the name on the campaign only, case insensitive. If the campaign contains the value of the `search` parameter anywhere in the name, it matches.
+
+### Campaigns_Create
 Create a push campaign (announcement, poll, data push or native push).
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "kind": {
-      "type": "string",
-      "description": "Campaign kind.",
-      "enum": [
-        "announcements",
-        "polls",
-        "dataPushes",
-        "nativePushes"
-      ]
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/Campaign"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "kind",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.Campaigns_Create({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "kind": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CampaignStateResult"
-}
-```
-## Operation: Campaigns_TestNew
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* kind (string) **required** - Campaign kind.
+* api-version (string) **required** - Client Api Version.
+* parameters (undefined) **required**
+
+### Campaigns_TestNew
 Test a new campaign on a set of devices.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "kind": {
-      "type": "string",
-      "description": "Campaign kind.",
-      "enum": [
-        "announcements",
-        "polls",
-        "dataPushes",
-        "nativePushes"
-      ]
-    },
-    "parameters": {
-      "$ref": "#/definitions/CampaignTestNewParameters"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version",
-    "kind",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.Campaigns_TestNew({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": "",
+  "kind": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CampaignState"
-}
-```
-## Operation: Campaigns_Delete
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* kind (string) **required** - Campaign kind.
+* parameters (undefined) **required**
+
+### Campaigns_Delete
 Delete a campaign previously created by a call to Create campaign.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "description": "Campaign kind.",
-      "enum": [
-        "announcements",
-        "polls",
-        "dataPushes",
-        "nativePushes"
-      ]
-    },
-    "id": {
-      "type": "integer",
-      "description": "Campaign identifier."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "kind",
-    "id",
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.Campaigns_Delete({
+  "kind": "",
+  "id": 0,
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Campaigns_Get
+
+#### Parameters
+* kind (string) **required** - Campaign kind.
+* id (integer) **required** - Campaign identifier.
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+
+### Campaigns_Get
 The Get campaign operation retrieves information about a previously created campaign.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "description": "Campaign kind.",
-      "enum": [
-        "announcements",
-        "polls",
-        "dataPushes",
-        "nativePushes"
-      ]
-    },
-    "id": {
-      "type": "integer",
-      "description": "Campaign identifier."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "kind",
-    "id",
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.Campaigns_Get({
+  "kind": "",
+  "id": 0,
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CampaignResult"
-}
-```
-## Operation: Campaigns_Update
+
+#### Parameters
+* kind (string) **required** - Campaign kind.
+* id (integer) **required** - Campaign identifier.
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+
+### Campaigns_Update
 Update an existing push campaign (announcement, poll, data push or native push).
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "description": "Campaign kind.",
-      "enum": [
-        "announcements",
-        "polls",
-        "dataPushes",
-        "nativePushes"
-      ]
-    },
-    "id": {
-      "type": "integer",
-      "description": "Campaign identifier."
-    },
-    "parameters": {
-      "$ref": "#/definitions/Campaign"
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "kind",
-    "id",
-    "parameters",
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.Campaigns_Update({
+  "kind": "",
+  "id": 0,
+  "parameters": null,
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CampaignStateResult"
-}
-```
-## Operation: Campaigns_Activate
+
+#### Parameters
+* kind (string) **required** - Campaign kind.
+* id (integer) **required** - Campaign identifier.
+* parameters (undefined) **required**
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+
+### Campaigns_Activate
 Activate a campaign previously created by a call to Create campaign.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "kind": {
-      "type": "string",
-      "description": "Campaign kind.",
-      "enum": [
-        "announcements",
-        "polls",
-        "dataPushes",
-        "nativePushes"
-      ]
-    },
-    "id": {
-      "type": "integer",
-      "description": "Campaign identifier."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "kind",
-    "id",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.Campaigns_Activate({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "kind": "",
+  "id": 0,
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CampaignStateResult"
-}
-```
-## Operation: Campaigns_Finish
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* kind (string) **required** - Campaign kind.
+* id (integer) **required** - Campaign identifier.
+* api-version (string) **required** - Client Api Version.
+
+### Campaigns_Finish
 Finish a push campaign previously activated by a call to Activate campaign.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "kind": {
-      "type": "string",
-      "description": "Campaign kind.",
-      "enum": [
-        "announcements",
-        "polls",
-        "dataPushes",
-        "nativePushes"
-      ]
-    },
-    "id": {
-      "type": "integer",
-      "description": "Campaign identifier."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "kind",
-    "id",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.Campaigns_Finish({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "kind": "",
+  "id": 0,
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CampaignStateResult"
-}
-```
-## Operation: Campaigns_Push
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* kind (string) **required** - Campaign kind.
+* id (integer) **required** - Campaign identifier.
+* api-version (string) **required** - Client Api Version.
+
+### Campaigns_Push
 Push a previously saved campaign (created with Create campaign) to a set of devices.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "kind": {
-      "type": "string",
-      "description": "Campaign kind.",
-      "enum": [
-        "announcements",
-        "polls",
-        "dataPushes",
-        "nativePushes"
-      ]
-    },
-    "id": {
-      "type": "integer",
-      "description": "Campaign identifier."
-    },
-    "parameters": {
-      "$ref": "#/definitions/CampaignPushParameters"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version",
-    "kind",
-    "id",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.Campaigns_Push({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": "",
+  "kind": "",
+  "id": 0,
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CampaignPushResult"
-}
-```
-## Operation: Campaigns_GetStatistics
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* kind (string) **required** - Campaign kind.
+* id (integer) **required** - Campaign identifier.
+* parameters (undefined) **required**
+
+### Campaigns_GetStatistics
 Get all the campaign statistics.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "description": "Campaign kind.",
-      "enum": [
-        "announcements",
-        "polls",
-        "dataPushes",
-        "nativePushes"
-      ]
-    },
-    "id": {
-      "type": "integer",
-      "description": "Campaign identifier."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "kind",
-    "id",
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.Campaigns_GetStatistics({
+  "kind": "",
+  "id": 0,
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CampaignStatisticsResult"
-}
-```
-## Operation: Campaigns_Suspend
+
+#### Parameters
+* kind (string) **required** - Campaign kind.
+* id (integer) **required** - Campaign identifier.
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+
+### Campaigns_Suspend
 Suspend a push campaign previously activated by a call to Activate campaign.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "kind": {
-      "type": "string",
-      "description": "Campaign kind.",
-      "enum": [
-        "announcements",
-        "polls",
-        "dataPushes",
-        "nativePushes"
-      ]
-    },
-    "id": {
-      "type": "integer",
-      "description": "Campaign identifier."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "kind",
-    "id",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.Campaigns_Suspend({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "kind": "",
+  "id": 0,
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CampaignStateResult"
-}
-```
-## Operation: Campaigns_TestSaved
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* kind (string) **required** - Campaign kind.
+* id (integer) **required** - Campaign identifier.
+* api-version (string) **required** - Client Api Version.
+
+### Campaigns_TestSaved
 Test an existing campaign (created with Create campaign) on a set of devices.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "kind": {
-      "type": "string",
-      "description": "Campaign kind.",
-      "enum": [
-        "announcements",
-        "polls",
-        "dataPushes",
-        "nativePushes"
-      ]
-    },
-    "id": {
-      "type": "integer",
-      "description": "Campaign identifier."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/CampaignTestSavedParameters"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "kind",
-    "id",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.Campaigns_TestSaved({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "kind": "",
+  "id": 0,
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CampaignStateResult"
-}
-```
-## Operation: Campaigns_GetByName
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* kind (string) **required** - Campaign kind.
+* id (integer) **required** - Campaign identifier.
+* api-version (string) **required** - Client Api Version.
+* parameters (undefined) **required**
+
+### Campaigns_GetByName
 The Get campaign operation retrieves information about a previously created campaign.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "kind": {
-      "type": "string",
-      "description": "Campaign kind.",
-      "enum": [
-        "announcements",
-        "polls",
-        "dataPushes",
-        "nativePushes"
-      ]
-    },
-    "name": {
-      "type": "string",
-      "description": "Campaign name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "kind",
-    "name",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.Campaigns_GetByName({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "kind": "",
+  "name": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CampaignResult"
-}
-```
-## Operation: Devices_List
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* kind (string) **required** - Campaign kind.
+* name (string) **required** - Campaign name.
+* api-version (string) **required** - Client Api Version.
+
+### Devices_List
 Query the information associated to the devices running an application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "$top": {
-      "type": "integer",
-      "description": "Number of devices to return with each call. Defaults to 100 and cannot return more. Passing a greater value is ignored. The response contains a `nextLink` property describing the URI path to get the next page of results if not all results could be returned at once."
-    },
-    "$select": {
-      "type": "string",
-      "description": "By default all `meta` and `appInfo` properties are returned, this property is used to restrict the output to the desired properties. It also excludes all devices from the output that have none of the selected properties. In other terms, only devices having at least one of the selected property being set is part of the results. Examples: - `$select=appInfo` : select all devices having at least 1 appInfo, return them all and don’t return any meta property. - `$select=meta` : return only meta properties in the output. - `$select=appInfo,meta/firstSeen,meta/lastSeen` : return all `appInfo`, plus meta object containing only firstSeen and lastSeen properties. The format is thus a comma separated list of properties to select. Use `appInfo` to select all appInfo properties, `meta` to select all meta properties. Use `appInfo/{key}` and `meta/{key}` to select specific appInfo and meta properties."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "Filter can be used to reduce the number of results. Filter is a boolean expression that can look like the following examples: * `$filter=deviceId gt 'abcdef0123456789abcdef0123456789'` * `$filter=lastModified le 1447284263690L` * `$filter=(deviceId ge 'abcdef0123456789abcdef0123456789') and (deviceId lt 'bacdef0123456789abcdef0123456789') and (lastModified gt 1447284263690L)` The first example is used automatically for paging when returning the `nextLink` property. The filter expression is a combination of checks on some properties that can be compared to their value. The available operators are: * `gt`  : greater than * `ge`  : greater than or equals * `lt`  : less than * `le`  : less than or equals * `and` : to add multiple checks (all checks must pass), optional parentheses can be used. The properties that can be used in the expression are the following: * `deviceId {operator} '{deviceIdValue}'` : a lexicographical comparison is made on the deviceId value, use single quotes for the value. * `lastModified {operator} {number}L` : returns only meta properties or appInfo properties whose last value modification timestamp compared to the specified value is matching (value is milliseconds since January 1st, 1970 UTC). Please note the `L` character after the number of milliseconds, its required when the number of milliseconds exceeds `2^31 - 1` (which is always the case for recent timestamps). Using `lastModified` excludes all devices from the output that have no property matching the timestamp criteria, like `$select`. Please note that the internal value of `lastModified` timestamp for a given property is never part of the results."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.Devices_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DevicesQueryResult"
-}
-```
-## Operation: ExportTasks_List
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* $top (integer) - Number of devices to return with each call. Defaults to 100 and cannot return more. Passing a greater value is ignored. The response contains a `nextLink` property describing the URI path to get the next page of results if not all results could be returned at once.
+* $select (string) - By default all `meta` and `appInfo` properties are returned, this property is used to restrict the output to the desired properties. It also excludes all devices from the output that have none of the selected properties. In other terms, only devices having at least one of the selected property being set is part of the results. Examples: - `$select=appInfo` : select all devices having at least 1 appInfo, return them all and don’t return any meta property. - `$select=meta` : return only meta properties in the output. - `$select=appInfo,meta/firstSeen,meta/lastSeen` : return all `appInfo`, plus meta object containing only firstSeen and lastSeen properties. The format is thus a comma separated list of properties to select. Use `appInfo` to select all appInfo properties, `meta` to select all meta properties. Use `appInfo/{key}` and `meta/{key}` to select specific appInfo and meta properties.
+* $filter (string) - Filter can be used to reduce the number of results. Filter is a boolean expression that can look like the following examples: * `$filter=deviceId gt 'abcdef0123456789abcdef0123456789'` * `$filter=lastModified le 1447284263690L` * `$filter=(deviceId ge 'abcdef0123456789abcdef0123456789') and (deviceId lt 'bacdef0123456789abcdef0123456789') and (lastModified gt 1447284263690L)` The first example is used automatically for paging when returning the `nextLink` property. The filter expression is a combination of checks on some properties that can be compared to their value. The available operators are: * `gt`  : greater than * `ge`  : greater than or equals * `lt`  : less than * `le`  : less than or equals * `and` : to add multiple checks (all checks must pass), optional parentheses can be used. The properties that can be used in the expression are the following: * `deviceId {operator} '{deviceIdValue}'` : a lexicographical comparison is made on the deviceId value, use single quotes for the value. * `lastModified {operator} {number}L` : returns only meta properties or appInfo properties whose last value modification timestamp compared to the specified value is matching (value is milliseconds since January 1st, 1970 UTC). Please note the `L` character after the number of milliseconds, its required when the number of milliseconds exceeds `2^31 - 1` (which is always the case for recent timestamps). Using `lastModified` excludes all devices from the output that have no property matching the timestamp criteria, like `$select`. Please note that the internal value of `lastModified` timestamp for a given property is never part of the results.
+
+### ExportTasks_List
 Get the list of export tasks.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "$skip": {
-      "type": "integer",
-      "description": "Control paging of export tasks, start results at the given offset, defaults to 0 (1st page of data).",
-      "minimum": 0
-    },
-    "$top": {
-      "type": "integer",
-      "description": "Control paging of export tasks, number of export tasks to return with each call. By default, it returns all export tasks with a default paging of 20.\nThe response contains a `nextLink` property describing the path to get the next page if there are more results.\nThe maximum paging limit for $top is 40.",
-      "maximum": 40,
-      "minimum": 1
-    },
-    "$orderby": {
-      "type": "string",
-      "description": "Sort results by an expression which looks like `$orderby=taskId asc` (default when not specified).\nThe syntax is orderby={property} {direction} or just orderby={property}.\nProperties that can be specified for sorting: taskId, errorDetails, dateCreated, taskStatus, and dateCreated.\nThe available directions are asc (for ascending order) and desc (for descending order).\nWhen not specified the asc direction is used.\nOnly one orderby property can be specified."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.ExportTasks_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/exportTaskListResult"
-}
-```
-## Operation: ExportTasks_CreateActivitiesTask
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* $skip (integer) - Control paging of export tasks, start results at the given offset, defaults to 0 (1st page of data).
+* $top (integer) - Control paging of export tasks, number of export tasks to return with each call. By default, it returns all export tasks with a default paging of 20.
+* $orderby (string) - Sort results by an expression which looks like `$orderby=taskId asc` (default when not specified).
+
+### ExportTasks_CreateActivitiesTask
 Creates a task to export activities.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/dateRangeExportTaskParameter"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.ExportTasks_CreateActivitiesTask({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/exportTaskResult"
-}
-```
-## Operation: ExportTasks_CreateCrashesTask
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* parameters (undefined) **required**
+
+### ExportTasks_CreateCrashesTask
 Creates a task to export crashes.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/dateRangeExportTaskParameter"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.ExportTasks_CreateCrashesTask({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/exportTaskResult"
-}
-```
-## Operation: ExportTasks_CreateErrorsTask
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* parameters (undefined) **required**
+
+### ExportTasks_CreateErrorsTask
 Creates a task to export errors.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/dateRangeExportTaskParameter"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.ExportTasks_CreateErrorsTask({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/exportTaskResult"
-}
-```
-## Operation: ExportTasks_CreateEventsTask
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* parameters (undefined) **required**
+
+### ExportTasks_CreateEventsTask
 Creates a task to export events.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/dateRangeExportTaskParameter"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.ExportTasks_CreateEventsTask({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/exportTaskResult"
-}
-```
-## Operation: ExportTasks_CreateFeedbackTaskByCampaign
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* parameters (undefined) **required**
+
+### ExportTasks_CreateFeedbackTaskByCampaign
 Creates a task to export push campaign data for a set of campaigns.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/feedbackByCampaignParameter"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.ExportTasks_CreateFeedbackTaskByCampaign({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/exportTaskResult"
-}
-```
-## Operation: ExportTasks_CreateFeedbackTaskByDateRange
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* parameters (undefined) **required**
+
+### ExportTasks_CreateFeedbackTaskByDateRange
 Creates a task to export push campaign data for a date range.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/feedbackByDateRangeParameter"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.ExportTasks_CreateFeedbackTaskByDateRange({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/exportTaskResult"
-}
-```
-## Operation: ExportTasks_CreateJobsTask
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* parameters (undefined) **required**
+
+### ExportTasks_CreateJobsTask
 Creates a task to export jobs.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/dateRangeExportTaskParameter"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.ExportTasks_CreateJobsTask({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/exportTaskResult"
-}
-```
-## Operation: ExportTasks_CreateSessionsTask
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* parameters (undefined) **required**
+
+### ExportTasks_CreateSessionsTask
 Creates a task to export sessions.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/dateRangeExportTaskParameter"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.ExportTasks_CreateSessionsTask({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/exportTaskResult"
-}
-```
-## Operation: ExportTasks_CreateTagsTask
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* parameters (undefined) **required**
+
+### ExportTasks_CreateTagsTask
 Creates a task to export tags.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/exportTaskParameter"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.ExportTasks_CreateTagsTask({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/exportTaskResult"
-}
-```
-## Operation: ExportTasks_CreateTokensTask
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* parameters (undefined) **required**
+
+### ExportTasks_CreateTokensTask
 Creates a task to export tags.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/exportTaskParameter"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.ExportTasks_CreateTokensTask({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/exportTaskResult"
-}
-```
-## Operation: ExportTasks_Get
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* parameters (undefined) **required**
+
+### ExportTasks_Get
 Retrieves information about a previously created export task.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "id": {
-      "type": "string",
-      "description": "Export task identifier."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version",
-    "id"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.ExportTasks_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/exportTaskResult"
-}
-```
-## Operation: ImportTasks_List
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* id (string) **required** - Export task identifier.
+
+### ImportTasks_List
 Get the list of import jobs.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "$skip": {
-      "type": "integer",
-      "description": "Control paging of import jobs, start results at the given offset, defaults to 0 (1st page of data).",
-      "minimum": 0
-    },
-    "$top": {
-      "type": "integer",
-      "description": "Control paging of import jobs, number of import jobs to return with each call. By default, it returns all import jobs with a default paging of 20.\nThe response contains a `nextLink` property describing the path to get the next page if there are more results.\nThe maximum paging limit for $top is 40.",
-      "maximum": 40,
-      "minimum": 1
-    },
-    "$orderby": {
-      "type": "string",
-      "description": "Sort results by an expression which looks like `$orderby=jobId asc` (default when not specified).\nThe syntax is orderby={property} {direction} or just orderby={property}.\nProperties that can be specified for sorting: jobId, errorDetails, dateCreated, jobStatus, and dateCreated.\nThe available directions are asc (for ascending order) and desc (for descending order).\nWhen not specified the asc direction is used.\nOnly one orderby property can be specified."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.ImportTasks_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/importTaskListResult"
-}
-```
-## Operation: ImportTasks_Create
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* $skip (integer) - Control paging of import jobs, start results at the given offset, defaults to 0 (1st page of data).
+* $top (integer) - Control paging of import jobs, number of import jobs to return with each call. By default, it returns all import jobs with a default paging of 20.
+* $orderby (string) - Sort results by an expression which looks like `$orderby=jobId asc` (default when not specified).
+
+### ImportTasks_Create
 Creates a job to import the specified data to a storageUrl.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/importTask"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.ImportTasks_Create({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/importTaskResult"
-}
-```
-## Operation: ImportTasks_Get
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* parameters (undefined) **required**
+
+### ImportTasks_Get
 The Get import job operation retrieves information about a previously created import job.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Import job identifier."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.ImportTasks_Get({
+  "id": "",
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/importTaskResult"
-}
-```
-## Operation: Devices_TagByDeviceId
+
+#### Parameters
+* id (string) **required** - Import job identifier.
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+
+### Devices_TagByDeviceId
 Update the tags registered for a set of devices running an application. Updates are performed asynchronously, meaning that a few seconds are needed before the modifications appear in the results of the Get device command.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/DeviceTagsParameters"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.Devices_TagByDeviceId({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeviceTagsResult"
-}
-```
-## Operation: Devices_GetByDeviceId
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* parameters (undefined) **required**
+
+### Devices_GetByDeviceId
 Get the information associated to a device running an application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "deviceId": {
-      "type": "string",
-      "description": "Device identifier."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version",
-    "deviceId"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.Devices_GetByDeviceId({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": "",
+  "deviceId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Device"
-}
-```
-## Operation: Devices_TagByUserId
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* deviceId (string) **required** - Device identifier.
+
+### Devices_TagByUserId
 Update the tags registered for a set of users running an application. Updates are performed asynchronously, meaning that a few seconds are needed before the modifications appear in the results of the Get device command.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "parameters": {
-      "$ref": "#/definitions/DeviceTagsParameters"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.Devices_TagByUserId({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DeviceTagsResult"
-}
-```
-## Operation: Devices_GetByUserId
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* parameters (undefined) **required**
+
+### Devices_GetByUserId
 Get the information associated to a device running an application using the user identifier.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group."
-    },
-    "appCollection": {
-      "type": "string",
-      "description": "Application collection."
-    },
-    "appName": {
-      "type": "string",
-      "description": "Application resource name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "userId": {
-      "type": "string",
-      "description": "User identifier."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "appCollection",
-    "appName",
-    "api-version",
-    "userId"
-  ]
-}
+
+```js
+azure_arm_mobileengagement.Devices_GetByUserId({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "appCollection": "",
+  "appName": "",
+  "api-version": "",
+  "userId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Device"
-}
-```
+
+#### Parameters
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* resourceGroupName (string) **required** - The name of the resource group.
+* appCollection (string) **required** - Application collection.
+* appName (string) **required** - Application resource name.
+* api-version (string) **required** - Client Api Version.
+* userId (string) **required** - User identifier.
+

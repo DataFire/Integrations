@@ -1,270 +1,151 @@
 # @datafire/oceandrivers
+
+Client library for ODWeather
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/oceandrivers
+```
+
+```js
+let datafire = require('datafire');
+let oceandrivers = require('@datafire/oceandrivers').actions;
+let context = new datafire.Context();
+
+oceandrivers.compareStation({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 This is the api to access the ODWeather API information
 
-## Operation: compareStation
+## Actions
+### compareStation
 Get forecast and realtime information for known points<br/>None
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "stationName": {
-      "type": "string",
-      "description": "Weather station to compare, values: cnareanl|cmsap|boyaenderrocat|areopuertopalma"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "stationName"
-  ]
-}
+
+```js
+oceandrivers.compareStation({
+  "stationName": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getAemetStation
+
+#### Parameters
+* stationName (string) **required** - Weather station to compare, values: cnareanl|cmsap|boyaenderrocat|areopuertopalma
+
+### getAemetStation
 Get data from the aemet stations<br/>None
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "stationName": {
-      "type": "string",
-      "description": "station name currently: aeropuertopalma | caboblanco "
-    },
-    "period": {
-      "type": "string",
-      "description": "Period of time to get the data. Options: lastdata lastday"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "stationName",
-    "period"
-  ]
-}
+
+```js
+oceandrivers.getAemetStation({
+  "stationName": "",
+  "period": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getForecastPoints
+
+#### Parameters
+* stationName (string) **required** - station name currently: aeropuertopalma | caboblanco 
+* period (string) **required** - Period of time to get the data. Options: lastdata lastday
+
+### getForecastPoints
 Get forecast points of a yatchclub<br/>None
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "yatchclubid": {
-      "type": "string",
-      "description": "base URL for the the"
-    },
-    "language": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "yatchclubid",
-    "language"
-  ]
-}
+
+```js
+oceandrivers.getForecastPoints({
+  "yatchclubid": "",
+  "language": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getForecastTimeSeries
+
+#### Parameters
+* yatchclubid (string) **required** - base URL for the the
+* language (string) **required**
+
+### getForecastTimeSeries
 Get timeseries forecast information<br/>None
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "latitude": {
-      "type": "number",
-      "format": "float",
-      "description": "latitude for the forecast"
-    },
-    "longitude": {
-      "type": "number",
-      "format": "float",
-      "description": "longitude for the forecast"
-    },
-    "inittime": {
-      "type": "string",
-      "description": "initial date for the forecast ISO string YYYY-MM-DDTHH:mm:SS.SZ"
-    },
-    "endtime": {
-      "type": "string",
-      "description": "end date for the forecast ISO string YYYY-MM-DDTHH:mm:SS.SZ"
-    },
-    "days": {
-      "type": "integer",
-      "format": "int32",
-      "description": "optional number of days in string. Will be added to init forecast date"
-    },
-    "hours": {
-      "type": "integer",
-      "format": "int32",
-      "description": "optional number of hours in string. Will be added to init forecast date"
-    },
-    "weather": {
-      "type": "string",
-      "description": " Comma separated values for the weather parameteres temperature,rain,wind_u,wind_v,gust,pressure,cloud,humidity&wave=height,direction,period"
-    },
-    "wave": {
-      "type": "string",
-      "description": " Comma separated values for the wave parameteres height,direction,period"
-    },
-    "entryid": {
-      "type": "string",
-      "description": "Direct file I want to extract"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "latitude",
-    "longitude",
-    "weather"
-  ]
-}
+
+```js
+oceandrivers.getForecastTimeSeries({
+  "latitude": 0,
+  "longitude": 0,
+  "weather": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getForecastTimeSeriesWrf
+
+#### Parameters
+* latitude (number) **required** - latitude for the forecast
+* longitude (number) **required** - longitude for the forecast
+* inittime (string) - initial date for the forecast ISO string YYYY-MM-DDTHH:mm:SS.SZ
+* endtime (string) - end date for the forecast ISO string YYYY-MM-DDTHH:mm:SS.SZ
+* days (integer) - optional number of days in string. Will be added to init forecast date
+* hours (integer) - optional number of hours in string. Will be added to init forecast date
+* weather (string) **required** -  Comma separated values for the weather parameteres temperature,rain,wind_u,wind_v,gust,pressure,cloud,humidity&wave=height,direction,period
+* wave (string) -  Comma separated values for the wave parameteres height,direction,period
+* entryid (string) - Direct file I want to extract
+
+### getForecastTimeSeriesWrf
 Get timeseries forecast information<br/>None
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "latitude": {
-      "type": "number",
-      "format": "float",
-      "description": "latitude for the forecast"
-    },
-    "longitude": {
-      "type": "number",
-      "format": "float",
-      "description": "longitude for the forecast"
-    },
-    "inittime": {
-      "type": "string",
-      "description": "initial date for the forecast ISO string YYYY-MM-DDTHH:mm:SS.SZ"
-    },
-    "endtime": {
-      "type": "string",
-      "description": "end date for the forecast ISO string YYYY-MM-DDTHH:mm:SS.SZ"
-    },
-    "days": {
-      "type": "integer",
-      "format": "int32",
-      "description": "optional number of days in string. Will be added to init forecast date"
-    },
-    "hours": {
-      "type": "integer",
-      "format": "int32",
-      "description": "optional number of hours in string. Will be added to init forecast date"
-    },
-    "weather": {
-      "type": "string",
-      "description": " Comma separated values for the weather parameteres temperature,rain,wind_u,wind_v,gust,pressure,cloud,humidity&wave=height,direction,period"
-    },
-    "wave": {
-      "type": "string",
-      "description": " Comma separated values for the wave parameteres height,direction,period"
-    },
-    "entryid": {
-      "type": "string",
-      "description": "Direct file I want to extract"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "latitude",
-    "longitude",
-    "weather"
-  ]
-}
+
+```js
+oceandrivers.getForecastTimeSeriesWrf({
+  "latitude": 0,
+  "longitude": 0,
+  "weather": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getSocibWeatherStation
+
+#### Parameters
+* latitude (number) **required** - latitude for the forecast
+* longitude (number) **required** - longitude for the forecast
+* inittime (string) - initial date for the forecast ISO string YYYY-MM-DDTHH:mm:SS.SZ
+* endtime (string) - end date for the forecast ISO string YYYY-MM-DDTHH:mm:SS.SZ
+* days (integer) - optional number of days in string. Will be added to init forecast date
+* hours (integer) - optional number of hours in string. Will be added to init forecast date
+* weather (string) **required** -  Comma separated values for the weather parameteres temperature,rain,wind_u,wind_v,gust,pressure,cloud,humidity&wave=height,direction,period
+* wave (string) -  Comma separated values for the wave parameteres height,direction,period
+* entryid (string) - Direct file I want to extract
+
+### getSocibWeatherStation
 Get data from the socib bahia de palma buoy<br/>None
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "stationName": {
-      "type": "string",
-      "description": "station name currently: boyaenderrocat | playadepalma"
-    },
-    "period": {
-      "type": "string",
-      "description": "Period of time to get the data. Options: lastdata lasthour lastday"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "stationName",
-    "period"
-  ]
-}
+
+```js
+oceandrivers.getSocibWeatherStation({
+  "stationName": "",
+  "period": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getWeatherDisplay
+
+#### Parameters
+* stationName (string) **required** - station name currently: boyaenderrocat | playadepalma
+* period (string) **required** - Period of time to get the data. Options: lastdata lasthour lastday
+
+### getWeatherDisplay
 Get data from the weather display software<br/>None
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "stationName": {
-      "type": "string",
-      "description": "currently: 'cnarenal'|'campastilla' | 'cncg'"
-    },
-    "period": {
-      "type": "string",
-      "description": "Period of time to get the data latestdata|latesthour|latestday|dailylog"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "stationName",
-    "period"
-  ]
-}
+
+```js
+oceandrivers.getWeatherDisplay({
+  "stationName": "",
+  "period": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getWebCams
+
+#### Parameters
+* stationName (string) **required** - currently: 'cnarenal'|'campastilla' | 'cncg'
+* period (string) **required** - Period of time to get the data latestdata|latesthour|latestday|dailylog
+
+### getWebCams
 Get forecast and realtime information for known points<br/>None
 
-### Input Schema
-```json
-{}
+
+```js
+oceandrivers.getWebCams(null, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+

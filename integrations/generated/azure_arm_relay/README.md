@@ -1,1708 +1,754 @@
 # @datafire/azure_arm_relay
+
+Client library for Relay
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/azure_arm_relay
+```
+
+```js
+let datafire = require('datafire');
+let azure_arm_relay = require('@datafire/azure_arm_relay').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    azure_arm_relay: account,
+  }
+})
+
+
+azure_arm_relay.Operations_List({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Use these API to manage Azure Relay resources through Azure Resources Manager.
 
-## Operation: Operations_List
+## Actions
+### Operations_List
 Lists all of the available Relay REST API operations.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_relay.Operations_List({
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OperationListResult"
-}
-```
-## Operation: Namespaces_CheckNameAvailability
+
+#### Parameters
+* api-version (string) **required** - Client Api Version.
+
+### Namespaces_CheckNameAvailability
 Check the give namespace name availability.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    },
-    "parameters": {
-      "$ref": "#/definitions/CheckNameAvailability"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId",
-    "parameters"
-  ]
-}
+
+```js
+azure_arm_relay.Namespaces_CheckNameAvailability({
+  "api-version": "",
+  "subscriptionId": "",
+  "parameters": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CheckNameAvailabilityResult"
-}
-```
-## Operation: Namespaces_List
+
+#### Parameters
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+* parameters (undefined) **required** - Description of a Check Name availability request properties.
+
+### Namespaces_List
 Lists all the available namespaces within the subscription irrespective of the resourceGroups.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.Namespaces_List({
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RelayNamespaceListResult"
-}
-```
-## Operation: Namespaces_ListByResourceGroup
+
+#### Parameters
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Namespaces_ListByResourceGroup
 Lists all the available namespaces within the ResourceGroup.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.Namespaces_ListByResourceGroup({
+  "resourceGroupName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RelayNamespaceListResult"
-}
-```
-## Operation: Namespaces_Delete
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Namespaces_Delete
 Deletes an existing namespace. This operation also removes all associated resources under the namespace.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.Namespaces_Delete({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Namespaces_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Namespaces_Get
 Returns the description for the specified namespace.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.Namespaces_Get({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RelayNamespace"
-}
-```
-## Operation: Namespaces_Update
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Namespaces_Update
 Creates or updates a namespace. Once created, this namespace's resource manifest is immutable. This operation is idempotent.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "parameters": {
-      "$ref": "#/definitions/RelayNamespaceUpdateParameter"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.Namespaces_Update({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RelayNamespace"
-}
-```
-## Operation: Namespaces_CreateOrUpdate
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* parameters (undefined) **required** - Parameters supplied to the Patch Namespace operation.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Namespaces_CreateOrUpdate
 Create Azure Relay namespace.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "parameters": {
-      "$ref": "#/definitions/RelayNamespace"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.Namespaces_CreateOrUpdate({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/RelayNamespace"
-}
-```
-## Operation: Namespaces_ListAuthorizationRules
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* parameters (undefined) **required** - Description of a Namespace resource.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Namespaces_ListAuthorizationRules
 Authorization rules for a namespace.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.Namespaces_ListAuthorizationRules({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthorizationRuleListResult"
-}
-```
-## Operation: Namespaces_DeleteAuthorizationRule
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Namespaces_DeleteAuthorizationRule
 Deletes a namespace authorization rule
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "authorizationRuleName": {
-      "type": "string",
-      "description": "The authorizationRule name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "authorizationRuleName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.Namespaces_DeleteAuthorizationRule({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "authorizationRuleName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Namespaces_GetAuthorizationRule
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* authorizationRuleName (string) **required** - The authorizationRule name.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Namespaces_GetAuthorizationRule
 Authorization rule for a namespace by name.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "authorizationRuleName": {
-      "type": "string",
-      "description": "The authorizationRule name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "authorizationRuleName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.Namespaces_GetAuthorizationRule({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "authorizationRuleName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthorizationRule"
-}
-```
-## Operation: Namespaces_CreateOrUpdateAuthorizationRule
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* authorizationRuleName (string) **required** - The authorizationRule name.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Namespaces_CreateOrUpdateAuthorizationRule
 Creates or Updates an authorization rule for a namespace
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "authorizationRuleName": {
-      "type": "string",
-      "description": "The authorizationRule name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/AuthorizationRule"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "authorizationRuleName",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.Namespaces_CreateOrUpdateAuthorizationRule({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "authorizationRuleName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthorizationRule"
-}
-```
-## Operation: Namespaces_ListKeys
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* authorizationRuleName (string) **required** - The authorizationRule name.
+* parameters (undefined) **required** - Description of a Namespace AuthorizationRules.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Namespaces_ListKeys
 Primary and Secondary ConnectionStrings to the namespace 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "authorizationRuleName": {
-      "type": "string",
-      "description": "The authorizationRule name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "authorizationRuleName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.Namespaces_ListKeys({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "authorizationRuleName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthorizationRuleKeys"
-}
-```
-## Operation: Namespaces_RegenerateKeys
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* authorizationRuleName (string) **required** - The authorizationRule name.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Namespaces_RegenerateKeys
 Regenerates the Primary or Secondary ConnectionStrings to the namespace 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "authorizationRuleName": {
-      "type": "string",
-      "description": "The authorizationRule name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/RegenerateKeysParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "authorizationRuleName",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.Namespaces_RegenerateKeys({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "authorizationRuleName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthorizationRuleKeys"
-}
-```
-## Operation: HybridConnections_ListByNamespace
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* authorizationRuleName (string) **required** - The authorizationRule name.
+* parameters (undefined) **required** - Parameters supplied to the Regenerate Authorization Rule operation.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### HybridConnections_ListByNamespace
 Lists the HybridConnection within the namespace.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.HybridConnections_ListByNamespace({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/HybridConnectionListResult"
-}
-```
-## Operation: HybridConnections_Delete
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### HybridConnections_Delete
 Deletes a HybridConnection .
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "hybridConnectionName": {
-      "type": "string",
-      "description": "The hybrid connection name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "hybridConnectionName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.HybridConnections_Delete({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "hybridConnectionName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: HybridConnections_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* hybridConnectionName (string) **required** - The hybrid connection name.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### HybridConnections_Get
 Returns the description for the specified HybridConnection.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "hybridConnectionName": {
-      "type": "string",
-      "description": "The hybrid connection name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "hybridConnectionName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.HybridConnections_Get({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "hybridConnectionName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/HybridConnection"
-}
-```
-## Operation: HybridConnections_CreateOrUpdate
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* hybridConnectionName (string) **required** - The hybrid connection name.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### HybridConnections_CreateOrUpdate
 Creates or Updates a service HybridConnection. This operation is idempotent.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "hybridConnectionName": {
-      "type": "string",
-      "description": "The hybrid connection name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/HybridConnection"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "hybridConnectionName",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.HybridConnections_CreateOrUpdate({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "hybridConnectionName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/HybridConnection"
-}
-```
-## Operation: HybridConnections_ListAuthorizationRules
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* hybridConnectionName (string) **required** - The hybrid connection name.
+* parameters (undefined) **required** - Description of HybridConnection Resource.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### HybridConnections_ListAuthorizationRules
 Authorization rules for a HybridConnection.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "hybridConnectionName": {
-      "type": "string",
-      "description": "The hybrid connection name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "hybridConnectionName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.HybridConnections_ListAuthorizationRules({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "hybridConnectionName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthorizationRuleListResult"
-}
-```
-## Operation: HybridConnections_DeleteAuthorizationRule
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* hybridConnectionName (string) **required** - The hybrid connection name.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### HybridConnections_DeleteAuthorizationRule
 Deletes a HybridConnection authorization rule
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "hybridConnectionName": {
-      "type": "string",
-      "description": "The hybrid connection name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "authorizationRuleName": {
-      "type": "string",
-      "description": "The authorizationRule name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "hybridConnectionName",
-    "authorizationRuleName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.HybridConnections_DeleteAuthorizationRule({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "hybridConnectionName": "",
+  "authorizationRuleName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: HybridConnections_GetAuthorizationRule
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* hybridConnectionName (string) **required** - The hybrid connection name.
+* authorizationRuleName (string) **required** - The authorizationRule name.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### HybridConnections_GetAuthorizationRule
 HybridConnection authorizationRule for a HybridConnection by name.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "hybridConnectionName": {
-      "type": "string",
-      "description": "The hybrid connection name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "authorizationRuleName": {
-      "type": "string",
-      "description": "The authorizationRule name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "hybridConnectionName",
-    "authorizationRuleName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.HybridConnections_GetAuthorizationRule({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "hybridConnectionName": "",
+  "authorizationRuleName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthorizationRule"
-}
-```
-## Operation: HybridConnections_CreateOrUpdateAuthorizationRule
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* hybridConnectionName (string) **required** - The hybrid connection name.
+* authorizationRuleName (string) **required** - The authorizationRule name.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### HybridConnections_CreateOrUpdateAuthorizationRule
 Creates or Updates an authorization rule for a HybridConnection
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "hybridConnectionName": {
-      "type": "string",
-      "description": "The hybrid connection name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "authorizationRuleName": {
-      "type": "string",
-      "description": "The authorizationRule name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/AuthorizationRule"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "hybridConnectionName",
-    "authorizationRuleName",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.HybridConnections_CreateOrUpdateAuthorizationRule({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "hybridConnectionName": "",
+  "authorizationRuleName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthorizationRule"
-}
-```
-## Operation: HybridConnections_ListKeys
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* hybridConnectionName (string) **required** - The hybrid connection name.
+* authorizationRuleName (string) **required** - The authorizationRule name.
+* parameters (undefined) **required** - Description of a Namespace AuthorizationRules.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### HybridConnections_ListKeys
 Primary and Secondary ConnectionStrings to the HybridConnection.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "hybridConnectionName": {
-      "type": "string",
-      "description": "The hybrid connection name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "authorizationRuleName": {
-      "type": "string",
-      "description": "The authorizationRule name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "hybridConnectionName",
-    "authorizationRuleName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.HybridConnections_ListKeys({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "hybridConnectionName": "",
+  "authorizationRuleName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthorizationRuleKeys"
-}
-```
-## Operation: HybridConnections_RegenerateKeys
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* hybridConnectionName (string) **required** - The hybrid connection name.
+* authorizationRuleName (string) **required** - The authorizationRule name.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### HybridConnections_RegenerateKeys
 Regenerates the Primary or Secondary ConnectionStrings to the HybridConnection
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "hybridConnectionName": {
-      "type": "string",
-      "description": "The hybrid connection name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "authorizationRuleName": {
-      "type": "string",
-      "description": "The authorizationRule name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/RegenerateKeysParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "hybridConnectionName",
-    "authorizationRuleName",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.HybridConnections_RegenerateKeys({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "hybridConnectionName": "",
+  "authorizationRuleName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthorizationRuleKeys"
-}
-```
-## Operation: WCFRelays_ListByNamespace
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* hybridConnectionName (string) **required** - The hybrid connection name.
+* authorizationRuleName (string) **required** - The authorizationRule name.
+* parameters (undefined) **required** - Parameters supplied to the Regenerate Authorization Rule operation.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### WCFRelays_ListByNamespace
 Lists the WCFRelays within the namespace.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.WCFRelays_ListByNamespace({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WcfRelaysListResult"
-}
-```
-## Operation: WCFRelays_Delete
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### WCFRelays_Delete
 Deletes a WCFRelays .
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "relayName": {
-      "type": "string",
-      "description": "The relay name",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "relayName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.WCFRelays_Delete({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "relayName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: WCFRelays_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* relayName (string) **required** - The relay name
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### WCFRelays_Get
 Returns the description for the specified WCFRelays.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "relayName": {
-      "type": "string",
-      "description": "The relay name",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "relayName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.WCFRelays_Get({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "relayName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WcfRelay"
-}
-```
-## Operation: WCFRelays_CreateOrUpdate
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* relayName (string) **required** - The relay name
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### WCFRelays_CreateOrUpdate
 Creates or Updates a WCFRelay. This operation is idempotent.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "relayName": {
-      "type": "string",
-      "description": "The relay name",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/WcfRelay"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "relayName",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.WCFRelays_CreateOrUpdate({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "relayName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/WcfRelay"
-}
-```
-## Operation: WCFRelays_ListAuthorizationRules
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* relayName (string) **required** - The relay name
+* parameters (undefined) **required** - Description of WcfRelays Resource.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### WCFRelays_ListAuthorizationRules
 Authorization rules for a WCFRelays.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "relayName": {
-      "type": "string",
-      "description": "The relay name",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "relayName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.WCFRelays_ListAuthorizationRules({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "relayName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthorizationRuleListResult"
-}
-```
-## Operation: WCFRelays_DeleteAuthorizationRule
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* relayName (string) **required** - The relay name
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### WCFRelays_DeleteAuthorizationRule
 Deletes a WCFRelays authorization rule
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "relayName": {
-      "type": "string",
-      "description": "The relay name",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "authorizationRuleName": {
-      "type": "string",
-      "description": "The authorizationRule name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "relayName",
-    "authorizationRuleName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.WCFRelays_DeleteAuthorizationRule({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "relayName": "",
+  "authorizationRuleName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: WCFRelays_GetAuthorizationRule
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* relayName (string) **required** - The relay name
+* authorizationRuleName (string) **required** - The authorizationRule name.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### WCFRelays_GetAuthorizationRule
 Get authorizationRule for a WCFRelays by name.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "relayName": {
-      "type": "string",
-      "description": "The relay name",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "authorizationRuleName": {
-      "type": "string",
-      "description": "The authorizationRule name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "relayName",
-    "authorizationRuleName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.WCFRelays_GetAuthorizationRule({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "relayName": "",
+  "authorizationRuleName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthorizationRule"
-}
-```
-## Operation: WCFRelays_CreateOrUpdateAuthorizationRule
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* relayName (string) **required** - The relay name
+* authorizationRuleName (string) **required** - The authorizationRule name.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### WCFRelays_CreateOrUpdateAuthorizationRule
 Creates or Updates an authorization rule for a WCFRelays
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "relayName": {
-      "type": "string",
-      "description": "The relay name",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "authorizationRuleName": {
-      "type": "string",
-      "description": "The authorizationRule name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/AuthorizationRule"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "relayName",
-    "authorizationRuleName",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.WCFRelays_CreateOrUpdateAuthorizationRule({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "relayName": "",
+  "authorizationRuleName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthorizationRule"
-}
-```
-## Operation: WCFRelays_ListKeys
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* relayName (string) **required** - The relay name
+* authorizationRuleName (string) **required** - The authorizationRule name.
+* parameters (undefined) **required** - Description of a Namespace AuthorizationRules.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### WCFRelays_ListKeys
 Primary and Secondary ConnectionStrings to the WCFRelays.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "relayName": {
-      "type": "string",
-      "description": "The relay name",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "authorizationRuleName": {
-      "type": "string",
-      "description": "The authorizationRule name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "relayName",
-    "authorizationRuleName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.WCFRelays_ListKeys({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "relayName": "",
+  "authorizationRuleName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthorizationRuleKeys"
-}
-```
-## Operation: WCFRelays_RegenerateKeys
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* relayName (string) **required** - The relay name
+* authorizationRuleName (string) **required** - The authorizationRule name.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### WCFRelays_RegenerateKeys
 Regenerates the Primary or Secondary ConnectionStrings to the WCFRelays
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "Name of the Resource group within the Azure subscription.",
-      "maxLength": 90,
-      "minLength": 1
-    },
-    "namespaceName": {
-      "type": "string",
-      "description": "The Namespace Name",
-      "maxLength": 50,
-      "minLength": 6
-    },
-    "relayName": {
-      "type": "string",
-      "description": "The relay name",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "authorizationRuleName": {
-      "type": "string",
-      "description": "The authorizationRule name.",
-      "maxLength": 50,
-      "minLength": 1
-    },
-    "parameters": {
-      "$ref": "#/definitions/RegenerateKeysParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "namespaceName",
-    "relayName",
-    "authorizationRuleName",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_relay.WCFRelays_RegenerateKeys({
+  "resourceGroupName": "",
+  "namespaceName": "",
+  "relayName": "",
+  "authorizationRuleName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AuthorizationRuleKeys"
-}
-```
+
+#### Parameters
+* resourceGroupName (string) **required** - Name of the Resource group within the Azure subscription.
+* namespaceName (string) **required** - The Namespace Name
+* relayName (string) **required** - The relay name
+* authorizationRuleName (string) **required** - The authorizationRule name.
+* parameters (undefined) **required** - Parameters supplied to the Regenerate Authorization Rule operation.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+

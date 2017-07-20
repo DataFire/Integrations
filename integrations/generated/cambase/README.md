@@ -1,1184 +1,398 @@
 # @datafire/cambase
+
+Client library for Cambase.io
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/cambase
+```
+
+```js
+let datafire = require('datafire');
+let cambase = require('@datafire/cambase').actions;
+let context = new datafire.Context();
+
+cambase.api.v1.vendors.json.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Cambase.io is a project by Evercam.io in order to make it easier for software developers to have a reliable, up to date source of model hardware information available via a public API.
 
-## Operation: api.v1.models.json.get
+## Actions
+### api.v1.models.json.get
 Fetches all Models
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "page": {
-      "type": "integer",
-      "description": "Page number"
-    },
-    "order": {
-      "type": "string",
-      "description": "Sort order"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+cambase.api.v1.models.json.get({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.models.json.post
+
+
+### api.v1.models.json.post
 Creates a new Model
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vendor_id": {
-      "type": "string",
-      "description": "Vendor ID"
-    },
-    "model[model]": {
-      "type": "string",
-      "description": "Model"
-    },
-    "model[shape]": {
-      "type": "string",
-      "description": "Shape"
-    },
-    "model[resolution]": {
-      "type": "string",
-      "description": "Resolution"
-    },
-    "model[onvif]": {
-      "type": "string",
-      "description": "ONVIF"
-    },
-    "model[psia]": {
-      "type": "string",
-      "description": "PSIA"
-    },
-    "model[ptz]": {
-      "type": "string",
-      "description": "PTZ"
-    },
-    "model[infrared]": {
-      "type": "string",
-      "description": "Infrared"
-    },
-    "model[varifocal]": {
-      "type": "string",
-      "description": "Varifocal"
-    },
-    "model[sd_card]": {
-      "type": "string",
-      "description": "SD Card"
-    },
-    "model[upnp]": {
-      "type": "string",
-      "description": "UPnP"
-    },
-    "model[audio_in]": {
-      "type": "string",
-      "description": "UPnP"
-    },
-    "model[audio_out]": {
-      "type": "string",
-      "description": "UPnP"
-    },
-    "model[default_username]": {
-      "type": "string",
-      "description": "Default Username"
-    },
-    "model[default_password]": {
-      "type": "string",
-      "description": "Default Password"
-    },
-    "model[jpeg_url]": {
-      "type": "string",
-      "description": "JPEG URL"
-    },
-    "model[h264_url]": {
-      "type": "string",
-      "description": "H264 URL"
-    },
-    "model[mjpeg_url]": {
-      "type": "string",
-      "description": "MJPEG URL"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vendor_id",
-    "model[model]"
-  ]
-}
+
+```js
+cambase.api.v1.models.json.post({
+  "vendor_id": "",
+  "model[model]": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.models.search.json.get
+
+#### Parameters
+* vendor_id (string) **required** - Vendor ID
+* model[model] (string) **required** - Model
+* model[shape] (string) - Shape
+* model[resolution] (string) - Resolution
+* model[onvif] (string) - ONVIF
+* model[psia] (string) - PSIA
+* model[ptz] (string) - PTZ
+* model[infrared] (string) - Infrared
+* model[varifocal] (string) - Varifocal
+* model[sd_card] (string) - SD Card
+* model[upnp] (string) - UPnP
+* model[audio_in] (string) - UPnP
+* model[audio_out] (string) - UPnP
+* model[default_username] (string) - Default Username
+* model[default_password] (string) - Default Password
+* model[jpeg_url] (string) - JPEG URL
+* model[h264_url] (string) - H264 URL
+* model[mjpeg_url] (string) - MJPEG URL
+
+### api.v1.models.search.json.get
 Searches all Models
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "page": {
-      "type": "integer",
-      "description": "Page number"
-    },
-    "q[model_cont]": {
-      "type": "string",
-      "description": "Model"
-    },
-    "q[manufacturer_name_cont]": {
-      "type": "string",
-      "description": "Vendor"
-    },
-    "q[shape_eq]": {
-      "type": "string",
-      "description": "Shape"
-    },
-    "q[resolution_eq]": {
-      "type": "string",
-      "description": "Resolution"
-    },
-    "q[onvif_true]": {
-      "type": "string",
-      "description": "ONVIF"
-    },
-    "q[psia_true]": {
-      "type": "string",
-      "description": "PSIA"
-    },
-    "q[ptz_true]": {
-      "type": "string",
-      "description": "PTZ"
-    },
-    "q[infrared_true]": {
-      "type": "string",
-      "description": "Infrared"
-    },
-    "q[varifocal_true]": {
-      "type": "string",
-      "description": "Varifocal"
-    },
-    "q[sd_card_true]": {
-      "type": "string",
-      "description": "SD Card"
-    },
-    "q[upnp_true]": {
-      "type": "string",
-      "description": "UPnP"
-    },
-    "q[audio_in_true]": {
-      "type": "string",
-      "description": "Audio In"
-    },
-    "q[audio_out_true]": {
-      "type": "string",
-      "description": "Audio Out"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+cambase.api.v1.models.search.json.get({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.models.id.json.get
+
+
+### api.v1.models.id.json.get
 Fetches a single Model
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "Model ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cambase.api.v1.models.id.json.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.models.id.json.patch
+
+#### Parameters
+* id (integer) **required** - Model ID
+
+### api.v1.models.id.json.patch
 Updates an existing Model
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Model ID"
-    },
-    "vendor_id": {
-      "type": "string",
-      "description": "Vendor ID"
-    },
-    "model[model]": {
-      "type": "string",
-      "description": "Model"
-    },
-    "model[shape]": {
-      "type": "string",
-      "description": "Shape"
-    },
-    "model[resolution]": {
-      "type": "string",
-      "description": "Resolution"
-    },
-    "model[onvif]": {
-      "type": "string",
-      "description": "ONVIF"
-    },
-    "model[psia]": {
-      "type": "string",
-      "description": "PSIA"
-    },
-    "model[ptz]": {
-      "type": "string",
-      "description": "PTZ"
-    },
-    "model[infrared]": {
-      "type": "string",
-      "description": "Infrared"
-    },
-    "model[varifocal]": {
-      "type": "string",
-      "description": "Varifocal"
-    },
-    "model[sd_card]": {
-      "type": "string",
-      "description": "SD Card"
-    },
-    "model[upnp]": {
-      "type": "string",
-      "description": "UPnP"
-    },
-    "model[audio_in]": {
-      "type": "string",
-      "description": "Audio In"
-    },
-    "model[audio_out]": {
-      "type": "string",
-      "description": "Audio Out"
-    },
-    "model[default_username]": {
-      "type": "string",
-      "description": "Default Username"
-    },
-    "model[default_password]": {
-      "type": "string",
-      "description": "Default Password"
-    },
-    "model[jpeg_url]": {
-      "type": "string",
-      "description": "JPEG URL"
-    },
-    "model[h264_url]": {
-      "type": "string",
-      "description": "H264 URL"
-    },
-    "model[mjpeg_url]": {
-      "type": "string",
-      "description": "MJPEG URL"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "vendor_id"
-  ]
-}
+
+```js
+cambase.api.v1.models.id.json.patch({
+  "id": "",
+  "vendor_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.models.id.json.put
+
+#### Parameters
+* id (string) **required** - Model ID
+* vendor_id (string) **required** - Vendor ID
+* model[model] (string) - Model
+* model[shape] (string) - Shape
+* model[resolution] (string) - Resolution
+* model[onvif] (string) - ONVIF
+* model[psia] (string) - PSIA
+* model[ptz] (string) - PTZ
+* model[infrared] (string) - Infrared
+* model[varifocal] (string) - Varifocal
+* model[sd_card] (string) - SD Card
+* model[upnp] (string) - UPnP
+* model[audio_in] (string) - Audio In
+* model[audio_out] (string) - Audio Out
+* model[default_username] (string) - Default Username
+* model[default_password] (string) - Default Password
+* model[jpeg_url] (string) - JPEG URL
+* model[h264_url] (string) - H264 URL
+* model[mjpeg_url] (string) - MJPEG URL
+
+### api.v1.models.id.json.put
 Updates an existing Model
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Model ID"
-    },
-    "vendor_id": {
-      "type": "string",
-      "description": "Vendor ID"
-    },
-    "model[model]": {
-      "type": "string",
-      "description": "Model"
-    },
-    "model[shape]": {
-      "type": "string",
-      "description": "Shape"
-    },
-    "model[resolution]": {
-      "type": "string",
-      "description": "Resolution"
-    },
-    "model[onvif]": {
-      "type": "string",
-      "description": "ONVIF"
-    },
-    "model[psia]": {
-      "type": "string",
-      "description": "PSIA"
-    },
-    "model[ptz]": {
-      "type": "string",
-      "description": "PTZ"
-    },
-    "model[infrared]": {
-      "type": "string",
-      "description": "Infrared"
-    },
-    "model[varifocal]": {
-      "type": "string",
-      "description": "Varifocal"
-    },
-    "model[sd_card]": {
-      "type": "string",
-      "description": "SD Card"
-    },
-    "model[upnp]": {
-      "type": "string",
-      "description": "UPnP"
-    },
-    "model[audio_in]": {
-      "type": "string",
-      "description": "Audio In"
-    },
-    "model[audio_out]": {
-      "type": "string",
-      "description": "Audio Out"
-    },
-    "model[default_username]": {
-      "type": "string",
-      "description": "Default Username"
-    },
-    "model[default_password]": {
-      "type": "string",
-      "description": "Default Password"
-    },
-    "model[jpeg_url]": {
-      "type": "string",
-      "description": "JPEG URL"
-    },
-    "model[h264_url]": {
-      "type": "string",
-      "description": "H264 URL"
-    },
-    "model[mjpeg_url]": {
-      "type": "string",
-      "description": "MJPEG URL"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "vendor_id"
-  ]
-}
+
+```js
+cambase.api.v1.models.id.json.put({
+  "id": "",
+  "vendor_id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.recorders.json.get
+
+#### Parameters
+* id (string) **required** - Model ID
+* vendor_id (string) **required** - Vendor ID
+* model[model] (string) - Model
+* model[shape] (string) - Shape
+* model[resolution] (string) - Resolution
+* model[onvif] (string) - ONVIF
+* model[psia] (string) - PSIA
+* model[ptz] (string) - PTZ
+* model[infrared] (string) - Infrared
+* model[varifocal] (string) - Varifocal
+* model[sd_card] (string) - SD Card
+* model[upnp] (string) - UPnP
+* model[audio_in] (string) - Audio In
+* model[audio_out] (string) - Audio Out
+* model[default_username] (string) - Default Username
+* model[default_password] (string) - Default Password
+* model[jpeg_url] (string) - JPEG URL
+* model[h264_url] (string) - H264 URL
+* model[mjpeg_url] (string) - MJPEG URL
+
+### api.v1.recorders.json.get
 Fetches all Recorders
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "page": {
-      "type": "integer",
-      "description": "Page number"
-    },
-    "order": {
-      "type": "string",
-      "description": "Sort order"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+cambase.api.v1.recorders.json.get({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.recorders.json.post
+
+
+### api.v1.recorders.json.post
 Creates a new Recorder
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vendor_id": {
-      "type": "string",
-      "description": "Vendor ID"
-    },
-    "recorder[model]": {
-      "type": "string",
-      "description": "Model"
-    },
-    "recorder[name]": {
-      "type": "string",
-      "description": "Name"
-    },
-    "recorder[recorder_type]": {
-      "type": "string",
-      "description": "Type"
-    },
-    "recorder[resolution]": {
-      "type": "string",
-      "description": "Resolution"
-    },
-    "recorder[onvif]": {
-      "type": "string",
-      "description": "ONVIF"
-    },
-    "recorder[psia]": {
-      "type": "string",
-      "description": "PSIA"
-    },
-    "recorder[ptz]": {
-      "type": "string",
-      "description": "PTZ"
-    },
-    "recorder[discontinued]": {
-      "type": "string",
-      "description": "Discontinued"
-    },
-    "recorder[support_3rdparty]": {
-      "type": "string",
-      "description": "3rd pparty Camera Support"
-    },
-    "recorder[sd_card]": {
-      "type": "string",
-      "description": "SD Card"
-    },
-    "recorder[upnp]": {
-      "type": "string",
-      "description": "UPnP"
-    },
-    "recorder[hot_swap]": {
-      "type": "string",
-      "description": "Hot Swap"
-    },
-    "recorder[hdmi]": {
-      "type": "string",
-      "description": "HDMI Support"
-    },
-    "recorder[digital_io]": {
-      "type": "string",
-      "description": "Digital I/O"
-    },
-    "recorder[audio_in]": {
-      "type": "string",
-      "description": "Audio In"
-    },
-    "recorder[audio_out]": {
-      "type": "string",
-      "description": "Audio Out"
-    },
-    "recorder[input_channels]": {
-      "type": "string",
-      "description": "Input Channels"
-    },
-    "recorder[playback_channels]": {
-      "type": "string",
-      "description": "Playback Channels"
-    },
-    "recorder[usb]": {
-      "type": "string",
-      "description": "USB Ports"
-    },
-    "recorder[sdhc]": {
-      "type": "string",
-      "description": "SD Card (GB)"
-    },
-    "recorder[mobile_access]": {
-      "type": "string",
-      "description": "Mobile Access"
-    },
-    "recorder[alarms]": {
-      "type": "string",
-      "description": "Alarms"
-    },
-    "recorder[raid_support]": {
-      "type": "string",
-      "description": "Raid Support"
-    },
-    "recorder[storage]": {
-      "type": "string",
-      "description": "Internal Storage"
-    },
-    "recorder[additional_information]": {
-      "type": "string",
-      "description": "Additional Information"
-    },
-    "recorder[default_username]": {
-      "type": "string",
-      "description": "Default Username"
-    },
-    "recorder[default_password]": {
-      "type": "string",
-      "description": "Default Password"
-    },
-    "recorder[jpeg_url]": {
-      "type": "string",
-      "description": "JPEG URL"
-    },
-    "recorder[h264_url]": {
-      "type": "string",
-      "description": "H264 URL"
-    },
-    "recorder[mjpeg_url]": {
-      "type": "string",
-      "description": "MJPEG URL"
-    },
-    "recorder[official_url]": {
-      "type": "string",
-      "description": "Official URL"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vendor_id",
-    "recorder[model]",
-    "recorder[name]",
-    "recorder[recorder_type]"
-  ]
-}
+
+```js
+cambase.api.v1.recorders.json.post({
+  "vendor_id": "",
+  "recorder[model]": "",
+  "recorder[name]": "",
+  "recorder[recorder_type]": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.recorders.search.json.get
+
+#### Parameters
+* vendor_id (string) **required** - Vendor ID
+* recorder[model] (string) **required** - Model
+* recorder[name] (string) **required** - Name
+* recorder[recorder_type] (string) **required** - Type
+* recorder[resolution] (string) - Resolution
+* recorder[onvif] (string) - ONVIF
+* recorder[psia] (string) - PSIA
+* recorder[ptz] (string) - PTZ
+* recorder[discontinued] (string) - Discontinued
+* recorder[support_3rdparty] (string) - 3rd pparty Camera Support
+* recorder[sd_card] (string) - SD Card
+* recorder[upnp] (string) - UPnP
+* recorder[hot_swap] (string) - Hot Swap
+* recorder[hdmi] (string) - HDMI Support
+* recorder[digital_io] (string) - Digital I/O
+* recorder[audio_in] (string) - Audio In
+* recorder[audio_out] (string) - Audio Out
+* recorder[input_channels] (string) - Input Channels
+* recorder[playback_channels] (string) - Playback Channels
+* recorder[usb] (string) - USB Ports
+* recorder[sdhc] (string) - SD Card (GB)
+* recorder[mobile_access] (string) - Mobile Access
+* recorder[alarms] (string) - Alarms
+* recorder[raid_support] (string) - Raid Support
+* recorder[storage] (string) - Internal Storage
+* recorder[additional_information] (string) - Additional Information
+* recorder[default_username] (string) - Default Username
+* recorder[default_password] (string) - Default Password
+* recorder[jpeg_url] (string) - JPEG URL
+* recorder[h264_url] (string) - H264 URL
+* recorder[mjpeg_url] (string) - MJPEG URL
+* recorder[official_url] (string) - Official URL
+
+### api.v1.recorders.search.json.get
 Searches all Recorders
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "page": {
-      "type": "integer",
-      "description": "Page number"
-    },
-    "q[model_cont]": {
-      "type": "string",
-      "description": "Model"
-    },
-    "q[vendor_name_cont]": {
-      "type": "string",
-      "description": "Vendor"
-    },
-    "q[sdhc_eq]": {
-      "type": "string",
-      "description": "SD Card (GB)"
-    },
-    "q[type_eq]": {
-      "type": "string",
-      "description": "Type"
-    },
-    "q[resolution_eq]": {
-      "type": "string",
-      "description": "Resolution"
-    },
-    "q[input_channels_eq]": {
-      "type": "string",
-      "description": "Input Channels"
-    },
-    "q[playback_channels_eq]": {
-      "type": "string",
-      "description": "Playback Channels"
-    },
-    "q[onvif_true]": {
-      "type": "string",
-      "description": "ONVIF"
-    },
-    "q[psia_true]": {
-      "type": "string",
-      "description": "PSIA"
-    },
-    "q[ptz_true]": {
-      "type": "string",
-      "description": "PTZ"
-    },
-    "q[sd_card_true]": {
-      "type": "string",
-      "description": "SD Card"
-    },
-    "q[upnp_true]": {
-      "type": "string",
-      "description": "UPnP"
-    },
-    "q[audio_in_true]": {
-      "type": "string",
-      "description": "Audio In"
-    },
-    "q[audio_out_true]": {
-      "type": "string",
-      "description": "Audio Out"
-    },
-    "q[hdmi_true]": {
-      "type": "string",
-      "description": "HDMI Support"
-    },
-    "q[hot_swap_true]": {
-      "type": "string",
-      "description": "Hot Swap"
-    },
-    "q[support_3rdparty_true]": {
-      "type": "string",
-      "description": "3rd pparty Camera Support"
-    },
-    "q[digital_io_true]": {
-      "type": "string",
-      "description": "Digital I/O"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+cambase.api.v1.recorders.search.json.get({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.recorders.id.json.get
+
+
+### api.v1.recorders.id.json.get
 Fetches a single Recorder
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "Recorder ID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cambase.api.v1.recorders.id.json.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.recorders.id.json.patch
+
+#### Parameters
+* id (integer) **required** - Recorder ID
+
+### api.v1.recorders.id.json.patch
 Updates an existing Recorder
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Recorder ID"
-    },
-    "vendor_id": {
-      "type": "string",
-      "description": "Vendor ID"
-    },
-    "recorder[model]": {
-      "type": "string",
-      "description": "Model"
-    },
-    "recorder[name]": {
-      "type": "string",
-      "description": "Name"
-    },
-    "recorder[recorder_type]": {
-      "type": "string",
-      "description": "Type"
-    },
-    "recorder[resolution]": {
-      "type": "string",
-      "description": "Resolution"
-    },
-    "recorder[onvif]": {
-      "type": "string",
-      "description": "ONVIF"
-    },
-    "recorder[psia]": {
-      "type": "string",
-      "description": "PSIA"
-    },
-    "recorder[ptz]": {
-      "type": "string",
-      "description": "PTZ"
-    },
-    "recorder[discontinued]": {
-      "type": "string",
-      "description": "Discontinued"
-    },
-    "recorder[support_3rdparty]": {
-      "type": "string",
-      "description": "3rd pparty Camera Support"
-    },
-    "recorder[sd_card]": {
-      "type": "string",
-      "description": "SD Card"
-    },
-    "recorder[upnp]": {
-      "type": "string",
-      "description": "UPnP"
-    },
-    "recorder[hot_swap]": {
-      "type": "string",
-      "description": "Hot Swap"
-    },
-    "recorder[hdmi]": {
-      "type": "string",
-      "description": "HDMI Support"
-    },
-    "recorder[digital_io]": {
-      "type": "string",
-      "description": "Digital I/O"
-    },
-    "recorder[audio_in]": {
-      "type": "string",
-      "description": "Audio In"
-    },
-    "recorder[audio_out]": {
-      "type": "string",
-      "description": "Audio Out"
-    },
-    "recorder[input_channels]": {
-      "type": "string",
-      "description": "Input Channels"
-    },
-    "recorder[playback_channels]": {
-      "type": "string",
-      "description": "Playback Channels"
-    },
-    "recorder[usb]": {
-      "type": "string",
-      "description": "USB Ports"
-    },
-    "recorder[sdhc]": {
-      "type": "string",
-      "description": "SD Card (GB)"
-    },
-    "recorder[mobile_access]": {
-      "type": "string",
-      "description": "Mobile Access"
-    },
-    "recorder[alarms]": {
-      "type": "string",
-      "description": "Alarms"
-    },
-    "recorder[raid_support]": {
-      "type": "string",
-      "description": "Raid Support"
-    },
-    "recorder[storage]": {
-      "type": "string",
-      "description": "Internal Storage"
-    },
-    "recorder[additional_information]": {
-      "type": "string",
-      "description": "Additional Information"
-    },
-    "recorder[default_username]": {
-      "type": "string",
-      "description": "Default Username"
-    },
-    "recorder[default_password]": {
-      "type": "string",
-      "description": "Default Password"
-    },
-    "recorder[jpeg_url]": {
-      "type": "string",
-      "description": "JPEG URL"
-    },
-    "recorder[h264_url]": {
-      "type": "string",
-      "description": "H264 URL"
-    },
-    "recorder[mjpeg_url]": {
-      "type": "string",
-      "description": "MJPEG URL"
-    },
-    "recorder[official_url]": {
-      "type": "string",
-      "description": "Official URL"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "vendor_id",
-    "recorder[model]",
-    "recorder[name]",
-    "recorder[recorder_type]"
-  ]
-}
+
+```js
+cambase.api.v1.recorders.id.json.patch({
+  "id": "",
+  "vendor_id": "",
+  "recorder[model]": "",
+  "recorder[name]": "",
+  "recorder[recorder_type]": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.recorders.id.json.put
+
+#### Parameters
+* id (string) **required** - Recorder ID
+* vendor_id (string) **required** - Vendor ID
+* recorder[model] (string) **required** - Model
+* recorder[name] (string) **required** - Name
+* recorder[recorder_type] (string) **required** - Type
+* recorder[resolution] (string) - Resolution
+* recorder[onvif] (string) - ONVIF
+* recorder[psia] (string) - PSIA
+* recorder[ptz] (string) - PTZ
+* recorder[discontinued] (string) - Discontinued
+* recorder[support_3rdparty] (string) - 3rd pparty Camera Support
+* recorder[sd_card] (string) - SD Card
+* recorder[upnp] (string) - UPnP
+* recorder[hot_swap] (string) - Hot Swap
+* recorder[hdmi] (string) - HDMI Support
+* recorder[digital_io] (string) - Digital I/O
+* recorder[audio_in] (string) - Audio In
+* recorder[audio_out] (string) - Audio Out
+* recorder[input_channels] (string) - Input Channels
+* recorder[playback_channels] (string) - Playback Channels
+* recorder[usb] (string) - USB Ports
+* recorder[sdhc] (string) - SD Card (GB)
+* recorder[mobile_access] (string) - Mobile Access
+* recorder[alarms] (string) - Alarms
+* recorder[raid_support] (string) - Raid Support
+* recorder[storage] (string) - Internal Storage
+* recorder[additional_information] (string) - Additional Information
+* recorder[default_username] (string) - Default Username
+* recorder[default_password] (string) - Default Password
+* recorder[jpeg_url] (string) - JPEG URL
+* recorder[h264_url] (string) - H264 URL
+* recorder[mjpeg_url] (string) - MJPEG URL
+* recorder[official_url] (string) - Official URL
+
+### api.v1.recorders.id.json.put
 Updates an existing Recorder
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Recorder ID"
-    },
-    "vendor_id": {
-      "type": "string",
-      "description": "Vendor ID"
-    },
-    "recorder[model]": {
-      "type": "string",
-      "description": "Model"
-    },
-    "recorder[name]": {
-      "type": "string",
-      "description": "Name"
-    },
-    "recorder[recorder_type]": {
-      "type": "string",
-      "description": "Type"
-    },
-    "recorder[resolution]": {
-      "type": "string",
-      "description": "Resolution"
-    },
-    "recorder[onvif]": {
-      "type": "string",
-      "description": "ONVIF"
-    },
-    "recorder[psia]": {
-      "type": "string",
-      "description": "PSIA"
-    },
-    "recorder[ptz]": {
-      "type": "string",
-      "description": "PTZ"
-    },
-    "recorder[discontinued]": {
-      "type": "string",
-      "description": "Discontinued"
-    },
-    "recorder[support_3rdparty]": {
-      "type": "string",
-      "description": "3rd pparty Camera Support"
-    },
-    "recorder[sd_card]": {
-      "type": "string",
-      "description": "SD Card"
-    },
-    "recorder[upnp]": {
-      "type": "string",
-      "description": "UPnP"
-    },
-    "recorder[hot_swap]": {
-      "type": "string",
-      "description": "Hot Swap"
-    },
-    "recorder[hdmi]": {
-      "type": "string",
-      "description": "HDMI Support"
-    },
-    "recorder[digital_io]": {
-      "type": "string",
-      "description": "Digital I/O"
-    },
-    "recorder[audio_in]": {
-      "type": "string",
-      "description": "Audio In"
-    },
-    "recorder[audio_out]": {
-      "type": "string",
-      "description": "Audio Out"
-    },
-    "recorder[input_channels]": {
-      "type": "string",
-      "description": "Input Channels"
-    },
-    "recorder[playback_channels]": {
-      "type": "string",
-      "description": "Playback Channels"
-    },
-    "recorder[usb]": {
-      "type": "string",
-      "description": "USB Ports"
-    },
-    "recorder[sdhc]": {
-      "type": "string",
-      "description": "SD Card (GB)"
-    },
-    "recorder[mobile_access]": {
-      "type": "string",
-      "description": "Mobile Access"
-    },
-    "recorder[alarms]": {
-      "type": "string",
-      "description": "Alarms"
-    },
-    "recorder[raid_support]": {
-      "type": "string",
-      "description": "Raid Support"
-    },
-    "recorder[storage]": {
-      "type": "string",
-      "description": "Internal Storage"
-    },
-    "recorder[additional_information]": {
-      "type": "string",
-      "description": "Additional Information"
-    },
-    "recorder[default_username]": {
-      "type": "string",
-      "description": "Default Username"
-    },
-    "recorder[default_password]": {
-      "type": "string",
-      "description": "Default Password"
-    },
-    "recorder[jpeg_url]": {
-      "type": "string",
-      "description": "JPEG URL"
-    },
-    "recorder[h264_url]": {
-      "type": "string",
-      "description": "H264 URL"
-    },
-    "recorder[mjpeg_url]": {
-      "type": "string",
-      "description": "MJPEG URL"
-    },
-    "recorder[official_url]": {
-      "type": "string",
-      "description": "Official URL"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "vendor_id",
-    "recorder[model]",
-    "recorder[name]",
-    "recorder[recorder_type]"
-  ]
-}
+
+```js
+cambase.api.v1.recorders.id.json.put({
+  "id": "",
+  "vendor_id": "",
+  "recorder[model]": "",
+  "recorder[name]": "",
+  "recorder[recorder_type]": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.vendors.json.get
+
+#### Parameters
+* id (string) **required** - Recorder ID
+* vendor_id (string) **required** - Vendor ID
+* recorder[model] (string) **required** - Model
+* recorder[name] (string) **required** - Name
+* recorder[recorder_type] (string) **required** - Type
+* recorder[resolution] (string) - Resolution
+* recorder[onvif] (string) - ONVIF
+* recorder[psia] (string) - PSIA
+* recorder[ptz] (string) - PTZ
+* recorder[discontinued] (string) - Discontinued
+* recorder[support_3rdparty] (string) - 3rd pparty Camera Support
+* recorder[sd_card] (string) - SD Card
+* recorder[upnp] (string) - UPnP
+* recorder[hot_swap] (string) - Hot Swap
+* recorder[hdmi] (string) - HDMI Support
+* recorder[digital_io] (string) - Digital I/O
+* recorder[audio_in] (string) - Audio In
+* recorder[audio_out] (string) - Audio Out
+* recorder[input_channels] (string) - Input Channels
+* recorder[playback_channels] (string) - Playback Channels
+* recorder[usb] (string) - USB Ports
+* recorder[sdhc] (string) - SD Card (GB)
+* recorder[mobile_access] (string) - Mobile Access
+* recorder[alarms] (string) - Alarms
+* recorder[raid_support] (string) - Raid Support
+* recorder[storage] (string) - Internal Storage
+* recorder[additional_information] (string) - Additional Information
+* recorder[default_username] (string) - Default Username
+* recorder[default_password] (string) - Default Password
+* recorder[jpeg_url] (string) - JPEG URL
+* recorder[h264_url] (string) - H264 URL
+* recorder[mjpeg_url] (string) - MJPEG URL
+* recorder[official_url] (string) - Official URL
+
+### api.v1.vendors.json.get
 Fetches all Vendors
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "page": {
-      "type": "integer",
-      "description": "Page number"
-    },
-    "order": {
-      "type": "string",
-      "description": "Sort order"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+cambase.api.v1.vendors.json.get({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.vendors.json.post
+
+
+### api.v1.vendors.json.post
 Creates a new Vendor
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "vendor[name]": {
-      "type": "string",
-      "description": "Name"
-    },
-    "vendor[info]": {
-      "type": "string",
-      "description": "Info."
-    },
-    "vendor[url]": {
-      "type": "string",
-      "description": "Website"
-    },
-    "vendor[mac]": {
-      "type": "string",
-      "description": "MAC"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "vendor[name]"
-  ]
-}
+
+```js
+cambase.api.v1.vendors.json.post({
+  "vendor[name]": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.vendors.id.json.get
+
+#### Parameters
+* vendor[name] (string) **required** - Name
+* vendor[info] (string) - Info.
+* vendor[url] (string) - Website
+* vendor[mac] (string) - MAC
+
+### api.v1.vendors.id.json.get
 Fetches a single Vendor
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Vendor ID"
-    },
-    "order": {
-      "type": "string",
-      "description": "Sort order"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cambase.api.v1.vendors.id.json.get({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.vendors.id.json.patch
+
+#### Parameters
+* id (string) **required** - Vendor ID
+* order (string) - Sort order
+
+### api.v1.vendors.id.json.patch
 Updates an existing Vendor
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Vendor ID"
-    },
-    "vendor[name]": {
-      "type": "string",
-      "description": "Name"
-    },
-    "vendor[info]": {
-      "type": "string",
-      "description": "Info."
-    },
-    "vendor[url]": {
-      "type": "string",
-      "description": "Website"
-    },
-    "vendor[mac]": {
-      "type": "string",
-      "description": "MAC"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cambase.api.v1.vendors.id.json.patch({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: api.v1.vendors.id.json.put
+
+#### Parameters
+* id (string) **required** - Vendor ID
+* vendor[name] (string) - Name
+* vendor[info] (string) - Info.
+* vendor[url] (string) - Website
+* vendor[mac] (string) - MAC
+
+### api.v1.vendors.id.json.put
 Updates an existing Vendor
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "Vendor ID"
-    },
-    "vendor[name]": {
-      "type": "string",
-      "description": "Name"
-    },
-    "vendor[info]": {
-      "type": "string",
-      "description": "Info."
-    },
-    "vendor[url]": {
-      "type": "string",
-      "description": "Website"
-    },
-    "vendor[mac]": {
-      "type": "string",
-      "description": "MAC"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+cambase.api.v1.vendors.id.json.put({
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* id (string) **required** - Vendor ID
+* vendor[name] (string) - Name
+* vendor[info] (string) - Info.
+* vendor[url] (string) - Website
+* vendor[mac] (string) - MAC
+

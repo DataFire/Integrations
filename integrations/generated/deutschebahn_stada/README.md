@@ -1,7 +1,27 @@
 # @datafire/deutschebahn_stada
+
+Client library for Stationsdatenbereitstellung
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/deutschebahn_stada
+```
+
+```js
+let datafire = require('datafire');
+let deutschebahn_stada = require('@datafire/deutschebahn_stada').actions;
+let context = new datafire.Context();
+
+deutschebahn_stada.szentralen.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 The API provides station data for german railway stations managed by DB Station&Service AG as described in its swagger file.
 
-## Operation: stations.get
+## Actions
+### stations.get
 Get a QueryResult object containing station objects from the database applying to the parameters described below. 
 
 QueryResult is a container providing the following information about the query result.
@@ -38,81 +58,26 @@ To specify parameter values containing German umlauts, the following encoding ha
   * ß  => %C3%9F
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "offset": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Offset of the first hit returned in the QueryResult object with respect to all hits returned by the query. If this parameter is omitted, it will be set to 0 internally."
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int64",
-      "description": "The maximum number of hits to be returned by that query. If 'limit' is set greater than 100, it will be reset to 100 internally and only 100 hits will be returned."
-    },
-    "searchstring": {
-      "type": "string",
-      "format": "string",
-      "description": "String to search for a station name. The wildcards * (indicating an arbitrary number of characters) and ? (indicating one single character) can be used in the search pattern. A comma separated list of station names is also supported (e.g. searchstring=hamburg*,berlin*)."
-    },
-    "category": {
-      "type": "string",
-      "format": "string",
-      "description": "Filter by station category. Category ranges as well as lists of categories are also supported (e.g. category=2-4 or category=1,3-5). The category must be between 1 and 7, otherwise a parameter exception is returned."
-    },
-    "federalstate": {
-      "type": "string",
-      "format": "string",
-      "description": "Filter by German federal state. Lists of federal states are also supported (e.g. federalstate=bayern,hamburg). Wildcards are not allowed here."
-    },
-    "logicaloperator": {
-      "type": "string",
-      "format": "string",
-      "description": "Logical operator to combine query parameters (default=AND). See above for further details.  Allowed values: or, and"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+deutschebahn_stada.stations.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/QueryResult"
-}
-```
-## Operation: stations.id.get
+
+
+### stations.id.get
 Get a QueryResult object containing one station object specified by its id.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Station ID (Bahnhofsnummer)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+deutschebahn_stada.stations.id.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/QueryResult"
-}
-```
-## Operation: szentralen.get
+
+#### Parameters
+* id (integer) **required** - Station ID (Bahnhofsnummer)
+
+### szentralen.get
 Get a QueryResult object containing SZentralen objects from the database applying to the parameters described below. 
 
 QueryResult is a container providing the following information about the query result.
@@ -122,57 +87,22 @@ QueryResult is a container providing the following information about the query r
   4. the result objects
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "offset": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Offset of the first hit returned in the QueryResult object with respect to all hits returned by the query. If this parameter is omitted, it will be set to 0 internally."
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int64",
-      "description": "The maximum number of hits to be returned by that query. If 'limit' is set greater than 100, it will be reset to 100 internally and only 100 hits will be returned."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+deutschebahn_stada.szentralen.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/QueryResult"
-}
-```
-## Operation: szentralen.id.get
+
+
+### szentralen.id.get
 Get a QueryResult object containing one SZentralen object specified by its id. 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int32",
-      "description": "id of the 3-S-Zentrale."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+deutschebahn_stada.szentralen.id.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/QueryResult"
-}
-```
+
+#### Parameters
+* id (integer) **required** - id of the 3-S-Zentrale.
+

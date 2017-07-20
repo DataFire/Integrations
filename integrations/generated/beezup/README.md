@@ -1,4 +1,32 @@
 # @datafire/beezup
+
+Client library for BeezUP
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/beezup
+```
+
+```js
+let datafire = require('datafire');
+let beezup = require('@datafire/beezup').actions;
+
+let account = {
+  api_key: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    beezup: account,
+  }
+})
+
+
+beezup.GetOrderListLight({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 # The REST API of BeezUP system
 ## Overview
 The REST APIs provide programmatic access to read and write BeezUP data. 
@@ -54,491 +82,264 @@ You can test our API on https://api-docs.beezup.com/swagger-ui\
 You can contact us on [gitter, #BeezUP/API](https://gitter.im/beezUP/API)
 
 
-## Operation: GetAutomaticTransitions
+## Actions
+### GetAutomaticTransitions
 Get automatic order status transition list
 
-### Input Schema
-```json
-{}
+
+```js
+beezup.GetAutomaticTransitions(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/automaticTransitionInfos"
-}
-```
-## Operation: ConfigureAutomaticTransitions
+
+
+### ConfigureAutomaticTransitions
 Configure automatic order status transitions
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "request": {
-      "$ref": "#/definitions/saveAutomaticTransitionRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "request"
-  ]
-}
+
+```js
+beezup.ConfigureAutomaticTransitions({
+  "request": {
+    "automaticTransitions": []
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ChangeOrderList
+
+#### Parameters
+* request (object) **required**
+
+### ChangeOrderList
 The purpose of this  operation is to reduce the amount of request to the API.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "changeOrderType": {
-      "type": "string",
-      "description": "The order change type"
-    },
-    "userName": {
-      "type": "string",
-      "description": "Sometimes the user in the e-commerce application is not the same than the subscription key you indicate in your settings. We recommand you to indicate the login of the user in your appplication."
-    },
-    "testMode": {
-      "type": "boolean",
-      "description": "If true, the operation will be be commited. But the validation will be taken in account."
-    },
-    "request": {
-      "$ref": "#/definitions/changeOrderListRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "changeOrderType",
-    "userName",
-    "request"
-  ]
-}
+
+```js
+beezup.ChangeOrderList({
+  "changeOrderType": "",
+  "userName": "",
+  "request": {
+    "changeOrders": []
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ClearMerchantOrderInfoList
+
+#### Parameters
+* changeOrderType (string) **required** - The order change type
+* userName (string) **required** - Sometimes the user in the e-commerce application is not the same than the subscription key you indicate in your settings. We recommand you to indicate the login of the user in your appplication.
+* testMode (boolean) - If true, the operation will be be commited. But the validation will be taken in account.
+* request (object) **required** - Contains all change order operations you want to make
+
+### ClearMerchantOrderInfoList
 The purpose of this  operation is to reduce the amount of request to the API.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "request": {
-      "$ref": "#/definitions/clearMerchantOrderInfoListRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "request"
-  ]
-}
+
+```js
+beezup.ClearMerchantOrderInfoList({
+  "request": {
+    "orders": []
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: SetMerchantOrderInfoList
+
+#### Parameters
+* request (object) **required**
+
+### SetMerchantOrderInfoList
 The purpose of this  operation is to reduce the amount of request to the API.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "request": {
-      "$ref": "#/definitions/setMerchantOrderInfoListRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "request"
-  ]
-}
+
+```js
+beezup.SetMerchantOrderInfoList({
+  "request": {
+    "orders": []
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: GetOrderExportations
+
+#### Parameters
+* request (object) **required**
+
+### GetOrderExportations
 Get the order exportation list
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "pageNumber": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The page number you want to get",
-      "minimum": 1
-    },
-    "pageSize": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The count of orders exportation you want to get",
-      "maximum": 100,
-      "minimum": 25
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "pageNumber",
-    "pageSize"
-  ]
-}
+
+```js
+beezup.GetOrderExportations({
+  "pageNumber": 0,
+  "pageSize": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/orderExportations"
-}
-```
-## Operation: ExportOrders
+
+#### Parameters
+* pageNumber (integer) **required** - The page number you want to get
+* pageSize (integer) **required** - The count of orders exportation you want to get
+
+### ExportOrders
 This will create a file with all your orders related to your filter
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "format": {
-      "type": "string",
-      "description": "The type of the file to export",
-      "enum": [
-        "csv"
-      ]
-    },
-    "request": {
-      "$ref": "#/definitions/exportOrderListRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "format",
-    "request"
-  ]
-}
+
+```js
+beezup.ExportOrders({
+  "format": "",
+  "request": {
+    "orderListRequest": {}
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: HarvestAll
+
+#### Parameters
+* format (string) **required** - The type of the file to export
+* request (object) **required**
+
+### HarvestAll
 Harvest orders from all marketplaces
 
-### Input Schema
-```json
-{}
+
+```js
+beezup.HarvestAll(null, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: GetOrderListFull
+
+
+### GetOrderListFull
 The purpose of this API is to reduce the request count.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "Accept-Encoding": {
-      "type": "array",
-      "description": "Indicates that the client accepts that the response will be compressed to reduce traffic size."
-    },
-    "request": {
-      "$ref": "#/definitions/orderListRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Accept-Encoding"
-  ]
-}
+
+```js
+beezup.GetOrderListFull({
+  "Accept-Encoding": []
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/orderListFull"
-}
-```
-## Operation: GetOrderListLight
+
+#### Parameters
+* Accept-Encoding (array) **required** - Indicates that the client accepts that the response will be compressed to reduce traffic size.
+* request (object)
+
+### GetOrderListLight
 Get order list without details
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "request": {
-      "$ref": "#/definitions/orderListRequest"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+beezup.GetOrderListLight({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/orderListLight"
-}
-```
-## Operation: GetMarketplaceAccountsSynchronization
+
+
+### GetMarketplaceAccountsSynchronization
 Get marketplace accounts synchronization status
 
-### Input Schema
-```json
-{}
+
+```js
+beezup.GetMarketplaceAccountsSynchronization(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/accountSynchronizations"
-}
-```
-## Operation: GetOrder
+
+
+### GetOrder
 Get order details
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "marketplaceTechnicalCode": {
-      "type": "string",
-      "description": "The marketplace technical code"
-    },
-    "accountId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The account identifier"
-    },
-    "beezUPOrderId": {
-      "type": "string",
-      "description": "The order BeezUP identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "marketplaceTechnicalCode",
-    "accountId",
-    "beezUPOrderId"
-  ]
-}
+
+```js
+beezup.GetOrder({
+  "marketplaceTechnicalCode": "",
+  "accountId": 0,
+  "beezUPOrderId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/order"
-}
-```
-## Operation: ClearMerchantOrderInfo
+
+#### Parameters
+* marketplaceTechnicalCode (string) **required** - The marketplace technical code
+* accountId (integer) **required** - The account identifier
+* beezUPOrderId (string) **required** - The order BeezUP identifier
+
+### ClearMerchantOrderInfo
 Clear the merchant info related to this order
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "marketplaceTechnicalCode": {
-      "type": "string",
-      "description": "The marketplace technical code"
-    },
-    "accountId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The account identifier"
-    },
-    "beezUPOrderId": {
-      "type": "string",
-      "description": "The order BeezUP identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "marketplaceTechnicalCode",
-    "accountId",
-    "beezUPOrderId"
-  ]
-}
+
+```js
+beezup.ClearMerchantOrderInfo({
+  "marketplaceTechnicalCode": "",
+  "accountId": 0,
+  "beezUPOrderId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: HarvestOrder
+
+#### Parameters
+* marketplaceTechnicalCode (string) **required** - The marketplace technical code
+* accountId (integer) **required** - The account identifier
+* beezUPOrderId (string) **required** - The order BeezUP identifier
+
+### HarvestOrder
 Harvest a specific order from the marketplace
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "marketplaceTechnicalCode": {
-      "type": "string",
-      "description": "The marketplace technical code"
-    },
-    "accountId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The account identifier"
-    },
-    "beezUPOrderId": {
-      "type": "string",
-      "description": "The order BeezUP identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "marketplaceTechnicalCode",
-    "accountId",
-    "beezUPOrderId"
-  ]
-}
+
+```js
+beezup.HarvestOrder({
+  "marketplaceTechnicalCode": "",
+  "accountId": 0,
+  "beezUPOrderId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: GetOrderHistory
+
+#### Parameters
+* marketplaceTechnicalCode (string) **required** - The marketplace technical code
+* accountId (integer) **required** - The account identifier
+* beezUPOrderId (string) **required** - The order BeezUP identifier
+
+### GetOrderHistory
 Get the harvest history and the change status operations
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "marketplaceTechnicalCode": {
-      "type": "string",
-      "description": "The marketplace technical code"
-    },
-    "accountId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The account identifier"
-    },
-    "beezUPOrderId": {
-      "type": "string",
-      "description": "The order BeezUP identifier"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "marketplaceTechnicalCode",
-    "accountId",
-    "beezUPOrderId"
-  ]
-}
+
+```js
+beezup.GetOrderHistory({
+  "marketplaceTechnicalCode": "",
+  "accountId": 0,
+  "beezUPOrderId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/orderHistory"
-}
-```
-## Operation: SetMerchantOrderInfo
+
+#### Parameters
+* marketplaceTechnicalCode (string) **required** - The marketplace technical code
+* accountId (integer) **required** - The account identifier
+* beezUPOrderId (string) **required** - The order BeezUP identifier
+
+### SetMerchantOrderInfo
 Associate your merchant order identifier to this order
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "marketplaceTechnicalCode": {
-      "type": "string",
-      "description": "The marketplace technical code"
-    },
-    "accountId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The account identifier"
-    },
-    "beezUPOrderId": {
-      "type": "string",
-      "description": "The order BeezUP identifier"
-    },
-    "request": {
-      "$ref": "#/definitions/setMerchantOrderInfoRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "marketplaceTechnicalCode",
-    "accountId",
-    "beezUPOrderId",
-    "request"
-  ]
-}
+
+```js
+beezup.SetMerchantOrderInfo({
+  "marketplaceTechnicalCode": "",
+  "accountId": 0,
+  "beezUPOrderId": "",
+  "request": {
+    "order_MerchantOrderId": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ChangeOrder
+
+#### Parameters
+* marketplaceTechnicalCode (string) **required** - The marketplace technical code
+* accountId (integer) **required** - The account identifier
+* beezUPOrderId (string) **required** - The order BeezUP identifier
+* request (object) **required**
+
+### ChangeOrder
 Change order status
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "marketplaceTechnicalCode": {
-      "type": "string",
-      "description": "The marketplace technical code"
-    },
-    "accountId": {
-      "type": "integer",
-      "format": "int32",
-      "description": "The account identifier"
-    },
-    "beezUPOrderId": {
-      "type": "string",
-      "description": "The order BeezUP identifier"
-    },
-    "changeOrderType": {
-      "type": "string",
-      "description": "The order change type"
-    },
-    "userName": {
-      "type": "string",
-      "description": "Sometimes the user in the e-commerce application is not the same than the subscription key you indicate in your settings. We recommand you to indicate the login of the user in your appplication."
-    },
-    "testMode": {
-      "type": "boolean",
-      "description": "If true, the operation will be be commited. But the validation will be taken in account."
-    },
-    "request": {
-      "$ref": "#/definitions/changeOrderRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "marketplaceTechnicalCode",
-    "accountId",
-    "beezUPOrderId",
-    "changeOrderType",
-    "userName",
-    "request"
-  ]
-}
+
+```js
+beezup.ChangeOrder({
+  "marketplaceTechnicalCode": "",
+  "accountId": 0,
+  "beezUPOrderId": "",
+  "changeOrderType": "",
+  "userName": "",
+  "request": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/changeOrderResponse"
-}
-```
+
+#### Parameters
+* marketplaceTechnicalCode (string) **required** - The marketplace technical code
+* accountId (integer) **required** - The account identifier
+* beezUPOrderId (string) **required** - The order BeezUP identifier
+* changeOrderType (string) **required** - The order change type
+* userName (string) **required** - Sometimes the user in the e-commerce application is not the same than the subscription key you indicate in your settings. We recommand you to indicate the login of the user in your appplication.
+* testMode (boolean) - If true, the operation will be be commited. But the validation will be taken in account.
+* request (object) **required** - All properties with the prefix order_ are translated in the list of values /user/lov/OrderMetaInfoPosted
+

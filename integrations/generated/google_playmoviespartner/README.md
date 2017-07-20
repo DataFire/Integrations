@@ -1,731 +1,264 @@
 # @datafire/google_playmoviespartner
+
+Client library for Google Play Movies Partner
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/google_playmoviespartner
+```
+
+```js
+let datafire = require('datafire');
+let google_playmoviespartner = require('@datafire/google_playmoviespartner').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    google_playmoviespartner: account,
+  }
+})
+
+
+google_playmoviespartner.accounts.avails.list({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Gets the delivery status of titles for Google Play Movies Partners.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+google_playmoviespartner.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+google_playmoviespartner.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: accounts.avails.list
+
+
+### accounts.avails.list
 List Avails owned or managed by the partner.
 
 See _Authentication and Authorization rules_ and
 _List methods rules_ for more information about this method.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "accountId": {
-      "type": "string",
-      "description": "REQUIRED. See _General rules_ for more information about this field."
-    },
-    "title": {
-      "type": "string",
-      "description": "Filter that matches Avails with a `title_internal_alias`,\n`series_title_internal_alias`, `season_title_internal_alias`,\nor `episode_title_internal_alias` that contains the given\ncase-insensitive title."
-    },
-    "videoIds": {
-      "type": "array",
-      "description": "Filter Avails that match any of the given `video_id`s."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "See _List methods rules_ for info about this field."
-    },
-    "pageSize": {
-      "type": "integer",
-      "description": "See _List methods rules_ for info about this field."
-    },
-    "altIds": {
-      "type": "array",
-      "description": "Filter Avails that match (case-insensitive) any of the given partner-specific custom ids."
-    },
-    "pphNames": {
-      "type": "array",
-      "description": "See _List methods rules_ for info about this field."
-    },
-    "altId": {
-      "type": "string",
-      "description": "Filter Avails that match a case-insensitive, partner-specific custom id.\nNOTE: this field is deprecated and will be removed on V2; `alt_ids`\nshould be used instead."
-    },
-    "studioNames": {
-      "type": "array",
-      "description": "See _List methods rules_ for info about this field."
-    },
-    "territories": {
-      "type": "array",
-      "description": "Filter Avails that match (case-insensitive) any of the given country codes,\nusing the \"ISO 3166-1 alpha-2\" format (examples: \"US\", \"us\", \"Us\")."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "accountId"
-  ]
-}
+
+```js
+google_playmoviespartner.accounts.avails.list({
+  "accountId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListAvailsResponse"
-}
-```
-## Operation: accounts.avails.get
+
+#### Parameters
+* accountId (string) **required** - REQUIRED. See _General rules_ for more information about this field.
+* title (string) - Filter that matches Avails with a `title_internal_alias`,
+* videoIds (array) - Filter Avails that match any of the given `video_id`s.
+* pageToken (string) - See _List methods rules_ for info about this field.
+* pageSize (integer) - See _List methods rules_ for info about this field.
+* altIds (array) - Filter Avails that match (case-insensitive) any of the given partner-specific custom ids.
+* pphNames (array) - See _List methods rules_ for info about this field.
+* altId (string) - Filter Avails that match a case-insensitive, partner-specific custom id.
+* studioNames (array) - See _List methods rules_ for info about this field.
+* territories (array) - Filter Avails that match (case-insensitive) any of the given country codes,
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+
+### accounts.avails.get
 Get an Avail given its avail group id and avail id.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "accountId": {
-      "type": "string",
-      "description": "REQUIRED. See _General rules_ for more information about this field."
-    },
-    "availId": {
-      "type": "string",
-      "description": "REQUIRED. Avail ID."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "accountId",
-    "availId"
-  ]
-}
+
+```js
+google_playmoviespartner.accounts.avails.get({
+  "accountId": "",
+  "availId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Avail"
-}
-```
-## Operation: accounts.orders.list
+
+#### Parameters
+* accountId (string) **required** - REQUIRED. See _General rules_ for more information about this field.
+* availId (string) **required** - REQUIRED. Avail ID.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+
+### accounts.orders.list
 List Orders owned or managed by the partner.
 
 See _Authentication and Authorization rules_ and
 _List methods rules_ for more information about this method.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "accountId": {
-      "type": "string",
-      "description": "REQUIRED. See _General rules_ for more information about this field."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "See _List methods rules_ for info about this field."
-    },
-    "customId": {
-      "type": "string",
-      "description": "Filter Orders that match a case-insensitive, partner-specific custom id."
-    },
-    "videoIds": {
-      "type": "array",
-      "description": "Filter Orders that match any of the given `video_id`s."
-    },
-    "pageSize": {
-      "type": "integer",
-      "description": "See _List methods rules_ for info about this field."
-    },
-    "pphNames": {
-      "type": "array",
-      "description": "See _List methods rules_ for info about this field."
-    },
-    "status": {
-      "type": "array",
-      "description": "Filter Orders that match one of the given status."
-    },
-    "name": {
-      "type": "string",
-      "description": "Filter that matches Orders with a `name`, `show`, `season` or `episode`\nthat contains the given case-insensitive name."
-    },
-    "studioNames": {
-      "type": "array",
-      "description": "See _List methods rules_ for info about this field."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "accountId"
-  ]
-}
+
+```js
+google_playmoviespartner.accounts.orders.list({
+  "accountId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListOrdersResponse"
-}
-```
-## Operation: accounts.orders.get
+
+#### Parameters
+* accountId (string) **required** - REQUIRED. See _General rules_ for more information about this field.
+* pageToken (string) - See _List methods rules_ for info about this field.
+* customId (string) - Filter Orders that match a case-insensitive, partner-specific custom id.
+* videoIds (array) - Filter Orders that match any of the given `video_id`s.
+* pageSize (integer) - See _List methods rules_ for info about this field.
+* pphNames (array) - See _List methods rules_ for info about this field.
+* status (array) - Filter Orders that match one of the given status.
+* name (string) - Filter that matches Orders with a `name`, `show`, `season` or `episode`
+* studioNames (array) - See _List methods rules_ for info about this field.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+
+### accounts.orders.get
 Get an Order given its id.
 
 See _Authentication and Authorization rules_ and
 _Get methods rules_ for more information about this method.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "accountId": {
-      "type": "string",
-      "description": "REQUIRED. See _General rules_ for more information about this field."
-    },
-    "orderId": {
-      "type": "string",
-      "description": "REQUIRED. Order ID."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "accountId",
-    "orderId"
-  ]
-}
+
+```js
+google_playmoviespartner.accounts.orders.get({
+  "accountId": "",
+  "orderId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Order"
-}
-```
-## Operation: accounts.storeInfos.list
+
+#### Parameters
+* accountId (string) **required** - REQUIRED. See _General rules_ for more information about this field.
+* orderId (string) **required** - REQUIRED. Order ID.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+
+### accounts.storeInfos.list
 List StoreInfos owned or managed by the partner.
 
 See _Authentication and Authorization rules_ and
 _List methods rules_ for more information about this method.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "accountId": {
-      "type": "string",
-      "description": "REQUIRED. See _General rules_ for more information about this field."
-    },
-    "seasonIds": {
-      "type": "array",
-      "description": "Filter StoreInfos that match any of the given `season_id`s."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "See _List methods rules_ for info about this field."
-    },
-    "videoId": {
-      "type": "string",
-      "description": "Filter StoreInfos that match a given `video_id`.\nNOTE: this field is deprecated and will be removed on V2; `video_ids`\nshould be used instead."
-    },
-    "videoIds": {
-      "type": "array",
-      "description": "Filter StoreInfos that match any of the given `video_id`s."
-    },
-    "pageSize": {
-      "type": "integer",
-      "description": "See _List methods rules_ for info about this field."
-    },
-    "mids": {
-      "type": "array",
-      "description": "Filter StoreInfos that match any of the given `mid`s."
-    },
-    "pphNames": {
-      "type": "array",
-      "description": "See _List methods rules_ for info about this field."
-    },
-    "countries": {
-      "type": "array",
-      "description": "Filter StoreInfos that match (case-insensitive) any of the given country\ncodes, using the \"ISO 3166-1 alpha-2\" format (examples: \"US\", \"us\", \"Us\")."
-    },
-    "name": {
-      "type": "string",
-      "description": "Filter that matches StoreInfos with a `name` or `show_name`\nthat contains the given case-insensitive name."
-    },
-    "studioNames": {
-      "type": "array",
-      "description": "See _List methods rules_ for info about this field."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "accountId"
-  ]
-}
+
+```js
+google_playmoviespartner.accounts.storeInfos.list({
+  "accountId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ListStoreInfosResponse"
-}
-```
-## Operation: accounts.storeInfos.country.get
+
+#### Parameters
+* accountId (string) **required** - REQUIRED. See _General rules_ for more information about this field.
+* seasonIds (array) - Filter StoreInfos that match any of the given `season_id`s.
+* pageToken (string) - See _List methods rules_ for info about this field.
+* videoId (string) - Filter StoreInfos that match a given `video_id`.
+* videoIds (array) - Filter StoreInfos that match any of the given `video_id`s.
+* pageSize (integer) - See _List methods rules_ for info about this field.
+* mids (array) - Filter StoreInfos that match any of the given `mid`s.
+* pphNames (array) - See _List methods rules_ for info about this field.
+* countries (array) - Filter StoreInfos that match (case-insensitive) any of the given country
+* name (string) - Filter that matches StoreInfos with a `name` or `show_name`
+* studioNames (array) - See _List methods rules_ for info about this field.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+
+### accounts.storeInfos.country.get
 Get a StoreInfo given its video id and country.
 
 See _Authentication and Authorization rules_ and
 _Get methods rules_ for more information about this method.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "accountId": {
-      "type": "string",
-      "description": "REQUIRED. See _General rules_ for more information about this field."
-    },
-    "videoId": {
-      "type": "string",
-      "description": "REQUIRED. Video ID."
-    },
-    "country": {
-      "type": "string",
-      "description": "REQUIRED. Edit country."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "access_token": {
-      "type": "string",
-      "description": "OAuth access token."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
-    },
-    "pp": {
-      "type": "boolean",
-      "description": "Pretty-print response."
-    },
-    "bearer_token": {
-      "type": "string",
-      "description": "OAuth bearer token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "upload_protocol": {
-      "type": "string",
-      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "uploadType": {
-      "type": "string",
-      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "callback": {
-      "type": "string",
-      "description": "JSONP"
-    },
-    "$.xgafv": {
-      "type": "string",
-      "description": "V1 error format.",
-      "enum": [
-        "1",
-        "2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for response.",
-      "enum": [
-        "json",
-        "media",
-        "proto"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "accountId",
-    "videoId",
-    "country"
-  ]
-}
+
+```js
+google_playmoviespartner.accounts.storeInfos.country.get({
+  "accountId": "",
+  "videoId": "",
+  "country": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/StoreInfo"
-}
-```
+
+#### Parameters
+* accountId (string) **required** - REQUIRED. See _General rules_ for more information about this field.
+* videoId (string) **required** - REQUIRED. Video ID.
+* country (string) **required** - REQUIRED. Edit country.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* access_token (string) - OAuth access token.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters.
+* pp (boolean) - Pretty-print response.
+* bearer_token (string) - OAuth bearer token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* upload_protocol (string) - Upload protocol for media (e.g. "raw", "multipart").
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* uploadType (string) - Legacy upload protocol for media (e.g. "media", "multipart").
+* fields (string) - Selector specifying which fields to include in a partial response.
+* callback (string) - JSONP
+* $.xgafv (string) - V1 error format.
+* alt (string) - Data format for response.
+

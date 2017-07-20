@@ -1,652 +1,328 @@
 # @datafire/azure_arm_scheduler
 
+Client library for SchedulerManagementClient
 
-## Operation: JobCollections_ListBySubscription
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/azure_arm_scheduler
+```
+
+```js
+let datafire = require('datafire');
+let azure_arm_scheduler = require('@datafire/azure_arm_scheduler').actions;
+let context = new datafire.Context();
+
+azure_arm_scheduler.JobCollections_ListBySubscription({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
+
+
+## Actions
+### JobCollections_ListBySubscription
 Gets all job collections under specified subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_scheduler.JobCollections_ListBySubscription({
+  "subscriptionId": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/JobCollectionListResult"
-}
-```
-## Operation: JobCollections_ListByResourceGroup
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id.
+* api-version (string) **required** - The API version.
+
+### JobCollections_ListByResourceGroup
 Gets all job collections under specified resource group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_scheduler.JobCollections_ListByResourceGroup({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/JobCollectionListResult"
-}
-```
-## Operation: JobCollections_Delete
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id.
+* resourceGroupName (string) **required** - The resource group name.
+* api-version (string) **required** - The API version.
+
+### JobCollections_Delete
 Deletes a job collection.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "jobCollectionName": {
-      "type": "string",
-      "description": "The job collection name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "jobCollectionName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_scheduler.JobCollections_Delete({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "jobCollectionName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: JobCollections_Get
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id.
+* resourceGroupName (string) **required** - The resource group name.
+* jobCollectionName (string) **required** - The job collection name.
+* api-version (string) **required** - The API version.
+
+### JobCollections_Get
 Gets a job collection.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "jobCollectionName": {
-      "type": "string",
-      "description": "The job collection name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "jobCollectionName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_scheduler.JobCollections_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "jobCollectionName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/JobCollectionDefinition"
-}
-```
-## Operation: JobCollections_Patch
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id.
+* resourceGroupName (string) **required** - The resource group name.
+* jobCollectionName (string) **required** - The job collection name.
+* api-version (string) **required** - The API version.
+
+### JobCollections_Patch
 Patches an existing job collection.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "jobCollectionName": {
-      "type": "string",
-      "description": "The job collection name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version."
-    },
-    "jobCollection": {
-      "$ref": "#/definitions/JobCollectionDefinition"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "jobCollectionName",
-    "api-version",
-    "jobCollection"
-  ]
-}
+
+```js
+azure_arm_scheduler.JobCollections_Patch({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "jobCollectionName": "",
+  "api-version": "",
+  "jobCollection": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/JobCollectionDefinition"
-}
-```
-## Operation: JobCollections_CreateOrUpdate
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id.
+* resourceGroupName (string) **required** - The resource group name.
+* jobCollectionName (string) **required** - The job collection name.
+* api-version (string) **required** - The API version.
+* jobCollection (undefined) **required**
+
+### JobCollections_CreateOrUpdate
 Provisions a new job collection or updates an existing job collection.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "jobCollectionName": {
-      "type": "string",
-      "description": "The job collection name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version."
-    },
-    "jobCollection": {
-      "$ref": "#/definitions/JobCollectionDefinition"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "jobCollectionName",
-    "api-version",
-    "jobCollection"
-  ]
-}
+
+```js
+azure_arm_scheduler.JobCollections_CreateOrUpdate({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "jobCollectionName": "",
+  "api-version": "",
+  "jobCollection": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/JobCollectionDefinition"
-}
-```
-## Operation: JobCollections_Disable
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id.
+* resourceGroupName (string) **required** - The resource group name.
+* jobCollectionName (string) **required** - The job collection name.
+* api-version (string) **required** - The API version.
+* jobCollection (undefined) **required**
+
+### JobCollections_Disable
 Disables all of the jobs in the job collection.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "jobCollectionName": {
-      "type": "string",
-      "description": "The job collection name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "jobCollectionName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_scheduler.JobCollections_Disable({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "jobCollectionName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: JobCollections_Enable
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id.
+* resourceGroupName (string) **required** - The resource group name.
+* jobCollectionName (string) **required** - The job collection name.
+* api-version (string) **required** - The API version.
+
+### JobCollections_Enable
 Enables all of the jobs in the job collection.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "jobCollectionName": {
-      "type": "string",
-      "description": "The job collection name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "jobCollectionName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_scheduler.JobCollections_Enable({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "jobCollectionName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Jobs_List
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id.
+* resourceGroupName (string) **required** - The resource group name.
+* jobCollectionName (string) **required** - The job collection name.
+* api-version (string) **required** - The API version.
+
+### Jobs_List
 Lists all jobs under the specified job collection.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "jobCollectionName": {
-      "type": "string",
-      "description": "The job collection name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version."
-    },
-    "$top": {
-      "type": "integer",
-      "description": "The number of jobs to request, in the of range of [1..100].",
-      "maximum": 100,
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "description": "The (0-based) index of the job history list from which to begin requesting entries."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the job state."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "jobCollectionName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_scheduler.Jobs_List({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "jobCollectionName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/JobListResult"
-}
-```
-## Operation: Jobs_Delete
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id.
+* resourceGroupName (string) **required** - The resource group name.
+* jobCollectionName (string) **required** - The job collection name.
+* api-version (string) **required** - The API version.
+* $top (integer) - The number of jobs to request, in the of range of [1..100].
+* $skip (integer) - The (0-based) index of the job history list from which to begin requesting entries.
+* $filter (string) - The filter to apply on the job state.
+
+### Jobs_Delete
 Deletes a job.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "jobCollectionName": {
-      "type": "string",
-      "description": "The job collection name."
-    },
-    "jobName": {
-      "type": "string",
-      "description": "The job name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "jobCollectionName",
-    "jobName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_scheduler.Jobs_Delete({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "jobCollectionName": "",
+  "jobName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Jobs_Get
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id.
+* resourceGroupName (string) **required** - The resource group name.
+* jobCollectionName (string) **required** - The job collection name.
+* jobName (string) **required** - The job name.
+* api-version (string) **required** - The API version.
+
+### Jobs_Get
 Gets a job.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "jobCollectionName": {
-      "type": "string",
-      "description": "The job collection name."
-    },
-    "jobName": {
-      "type": "string",
-      "description": "The job name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "jobCollectionName",
-    "jobName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_scheduler.Jobs_Get({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "jobCollectionName": "",
+  "jobName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/JobDefinition"
-}
-```
-## Operation: Jobs_Patch
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id.
+* resourceGroupName (string) **required** - The resource group name.
+* jobCollectionName (string) **required** - The job collection name.
+* jobName (string) **required** - The job name.
+* api-version (string) **required** - The API version.
+
+### Jobs_Patch
 Patches an existing job.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "jobCollectionName": {
-      "type": "string",
-      "description": "The job collection name."
-    },
-    "jobName": {
-      "type": "string",
-      "description": "The job name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version."
-    },
-    "job": {
-      "$ref": "#/definitions/JobDefinition"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "jobCollectionName",
-    "jobName",
-    "api-version",
-    "job"
-  ]
-}
+
+```js
+azure_arm_scheduler.Jobs_Patch({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "jobCollectionName": "",
+  "jobName": "",
+  "api-version": "",
+  "job": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/JobDefinition"
-}
-```
-## Operation: Jobs_CreateOrUpdate
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id.
+* resourceGroupName (string) **required** - The resource group name.
+* jobCollectionName (string) **required** - The job collection name.
+* jobName (string) **required** - The job name.
+* api-version (string) **required** - The API version.
+* job (undefined) **required**
+
+### Jobs_CreateOrUpdate
 Provisions a new job or updates an existing job.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "jobCollectionName": {
-      "type": "string",
-      "description": "The job collection name."
-    },
-    "jobName": {
-      "type": "string",
-      "description": "The job name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version."
-    },
-    "job": {
-      "$ref": "#/definitions/JobDefinition"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "jobCollectionName",
-    "jobName",
-    "api-version",
-    "job"
-  ]
-}
+
+```js
+azure_arm_scheduler.Jobs_CreateOrUpdate({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "jobCollectionName": "",
+  "jobName": "",
+  "api-version": "",
+  "job": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/JobDefinition"
-}
-```
-## Operation: Jobs_ListJobHistory
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id.
+* resourceGroupName (string) **required** - The resource group name.
+* jobCollectionName (string) **required** - The job collection name.
+* jobName (string) **required** - The job name.
+* api-version (string) **required** - The API version.
+* job (undefined) **required**
+
+### Jobs_ListJobHistory
 Lists job history.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "jobCollectionName": {
-      "type": "string",
-      "description": "The job collection name."
-    },
-    "jobName": {
-      "type": "string",
-      "description": "The job name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version."
-    },
-    "$top": {
-      "type": "integer",
-      "description": "the number of job history to request, in the of range of [1..100].",
-      "maximum": 100,
-      "minimum": 1
-    },
-    "$skip": {
-      "type": "integer",
-      "description": "The (0-based) index of the job history list from which to begin requesting entries."
-    },
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply on the job state."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "jobCollectionName",
-    "jobName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_scheduler.Jobs_ListJobHistory({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "jobCollectionName": "",
+  "jobName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/JobHistoryListResult"
-}
-```
-## Operation: Jobs_Run
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id.
+* resourceGroupName (string) **required** - The resource group name.
+* jobCollectionName (string) **required** - The job collection name.
+* jobName (string) **required** - The job name.
+* api-version (string) **required** - The API version.
+* $top (integer) - the number of job history to request, in the of range of [1..100].
+* $skip (integer) - The (0-based) index of the job history list from which to begin requesting entries.
+* $filter (string) - The filter to apply on the job state.
+
+### Jobs_Run
 Runs a job.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subscriptionId": {
-      "type": "string",
-      "description": "The subscription id."
-    },
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The resource group name."
-    },
-    "jobCollectionName": {
-      "type": "string",
-      "description": "The job collection name."
-    },
-    "jobName": {
-      "type": "string",
-      "description": "The job name."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "The API version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subscriptionId",
-    "resourceGroupName",
-    "jobCollectionName",
-    "jobName",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_scheduler.Jobs_Run({
+  "subscriptionId": "",
+  "resourceGroupName": "",
+  "jobCollectionName": "",
+  "jobName": "",
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* subscriptionId (string) **required** - The subscription id.
+* resourceGroupName (string) **required** - The resource group name.
+* jobCollectionName (string) **required** - The job collection name.
+* jobName (string) **required** - The job name.
+* api-version (string) **required** - The API version.
+

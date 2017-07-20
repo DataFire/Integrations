@@ -1,7 +1,27 @@
 # @datafire/6_dot_authentiqio_appspot
 
+Client library for Authentiq
 
-## Operation: key.delete
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/6_dot_authentiqio_appspot
+```
+
+```js
+let datafire = require('datafire');
+let 6_dot_authentiqio_appspot = require('@datafire/6_dot_authentiqio_appspot').actions;
+let context = new datafire.Context();
+
+6_dot_authentiqio_appspot.key.delete({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
+
+
+## Actions
+### key.delete
 Revoke an Authentiq ID using email & phone.
 
 If called with `email` and `phone` only, a verification code 
@@ -9,44 +29,20 @@ will be sent by email. Do a second call adding `code` to
 complete the revocation.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "email": {
-      "type": "string",
-      "description": "primary email associated to Key (ID)"
-    },
-    "phone": {
-      "type": "string",
-      "description": "primary phone number, international representation"
-    },
-    "code": {
-      "type": "string",
-      "description": "verification code sent by email"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "email",
-    "phone"
-  ]
-}
+
+```js
+6_dot_authentiqio_appspot.key.delete({
+  "email": "",
+  "phone": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "status": {
-      "description": "pending or done",
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: key.post
+
+#### Parameters
+* email (string) **required** - primary email associated to Key (ID)
+* phone (string) **required** - primary phone number, international representation
+* code (string) - verification code sent by email
+
+### key.post
 Register a new ID `JWT(sub, devtoken)`
 
 v5: `JWT(sub, pk, devtoken, ...)`
@@ -54,138 +50,60 @@ v5: `JWT(sub, pk, devtoken, ...)`
 See: https://github.com/skion/authentiq/wiki/JWT-Examples
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/AuthentiqID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+6_dot_authentiqio_appspot.key.post({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "secret": {
-      "description": "revoke key",
-      "type": "string"
-    },
-    "status": {
-      "description": "registered",
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: key.PK.delete
+
+#### Parameters
+* body (undefined) **required** - Authentiq ID in JWT format, self-signed.
+
+### key.PK.delete
 Revoke an Identity (Key) with a revocation secret
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "PK": {
-      "type": "string",
-      "description": "Public Signing Key - Authentiq ID (43 chars)"
-    },
-    "secret": {
-      "type": "string",
-      "description": "revokation secret"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "PK",
-    "secret"
-  ]
-}
+
+```js
+6_dot_authentiqio_appspot.key.PK.delete({
+  "PK": "",
+  "secret": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "status": {
-      "description": "done",
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: key.PK.get
+
+#### Parameters
+* PK (string) **required** - Public Signing Key - Authentiq ID (43 chars)
+* secret (string) **required** - revokation secret
+
+### key.PK.get
 Get public details of an Authentiq ID.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "PK": {
-      "type": "string",
-      "description": "Public Signing Key - Authentiq ID (43 chars)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "PK"
-  ]
-}
+
+```js
+6_dot_authentiqio_appspot.key.PK.get({
+  "PK": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "since": {
-      "format": "date-time",
-      "type": "string"
-    },
-    "status": {
-      "type": "string"
-    },
-    "sub": {
-      "description": "base64safe encoded public signing key",
-      "type": "string"
-    }
-  },
-  "title": "JWT",
-  "type": "object"
-}
-```
-## Operation: key.PK.head
+
+#### Parameters
+* PK (string) **required** - Public Signing Key - Authentiq ID (43 chars)
+
+### key.PK.head
 HEAD info on Authentiq ID
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "PK": {
-      "type": "string",
-      "description": "Public Signing Key - Authentiq ID (43 chars)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "PK"
-  ]
-}
+
+```js
+6_dot_authentiqio_appspot.key.PK.head({
+  "PK": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: key.PK.post
+
+#### Parameters
+* PK (string) **required** - Public Signing Key - Authentiq ID (43 chars)
+
+### key.PK.post
 update properties of an Authentiq ID.
 (not operational in v4; use PUT for now)
 
@@ -195,39 +113,19 @@ a self-signed JWT
 See: https://github.com/skion/authentiq/wiki/JWT-Examples
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "PK": {
-      "type": "string",
-      "description": "Public Signing Key - Authentiq ID (43 chars)"
-    },
-    "body": {
-      "$ref": "#/definitions/AuthentiqID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "PK",
-    "body"
-  ]
-}
+
+```js
+6_dot_authentiqio_appspot.key.PK.post({
+  "PK": "",
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "status": {
-      "description": "confirmed",
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: key.PK.put
+
+#### Parameters
+* PK (string) **required** - Public Signing Key - Authentiq ID (43 chars)
+* body (undefined) **required** - Authentiq ID in JWT format, self-signed.
+
+### key.PK.put
 Update Authentiq ID by replacing the object.
 
 v4: `JWT(sub,email,phone)` to bind email/phone hash; 
@@ -238,272 +136,115 @@ and PUT to update registration `JWT(sub, pk, devtoken, ...)`
 See: https://github.com/skion/authentiq/wiki/JWT-Examples
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "PK": {
-      "type": "string",
-      "description": "Public Signing Key - Authentiq ID (43 chars)"
-    },
-    "body": {
-      "$ref": "#/definitions/AuthentiqID"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "PK",
-    "body"
-  ]
-}
+
+```js
+6_dot_authentiqio_appspot.key.PK.put({
+  "PK": "",
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "status": {
-      "description": "confirmed",
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: login.post
+
+#### Parameters
+* PK (string) **required** - Public Signing Key - Authentiq ID (43 chars)
+* body (undefined) **required** - Authentiq ID in JWT format, self-signed.
+
+### login.post
 push sign-in request
 See: https://github.com/skion/authentiq/wiki/JWT-Examples
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/PushToken"
-    },
-    "callback": {
-      "type": "string",
-      "description": "URI App will connect to"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body",
-    "callback"
-  ]
-}
+
+```js
+6_dot_authentiqio_appspot.login.post({
+  "body": null,
+  "callback": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "status": {
-      "description": "sent",
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: scope.post
+
+#### Parameters
+* body (undefined) **required** - PushToken in JWT format, self-signed. 
+* callback (string) **required** - URI App will connect to
+
+### scope.post
 scope verification request
 See: https://github.com/skion/authentiq/wiki/JWT-Examples
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Claims"
-    },
-    "test": {
-      "type": "integer",
-      "description": "test only mode, using test issuer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+6_dot_authentiqio_appspot.scope.post({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "job": {
-      "description": "20-character ID",
-      "type": "string"
-    },
-    "status": {
-      "description": "waiting",
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: scope.job.delete
+
+#### Parameters
+* body (undefined) **required** - Claim in JWT format, self- or issuer-signed. 
+* test (integer) - test only mode, using test issuer
+
+### scope.job.delete
 delete a verification job
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "job": {
-      "type": "string",
-      "description": "Job ID (20 chars)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "job"
-  ]
-}
+
+```js
+6_dot_authentiqio_appspot.scope.job.delete({
+  "job": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "status": {
-      "description": "done",
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: scope.job.get
+
+#### Parameters
+* job (string) **required** - Job ID (20 chars)
+
+### scope.job.get
 get the status / current content of a verification job
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "job": {
-      "type": "string",
-      "description": "Job ID (20 chars)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "job"
-  ]
-}
+
+```js
+6_dot_authentiqio_appspot.scope.job.get({
+  "job": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "exp": {
-      "type": "integer"
-    },
-    "field": {
-      "type": "string"
-    },
-    "sub": {
-      "description": "base64safe encoded public signing key",
-      "type": "string"
-    }
-  },
-  "title": "JWT",
-  "type": "object"
-}
-```
-## Operation: scope.job.head
+
+#### Parameters
+* job (string) **required** - Job ID (20 chars)
+
+### scope.job.head
 HEAD to get the status of a verification job
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "job": {
-      "type": "string",
-      "description": "Job ID (20 chars)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "job"
-  ]
-}
+
+```js
+6_dot_authentiqio_appspot.scope.job.head({
+  "job": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: scope.job.post
+
+#### Parameters
+* job (string) **required** - Job ID (20 chars)
+
+### scope.job.post
 this is a scope confirmation
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "job": {
-      "type": "string",
-      "description": "Job ID (20 chars)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "job"
-  ]
-}
+
+```js
+6_dot_authentiqio_appspot.scope.job.post({
+  "job": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "status": {
-      "description": "confirmed",
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: scope.job.put
+
+#### Parameters
+* job (string) **required** - Job ID (20 chars)
+
+### scope.job.put
 authority updates a JWT with its signature
 See: https://github.com/skion/authentiq/wiki/JWT-Examples
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "job": {
-      "type": "string",
-      "description": "Job ID (20 chars)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "job"
-  ]
-}
+
+```js
+6_dot_authentiqio_appspot.scope.job.put({
+  "job": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "jwt": {
-      "description": "result is JWT or JSON??",
-      "type": "string"
-    },
-    "status": {
-      "description": "ready",
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
+
+#### Parameters
+* job (string) **required** - Job ID (20 chars)
+

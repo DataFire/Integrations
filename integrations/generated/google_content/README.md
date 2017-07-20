@@ -1,3655 +1,1204 @@
 # @datafire/google_content
+
+Client library for Content API for Shopping
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/google_content
+```
+
+```js
+let datafire = require('datafire');
+let google_content = require('@datafire/google_content').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    google_content: account,
+  }
+})
+
+
+google_content.shippingsettings.custombatch({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Manages product items, inventory, and Merchant Center accounts for Google Shopping.
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+google_content.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+google_content.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: accounts.authinfo
+
+
+### accounts.authinfo
 Returns information about the authenticated user.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_content.accounts.authinfo({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccountsAuthInfoResponse"
-}
-```
-## Operation: accounts.custombatch
+
+
+### accounts.custombatch
 Retrieves, inserts, updates, and deletes multiple Merchant Center (sub-)accounts in a single request.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "dryRun": {
-      "type": "boolean",
-      "description": "Flag to run the request in dry-run mode."
-    },
-    "body": {
-      "$ref": "#/definitions/AccountsCustomBatchRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_content.accounts.custombatch({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccountsCustomBatchResponse"
-}
-```
-## Operation: accountstatuses.custombatch
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/AccountstatusesCustomBatchRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+### accountstatuses.custombatch
+
+
+
+```js
+google_content.accountstatuses.custombatch({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccountstatusesCustomBatchResponse"
-}
-```
-## Operation: accounttax.custombatch
+
+
+### accounttax.custombatch
 Retrieves and updates tax settings of multiple accounts in a single request.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "dryRun": {
-      "type": "boolean",
-      "description": "Flag to run the request in dry-run mode."
-    },
-    "body": {
-      "$ref": "#/definitions/AccounttaxCustomBatchRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_content.accounttax.custombatch({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccounttaxCustomBatchResponse"
-}
-```
-## Operation: datafeeds.custombatch
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "dryRun": {
-      "type": "boolean",
-      "description": "Flag to run the request in dry-run mode."
-    },
-    "body": {
-      "$ref": "#/definitions/DatafeedsCustomBatchRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
-```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DatafeedsCustomBatchResponse"
-}
-```
-## Operation: datafeedstatuses.custombatch
+### datafeeds.custombatch
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/DatafeedstatusesCustomBatchRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_content.datafeeds.custombatch({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DatafeedstatusesCustomBatchResponse"
-}
+
+
+### datafeedstatuses.custombatch
+
+
+
+```js
+google_content.datafeedstatuses.custombatch({}, context)
 ```
-## Operation: inventory.custombatch
+
+
+### inventory.custombatch
 Updates price and availability for multiple products or stores in a single request. This operation does not update the expiration date of the products. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "dryRun": {
-      "type": "boolean",
-      "description": "Flag to run the request in dry-run mode."
-    },
-    "body": {
-      "$ref": "#/definitions/InventoryCustomBatchRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_content.inventory.custombatch({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/InventoryCustomBatchResponse"
-}
-```
-## Operation: orders.custombatch
+
+
+### orders.custombatch
 Retrieves or modifies multiple orders in a single request. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/OrdersCustomBatchRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_content.orders.custombatch({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OrdersCustomBatchResponse"
-}
-```
-## Operation: products.custombatch
+
+
+### products.custombatch
 Retrieves, inserts, and deletes multiple products in a single request. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "dryRun": {
-      "type": "boolean",
-      "description": "Flag to run the request in dry-run mode."
-    },
-    "body": {
-      "$ref": "#/definitions/ProductsCustomBatchRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_content.products.custombatch({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProductsCustomBatchResponse"
-}
-```
-## Operation: productstatuses.custombatch
+
+
+### productstatuses.custombatch
 Gets the statuses of multiple products in a single request. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/ProductstatusesCustomBatchRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_content.productstatuses.custombatch({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProductstatusesCustomBatchResponse"
-}
-```
-## Operation: shippingsettings.custombatch
+
+
+### shippingsettings.custombatch
 Retrieves and updates the shipping settings of multiple accounts in a single request.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "dryRun": {
-      "type": "boolean",
-      "description": "Flag to run the request in dry-run mode."
-    },
-    "body": {
-      "$ref": "#/definitions/ShippingsettingsCustomBatchRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+google_content.shippingsettings.custombatch({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ShippingsettingsCustomBatchResponse"
-}
-```
-## Operation: accounts.list
+
+
+### accounts.list
 Lists the sub-accounts in your Merchant Center account. This method can only be called for multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of accounts to return in the response, used for paging."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId"
-  ]
-}
+
+```js
+google_content.accounts.list({
+  "merchantId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccountsListResponse"
-}
-```
-## Operation: accounts.insert
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* maxResults (integer) - The maximum number of accounts to return in the response, used for paging.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### accounts.insert
 Creates a Merchant Center sub-account. This method can only be called for multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "dryRun": {
-      "type": "boolean",
-      "description": "Flag to run the request in dry-run mode."
-    },
-    "body": {
-      "$ref": "#/definitions/Account"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId"
-  ]
-}
+
+```js
+google_content.accounts.insert({
+  "merchantId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Account"
-}
-```
-## Operation: accounts.delete
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* body (object) - Account data.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### accounts.delete
 Deletes a Merchant Center sub-account. This method can only be called for multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "accountId": {
-      "type": "string",
-      "description": "The ID of the account."
-    },
-    "dryRun": {
-      "type": "boolean",
-      "description": "Flag to run the request in dry-run mode."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "accountId"
-  ]
-}
+
+```js
+google_content.accounts.delete({
+  "merchantId": "",
+  "accountId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: accounts.get
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* accountId (string) **required** - The ID of the account.
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### accounts.get
 Retrieves a Merchant Center account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "accountId": {
-      "type": "string",
-      "description": "The ID of the account."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "accountId"
-  ]
-}
+
+```js
+google_content.accounts.get({
+  "merchantId": "",
+  "accountId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Account"
-}
-```
-## Operation: accounts.patch
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* accountId (string) **required** - The ID of the account.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### accounts.patch
 Updates a Merchant Center account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account. This method supports patch semantics.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "accountId": {
-      "type": "string",
-      "description": "The ID of the account."
-    },
-    "dryRun": {
-      "type": "boolean",
-      "description": "Flag to run the request in dry-run mode."
-    },
-    "body": {
-      "$ref": "#/definitions/Account"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "accountId"
-  ]
-}
+
+```js
+google_content.accounts.patch({
+  "merchantId": "",
+  "accountId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Account"
-}
-```
-## Operation: accounts.update
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* accountId (string) **required** - The ID of the account.
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* body (object) - Account data.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### accounts.update
 Updates a Merchant Center account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "accountId": {
-      "type": "string",
-      "description": "The ID of the account."
-    },
-    "dryRun": {
-      "type": "boolean",
-      "description": "Flag to run the request in dry-run mode."
-    },
-    "body": {
-      "$ref": "#/definitions/Account"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "accountId"
-  ]
-}
+
+```js
+google_content.accounts.update({
+  "merchantId": "",
+  "accountId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Account"
-}
-```
-## Operation: accountstatuses.list
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* accountId (string) **required** - The ID of the account.
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* body (object) - Account data.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### accountstatuses.list
 Lists the statuses of the sub-accounts in your Merchant Center account. This method can only be called for multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of account statuses to return in the response, used for paging."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId"
-  ]
-}
+
+```js
+google_content.accountstatuses.list({
+  "merchantId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccountstatusesListResponse"
-}
-```
-## Operation: accountstatuses.get
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* maxResults (integer) - The maximum number of account statuses to return in the response, used for paging.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### accountstatuses.get
 Retrieves the status of a Merchant Center account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "accountId": {
-      "type": "string",
-      "description": "The ID of the account."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "accountId"
-  ]
-}
+
+```js
+google_content.accountstatuses.get({
+  "merchantId": "",
+  "accountId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccountStatus"
-}
-```
-## Operation: accounttax.list
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* accountId (string) **required** - The ID of the account.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### accounttax.list
 Lists the tax settings of the sub-accounts in your Merchant Center account. This method can only be called for multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of tax settings to return in the response, used for paging."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId"
-  ]
-}
+
+```js
+google_content.accounttax.list({
+  "merchantId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccounttaxListResponse"
-}
-```
-## Operation: accounttax.get
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* maxResults (integer) - The maximum number of tax settings to return in the response, used for paging.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### accounttax.get
 Retrieves the tax settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "accountId": {
-      "type": "string",
-      "description": "The ID of the account for which to get/update account tax settings."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "accountId"
-  ]
-}
+
+```js
+google_content.accounttax.get({
+  "merchantId": "",
+  "accountId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccountTax"
-}
-```
-## Operation: accounttax.patch
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* accountId (string) **required** - The ID of the account for which to get/update account tax settings.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### accounttax.patch
 Updates the tax settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account. This method supports patch semantics.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "accountId": {
-      "type": "string",
-      "description": "The ID of the account for which to get/update account tax settings."
-    },
-    "dryRun": {
-      "type": "boolean",
-      "description": "Flag to run the request in dry-run mode."
-    },
-    "body": {
-      "$ref": "#/definitions/AccountTax"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "accountId"
-  ]
-}
+
+```js
+google_content.accounttax.patch({
+  "merchantId": "",
+  "accountId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccountTax"
-}
-```
-## Operation: accounttax.update
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* accountId (string) **required** - The ID of the account for which to get/update account tax settings.
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* body (object) - The tax settings of a merchant account.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### accounttax.update
 Updates the tax settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "accountId": {
-      "type": "string",
-      "description": "The ID of the account for which to get/update account tax settings."
-    },
-    "dryRun": {
-      "type": "boolean",
-      "description": "Flag to run the request in dry-run mode."
-    },
-    "body": {
-      "$ref": "#/definitions/AccountTax"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "accountId"
-  ]
-}
+
+```js
+google_content.accounttax.update({
+  "merchantId": "",
+  "accountId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AccountTax"
-}
-```
-## Operation: datafeeds.list
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* accountId (string) **required** - The ID of the account for which to get/update account tax settings.
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* body (object) - The tax settings of a merchant account.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### datafeeds.list
 Lists the datafeeds in your Merchant Center account. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of products to return in the response, used for paging."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId"
-  ]
-}
+
+```js
+google_content.datafeeds.list({
+  "merchantId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DatafeedsListResponse"
-}
-```
-## Operation: datafeeds.insert
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* maxResults (integer) - The maximum number of products to return in the response, used for paging.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### datafeeds.insert
 Registers a datafeed with your Merchant Center account. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string"
-    },
-    "dryRun": {
-      "type": "boolean",
-      "description": "Flag to run the request in dry-run mode."
-    },
-    "body": {
-      "$ref": "#/definitions/Datafeed"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId"
-  ]
-}
+
+```js
+google_content.datafeeds.insert({
+  "merchantId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Datafeed"
-}
-```
-## Operation: datafeeds.delete
+
+#### Parameters
+* merchantId (string) **required**
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* body (object) - Datafeed data.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### datafeeds.delete
 Deletes a datafeed from your Merchant Center account. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string"
-    },
-    "datafeedId": {
-      "type": "string"
-    },
-    "dryRun": {
-      "type": "boolean",
-      "description": "Flag to run the request in dry-run mode."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "datafeedId"
-  ]
-}
+
+```js
+google_content.datafeeds.delete({
+  "merchantId": "",
+  "datafeedId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: datafeeds.get
+
+#### Parameters
+* merchantId (string) **required**
+* datafeedId (string) **required**
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### datafeeds.get
 Retrieves a datafeed from your Merchant Center account. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string"
-    },
-    "datafeedId": {
-      "type": "string"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "datafeedId"
-  ]
-}
+
+```js
+google_content.datafeeds.get({
+  "merchantId": "",
+  "datafeedId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Datafeed"
-}
-```
-## Operation: datafeeds.patch
+
+#### Parameters
+* merchantId (string) **required**
+* datafeedId (string) **required**
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### datafeeds.patch
 Updates a datafeed of your Merchant Center account. This method can only be called for non-multi-client accounts. This method supports patch semantics.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string"
-    },
-    "datafeedId": {
-      "type": "string"
-    },
-    "dryRun": {
-      "type": "boolean",
-      "description": "Flag to run the request in dry-run mode."
-    },
-    "body": {
-      "$ref": "#/definitions/Datafeed"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "datafeedId"
-  ]
-}
+
+```js
+google_content.datafeeds.patch({
+  "merchantId": "",
+  "datafeedId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Datafeed"
-}
-```
-## Operation: datafeeds.update
+
+#### Parameters
+* merchantId (string) **required**
+* datafeedId (string) **required**
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* body (object) - Datafeed data.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### datafeeds.update
 Updates a datafeed of your Merchant Center account. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string"
-    },
-    "datafeedId": {
-      "type": "string"
-    },
-    "dryRun": {
-      "type": "boolean",
-      "description": "Flag to run the request in dry-run mode."
-    },
-    "body": {
-      "$ref": "#/definitions/Datafeed"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "datafeedId"
-  ]
-}
+
+```js
+google_content.datafeeds.update({
+  "merchantId": "",
+  "datafeedId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Datafeed"
-}
-```
-## Operation: datafeedstatuses.list
+
+#### Parameters
+* merchantId (string) **required**
+* datafeedId (string) **required**
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* body (object) - Datafeed data.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### datafeedstatuses.list
 Lists the statuses of the datafeeds in your Merchant Center account. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of products to return in the response, used for paging."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId"
-  ]
-}
+
+```js
+google_content.datafeedstatuses.list({
+  "merchantId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DatafeedstatusesListResponse"
-}
-```
-## Operation: datafeedstatuses.get
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* maxResults (integer) - The maximum number of products to return in the response, used for paging.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### datafeedstatuses.get
 Retrieves the status of a datafeed from your Merchant Center account. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string"
-    },
-    "datafeedId": {
-      "type": "string"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "datafeedId"
-  ]
-}
+
+```js
+google_content.datafeedstatuses.get({
+  "merchantId": "",
+  "datafeedId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/DatafeedStatus"
-}
-```
-## Operation: inventory.set
+
+#### Parameters
+* merchantId (string) **required**
+* datafeedId (string) **required**
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### inventory.set
 Updates price and availability of a product in your Merchant Center account. This operation does not update the expiration date of the product. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "storeCode": {
-      "type": "string",
-      "description": "The code of the store for which to update price and availability. Use online to update price and availability of an online product."
-    },
-    "productId": {
-      "type": "string",
-      "description": "The ID of the product for which to update price and availability."
-    },
-    "dryRun": {
-      "type": "boolean",
-      "description": "Flag to run the request in dry-run mode."
-    },
-    "body": {
-      "$ref": "#/definitions/InventorySetRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "storeCode",
-    "productId"
-  ]
-}
+
+```js
+google_content.inventory.set({
+  "merchantId": "",
+  "storeCode": "",
+  "productId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/InventorySetResponse"
-}
-```
-## Operation: orders.list
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* storeCode (string) **required** - The code of the store for which to update price and availability. Use online to update price and availability of an online product.
+* productId (string) **required** - The ID of the product for which to update price and availability.
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### orders.list
 Lists the orders in your Merchant Center account. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "acknowledged": {
-      "type": "boolean",
-      "description": "Obtains orders that match the acknowledgement status. When set to true, obtains orders that have been acknowledged. When false, obtains orders that have not been acknowledged.\nWe recommend using this filter set to false, in conjunction with the acknowledge call, such that only un-acknowledged orders are returned."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of orders to return in the response, used for paging. The default value is 25 orders per page, and the maximum allowed value is 250 orders per page.\nKnown issue: All List calls will return all Orders without limit regardless of the value of this field."
-    },
-    "orderBy": {
-      "type": "string",
-      "description": "The ordering of the returned list. The only supported value are placedDate desc and placedDate asc for now, which returns orders sorted by placement date. \"placedDate desc\" stands for listing orders by placement date, from oldest to most recent. \"placedDate asc\" stands for listing orders by placement date, from most recent to oldest. In future releases we'll support other sorting criteria.",
-      "enum": [
-        "placedDate asc",
-        "placedDate desc"
-      ]
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "placedDateEnd": {
-      "type": "string",
-      "description": "Obtains orders placed before this date (exclusively), in ISO 8601 format."
-    },
-    "placedDateStart": {
-      "type": "string",
-      "description": "Obtains orders placed after this date (inclusively), in ISO 8601 format."
-    },
-    "statuses": {
-      "type": "array",
-      "description": "Obtains orders that match any of the specified statuses. Multiple values can be specified with comma separation. Additionally, please note that active is a shortcut for pendingShipment and partiallyShipped, and completed is a shortcut for shipped , partiallyDelivered, delivered, partiallyReturned, returned, and canceled."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId"
-  ]
-}
+
+```js
+google_content.orders.list({
+  "merchantId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OrdersListResponse"
-}
-```
-## Operation: orders.get
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* acknowledged (boolean) - Obtains orders that match the acknowledgement status. When set to true, obtains orders that have been acknowledged. When false, obtains orders that have not been acknowledged.
+* maxResults (integer) - The maximum number of orders to return in the response, used for paging. The default value is 25 orders per page, and the maximum allowed value is 250 orders per page.
+* orderBy (string) - The ordering of the returned list. The only supported value are placedDate desc and placedDate asc for now, which returns orders sorted by placement date. "placedDate desc" stands for listing orders by placement date, from oldest to most recent. "placedDate asc" stands for listing orders by placement date, from most recent to oldest. In future releases we'll support other sorting criteria.
+* pageToken (string) - The token returned by the previous request.
+* placedDateEnd (string) - Obtains orders placed before this date (exclusively), in ISO 8601 format.
+* placedDateStart (string) - Obtains orders placed after this date (inclusively), in ISO 8601 format.
+* statuses (array) - Obtains orders that match any of the specified statuses. Multiple values can be specified with comma separation. Additionally, please note that active is a shortcut for pendingShipment and partiallyShipped, and completed is a shortcut for shipped , partiallyDelivered, delivered, partiallyReturned, returned, and canceled.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### orders.get
 Retrieves an order from your Merchant Center account. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "orderId": {
-      "type": "string",
-      "description": "The ID of the order."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "orderId"
-  ]
-}
+
+```js
+google_content.orders.get({
+  "merchantId": "",
+  "orderId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Order"
-}
-```
-## Operation: orders.acknowledge
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* orderId (string) **required** - The ID of the order.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### orders.acknowledge
 Marks an order as acknowledged. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "orderId": {
-      "type": "string",
-      "description": "The ID of the order."
-    },
-    "body": {
-      "$ref": "#/definitions/OrdersAcknowledgeRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "orderId"
-  ]
-}
+
+```js
+google_content.orders.acknowledge({
+  "merchantId": "",
+  "orderId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OrdersAcknowledgeResponse"
-}
-```
-## Operation: orders.cancel
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* orderId (string) **required** - The ID of the order.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### orders.cancel
 Cancels all line items in an order, making a full refund. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "orderId": {
-      "type": "string",
-      "description": "The ID of the order to cancel."
-    },
-    "body": {
-      "$ref": "#/definitions/OrdersCancelRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "orderId"
-  ]
-}
+
+```js
+google_content.orders.cancel({
+  "merchantId": "",
+  "orderId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OrdersCancelResponse"
-}
-```
-## Operation: orders.cancellineitem
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* orderId (string) **required** - The ID of the order to cancel.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### orders.cancellineitem
 Cancels a line item, making a full refund. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "orderId": {
-      "type": "string",
-      "description": "The ID of the order."
-    },
-    "body": {
-      "$ref": "#/definitions/OrdersCancelLineItemRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "orderId"
-  ]
-}
+
+```js
+google_content.orders.cancellineitem({
+  "merchantId": "",
+  "orderId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OrdersCancelLineItemResponse"
-}
-```
-## Operation: orders.refund
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* orderId (string) **required** - The ID of the order.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### orders.refund
 Refund a portion of the order, up to the full amount paid. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "orderId": {
-      "type": "string",
-      "description": "The ID of the order to refund."
-    },
-    "body": {
-      "$ref": "#/definitions/OrdersRefundRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "orderId"
-  ]
-}
+
+```js
+google_content.orders.refund({
+  "merchantId": "",
+  "orderId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OrdersRefundResponse"
-}
-```
-## Operation: orders.returnlineitem
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* orderId (string) **required** - The ID of the order to refund.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### orders.returnlineitem
 Returns a line item. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "orderId": {
-      "type": "string",
-      "description": "The ID of the order."
-    },
-    "body": {
-      "$ref": "#/definitions/OrdersReturnLineItemRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "orderId"
-  ]
-}
+
+```js
+google_content.orders.returnlineitem({
+  "merchantId": "",
+  "orderId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OrdersReturnLineItemResponse"
-}
-```
-## Operation: orders.shiplineitems
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* orderId (string) **required** - The ID of the order.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### orders.shiplineitems
 Marks line item(s) as shipped. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "orderId": {
-      "type": "string",
-      "description": "The ID of the order."
-    },
-    "body": {
-      "$ref": "#/definitions/OrdersShipLineItemsRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "orderId"
-  ]
-}
+
+```js
+google_content.orders.shiplineitems({
+  "merchantId": "",
+  "orderId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OrdersShipLineItemsResponse"
-}
-```
-## Operation: orders.updatemerchantorderid
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* orderId (string) **required** - The ID of the order.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### orders.updatemerchantorderid
 Updates the merchant order ID for a given order. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "orderId": {
-      "type": "string",
-      "description": "The ID of the order."
-    },
-    "body": {
-      "$ref": "#/definitions/OrdersUpdateMerchantOrderIdRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "orderId"
-  ]
-}
+
+```js
+google_content.orders.updatemerchantorderid({
+  "merchantId": "",
+  "orderId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OrdersUpdateMerchantOrderIdResponse"
-}
-```
-## Operation: orders.updateshipment
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* orderId (string) **required** - The ID of the order.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### orders.updateshipment
 Updates a shipment's status, carrier, and/or tracking ID. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "orderId": {
-      "type": "string",
-      "description": "The ID of the order."
-    },
-    "body": {
-      "$ref": "#/definitions/OrdersUpdateShipmentRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "orderId"
-  ]
-}
+
+```js
+google_content.orders.updateshipment({
+  "merchantId": "",
+  "orderId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OrdersUpdateShipmentResponse"
-}
-```
-## Operation: orders.getbymerchantorderid
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* orderId (string) **required** - The ID of the order.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### orders.getbymerchantorderid
 Retrieves an order using merchant order id. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "merchantOrderId": {
-      "type": "string",
-      "description": "The merchant order id to be looked for."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "merchantOrderId"
-  ]
-}
+
+```js
+google_content.orders.getbymerchantorderid({
+  "merchantId": "",
+  "merchantOrderId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OrdersGetByMerchantOrderIdResponse"
-}
-```
-## Operation: products.list
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* merchantOrderId (string) **required** - The merchant order id to be looked for.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### products.list
 Lists the products in your Merchant Center account. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "includeInvalidInsertedItems": {
-      "type": "boolean",
-      "description": "Flag to include the invalid inserted items in the result of the list request. By default the invalid items are not shown (the default value is false)."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of products to return in the response, used for paging."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId"
-  ]
-}
+
+```js
+google_content.products.list({
+  "merchantId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProductsListResponse"
-}
-```
-## Operation: products.insert
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* includeInvalidInsertedItems (boolean) - Flag to include the invalid inserted items in the result of the list request. By default the invalid items are not shown (the default value is false).
+* maxResults (integer) - The maximum number of products to return in the response, used for paging.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### products.insert
 Uploads a product to your Merchant Center account. If an item with the same channel, contentLanguage, offerId, and targetCountry already exists, this method updates that entry. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "dryRun": {
-      "type": "boolean",
-      "description": "Flag to run the request in dry-run mode."
-    },
-    "body": {
-      "$ref": "#/definitions/Product"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId"
-  ]
-}
+
+```js
+google_content.products.insert({
+  "merchantId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Product"
-}
-```
-## Operation: products.delete
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* body (object) - Product data.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### products.delete
 Deletes a product from your Merchant Center account. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "productId": {
-      "type": "string",
-      "description": "The ID of the product."
-    },
-    "dryRun": {
-      "type": "boolean",
-      "description": "Flag to run the request in dry-run mode."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "productId"
-  ]
-}
+
+```js
+google_content.products.delete({
+  "merchantId": "",
+  "productId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: products.get
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* productId (string) **required** - The ID of the product.
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### products.get
 Retrieves a product from your Merchant Center account. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "productId": {
-      "type": "string",
-      "description": "The ID of the product."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "productId"
-  ]
-}
+
+```js
+google_content.products.get({
+  "merchantId": "",
+  "productId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Product"
-}
-```
-## Operation: productstatuses.list
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* productId (string) **required** - The ID of the product.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### productstatuses.list
 Lists the statuses of the products in your Merchant Center account. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "includeInvalidInsertedItems": {
-      "type": "boolean",
-      "description": "Flag to include the invalid inserted items in the result of the list request. By default the invalid items are not shown (the default value is false)."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of product statuses to return in the response, used for paging."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId"
-  ]
-}
+
+```js
+google_content.productstatuses.list({
+  "merchantId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProductstatusesListResponse"
-}
-```
-## Operation: productstatuses.get
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* includeInvalidInsertedItems (boolean) - Flag to include the invalid inserted items in the result of the list request. By default the invalid items are not shown (the default value is false).
+* maxResults (integer) - The maximum number of product statuses to return in the response, used for paging.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### productstatuses.get
 Gets the status of a product from your Merchant Center account. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "productId": {
-      "type": "string",
-      "description": "The ID of the product."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "productId"
-  ]
-}
+
+```js
+google_content.productstatuses.get({
+  "merchantId": "",
+  "productId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProductStatus"
-}
-```
-## Operation: shippingsettings.list
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* productId (string) **required** - The ID of the product.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### shippingsettings.list
 Lists the shipping settings of the sub-accounts in your Merchant Center account. This method can only be called for multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "maxResults": {
-      "type": "integer",
-      "description": "The maximum number of shipping settings to return in the response, used for paging."
-    },
-    "pageToken": {
-      "type": "string",
-      "description": "The token returned by the previous request."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId"
-  ]
-}
+
+```js
+google_content.shippingsettings.list({
+  "merchantId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ShippingsettingsListResponse"
-}
-```
-## Operation: shippingsettings.get
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* maxResults (integer) - The maximum number of shipping settings to return in the response, used for paging.
+* pageToken (string) - The token returned by the previous request.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### shippingsettings.get
 Retrieves the shipping settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "accountId": {
-      "type": "string",
-      "description": "The ID of the account for which to get/update shipping settings."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "accountId"
-  ]
-}
+
+```js
+google_content.shippingsettings.get({
+  "merchantId": "",
+  "accountId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ShippingSettings"
-}
-```
-## Operation: shippingsettings.patch
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* accountId (string) **required** - The ID of the account for which to get/update shipping settings.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### shippingsettings.patch
 Updates the shipping settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account. This method supports patch semantics.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "accountId": {
-      "type": "string",
-      "description": "The ID of the account for which to get/update shipping settings."
-    },
-    "dryRun": {
-      "type": "boolean",
-      "description": "Flag to run the request in dry-run mode."
-    },
-    "body": {
-      "$ref": "#/definitions/ShippingSettings"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "accountId"
-  ]
-}
+
+```js
+google_content.shippingsettings.patch({
+  "merchantId": "",
+  "accountId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ShippingSettings"
-}
-```
-## Operation: shippingsettings.update
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* accountId (string) **required** - The ID of the account for which to get/update shipping settings.
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* body (object) - The merchant account's shipping settings.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### shippingsettings.update
 Updates the shipping settings of the account. This method can only be called for accounts to which the managing account has access: either the managing account itself or sub-accounts if the managing account is a multi-client account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "accountId": {
-      "type": "string",
-      "description": "The ID of the account for which to get/update shipping settings."
-    },
-    "dryRun": {
-      "type": "boolean",
-      "description": "Flag to run the request in dry-run mode."
-    },
-    "body": {
-      "$ref": "#/definitions/ShippingSettings"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "accountId"
-  ]
-}
+
+```js
+google_content.shippingsettings.update({
+  "merchantId": "",
+  "accountId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ShippingSettings"
-}
-```
-## Operation: shippingsettings.getsupportedcarriers
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* accountId (string) **required** - The ID of the account for which to get/update shipping settings.
+* dryRun (boolean) - Flag to run the request in dry-run mode.
+* body (object) - The merchant account's shipping settings.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### shippingsettings.getsupportedcarriers
 Retrieves supported carriers and carrier services for an account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the account for which to retrieve the supported carriers."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId"
-  ]
-}
+
+```js
+google_content.shippingsettings.getsupportedcarriers({
+  "merchantId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ShippingsettingsGetSupportedCarriersResponse"
-}
-```
-## Operation: orders.createtestorder
+
+#### Parameters
+* merchantId (string) **required** - The ID of the account for which to retrieve the supported carriers.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### orders.createtestorder
 Sandbox only. Creates a test order. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "body": {
-      "$ref": "#/definitions/OrdersCreateTestOrderRequest"
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId"
-  ]
-}
+
+```js
+google_content.orders.createtestorder({
+  "merchantId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OrdersCreateTestOrderResponse"
-}
-```
-## Operation: orders.advancetestorder
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* body (object)
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### orders.advancetestorder
 Sandbox only. Moves a test order from state "inProgress" to state "pendingShipment". This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "orderId": {
-      "type": "string",
-      "description": "The ID of the test order to modify."
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "orderId"
-  ]
-}
+
+```js
+google_content.orders.advancetestorder({
+  "merchantId": "",
+  "orderId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OrdersAdvanceTestOrderResponse"
-}
-```
-## Operation: orders.gettestordertemplate
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* orderId (string) **required** - The ID of the test order to modify.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+
+### orders.gettestordertemplate
 Sandbox only. Retrieves an order template that can be used to quickly create a new order in sandbox. This method can only be called for non-multi-client accounts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "merchantId": {
-      "type": "string",
-      "description": "The ID of the managing account."
-    },
-    "templateName": {
-      "type": "string",
-      "description": "The name of the template to retrieve.",
-      "enum": [
-        "template1",
-        "template1a",
-        "template1b",
-        "template2"
-      ]
-    },
-    "alt": {
-      "type": "string",
-      "description": "Data format for the response.",
-      "enum": [
-        "json"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Selector specifying which fields to include in a partial response."
-    },
-    "key": {
-      "type": "string",
-      "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token."
-    },
-    "oauth_token": {
-      "type": "string",
-      "description": "OAuth 2.0 token for the current user."
-    },
-    "prettyPrint": {
-      "type": "boolean",
-      "description": "Returns response with indentations and line breaks."
-    },
-    "quotaUser": {
-      "type": "string",
-      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided."
-    },
-    "userIp": {
-      "type": "string",
-      "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "merchantId",
-    "templateName"
-  ]
-}
+
+```js
+google_content.orders.gettestordertemplate({
+  "merchantId": "",
+  "templateName": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/OrdersGetTestOrderTemplateResponse"
-}
-```
+
+#### Parameters
+* merchantId (string) **required** - The ID of the managing account.
+* templateName (string) **required** - The name of the template to retrieve.
+* alt (string) - Data format for the response.
+* fields (string) - Selector specifying which fields to include in a partial response.
+* key (string) - API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.
+* oauth_token (string) - OAuth 2.0 token for the current user.
+* prettyPrint (boolean) - Returns response with indentations and line breaks.
+* quotaUser (string) - Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.
+* userIp (string) - IP address of the site where the request originates. Use this if you want to enforce per-user limits.
+

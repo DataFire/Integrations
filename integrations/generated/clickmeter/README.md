@@ -1,4742 +1,1636 @@
 # @datafire/clickmeter
+
+Client library for ClickMeter
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/clickmeter
+```
+
+```js
+let datafire = require('datafire');
+let clickmeter = require('@datafire/clickmeter').actions;
+
+let account = {
+  api_key: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    clickmeter: account,
+  }
+})
+
+
+clickmeter.tags.count.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Api dashboard for ClickMeter API
 
-## Operation: account.get
+## Actions
+### account.get
 Retrieve current account data
 
-### Input Schema
-```json
-{}
+
+```js
+clickmeter.account.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Accounting.User"
-}
-```
-## Operation: account.post
+
+
+### account.post
 Update current account data
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "value": {
-      "$ref": "#/definitions/Api.Core.Dto.Accounting.User"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "value"
-  ]
-}
+
+```js
+clickmeter.account.post({
+  "value": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Accounting.User"
-}
-```
-## Operation: account.domainwhitelist.get
+
+#### Parameters
+* value (object) **required**
+
+### account.domainwhitelist.get
 Retrieve list of a domains allowed to redirect in DDU mode
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Offset where to start from"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Limit results to this number"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+clickmeter.account.domainwhitelist.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Accounting.DomainWhitelistEntry]"
-}
-```
-## Operation: account.domainwhitelist.post
+
+
+### account.domainwhitelist.post
 Create an domain entry
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "value": {
-      "$ref": "#/definitions/Api.Core.Dto.Accounting.DomainWhitelistEntry"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "value"
-  ]
-}
+
+```js
+clickmeter.account.domainwhitelist.post({
+  "value": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Accounting.DomainWhitelistEntry"
-}
-```
-## Operation: account.domainwhitelist.whitelistId.delete
+
+#### Parameters
+* value (object) **required**
+
+### account.domainwhitelist.whitelistId.delete
 Delete an domain entry
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "whitelistId": {
-      "type": "string",
-      "description": "The id of the domain to delete"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "whitelistId"
-  ]
-}
+
+```js
+clickmeter.account.domainwhitelist.whitelistId.delete({
+  "whitelistId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Accounting.DomainWhitelistEntry"
-}
-```
-## Operation: account.guests.get
+
+#### Parameters
+* whitelistId (string) **required** - The id of the domain to delete
+
+### account.guests.get
 Retrieve list of a guest
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Offset where to start from"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Limit results to this number"
-    },
-    "sortBy": {
-      "type": "string",
-      "description": "Field to sort by"
-    },
-    "sortDirection": {
-      "type": "string",
-      "description": "Direction of sort \"asc\" or \"desc\"",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+clickmeter.account.guests.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
-}
-```
-## Operation: account.guests.post
+
+
+### account.guests.post
 Create a guest
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "value": {
-      "$ref": "#/definitions/Api.Core.Dto.Accounting.Guest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "value"
-  ]
-}
+
+```js
+clickmeter.account.guests.post({
+  "value": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Accounting.Guest"
-}
-```
-## Operation: account.guests.count.get
+
+#### Parameters
+* value (object) **required**
+
+### account.guests.count.get
 Retrieve count of guests
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+clickmeter.account.guests.count.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.CountResponce"
-}
-```
-## Operation: account.guests.guestId.delete
+
+
+### account.guests.guestId.delete
 Delete a guest
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "guestId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the guest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "guestId"
-  ]
-}
+
+```js
+clickmeter.account.guests.guestId.delete({
+  "guestId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: account.guests.guestId.get
+
+#### Parameters
+* guestId (integer) **required** - Id of the guest
+
+### account.guests.guestId.get
 Retrieve a guest
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "guestId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the guest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "guestId"
-  ]
-}
+
+```js
+clickmeter.account.guests.guestId.get({
+  "guestId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Accounting.Guest"
-}
-```
-## Operation: account.guests.guestId.post
+
+#### Parameters
+* guestId (integer) **required** - Id of the guest
+
+### account.guests.guestId.post
 Update a guest
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "guestId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the guest"
-    },
-    "value": {
-      "$ref": "#/definitions/Api.Core.Dto.Accounting.Guest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "guestId",
-    "value"
-  ]
-}
+
+```js
+clickmeter.account.guests.guestId.post({
+  "guestId": 0,
+  "value": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Accounting.Guest"
-}
-```
-## Operation: account.guests.guestId.permissions.get
+
+#### Parameters
+* guestId (integer) **required** - Id of the guest
+* value (object) **required**
+
+### account.guests.guestId.permissions.get
 Retrieve permissions for a guest
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "guestId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the guest"
-    },
-    "entityType": {
-      "type": "string",
-      "description": "Can be \"datapoint\" or \"group\"",
-      "enum": [
-        "datapoint",
-        "group"
-      ]
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Offset where to start from"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Limit results to this number"
-    },
-    "type": {
-      "type": "string",
-      "description": "Can be \"w\" or \"r\"",
-      "enum": [
-        "r",
-        "w"
-      ]
-    },
-    "entityId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Optional id of the datapoint/group entity to filter by"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "guestId"
-  ]
-}
+
+```js
+clickmeter.account.guests.guestId.permissions.get({
+  "guestId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Grants.Grant]"
-}
-```
-## Operation: account.guests.guestId.permissions.count.get
+
+#### Parameters
+* guestId (integer) **required** - Id of the guest
+* entityType (string) - Can be "datapoint" or "group"
+* offset (integer) - Offset where to start from
+* limit (integer) - Limit results to this number
+* type (string) - Can be "w" or "r"
+* entityId (integer) - Optional id of the datapoint/group entity to filter by
+
+### account.guests.guestId.permissions.count.get
 Retrieve count of the permissions for a guest
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "guestId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the guest"
-    },
-    "entityType": {
-      "type": "string",
-      "description": "Can be \"datapoint\" or \"group\"",
-      "enum": [
-        "datapoint",
-        "group"
-      ]
-    },
-    "type": {
-      "type": "string",
-      "description": "Can be \"w\" or \"r\"",
-      "enum": [
-        "r",
-        "w"
-      ]
-    },
-    "entityId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Optional id of the datapoint/group entity to filter by"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "guestId"
-  ]
-}
+
+```js
+clickmeter.account.guests.guestId.permissions.count.get({
+  "guestId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.CountResponce"
-}
-```
-## Operation: account.guests.guestId.type.permissions.patch.post
+
+#### Parameters
+* guestId (integer) **required** - Id of the guest
+* entityType (string) - Can be "datapoint" or "group"
+* type (string) - Can be "w" or "r"
+* entityId (integer) - Optional id of the datapoint/group entity to filter by
+
+### account.guests.guestId.type.permissions.patch.post
 Change the permission on a shared object
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "guestId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the guest"
-    },
-    "type": {
-      "type": "string",
-      "description": "Can be \"datapoint\" or \"group\"",
-      "enum": [
-        "datapoint",
-        "group"
-      ]
-    },
-    "body": {
-      "$ref": "#/definitions/Api.Core.Requests.PermissionPatchRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "guestId",
-    "type",
-    "body"
-  ]
-}
+
+```js
+clickmeter.account.guests.guestId.type.permissions.patch.post({
+  "guestId": 0,
+  "type": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: account.guests.guestId.type.permissions.patch.put
+
+#### Parameters
+* guestId (integer) **required** - Id of the guest
+* type (string) **required** - Can be "datapoint" or "group"
+* body (object) **required**
+
+### account.guests.guestId.type.permissions.patch.put
 Change the permission on a shared object
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "guestId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the guest"
-    },
-    "type": {
-      "type": "string",
-      "description": "Can be \"datapoint\" or \"group\"",
-      "enum": [
-        "datapoint",
-        "group"
-      ]
-    },
-    "body": {
-      "$ref": "#/definitions/Api.Core.Requests.PermissionPatchRequest"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "guestId",
-    "type",
-    "body"
-  ]
-}
+
+```js
+clickmeter.account.guests.guestId.type.permissions.patch.put({
+  "guestId": 0,
+  "type": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: account.ipblacklist.get
+
+#### Parameters
+* guestId (integer) **required** - Id of the guest
+* type (string) **required** - Can be "datapoint" or "group"
+* body (object) **required**
+
+### account.ipblacklist.get
 Retrieve list of a ip to exclude from event tracking
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Offset where to start from"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Limit results to this number"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+clickmeter.account.ipblacklist.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Accounting.IpBlacklistEntry]"
-}
-```
-## Operation: account.ipblacklist.post
+
+
+### account.ipblacklist.post
 Create an ip blacklist entry
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "value": {
-      "$ref": "#/definitions/Api.Core.Dto.Accounting.IpBlacklistEntry"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "value"
-  ]
-}
+
+```js
+clickmeter.account.ipblacklist.post({
+  "value": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Accounting.IpBlacklistEntry"
-}
-```
-## Operation: account.ipblacklist.blacklistId.delete
+
+#### Parameters
+* value (object) **required**
+
+### account.ipblacklist.blacklistId.delete
 Delete an ip blacklist entry
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "blacklistId": {
-      "type": "string",
-      "description": "The id of the ip to delete"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "blacklistId"
-  ]
-}
+
+```js
+clickmeter.account.ipblacklist.blacklistId.delete({
+  "blacklistId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Accounting.IpBlacklistEntry"
-}
-```
-## Operation: account.plan.get
+
+#### Parameters
+* blacklistId (string) **required** - The id of the ip to delete
+
+### account.plan.get
 Retrieve current account plan
 
-### Input Schema
-```json
-{}
+
+```js
+clickmeter.account.plan.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Accounting.Plan"
-}
-```
-## Operation: aggregated.get
+
+
+### aggregated.get
 Retrieve statistics about this customer for a timeframe
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "timeFrame": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "today",
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "last12months",
-        "lastyear",
-        "currentyear",
-        "beginning",
-        "custom"
-      ]
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    },
-    "hourly": {
-      "type": "boolean",
-      "description": "If using \"yesterday\" or \"today\" timeframe you can ask for the hourly detail"
-    },
-    "onlyFavorites": {
-      "type": "string",
-      "description": ""
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "timeFrame"
-  ]
-}
+
+```js
+clickmeter.aggregated.get({
+  "timeFrame": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedResult"
-}
-```
-## Operation: aggregated.list.get
+
+#### Parameters
+* timeFrame (string) **required** - Timeframe of the request. See list at $timeframeList
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+* hourly (boolean) - If using "yesterday" or "today" timeframe you can ask for the hourly detail
+* onlyFavorites (string)
+
+### aggregated.list.get
 Retrieve statistics about this customer for a timeframe grouped by some temporal entity (day/week/month)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "timeFrame": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "today",
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "last12months",
-        "lastyear",
-        "currentyear",
-        "beginning",
-        "custom"
-      ]
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    },
-    "groupBy": {
-      "type": "string",
-      "description": "The temporal entity you want to group by (\"week\"/\"month\"). If unspecified is \"day\".",
-      "enum": [
-        "week",
-        "month"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "timeFrame"
-  ]
-}
+
+```js
+clickmeter.aggregated.list.get({
+  "timeFrame": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
-}
-```
-## Operation: aggregated.summary.conversions.get
+
+#### Parameters
+* timeFrame (string) **required** - Timeframe of the request. See list at $timeframeList
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+* groupBy (string) - The temporal entity you want to group by ("week"/"month"). If unspecified is "day".
+
+### aggregated.summary.conversions.get
 Retrieve statistics about a subset of conversions for a timeframe with conversions data
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "timeFrame": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "today",
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "last12months",
-        "lastyear",
-        "currentyear",
-        "beginning",
-        "custom"
-      ]
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of conversion (\"deleted\"/\"active\")",
-      "enum": [
-        "deleted",
-        "active"
-      ]
-    },
-    "sortBy": {
-      "type": "string",
-      "description": "Field to sort by"
-    },
-    "sortDirection": {
-      "type": "string",
-      "description": "Direction of sort \"asc\" or \"desc\"",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Offset where to start from"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Limit results to this number"
-    },
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "timeFrame"
-  ]
-}
+
+```js
+clickmeter.aggregated.summary.conversions.get({
+  "timeFrame": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedSummaryResult"
-}
-```
-## Operation: aggregated.summary.datapoints.get
+
+#### Parameters
+* timeFrame (string) **required** - Timeframe of the request. See list at $timeframeList
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+* status (string) - Status of conversion ("deleted"/"active")
+* sortBy (string) - Field to sort by
+* sortDirection (string) - Direction of sort "asc" or "desc"
+* offset (integer) - Offset where to start from
+* limit (integer) - Limit results to this number
+* textSearch (string) - Filter fields by this pattern
+
+### aggregated.summary.datapoints.get
 Retrieve statistics about a subset of datapoints for a timeframe with datapoints data
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "timeFrame": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "today",
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "last12months",
-        "lastyear",
-        "currentyear",
-        "beginning",
-        "custom"
-      ]
-    },
-    "type": {
-      "type": "string",
-      "description": "Type of datapoint (\"tl\"/\"tp\")",
-      "enum": [
-        "tp",
-        "tl"
-      ]
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of datapoint (\"deleted\"/\"active\"/\"paused\"/\"spam\")",
-      "enum": [
-        "deleted",
-        "active",
-        "paused",
-        "spam"
-      ]
-    },
-    "tag": {
-      "type": "string",
-      "description": "A comma separated list of tags you want to filter with."
-    },
-    "favourite": {
-      "type": "boolean",
-      "description": "Is the datapoint marked as favourite"
-    },
-    "sortBy": {
-      "type": "string",
-      "description": "Field to sort by"
-    },
-    "sortDirection": {
-      "type": "string",
-      "description": "Direction of sort \"asc\" or \"desc\"",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Offset where to start from"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Limit results to this number"
-    },
-    "groupId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Filter by this group id"
-    },
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "timeFrame",
-    "type"
-  ]
-}
+
+```js
+clickmeter.aggregated.summary.datapoints.get({
+  "timeFrame": "",
+  "type": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedSummaryResult"
-}
-```
-## Operation: aggregated.summary.groups.get
+
+#### Parameters
+* timeFrame (string) **required** - Timeframe of the request. See list at $timeframeList
+* type (string) **required** - Type of datapoint ("tl"/"tp")
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+* status (string) - Status of datapoint ("deleted"/"active"/"paused"/"spam")
+* tag (string) - A comma separated list of tags you want to filter with.
+* favourite (boolean) - Is the datapoint marked as favourite
+* sortBy (string) - Field to sort by
+* sortDirection (string) - Direction of sort "asc" or "desc"
+* offset (integer) - Offset where to start from
+* limit (integer) - Limit results to this number
+* groupId (integer) - Filter by this group id
+* textSearch (string) - Filter fields by this pattern
+
+### aggregated.summary.groups.get
 Retrieve statistics about a subset of groups for a timeframe with groups data
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "timeFrame": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "today",
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "last12months",
-        "lastyear",
-        "currentyear",
-        "beginning",
-        "custom"
-      ]
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of group (\"deleted\"/\"active\")",
-      "enum": [
-        "deleted",
-        "active"
-      ]
-    },
-    "tag": {
-      "type": "string",
-      "description": "A comma separated list of tags you want to filter with."
-    },
-    "favourite": {
-      "type": "boolean",
-      "description": "Is the group marked as favourite"
-    },
-    "sortBy": {
-      "type": "string",
-      "description": "Field to sort by"
-    },
-    "sortDirection": {
-      "type": "string",
-      "description": "Direction of sort \"asc\" or \"desc\"",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Offset where to start from"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Limit results to this number"
-    },
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "timeFrame"
-  ]
-}
+
+```js
+clickmeter.aggregated.summary.groups.get({
+  "timeFrame": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedSummaryResult"
-}
-```
-## Operation: clickstream.get
+
+#### Parameters
+* timeFrame (string) **required** - Timeframe of the request. See list at $timeframeList
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+* status (string) - Status of group ("deleted"/"active")
+* tag (string) - A comma separated list of tags you want to filter with.
+* favourite (boolean) - Is the group marked as favourite
+* sortBy (string) - Field to sort by
+* sortDirection (string) - Direction of sort "asc" or "desc"
+* offset (integer) - Offset where to start from
+* limit (integer) - Limit results to this number
+* textSearch (string) - Filter fields by this pattern
+
+### clickstream.get
 Retrieve the latest list of events of this account. Limited to last 100.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "group": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Filter by this group id (mutually exclusive with \"datapoint\" and \"conversion\")"
-    },
-    "datapoint": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Filter by this datapoint id (mutually exclusive with \"group\" and \"conversion\")"
-    },
-    "conversion": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Filter by this conversion id (mutually exclusive with \"datapoint\" and \"group\")"
-    },
-    "pageSize": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Limit results to this number"
-    },
-    "filter": {
-      "type": "string",
-      "description": "Filter event type (\"spiders\"/\"uniques\"/\"nonuniques\"/\"conversions\")",
-      "enum": [
-        "",
-        "spiders",
-        "uniques",
-        "nonuniques",
-        "conversions"
-      ]
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+clickmeter.clickstream.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.ClickStream.Hit]"
-}
-```
-## Operation: conversions.get
+
+
+### conversions.get
 Retrieve a list of conversions
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Offset where to start from"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Limit results to this number"
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of conversion (\"deleted\"/\"active\")",
-      "enum": [
-        "deleted",
-        "active"
-      ]
-    },
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    },
-    "createdAfter": {
-      "type": "string",
-      "description": "Exclude conversions created before this date (YYYYMMDD)"
-    },
-    "createdBefore": {
-      "type": "string",
-      "description": "Exclude conversions created after this date (YYYYMMDD)"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+clickmeter.conversions.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
-}
-```
-## Operation: conversions.post
+
+
+### conversions.post
 Create a conversion
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "value": {
-      "$ref": "#/definitions/Api.Core.Dto.Conversions.Conversion"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "value"
-  ]
-}
+
+```js
+clickmeter.conversions.post({
+  "value": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: conversions.aggregated.list.get
+
+#### Parameters
+* value (object) **required**
+
+### conversions.aggregated.list.get
 Retrieve statistics about this customer for a timeframe related to a subset of conversions grouped by some temporal entity (day/week/month)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "timeFrame": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "today",
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "last12months",
-        "lastyear",
-        "currentyear",
-        "beginning",
-        "custom"
-      ]
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of conversion (\"deleted\"/\"active\")",
-      "enum": [
-        "deleted",
-        "active"
-      ]
-    },
-    "groupBy": {
-      "type": "string",
-      "description": "The temporal entity you want to group by (\"week\"/\"month\"). If unspecified is \"day\".",
-      "enum": [
-        "week",
-        "month"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "timeFrame"
-  ]
-}
+
+```js
+clickmeter.conversions.aggregated.list.get({
+  "timeFrame": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
-}
-```
-## Operation: conversions.count.get
+
+#### Parameters
+* timeFrame (string) **required** - Timeframe of the request. See list at $timeframeList
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+* status (string) - Status of conversion ("deleted"/"active")
+* groupBy (string) - The temporal entity you want to group by ("week"/"month"). If unspecified is "day".
+
+### conversions.count.get
 Retrieve a count of conversions
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "status": {
-      "type": "string",
-      "description": "Status of conversion (\"deleted\"/\"active\")",
-      "enum": [
-        "deleted",
-        "active"
-      ]
-    },
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    },
-    "createdAfter": {
-      "type": "string",
-      "description": "Exclude conversions created before this date (YYYYMMDD)"
-    },
-    "createdBefore": {
-      "type": "string",
-      "description": "Exclude conversions created after this date (YYYYMMDD)"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+clickmeter.conversions.count.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.CountResponce"
-}
-```
-## Operation: conversions.conversionId.delete
+
+
+### conversions.conversionId.delete
 Delete conversion specified by id
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "conversionId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the conversion"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "conversionId"
-  ]
-}
+
+```js
+clickmeter.conversions.conversionId.delete({
+  "conversionId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: conversions.conversionId.get
+
+#### Parameters
+* conversionId (integer) **required** - Id of the conversion
+
+### conversions.conversionId.get
 Retrieve conversion specified by id
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "conversionId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the conversion"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "conversionId"
-  ]
-}
+
+```js
+clickmeter.conversions.conversionId.get({
+  "conversionId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Conversions.Conversion"
-}
-```
-## Operation: conversions.conversionId.post
+
+#### Parameters
+* conversionId (integer) **required** - Id of the conversion
+
+### conversions.conversionId.post
 Update conversion specified by id
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "conversionId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the conversion"
-    },
-    "value": {
-      "$ref": "#/definitions/Api.Core.Dto.Conversions.Conversion"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "conversionId",
-    "value"
-  ]
-}
+
+```js
+clickmeter.conversions.conversionId.post({
+  "conversionId": 0,
+  "value": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: conversions.conversionId.aggregated.get
+
+#### Parameters
+* conversionId (integer) **required** - Id of the conversion
+* value (object) **required**
+
+### conversions.conversionId.aggregated.get
 Retrieve statistics about this conversion for a timeframe
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "conversionId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the conversion"
-    },
-    "timeFrame": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "today",
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "last12months",
-        "lastyear",
-        "currentyear",
-        "beginning",
-        "custom"
-      ]
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    },
-    "tag": {
-      "type": "string",
-      "description": "Filter by this tag name"
-    },
-    "favourite": {
-      "type": "boolean",
-      "description": "Is the datapoint marked as favourite"
-    },
-    "hourly": {
-      "type": "boolean",
-      "description": "If using \"yesterday\" or \"today\" timeframe you can ask for the hourly detail"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "conversionId",
-    "timeFrame"
-  ]
-}
+
+```js
+clickmeter.conversions.conversionId.aggregated.get({
+  "conversionId": 0,
+  "timeFrame": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedResult"
-}
-```
-## Operation: conversions.conversionId.aggregated.list.get
+
+#### Parameters
+* conversionId (integer) **required** - Id of the conversion
+* timeFrame (string) **required** - Timeframe of the request. See list at $timeframeList
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+* tag (string) - Filter by this tag name
+* favourite (boolean) - Is the datapoint marked as favourite
+* hourly (boolean) - If using "yesterday" or "today" timeframe you can ask for the hourly detail
+
+### conversions.conversionId.aggregated.list.get
 Retrieve statistics about this conversion for a timeframe grouped by some temporal entity (day/week/month)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "conversionId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the conversion"
-    },
-    "timeFrame": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "today",
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "last12months",
-        "lastyear",
-        "currentyear",
-        "beginning",
-        "custom"
-      ]
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    },
-    "groupBy": {
-      "type": "string",
-      "description": "The temporal entity you want to group by (\"week\"/\"month\"). If unspecified is \"day\".",
-      "enum": [
-        "week",
-        "month"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "conversionId",
-    "timeFrame"
-  ]
-}
+
+```js
+clickmeter.conversions.conversionId.aggregated.list.get({
+  "conversionId": 0,
+  "timeFrame": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
-}
-```
-## Operation: conversions.conversionId.datapoints.get
+
+#### Parameters
+* conversionId (integer) **required** - Id of the conversion
+* timeFrame (string) **required** - Timeframe of the request. See list at $timeframeList
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+* groupBy (string) - The temporal entity you want to group by ("week"/"month"). If unspecified is "day".
+
+### conversions.conversionId.datapoints.get
 Retrieve a list of datapoints connected to this conversion
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "conversionId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the conversion"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Offset where to start from"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Limit results to this number"
-    },
-    "type": {
-      "type": "string",
-      "description": "Type of datapoint (\"tl\"/\"tp\")",
-      "enum": [
-        "tp",
-        "tl"
-      ]
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of datapoint (\"deleted\"/\"active\"/\"paused\"/\"spam\")",
-      "enum": [
-        "deleted",
-        "active",
-        "paused",
-        "spam"
-      ]
-    },
-    "tags": {
-      "type": "string",
-      "description": "Filter by this tag name"
-    },
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    },
-    "createdAfter": {
-      "type": "string",
-      "description": "Exclude datapoints created before this date (YYYYMMDD)"
-    },
-    "createdBefore": {
-      "type": "string",
-      "description": "Exclude datapoints created after this date (YYYYMMDD)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "conversionId"
-  ]
-}
+
+```js
+clickmeter.conversions.conversionId.datapoints.get({
+  "conversionId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
-}
-```
-## Operation: conversions.conversionId.datapoints.batch.patch.put
+
+#### Parameters
+* conversionId (integer) **required** - Id of the conversion
+* offset (integer) - Offset where to start from
+* limit (integer) - Limit results to this number
+* type (string) - Type of datapoint ("tl"/"tp")
+* status (string) - Status of datapoint ("deleted"/"active"/"paused"/"spam")
+* tags (string) - Filter by this tag name
+* textSearch (string) - Filter fields by this pattern
+* createdAfter (string) - Exclude datapoints created before this date (YYYYMMDD)
+* createdBefore (string) - Exclude datapoints created after this date (YYYYMMDD)
+
+### conversions.conversionId.datapoints.batch.patch.put
 Modify the association between a conversion and multiple datapoints
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "conversionId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the conversion"
-    },
-    "data": {
-      "$ref": "#/definitions/Api.Core.Requests.PatchBodyBatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "conversionId",
-    "data"
-  ]
-}
+
+```js
+clickmeter.conversions.conversionId.datapoints.batch.patch.put({
+  "conversionId": 0,
+  "data": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: conversions.conversionId.datapoints.count.get
+
+#### Parameters
+* conversionId (integer) **required** - Id of the conversion
+* data (object) **required**
+
+### conversions.conversionId.datapoints.count.get
 Retrieve a count of datapoints connected to this conversion
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "conversionId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the conversion"
-    },
-    "type": {
-      "type": "string",
-      "description": "Type of datapoint (\"tl\"/\"tp\")"
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of datapoint (\"deleted\"/\"active\"/\"paused\"/\"spam\")"
-    },
-    "tags": {
-      "type": "string",
-      "description": "Filter by this tag name"
-    },
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    },
-    "createdAfter": {
-      "type": "string",
-      "description": "Exclude datapoints created before this date (YYYYMMDD)"
-    },
-    "createdBefore": {
-      "type": "string",
-      "description": "Exclude datapoints created after this date (YYYYMMDD)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "conversionId"
-  ]
-}
+
+```js
+clickmeter.conversions.conversionId.datapoints.count.get({
+  "conversionId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.CountResponce"
-}
-```
-## Operation: conversions.conversionId.datapoints.patch.put
+
+#### Parameters
+* conversionId (integer) **required** - Id of the conversion
+* type (string) - Type of datapoint ("tl"/"tp")
+* status (string) - Status of datapoint ("deleted"/"active"/"paused"/"spam")
+* tags (string) - Filter by this tag name
+* textSearch (string) - Filter fields by this pattern
+* createdAfter (string) - Exclude datapoints created before this date (YYYYMMDD)
+* createdBefore (string) - Exclude datapoints created after this date (YYYYMMDD)
+
+### conversions.conversionId.datapoints.patch.put
 Modify the association between a conversion and a datapoint
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "conversionId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the conversion"
-    },
-    "data": {
-      "$ref": "#/definitions/Api.Core.Requests.ConversionPatchBody"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "conversionId",
-    "data"
-  ]
-}
+
+```js
+clickmeter.conversions.conversionId.datapoints.patch.put({
+  "conversionId": 0,
+  "data": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: conversions.conversionId.hits.get
+
+#### Parameters
+* conversionId (integer) **required** - Id of the conversion
+* data (object) **required**
+
+### conversions.conversionId.hits.get
 Retrieve the list of events related to this conversion.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "conversionId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the conversion"
-    },
-    "timeframe": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "custom"
-      ]
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Limit results to this number"
-    },
-    "offset": {
-      "type": "string",
-      "description": "Offset where to start from (it's the lastKey field in the response object)"
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    },
-    "filter": {
-      "type": "string",
-      "description": "Filter event type (\"spiders\"/\"uniques\"/\"nonuniques\"/\"conversions\")",
-      "enum": [
-        "spiders",
-        "uniques",
-        "nonuniques",
-        "conversions"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "conversionId",
-    "timeframe"
-  ]
-}
+
+```js
+clickmeter.conversions.conversionId.hits.get({
+  "conversionId": 0,
+  "timeframe": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitListPage"
-}
-```
-## Operation: conversions.conversionId.notes.put
+
+#### Parameters
+* conversionId (integer) **required** - Id of the conversion
+* timeframe (string) **required** - Timeframe of the request. See list at $timeframeList
+* limit (integer) - Limit results to this number
+* offset (string) - Offset where to start from (it's the lastKey field in the response object)
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+* filter (string) - Filter event type ("spiders"/"uniques"/"nonuniques"/"conversions")
+
+### conversions.conversionId.notes.put
 Fast patch the "notes" field of a conversion
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "conversionId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the conversion"
-    },
-    "note": {
-      "$ref": "#/definitions/Api.Core.Requests.GenericTextPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "conversionId",
-    "note"
-  ]
-}
+
+```js
+clickmeter.conversions.conversionId.notes.put({
+  "conversionId": 0,
+  "note": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: conversions.conversionId.reports.get
+
+#### Parameters
+* conversionId (integer) **required** - Id of the conversion
+* note (object) **required**
+
+### conversions.conversionId.reports.get
 Retrieve a top report connected to this conversion
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "conversionId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the conversion"
-    },
-    "type": {
-      "type": "string",
-      "description": "Type of the report.",
-      "enum": [
-        "datapoints",
-        "groups",
-        "browsers",
-        "browsersfamilies",
-        "platforms",
-        "cities",
-        "countries",
-        "keywords",
-        "referrers",
-        "convparameters",
-        "destinations",
-        "languages",
-        "params"
-      ]
-    },
-    "timeframe": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "beginning",
-        "custom"
-      ]
-    },
-    "hittype": {
-      "type": "string",
-      "description": "Type of the event you want to filter this report with. By default no filter is applied.",
-      "enum": [
-        "clicks",
-        "views"
-      ]
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "conversionId",
-    "type",
-    "timeframe"
-  ]
-}
+
+```js
+clickmeter.conversions.conversionId.reports.get({
+  "conversionId": 0,
+  "type": "",
+  "timeframe": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Tops.Top"
-}
-```
-## Operation: datapoints.get
+
+#### Parameters
+* conversionId (integer) **required** - Id of the conversion
+* type (string) **required** - Type of the report.
+* timeframe (string) **required** - Timeframe of the request. See list at $timeframeList
+* hittype (string) - Type of the event you want to filter this report with. By default no filter is applied.
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+
+### datapoints.get
 List of all the datapoints associated to the user
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Where to start when retrieving elements. Default is 0 if not specified."
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum elements to retrieve. Default to 20 if not specified."
-    },
-    "type": {
-      "type": "string",
-      "description": "Type of the datapoint (\"tp\"/\"tl\")",
-      "enum": [
-        "tp",
-        "tl"
-      ]
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of the datapoint",
-      "enum": [
-        "deleted",
-        "active",
-        "paused",
-        "spam"
-      ]
-    },
-    "tags": {
-      "type": "string",
-      "description": "A comma separated list of tags you want to filter with."
-    },
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    },
-    "onlyFavorites": {
-      "type": "boolean",
-      "description": "Filter fields by favourite status"
-    },
-    "sortBy": {
-      "type": "string",
-      "description": "Field to sort by"
-    },
-    "sortDirection": {
-      "type": "string",
-      "description": "Direction of sort \"asc\" or \"desc\"",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "createdAfter": {
-      "type": "string",
-      "description": "Exclude datapoints created before this date (YYYYMMDD)"
-    },
-    "createdBefore": {
-      "type": "string",
-      "description": "Exclude datapoints created after this date (YYYYMMDD)"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+clickmeter.datapoints.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
-}
-```
-## Operation: datapoints.post
+
+
+### datapoints.post
 Create a datapoint
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "value": {
-      "$ref": "#/definitions/Api.Core.Dto.Datapoints.Datapoint"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "value"
-  ]
-}
+
+```js
+clickmeter.datapoints.post({
+  "value": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: datapoints.aggregated.get
+
+#### Parameters
+* value (object) **required**
+
+### datapoints.aggregated.get
 Retrieve statistics about this customer for a timeframe by groups
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "timeFrame": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "today",
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "last12months",
-        "lastyear",
-        "currentyear",
-        "beginning",
-        "custom"
-      ]
-    },
-    "type": {
-      "type": "string",
-      "description": "Type of datapoint (\"tl\"/\"tp\")",
-      "enum": [
-        "tp",
-        "tl"
-      ]
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    },
-    "hourly": {
-      "type": "boolean",
-      "description": "If using \"yesterday\" or \"today\" timeframe you can ask for the hourly detail"
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of datapoint (\"deleted\"/\"active\"/\"paused\"/\"spam\")",
-      "enum": [
-        "deleted",
-        "active",
-        "paused",
-        "spam"
-      ]
-    },
-    "tag": {
-      "type": "string",
-      "description": "A comma separated list of tags you want to filter with."
-    },
-    "favourite": {
-      "type": "boolean",
-      "description": "Is the datapoint is marked as favourite"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "timeFrame"
-  ]
-}
+
+```js
+clickmeter.datapoints.aggregated.get({
+  "timeFrame": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedResult"
-}
-```
-## Operation: datapoints.aggregated.list.get
+
+#### Parameters
+* timeFrame (string) **required** - Timeframe of the request. See list at $timeframeList
+* type (string) - Type of datapoint ("tl"/"tp")
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+* hourly (boolean) - If using "yesterday" or "today" timeframe you can ask for the hourly detail
+* status (string) - Status of datapoint ("deleted"/"active"/"paused"/"spam")
+* tag (string) - A comma separated list of tags you want to filter with.
+* favourite (boolean) - Is the datapoint is marked as favourite
+
+### datapoints.aggregated.list.get
 Retrieve statistics about all datapoints of this customer for a timeframe grouped by some temporal entity (day/week/month)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "type": {
-      "type": "string",
-      "description": "Type of datapoint (\"tl\"/\"tp\")",
-      "enum": [
-        "tp",
-        "tl"
-      ]
-    },
-    "timeFrame": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "today",
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "last12months",
-        "lastyear",
-        "currentyear",
-        "beginning",
-        "custom"
-      ]
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of datapoint (\"deleted\"/\"active\"/\"paused\"/\"spam\")",
-      "enum": [
-        "deleted",
-        "active",
-        "paused",
-        "spam"
-      ]
-    },
-    "tag": {
-      "type": "string",
-      "description": "A comma separated list of tags you want to filter with."
-    },
-    "favourite": {
-      "type": "boolean",
-      "description": "Is the datapoint is marked as favourite"
-    },
-    "groupBy": {
-      "type": "string",
-      "description": "The temporal entity you want to group by (\"week\"/\"month\"). If unspecified is \"day\".",
-      "enum": [
-        "week",
-        "month"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "type",
-    "timeFrame"
-  ]
-}
+
+```js
+clickmeter.datapoints.aggregated.list.get({
+  "type": "",
+  "timeFrame": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
-}
-```
-## Operation: datapoints.batch.delete
+
+#### Parameters
+* type (string) **required** - Type of datapoint ("tl"/"tp")
+* timeFrame (string) **required** - Timeframe of the request. See list at $timeframeList
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+* status (string) - Status of datapoint ("deleted"/"active"/"paused"/"spam")
+* tag (string) - A comma separated list of tags you want to filter with.
+* favourite (boolean) - Is the datapoint is marked as favourite
+* groupBy (string) - The temporal entity you want to group by ("week"/"month"). If unspecified is "day".
+
+### datapoints.batch.delete
 Delete multiple datapoints
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "batch": {
-      "$ref": "#/definitions/Api.Core.Requests.DeleteBatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "batch"
-  ]
-}
+
+```js
+clickmeter.datapoints.batch.delete({
+  "batch": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.ModifyBatchItemResponce[Api.Core.Dto.Datapoints.Datapoint,System.Int64]"
-}
-```
-## Operation: datapoints.batch.post
+
+#### Parameters
+* batch (object) **required**
+
+### datapoints.batch.post
 Update multiple datapoints
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "batch": {
-      "$ref": "#/definitions/Api.Core.Requests.DatapointsBatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "batch"
-  ]
-}
+
+```js
+clickmeter.datapoints.batch.post({
+  "batch": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.ModifyBatchItemResponce[Api.Core.Dto.Datapoints.Datapoint,System.Int64]"
-}
-```
-## Operation: datapoints.batch.put
+
+#### Parameters
+* batch (object) **required**
+
+### datapoints.batch.put
 Create multiple datapoints
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "batch": {
-      "$ref": "#/definitions/Api.Core.Requests.DatapointsBatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "batch"
-  ]
-}
+
+```js
+clickmeter.datapoints.batch.put({
+  "batch": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.ModifyBatchItemResponce[Api.Core.Dto.Datapoints.Datapoint,System.Int64]"
-}
-```
-## Operation: datapoints.count.get
+
+#### Parameters
+* batch (object) **required**
+
+### datapoints.count.get
 Count the datapoints associated to the user
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "type": {
-      "type": "string",
-      "description": "Type of the datapoint (\"tp\"/\"tl\")",
-      "enum": [
-        "tp",
-        "tl"
-      ]
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of the datapoint",
-      "enum": [
-        "deleted",
-        "active",
-        "paused",
-        "spam"
-      ]
-    },
-    "tags": {
-      "type": "string",
-      "description": "A comma separated list of tags you want to filter with."
-    },
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    },
-    "onlyFavorites": {
-      "type": "boolean",
-      "description": "Filter fields by favourite status"
-    },
-    "createdAfter": {
-      "type": "string",
-      "description": "Exclude datapoints created before this date (YYYYMMDD)"
-    },
-    "createdBefore": {
-      "type": "string",
-      "description": "Exclude datapoints created after this date (YYYYMMDD)"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+clickmeter.datapoints.count.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.CountResponce"
-}
-```
-## Operation: datapoints.id.delete
+
+
+### datapoints.id.delete
 Delete a datapoint
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "The id of the datapoint"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+clickmeter.datapoints.id.delete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: datapoints.id.get
+
+#### Parameters
+* id (integer) **required** - The id of the datapoint
+
+### datapoints.id.get
 Get a datapoint
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "The id of the datapoint"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+clickmeter.datapoints.id.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Datapoints.Datapoint"
-}
-```
-## Operation: datapoints.id.post
+
+#### Parameters
+* id (integer) **required** - The id of the datapoint
+
+### datapoints.id.post
 Update a datapoint
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "The id of the datapoint"
-    },
-    "value": {
-      "$ref": "#/definitions/Api.Core.Dto.Datapoints.Datapoint"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "value"
-  ]
-}
+
+```js
+clickmeter.datapoints.id.post({
+  "id": 0,
+  "value": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: datapoints.id.aggregated.get
+
+#### Parameters
+* id (integer) **required** - The id of the datapoint
+* value (object) **required**
+
+### datapoints.id.aggregated.get
 Retrieve statistics about this datapoint for a timeframe
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the datapoint"
-    },
-    "timeFrame": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "today",
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "last12months",
-        "lastyear",
-        "currentyear",
-        "beginning",
-        "custom"
-      ]
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    },
-    "hourly": {
-      "type": "boolean",
-      "description": "If using \"yesterday\" or \"today\" timeframe you can ask for the hourly detail"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "timeFrame"
-  ]
-}
+
+```js
+clickmeter.datapoints.id.aggregated.get({
+  "id": 0,
+  "timeFrame": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedResult"
-}
-```
-## Operation: datapoints.id.aggregated.list.get
+
+#### Parameters
+* id (integer) **required** - Id of the datapoint
+* timeFrame (string) **required** - Timeframe of the request. See list at $timeframeList
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+* hourly (boolean) - If using "yesterday" or "today" timeframe you can ask for the hourly detail
+
+### datapoints.id.aggregated.list.get
 Retrieve statistics about this datapoint for a timeframe grouped by some temporal entity (day/week/month)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the datapoint"
-    },
-    "timeFrame": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "today",
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "last12months",
-        "lastyear",
-        "currentyear",
-        "beginning",
-        "custom"
-      ]
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    },
-    "groupBy": {
-      "type": "string",
-      "description": "The temporal entity you want to group by (\"week\"/\"month\"). If unspecified is \"day\".",
-      "enum": [
-        "week",
-        "month"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "timeFrame"
-  ]
-}
+
+```js
+clickmeter.datapoints.id.aggregated.list.get({
+  "id": 0,
+  "timeFrame": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
-}
-```
-## Operation: datapoints.id.favourite.put
+
+#### Parameters
+* id (integer) **required** - Id of the datapoint
+* timeFrame (string) **required** - Timeframe of the request. See list at $timeframeList
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+* groupBy (string) - The temporal entity you want to group by ("week"/"month"). If unspecified is "day".
+
+### datapoints.id.favourite.put
 Fast switch the "favourite" field of a datapoint
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the datapoint"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+clickmeter.datapoints.id.favourite.put({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: datapoints.id.hits.get
+
+#### Parameters
+* id (integer) **required** - Id of the datapoint
+
+### datapoints.id.hits.get
 Retrieve the list of events related to this datapoint.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the datapoint"
-    },
-    "timeframe": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "custom"
-      ]
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Limit results to this number"
-    },
-    "offset": {
-      "type": "string",
-      "description": "Offset where to start from (it's the lastKey field in the response object)"
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    },
-    "filter": {
-      "type": "string",
-      "description": "Filter event type (\"spiders\"/\"uniques\"/\"nonuniques\"/\"conversions\")",
-      "enum": [
-        "spiders",
-        "uniques",
-        "nonuniques",
-        "conversions"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "timeframe"
-  ]
-}
+
+```js
+clickmeter.datapoints.id.hits.get({
+  "id": 0,
+  "timeframe": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitListPage"
-}
-```
-## Operation: datapoints.id.notes.put
+
+#### Parameters
+* id (integer) **required** - Id of the datapoint
+* timeframe (string) **required** - Timeframe of the request. See list at $timeframeList
+* limit (integer) - Limit results to this number
+* offset (string) - Offset where to start from (it's the lastKey field in the response object)
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+* filter (string) - Filter event type ("spiders"/"uniques"/"nonuniques"/"conversions")
+
+### datapoints.id.notes.put
 Fast patch the "notes" field of a datapoint
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the datapoint"
-    },
-    "note": {
-      "$ref": "#/definitions/Api.Core.Requests.GenericTextPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "note"
-  ]
-}
+
+```js
+clickmeter.datapoints.id.notes.put({
+  "id": 0,
+  "note": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: datapoints.id.reports.get
+
+#### Parameters
+* id (integer) **required** - Id of the datapoint
+* note (object) **required**
+
+### datapoints.id.reports.get
 Retrieve a top report connected to this datapoint
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the datapoint"
-    },
-    "type": {
-      "type": "string",
-      "description": "Type of the report.",
-      "enum": [
-        "browsers",
-        "browsersfamilies",
-        "platforms",
-        "cities",
-        "countries",
-        "isps",
-        "ips",
-        "oss",
-        "ossfamilies",
-        "keywords",
-        "referrers",
-        "destinations",
-        "languages",
-        "params"
-      ]
-    },
-    "timeframe": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "beginning",
-        "custom"
-      ]
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "type",
-    "timeframe"
-  ]
-}
+
+```js
+clickmeter.datapoints.id.reports.get({
+  "id": 0,
+  "type": "",
+  "timeframe": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Tops.Top"
-}
-```
-## Operation: domains.get
+
+#### Parameters
+* id (integer) **required** - Id of the datapoint
+* type (string) **required** - Type of the report.
+* timeframe (string) **required** - Timeframe of the request. See list at $timeframeList
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+
+### domains.get
 Retrieve a list of domains
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Offset where to start from"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Limit results to this number"
-    },
-    "type": {
-      "type": "string",
-      "description": "Type of domain (\"system\"/\"go\"/\"personal\"/\"dedicated\"). If not specified default is \"system\"",
-      "enum": [
-        "system",
-        "go",
-        "personal",
-        "dedicated"
-      ]
-    },
-    "name": {
-      "type": "string",
-      "description": "Filter domains with this anmen"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+clickmeter.domains.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
-}
-```
-## Operation: domains.post
+
+
+### domains.post
 Create a domain
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "value": {
-      "$ref": "#/definitions/Api.Core.Dto.Domains.Domain"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "value"
-  ]
-}
+
+```js
+clickmeter.domains.post({
+  "value": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: domains.count.get
+
+#### Parameters
+* value (object) **required**
+
+### domains.count.get
 Retrieve count of domains
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "type": {
-      "type": "string",
-      "description": "Type of domain (\"system\"/\"go\"/\"personal\"/\"dedicated\"). If not specified default is \"system\"",
-      "enum": [
-        "system",
-        "go",
-        "personal",
-        "dedicated"
-      ]
-    },
-    "name": {
-      "type": "string",
-      "description": "Filter domains with this anmen"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+clickmeter.domains.count.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.CountResponce"
-}
-```
-## Operation: domains.id.delete
+
+
+### domains.id.delete
 Delete a domain
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of domain"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+clickmeter.domains.id.delete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: domains.id.get
+
+#### Parameters
+* id (integer) **required** - Id of domain
+
+### domains.id.get
 Get a domain
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of domain"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+clickmeter.domains.id.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Domains.Domain"
-}
-```
-## Operation: domains.id.post
+
+#### Parameters
+* id (integer) **required** - Id of domain
+
+### domains.id.post
 Update a domain
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of domain"
-    },
-    "value": {
-      "$ref": "#/definitions/Api.Core.Dto.Domains.Domain"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "value"
-  ]
-}
+
+```js
+clickmeter.domains.id.post({
+  "id": 0,
+  "value": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: groups.get
+
+#### Parameters
+* id (integer) **required** - Id of domain
+* value (object) **required**
+
+### groups.get
 List of all the groups associated to the user.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Where to start when retrieving elements. Default is 0 if not specified."
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum elements to retrieve. Default to 20 if not specified."
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of the group",
-      "enum": [
-        "deleted",
-        "active"
-      ]
-    },
-    "tags": {
-      "type": "string",
-      "description": "A comma separated list of tags you want to filter with."
-    },
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    },
-    "createdAfter": {
-      "type": "string",
-      "description": "Exclude groups created before this date (YYYYMMDD)"
-    },
-    "createdBefore": {
-      "type": "string",
-      "description": "Exclude groups created after this date (YYYYMMDD)"
-    },
-    "write": {
-      "type": "boolean",
-      "description": "Write permission"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+clickmeter.groups.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
-}
-```
-## Operation: groups.post
+
+
+### groups.post
 Create a group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "value": {
-      "$ref": "#/definitions/Api.Core.Dto.Groups.Group"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "value"
-  ]
-}
+
+```js
+clickmeter.groups.post({
+  "value": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: groups.aggregated.get
+
+#### Parameters
+* value (object) **required**
+
+### groups.aggregated.get
 Retrieve statistics about this customer for a timeframe by groups
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "timeFrame": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "today",
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "last12months",
-        "lastyear",
-        "currentyear",
-        "beginning",
-        "custom"
-      ]
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    },
-    "hourly": {
-      "type": "boolean",
-      "description": "If using \"yesterday\" or \"today\" timeframe you can ask for the hourly detail"
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of group (\"deleted\"/\"active\")",
-      "enum": [
-        "deleted",
-        "active"
-      ]
-    },
-    "tag": {
-      "type": "string",
-      "description": "A comma separated list of tags you want to filter with."
-    },
-    "favourite": {
-      "type": "boolean",
-      "description": "Is the group is marked as favourite"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "timeFrame"
-  ]
-}
+
+```js
+clickmeter.groups.aggregated.get({
+  "timeFrame": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedResult"
-}
-```
-## Operation: groups.aggregated.list.get
+
+#### Parameters
+* timeFrame (string) **required** - Timeframe of the request. See list at $timeframeList
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+* hourly (boolean) - If using "yesterday" or "today" timeframe you can ask for the hourly detail
+* status (string) - Status of group ("deleted"/"active")
+* tag (string) - A comma separated list of tags you want to filter with.
+* favourite (boolean) - Is the group is marked as favourite
+
+### groups.aggregated.list.get
 Retrieve statistics about all groups of this customer for a timeframe grouped by some temporal entity (day/week/month)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "timeFrame": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "today",
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "last12months",
-        "lastyear",
-        "currentyear",
-        "beginning",
-        "custom"
-      ]
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of group (\"deleted\"/\"active\")"
-    },
-    "tag": {
-      "type": "string",
-      "description": "A comma separated list of tags you want to filter with."
-    },
-    "favourite": {
-      "type": "boolean",
-      "description": "Is the group is marked as favourite"
-    },
-    "groupBy": {
-      "type": "string",
-      "description": "The temporal entity you want to group by (\"week\"/\"month\"). If unspecified is \"day\".",
-      "enum": [
-        "deleted",
-        "active"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "timeFrame"
-  ]
-}
+
+```js
+clickmeter.groups.aggregated.list.get({
+  "timeFrame": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
-}
-```
-## Operation: groups.count.get
+
+#### Parameters
+* timeFrame (string) **required** - Timeframe of the request. See list at $timeframeList
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+* status (string) - Status of group ("deleted"/"active")
+* tag (string) - A comma separated list of tags you want to filter with.
+* favourite (boolean) - Is the group is marked as favourite
+* groupBy (string) - The temporal entity you want to group by ("week"/"month"). If unspecified is "day".
+
+### groups.count.get
 Count the groups associated to the user.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "status": {
-      "type": "string",
-      "description": "Status of the datapoint",
-      "enum": [
-        "deleted",
-        "active"
-      ]
-    },
-    "tags": {
-      "type": "string",
-      "description": "A comma separated list of tags you want to filter with."
-    },
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    },
-    "createdAfter": {
-      "type": "string",
-      "description": "Exclude groups created before this date (YYYYMMDD)"
-    },
-    "createdBefore": {
-      "type": "string",
-      "description": "Exclude groups created after this date (YYYYMMDD)"
-    },
-    "write": {
-      "type": "boolean",
-      "description": "Write permission"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+clickmeter.groups.count.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.CountResponce"
-}
-```
-## Operation: groups.id.delete
+
+
+### groups.id.delete
 Delete group specified by id
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the group"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+clickmeter.groups.id.delete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: groups.id.get
+
+#### Parameters
+* id (integer) **required** - Id of the group
+
+### groups.id.get
 Get a group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "The id of the group"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+clickmeter.groups.id.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Groups.Group"
-}
-```
-## Operation: groups.id.post
+
+#### Parameters
+* id (integer) **required** - The id of the group
+
+### groups.id.post
 Update a group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "The id of the group"
-    },
-    "value": {
-      "$ref": "#/definitions/Api.Core.Dto.Groups.Group"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "value"
-  ]
-}
+
+```js
+clickmeter.groups.id.post({
+  "id": 0,
+  "value": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: groups.id.aggregated.get
+
+#### Parameters
+* id (integer) **required** - The id of the group
+* value (object) **required**
+
+### groups.id.aggregated.get
 Retrieve statistics about this group for a timeframe
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the group"
-    },
-    "timeFrame": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "today",
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "last12months",
-        "lastyear",
-        "currentyear",
-        "beginning",
-        "custom"
-      ]
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    },
-    "hourly": {
-      "type": "boolean",
-      "description": "If using \"yesterday\" or \"today\" timeframe you can ask for the hourly detail"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "timeFrame"
-  ]
-}
+
+```js
+clickmeter.groups.id.aggregated.get({
+  "id": 0,
+  "timeFrame": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedResult"
-}
-```
-## Operation: groups.id.aggregated.list.get
+
+#### Parameters
+* id (integer) **required** - Id of the group
+* timeFrame (string) **required** - Timeframe of the request. See list at $timeframeList
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+* hourly (boolean) - If using "yesterday" or "today" timeframe you can ask for the hourly detail
+
+### groups.id.aggregated.list.get
 Retrieve statistics about this group for a timeframe grouped by some temporal entity (day/week/month)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the group"
-    },
-    "timeFrame": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "today",
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "last12months",
-        "lastyear",
-        "currentyear",
-        "beginning",
-        "custom"
-      ]
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    },
-    "groupBy": {
-      "type": "string",
-      "description": "The temporal entity you want to group by (\"week\"/\"month\"). If unspecified is \"day\".",
-      "enum": [
-        "week",
-        "month"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "timeFrame"
-  ]
-}
+
+```js
+clickmeter.groups.id.aggregated.list.get({
+  "id": 0,
+  "timeFrame": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Dto.Aggregated.AggregatedResult]"
-}
-```
-## Operation: groups.id.aggregated.summary.get
+
+#### Parameters
+* id (integer) **required** - Id of the group
+* timeFrame (string) **required** - Timeframe of the request. See list at $timeframeList
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+* groupBy (string) - The temporal entity you want to group by ("week"/"month"). If unspecified is "day".
+
+### groups.id.aggregated.summary.get
 Retrieve statistics about a subset of datapoints for a timeframe with datapoints data
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Filter by this group id"
-    },
-    "timeFrame": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "today",
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "last12months",
-        "lastyear",
-        "currentyear",
-        "beginning",
-        "custom"
-      ]
-    },
-    "type": {
-      "type": "string",
-      "description": "Type of datapoint (\"tl\"/\"tp\")",
-      "enum": [
-        "tp",
-        "tl"
-      ]
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of datapoint (\"deleted\"/\"active\"/\"paused\"/\"spam\")",
-      "enum": [
-        "deleted",
-        "active"
-      ]
-    },
-    "tag": {
-      "type": "string",
-      "description": "A comma separated list of tags you want to filter with."
-    },
-    "favourite": {
-      "type": "boolean",
-      "description": "Is the datapoint marked as favourite"
-    },
-    "sortBy": {
-      "type": "string",
-      "description": "Field to sort by"
-    },
-    "sortDirection": {
-      "type": "string",
-      "description": "Direction of sort \"asc\" or \"desc\"",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Offset where to start from"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Limit results to this number"
-    },
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "timeFrame"
-  ]
-}
+
+```js
+clickmeter.groups.id.aggregated.summary.get({
+  "id": 0,
+  "timeFrame": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Aggregated.AggregatedSummaryResult"
-}
-```
-## Operation: groups.id.datapoints.get
+
+#### Parameters
+* id (integer) **required** - Filter by this group id
+* timeFrame (string) **required** - Timeframe of the request. See list at $timeframeList
+* type (string) - Type of datapoint ("tl"/"tp")
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+* status (string) - Status of datapoint ("deleted"/"active"/"paused"/"spam")
+* tag (string) - A comma separated list of tags you want to filter with.
+* favourite (boolean) - Is the datapoint marked as favourite
+* sortBy (string) - Field to sort by
+* sortDirection (string) - Direction of sort "asc" or "desc"
+* offset (integer) - Offset where to start from
+* limit (integer) - Limit results to this number
+* textSearch (string) - Filter fields by this pattern
+
+### groups.id.datapoints.get
 List of all the datapoints associated to the user in this group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the group"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Where to start when retrieving elements. Default is 0 if not specified."
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum elements to retrieve. Default to 20 if not specified."
-    },
-    "type": {
-      "type": "string",
-      "description": "Type of the datapoint (\"tp\"/\"tl\")",
-      "enum": [
-        "tp",
-        "tl"
-      ]
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of the datapoint",
-      "enum": [
-        "deleted",
-        "active",
-        "paused",
-        "spam"
-      ]
-    },
-    "tags": {
-      "type": "string",
-      "description": "A comma separated list of tags you want to filter with."
-    },
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    },
-    "onlyFavorites": {
-      "type": "boolean",
-      "description": "Filter fields by favourite status"
-    },
-    "sortBy": {
-      "type": "string",
-      "description": "Field to sort by"
-    },
-    "sortDirection": {
-      "type": "string",
-      "description": "Direction of sort \"asc\" or \"desc\"",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "createdAfter": {
-      "type": "string",
-      "description": "Exclude datapoints created before this date (YYYYMMDD)"
-    },
-    "createdBefore": {
-      "type": "string",
-      "description": "Exclude datapoints created after this date (YYYYMMDD)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+clickmeter.groups.id.datapoints.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
-}
-```
-## Operation: groups.id.datapoints.post
+
+#### Parameters
+* id (integer) **required** - Id of the group
+* offset (integer) - Where to start when retrieving elements. Default is 0 if not specified.
+* limit (integer) - Maximum elements to retrieve. Default to 20 if not specified.
+* type (string) - Type of the datapoint ("tp"/"tl")
+* status (string) - Status of the datapoint
+* tags (string) - A comma separated list of tags you want to filter with.
+* textSearch (string) - Filter fields by this pattern
+* onlyFavorites (boolean) - Filter fields by favourite status
+* sortBy (string) - Field to sort by
+* sortDirection (string) - Direction of sort "asc" or "desc"
+* createdAfter (string) - Exclude datapoints created before this date (YYYYMMDD)
+* createdBefore (string) - Exclude datapoints created after this date (YYYYMMDD)
+
+### groups.id.datapoints.post
 Create a datapoint in this group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "The id of the group"
-    },
-    "value": {
-      "$ref": "#/definitions/Api.Core.Dto.Datapoints.Datapoint"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "value"
-  ]
-}
+
+```js
+clickmeter.groups.id.datapoints.post({
+  "id": 0,
+  "value": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: groups.id.datapoints.count.get
+
+#### Parameters
+* id (integer) **required** - The id of the group
+* value (object) **required**
+
+### groups.id.datapoints.count.get
 Count the datapoints associated to the user in this group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the group"
-    },
-    "type": {
-      "type": "string",
-      "description": "Type of the datapoint (\"tp\"/\"tl\")",
-      "enum": [
-        "tp",
-        "tl"
-      ]
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of the datapoint",
-      "enum": [
-        "deleted",
-        "active",
-        "paused",
-        "spam"
-      ]
-    },
-    "tags": {
-      "type": "string",
-      "description": "A comma separated list of tags you want to filter with."
-    },
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    },
-    "onlyFavorites": {
-      "type": "boolean",
-      "description": "Filter fields by favourite status"
-    },
-    "createdAfter": {
-      "type": "string",
-      "description": "Exclude datapoints created before this date (YYYYMMDD)"
-    },
-    "createdBefore": {
-      "type": "string",
-      "description": "Exclude datapoints created after this date (YYYYMMDD)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+clickmeter.groups.id.datapoints.count.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.CountResponce"
-}
-```
-## Operation: groups.id.favourite.put
+
+#### Parameters
+* id (integer) **required** - Id of the group
+* type (string) - Type of the datapoint ("tp"/"tl")
+* status (string) - Status of the datapoint
+* tags (string) - A comma separated list of tags you want to filter with.
+* textSearch (string) - Filter fields by this pattern
+* onlyFavorites (boolean) - Filter fields by favourite status
+* createdAfter (string) - Exclude datapoints created before this date (YYYYMMDD)
+* createdBefore (string) - Exclude datapoints created after this date (YYYYMMDD)
+
+### groups.id.favourite.put
 Fast switch the "favourite" field of a group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the group"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+clickmeter.groups.id.favourite.put({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: groups.id.hits.get
+
+#### Parameters
+* id (integer) **required** - Id of the group
+
+### groups.id.hits.get
 Retrieve the list of events related to this group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the group"
-    },
-    "timeframe": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "custom"
-      ]
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Limit results to this number"
-    },
-    "offset": {
-      "type": "string",
-      "description": "Offset where to start from (it's the lastKey field in the response object)"
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    },
-    "filter": {
-      "type": "string",
-      "description": "Filter event type (\"spiders\"/\"uniques\"/\"nonuniques\"/\"conversions\")",
-      "enum": [
-        "spiders",
-        "uniques",
-        "nonuniques",
-        "conversions"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "timeframe"
-  ]
-}
+
+```js
+clickmeter.groups.id.hits.get({
+  "id": 0,
+  "timeframe": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitListPage"
-}
-```
-## Operation: groups.id.notes.put
+
+#### Parameters
+* id (integer) **required** - Id of the group
+* timeframe (string) **required** - Timeframe of the request. See list at $timeframeList
+* limit (integer) - Limit results to this number
+* offset (string) - Offset where to start from (it's the lastKey field in the response object)
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+* filter (string) - Filter event type ("spiders"/"uniques"/"nonuniques"/"conversions")
+
+### groups.id.notes.put
 Fast patch the "notes" field of a group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the group"
-    },
-    "note": {
-      "$ref": "#/definitions/Api.Core.Requests.GenericTextPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "note"
-  ]
-}
+
+```js
+clickmeter.groups.id.notes.put({
+  "id": 0,
+  "note": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: groups.id.reports.get
+
+#### Parameters
+* id (integer) **required** - Id of the group
+* note (object) **required**
+
+### groups.id.reports.get
 Retrieve a top report connected to this group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the group"
-    },
-    "type": {
-      "type": "string",
-      "description": "Type of the report.",
-      "enum": [
-        "browsers",
-        "browsersfamilies",
-        "platforms",
-        "cities",
-        "countries",
-        "isps",
-        "ips",
-        "oss",
-        "ossfamilies",
-        "keywords",
-        "referrers",
-        "destinations",
-        "languages",
-        "params"
-      ]
-    },
-    "timeframe": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "beginning",
-        "custom"
-      ]
-    },
-    "hittype": {
-      "type": "string",
-      "description": "Type of the event you want to filter this report with. By default no filter is applied.",
-      "enum": [
-        "clicks",
-        "views"
-      ]
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "type",
-    "timeframe"
-  ]
-}
+
+```js
+clickmeter.groups.id.reports.get({
+  "id": 0,
+  "type": "",
+  "timeframe": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Tops.Top"
-}
-```
-## Operation: hits.get
+
+#### Parameters
+* id (integer) **required** - Id of the group
+* type (string) **required** - Type of the report.
+* timeframe (string) **required** - Timeframe of the request. See list at $timeframeList
+* hittype (string) - Type of the event you want to filter this report with. By default no filter is applied.
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+
+### hits.get
 Retrieve the list of events related to this account.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "timeframe": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "custom"
-      ]
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Limit results to this number"
-    },
-    "offset": {
-      "type": "string",
-      "description": "Offset where to start from (it's the lastKey field in the response object)"
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    },
-    "filter": {
-      "type": "string",
-      "description": "Filter event type (\"spiders\"/\"uniques\"/\"nonuniques\"/\"conversions\")",
-      "enum": [
-        "spiders",
-        "uniques",
-        "nonuniques",
-        "conversions"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "timeframe"
-  ]
-}
+
+```js
+clickmeter.hits.get({
+  "timeframe": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.ClickStream.HitListPage"
-}
-```
-## Operation: me.get
+
+#### Parameters
+* timeframe (string) **required** - Timeframe of the request. See list at $timeframeList
+* limit (integer) - Limit results to this number
+* offset (string) - Offset where to start from (it's the lastKey field in the response object)
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+* filter (string) - Filter event type ("spiders"/"uniques"/"nonuniques"/"conversions")
+
+### me.get
 Retrieve current account data
 
-### Input Schema
-```json
-{}
+
+```js
+clickmeter.me.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Accounting.User"
-}
-```
-## Operation: me.plan.get
+
+
+### me.plan.get
 Retrieve current account plan
 
-### Input Schema
-```json
-{}
+
+```js
+clickmeter.me.plan.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Accounting.Plan"
-}
-```
-## Operation: reports.get
+
+
+### reports.get
 Retrieve a top report
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "type": {
-      "type": "string",
-      "description": "Type of the report.",
-      "enum": [
-        "browsers",
-        "browsersfamilies",
-        "platforms",
-        "cities",
-        "countries",
-        "isps",
-        "ips",
-        "oss",
-        "ossfamilies",
-        "keywords",
-        "referrers",
-        "destinations",
-        "languages",
-        "params"
-      ]
-    },
-    "timeframe": {
-      "type": "string",
-      "description": "Timeframe of the request. See list at $timeframeList",
-      "enum": [
-        "yesterday",
-        "last7",
-        "last30",
-        "lastmonth",
-        "currentmonth",
-        "previousmonth",
-        "last90",
-        "last120",
-        "last180",
-        "beginning",
-        "custom"
-      ]
-    },
-    "hittype": {
-      "type": "string",
-      "description": "Type of the event you want to filter this report with. By default no filter is applied."
-    },
-    "group": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Filter by this group id (mutually exclusive with \"datapoint\" and \"conversion\")"
-    },
-    "datapoint": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Filter by this datapoint id (mutually exclusive with \"group\" and \"conversion\")"
-    },
-    "conversion": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Filter by this conversion id (mutually exclusive with \"datapoint\" and \"group\")"
-    },
-    "fromDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the starting day (YYYYMMDD)"
-    },
-    "toDay": {
-      "type": "string",
-      "description": "If using a \"custom\" timeFrame you can specify the ending day (YYYYMMDD)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "type",
-    "timeframe"
-  ]
-}
+
+```js
+clickmeter.reports.get({
+  "type": "",
+  "timeframe": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Tops.Top"
-}
-```
-## Operation: retargeting.get
+
+#### Parameters
+* type (string) **required** - Type of the report.
+* timeframe (string) **required** - Timeframe of the request. See list at $timeframeList
+* hittype (string) - Type of the event you want to filter this report with. By default no filter is applied.
+* group (integer) - Filter by this group id (mutually exclusive with "datapoint" and "conversion")
+* datapoint (integer) - Filter by this datapoint id (mutually exclusive with "group" and "conversion")
+* conversion (integer) - Filter by this conversion id (mutually exclusive with "datapoint" and "group")
+* fromDay (string) - If using a "custom" timeFrame you can specify the starting day (YYYYMMDD)
+* toDay (string) - If using a "custom" timeFrame you can specify the ending day (YYYYMMDD)
+
+### retargeting.get
 List of all the retargeting scripts associated to the user
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Where to start when retrieving elements. Default is 0 if not specified."
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum elements to retrieve. Default to 20 if not specified."
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+clickmeter.retargeting.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
-}
-```
-## Operation: retargeting.post
+
+
+### retargeting.post
 Creates a retargeting script
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "value": {
-      "$ref": "#/definitions/Api.Core.Dto.Retargeting.RetargetingScript"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "value"
-  ]
-}
+
+```js
+clickmeter.retargeting.post({
+  "value": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: retargeting.count.get
+
+#### Parameters
+* value (object) **required**
+
+### retargeting.count.get
 Retrieve count of retargeting scripts
 
-### Input Schema
-```json
-{}
+
+```js
+clickmeter.retargeting.count.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.CountResponce"
-}
-```
-## Operation: retargeting.id.delete
+
+
+### retargeting.id.delete
 Deletes a retargeting script (and remove associations)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "The id of the retargeting script"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+clickmeter.retargeting.id.delete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: retargeting.id.get
+
+#### Parameters
+* id (integer) **required** - The id of the retargeting script
+
+### retargeting.id.get
 Get a retargeting script object
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "The id of the retargeting script"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+clickmeter.retargeting.id.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Retargeting.RetargetingScript"
-}
-```
-## Operation: retargeting.id.post
+
+#### Parameters
+* id (integer) **required** - The id of the retargeting script
+
+### retargeting.id.post
 Updates a retargeting script
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "The id of the retargeting script"
-    },
-    "value": {
-      "$ref": "#/definitions/Api.Core.Dto.Retargeting.RetargetingScript"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "value"
-  ]
-}
+
+```js
+clickmeter.retargeting.id.post({
+  "id": 0,
+  "value": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: retargeting.id.datapoints.get
+
+#### Parameters
+* id (integer) **required** - The id of the retargeting script
+* value (object) **required**
+
+### retargeting.id.datapoints.get
 List of all the datapoints associated to the retargeting script.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the retargeting script"
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Where to start when retrieving elements. Default is 0 if not specified."
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum elements to retrieve. Default to 20 if not specified."
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of the datapoint",
-      "enum": [
-        "deleted",
-        "active",
-        "paused",
-        "spam"
-      ]
-    },
-    "tags": {
-      "type": "string",
-      "description": "A comma separated list of tags you want to filter with."
-    },
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    },
-    "onlyFavorites": {
-      "type": "boolean",
-      "description": "Filter fields by favourite status"
-    },
-    "sortBy": {
-      "type": "string",
-      "description": "Field to sort by"
-    },
-    "sortDirection": {
-      "type": "string",
-      "description": "Direction of sort \"asc\" or \"desc\"",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "createdAfter": {
-      "type": "string",
-      "description": "Exclude datapoints created before this date (YYYYMMDD)"
-    },
-    "createdBefore": {
-      "type": "string",
-      "description": "Exclude datapoints created after this date (YYYYMMDD)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+clickmeter.retargeting.id.datapoints.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
-}
-```
-## Operation: retargeting.id.datapoints.count.get
+
+#### Parameters
+* id (integer) **required** - Id of the retargeting script
+* offset (integer) - Where to start when retrieving elements. Default is 0 if not specified.
+* limit (integer) - Maximum elements to retrieve. Default to 20 if not specified.
+* status (string) - Status of the datapoint
+* tags (string) - A comma separated list of tags you want to filter with.
+* textSearch (string) - Filter fields by this pattern
+* onlyFavorites (boolean) - Filter fields by favourite status
+* sortBy (string) - Field to sort by
+* sortDirection (string) - Direction of sort "asc" or "desc"
+* createdAfter (string) - Exclude datapoints created before this date (YYYYMMDD)
+* createdBefore (string) - Exclude datapoints created after this date (YYYYMMDD)
+
+### retargeting.id.datapoints.count.get
 Count the datapoints associated to the retargeting script.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the group"
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of the datapoint",
-      "enum": [
-        "deleted",
-        "active",
-        "paused",
-        "spam"
-      ]
-    },
-    "tags": {
-      "type": "string",
-      "description": "A comma separated list of tags you want to filter with."
-    },
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    },
-    "onlyFavorites": {
-      "type": "boolean",
-      "description": "Filter fields by favourite status"
-    },
-    "createdAfter": {
-      "type": "string",
-      "description": "Exclude datapoints created before this date (YYYYMMDD)"
-    },
-    "createdBefore": {
-      "type": "string",
-      "description": "Exclude datapoints created after this date (YYYYMMDD)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+clickmeter.retargeting.id.datapoints.count.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.CountResponce"
-}
-```
-## Operation: tags.get
+
+#### Parameters
+* id (integer) **required** - Id of the group
+* status (string) - Status of the datapoint
+* tags (string) - A comma separated list of tags you want to filter with.
+* textSearch (string) - Filter fields by this pattern
+* onlyFavorites (boolean) - Filter fields by favourite status
+* createdAfter (string) - Exclude datapoints created before this date (YYYYMMDD)
+* createdBefore (string) - Exclude datapoints created after this date (YYYYMMDD)
+
+### tags.get
 List of all the groups associated to the user filtered by this tag.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Where to start when retrieving elements. Default is 0 if not specified."
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum elements to retrieve. Default to 20 if not specified."
-    },
-    "name": {
-      "type": "string",
-      "description": "Name of the tag"
-    },
-    "datapoints": {
-      "type": "string",
-      "description": "Comma separated list of datapoints id to filter by"
-    },
-    "groups": {
-      "type": "string",
-      "description": "Comma separated list of groups id to filter by"
-    },
-    "type": {
-      "type": "string",
-      "description": "Type of entity related to the tag",
-      "enum": [
-        "tp",
-        "tl",
-        "dp",
-        "gr"
-      ]
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+clickmeter.tags.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
-}
-```
-## Operation: tags.post
+
+
+### tags.post
 Create a tag
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "value": {
-      "$ref": "#/definitions/Api.Core.Dto.Tags.Tag"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "value"
-  ]
-}
+
+```js
+clickmeter.tags.post({
+  "value": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: tags.count.get
+
+#### Parameters
+* value (object) **required**
+
+### tags.count.get
 List of all the groups associated to the user filtered by this tag.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Name of the tag"
-    },
-    "datapoints": {
-      "type": "string",
-      "description": "Comma separated list of datapoints id to filter by"
-    },
-    "groups": {
-      "type": "string",
-      "description": "Comma separated list of groups id to filter by"
-    },
-    "type": {
-      "type": "string",
-      "description": "Type of entity related to the tag",
-      "enum": [
-        "tp",
-        "tl",
-        "dp",
-        "gr"
-      ]
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+clickmeter.tags.count.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/System.Object"
-}
-```
-## Operation: tags.tagId.delete
+
+
+### tags.tagId.delete
 Delete a tag
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "tagId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the tag"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "tagId"
-  ]
-}
+
+```js
+clickmeter.tags.tagId.delete({
+  "tagId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/System.Object"
-}
-```
-## Operation: tags.tagId.get
+
+#### Parameters
+* tagId (integer) **required** - Id of the tag
+
+### tags.tagId.get
 Retrieve a tag
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "tagId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the tag"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "tagId"
-  ]
-}
+
+```js
+clickmeter.tags.tagId.get({
+  "tagId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Dto.Tags.Tag"
-}
-```
-## Operation: tags.tagId.datapoints.delete
+
+#### Parameters
+* tagId (integer) **required** - Id of the tag
+
+### tags.tagId.datapoints.delete
 Delete the association of this tag with all datapoints
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "tagId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the tag"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "tagId"
-  ]
-}
+
+```js
+clickmeter.tags.tagId.datapoints.delete({
+  "tagId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: tags.tagId.datapoints.get
+
+#### Parameters
+* tagId (integer) **required** - Id of the tag
+
+### tags.tagId.datapoints.get
 List of all the datapoints associated to the user filtered by this tag
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "tagId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the tag."
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Where to start when retrieving elements. Default is 0 if not specified."
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum elements to retrieve. Default to 20 if not specified."
-    },
-    "type": {
-      "type": "string",
-      "description": "Type of the datapoint (\"tp\"/\"tl\")",
-      "enum": [
-        "tp",
-        "tl"
-      ]
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of the datapoint",
-      "enum": [
-        "deleted",
-        "active",
-        "paused",
-        "spam"
-      ]
-    },
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    },
-    "createdAfter": {
-      "type": "string",
-      "description": "Exclude datapoints created before this date (YYYYMMDD)"
-    },
-    "createdBefore": {
-      "type": "string",
-      "description": "Exclude datapoints created after this date (YYYYMMDD)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "tagId"
-  ]
-}
+
+```js
+clickmeter.tags.tagId.datapoints.get({
+  "tagId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
-}
-```
-## Operation: tags.tagId.datapoints.count.get
+
+#### Parameters
+* tagId (integer) **required** - Id of the tag.
+* offset (integer) - Where to start when retrieving elements. Default is 0 if not specified.
+* limit (integer) - Maximum elements to retrieve. Default to 20 if not specified.
+* type (string) - Type of the datapoint ("tp"/"tl")
+* status (string) - Status of the datapoint
+* textSearch (string) - Filter fields by this pattern
+* createdAfter (string) - Exclude datapoints created before this date (YYYYMMDD)
+* createdBefore (string) - Exclude datapoints created after this date (YYYYMMDD)
+
+### tags.tagId.datapoints.count.get
 Count the datapoints associated to the user filtered by this tag
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "tagId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the tag."
-    },
-    "type": {
-      "type": "string",
-      "description": "Type of the datapoint (\"tp\"/\"tl\")",
-      "enum": [
-        "tp",
-        "tl"
-      ]
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of the datapoint",
-      "enum": [
-        "deleted",
-        "active",
-        "paused",
-        "spam"
-      ]
-    },
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    },
-    "createdAfter": {
-      "type": "string",
-      "description": "Exclude datapoints created before this date (YYYYMMDD)"
-    },
-    "createdBefore": {
-      "type": "string",
-      "description": "Exclude datapoints created after this date (YYYYMMDD)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "tagId"
-  ]
-}
+
+```js
+clickmeter.tags.tagId.datapoints.count.get({
+  "tagId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.CountResponce"
-}
-```
-## Operation: tags.tagId.datapoints.patch.put
+
+#### Parameters
+* tagId (integer) **required** - Id of the tag.
+* type (string) - Type of the datapoint ("tp"/"tl")
+* status (string) - Status of the datapoint
+* textSearch (string) - Filter fields by this pattern
+* createdAfter (string) - Exclude datapoints created before this date (YYYYMMDD)
+* createdBefore (string) - Exclude datapoints created after this date (YYYYMMDD)
+
+### tags.tagId.datapoints.patch.put
 Associate/Deassociate a tag with a datapoint
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "tagId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the tag"
-    },
-    "data": {
-      "$ref": "#/definitions/Api.Core.Requests.PatchBody"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "tagId",
-    "data"
-  ]
-}
+
+```js
+clickmeter.tags.tagId.datapoints.patch.put({
+  "tagId": 0,
+  "data": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: tags.tagId.groups.delete
+
+#### Parameters
+* tagId (integer) **required** - Id of the tag
+* data (object) **required**
+
+### tags.tagId.groups.delete
 Delete the association of this tag with all groups
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "tagId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the tag"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "tagId"
-  ]
-}
+
+```js
+clickmeter.tags.tagId.groups.delete({
+  "tagId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: tags.tagId.groups.get
+
+#### Parameters
+* tagId (integer) **required** - Id of the tag
+
+### tags.tagId.groups.get
 List of all the groups associated to the user filtered by this tag.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "tagId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the tag."
-    },
-    "offset": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Where to start when retrieving elements. Default is 0 if not specified."
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int32",
-      "description": "Maximum elements to retrieve. Default to 20 if not specified."
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of the datapoint",
-      "enum": [
-        "deleted",
-        "active"
-      ]
-    },
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    },
-    "createdAfter": {
-      "type": "string",
-      "description": "Exclude groups created before this date (YYYYMMDD)"
-    },
-    "createdBefore": {
-      "type": "string",
-      "description": "Exclude groups created after this date (YYYYMMDD)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "tagId"
-  ]
-}
+
+```js
+clickmeter.tags.tagId.groups.get({
+  "tagId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntitiesResponse[Api.Core.Responses.EntityUri[System.Int64]]"
-}
-```
-## Operation: tags.tagId.groups.count.get
+
+#### Parameters
+* tagId (integer) **required** - Id of the tag.
+* offset (integer) - Where to start when retrieving elements. Default is 0 if not specified.
+* limit (integer) - Maximum elements to retrieve. Default to 20 if not specified.
+* status (string) - Status of the datapoint
+* textSearch (string) - Filter fields by this pattern
+* createdAfter (string) - Exclude groups created before this date (YYYYMMDD)
+* createdBefore (string) - Exclude groups created after this date (YYYYMMDD)
+
+### tags.tagId.groups.count.get
 Count the groups associated to the user filtered by this tag
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "tagId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the tag."
-    },
-    "status": {
-      "type": "string",
-      "description": "Status of the datapoint",
-      "enum": [
-        "deleted",
-        "active"
-      ]
-    },
-    "textSearch": {
-      "type": "string",
-      "description": "Filter fields by this pattern"
-    },
-    "createdAfter": {
-      "type": "string",
-      "description": "Exclude groups created before this date (YYYYMMDD)"
-    },
-    "createdBefore": {
-      "type": "string",
-      "description": "Exclude groups created after this date (YYYYMMDD)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "tagId"
-  ]
-}
+
+```js
+clickmeter.tags.tagId.groups.count.get({
+  "tagId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.CountResponce"
-}
-```
-## Operation: tags.tagId.groups.patch.put
+
+#### Parameters
+* tagId (integer) **required** - Id of the tag.
+* status (string) - Status of the datapoint
+* textSearch (string) - Filter fields by this pattern
+* createdAfter (string) - Exclude groups created before this date (YYYYMMDD)
+* createdBefore (string) - Exclude groups created after this date (YYYYMMDD)
+
+### tags.tagId.groups.patch.put
 Associate/Deassociate a tag with a group
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "tagId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the tag"
-    },
-    "data": {
-      "$ref": "#/definitions/Api.Core.Requests.PatchBody"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "tagId",
-    "data"
-  ]
-}
+
+```js
+clickmeter.tags.tagId.groups.patch.put({
+  "tagId": 0,
+  "data": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
-## Operation: tags.tagId.name.put
+
+#### Parameters
+* tagId (integer) **required** - Id of the tag
+* data (object) **required**
+
+### tags.tagId.name.put
 Fast patch a tag name
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "tagId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Id of the tag"
-    },
-    "data": {
-      "$ref": "#/definitions/Api.Core.Requests.GenericTextPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "tagId",
-    "data"
-  ]
-}
+
+```js
+clickmeter.tags.tagId.name.put({
+  "tagId": 0,
+  "data": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Api.Core.Responses.EntityUri[System.Int64]"
-}
-```
+
+#### Parameters
+* tagId (integer) **required** - Id of the tag
+* data (object) **required**
+

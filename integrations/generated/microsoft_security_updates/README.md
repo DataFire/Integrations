@@ -1,32 +1,50 @@
 # @datafire/microsoft_security_updates
 
+Client library for Microsoft Security Updates
 
-## Operation: Updates.get
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/microsoft_security_updates
+```
+
+```js
+let datafire = require('datafire');
+let microsoft_security_updates = require('@datafire/microsoft_security_updates').actions;
+
+let account = {
+  api-key: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    microsoft_security_updates: account,
+  }
+})
+
+
+microsoft_security_updates.Updates.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
+
+
+## Actions
+### Updates.get
 Get all updates with a link to the CVRF document
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version"
-  ]
-}
+
+```js
+microsoft_security_updates.Updates.get({
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdatesReturnTypes200"
-}
-```
-## Operation: Updates_id_.get
+
+#### Parameters
+* api-version (string) **required**
+
+### Updates_id_.get
 Get updates with a link to the CVRF document for a particular ID.
 
 ID can be:
@@ -36,59 +54,33 @@ ID can be:
   * Year (ie: 2016)
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string"
-    },
-    "id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "id"
-  ]
-}
+
+```js
+microsoft_security_updates.Updates_id_.get({
+  "api-version": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UpdatesReturnTypes200"
-}
-```
-## Operation: cvrf.id.get
+
+#### Parameters
+* api-version (string) **required**
+* id (string) **required**
+
+### cvrf.id.get
 Gets a CVRF document by ID (ie: 2016-Aug)
 
 Note: to view the correct XML response, please change *$ref: '#/definitions/cvrfReturnTypes200'* to *$ref: '#/definitions/cvrfReturnTypes200_xml'* in the swagger.json or swagger.yaml file
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string"
-    },
-    "id": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "id"
-  ]
-}
+
+```js
+microsoft_security_updates.cvrf.id.get({
+  "api-version": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/cvrfReturnTypes200"
-}
-```
+
+#### Parameters
+* api-version (string) **required**
+* id (string) **required**
+

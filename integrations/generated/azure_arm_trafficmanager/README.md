@@ -1,469 +1,246 @@
 # @datafire/azure_arm_trafficmanager
 
+Client library for TrafficManagerManagementClient
 
-## Operation: Profiles_CheckTrafficManagerRelativeDnsNameAvailability
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/azure_arm_trafficmanager
+```
+
+```js
+let datafire = require('datafire');
+let azure_arm_trafficmanager = require('@datafire/azure_arm_trafficmanager').actions;
+let context = new datafire.Context();
+
+azure_arm_trafficmanager.Profiles_CheckTrafficManagerRelativeDnsNameAvailability({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
+
+
+## Actions
+### Profiles_CheckTrafficManagerRelativeDnsNameAvailability
 Checks the availability of a Traffic Manager Relative DNS name.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "parameters": {
-      "$ref": "#/definitions/CheckTrafficManagerRelativeDnsNameAvailabilityParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "parameters",
-    "api-version"
-  ]
-}
+
+```js
+azure_arm_trafficmanager.Profiles_CheckTrafficManagerRelativeDnsNameAvailability({
+  "parameters": null,
+  "api-version": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/TrafficManagerNameAvailability"
-}
-```
-## Operation: Profiles_ListAll
+
+#### Parameters
+* parameters (undefined) **required** - Parameters supplied to check Traffic Manager name operation.
+* api-version (string) **required** - Client Api Version.
+
+### Profiles_ListAll
 Lists all Traffic Manager profiles within a subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_trafficmanager.Profiles_ListAll({
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProfileListResult"
-}
-```
-## Operation: Profiles_ListAllInResourceGroup
+
+#### Parameters
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Profiles_ListAllInResourceGroup
 Lists all Traffic Manager profiles within a resource group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group containing the Traffic Manager profiles to be listed."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_trafficmanager.Profiles_ListAllInResourceGroup({
+  "resourceGroupName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ProfileListResult"
-}
-```
-## Operation: Profiles_Delete
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group containing the Traffic Manager profiles to be listed.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Profiles_Delete
 Deletes a Traffic Manager profile.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group containing the Traffic Manager profile to be deleted."
-    },
-    "profileName": {
-      "type": "string",
-      "description": "The name of the Traffic Manager profile to be deleted."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "profileName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_trafficmanager.Profiles_Delete({
+  "resourceGroupName": "",
+  "profileName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Profiles_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group containing the Traffic Manager profile to be deleted.
+* profileName (string) **required** - The name of the Traffic Manager profile to be deleted.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Profiles_Get
 Gets a Traffic Manager profile.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group containing the Traffic Manager profile."
-    },
-    "profileName": {
-      "type": "string",
-      "description": "The name of the Traffic Manager profile."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "profileName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_trafficmanager.Profiles_Get({
+  "resourceGroupName": "",
+  "profileName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Profile"
-}
-```
-## Operation: Profiles_Update
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group containing the Traffic Manager profile.
+* profileName (string) **required** - The name of the Traffic Manager profile.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Profiles_Update
 Update a Traffic Manager profile.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group containing the Traffic Manager profile."
-    },
-    "profileName": {
-      "type": "string",
-      "description": "The name of the Traffic Manager profile."
-    },
-    "parameters": {
-      "$ref": "#/definitions/Profile"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "profileName",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_trafficmanager.Profiles_Update({
+  "resourceGroupName": "",
+  "profileName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Profile"
-}
-```
-## Operation: Profiles_CreateOrUpdate
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group containing the Traffic Manager profile.
+* profileName (string) **required** - The name of the Traffic Manager profile.
+* parameters (undefined) **required** - Class representing a Traffic Manager profile.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Profiles_CreateOrUpdate
 Create or update a Traffic Manager profile.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group containing the Traffic Manager profile."
-    },
-    "profileName": {
-      "type": "string",
-      "description": "The name of the Traffic Manager profile."
-    },
-    "parameters": {
-      "$ref": "#/definitions/Profile"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "profileName",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_trafficmanager.Profiles_CreateOrUpdate({
+  "resourceGroupName": "",
+  "profileName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Profile"
-}
-```
-## Operation: Endpoints_Delete
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group containing the Traffic Manager profile.
+* profileName (string) **required** - The name of the Traffic Manager profile.
+* parameters (undefined) **required** - Class representing a Traffic Manager profile.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Endpoints_Delete
 Deletes a Traffic Manager endpoint.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group containing the Traffic Manager endpoint to be deleted."
-    },
-    "profileName": {
-      "type": "string",
-      "description": "The name of the Traffic Manager profile."
-    },
-    "endpointType": {
-      "type": "string",
-      "description": "The type of the Traffic Manager endpoint to be deleted."
-    },
-    "endpointName": {
-      "type": "string",
-      "description": "The name of the Traffic Manager endpoint to be deleted."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "profileName",
-    "endpointType",
-    "endpointName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_trafficmanager.Endpoints_Delete({
+  "resourceGroupName": "",
+  "profileName": "",
+  "endpointType": "",
+  "endpointName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Endpoints_Get
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group containing the Traffic Manager endpoint to be deleted.
+* profileName (string) **required** - The name of the Traffic Manager profile.
+* endpointType (string) **required** - The type of the Traffic Manager endpoint to be deleted.
+* endpointName (string) **required** - The name of the Traffic Manager endpoint to be deleted.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Endpoints_Get
 Gets a Traffic Manager endpoint.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group containing the Traffic Manager endpoint."
-    },
-    "profileName": {
-      "type": "string",
-      "description": "The name of the Traffic Manager profile."
-    },
-    "endpointType": {
-      "type": "string",
-      "description": "The type of the Traffic Manager endpoint."
-    },
-    "endpointName": {
-      "type": "string",
-      "description": "The name of the Traffic Manager endpoint."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "profileName",
-    "endpointType",
-    "endpointName",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_trafficmanager.Endpoints_Get({
+  "resourceGroupName": "",
+  "profileName": "",
+  "endpointType": "",
+  "endpointName": "",
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Endpoint"
-}
-```
-## Operation: Endpoints_Update
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group containing the Traffic Manager endpoint.
+* profileName (string) **required** - The name of the Traffic Manager profile.
+* endpointType (string) **required** - The type of the Traffic Manager endpoint.
+* endpointName (string) **required** - The name of the Traffic Manager endpoint.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Endpoints_Update
 Update a Traffic Manager endpoint.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group containing the Traffic Manager endpoint to be updated."
-    },
-    "profileName": {
-      "type": "string",
-      "description": "The name of the Traffic Manager profile."
-    },
-    "endpointType": {
-      "type": "string",
-      "description": "The type of the Traffic Manager endpoint to be updated."
-    },
-    "endpointName": {
-      "type": "string",
-      "description": "The name of the Traffic Manager endpoint to be updated."
-    },
-    "parameters": {
-      "$ref": "#/definitions/Endpoint"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "profileName",
-    "endpointType",
-    "endpointName",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_trafficmanager.Endpoints_Update({
+  "resourceGroupName": "",
+  "profileName": "",
+  "endpointType": "",
+  "endpointName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Endpoint"
-}
-```
-## Operation: Endpoints_CreateOrUpdate
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group containing the Traffic Manager endpoint to be updated.
+* profileName (string) **required** - The name of the Traffic Manager profile.
+* endpointType (string) **required** - The type of the Traffic Manager endpoint to be updated.
+* endpointName (string) **required** - The name of the Traffic Manager endpoint to be updated.
+* parameters (undefined) **required** - Class representing a Traffic Manager endpoint.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+
+### Endpoints_CreateOrUpdate
 Create or update a Traffic Manager endpoint.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "resourceGroupName": {
-      "type": "string",
-      "description": "The name of the resource group containing the Traffic Manager endpoint to be created or updated."
-    },
-    "profileName": {
-      "type": "string",
-      "description": "The name of the Traffic Manager profile."
-    },
-    "endpointType": {
-      "type": "string",
-      "description": "The type of the Traffic Manager endpoint to be created or updated."
-    },
-    "endpointName": {
-      "type": "string",
-      "description": "The name of the Traffic Manager endpoint to be created or updated."
-    },
-    "parameters": {
-      "$ref": "#/definitions/Endpoint"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client Api Version."
-    },
-    "subscriptionId": {
-      "type": "string",
-      "description": "Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "resourceGroupName",
-    "profileName",
-    "endpointType",
-    "endpointName",
-    "parameters",
-    "api-version",
-    "subscriptionId"
-  ]
-}
+
+```js
+azure_arm_trafficmanager.Endpoints_CreateOrUpdate({
+  "resourceGroupName": "",
+  "profileName": "",
+  "endpointType": "",
+  "endpointName": "",
+  "parameters": null,
+  "api-version": "",
+  "subscriptionId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Endpoint"
-}
-```
+
+#### Parameters
+* resourceGroupName (string) **required** - The name of the resource group containing the Traffic Manager endpoint to be created or updated.
+* profileName (string) **required** - The name of the Traffic Manager profile.
+* endpointType (string) **required** - The type of the Traffic Manager endpoint to be created or updated.
+* endpointName (string) **required** - The name of the Traffic Manager endpoint to be created or updated.
+* parameters (undefined) **required** - Class representing a Traffic Manager endpoint.
+* api-version (string) **required** - Client Api Version.
+* subscriptionId (string) **required** - Gets subscription credentials which uniquely identify Microsoft Azure subscription. The subscription ID forms part of the URI for every service call.
+

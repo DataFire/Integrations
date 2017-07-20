@@ -1,321 +1,146 @@
 # @datafire/bclaws_ca_bclaws
+
+Client library for BC Laws
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/bclaws_ca_bclaws
+```
+
+```js
+let datafire = require('datafire');
+let bclaws_ca_bclaws = require('@datafire/bclaws_ca_bclaws').actions;
+let context = new datafire.Context();
+
+bclaws_ca_bclaws.content.aspectId.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 BC Laws is an electronic library providing free public access to the laws of British Columbia. BC Laws is hosted by the Queen's Printer of British Columbia and published in partnership with the Ministry of Justice and the Law Clerk of the Legislative Assembly.BC Laws contains a comprehensive collection of BC legislation and related materials. It is available on the internet in two forms:First: The library is available as a web site in which users can browse and search the laws of British Columbia.Second: The library is available as a portal to legislation in raw XML data format, accessible via the BC Laws API2. This direct access to raw data is intended to enable third parties to build or add their own custom applications based on the structure of the data and all the associated search functionality inherent in that structure. The BC Laws website itself is an example of one such application.
 
-## Operation: content.aspectId.get
+## Actions
+### content.aspectId.get
 Describes the documents and directories available within a specific 'aspect' (content group) of the BCLaws library
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "aspectId": {
-      "type": "string",
-      "description": "The identifier of the 'aspect' (content group) to search",
-      "enum": [
-        "complete",
-        "corpreg",
-        "bcgaz1",
-        "bcgaz2",
-        "oic",
-        "psl",
-        "ecb",
-        "hscr",
-        "arch_oic"
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "aspectId"
-  ]
-}
+
+```js
+bclaws_ca_bclaws.content.aspectId.get({
+  "aspectId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: content.aspectId.civixDocumentId.get
+
+#### Parameters
+* aspectId (string) **required** - The identifier of the 'aspect' (content group) to search
+
+### content.aspectId.civixDocumentId.get
 Lists the metadata available for the specified index or directory from the BCLaws legislative respository
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "aspectId": {
-      "type": "string",
-      "description": "The identifier of the 'aspect' (content group) to search",
-      "enum": [
-        "complete",
-        "corpreg",
-        "bcgaz1",
-        "bcgaz2",
-        "oic",
-        "psl",
-        "ecb",
-        "hscr",
-        "arch_oic"
-      ]
-    },
-    "civixDocumentId": {
-      "type": "string",
-      "description": "The document identification code for an index or directory"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "aspectId",
-    "civixDocumentId"
-  ]
-}
+
+```js
+bclaws_ca_bclaws.content.aspectId.civixDocumentId.get({
+  "aspectId": "",
+  "civixDocumentId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: document.id.aspectId.civixIndexId.civixDocumentId.get
+
+#### Parameters
+* aspectId (string) **required** - The identifier of the 'aspect' (content group) to search
+* civixDocumentId (string) **required** - The document identification code for an index or directory
+
+### document.id.aspectId.civixIndexId.civixDocumentId.get
 The /document API allows you to retrieve actual documents from the BCLaws legislative repository. To retrieve a document from the repository you need the aspect identifier and two other specific pieces of information about the document: the index identifier and the document identifier. These unique identifiers can be retrieved from the /content API.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "aspectId": {
-      "type": "string",
-      "description": "The identifier of the 'aspect' (content group) to search",
-      "enum": [
-        "complete",
-        "corpreg",
-        "bcgaz1",
-        "bcgaz2",
-        "oic",
-        "psl",
-        "ecb",
-        "hscr",
-        "arch_oic"
-      ]
-    },
-    "civixIndexId": {
-      "type": "string",
-      "description": "Index identification code"
-    },
-    "civixDocumentId": {
-      "type": "string",
-      "description": "The document identification code for an index or directory"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "aspectId",
-    "civixIndexId",
-    "civixDocumentId"
-  ]
-}
+
+```js
+bclaws_ca_bclaws.document.id.aspectId.civixIndexId.civixDocumentId.get({
+  "aspectId": "",
+  "civixIndexId": "",
+  "civixDocumentId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: document.id.aspectId.civixIndexId.civixDocumentId.search.searchString.get
+
+#### Parameters
+* aspectId (string) **required** - The identifier of the 'aspect' (content group) to search
+* civixIndexId (string) **required** - Index identification code
+* civixDocumentId (string) **required** - The document identification code for an index or directory
+
+### document.id.aspectId.civixIndexId.civixDocumentId.search.searchString.get
 The /document API allows you to retrieve actual documents from the BCLaws legislative repository. To retrieve a document from the repository you need the aspect identifier and two other specific pieces of information about the document: the index identifier and the document identifier. These unique identifiers can be retrieved from the /content API.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "aspectId": {
-      "type": "string",
-      "description": "The identifier of the 'aspect' (content group) to search",
-      "enum": [
-        "complete",
-        "corpreg",
-        "bcgaz1",
-        "bcgaz2",
-        "oic",
-        "psl",
-        "ecb",
-        "hscr",
-        "arch_oic"
-      ]
-    },
-    "civixIndexId": {
-      "type": "string",
-      "description": "Index identification code"
-    },
-    "civixDocumentId": {
-      "type": "string",
-      "description": "The document identification code for an index or directory"
-    },
-    "searchString": {
-      "type": "string",
-      "description": "The text to search for within the document"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "aspectId",
-    "civixIndexId",
-    "civixDocumentId",
-    "searchString"
-  ]
-}
+
+```js
+bclaws_ca_bclaws.document.id.aspectId.civixIndexId.civixDocumentId.search.searchString.get({
+  "aspectId": "",
+  "civixIndexId": "",
+  "civixDocumentId": "",
+  "searchString": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: document.id.aspectId.civixIndexId.civixDocumentId.xml.get
+
+#### Parameters
+* aspectId (string) **required** - The identifier of the 'aspect' (content group) to search
+* civixIndexId (string) **required** - Index identification code
+* civixDocumentId (string) **required** - The document identification code for an index or directory
+* searchString (string) **required** - The text to search for within the document
+
+### document.id.aspectId.civixIndexId.civixDocumentId.xml.get
 The /document API allows you to retrieve actual documents from the BCLaws legislative repository. To retrieve a document from the repository you need the aspect identifier and two other specific pieces of information about the document: the index identifier and the document identifier. These unique identifiers can be retrieved from the /content API.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "aspectId": {
-      "type": "string",
-      "description": "The identifier of the 'aspect' (content group) to search",
-      "enum": [
-        "complete",
-        "corpreg",
-        "bcgaz1",
-        "bcgaz2",
-        "oic",
-        "psl",
-        "ecb",
-        "hscr",
-        "arch_oic"
-      ]
-    },
-    "civixIndexId": {
-      "type": "string",
-      "description": "Index identification code"
-    },
-    "civixDocumentId": {
-      "type": "string",
-      "description": "The document identification code for an index or directory"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "aspectId",
-    "civixIndexId",
-    "civixDocumentId"
-  ]
-}
+
+```js
+bclaws_ca_bclaws.document.id.aspectId.civixIndexId.civixDocumentId.xml.get({
+  "aspectId": "",
+  "civixIndexId": "",
+  "civixDocumentId": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: document.id.aspectId.civixIndexId.civixDocumentId.xml.search.searchString.get
+
+#### Parameters
+* aspectId (string) **required** - The identifier of the 'aspect' (content group) to search
+* civixIndexId (string) **required** - Index identification code
+* civixDocumentId (string) **required** - The document identification code for an index or directory
+
+### document.id.aspectId.civixIndexId.civixDocumentId.xml.search.searchString.get
 The /document API allows you to retrieve actual documents from the BCLaws legislative repository. To retrieve a document from the repository you need the aspect identifier and two other specific pieces of information about the document: the index identifier and the document identifier. These unique identifiers can be retrieved from the /content API.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "aspectId": {
-      "type": "string",
-      "description": "The identifier of the 'aspect' (content group) to search",
-      "enum": [
-        "complete",
-        "corpreg",
-        "bcgaz1",
-        "bcgaz2",
-        "oic",
-        "psl",
-        "ecb",
-        "hscr",
-        "arch_oic"
-      ]
-    },
-    "civixIndexId": {
-      "type": "string",
-      "description": "Index identification code"
-    },
-    "civixDocumentId": {
-      "type": "string",
-      "description": "The document identification code for an index or directory"
-    },
-    "searchString": {
-      "type": "string",
-      "description": "The text to search for within the document"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "aspectId",
-    "civixIndexId",
-    "civixDocumentId",
-    "searchString"
-  ]
-}
+
+```js
+bclaws_ca_bclaws.document.id.aspectId.civixIndexId.civixDocumentId.xml.search.searchString.get({
+  "aspectId": "",
+  "civixIndexId": "",
+  "civixDocumentId": "",
+  "searchString": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: search.aspectId.fullsearch.get
+
+#### Parameters
+* aspectId (string) **required** - The identifier of the 'aspect' (content group) to search
+* civixIndexId (string) **required** - Index identification code
+* civixDocumentId (string) **required** - The document identification code for an index or directory
+* searchString (string) **required** - The text to search for within the document
+
+### search.aspectId.fullsearch.get
 A listing of metadata available for the specified aspect and search term from the BCLaws legislative repository
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "aspectId": {
-      "type": "string",
-      "description": "The identifier of the 'aspect' (content group) to search",
-      "enum": [
-        "complete",
-        "corpreg",
-        "bcgaz1",
-        "bcgaz2",
-        "oic",
-        "psl",
-        "ecb",
-        "hscr",
-        "arch_oic"
-      ]
-    },
-    "q": {
-      "type": "string",
-      "description": "query term"
-    },
-    "s": {
-      "type": "string",
-      "description": "first hit (start index)"
-    },
-    "e": {
-      "type": "integer",
-      "description": "last hit (end index)"
-    },
-    "nFrag": {
-      "type": "integer",
-      "description": "number of fragment snippets to return (< 10)"
-    },
-    "lFrag": {
-      "type": "integer",
-      "description": "length of fragment snippets (< 200)"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "aspectId",
-    "q",
-    "s",
-    "e",
-    "nFrag",
-    "lFrag"
-  ]
-}
+
+```js
+bclaws_ca_bclaws.search.aspectId.fullsearch.get({
+  "aspectId": "",
+  "q": "",
+  "s": "",
+  "e": 0,
+  "nFrag": 0,
+  "lFrag": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* aspectId (string) **required** - The identifier of the 'aspect' (content group) to search
+* q (string) **required** - query term
+* s (string) **required** - first hit (start index)
+* e (integer) **required** - last hit (end index)
+* nFrag (integer) **required** - number of fragment snippets to return (< 10)
+* lFrag (integer) **required** - length of fragment snippets (< 200)
+

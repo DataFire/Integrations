@@ -1,31 +1,45 @@
 # @datafire/import_rss
 
+Client library for import.io
 
-## Operation: extractor.extractorId.runs.get
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/import_rss
+```
+
+```js
+let datafire = require('datafire');
+let import_rss = require('@datafire/import_rss').actions;
+
+let account = {
+  api_key: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    import_rss: account,
+  }
+})
+
+
+import_rss.extractor.extractorId.runs.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
+
+
+## Actions
+### extractor.extractorId.runs.get
 Get a feed of the runs performed on an extractor
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "extractorId": {
-      "type": "string",
-      "description": "The id of the extractor to start get the crawl run data"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "extractorId"
-  ]
-}
+
+```js
+import_rss.extractor.extractorId.runs.get({
+  "extractorId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "additionalProperties": {
-    "type": "string"
-  },
-  "type": "object"
-}
-```
+
+#### Parameters
+* extractorId (string) **required** - The id of the extractor to start get the crawl run data
+

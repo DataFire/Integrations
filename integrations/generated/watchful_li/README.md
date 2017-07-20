@@ -1,2067 +1,825 @@
 # @datafire/watchful_li
 
+Client library for watchful.li
 
-## Operation: getAudits
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/watchful_li
+```
+
+```js
+let datafire = require('datafire');
+let watchful_li = require('@datafire/watchful_li').actions;
+let context = new datafire.Context();
+
+watchful_li.getVersions({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
+
+
+## Actions
+### getAudits
 Returns a list of audits
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "limit": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Number of object to return (max 100, default 25)",
-      "minimum": 1
-    },
-    "limitstart": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Start of the return (default 0)",
-      "minimum": 0
-    },
-    "order": {
-      "type": "string",
-      "description": "ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+watchful_li.getAudits({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Audit"
-}
-```
-## Operation: CreateAudits
+
+
+### CreateAudits
 Create a audit
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Audit"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+watchful_li.CreateAudits({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Audit"
-}
-```
-## Operation: getFieldsAudits
+
+#### Parameters
+* body (undefined) **required**
+
+### getFieldsAudits
 Returns a list of fields
 
-### Input Schema
-```json
-{}
+
+```js
+watchful_li.getFieldsAudits(null, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: deleteAuditById
+
+
+### deleteAuditById
 Delete a specific audit
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of audit that needs to be deleted",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.deleteAuditById({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: getAuditById
+
+#### Parameters
+* id (integer) **required** - ID of audit that needs to be deleted
+
+### getAuditById
 Returns a audit based on ID
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of audit that needs to be fetched",
-      "minimum": 1
-    },
-    "fields": {
-      "type": "string",
-      "description": "Fields to return separate by comas: name,id"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.getAuditById({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Audit"
-}
-```
-## Operation: getExtensions
+
+#### Parameters
+* id (integer) **required** - ID of audit that needs to be fetched
+* fields (string) - Fields to return separate by comas: name,id
+
+### getExtensions
 Returns a list Extensions
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "ext_name": {
-      "type": "string",
-      "description": "Do a 'LIKE' search, you can also use '%'"
-    },
-    "siteids": {
-      "type": "string",
-      "description": "List of sites id separated by comma"
-    },
-    "ext_prefix": {
-      "type": "string",
-      "description": "Do a 'LIKE' search, you can also use '%'. technical name of the extension com_xxxx"
-    },
-    "version": {
-      "type": "string",
-      "description": "Do a 'LIKE' search, you can also use '%'"
-    },
-    "vUpdate": {
-      "type": "integer",
-      "description": "update available for this extension",
-      "enum": [
-        1,
-        0
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Fields to return separate by comas: name,id"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Number of object to return (max 100, default 25)",
-      "minimum": 1
-    },
-    "limitstart": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Start of the return (default 0)",
-      "minimum": 0
-    },
-    "order": {
-      "type": "string",
-      "description": "ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+watchful_li.getExtensions({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Extension"
-}
-```
-## Operation: getFieldsExtensions
+
+
+### getFieldsExtensions
 Returns a list of fields
 
-### Input Schema
-```json
-{}
+
+```js
+watchful_li.getFieldsExtensions(null, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: ignoreExtensionUpdate
+
+
+### ignoreExtensionUpdate
 Set 'ignore updates' for a given extension / site_id
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the extension",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.ignoreExtensionUpdate({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: unignoreExtensionUpdate
+
+#### Parameters
+* id (integer) **required** - ID of the extension
+
+### unignoreExtensionUpdate
 Remove 'ignore updates' for a given extension
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the extension",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.unignoreExtensionUpdate({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: updateExtension
+
+#### Parameters
+* id (integer) **required** - ID of the extension
+
+### updateExtension
 Update the extension on the remote site
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the extension",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.updateExtension({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: getFeedbacks
+
+#### Parameters
+* id (integer) **required** - ID of the extension
+
+### getFeedbacks
 Returns a list of feedbacks
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "fields": {
-      "type": "string",
-      "description": "Fields to return separate by comas (es. name,id)"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+watchful_li.getFeedbacks({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Feedback"
-}
-```
-## Operation: createFeedbacks
+
+
+### createFeedbacks
 Create a feedback
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Feedback"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+watchful_li.createFeedbacks({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Audit"
-}
-```
-## Operation: getFieldsFeedbacks
+
+#### Parameters
+* body (undefined) **required**
+
+### getFieldsFeedbacks
 Returns a list of fields
 
-### Input Schema
-```json
-{}
+
+```js
+watchful_li.getFieldsFeedbacks(null, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: logs.get
+
+
+### logs.get
 Returns a list of logs
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "log_type": {
-      "type": "string",
-      "description": "Type of the log",
-      "enum": [
-        "",
-        "plugin_sends_error",
-        "curlerror",
-        "modified_file",
-        "word_not_in_homepage",
-        "file_not_exists",
-        "update_available",
-        "new_extension",
-        "deleted_extension",
-        "extension_not_saved",
-        "modified_value_files",
-        "custom"
-      ]
-    },
-    "log_entry": {
-      "type": "string",
-      "description": "Do a 'LIKE' search, you can also use '%'"
-    },
-    "from": {
-      "type": "string",
-      "description": "Logs after this date, format YYYY-MM-DD HH:MM:SS"
-    },
-    "to": {
-      "type": "string",
-      "description": "Logs before this date, format YYYY-MM-DD HH:MM:SS"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Fields to return separate by comas: name,id"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Number of object to return (max 100, default 25)",
-      "minimum": 1
-    },
-    "limitstart": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Start of the return (default 0)",
-      "minimum": 0
-    },
-    "order": {
-      "type": "string",
-      "description": "ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+watchful_li.logs.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Log"
-}
-```
-## Operation: getExportLogs
+
+
+### getExportLogs
 Returns a file contain the list of logs
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "format": {
-      "type": "string",
-      "description": "Format of exported file (PDF or CSV)",
-      "enum": [
-        "csv",
-        "pdf"
-      ]
-    },
-    "site": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Site id of the log"
-    },
-    "filter_type": {
-      "type": "string",
-      "description": "Type of the log",
-      "enum": [
-        "",
-        "plugin_sends_error",
-        "curlerror",
-        "modified_file",
-        "word_not_in_homepage",
-        "file_not_exists",
-        "update_available",
-        "new_extension",
-        "deleted_extension",
-        "extension_not_saved",
-        "modified_value_files",
-        "custom"
-      ]
-    },
-    "search": {
-      "type": "string",
-      "description": "Do a 'LIKE' search, you can also use '%'"
-    },
-    "startdate": {
-      "type": "string",
-      "description": "Logs after this date, format YYYY-MM-DD HH:MM:SS"
-    },
-    "enddate": {
-      "type": "string",
-      "description": "Logs before this date, format YYYY-MM-DD HH:MM:SS"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Number of object to return (max 100, default 25)",
-      "minimum": 1
-    },
-    "startid": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Start of the return (default 0)",
-      "minimum": 0
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "format"
-  ]
-}
+
+```js
+watchful_li.getExportLogs({
+  "format": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getFieldsLogs
+
+#### Parameters
+* format (string) **required** - Format of exported file (PDF or CSV)
+* site (integer) - Site id of the log
+* filter_type (string) - Type of the log
+* search (string) - Do a 'LIKE' search, you can also use '%'
+* startdate (string) - Logs after this date, format YYYY-MM-DD HH:MM:SS
+* enddate (string) - Logs before this date, format YYYY-MM-DD HH:MM:SS
+* limit (integer) - Number of object to return (max 100, default 25)
+* startid (integer) - Start of the return (default 0)
+
+### getFieldsLogs
 Returns a list of fields
 
-### Input Schema
-```json
-{}
+
+```js
+watchful_li.getFieldsLogs(null, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: getTypesLogs
+
+
+### getTypesLogs
 Returns a list of log types
 
-### Input Schema
-```json
-{}
+
+```js
+watchful_li.getTypesLogs(null, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: deleteLogById
+
+
+### deleteLogById
 Delete a specific log
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of log that needs to be deleted",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.deleteLogById({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: uploadZipPackage
+
+#### Parameters
+* id (integer) **required** - ID of log that needs to be deleted
+
+### uploadZipPackage
 Upload a ZIP package
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "file": {
-      "type": "string",
-      "description": "ZIP package"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "file"
-  ]
-}
+
+```js
+watchful_li.uploadZipPackage({
+  "file": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Tag"
-}
-```
-## Operation: reports.sites.id.get
+
+#### Parameters
+* file (string) **required** - ZIP package
+
+### reports.sites.id.get
 Returns a PDF report based on a site ID
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID that needs to be fetched",
-      "minimum": 1
-    },
-    "from": {
-      "type": "string",
-      "description": "Start of the report, format YYYY-MM-DD, default today-30day "
-    },
-    "to": {
-      "type": "string",
-      "description": "End of the report, format YYYY-MM-DD, default today"
-    },
-    "reports": {
-      "type": "string",
-      "description": "Type of reports separate by comas: Ga,Logs,Uptime"
-    },
-    "log_type": {
-      "type": "string",
-      "description": "Type of the log to show in the report",
-      "enum": [
-        "",
-        "plugin_sends_error",
-        "curlerror",
-        "modified_file",
-        "word_not_in_homepage",
-        "file_not_exists",
-        "update_available",
-        "new_extension",
-        "deleted_extension",
-        "extension_not_saved",
-        "modified_value_files"
-      ]
-    },
-    "compare": {
-      "type": "integer",
-      "description": "Define if you want show previous values in Google Analytics graph",
-      "enum": [
-        0,
-        1
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.reports.sites.id.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Reports"
-}
-```
-## Operation: reports.tags.id.get
+
+#### Parameters
+* id (integer) **required** - ID that needs to be fetched
+* from (string) - Start of the report, format YYYY-MM-DD, default today-30day 
+* to (string) - End of the report, format YYYY-MM-DD, default today
+* reports (string) - Type of reports separate by comas: Ga,Logs,Uptime
+* log_type (string) - Type of the log to show in the report
+* compare (integer) - Define if you want show previous values in Google Analytics graph
+
+### reports.tags.id.get
 Returns a report based on a site ID
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID that needs to be fetched",
-      "minimum": 1
-    },
-    "from": {
-      "type": "string",
-      "description": "Start of the report, format YYYY-MM-DD, default today-30day "
-    },
-    "to": {
-      "type": "string",
-      "description": "End of the report, format YYYY-MM-DD, default today"
-    },
-    "reports": {
-      "type": "string",
-      "description": "Type of reports separate by comas: Ga,Logs,Uptime"
-    },
-    "log_type": {
-      "type": "string",
-      "description": "Type of the log to show in the report",
-      "enum": [
-        "",
-        "plugin_sends_error",
-        "curlerror",
-        "modified_file",
-        "word_not_in_homepage",
-        "file_not_exists",
-        "update_available",
-        "new_extension",
-        "deleted_extension",
-        "extension_not_saved",
-        "modified_value_files"
-      ]
-    },
-    "compare": {
-      "type": "integer",
-      "description": "Define if you want show previous values in Google Analytics graph",
-      "enum": [
-        0,
-        1
-      ]
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.reports.tags.id.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Reports"
-}
-```
-## Operation: getSites
+
+#### Parameters
+* id (integer) **required** - ID that needs to be fetched
+* from (string) - Start of the report, format YYYY-MM-DD, default today-30day 
+* to (string) - End of the report, format YYYY-MM-DD, default today
+* reports (string) - Type of reports separate by comas: Ga,Logs,Uptime
+* log_type (string) - Type of the log to show in the report
+* compare (integer) - Define if you want show previous values in Google Analytics graph
+
+### getSites
 Returns a list of Sites
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "siteids": {
-      "type": "string",
-      "description": "List of sites id separated by comma"
-    },
-    "name": {
-      "type": "string",
-      "description": "Site name. Do a 'LIKE' search, you can also use '%'"
-    },
-    "access_url": {
-      "type": "string",
-      "description": "Access URL. Do a 'LIKE' search, you can also use '%'"
-    },
-    "j_version": {
-      "type": "string",
-      "description": "Joomla version. Do a 'LIKE' search, you can also use '%'"
-    },
-    "ip": {
-      "type": "string",
-      "description": "Ip address. Do a 'LIKE' search, you can also use '%'"
-    },
-    "jUpdate": {
-      "type": "integer",
-      "description": "Joomla core update status (1: update required, 0: update not required)",
-      "enum": [
-        1,
-        0
-      ]
-    },
-    "canUpdate": {
-      "type": "integer",
-      "description": "canUpdate",
-      "enum": [
-        1,
-        0
-      ]
-    },
-    "published": {
-      "type": "integer",
-      "description": "Is published",
-      "enum": [
-        1,
-        0
-      ]
-    },
-    "error": {
-      "type": "string",
-      "description": "Has errors"
-    },
-    "nbUpdates": {
-      "type": "string"
-    },
-    "up": {
-      "type": "integer",
-      "description": "Is online",
-      "enum": [
-        1,
-        0
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Fields to return separated by commas (e.g. name,id)"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Number of objects to return (max 100, default 25)",
-      "minimum": 1
-    },
-    "limitstart": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Start of the return (default 0)",
-      "minimum": 0
-    },
-    "order": {
-      "type": "string",
-      "description": "ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+watchful_li.getSites({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Site"
-}
-```
-## Operation: createSite
+
+
+### createSite
 Create a site
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/PostSite"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+watchful_li.createSite({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Site"
-}
-```
-## Operation: sites.metadata.get
+
+#### Parameters
+* body (undefined) **required**
+
+### sites.metadata.get
 Returns a list of fields
 
-### Input Schema
-```json
-{}
+
+```js
+watchful_li.sites.metadata.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: sites.id.delete
+
+
+### sites.id.delete
 Delete a specific Site
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of Site that needs to be deleted",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.sites.id.delete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: getSiteById
+
+#### Parameters
+* id (integer) **required** - ID of Site that needs to be deleted
+
+### getSiteById
 Return a site based on ID
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID that needs to be fetched",
-      "minimum": 1
-    },
-    "fields": {
-      "type": "string",
-      "description": "Fields to return separate by comas: name,id"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.getSiteById({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Site"
-}
-```
-## Operation: sites.id.put
+
+#### Parameters
+* id (integer) **required** - ID that needs to be fetched
+* fields (string) - Fields to return separate by comas: name,id
+
+### sites.id.put
 Update a site
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the website that needs to be update",
-      "minimum": 1
-    },
-    "body": {
-      "$ref": "#/definitions/PostSite"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "body"
-  ]
-}
+
+```js
+watchful_li.sites.id.put({
+  "id": 0,
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Site"
-}
-```
-## Operation: getSiteAudits
+
+#### Parameters
+* id (integer) **required** - ID of the website that needs to be update
+* body (undefined) **required**
+
+### getSiteAudits
 Return audits for a specific website
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the website",
-      "minimum": 1
-    },
-    "fields": {
-      "type": "string",
-      "description": "Fields to return separate by comas: name,id"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Number of object to return (max 100, default 25)",
-      "minimum": 1
-    },
-    "limitstart": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Start of the return (default 0)",
-      "minimum": 0
-    },
-    "order": {
-      "type": "string",
-      "description": "ORDER by this field"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.getSiteAudits({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Audits"
-}
-```
-## Operation: createAudits
+
+#### Parameters
+* id (integer) **required** - ID of the website
+* fields (string) - Fields to return separate by comas: name,id
+* limit (integer) - Number of object to return (max 100, default 25)
+* limitstart (integer) - Start of the return (default 0)
+* order (string) - ORDER by this field
+
+### createAudits
 Create an audit for the site
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the website",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.createAudits({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Audit"
-}
-```
-## Operation: addSiteToBackupQueue
+
+#### Parameters
+* id (integer) **required** - ID of the website
+
+### addSiteToBackupQueue
 Add the site to the backup queue
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the website",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.addSiteToBackupQueue({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Site"
-}
-```
-## Operation: getBackupProfiles
+
+#### Parameters
+* id (integer) **required** - ID of the website
+
+### getBackupProfiles
 Return backup profile
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the website",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.getBackupProfiles({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: getListBackups
+
+#### Parameters
+* id (integer) **required** - ID of the website
+
+### getListBackups
 List of latest backups
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the website",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.getListBackups({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: startSiteBackup
+
+#### Parameters
+* id (integer) **required** - ID of the website
+
+### startSiteBackup
 Start a remote backup for the site
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the website",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.startSiteBackup({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Site"
-}
-```
-## Operation: stepSiteBackup
+
+#### Parameters
+* id (integer) **required** - ID of the website
+
+### stepSiteBackup
 Step (continue) a remote backup for the site
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the website",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.stepSiteBackup({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Site"
-}
-```
-## Operation: sites.id.extensions.get
+
+#### Parameters
+* id (integer) **required** - ID of the website
+
+### sites.id.extensions.get
 Get extensions for a site
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the website",
-      "minimum": 1
-    },
-    "fields": {
-      "type": "string",
-      "description": "Fields to return separate by comas: name,id"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Number of object to return (max 100, default 25)",
-      "minimum": 1
-    },
-    "limitstart": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Start of the return (default 0)",
-      "minimum": 0
-    },
-    "order": {
-      "type": "string",
-      "description": "ORDER by this field"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.sites.id.extensions.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Extension"
-}
-```
-## Operation: installExtension
+
+#### Parameters
+* id (integer) **required** - ID of the website
+* fields (string) - Fields to return separate by comas: name,id
+* limit (integer) - Number of object to return (max 100, default 25)
+* limitstart (integer) - Start of the return (default 0)
+* order (string) - ORDER by this field
+
+### installExtension
 Install extension
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the website",
-      "minimum": 1
-    },
-    "url": {
-      "type": "string",
-      "format": "url",
-      "description": "URL to install the extension from"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "url"
-  ]
-}
+
+```js
+watchful_li.installExtension({
+  "id": 0,
+  "url": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: sites.id.logs.get
+
+#### Parameters
+* id (integer) **required** - ID of the website
+* url (string) **required** - URL to install the extension from
+
+### sites.id.logs.get
 Return logs for a specific website
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the website",
-      "minimum": 1
-    },
-    "log_entry": {
-      "type": "string",
-      "description": "Do a 'LIKE' search, you can also use '%'"
-    },
-    "log_type": {
-      "type": "string",
-      "description": "Type of the log",
-      "enum": [
-        "",
-        "plugin_sends_error",
-        "curlerror",
-        "modified_file",
-        "word_not_in_homepage",
-        "file_not_exists",
-        "update_available",
-        "new_extension",
-        "deleted_extension",
-        "extension_not_saved",
-        "modified_value_files"
-      ]
-    },
-    "from": {
-      "type": "string",
-      "description": "Logs after this date, format YYYY-MM-DD HH:MM:SS"
-    },
-    "to": {
-      "type": "string",
-      "description": "Logs before this date, format YYYY-MM-DD HH:MM:SS"
-    },
-    "fields": {
-      "type": "string",
-      "description": "Fields to return separate by comas: name,id"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Number of object to return (max 100, default 25)",
-      "minimum": 1
-    },
-    "limitstart": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Start of the return (default 0)",
-      "minimum": 0
-    },
-    "order": {
-      "type": "string",
-      "description": "ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.sites.id.logs.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Log"
-}
-```
-## Operation: CreateLog
+
+#### Parameters
+* id (integer) **required** - ID of the website
+* log_entry (string) - Do a 'LIKE' search, you can also use '%'
+* log_type (string) - Type of the log
+* from (string) - Logs after this date, format YYYY-MM-DD HH:MM:SS
+* to (string) - Logs before this date, format YYYY-MM-DD HH:MM:SS
+* fields (string) - Fields to return separate by comas: name,id
+* limit (integer) - Number of object to return (max 100, default 25)
+* limitstart (integer) - Start of the return (default 0)
+* order (string) - ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
+
+### CreateLog
 Create a custom log for a specific website
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the website",
-      "minimum": 1
-    },
-    "body": {
-      "$ref": "#/definitions/PostLog"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "body"
-  ]
-}
+
+```js
+watchful_li.CreateLog({
+  "id": 0,
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Log"
-}
-```
-## Operation: deleteMonitor
+
+#### Parameters
+* id (integer) **required** - ID of the website
+* body (undefined) **required**
+
+### deleteMonitor
 Return boolean
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the website",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.deleteMonitor({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Monitor"
-}
-```
-## Operation: postMonitor
+
+#### Parameters
+* id (integer) **required** - ID of the website
+
+### postMonitor
 Return boolean
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the website",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.postMonitor({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Monitor"
-}
-```
-## Operation: scanner
+
+#### Parameters
+* id (integer) **required** - ID of the website
+
+### scanner
 Scan the site for malware
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the website",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.scanner({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: sites.id.tags.get
+
+#### Parameters
+* id (integer) **required** - ID of the website
+
+### sites.id.tags.get
 Return tags for a specific website
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the website",
-      "minimum": 1
-    },
-    "name": {
-      "type": "string",
-      "description": "Do a 'LIKE' search, you can also use '%'"
-    },
-    "type": {
-      "type": "string",
-      "description": "Bootstrap color of the tag",
-      "enum": [
-        "",
-        "default",
-        "success",
-        "warning",
-        "important",
-        "info",
-        "inverse"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Fields to return separate by comas: name,id"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Number of object to return (max 100, default 25)",
-      "minimum": 1
-    },
-    "limitstart": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Start of the return (default 0)",
-      "minimum": 0
-    },
-    "order": {
-      "type": "string",
-      "description": "ORDER by this field"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.sites.id.tags.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Tag"
-}
-```
-## Operation: postTags
+
+#### Parameters
+* id (integer) **required** - ID of the website
+* name (string) - Do a 'LIKE' search, you can also use '%'
+* type (string) - Bootstrap color of the tag
+* fields (string) - Fields to return separate by comas: name,id
+* limit (integer) - Number of object to return (max 100, default 25)
+* limitstart (integer) - Start of the return (default 0)
+* order (string) - ORDER by this field
+
+### postTags
 Add tags for a specific website
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the website",
-      "minimum": 1
-    },
-    "body": {
-      "$ref": "#/definitions/Tag"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "body"
-  ]
-}
+
+```js
+watchful_li.postTags({
+  "id": 0,
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Site"
-}
-```
-## Operation: updateJoomla
+
+#### Parameters
+* id (integer) **required** - ID of the website
+* body (undefined) **required**
+
+### updateJoomla
 Update Joomla core on the remote site
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the website",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.updateJoomla({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: getUptime
+
+#### Parameters
+* id (integer) **required** - ID of the website
+
+### getUptime
 Return uptime data
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the website",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.getUptime({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Uptime"
-}
-```
-## Operation: validateSite
+
+#### Parameters
+* id (integer) **required** - ID of the website
+
+### validateSite
 validate the site
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the website",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.validateSite({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Log"
-}
-```
-## Operation: validateDebugSite
+
+#### Parameters
+* id (integer) **required** - ID of the website
+
+### validateDebugSite
 validate the site, return the debug information
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of the website",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.validateDebugSite({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Log"
-}
-```
-## Operation: getSsoUsers
+
+#### Parameters
+* id (integer) **required** - ID of the website
+
+### getSsoUsers
 Returns a list of SSO Users
 
-### Input Schema
-```json
-{}
+
+```js
+watchful_li.getSsoUsers(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SsoUsers"
-}
-```
-## Operation: CreateSsoUsers
+
+
+### CreateSsoUsers
 Create a SSO User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/SsoUsers"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+watchful_li.CreateSsoUsers({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SsoUsers"
-}
-```
-## Operation: deleteSsoUserById
+
+#### Parameters
+* body (undefined) **required**
+
+### deleteSsoUserById
 Delete a specific SSO User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of SSO User that needs to be deleted",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.deleteSsoUserById({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: getSsoUsersById
+
+#### Parameters
+* id (integer) **required** - ID of SSO User that needs to be deleted
+
+### getSsoUsersById
 Returns a SSO User based on ID
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of SSO User that needs to be fetched",
-      "minimum": 1
-    },
-    "fields": {
-      "type": "string",
-      "description": "Fields to return separate by comas: name,id"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.getSsoUsersById({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SsoUsers"
-}
-```
-## Operation: UpdateSsoUsers
+
+#### Parameters
+* id (integer) **required** - ID of SSO User that needs to be fetched
+* fields (string) - Fields to return separate by comas: name,id
+
+### UpdateSsoUsers
 Update a SSO User
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of SSO User that needs to be updated",
-      "minimum": 1
-    },
-    "body": {
-      "$ref": "#/definitions/SsoUsers"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "body"
-  ]
-}
+
+```js
+watchful_li.UpdateSsoUsers({
+  "id": 0,
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/SsoUsers"
-}
-```
-## Operation: tags.get
+
+#### Parameters
+* id (integer) **required** - ID of SSO User that needs to be updated
+* body (undefined) **required**
+
+### tags.get
 Returns a list of tags
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "name": {
-      "type": "string",
-      "description": "Do a 'LIKE' search, you can also use '%'"
-    },
-    "type": {
-      "type": "string",
-      "description": "Bootstrap color of the tag",
-      "enum": [
-        "",
-        "default",
-        "success",
-        "warning",
-        "important",
-        "info",
-        "inverse"
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Fields to return separate by comas: name,id"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Number of object to return (max 100, default 25)",
-      "minimum": 1
-    },
-    "limitstart": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Start of the return (default 0)",
-      "minimum": 0
-    },
-    "order": {
-      "type": "string",
-      "description": "ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+watchful_li.tags.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Tag"
-}
-```
-## Operation: CreateTags
+
+
+### CreateTags
 Create a tag
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "body": {
-      "$ref": "#/definitions/Tag"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+watchful_li.CreateTags({
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Tag"
-}
-```
-## Operation: tags.metadata.get
+
+#### Parameters
+* body (undefined) **required**
+
+### tags.metadata.get
 Returns a list of fields
 
-### Input Schema
-```json
-{}
+
+```js
+watchful_li.tags.metadata.get(null, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: tags.id.delete
+
+
+### tags.id.delete
 Delete a specific tag
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of tag that needs to be deleted",
-      "minimum": 1
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.tags.id.delete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "type": "string"
-}
-```
-## Operation: getTagById
+
+#### Parameters
+* id (integer) **required** - ID of tag that needs to be deleted
+
+### getTagById
 Returns a tag based on ID
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of tag that needs to be fetched",
-      "minimum": 1
-    },
-    "fields": {
-      "type": "string",
-      "description": "Fields to return separate by comas: name,id"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.getTagById({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Tag"
-}
-```
-## Operation: UpdateTag
+
+#### Parameters
+* id (integer) **required** - ID of tag that needs to be fetched
+* fields (string) - Fields to return separate by comas: name,id
+
+### UpdateTag
 Update a tag
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of tag",
-      "minimum": 1
-    },
-    "body": {
-      "$ref": "#/definitions/Tag"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "body"
-  ]
-}
+
+```js
+watchful_li.UpdateTag({
+  "id": 0,
+  "body": null
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Tag"
-}
-```
-## Operation: getSitesByTags
+
+#### Parameters
+* id (integer) **required** - ID of tag
+* body (undefined) **required**
+
+### getSitesByTags
 Returns a list of sites based with a specific tag id
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of tag that needs to be fetched",
-      "minimum": 1
-    },
-    "name": {
-      "type": "string",
-      "description": "Do a 'LIKE' search, you can also use '%'"
-    },
-    "access_url": {
-      "type": "string",
-      "description": "Do a 'LIKE' search, you can also use '%'"
-    },
-    "j_version": {
-      "type": "string",
-      "description": "Do a 'LIKE' search, you can also use '%'"
-    },
-    "ip": {
-      "type": "string",
-      "description": "Do a 'LIKE' search, you can also use '%'"
-    },
-    "jUpdate": {
-      "type": "integer",
-      "description": "Joomla core update",
-      "enum": [
-        1,
-        0
-      ]
-    },
-    "published": {
-      "type": "integer",
-      "description": "is published",
-      "enum": [
-        1,
-        0
-      ]
-    },
-    "error": {
-      "type": "string",
-      "description": "have errors"
-    },
-    "nbUpdates": {
-      "type": "string"
-    },
-    "up": {
-      "type": "integer",
-      "description": "is the website online",
-      "enum": [
-        1,
-        0
-      ]
-    },
-    "fields": {
-      "type": "string",
-      "description": "Fields to return separate by comas: name,id"
-    },
-    "limit": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Number of object to return (max 100, default 25)",
-      "minimum": 1
-    },
-    "limitstart": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Start of the return (default 0)",
-      "minimum": 0
-    },
-    "order": {
-      "type": "string",
-      "description": "ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.getSitesByTags({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Site"
-}
-```
-## Operation: getVersions
+
+#### Parameters
+* id (integer) **required** - ID of tag that needs to be fetched
+* name (string) - Do a 'LIKE' search, you can also use '%'
+* access_url (string) - Do a 'LIKE' search, you can also use '%'
+* j_version (string) - Do a 'LIKE' search, you can also use '%'
+* ip (string) - Do a 'LIKE' search, you can also use '%'
+* jUpdate (integer) - Joomla core update
+* published (integer) - is published
+* error (string) - have errors
+* nbUpdates (string)
+* up (integer) - is the website online
+* fields (string) - Fields to return separate by comas: name,id
+* limit (integer) - Number of object to return (max 100, default 25)
+* limitstart (integer) - Start of the return (default 0)
+* order (string) - ORDER by this field separete by comas. Add + / - after field for set ASC / DESC: type+,name-
+
+### getVersions
 Get list of versions
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "fields": {
-      "type": "string",
-      "description": "Fields to return separate by comas: name,id"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+watchful_li.getVersions({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Version"
-}
-```
-## Operation: getVersion
+
+
+### getVersion
 Find a version by ID
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "format": "int64",
-      "description": "ID of version that needs to be fetched",
-      "minimum": 1
-    },
-    "fields": {
-      "type": "string",
-      "description": "Fields to return separate by commas: name,id"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+watchful_li.getVersion({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Version"
-}
-```
+
+#### Parameters
+* id (integer) **required** - ID of version that needs to be fetched
+* fields (string) - Fields to return separate by commas: name,id
+

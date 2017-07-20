@@ -1,40 +1,45 @@
 # @datafire/reddit_rss
 
+Client library for www.reddit.com
 
-## Operation: frontPage
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/reddit_rss
+```
+
+```js
+let datafire = require('datafire');
+let reddit_rss = require('@datafire/reddit_rss').actions;
+let context = new datafire.Context();
+
+reddit_rss.frontPage({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
+
+
+## Actions
+### frontPage
 reddit: the front page of the internet
 
-### Input Schema
-```json
-{}
+
+```js
+reddit_rss.frontPage(null, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Feed"
-}
-```
-## Operation: subreddit
+
+
+### subreddit
 Retrieve the RSS feed
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "subreddit": {
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "subreddit"
-  ]
-}
+
+```js
+reddit_rss.subreddit({
+  "subreddit": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Feed"
-}
-```
+
+#### Parameters
+* subreddit (string) **required**
+

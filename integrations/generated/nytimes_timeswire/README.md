@@ -1,170 +1,81 @@
 # @datafire/nytimes_timeswire
+
+Client library for Times Newswire
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/nytimes_timeswire
+```
+
+```js
+let datafire = require('datafire');
+let nytimes_timeswire = require('@datafire/nytimes_timeswire').actions;
+
+let account = {
+  apikey: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    nytimes_timeswire: account,
+  }
+})
+
+
+nytimes_timeswire.content.json.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 With the Times Newswire API, you can get links and metadata for Times articles and blog posts as soon as they are published on NYTimes.com. The Times Newswire API provides an up-to-the-minute stream of published items.
 
-## Operation: content.json.get
+## Actions
+### content.json.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "url": {
-      "type": "string",
-      "description": "The complete URL of a specific news item, URL-encoded or backslash-escaped"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "url"
-  ]
-}
+
+```js
+nytimes_timeswire.content.json.get({
+  "url": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "copyright": {
-      "type": "string"
-    },
-    "num_results": {
-      "type": "integer"
-    },
-    "results": {
-      "items": {
-        "$ref": "#/definitions/Article"
-      },
-      "type": "array"
-    },
-    "status": {
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: source.section.json.get
+
+#### Parameters
+* url (string) **required** - The complete URL of a specific news item, URL-encoded or backslash-escaped
+
+### source.section.json.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "source": {
-      "type": "string",
-      "description": "Limits the set of items by originating source\n\nall = items from both The New York Times and The International New York Times\nnyt = New York Times items only\niht = International New York Times items only\n",
-      "enum": [
-        "all",
-        "nyt",
-        "iht"
-      ]
-    },
-    "section": {
-      "type": "string",
-      "description": "Limits the set of items by one or more sections\nall | One or more section names, separated by semicolons\n\n To get all sections, specify all. To get a particular section or sections, use the section names returned by this request:\n http://api.nytimes.com/svc/news/v3/content/section-list.json\n"
-    },
-    "limit": {
-      "type": "integer",
-      "description": "Limits the number of results, between 1 and 20"
-    },
-    "offset": {
-      "type": "integer",
-      "description": "Sets the starting point of the result set"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "source",
-    "section"
-  ]
-}
+
+```js
+nytimes_timeswire.source.section.json.get({
+  "source": "",
+  "section": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "copyright": {
-      "type": "string"
-    },
-    "num_results": {
-      "type": "integer"
-    },
-    "results": {
-      "items": {
-        "$ref": "#/definitions/Article"
-      },
-      "type": "array"
-    },
-    "status": {
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
-## Operation: source.section.time_period.json.get
+
+#### Parameters
+* source (string) **required** - Limits the set of items by originating source
+* section (string) **required** - Limits the set of items by one or more sections
+* limit (integer) - Limits the number of results, between 1 and 20
+* offset (integer) - Sets the starting point of the result set
+
+### source.section.time_period.json.get
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "source": {
-      "type": "string",
-      "description": "Limits the set of items by originating source\n\nall = items from both The New York Times and The International New York Times\nnyt = New York Times items only\niht = International New York Times items only\n",
-      "enum": [
-        "all",
-        "nyt",
-        "iht"
-      ]
-    },
-    "section": {
-      "type": "string",
-      "description": "Limits the set of items by one or more sections\nall | One or more section names, separated by semicolons\n\n To get all sections, specify all. To get a particular section or sections, use the section names returned by this request:\n http://api.nytimes.com/svc/news/v3/content/section-list.json\n"
-    },
-    "time-period": {
-      "type": "integer",
-      "description": "Limits the set of items by time published, integer in number of hours"
-    },
-    "limit": {
-      "type": "integer",
-      "description": "Limits the number of results, between 1 and 20"
-    },
-    "offset": {
-      "type": "integer",
-      "description": "Sets the starting point of the result set"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "source",
-    "section",
-    "time-period"
-  ]
-}
+
+```js
+nytimes_timeswire.source.section.time_period.json.get({
+  "source": "",
+  "section": "",
+  "time-period": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "copyright": {
-      "type": "string"
-    },
-    "num_results": {
-      "type": "integer"
-    },
-    "results": {
-      "items": {
-        "$ref": "#/definitions/Article"
-      },
-      "type": "array"
-    },
-    "status": {
-      "type": "string"
-    }
-  },
-  "type": "object"
-}
-```
+
+#### Parameters
+* source (string) **required** - Limits the set of items by originating source
+* section (string) **required** - Limits the set of items by one or more sections
+* time-period (integer) **required** - Limits the set of items by time published, integer in number of hours
+* limit (integer) - Limits the number of results, between 1 and 20
+* offset (integer) - Sets the starting point of the result set
+

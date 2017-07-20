@@ -1,1195 +1,628 @@
 # @datafire/windows_arm_graphrbac
+
+Client library for GraphRbacManagementClient
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/windows_arm_graphrbac
+```
+
+```js
+let datafire = require('datafire');
+let windows_arm_graphrbac = require('@datafire/windows_arm_graphrbac').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    windows_arm_graphrbac: account,
+  }
+})
+
+
+windows_arm_graphrbac.Applications_List({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 The Graph RBAC Management Client
 
-## Operation: Applications_List
+## Actions
+### Applications_List
 Lists applications by filter parameters.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "$filter": {
-      "type": "string",
-      "description": "The filters to apply to the operation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Applications_List({
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ApplicationListResult"
-}
-```
-## Operation: Applications_Create
+
+#### Parameters
+* $filter (string) - The filters to apply to the operation.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Applications_Create
 Create a new application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "parameters": {
-      "$ref": "#/definitions/ApplicationCreateParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "parameters",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Applications_Create({
+  "parameters": null,
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Application"
-}
-```
-## Operation: Applications_Delete
+
+#### Parameters
+* parameters (undefined) **required** - Request parameters for creating a new application.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Applications_Delete
 Delete an application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "applicationObjectId": {
-      "type": "string",
-      "description": "Application object ID."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "applicationObjectId",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Applications_Delete({
+  "applicationObjectId": "",
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Applications_Get
+
+#### Parameters
+* applicationObjectId (string) **required** - Application object ID.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Applications_Get
 Get an application by object ID.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "applicationObjectId": {
-      "type": "string",
-      "description": "Application object ID."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "applicationObjectId",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Applications_Get({
+  "applicationObjectId": "",
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/Application"
-}
-```
-## Operation: Applications_Patch
+
+#### Parameters
+* applicationObjectId (string) **required** - Application object ID.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Applications_Patch
 Update an existing application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "applicationObjectId": {
-      "type": "string",
-      "description": "Application object ID."
-    },
-    "parameters": {
-      "$ref": "#/definitions/ApplicationUpdateParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "applicationObjectId",
-    "parameters",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Applications_Patch({
+  "applicationObjectId": "",
+  "parameters": null,
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Applications_ListKeyCredentials
+
+#### Parameters
+* applicationObjectId (string) **required** - Application object ID.
+* parameters (undefined) **required** - Request parameters for updating an existing application.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Applications_ListKeyCredentials
 Get the keyCredentials associated with an application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "applicationObjectId": {
-      "type": "string",
-      "description": "Application object ID."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "applicationObjectId",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Applications_ListKeyCredentials({
+  "applicationObjectId": "",
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/KeyCredentialListResult"
-}
-```
-## Operation: Applications_UpdateKeyCredentials
+
+#### Parameters
+* applicationObjectId (string) **required** - Application object ID.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Applications_UpdateKeyCredentials
 Update the keyCredentials associated with an application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "applicationObjectId": {
-      "type": "string",
-      "description": "Application object ID."
-    },
-    "parameters": {
-      "$ref": "#/definitions/KeyCredentialsUpdateParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "applicationObjectId",
-    "parameters",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Applications_UpdateKeyCredentials({
+  "applicationObjectId": "",
+  "parameters": null,
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Applications_ListPasswordCredentials
+
+#### Parameters
+* applicationObjectId (string) **required** - Application object ID.
+* parameters (undefined) **required** - Request parameters for a KeyCredentials update operation
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Applications_ListPasswordCredentials
 Get the passwordCredentials associated with an application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "applicationObjectId": {
-      "type": "string",
-      "description": "Application object ID."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "applicationObjectId",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Applications_ListPasswordCredentials({
+  "applicationObjectId": "",
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PasswordCredentialListResult"
-}
-```
-## Operation: Applications_UpdatePasswordCredentials
+
+#### Parameters
+* applicationObjectId (string) **required** - Application object ID.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Applications_UpdatePasswordCredentials
 Update passwordCredentials associated with an application.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "applicationObjectId": {
-      "type": "string",
-      "description": "Application object ID."
-    },
-    "parameters": {
-      "$ref": "#/definitions/PasswordCredentialsUpdateParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "applicationObjectId",
-    "parameters",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Applications_UpdatePasswordCredentials({
+  "applicationObjectId": "",
+  "parameters": null,
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Objects_GetObjectsByObjectIds
+
+#### Parameters
+* applicationObjectId (string) **required** - Application object ID.
+* parameters (undefined) **required** - Request parameters for a PasswordCredentials update operation.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Objects_GetObjectsByObjectIds
 Gets AD group membership for the specified AD object IDs.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "parameters": {
-      "$ref": "#/definitions/GetObjectsParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "parameters",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Objects_GetObjectsByObjectIds({
+  "parameters": null,
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetObjectsResult"
-}
-```
-## Operation: Groups_List
+
+#### Parameters
+* parameters (undefined) **required** - Request parameters for the GetObjectsByObjectIds API.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Groups_List
 Gets list of groups for the current tenant.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply to the operation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Groups_List({
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GroupListResult"
-}
-```
-## Operation: Groups_Create
+
+#### Parameters
+* $filter (string) - The filter to apply to the operation.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Groups_Create
 Create a group in the directory.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "parameters": {
-      "$ref": "#/definitions/GroupCreateParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "parameters",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Groups_Create({
+  "parameters": null,
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ADGroup"
-}
-```
-## Operation: Groups_Delete
+
+#### Parameters
+* parameters (undefined) **required** - Request parameters for creating a new group.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Groups_Delete
 Delete a group from the directory.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "groupObjectId": {
-      "type": "string",
-      "description": "The object ID of the group to delete."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "groupObjectId",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Groups_Delete({
+  "groupObjectId": "",
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Groups_AddMember
+
+#### Parameters
+* groupObjectId (string) **required** - The object ID of the group to delete.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Groups_AddMember
 Add a member to a group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "groupObjectId": {
-      "type": "string",
-      "description": "The object ID of the group to which to add the member."
-    },
-    "parameters": {
-      "$ref": "#/definitions/GroupAddMemberParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "groupObjectId",
-    "parameters",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Groups_AddMember({
+  "groupObjectId": "",
+  "parameters": null,
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Groups_RemoveMember
+
+#### Parameters
+* groupObjectId (string) **required** - The object ID of the group to which to add the member.
+* parameters (undefined) **required** - Request parameters for adding a member to a group.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Groups_RemoveMember
 Remove a member from a group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "groupObjectId": {
-      "type": "string",
-      "description": "The object ID of the group from which to remove the member."
-    },
-    "memberObjectId": {
-      "type": "string",
-      "description": "Member object id"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "groupObjectId",
-    "memberObjectId",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Groups_RemoveMember({
+  "groupObjectId": "",
+  "memberObjectId": "",
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Groups_Get
+
+#### Parameters
+* groupObjectId (string) **required** - The object ID of the group from which to remove the member.
+* memberObjectId (string) **required** - Member object id
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Groups_Get
 Gets group information from the directory.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "objectId": {
-      "type": "string",
-      "description": "The object ID of the user for which to get group information."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "objectId",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Groups_Get({
+  "objectId": "",
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ADGroup"
-}
-```
-## Operation: Groups_GetMemberGroups
+
+#### Parameters
+* objectId (string) **required** - The object ID of the user for which to get group information.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Groups_GetMemberGroups
 Gets a collection of object IDs of groups of which the specified group is a member.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "objectId": {
-      "type": "string",
-      "description": "The object ID of the group for which to get group membership."
-    },
-    "parameters": {
-      "$ref": "#/definitions/GroupGetMemberGroupsParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "objectId",
-    "parameters",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Groups_GetMemberGroups({
+  "objectId": "",
+  "parameters": null,
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GroupGetMemberGroupsResult"
-}
-```
-## Operation: Groups_GetGroupMembers
+
+#### Parameters
+* objectId (string) **required** - The object ID of the group for which to get group membership.
+* parameters (undefined) **required** - Request parameters for GetMemberGroups API call.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Groups_GetGroupMembers
 Gets the members of a group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "objectId": {
-      "type": "string",
-      "description": "The object ID of the group whose members should be retrieved."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "objectId",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Groups_GetGroupMembers({
+  "objectId": "",
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/GetObjectsResult"
-}
-```
-## Operation: Groups_IsMemberOf
+
+#### Parameters
+* objectId (string) **required** - The object ID of the group whose members should be retrieved.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Groups_IsMemberOf
 Checks whether the specified user, group, contact, or service principal is a direct or transitive member of the specified group.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "parameters": {
-      "$ref": "#/definitions/CheckGroupMembershipParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "parameters",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Groups_IsMemberOf({
+  "parameters": null,
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/CheckGroupMembershipResult"
-}
-```
-## Operation: Objects_GetCurrentUser
+
+#### Parameters
+* parameters (undefined) **required** - Request parameters for IsMemberOf API call.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Objects_GetCurrentUser
 Gets the details for the currently logged-in user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Objects_GetCurrentUser({
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/AADObject"
-}
-```
-## Operation: ServicePrincipals_List
+
+#### Parameters
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### ServicePrincipals_List
 Gets a list of service principals from the current tenant.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply to the operation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.ServicePrincipals_List({
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ServicePrincipalListResult"
-}
-```
-## Operation: ServicePrincipals_Create
+
+#### Parameters
+* $filter (string) - The filter to apply to the operation.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### ServicePrincipals_Create
 Creates a service principal in the directory.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "parameters": {
-      "$ref": "#/definitions/ServicePrincipalCreateParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "parameters",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.ServicePrincipals_Create({
+  "parameters": null,
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ServicePrincipal"
-}
-```
-## Operation: ServicePrincipals_Delete
+
+#### Parameters
+* parameters (undefined) **required** - Request parameters for creating a new service principal.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### ServicePrincipals_Delete
 Deletes a service principal from the directory.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "objectId": {
-      "type": "string",
-      "description": "The object ID of the service principal to delete."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "objectId",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.ServicePrincipals_Delete({
+  "objectId": "",
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ServicePrincipals_Get
+
+#### Parameters
+* objectId (string) **required** - The object ID of the service principal to delete.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### ServicePrincipals_Get
 Gets service principal information from the directory.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "objectId": {
-      "type": "string",
-      "description": "The object ID of the service principal to get."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "objectId",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.ServicePrincipals_Get({
+  "objectId": "",
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ServicePrincipal"
-}
-```
-## Operation: ServicePrincipals_ListKeyCredentials
+
+#### Parameters
+* objectId (string) **required** - The object ID of the service principal to get.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### ServicePrincipals_ListKeyCredentials
 Get the keyCredentials associated with the specified service principal.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "objectId": {
-      "type": "string",
-      "description": "The object ID of the service principal for which to get keyCredentials."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "objectId",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.ServicePrincipals_ListKeyCredentials({
+  "objectId": "",
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/KeyCredentialListResult"
-}
-```
-## Operation: ServicePrincipals_UpdateKeyCredentials
+
+#### Parameters
+* objectId (string) **required** - The object ID of the service principal for which to get keyCredentials.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### ServicePrincipals_UpdateKeyCredentials
 Update the keyCredentials associated with a service principal.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "objectId": {
-      "type": "string",
-      "description": "The object ID for which to get service principal information."
-    },
-    "parameters": {
-      "$ref": "#/definitions/KeyCredentialsUpdateParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "objectId",
-    "parameters",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.ServicePrincipals_UpdateKeyCredentials({
+  "objectId": "",
+  "parameters": null,
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: ServicePrincipals_ListPasswordCredentials
+
+#### Parameters
+* objectId (string) **required** - The object ID for which to get service principal information.
+* parameters (undefined) **required** - Request parameters for a KeyCredentials update operation
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### ServicePrincipals_ListPasswordCredentials
 Gets the passwordCredentials associated with a service principal.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "objectId": {
-      "type": "string",
-      "description": "The object ID of the service principal."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "objectId",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.ServicePrincipals_ListPasswordCredentials({
+  "objectId": "",
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/PasswordCredentialListResult"
-}
-```
-## Operation: ServicePrincipals_UpdatePasswordCredentials
+
+#### Parameters
+* objectId (string) **required** - The object ID of the service principal.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### ServicePrincipals_UpdatePasswordCredentials
 Updates the passwordCredentials associated with a service principal.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "objectId": {
-      "type": "string",
-      "description": "The object ID of the service principal."
-    },
-    "parameters": {
-      "$ref": "#/definitions/PasswordCredentialsUpdateParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "objectId",
-    "parameters",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.ServicePrincipals_UpdatePasswordCredentials({
+  "objectId": "",
+  "parameters": null,
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Users_List
+
+#### Parameters
+* objectId (string) **required** - The object ID of the service principal.
+* parameters (undefined) **required** - Request parameters for a PasswordCredentials update operation.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Users_List
 Gets list of users for the current tenant.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "$filter": {
-      "type": "string",
-      "description": "The filter to apply to the operation."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Users_List({
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserListResult"
-}
-```
-## Operation: Users_Create
+
+#### Parameters
+* $filter (string) - The filter to apply to the operation.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Users_Create
 Create a new user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "parameters": {
-      "$ref": "#/definitions/UserCreateParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "parameters",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Users_Create({
+  "parameters": null,
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/User"
-}
-```
-## Operation: Users_GetMemberGroups
+
+#### Parameters
+* parameters (undefined) **required** - Request parameters for creating a new work or school account user.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Users_GetMemberGroups
 Gets a collection that contains the object IDs of the groups of which the user is a member.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "objectId": {
-      "type": "string",
-      "description": "The object ID of the user for which to get group membership."
-    },
-    "parameters": {
-      "$ref": "#/definitions/UserGetMemberGroupsParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "objectId",
-    "parameters",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Users_GetMemberGroups({
+  "objectId": "",
+  "parameters": null,
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/UserGetMemberGroupsResult"
-}
-```
-## Operation: Users_Delete
+
+#### Parameters
+* objectId (string) **required** - The object ID of the user for which to get group membership.
+* parameters (undefined) **required** - Request parameters for GetMemberGroups API call.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Users_Delete
 Delete a user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "upnOrObjectId": {
-      "type": "string",
-      "description": "The object ID or principal name of the user to delete."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "upnOrObjectId",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Users_Delete({
+  "upnOrObjectId": "",
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: Users_Get
+
+#### Parameters
+* upnOrObjectId (string) **required** - The object ID or principal name of the user to delete.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Users_Get
 Gets user information from the directory.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "upnOrObjectId": {
-      "type": "string",
-      "description": "The object ID or principal name of the user for which to get information."
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "upnOrObjectId",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Users_Get({
+  "upnOrObjectId": "",
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/User"
-}
-```
-## Operation: Users_Update
+
+#### Parameters
+* upnOrObjectId (string) **required** - The object ID or principal name of the user for which to get information.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
+### Users_Update
 Updates a user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "upnOrObjectId": {
-      "type": "string",
-      "description": "The object ID or principal name of the user to update."
-    },
-    "parameters": {
-      "$ref": "#/definitions/UserUpdateParameters"
-    },
-    "api-version": {
-      "type": "string",
-      "description": "Client API version."
-    },
-    "tenantID": {
-      "type": "string",
-      "description": "The tenant ID."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "upnOrObjectId",
-    "parameters",
-    "api-version",
-    "tenantID"
-  ]
-}
+
+```js
+windows_arm_graphrbac.Users_Update({
+  "upnOrObjectId": "",
+  "parameters": null,
+  "api-version": "",
+  "tenantID": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* upnOrObjectId (string) **required** - The object ID or principal name of the user to update.
+* parameters (undefined) **required** - Request parameters for updating an existing work or school account user.
+* api-version (string) **required** - Client API version.
+* tenantID (string) **required** - The tenant ID.
+
