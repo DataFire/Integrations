@@ -12,7 +12,7 @@
   },
   "logo": {
     "backgroundColor": "#0079C5",
-    "url": "https://api.apis.guru/v2/cache/logo/http_www.nrel.gov_client_img_nrel_logo.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nrel_transportation_incentives_laws.png"
   },
   "tags": [
     "open data"

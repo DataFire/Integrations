@@ -5,7 +5,7 @@
   "security": {},
   "logo": {
     "backgroundColor": "#FFFFFF",
-    "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/epa_gov_eff.png"
   },
   "tags": [
     "open data"

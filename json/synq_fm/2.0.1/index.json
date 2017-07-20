@@ -4,7 +4,7 @@
   "description": "* [Sign up for a developer API key!](https://www.synq.fm/register)\n* [SYNQ API Guide](/)",
   "security": {},
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_794554168509865985_c1UqSEfh_400x400.jpg"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/synq_fm.jpg"
   },
   "tags": [
     "media"

@@ -4,7 +4,7 @@
   "description": "This is an API designed for merchants who are using SpectroCoin services and wishes to integrate them locally.",
   "security": {},
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_d1ryrugmrhsb54.cloudfront.net_assets_images_logo.svg"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/spectrocoin.svg"
   },
   "tags": [
     "ecommerce",

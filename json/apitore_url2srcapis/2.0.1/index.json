@@ -4,7 +4,7 @@
   "description": "Url to Image src urls.<BR />[Endpoint] https://api.apitore.com/api/15",
   "security": {},
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_15.jpg"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_url2srcapis.jpg"
   },
   "tags": [],
   "definitions": {

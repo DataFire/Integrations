@@ -15,7 +15,7 @@
   },
   "logo": {
     "backgroundColor": "#0033A0",
-    "url": "https://api.apis.guru/v2/cache/logo/https_rebilly.github.io_RebillyAPI_rb_apiLogo.svg"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/rebilly.svg"
   },
   "tags": [
     "payment",

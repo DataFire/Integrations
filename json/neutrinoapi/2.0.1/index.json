@@ -13,7 +13,7 @@
   },
   "logo": {
     "backgroundColor": "#FFFFFF",
-    "url": "https://api.apis.guru/v2/cache/logo/https_www.neutrinoapi.com_img_NEUTRINO_LOGO_NOBG_126x65.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/neutrinoapi.png"
   },
   "tags": [
     "email",

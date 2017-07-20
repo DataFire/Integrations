@@ -12,7 +12,7 @@
   },
   "logo": {
     "backgroundColor": "#FFFFFF",
-    "url": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_commons_thumb_9_96_Microsoft_logo_(2012).svg_200px-Microsoft_logo_(2012).svg.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/microsoft_security_updates.png"
   },
   "tags": [
     "security"

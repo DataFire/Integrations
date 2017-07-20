@@ -11,7 +11,7 @@
     }
   },
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nytimes_books_api.png"
   },
   "tags": [
     "media",

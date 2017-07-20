@@ -5,7 +5,7 @@
   "security": {},
   "logo": {
     "backgroundColor": "#24292e",
-    "url": "https://api.apis.guru/v2/cache/logo/http_1forge.com_logo.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/1forge.png"
   },
   "tags": [
     "financial"

@@ -5,7 +5,7 @@
   "security": {},
   "logo": {
     "backgroundColor": "#FFFFFF",
-    "url": "https://api.apis.guru/v2/cache/logo/https_cloud.githubusercontent.com_assets_21603_24292732_7e3a8038-1086-11e7-90c0-434e4dcc3474.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/zappiti.png"
   },
   "tags": [
     "entertainment"

@@ -12,7 +12,7 @@
     }
   },
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_static1.twilio.com_marketing_bundles_marketing_img_logos_wordmark-red.svg"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/twilio.svg"
   },
   "tags": [
     "telecom",

@@ -12,7 +12,7 @@
   },
   "logo": {
     "backgroundColor": "#FFFFFF",
-    "url": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_commons_thumb_6_63_BBC_Radio_logo.svg_140px-BBC_Radio_logo.svg.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/bbc.png"
   },
   "tags": [
     "media",

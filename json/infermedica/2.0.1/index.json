@@ -5,7 +5,7 @@
   "security": {},
   "logo": {
     "backgroundColor": "#1576D1",
-    "url": "https://api.apis.guru/v2/cache/logo/https_developer.infermedica.com_images_sprites_infermedica-logo.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/infermedica.png"
   },
   "tags": [],
   "definitions": {

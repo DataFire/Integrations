@@ -25,7 +25,7 @@
     }
   },
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_android_market_images_web_play_logo_x2.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_androidpublisher.png"
   },
   "tags": [
     "developer tools",

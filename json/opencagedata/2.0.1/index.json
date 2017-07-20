@@ -4,7 +4,7 @@
   "description": "Worldwide forward and reverse geocoding",
   "security": {},
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_avatars0.githubusercontent.com_u_11941736.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/opencagedata.png"
   },
   "tags": [
     "location"

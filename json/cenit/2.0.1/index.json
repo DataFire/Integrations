@@ -12,7 +12,7 @@
     }
   },
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_cenit.io_images_logo.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/cenit.png"
   },
   "tags": [],
   "definitions": {

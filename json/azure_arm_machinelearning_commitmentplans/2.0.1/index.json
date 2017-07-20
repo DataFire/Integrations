@@ -4,7 +4,7 @@
   "description": "These APIs allow end users to operate on Azure Machine Learning Commitment Plans resources and their child Commitment Association resources. They support CRUD operations for commitment plans, get and list operations for commitment associations, moving commitment associations between commitment plans, and retrieving commitment plan usage history.",
   "security": {},
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_machinelearning_commitmentplans.png"
   },
   "tags": [
     "machine learning",

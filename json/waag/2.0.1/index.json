@@ -4,7 +4,7 @@
   "description": "An API for the distribution and annotation of open data, for small cities and big metropolitan areas.",
   "security": {},
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/http_citysdk.waag.org_images_logo.svg"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/waag.svg"
   },
   "tags": [
     "open data"

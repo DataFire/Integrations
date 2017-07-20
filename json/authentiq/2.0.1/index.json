@@ -33,7 +33,7 @@
   },
   "logo": {
     "backgroundColor": "#F26641",
-    "url": "https://api.apis.guru/v2/cache/logo/https_www.authentiq.com_theme_images_authentiq-logo-a-inverse.svg"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/authentiq.svg"
   },
   "tags": [],
   "definitions": {

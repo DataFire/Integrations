@@ -11,7 +11,7 @@
     }
   },
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/http_www.solarvps.com_wp-content_themes_solarvps_images_logo2x.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/solarvps.png"
   },
   "tags": [],
   "actions": [

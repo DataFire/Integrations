@@ -4,7 +4,7 @@
   "description": "Mandrill is a reliable, scalable, and secure delivery API for transactional emails from websites and applications. It's ideal for sending data-driven transactional emails, including targeted e-commerce and personalized one-to-one messages.\n",
   "security": {},
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/http_mandrill.com_assets_images_brand_logo-vertical-light-735b5657.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/mandrillapp.png"
   },
   "tags": [
     "email",

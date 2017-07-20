@@ -12,7 +12,7 @@
   },
   "logo": {
     "backgroundColor": "#FFFFFF",
-    "url": "https://api.apis.guru/v2/cache/logo/http_www.channel4.com_static_programmes_images_c4-atom-logo.gif"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/channel4.gif"
   },
   "tags": [
     "media"

@@ -4,7 +4,7 @@
   "description": "",
   "security": {},
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_developer.oxforddictionaries.com_images_logo.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/oxforddictionaries.png"
   },
   "tags": [
     "text"

@@ -4,7 +4,7 @@
   "description": "Various 2ch matome feeds.<BR />[Endpoint] https://api.apitore.com/api/29",
   "security": {},
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_29.jpg"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_2chmatomefeedsapis.jpg"
   },
   "tags": [],
   "definitions": {

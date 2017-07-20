@@ -4,7 +4,7 @@
   "description": "Retrieves the list of AMP URL (and equivalent AMP Cache URL) for a given list of public URL(s).\n",
   "security": {},
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_acceleratedmobilepageurl.png"
   },
   "tags": [
     "google"

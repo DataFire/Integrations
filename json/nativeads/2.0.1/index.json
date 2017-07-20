@@ -4,7 +4,7 @@
   "description": "This is a Native Ads Publisher API it provides same functionality as Native Ads Publisher Account GUI.\n",
   "security": {},
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_api.nativeads.com_docs_publisher_images_nativeads-logo.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nativeads.png"
   },
   "tags": [],
   "definitions": {

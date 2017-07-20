@@ -5,7 +5,7 @@
   "security": {},
   "logo": {
     "backgroundColor": "#222222",
-    "url": "https://api.apis.guru/v2/cache/logo/http_www.idtbeyond.com_images_logo.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/idtbeyond.png"
   },
   "tags": [
     "telecom"

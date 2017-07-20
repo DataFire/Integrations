@@ -5,7 +5,7 @@
   "security": {},
   "logo": {
     "backgroundColor": "#4C4C4C",
-    "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_432717338270380032_BZWevLrA.jpeg"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/refugerestrooms.jpeg"
   },
   "tags": [
     "open data"

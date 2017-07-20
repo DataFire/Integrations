@@ -6,7 +6,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#24292e",
-      "url": "https://api.apis.guru/v2/cache/logo/http_1forge.com_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/1forge.png"
     },
     "tags": [
       "financial"
@@ -20,7 +20,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#F26641",
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.authentiq.com_theme_images_authentiq-logo-a-inverse.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/6_dot_authentiqio_appspot.svg"
     },
     "tags": [],
     "actionCount": 14,
@@ -38,7 +38,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_sandbox.amadeus.com_sites_default_files_amadeus_logo_US_registered_0_0.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amadeus.png"
     },
     "tags": [],
     "actionCount": 23,
@@ -58,7 +58,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_acm.jpg"
     },
     "tags": [
       "cloud",
@@ -81,7 +81,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_apigateway.jpg"
     },
     "tags": [
       "cloud",
@@ -104,7 +104,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_appstream2.jpg"
     },
     "tags": [
       "cloud",
@@ -127,7 +127,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_athena.jpg"
     },
     "tags": [
       "cloud",
@@ -150,7 +150,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_autoscaling.jpg"
     },
     "tags": [
       "cloud",
@@ -173,7 +173,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_batch.jpg"
     },
     "tags": [
       "cloud",
@@ -196,7 +196,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_budgets.jpg"
     },
     "tags": [
       "cloud",
@@ -219,7 +219,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_clouddirectory.jpg"
     },
     "tags": [
       "cloud",
@@ -242,7 +242,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_cloudformation.jpg"
     },
     "tags": [
       "cloud",
@@ -265,7 +265,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_cloudfront.jpg"
     },
     "tags": [
       "cloud",
@@ -288,7 +288,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_cloudhsm.jpg"
     },
     "tags": [
       "cloud",
@@ -311,7 +311,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_cloudsearch.jpg"
     },
     "tags": [
       "cloud",
@@ -334,7 +334,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_cloudsearchdomain.jpg"
     },
     "tags": [
       "cloud",
@@ -357,7 +357,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_cloudtrail.jpg"
     },
     "tags": [
       "cloud",
@@ -380,7 +380,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_codebuild.jpg"
     },
     "tags": [
       "cloud",
@@ -403,7 +403,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_codecommit.jpg"
     },
     "tags": [
       "cloud",
@@ -426,7 +426,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_codedeploy.jpg"
     },
     "tags": [
       "cloud",
@@ -449,7 +449,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_codepipeline.jpg"
     },
     "tags": [
       "cloud",
@@ -472,7 +472,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_codestar.jpg"
     },
     "tags": [
       "cloud",
@@ -495,7 +495,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_cognito_identity.jpg"
     },
     "tags": [
       "cloud",
@@ -518,7 +518,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_cognito_idp.jpg"
     },
     "tags": [
       "cloud",
@@ -541,7 +541,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_cognito_sync.jpg"
     },
     "tags": [
       "cloud",
@@ -564,7 +564,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_config.jpg"
     },
     "tags": [
       "cloud",
@@ -587,7 +587,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_cur.jpg"
     },
     "tags": [
       "cloud",
@@ -610,7 +610,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_data_iot.jpg"
     },
     "tags": [
       "cloud",
@@ -633,7 +633,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_datapipeline.jpg"
     },
     "tags": [
       "cloud",
@@ -656,7 +656,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_dax.jpg"
     },
     "tags": [
       "cloud",
@@ -679,7 +679,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_devicefarm.jpg"
     },
     "tags": [
       "cloud",
@@ -702,7 +702,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_directconnect.jpg"
     },
     "tags": [
       "cloud",
@@ -725,7 +725,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_discovery.jpg"
     },
     "tags": [
       "cloud",
@@ -748,7 +748,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_dms.jpg"
     },
     "tags": [
       "cloud",
@@ -771,7 +771,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_ds.jpg"
     },
     "tags": [
       "cloud",
@@ -794,7 +794,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_dynamodb.jpg"
     },
     "tags": [
       "cloud",
@@ -817,7 +817,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_ec2.jpg"
     },
     "tags": [
       "cloud",
@@ -840,7 +840,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_ecr.jpg"
     },
     "tags": [
       "cloud",
@@ -863,7 +863,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_ecs.jpg"
     },
     "tags": [
       "cloud",
@@ -886,7 +886,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_elasticache.jpg"
     },
     "tags": [
       "cloud",
@@ -909,7 +909,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_elasticbeanstalk.jpg"
     },
     "tags": [
       "cloud",
@@ -932,7 +932,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_elasticfilesystem.jpg"
     },
     "tags": [
       "cloud",
@@ -955,7 +955,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_elasticloadbalancing.jpg"
     },
     "tags": [
       "cloud",
@@ -978,7 +978,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_elasticmapreduce.jpg"
     },
     "tags": [
       "cloud",
@@ -1001,7 +1001,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_elastictranscoder.jpg"
     },
     "tags": [
       "cloud",
@@ -1024,7 +1024,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_email.jpg"
     },
     "tags": [
       "cloud",
@@ -1047,7 +1047,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_entitlement_marketplace.jpg"
     },
     "tags": [
       "cloud",
@@ -1070,7 +1070,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_es.jpg"
     },
     "tags": [
       "cloud",
@@ -1093,7 +1093,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_events.jpg"
     },
     "tags": [
       "cloud",
@@ -1116,7 +1116,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_firehose.jpg"
     },
     "tags": [
       "cloud",
@@ -1139,7 +1139,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_gamelift.jpg"
     },
     "tags": [
       "cloud",
@@ -1162,7 +1162,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_glacier.jpg"
     },
     "tags": [
       "cloud",
@@ -1185,7 +1185,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_greengrass.jpg"
     },
     "tags": [
       "cloud",
@@ -1208,7 +1208,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_health.jpg"
     },
     "tags": [
       "cloud",
@@ -1231,7 +1231,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_iam.jpg"
     },
     "tags": [
       "cloud",
@@ -1254,7 +1254,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_importexport.jpg"
     },
     "tags": [
       "cloud",
@@ -1277,7 +1277,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_inspector.jpg"
     },
     "tags": [
       "cloud",
@@ -1300,7 +1300,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_iot.jpg"
     },
     "tags": [
       "cloud",
@@ -1323,7 +1323,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_kinesis.jpg"
     },
     "tags": [
       "cloud",
@@ -1345,7 +1345,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_kinesisanalytics.jpg"
     },
     "tags": [
       "cloud",
@@ -1368,7 +1368,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_kms.jpg"
     },
     "tags": [
       "cloud",
@@ -1391,7 +1391,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_lambda.jpg"
     },
     "tags": [
       "cloud",
@@ -1414,7 +1414,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_lightsail.jpg"
     },
     "tags": [
       "cloud",
@@ -1437,7 +1437,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_machinelearning.jpg"
     },
     "tags": [
       "cloud",
@@ -1460,7 +1460,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_marketplacecommerceanalytics.jpg"
     },
     "tags": [
       "cloud",
@@ -1483,7 +1483,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_metering_marketplace.jpg"
     },
     "tags": [
       "cloud",
@@ -1506,7 +1506,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_mobileanalytics.jpg"
     },
     "tags": [
       "cloud",
@@ -1529,7 +1529,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_models_lex.jpg"
     },
     "tags": [
       "cloud",
@@ -1552,7 +1552,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_monitoring.jpg"
     },
     "tags": [
       "cloud",
@@ -1575,7 +1575,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_mturk_requester.jpg"
     },
     "tags": [
       "cloud",
@@ -1598,7 +1598,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_opsworks.jpg"
     },
     "tags": [
       "cloud",
@@ -1621,7 +1621,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_opsworks_cm.jpg"
     },
     "tags": [
       "cloud",
@@ -1644,7 +1644,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_organizations.jpg"
     },
     "tags": [
       "cloud",
@@ -1666,7 +1666,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_pinpoint.jpg"
     },
     "tags": [
       "cloud",
@@ -1689,7 +1689,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_polly.jpg"
     },
     "tags": [
       "cloud",
@@ -1712,7 +1712,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_rds.jpg"
     },
     "tags": [
       "cloud",
@@ -1735,7 +1735,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_redshift.jpg"
     },
     "tags": [
       "cloud",
@@ -1758,7 +1758,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_rekognition.jpg"
     },
     "tags": [
       "cloud",
@@ -1780,7 +1780,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_route53.jpg"
     },
     "tags": [
       "cloud",
@@ -1803,7 +1803,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_route53domains.jpg"
     },
     "tags": [
       "cloud",
@@ -1826,7 +1826,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_runtime_lex.jpg"
     },
     "tags": [
       "cloud",
@@ -1848,7 +1848,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_s3.jpg"
     },
     "tags": [
       "cloud",
@@ -1871,7 +1871,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_sdb.jpg"
     },
     "tags": [
       "cloud",
@@ -1894,7 +1894,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_servicecatalog.jpg"
     },
     "tags": [
       "cloud",
@@ -1917,7 +1917,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_shield.jpg"
     },
     "tags": [
       "cloud",
@@ -1940,7 +1940,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_sms.jpg"
     },
     "tags": [
       "cloud",
@@ -1963,7 +1963,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_snowball.jpg"
     },
     "tags": [
       "cloud",
@@ -1986,7 +1986,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_sns.jpg"
     },
     "tags": [
       "cloud",
@@ -2009,7 +2009,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_sqs.jpg"
     },
     "tags": [
       "cloud",
@@ -2032,7 +2032,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_ssm.jpg"
     },
     "tags": [
       "cloud",
@@ -2055,7 +2055,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_states.jpg"
     },
     "tags": [
       "cloud",
@@ -2078,7 +2078,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_storagegateway.jpg"
     },
     "tags": [
       "cloud",
@@ -2101,7 +2101,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_streams_dynamodb.jpg"
     },
     "tags": [
       "cloud",
@@ -2124,7 +2124,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_sts.jpg"
     },
     "tags": [
       "cloud",
@@ -2147,7 +2147,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_support.jpg"
     },
     "tags": [
       "cloud",
@@ -2170,7 +2170,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_swf.jpg"
     },
     "tags": [
       "cloud",
@@ -2193,7 +2193,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_tagging.jpg"
     },
     "tags": [
       "cloud",
@@ -2216,7 +2216,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_waf.jpg"
     },
     "tags": [
       "cloud",
@@ -2239,7 +2239,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_waf_regional.jpg"
     },
     "tags": [
       "cloud",
@@ -2262,7 +2262,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_workdocs.jpg"
     },
     "tags": [
       "cloud",
@@ -2285,7 +2285,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_workspaces.jpg"
     },
     "tags": [
       "cloud",
@@ -2308,7 +2308,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_media.amazonwebservices.com_blog_2007_big_pbaws_logo_300px.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_xray.jpg"
     },
     "tags": [
       "cloud",
@@ -2332,7 +2332,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_apacta.com_wp-content_uploads_2016_01_apactalogo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apacta.png"
     },
     "tags": [],
     "actionCount": 123,
@@ -2354,7 +2354,7 @@
     },
     "logo": {
       "backgroundColor": "#2a313a",
-      "url": "https://api.apis.guru/v2/cache/logo/https_apimatic.io_img_theme_Convertron.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apimatic.svg"
     },
     "tags": [
       "developer tools",
@@ -2369,7 +2369,7 @@
     "description": "Wikipedia for Web APIs. Repository of API specs in OpenAPI(fka Swagger) 2.0 format.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apis.guru_branding_logo_vertical.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apis_guru.svg"
     },
     "tags": [
       "open data",
@@ -2384,7 +2384,7 @@
     "description": "Various 2ch matome feeds.[Endpoint] https://api.apitore.com/api/29",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_29.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_2chmatomefeedsapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2396,7 +2396,7 @@
     "description": "Various certificate feeds.[Endpoint] https://api.apitore.com/api/31",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_31.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_certificatefeedsapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2408,7 +2408,7 @@
     "description": "Various design feeds.[Endpoint] https://api.apitore.com/api/32",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_32.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_designfeedsapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2420,7 +2420,7 @@
     "description": "Document frequency of Wikipedia.[Endpoint] https://api.apitore.com/api/16",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_16.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_documentfrequencyapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2432,7 +2432,7 @@
     "description": "Various game feeds.[Endpoint] https://api.apitore.com/api/33",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_33.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_gamefeedsapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2444,7 +2444,7 @@
     "description": "Kuromoji: japanese morphological analyzer.[Endpoint] https://api.apitore.com/api/7",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_7.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_kuromojiapis.jpg"
     },
     "tags": [],
     "actionCount": 2,
@@ -2456,7 +2456,7 @@
     "description": "Language detection.[Endpoint] https://api.apitore.com/api/22",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_22.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_languagedetectionapis.jpg"
     },
     "tags": [],
     "actionCount": 2,
@@ -2468,7 +2468,7 @@
     "description": "Various news feeds.[Endpoint] https://api.apitore.com/api/34",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_34.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_newsfeedsapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2480,7 +2480,7 @@
     "description": "Various blog feeds.[Endpoint] https://api.apitore.com/api/30",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_30.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_pioneerblogfeedsapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2492,7 +2492,7 @@
     "description": "Rss to Json.[Endpoint] https://api.apitore.com/api/28",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_28.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_rss2jsonapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2504,7 +2504,7 @@
     "description": "SentencePiece tokenizer (wikipedia).[Endpoint] https://api.apitore.com/api/37",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_37.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_sentencepieceapis_wikipedia_.jpg"
     },
     "tags": [],
     "actionCount": 2,
@@ -2516,7 +2516,7 @@
     "description": "Simple sentence separator.[Endpoint] https://api.apitore.com/api/17",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_17.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_sentenceseparatorapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2528,7 +2528,7 @@
     "description": "Japanese sentiment analyzer.[Endpoint] https://api.apitore.com/api/11",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_11.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_sentimentapis.jpg"
     },
     "tags": [
       "developer tools"
@@ -2542,7 +2542,7 @@
     "description": "Return synonymous words. (equal to \"word2vec distance\")[Endpoint] https://api.apitore.com/api/9",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_9.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_synonymapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2554,7 +2554,7 @@
     "description": "Various tech feeds.[Endpoint] https://api.apitore.com/api/35",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_35.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_techfeedsapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2566,7 +2566,7 @@
     "description": "Text to label by tfidf of contents.[Endpoint] https://api.apitore.com/api/18",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_18.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_text2labelbytfidfapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2578,7 +2578,7 @@
     "description": "Text to label by word2vec of contents.[Endpoint] https://api.apitore.com/api/19",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_19.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_text2labelbywordvectorapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2590,7 +2590,7 @@
     "description": "Various travel feeds.[Endpoint] https://api.apitore.com/api/36",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_36.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_travelfeedsapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2602,7 +2602,7 @@
     "description": "Tweet summarization.[Endpoint] https://api.apitore.com/api/27",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_27.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_tweetsummarizationapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2614,7 +2614,7 @@
     "description": "Call Twitter APIs.[Endpoint] https://api.apitore.com/api/23",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_23.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_twitterapis.jpg"
     },
     "tags": [],
     "actionCount": 3,
@@ -2626,7 +2626,7 @@
     "description": "Call Twitter APIs with word2vec query expansion.[Endpoint] https://api.apitore.com/api/24",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_24.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_twitterapiswithword2vecqueryexpansion.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2638,7 +2638,7 @@
     "description": "Url to Href links.[Endpoint] https://api.apitore.com/api/14",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_14.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_url2hrefapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2650,7 +2650,7 @@
     "description": "Url to Html.[Endpoint] https://api.apitore.com/api/12",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_12.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_url2htmlapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2662,7 +2662,7 @@
     "description": "Url to label by tfidf of contents.[Endpoint] https://api.apitore.com/api/20",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_20.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_url2labelbytfidfapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2674,7 +2674,7 @@
     "description": "Url to label by word2vec of contents.[Endpoint] https://api.apitore.com/api/21",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_21.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_url2labelbywordvectorapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2686,7 +2686,7 @@
     "description": "Url to Image src urls.[Endpoint] https://api.apitore.com/api/15",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_15.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_url2srcapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2698,7 +2698,7 @@
     "description": "Url to Text.[Endpoint] https://api.apitore.com/api/13",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_13.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_url2textapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2710,7 +2710,7 @@
     "description": "Word2Vec.[Endpoint] https://api.apitore.com/api/8",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_8.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_word2vecapis.jpg"
     },
     "tags": [],
     "actionCount": 5,
@@ -2722,7 +2722,7 @@
     "description": "Word to vectors.[Endpoint] https://api.apitore.com/api/10",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_10.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_wordstovectorsapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2741,7 +2741,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.appveyor.com_assets_img_appveyor-logo-256.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/appveyor.png"
     },
     "tags": [],
     "actionCount": 45,
@@ -2782,7 +2782,7 @@
     },
     "logo": {
       "backgroundColor": "#F26641",
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.authentiq.com_theme_images_authentiq-logo-a-inverse.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/authentiq.svg"
     },
     "tags": [],
     "actionCount": 11,
@@ -2814,7 +2814,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_advisor.png"
     },
     "tags": [
       "cloud",
@@ -2849,7 +2849,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_analysisservices.png"
     },
     "tags": [
       "cloud",
@@ -2884,7 +2884,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_apimanagement.png"
     },
     "tags": [
       "cloud",
@@ -2919,7 +2919,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_appinsights.png"
     },
     "tags": [
       "cloud",
@@ -2954,7 +2954,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_authorization.png"
     },
     "tags": [
       "cloud",
@@ -2988,7 +2988,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_batch.png"
     },
     "tags": [
       "cloud",
@@ -3023,7 +3023,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_billing.png"
     },
     "tags": [
       "cloud",
@@ -3058,7 +3058,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_cdn.png"
     },
     "tags": [
       "cloud",
@@ -3074,7 +3074,7 @@
     "description": "Cognitive Services Management Client",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_cognitiveservices.png"
     },
     "tags": [
       "machine learning",
@@ -3089,7 +3089,7 @@
     "title": "UsageManagementClient",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_commerce.png"
     },
     "tags": [
       "ecommerce",
@@ -3125,7 +3125,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_compute.png"
     },
     "tags": [
       "cloud",
@@ -3140,7 +3140,7 @@
     "description": "The Container Service Client.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_compute_containerservice.png"
     },
     "tags": [
       "cloud",
@@ -3155,7 +3155,7 @@
     "description": "The Disk Resource Provider Client.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_compute_disk.png"
     },
     "tags": [
       "cloud",
@@ -3190,7 +3190,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_consumption.png"
     },
     "tags": [
       "cloud",
@@ -3204,7 +3204,7 @@
     "title": "ContainerRegistryManagementClient",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_containerregistry.png"
     },
     "tags": [
       "cloud",
@@ -3239,7 +3239,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_devtestlabs.png"
     },
     "tags": [
       "developer tools",
@@ -3255,7 +3255,7 @@
     "description": "The DNS Management Client.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_dns.png"
     },
     "tags": [
       "hosting",
@@ -3291,7 +3291,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_documentdb.png"
     },
     "tags": [
       "cloud",
@@ -3326,7 +3326,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_eventhub.png"
     },
     "tags": [
       "cloud",
@@ -3340,7 +3340,7 @@
     "title": "InsightsManagementClient",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_insights.png"
     },
     "tags": [
       "cloud",
@@ -3355,7 +3355,7 @@
     "description": "Microsoft.Intune Resource provider Api features in the swagger-2.0 specification",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_intune.png"
     },
     "tags": [
       "enterprise",
@@ -3372,7 +3372,7 @@
     "description": "Use this API to manage the IoT hubs in your Azure subscription.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_iothub.png"
     },
     "tags": [
       "iot",
@@ -3388,7 +3388,7 @@
     "description": "The Azure management API provides a RESTful set of web services that interact with Azure Key Vault.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_keyvault.png"
     },
     "tags": [
       "developer tools",
@@ -3425,7 +3425,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_logic.png"
     },
     "tags": [
       "developer tools",
@@ -3441,7 +3441,7 @@
     "description": "These APIs allow end users to operate on Azure Machine Learning Commitment Plans resources and their child Commitment As...",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_machinelearning_commitmentplans.png"
     },
     "tags": [
       "machine learning",
@@ -3456,7 +3456,7 @@
     "description": "These APIs allow end users to operate on Azure Machine Learning Web Services resources. They support the following opera...",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_machinelearning_webservices.png"
     },
     "tags": [
       "machine learning",
@@ -3491,7 +3491,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_mediaservices.png"
     },
     "tags": [
       "media",
@@ -3527,7 +3527,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_mobileengagement.png"
     },
     "tags": [
       "analytics",
@@ -3563,7 +3563,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_monitor.png"
     },
     "tags": [
       "cloud",
@@ -3598,7 +3598,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_network.png"
     },
     "tags": [
       "cloud",
@@ -3633,7 +3633,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_notificationhubs.png"
     },
     "tags": [
       "cloud",
@@ -3668,7 +3668,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_operationalinsights.png"
     },
     "tags": [
       "analytics",
@@ -3683,7 +3683,7 @@
     "description": "Client to manage your Power BI Embedded workspace collections and retrieve workspaces.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_powerbiembedded.png"
     },
     "tags": [
       "cloud",
@@ -3717,7 +3717,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_recoveryservicesbackup.png"
     },
     "tags": [
       "storage",
@@ -3752,7 +3752,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_redis.png"
     },
     "tags": [
       "cloud",
@@ -3787,7 +3787,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_relay.png"
     },
     "tags": [
       "cloud",
@@ -3822,7 +3822,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_resourcehealth.png"
     },
     "tags": [
       "cloud",
@@ -3836,7 +3836,7 @@
     "title": "SchedulerManagementClient",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_scheduler.png"
     },
     "tags": [
       "time management",
@@ -3871,7 +3871,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_search.png"
     },
     "tags": [
       "search",
@@ -3906,7 +3906,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_servermanagement.png"
     },
     "tags": [
       "developer tools",
@@ -3941,7 +3941,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_service_map.png"
     },
     "tags": [
       "cloud",
@@ -3976,7 +3976,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_servicebus.png"
     },
     "tags": [
       "cloud",
@@ -4010,7 +4010,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_servicefabric.png"
     },
     "tags": [
       "cloud",
@@ -4025,7 +4025,7 @@
     "description": "Provides read functionality for Azure SQL Database Backups",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_sql.png"
     },
     "tags": [
       "enterprise",
@@ -4040,7 +4040,7 @@
     "description": "The Azure Storage Management API.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_storage.png"
     },
     "tags": [
       "storage",
@@ -4075,7 +4075,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_storageimportexport.png"
     },
     "tags": [
       "storage",
@@ -4109,7 +4109,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_storsimple8000series.png"
     },
     "tags": [
       "cloud",
@@ -4123,7 +4123,7 @@
     "title": "TrafficManagerManagementClient",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_trafficmanager.png"
     },
     "tags": [
       "cloud",
@@ -4158,7 +4158,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_web.png"
     },
     "tags": [
       "cloud",
@@ -4172,7 +4172,7 @@
     "title": "InsightsClient",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_insights.png"
     },
     "tags": [
       "cloud",
@@ -4206,7 +4206,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_monitor.png"
     },
     "tags": [
       "cloud",
@@ -4229,7 +4229,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_commons_thumb_6_63_BBC_Radio_logo.svg_140px-BBC_Radio_logo.svg.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/bbc.png"
     },
     "tags": [
       "media",
@@ -4262,7 +4262,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/http_static.bbci.co.uk_tviplayer_1.101.2_img_navigation_iplayer_pink.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/bbci.svg"
     },
     "tags": [
       "media"
@@ -4276,7 +4276,7 @@
     "description": "BC Laws is an electronic library providing free public access to the laws of British Columbia. BC Laws is hosted by the ...",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/bclaws_ca_bclaws.jpeg"
     },
     "tags": [
       "open data"
@@ -4290,7 +4290,7 @@
     "description": "https://www.beanstream.com/api/v1",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_www.beanstream.com_wp-content_uploads_2015_08_Beanstream-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/beanstream.png"
     },
     "tags": [
       "payment",
@@ -4314,7 +4314,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_avatars0.githubusercontent.com_u_25665430.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/beezup.png"
     },
     "tags": [
       "ecommerce"
@@ -4337,7 +4337,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_bigoven.com_assets_images_icons_bigoven-recipes.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/bigoven.png"
     },
     "tags": [],
     "actionCount": 47,
@@ -4349,7 +4349,7 @@
     "description": "This is an API for accessing information about bicycling related incidents. You can find the source code on GitHub.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.bikewise.org_fav.ico"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/bikewise.ico"
     },
     "tags": [
       "open data"
@@ -4408,7 +4408,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_d301sr5gafysq2.cloudfront.net_0c55837759e5_img_homepage_bitbucket-logo-blue.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/bitbucket.svg"
     },
     "tags": [
       "developer tools",
@@ -4423,7 +4423,7 @@
     "description": "Containers are virtual software objects that include all the elements that an app needs to run. A container has the bene...",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_875126609501495297_NWAUHB3O_400x400.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/bluemix_containers.jpg"
     },
     "tags": [],
     "actionCount": 47,
@@ -4443,7 +4443,7 @@
     },
     "logo": {
       "backgroundColor": "#1A1A1A",
-      "url": "https://api.apis.guru/v2/cache/logo/https_static.botify.com_images_logos_botify-white.dc4215a12b9c.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/botify.png"
     },
     "tags": [
       "analytics",
@@ -4458,7 +4458,7 @@
     "description": "The Box Authorization API gives you access to authenticate and authorize an application to work with the Box APIs",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_852979584169410562_etZ6V0rx_400x400.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/box_authorization.jpg"
     },
     "tags": [
       "cloud"
@@ -4489,7 +4489,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_852979584169410562_etZ6V0rx_400x400.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/box_content.jpg"
     },
     "tags": [
       "cloud"
@@ -4503,7 +4503,7 @@
     "description": "The Box Token API provides methods to retrieve an access token and revoke an access token. An access token is a data str...",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_852979584169410562_etZ6V0rx_400x400.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/box_token.jpg"
     },
     "tags": [
       "cloud"
@@ -4534,7 +4534,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_852979584169410562_etZ6V0rx_400x400.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/box_upload.jpg"
     },
     "tags": [
       "cloud"
@@ -4556,7 +4556,7 @@
     },
     "logo": {
       "backgroundColor": "#E34056",
-      "url": "https://api.apis.guru/v2/cache/logo/https_brandlovers.com_static_img_logo_BL_white_balao_35px.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/brandlovers.png"
     },
     "tags": [
       "ecommerce"
@@ -4577,7 +4577,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_cdn.browshot.com_static_images_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/browshot.png"
     },
     "tags": [
       "tools"
@@ -4610,7 +4610,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_d389zggrogs7qo.cloudfront.net_images_app_buffer-logo@2x.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/bufferapp.png"
     },
     "tags": [
       "social",
@@ -4625,7 +4625,7 @@
     "description": "Cambase.io is a project by Evercam.io in order to make it easier for software developers to have a reliable, up to date ...",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_cdn.cambase.io_assets_logo-f1bffbb8eea6139bc4acfec3b9f2f91b.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/cambase.jpg"
     },
     "tags": [],
     "actionCount": 17,
@@ -4645,7 +4645,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_cenit.io_images_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/cenit.png"
     },
     "tags": [],
     "actionCount": 40,
@@ -4665,7 +4665,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/http_www.channel4.com_static_programmes_images_c4-atom-logo.gif"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/channel4.gif"
     },
     "tags": [
       "media"
@@ -4686,7 +4686,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_avatars0.githubusercontent.com_u_1231870.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/circleci.png"
     },
     "tags": [
       "developer tools"
@@ -4732,7 +4732,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#5F6166",
-      "url": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/citrix_gotoassistseeit.png"
     },
     "tags": [
       "support"
@@ -4747,7 +4747,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#5F6166",
-      "url": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/citrix_gotomeeting.png"
     },
     "tags": [
       "collaboration"
@@ -4762,7 +4762,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#5F6166",
-      "url": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/citrix_gototraining.png"
     },
     "tags": [],
     "actionCount": 22,
@@ -4775,7 +4775,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#5F6166",
-      "url": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/citrix_gotowebinar.png"
     },
     "tags": [
       "marketing"
@@ -4790,7 +4790,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#5F6166",
-      "url": "https://api.apis.guru/v2/cache/logo/https_developer.citrixonline.com_sites_all_themes_citrix_responsive_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/citrix_scim.png"
     },
     "tags": [],
     "actionCount": 17,
@@ -4821,7 +4821,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#65A8B5",
-      "url": "https://api.apis.guru/v2/cache/logo/http_clarify.io_wp-content_themes_clarify_images_clarify-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/clarify.png"
     },
     "tags": [
       "search"
@@ -4842,7 +4842,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_s3.amazonaws.com_clickmeter.com_Web_static_cmlogo.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/clickmeter.svg"
     },
     "tags": [
       "marketing"
@@ -4856,7 +4856,7 @@
     "description": "This API drives the Discovery Market Research Tool.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_www.gsa.gov_resources_images_GSAlogo.gif"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/cloud_gov.gif"
     },
     "tags": [
       "open data"
@@ -4871,7 +4871,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/http_cnab-online.github.io_img_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/cnab_online_herokuapp.png"
     },
     "tags": [
       "financial"
@@ -4893,7 +4893,7 @@
     "description": "Learn more about home mortgage data, download the data yourself, or build new tools using our API.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_cfpb.github.io_img_logo_210.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/consumerfinance_gov.png"
     },
     "tags": [],
     "actionCount": 6,
@@ -4912,7 +4912,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_core.ac.uk_images_4d0243b_corelogo_hires_1.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/core_ac_uk.png"
     },
     "tags": [
       "open data"
@@ -4926,7 +4926,7 @@
     "description": "The Unified Taxonomic Information Service (UTIS) is the taxonomic backbone for the EU-BON project",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_cybertaxonomy.eu_sites_all_themes_summertime_cdm_images_cdm-platform-header_2.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/cybertaxonomy_eu.jpg"
     },
     "tags": [
       "open data"
@@ -4941,7 +4941,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#3089CF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_s3.amazonaws.com_enterprise-multitenant.3scale.net.3scale.net_data2crm-api_2445581398133_profiles_logos_medium_data2crm_api.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/data2crm.png"
     },
     "tags": [],
     "actionCount": 95,
@@ -4960,7 +4960,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_regulationsgov.github.io_developers_static_img_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/data_gov.png"
     },
     "tags": [],
     "actionCount": 3,
@@ -4979,7 +4979,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_www.datumbox.com_img_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/datumbox.png"
     },
     "tags": [
       "machine learning",
@@ -4995,7 +4995,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/deutschebahn_betriebsstellen.png"
     },
     "tags": [
       "open data"
@@ -5010,7 +5010,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/deutschebahn_fahrplan.png"
     },
     "tags": [
       "open data"
@@ -5032,7 +5032,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/deutschebahn_fasta.png"
     },
     "tags": [
       "open data"
@@ -5047,7 +5047,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/deutschebahn_flinkster.png"
     },
     "tags": [
       "open data"
@@ -5062,7 +5062,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/deutschebahn_reisezentren.png"
     },
     "tags": [
       "open data"
@@ -5077,7 +5077,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/deutschebahn_stada.png"
     },
     "tags": [
       "open data"
@@ -5103,7 +5103,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/epa_gov_air.png"
     },
     "tags": [
       "open data"
@@ -5118,7 +5118,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/epa_gov_case.png"
     },
     "tags": [
       "open data"
@@ -5133,7 +5133,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/epa_gov_cwa.png"
     },
     "tags": [
       "open data"
@@ -5148,7 +5148,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/epa_gov_dfr.png"
     },
     "tags": [
       "open data"
@@ -5163,7 +5163,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/epa_gov_echo.png"
     },
     "tags": [
       "open data"
@@ -5178,7 +5178,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/epa_gov_eff.png"
     },
     "tags": [
       "open data"
@@ -5193,7 +5193,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/epa_gov_rcra.png"
     },
     "tags": [
       "open data"
@@ -5208,12 +5208,21 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_632233890594299904_DgRDU6dx_400x400.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/epa_gov_sdw.png"
     },
     "tags": [
       "open data"
     ],
     "actionCount": 4,
+    "latestVersion": "2.0.1"
+  },
+  "etsy": {
+    "id": "etsy",
+    "title": "Etsy",
+    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+    "security": {},
+    "tags": [],
+    "actionCount": 115,
     "latestVersion": "2.0.1"
   },
   "europeana_eu": {
@@ -5222,7 +5231,7 @@
     "description": "This Swagger API console provides an overview of an interface to the Europeana REST API. You can build and test anything...",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_labs.europeana.eu_files_labs_footer_150203-solid-black-logo-128px.fw-1-.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/europeana_eu.png"
     },
     "tags": [
       "open data"
@@ -5237,12 +5246,78 @@
     "security": {},
     "logo": {
       "backgroundColor": "#222222",
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.exavault.com_common_images_110xNxlogo220x40.png.pagespeed.ic.N1chK3UTV9.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/exavault.png"
     },
     "tags": [
       "storage"
     ],
     "actionCount": 35,
+    "latestVersion": "2.0.1"
+  },
+  "facebook": {
+    "id": "facebook",
+    "title": "Facebook",
+    "description": "Connect to the social network with the Graph API.",
+    "security": {
+      "facebook": {
+        "integration": "facebook",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "description": "OAuth 2.0 authentication",
+          "flow": "implicit",
+          "type": "oauth2",
+          "scopes": {
+            "public_profile": "",
+            "user_friends": "",
+            "email": "",
+            "user_about_me": "",
+            "user_actions.video": "",
+            "user_actions.music": "",
+            "user_actions.fitness": "",
+            "user_actions.news": "",
+            "user_actions.books": "",
+            "user_birthday": "",
+            "user_education_history": "",
+            "user_events": "",
+            "user_games_activity": "",
+            "user_hometown": "",
+            "user_likes": "",
+            "user_location": "",
+            "user_managed_groups": "",
+            "user_photos": "",
+            "user_posts": "",
+            "user_relationships": "",
+            "user_relationship_details": "",
+            "user_religion_politics": "",
+            "user_tagged_places": "",
+            "user_videos": "",
+            "user_website": "",
+            "user_work_history": "",
+            "read_custom_friendlists": "",
+            "read_insights": "",
+            "read_audience_network_insights": "",
+            "read_page_mailboxes": "",
+            "manage_pages": "",
+            "publish_pages": "",
+            "publish_actions": "",
+            "rsvp_event": "",
+            "pages_show_list": "",
+            "pages_manage_cta": "",
+            "pages_manage_leads": "",
+            "ads_read": "",
+            "ads_management": ""
+          }
+        }
+      }
+    },
+    "tags": [],
+    "actionCount": 195,
     "latestVersion": "2.0.1"
   },
   "figshare": {
@@ -5272,7 +5347,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_user-images.githubusercontent.com_21603_27885832-5da28e32-61d1-11e7-8811-ed7238df2c20.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/figshare.png"
     },
     "tags": [
       "open data"
@@ -5286,12 +5361,47 @@
     "description": "A simple and elegant way to explore cancer data",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_firebrowse.org_img_beta_smaller.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/firebrowse.png"
     },
     "tags": [
       "open data"
     ],
     "actionCount": 30,
+    "latestVersion": "2.0.1"
+  },
+  "fitbit": {
+    "id": "fitbit",
+    "title": "Fitbit",
+    "description": "Bring Fitbit health data into your apps, including user activities, sleep, heart, glucose and blood pressure information...",
+    "security": {
+      "fitbit": {
+        "integration": "fitbit",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "scopes": {
+            "weight": "The weight scope includes weight and related information, such as body mass index, body fat percentage, and goals",
+            "social": "The social scope includes friend-related features, such as friend list, invitations, and leaderboard",
+            "sleep": "The sleep scope includes sleep logs and related sleep analysis",
+            "settings": "The settings scope includes user account and device settings, such as alarms",
+            "profile": "The profile scope is the basic user information",
+            "nutrition": "The nutrition scope includes calorie consumption and nutrition related features, such as food/water logging, goals, and plans",
+            "location": "The location scope includes the GPS and other location data",
+            "heartrate": "The heartrate scope includes the continuous heart rate data and related analysis",
+            "activity": "The activity scope includes activity data and exercise log related features, such as steps, distance, calories burned, and active minutes"
+          },
+          "flow": "application",
+          "type": "oauth2"
+        }
+      }
+    },
+    "tags": [],
+    "actionCount": 74,
     "latestVersion": "2.0.1"
   },
   "flat": {
@@ -5325,7 +5435,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_flat.io_img_logo-flat.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/flat.svg"
     },
     "tags": [
       "media",
@@ -5360,7 +5470,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_cdn.furkot.com_img_furkot-banner-black-4x1.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/furkot.svg"
     },
     "tags": [
       "location"
@@ -5381,7 +5491,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_www.geneea.com_img_geneea-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/geneea.png"
     },
     "tags": [
       "text"
@@ -5403,7 +5513,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_geodesystems.com_repository_images_geodesystems.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/geodesystems.png"
     },
     "tags": [],
     "actionCount": 228,
@@ -5441,7 +5551,7 @@
     },
     "logo": {
       "backgroundColor": "#161924",
-      "url": "https://api.apis.guru/v2/cache/logo/https_getsandbox.com_lib_img_logo-white-72dpi.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/getsandbox.png"
     },
     "tags": [
       "developer tools"
@@ -5462,7 +5572,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_developers.gettyimages.com_images_getty-api-logo.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/gettyimages.jpg"
     },
     "tags": [
       "media"
@@ -5516,7 +5626,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_assets-cdn.github.com_images_modules_logos_page_GitHub-Mark.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/github.png"
     },
     "tags": [
       "collaboration",
@@ -5540,7 +5650,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.githubusercontent.com_assets_21603_24521837_642e411c-1585-11e7-817f-61082580b6f6.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/gitlab.png"
     },
     "tags": [
       "developer tools"
@@ -5554,7 +5664,7 @@
     "description": "Retrieves the list of AMP URL (and equivalent AMP Cache URL) for a given list of public URL(s).",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_acceleratedmobilepageurl.png"
     },
     "tags": [
       "google"
@@ -5589,7 +5699,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_adexchangebuyer.svg"
     },
     "tags": [
       "google"
@@ -5624,7 +5734,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_adexchangebuyer2.png"
     },
     "tags": [
       "google"
@@ -5660,7 +5770,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_adexchangeseller.svg"
     },
     "tags": [
       "google"
@@ -5695,7 +5805,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_adexperiencereport.png"
     },
     "tags": [
       "google"
@@ -5731,7 +5841,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_admin_64dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_admin.png"
     },
     "tags": [
       "analytics",
@@ -5768,7 +5878,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_adsense.png"
     },
     "tags": [
       "google"
@@ -5803,7 +5913,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_adsensehost.png"
     },
     "tags": [
       "google"
@@ -5843,7 +5953,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_analytics_64dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_analytics.png"
     },
     "tags": [
       "analytics",
@@ -5880,7 +5990,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_analyticsreporting.png"
     },
     "tags": [
       "google"
@@ -5894,7 +6004,7 @@
     "description": "Android Device Provisioning Partner API",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_androiddeviceprovisioning.png"
     },
     "tags": [
       "google"
@@ -5929,7 +6039,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_android_market_images_web_play_logo_x2.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_androidenterprise.png"
     },
     "tags": [
       "google"
@@ -5964,7 +6074,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_android_market_images_web_play_logo_x2.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_androidpublisher.png"
     },
     "tags": [
       "developer tools",
@@ -6002,7 +6112,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_appengine.png"
     },
     "tags": [
       "google"
@@ -6041,7 +6151,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_appsactivity.png"
     },
     "tags": [
       "google"
@@ -6076,7 +6186,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_appstate.png"
     },
     "tags": [
       "google"
@@ -6117,7 +6227,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_bigquery.png"
     },
     "tags": [
       "search",
@@ -6153,7 +6263,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_bigquerydatatransfer.png"
     },
     "tags": [
       "google"
@@ -6189,7 +6299,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_blogger_64dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_blogger.png"
     },
     "tags": [
       "social",
@@ -6225,7 +6335,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_intl_en_images_logos_books_logo_lg.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_books.png"
     },
     "tags": [
       "google"
@@ -6261,7 +6371,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_calendar_64dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_calendar.png"
     },
     "tags": [
       "time management",
@@ -6276,7 +6386,7 @@
     "description": "Provides polling places, early vote locations, contest data, election officials, and government representatives for U.S....",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_civicinfo.png"
     },
     "tags": [
       "google"
@@ -6322,7 +6432,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_classroom.png"
     },
     "tags": [
       "education",
@@ -6358,7 +6468,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_cloudbilling.png"
     },
     "tags": [
       "google"
@@ -6393,7 +6503,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_cloudbuild.png"
     },
     "tags": [
       "google"
@@ -6429,7 +6539,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_clouddebugger.png"
     },
     "tags": [
       "google"
@@ -6464,7 +6574,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_clouderrorreporting.png"
     },
     "tags": [
       "google"
@@ -6499,7 +6609,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_cloudfunctions.png"
     },
     "tags": [
       "google"
@@ -6534,7 +6644,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_cloudkms.png"
     },
     "tags": [
       "security",
@@ -6571,7 +6681,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_cloudmonitoring.png"
     },
     "tags": [
       "google"
@@ -6607,7 +6717,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_cloudresourcemanager.png"
     },
     "tags": [
       "google"
@@ -6644,7 +6754,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_cloudtrace.png"
     },
     "tags": [
       "google"
@@ -6682,7 +6792,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_clouduseraccounts.png"
     },
     "tags": [
       "google"
@@ -6722,7 +6832,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_compute.png"
     },
     "tags": [
       "google"
@@ -6759,7 +6869,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_consumersurveys.png"
     },
     "tags": [
       "google"
@@ -6794,7 +6904,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_container.png"
     },
     "tags": [
       "google"
@@ -6829,7 +6939,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_content.png"
     },
     "tags": [
       "ecommerce",
@@ -6844,7 +6954,7 @@
     "description": "Searches over a website or collection of websites",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_customsearch.png"
     },
     "tags": [
       "search",
@@ -6882,7 +6992,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_dataflow.png"
     },
     "tags": [
       "google"
@@ -6917,7 +7027,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_dataproc.png"
     },
     "tags": [
       "google"
@@ -6953,7 +7063,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_datastore.png"
     },
     "tags": [
       "storage",
@@ -6992,7 +7102,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_deploymentmanager.png"
     },
     "tags": [
       "google"
@@ -7029,7 +7139,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_dfareporting.png"
     },
     "tags": [
       "google"
@@ -7043,7 +7153,7 @@
     "description": "Provides information about other Google APIs, such as what APIs are available, the resource, and method details for each...",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_discovery.png"
     },
     "tags": [
       "google"
@@ -7078,7 +7188,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_dlp.png"
     },
     "tags": [
       "google"
@@ -7116,7 +7226,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_dns.png"
     },
     "tags": [
       "google"
@@ -7130,7 +7240,7 @@
     "description": "API for viewing and managing your reports in DoubleClick Bid Manager.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_doubleclickbidmanager.svg"
     },
     "tags": [
       "google"
@@ -7165,7 +7275,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.doubleclickbygoogle.com_static_core_img_doubleclick-google-logo-wide.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_doubleclicksearch.svg"
     },
     "tags": [
       "google"
@@ -7207,7 +7317,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_drive_32dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_drive.png"
     },
     "tags": [
       "storage",
@@ -7243,7 +7353,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_firebasedynamiclinks.png"
     },
     "tags": [
       "google"
@@ -7280,7 +7390,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_firebaserules.png"
     },
     "tags": [
       "google"
@@ -7332,7 +7442,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_fitness.png"
     },
     "tags": [
       "google"
@@ -7368,7 +7478,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_fusiontables.png"
     },
     "tags": [
       "google"
@@ -7405,7 +7515,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_play_games_64dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_games.png"
     },
     "tags": [
       "google"
@@ -7440,7 +7550,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_play_games_64dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_gamesconfiguration.png"
     },
     "tags": [
       "google"
@@ -7476,7 +7586,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_play_games_64dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_gamesmanagement.png"
     },
     "tags": [
       "google"
@@ -7515,7 +7625,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_genomics.png"
     },
     "tags": [
       "google"
@@ -7559,7 +7669,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_gmail_64dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_gmail.png"
     },
     "tags": [
       "email",
@@ -7595,7 +7705,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_groupsmigration.png"
     },
     "tags": [
       "google"
@@ -7630,7 +7740,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_groupssettings.png"
     },
     "tags": [
       "google"
@@ -7665,7 +7775,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_iam.png"
     },
     "tags": [
       "google"
@@ -7701,7 +7811,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_identitytoolkit.png"
     },
     "tags": [
       "google"
@@ -7715,7 +7825,7 @@
     "description": "Searches the Google Knowledge Graph for entities.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_kgsearch.png"
     },
     "tags": [
       "google"
@@ -7750,7 +7860,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_language.png"
     },
     "tags": [
       "text",
@@ -7786,7 +7896,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_licensing.png"
     },
     "tags": [
       "enterprise",
@@ -7826,7 +7936,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_logging.png"
     },
     "tags": [
       "google"
@@ -7861,7 +7971,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_manufacturers.png"
     },
     "tags": [
       "google"
@@ -7897,7 +8007,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_mirror.png"
     },
     "tags": [
       "google"
@@ -7932,7 +8042,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_ml.png"
     },
     "tags": [
       "machine learning",
@@ -7971,7 +8081,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_monitoring.png"
     },
     "tags": [
       "google"
@@ -8009,7 +8119,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_oauth2.png"
     },
     "tags": [
       "google"
@@ -8023,7 +8133,7 @@
     "description": "Analyzes the performance of a web page and provides tailored suggestions to make that page faster.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_pagespeedonline.png"
     },
     "tags": [
       "tools",
@@ -8038,7 +8148,7 @@
     "description": "Searches certified companies and creates contact leads with them, and also audits the usage of clients.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_partners.png"
     },
     "tags": [
       "google"
@@ -8081,7 +8191,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_people.png"
     },
     "tags": [
       "google"
@@ -8116,7 +8226,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_playmoviespartner.png"
     },
     "tags": [
       "google"
@@ -8154,7 +8264,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_developers.google.com_+_images_branding_g+128.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_plus.png"
     },
     "tags": [
       "social",
@@ -8199,7 +8309,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_developers.google.com_+_images_branding_g+128.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_plusdomains.png"
     },
     "tags": [
       "google"
@@ -8238,7 +8348,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_icons_feature_predictionapi-64.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_prediction.png"
     },
     "tags": [
       "prediction",
@@ -8274,7 +8384,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_proximitybeacon.png"
     },
     "tags": [
       "google"
@@ -8310,7 +8420,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_pubsub.png"
     },
     "tags": [
       "messaging",
@@ -8325,7 +8435,7 @@
     "description": "Finds the least expensive flights between an origin and a destination.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_qpxexpress.png"
     },
     "tags": [
       "google"
@@ -8363,7 +8473,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_replicapool.png"
     },
     "tags": [
       "google"
@@ -8401,7 +8511,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_replicapoolupdater.png"
     },
     "tags": [
       "google"
@@ -8437,7 +8547,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_admin_64dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_reseller.png"
     },
     "tags": [
       "enterprise",
@@ -8478,7 +8588,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_resourceviews.png"
     },
     "tags": [
       "google"
@@ -8514,7 +8624,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_runtimeconfig.png"
     },
     "tags": [
       "google"
@@ -8528,7 +8638,7 @@
     "description": "The Safe Browsing API is an experimental API that allows client applications to check URLs against Google's constantly-u...",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_safebrowsing.png"
     },
     "tags": [
       "security",
@@ -8574,7 +8684,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_apps_script_64dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_script.png"
     },
     "tags": [
       "google"
@@ -8588,7 +8698,7 @@
     "description": "Provides tools for running validation tests against single URLs",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_searchconsole.png"
     },
     "tags": [
       "search",
@@ -8625,7 +8735,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_servicecontrol.png"
     },
     "tags": [
       "google"
@@ -8663,7 +8773,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_servicemanagement.png"
     },
     "tags": [
       "google"
@@ -8700,7 +8810,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_serviceuser.png"
     },
     "tags": [
       "google"
@@ -8738,7 +8848,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_sheets.png"
     },
     "tags": [
       "google"
@@ -8774,7 +8884,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_siteverification.png"
     },
     "tags": [
       "google"
@@ -8814,7 +8924,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_slides.png"
     },
     "tags": [
       "google"
@@ -8849,7 +8959,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_sourcerepo.png"
     },
     "tags": [
       "google"
@@ -8884,7 +8994,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_spanner.png"
     },
     "tags": [
       "google"
@@ -8898,7 +9008,7 @@
     "description": "API for spectrum-management functions.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_spectrum.png"
     },
     "tags": [
       "google"
@@ -8933,7 +9043,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_speech.png"
     },
     "tags": [
       "google"
@@ -8969,7 +9079,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_sqladmin.png"
     },
     "tags": [
       "google"
@@ -9008,7 +9118,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com_storage_images_cloud-storage-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_storage.png"
     },
     "tags": [
       "storage",
@@ -9044,7 +9154,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_storagetransfer.png"
     },
     "tags": [
       "storage",
@@ -9082,7 +9192,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_supportcases.png"
     },
     "tags": [
       "google"
@@ -9119,7 +9229,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_surveys.png"
     },
     "tags": [
       "google"
@@ -9160,7 +9270,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_tagmanager.png"
     },
     "tags": [
       "google"
@@ -9196,7 +9306,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_taskqueue.png"
     },
     "tags": [
       "google"
@@ -9232,7 +9342,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_tasks.png"
     },
     "tags": [
       "time management",
@@ -9268,7 +9378,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_toolresults.png"
     },
     "tags": [
       "google"
@@ -9305,7 +9415,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_tracing.png"
     },
     "tags": [
       "google"
@@ -9319,7 +9429,7 @@
     "description": "The Google Cloud Translation API lets websites and programs integrate with",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_translate.png"
     },
     "tags": [
       "text",
@@ -9355,7 +9465,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_urlshortener.png"
     },
     "tags": [
       "tools",
@@ -9391,7 +9501,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_videointelligence.png"
     },
     "tags": [
       "google"
@@ -9426,7 +9536,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_vision.png"
     },
     "tags": [
       "google"
@@ -9440,7 +9550,7 @@
     "description": "Accesses the metadata for all families served by Google Fonts, providing a list of families currently available (includi...",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_webfonts.png"
     },
     "tags": [
       "google"
@@ -9476,7 +9586,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_webmasters.png"
     },
     "tags": [
       "google"
@@ -9516,7 +9626,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.youtube.com_yt_brand_media_image_YouTube-logo-full_color.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_youtube.png"
     },
     "tags": [
       "google"
@@ -9555,7 +9665,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.youtube.com_yt_brand_media_image_YouTube-logo-full_color.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_youtubeanalytics.png"
     },
     "tags": [
       "analytics",
@@ -9592,7 +9702,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_youtubereporting.png"
     },
     "tags": [
       "analytics",
@@ -9646,7 +9756,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/gov_bc_ca_bcdc.jpeg"
     },
     "tags": [
       "open data"
@@ -9660,7 +9770,7 @@
     "description": "This REST API provides searchable access to information about geographical names in the province of British Columbia, in...",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/gov_bc_ca_bcgnws.jpeg"
     },
     "tags": [
       "open data"
@@ -9681,7 +9791,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/gov_bc_ca_geocoder.jpeg"
     },
     "tags": [
       "open data"
@@ -9695,7 +9805,7 @@
     "description": "The Geomark Web Service allows you to create and share geographic areas of interest over the web in a variety of formats...",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/gov_bc_ca_geomark.jpeg"
     },
     "tags": [
       "open data"
@@ -9709,7 +9819,7 @@
     "description": "This API allows you to receive a feed of jobs from WorkBC's Job Board. Please see our data collection notice.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/gov_bc_ca_jobposting.jpeg"
     },
     "tags": [
       "open data"
@@ -9723,7 +9833,7 @@
     "description": "This API is DriveBC's implementation of the Open511 specification.  It provides information about known road events (tra...",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/gov_bc_ca_open511.jpeg"
     },
     "tags": [
       "open data"
@@ -9744,7 +9854,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_916280.jpeg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/gov_bc_ca_router.jpeg"
     },
     "tags": [
       "open data"
@@ -9765,7 +9875,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_graphhopper.com_img_header.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/graphhopper.png"
     },
     "tags": [
       "location"
@@ -9787,7 +9897,7 @@
     "title": "Healthcare",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.healthcare.gov_images_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/healthcare_gov.png"
     },
     "tags": [
       "open data"
@@ -9795,12 +9905,44 @@
     "actionCount": 16,
     "latestVersion": "2.0.1"
   },
+  "heroku": {
+    "id": "heroku",
+    "title": "Heroku",
+    "description": "Manage your Heroku apps, configs, collaborators & resources",
+    "security": {
+      "heroku": {
+        "integration": "heroku",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "scopes": {
+            "write-protected": "Write access to all of your apps and resources, excluding account information.",
+            "read-protected": "Read access to all of your apps and resources, excluding account information.",
+            "write": "Write access to all of your apps and resources, excluding account information and configuration variables",
+            "read": "Read access to all of your apps and resources, excluding account information and configuration variables",
+            "global": "Read and write access to all of your account, apps and resources. Equivalent to the default authorization obtained when using the CLI.",
+            "identity": "Read-only access to your account information."
+          },
+          "flow": "application",
+          "type": "oauth2"
+        }
+      }
+    },
+    "tags": [],
+    "actionCount": 32,
+    "latestVersion": "2.0.1"
+  },
   "hetras_certification_booking": {
     "id": "hetras_certification_booking",
     "title": "hetras Booking API Version 0",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_hetras.zendesk.com_hc_logo.gif"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/hetras_certification_booking.gif"
     },
     "tags": [],
     "actionCount": 15,
@@ -9811,7 +9953,7 @@
     "title": "hetras Hotel API Version 0",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_hetras.zendesk.com_hc_logo.gif"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/hetras_certification_hotel.gif"
     },
     "tags": [],
     "actionCount": 19,
@@ -9824,7 +9966,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#185394",
-      "url": "https://api.apis.guru/v2/cache/logo/http_www.hhs.gov_sites_all_themes_project_h_css_images_hhs_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/hhs_gov.png"
     },
     "tags": [
       "open data"
@@ -9839,7 +9981,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#222222",
-      "url": "https://api.apis.guru/v2/cache/logo/http_www.idtbeyond.com_images_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/idtbeyond.png"
     },
     "tags": [
       "telecom"
@@ -9861,7 +10003,7 @@
     },
     "logo": {
       "backgroundColor": "#383D41",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_1706275304__0_logo_carr__fd_gris_400x400.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/ijenko.png"
     },
     "tags": [
       "iot"
@@ -9882,7 +10024,7 @@
     },
     "logo": {
       "backgroundColor": "#F6248E",
-      "url": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/import_data.svg"
     },
     "tags": [
       "tools"
@@ -9903,7 +10045,7 @@
     },
     "logo": {
       "backgroundColor": "#F6248E",
-      "url": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/import_extraction.svg"
     },
     "tags": [
       "tools"
@@ -9924,7 +10066,7 @@
     },
     "logo": {
       "backgroundColor": "#F6248E",
-      "url": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/import_rss.svg"
     },
     "tags": [
       "tools"
@@ -9945,7 +10087,7 @@
     },
     "logo": {
       "backgroundColor": "#F6248E",
-      "url": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/import_run.svg"
     },
     "tags": [
       "tools"
@@ -9966,7 +10108,7 @@
     },
     "logo": {
       "backgroundColor": "#F6248E",
-      "url": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/import_schedule.svg"
     },
     "tags": [
       "tools"
@@ -9987,7 +10129,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_528918177711796225_5tzW9XKS.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/inboxroute.png"
     },
     "tags": [
       "email",
@@ -10003,7 +10145,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#1576D1",
-      "url": "https://api.apis.guru/v2/cache/logo/https_developer.infermedica.com_images_sprites_infermedica-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/infermedica.png"
     },
     "tags": [],
     "actionCount": 9,
@@ -10040,7 +10182,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_instagramstatic-a.akamaihd.net_bluebar_8a8f88c_images_press_brand-thumb-icon.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/instagram.jpg"
     },
     "tags": [
       "social",
@@ -10076,12 +10218,28 @@
     },
     "logo": {
       "backgroundColor": "#4BC9C5",
-      "url": "https://api.apis.guru/v2/cache/logo/https_docs.jirafe.com_img_jrf-logo--white-100x36.a56c.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/jirafe.png"
     },
     "tags": [
       "marketing"
     ],
     "actionCount": 8,
+    "latestVersion": "2.0.1"
+  },
+  "kaltura": {
+    "id": "kaltura",
+    "title": "Kaltura VPaaS",
+    "description": "The Kaltura VPaaS API",
+    "security": {
+      "kaltura": {
+        "integration": "kaltura",
+        "fields": {
+          "ks": "A session ID generated by calling /service/session/action/start"
+        }
+      }
+    },
+    "tags": [],
+    "actionCount": 746,
     "latestVersion": "2.0.1"
   },
   "learnifier": {
@@ -10090,12 +10248,42 @@
     "security": {},
     "logo": {
       "backgroundColor": "#000000",
-      "url": "https://api.apis.guru/v2/cache/logo/http_media.learnifier.com_2014_04_Learnifier-3201.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/learnifier.png"
     },
     "tags": [
       "education"
     ],
     "actionCount": 34,
+    "latestVersion": "2.0.1"
+  },
+  "linkedin": {
+    "id": "linkedin",
+    "title": "LinkedIn",
+    "description": "Bring user profiles and professional networks to your apps.",
+    "security": {
+      "linkedin": {
+        "integration": "linkedin",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "type": "oauth2",
+          "flow": "application",
+          "scopes": {
+            "r_basicprofile": "",
+            "r_emailaddress": "",
+            "rw_company_admin": "",
+            "w_share": ""
+          }
+        }
+      }
+    },
+    "tags": [],
+    "actionCount": 20,
     "latestVersion": "2.0.1"
   },
   "lyft": {
@@ -10128,7 +10316,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_748197248819834880_EvuRzyK8.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/lyft.jpg"
     },
     "tags": [
       "location"
@@ -10142,7 +10330,7 @@
     "description": "Magento Commerce is the leading provider of open omnichannel innovation.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_magento.com_sites_all_themes_mag_redesign_images_magento-logo.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/magento.svg"
     },
     "tags": [
       "ecommerce"
@@ -10156,7 +10344,7 @@
     "description": "Authentication is required to access all methods of the API. Enter username and password.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.tradeworks.io_wp-content_uploads_2015_06_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/magick_nu.png"
     },
     "tags": [
       "financial"
@@ -10170,7 +10358,7 @@
     "description": "Mandrill is a reliable, scalable, and secure delivery API for transactional emails from websites and applications. It's ...",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_mandrill.com_assets_images_brand_logo-vertical-light-735b5657.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/mandrillapp.png"
     },
     "tags": [
       "email",
@@ -10210,7 +10398,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_raw.githubusercontent.com_Medium_medium-logos_master_logo_medium-m-color-200px.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/medium.png"
     },
     "tags": [
       "media",
@@ -10232,7 +10420,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_commons_thumb_9_96_Microsoft_logo_(2012).svg_200px-Microsoft_logo_(2012).svg.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/microsoft_security_updates.png"
     },
     "tags": [
       "security"
@@ -10247,7 +10435,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#000000",
-      "url": "https://api.apis.guru/v2/cache/logo/http_moonmoonmoonmoon.com_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/moonmoonmoonmoon.png"
     },
     "tags": [],
     "actionCount": 2,
@@ -10276,7 +10464,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_dentycj2qhk72.cloudfront.net_new_images_new_logo_horizontal.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/motaword.png"
     },
     "tags": [],
     "actionCount": 45,
@@ -10296,7 +10484,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.githubusercontent.com_assets_21603_24036792_23286ed2-0af3-11e7-9353-7a772636dee1.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/mozilla_kinto.png"
     },
     "tags": [
       "cloud"
@@ -10310,7 +10498,7 @@
     "description": "This is a Native Ads Publisher API it provides same functionality as Native Ads Publisher Account GUI.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_api.nativeads.com_docs_publisher_images_nativeads-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nativeads.png"
     },
     "tags": [],
     "actionCount": 4,
@@ -10322,7 +10510,7 @@
     "description": "The destination for current and historic NBA statistics.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_en_thumb_0_03_National_Basketball_Association_logo.svg_100px-National_Basketball_Association_logo.svg.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nba.png"
     },
     "tags": [
       "media",
@@ -10373,7 +10561,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_dev.netatmo.com_images_common_netatmo-connect-horiz.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/netatmo.png"
     },
     "tags": [
       "iot"
@@ -10396,7 +10584,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_draft-labs64.rhcloud.com_content_uploads_2015_06_labs64-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/netlicensing.png"
     },
     "tags": [],
     "actionCount": 39,
@@ -10417,7 +10605,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.neutrinoapi.com_img_NEUTRINO_LOGO_NOBG_126x65.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/neutrinoapi.png"
     },
     "tags": [
       "email",
@@ -10451,7 +10639,7 @@
     },
     "logo": {
       "backgroundColor": "#0079C5",
-      "url": "https://api.apis.guru/v2/cache/logo/http_www.nrel.gov_client_img_nrel_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nrel_building_case_studies.png"
     },
     "tags": [
       "open data"
@@ -10473,7 +10661,7 @@
     },
     "logo": {
       "backgroundColor": "#0079C5",
-      "url": "https://api.apis.guru/v2/cache/logo/http_www.nrel.gov_client_img_nrel_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nrel_transportation_incentives_laws.png"
     },
     "tags": [
       "open data"
@@ -10487,7 +10675,7 @@
     "description": "This API allows programmers to build National Snow and Ice Data Center data and metadata services into their application...",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_nsidc.org_images_logo_nsidc_115x90.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nsidc.jpg"
     },
     "tags": [
       "open data"
@@ -10508,7 +10696,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nytimes_article_search.png"
     },
     "tags": [
       "media",
@@ -10530,7 +10718,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nytimes_books_api.png"
     },
     "tags": [
       "media",
@@ -10552,7 +10740,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nytimes_community.png"
     },
     "tags": [
       "media",
@@ -10574,7 +10762,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nytimes_geo_api.png"
     },
     "tags": [
       "media",
@@ -10596,7 +10784,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nytimes_most_popular_api.png"
     },
     "tags": [
       "media",
@@ -10618,7 +10806,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nytimes_movie_reviews.png"
     },
     "tags": [
       "media",
@@ -10648,7 +10836,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nytimes_semantic_api.png"
     },
     "tags": [
       "media",
@@ -10670,7 +10858,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nytimes_times_tags.png"
     },
     "tags": [
       "media",
@@ -10692,7 +10880,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nytimes_timeswire.png"
     },
     "tags": [
       "media",
@@ -10714,7 +10902,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_static01.nyt.com_images_icons_t_logo_291_black.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nytimes_top_stories.png"
     },
     "tags": [
       "media",
@@ -10741,7 +10929,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/http_raw.githubusercontent.com_Mermade_open_api_specifications_master_OMDb_OMDb.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/omdbapi.png"
     },
     "tags": [
       "media",
@@ -10757,7 +10945,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_avatars1.githubusercontent.com_u_15950345.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/openapi_converter_herokuapp.png"
     },
     "tags": [
       "developer tools"
@@ -10771,7 +10959,7 @@
     "description": "Worldwide forward and reverse geocoding",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_avatars0.githubusercontent.com_u_11941736.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/opencagedata.png"
     },
     "tags": [
       "location"
@@ -10792,7 +10980,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_orghunter.com_sites_all_themes_orghunter_img_logo.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/orghunter.jpg"
     },
     "tags": [],
     "actionCount": 6,
@@ -10811,7 +10999,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_developers.owler.com_images_owler_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/owler.png"
     },
     "tags": [
       "search"
@@ -10824,7 +11012,7 @@
     "title": "Oxford Dictionaries",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_developer.oxforddictionaries.com_images_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/oxforddictionaries.png"
     },
     "tags": [
       "text"
@@ -10866,7 +11054,7 @@
     "description": "The recommended REST API endpoints to be used when integrating with PatientView",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.patientview.org_images_pv-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/patientview.png"
     },
     "tags": [],
     "actionCount": 15,
@@ -10878,7 +11066,7 @@
     "description": "The machine learning service APIs utilize hashtags from Twitter to find related, trending shows, related Twitter hashtag...",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_www.peel.com_sites_all_themes_peeltheme_img_peelLogo.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/peel_ci.svg"
     },
     "tags": [
       "media"
@@ -10897,6 +11085,49 @@
     "actionCount": 28,
     "latestVersion": "2.0.1"
   },
+  "producthunt": {
+    "id": "producthunt",
+    "title": "Product Hunt",
+    "security": {
+      "producthunt": {
+        "integration": "producthunt",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "scopes": {
+            "private": "Access to private data",
+            "public": "Access to public data"
+          },
+          "flow": "application",
+          "type": "oauth2"
+        }
+      }
+    },
+    "tags": [],
+    "actionCount": 4,
+    "latestVersion": "2.0.1"
+  },
+  "quandl": {
+    "id": "quandl",
+    "title": "Quandl API",
+    "description": "The Quandl API",
+    "security": {
+      "quandl": {
+        "integration": "quandl",
+        "fields": {
+          "apiKey": "API key"
+        }
+      }
+    },
+    "tags": [],
+    "actionCount": 8,
+    "latestVersion": "2.0.1"
+  },
   "rbaskets_in": {
     "id": "rbaskets_in",
     "title": "Request Baskets",
@@ -10910,7 +11141,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_raw.githubusercontent.com_darklynx_request-baskets_master_doc_logo.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/rbaskets_in.svg"
     },
     "tags": [],
     "actionCount": 9,
@@ -10933,13 +11164,65 @@
     },
     "logo": {
       "backgroundColor": "#0033A0",
-      "url": "https://api.apis.guru/v2/cache/logo/https_rebilly.github.io_RebillyAPI_rb_apiLogo.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/rebilly.svg"
     },
     "tags": [
       "payment",
       "ecommerce"
     ],
     "actionCount": 233,
+    "latestVersion": "2.0.1"
+  },
+  "reddit": {
+    "id": "reddit",
+    "title": "Reddit",
+    "description": "Reddit API",
+    "security": {
+      "reddit": {
+        "integration": "reddit",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "scopes": {
+            "flair": "Select my subreddit flair. Change link flair on my submissions.",
+            "history": "Access my voting history and comments or submissions I've saved or hidden.",
+            "modself": "Accept invitations to moderate a subreddit. Remove myself as a moderator or contributor of subreddits I moderate or contribute to.",
+            "modwiki": "Change editors and visibility of wiki pages in subreddits I moderate.",
+            "edit": "Edit and delete my comments and submissions.",
+            "modtraffic": "Access traffic stats in subreddits I moderate.",
+            "account": "Update preferences and related account information. Will not have access to your email or password.",
+            "livemanage": "Manage settings and contributors of live threads I contribute to.",
+            "identity": "Access my reddit username and signup date.",
+            "report": "Report content for rules violations. Hide &amp; show individual submissions.",
+            "privatemessages": "Access my inbox and send private messages to other users.",
+            "read": "Access posts and comments through my account.",
+            "modothers": "Invite or remove other moderators from subreddits I moderate.",
+            "save": "Save and unsave comments and submissions.",
+            "modflair": "Manage and assign flair in subreddits I moderate.",
+            "modposts": "Approve, remove, mark nsfw, and distinguish content in subreddits I moderate.",
+            "modlog": "Access the moderation log in subreddits I moderate.",
+            "submit": "Submit links and comments from my account.",
+            "mysubreddits": "Access the list of subreddits I moderate, contribute to, and subscribe to.",
+            "vote": "Submit and change my votes on comments and submissions.",
+            "wikiedit": "Edit wiki pages on my behalf",
+            "wikiread": "Read wiki pages through my account",
+            "subscribe": "Manage my subreddit subscriptions. Manage \"friends\" - users whose content I follow.",
+            "modconfig": "Manage the configuration, sidebar, and CSS of subreddits I moderate.",
+            "modcontributors": "Add/remove users to approved submitter lists and ban/unban or mute/unmute users from subreddits I moderate.",
+            "creddits": "Spend my reddit gold creddits on giving gold to other users."
+          },
+          "flow": "application",
+          "type": "oauth2"
+        }
+      }
+    },
+    "tags": [],
+    "actionCount": 199,
     "latestVersion": "2.0.1"
   },
   "reddit_rss": {
@@ -10957,7 +11240,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#4C4C4C",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_432717338270380032_BZWevLrA.jpeg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/refugerestrooms.jpeg"
     },
     "tags": [
       "open data"
@@ -11005,7 +11288,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_d1g5417jjjo7sf.cloudfront.net_assets_top-level_reverb-logo-d2c75af0b020521f0bc5e90c883a13b5.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/reverb.svg"
     },
     "tags": [
       "ecommerce"
@@ -11026,7 +11309,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_664480221534552064_CwdeYGxs_400x400.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/ritc.jpg"
     },
     "tags": [
       "cloud"
@@ -11047,7 +11330,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_811034417850220544_NDVQTlyz_400x400.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/rottentomatoes.jpg"
     },
     "tags": [
       "media"
@@ -11061,7 +11344,7 @@
     "description": "Seldon is an Open Predictive Platform that currently allows item recommendations and general predictive models to be dep...",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_www.seldon.io_wp-content_uploads_2014_10_Seldon-Logo-trans.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/rummblelabs.png"
     },
     "tags": [
       "machine learning"
@@ -11103,12 +11386,47 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_500425058955689986_zlcbgqTt.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/runscope.png"
     },
     "tags": [
       "developer tools"
     ],
     "actionCount": 27,
+    "latestVersion": "2.0.1"
+  },
+  "salesforce": {
+    "id": "salesforce",
+    "title": "Salesforce",
+    "description": "Explore the beta Salesforce REST API to integrate CRM.",
+    "security": {
+      "salesforce": {
+        "integration": "salesforce",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "type": "oauth2",
+          "flow": "application",
+          "scopes": {
+            "api": "Allows access to the current, logged-in user’s account using APIs, such as REST API and Bulk API. This value also includes chatter_api, which allows access to Chatter REST API resources.",
+            "chatter_api": "Allows access to Chatter REST API resources only.",
+            "custom_permissions": "Allows access to the custom permissions in an organization associated with the connected app, and shows whether the current user has         each permission enabled.",
+            "full": "Allows access to all data accessible by the logged-in user, and encompasses all other scopes. full does not return a refresh token. You must explicitly request the refresh_token scope to get a refresh token.",
+            "id": "Allows access to the identity URL service. You can request profile, email, address, or phone, individually to get the same result as using id; they are all synonymous.",
+            "openid": "Allows access to the current, logged in user’s unique identifier for OpenID Connect apps.",
+            "refresh_token": "Allows a refresh token to be returned if you are eligible to receive one. This lets the app interact with the user’s data while the user is offline, and is synonymous with requesting offline_access.",
+            "visualforce": "Allows access to Visualforce pages.",
+            "web": "Allows the ability to use the access_token on the Web. This also includes visualforce, allowing access to Visualforce pages."
+          }
+        }
+      }
+    },
+    "tags": [],
+    "actionCount": 17,
     "latestVersion": "2.0.1"
   },
   "schooldigger": {
@@ -11141,7 +11459,7 @@
     "description": "Semantria applies Text and Sentiment Analysis to tweets, facebook posts, surveys, reviews or enterprise content.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_semantria.com_marketing_img_ui_semantria-lexalytics_mainlogo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/semantria.png"
     },
     "tags": [
       "social",
@@ -11163,7 +11481,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_user-images.githubusercontent.com_21603_27865240-b4c0da22-6189-11e7-9f2c-f35f4c6fa57c.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/sendgrid.png"
     },
     "tags": [
       "email",
@@ -11256,7 +11574,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_static.tumblr.com_wvuzcz9_LlKncfhmp_slack_logo_240.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/slack.png"
     },
     "tags": [
       "collaboration",
@@ -11272,7 +11590,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#000000",
-      "url": "https://api.apis.guru/v2/cache/logo/http_www.slideroom.com_assets_img_sr_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/slideroom.png"
     },
     "tags": [],
     "actionCount": 11,
@@ -11292,7 +11610,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_smart-me.com_Images_bootstrap_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/smart_me.png"
     },
     "tags": [],
     "actionCount": 23,
@@ -11311,10 +11629,35 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_www.solarvps.com_wp-content_themes_solarvps_images_logo2x.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/solarvps.png"
     },
     "tags": [],
     "actionCount": 20,
+    "latestVersion": "2.0.1"
+  },
+  "soundcloud": {
+    "id": "soundcloud",
+    "title": "SoundCloud",
+    "description": "Access, host, upload, and comment on audio.",
+    "security": {
+      "soundcloud": {
+        "integration": "soundcloud",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "name": "oauth_token",
+          "flow": "implicit",
+          "type": "oauth2"
+        }
+      }
+    },
+    "tags": [],
+    "actionCount": 52,
     "latestVersion": "2.0.1"
   },
   "spectrocoin": {
@@ -11323,7 +11666,7 @@
     "description": "This is an API designed for merchants who are using SpectroCoin services and wishes to integrate them locally.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_d1ryrugmrhsb54.cloudfront.net_assets_images_logo.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/spectrocoin.svg"
     },
     "tags": [
       "ecommerce",
@@ -11367,6 +11710,9 @@
           "type": "oauth2"
         }
       }
+    },
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/spotify.png"
     },
     "tags": [
       "media"
@@ -11414,7 +11760,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_square.github.io_images_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/squareup.png"
     },
     "tags": [
       "payment"
@@ -11446,7 +11792,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_sstatic.net_stackexchange_img_se-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/stackexchange.png"
     },
     "tags": [
       "collaboration",
@@ -11469,7 +11815,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_www.statsocial.com_wp-content_uploads_2016_01_statsocial-logo.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/statsocial.svg"
     },
     "tags": [
       "social",
@@ -11485,7 +11831,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#98C600",
-      "url": "https://api.apis.guru/v2/cache/logo/http_swagger.io_wp-content_themes_kevinlearynet_assets_img_swagger-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/swagger_generator.png"
     },
     "tags": [
       "developer tools",
@@ -11507,7 +11853,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_725794797592690688_r20oBBuu_400x400.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/swaggerhub.jpg"
     },
     "tags": [
       "developer tools"
@@ -11521,7 +11867,7 @@
     "description": "* [Sign up for a developer API key!](https://www.synq.fm/register)",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_794554168509865985_c1UqSEfh_400x400.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/synq_fm.jpg"
     },
     "tags": [
       "media"
@@ -11535,7 +11881,7 @@
     "description": "Magento Commerce is the leading provider of open omnichannel innovation.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_magento.com_sites_all_themes_mag_redesign_images_magento-logo.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/t213_vg.svg"
     },
     "tags": [
       "ecommerce"
@@ -11556,7 +11902,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_i.imgur.com_C7ouKJt.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/taxamo.png"
     },
     "tags": [
       "payment"
@@ -11578,7 +11924,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_773531056670646272_dsuVeVSg.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/tfl_gov_uk.jpg"
     },
     "tags": [
       "location",
@@ -11593,7 +11939,7 @@
     "description": "Icons for Everything",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_thenounproject.com_static_img_nounproject_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/thenounproject.png"
     },
     "tags": [],
     "actionCount": 13,
@@ -11612,7 +11958,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_ftp.halifax.rwth-aachen.de_xbmc_addons_krypton_metadata.tvdb.com_icon.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/thetvdb.png"
     },
     "tags": [
       "media",
@@ -11635,7 +11981,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_www.traccar.org_wp-content_uploads_2015_04_logo2x.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/traccar.png"
     },
     "tags": [
       "location"
@@ -11657,7 +12003,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_d2k1ftgv7pobq7.cloudfront.net_meta_p_res_images_c13d1cd96a2cff30f0460a5e1860c5ea_header-logo-blue.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/trello.svg"
     },
     "tags": [
       "collaboration"
@@ -11679,7 +12025,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_static1.twilio.com_marketing_bundles_marketing_img_logos_wordmark-red.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/twilio.svg"
     },
     "tags": [
       "telecom",
@@ -11694,7 +12040,7 @@
     "description": "Enable people to store spots on public and private maps",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_738299914506113024_oUd7NREW_400x400.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/uebermaps.jpg"
     },
     "tags": [
       "location"
@@ -11715,7 +12061,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_vatapi.com_images_logo-invoice.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/vatapi.jpg"
     },
     "tags": [],
     "actionCount": 10,
@@ -11727,7 +12073,7 @@
     "description": "VersionEye is a cross-platform search engine for free/libre/open source software libraries.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_versioneye.files.wordpress.com_2015_05_versioneyetransparent.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/versioneye.png"
     },
     "tags": [
       "open data",
@@ -11743,7 +12089,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#252832",
-      "url": "https://api.apis.guru/v2/cache/logo/http_d1sva73gxwx496.cloudfront.net_images_homepage_logo-white-92827ba4.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/vestorly.png"
     },
     "tags": [
       "marketing"
@@ -11757,7 +12103,7 @@
     "description": "This API allows you to interact with the VictorOps platform in various ways. Your account may be limited",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_618808966001197056_olm2Yd1M.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/victorops.jpg"
     },
     "tags": [
       "developer tools"
@@ -11778,7 +12124,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_visagecloud.com_visage-cloud-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/visagecloud.png"
     },
     "tags": [
       "search"
@@ -11792,7 +12138,7 @@
     "description": "An API for the distribution and annotation of open data, for small cities and big metropolitan areas.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_citysdk.waag.org_images_logo.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/waag.svg"
     },
     "tags": [
       "open data"
@@ -11806,7 +12152,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#1B4E65",
-      "url": "https://api.apis.guru/v2/cache/logo/https_d2071nnd6m4201.cloudfront.net_templates_balloon_images_logo.svg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/watchful_li.svg"
     },
     "tags": [],
     "actionCount": 61,
@@ -11827,7 +12173,7 @@
     },
     "logo": {
       "backgroundColor": "#050917",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_766560979630952448_XIUTg1a4.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/wavecell.jpg"
     },
     "tags": [
       "messaging"
@@ -11850,7 +12196,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_522665269001342977_FKB9gZgO.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/wealthport.png"
     },
     "tags": [
       "analytics",
@@ -11872,7 +12218,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_upload.wikimedia.org_wikipedia_en_thumb_8_80_Wikipedia-logo-v2.svg_1122px-Wikipedia-logo-v2.svg.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/wikimedia.png"
     },
     "tags": [
       "media"
@@ -11906,7 +12252,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/windows_arm_graphrbac.png"
     },
     "tags": [],
     "actionCount": 34,
@@ -11918,7 +12264,7 @@
     "description": "A client for issuing REST requests to the Azure Batch service.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_assets.onestore.ms_cdnfiles_onestorerolling-1606-01000_shell_v3_images_logo_microsoft.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/windows_batch.png"
     },
     "tags": [],
     "actionCount": 74,
@@ -11937,7 +12283,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_winning.email_media_winning-email-logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/winning_email.png"
     },
     "tags": [
       "email",
@@ -11959,7 +12305,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_wordnik.com_img_logo-wordnik-home.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/wordnik.png"
     },
     "tags": [
       "text"
@@ -11973,7 +12319,7 @@
     "description": "Webcomic of romance, sarcasm, math, and language.",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_imgs.xkcd.com_static_terrible_small_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/xkcd.png"
     },
     "tags": [
       "media"
@@ -11987,7 +12333,7 @@
     "description": "Professional Cloud Trading Platform for Digital Assets",
     "security": {},
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_725256993741660160_LRhoyEy_.jpg"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/yunbi.jpg"
     },
     "tags": [
       "financial"
@@ -12002,7 +12348,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "https://api.apis.guru/v2/cache/logo/https_cloud.githubusercontent.com_assets_21603_24292732_7e3a8038-1086-11e7-90c0-434e4dcc3474.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/zappiti.png"
     },
     "tags": [
       "entertainment"
@@ -12024,7 +12370,7 @@
       }
     },
     "logo": {
-      "url": "https://api.apis.guru/v2/cache/logo/http_zoomconnect.com_assets_logo.png"
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/zoomconnect.png"
     },
     "tags": [
       "messaging",
@@ -12083,348 +12429,5 @@
     "tags": [],
     "actionCount": 1,
     "latestVersion": "1.0.0"
-  },
-  "kaltura": {
-    "id": "kaltura",
-    "title": "Kaltura VPaaS",
-    "description": "The Kaltura VPaaS API",
-    "security": {
-      "kaltura": {
-        "integration": "kaltura",
-        "fields": {
-          "ks": "A session ID generated by calling /service/session/action/start"
-        }
-      }
-    },
-    "tags": [],
-    "actionCount": 746,
-    "latestVersion": "2.0.1"
-  },
-  "facebook": {
-    "id": "facebook",
-    "title": "Facebook",
-    "description": "Connect to the social network with the Graph API.",
-    "security": {
-      "facebook": {
-        "integration": "facebook",
-        "fields": {
-          "access_token": "An OAuth access token",
-          "refresh_token": "An OAuth refresh token (optional)",
-          "client_id": "An OAuth client ID (optional)",
-          "client_secret": "An OAuth client secret (optional)",
-          "redirect_uri": "The callback URL for your application"
-        },
-        "oauth": {
-          "description": "OAuth 2.0 authentication",
-          "flow": "implicit",
-          "type": "oauth2",
-          "scopes": {
-            "public_profile": "",
-            "user_friends": "",
-            "email": "",
-            "user_about_me": "",
-            "user_actions.video": "",
-            "user_actions.music": "",
-            "user_actions.fitness": "",
-            "user_actions.news": "",
-            "user_actions.books": "",
-            "user_birthday": "",
-            "user_education_history": "",
-            "user_events": "",
-            "user_games_activity": "",
-            "user_hometown": "",
-            "user_likes": "",
-            "user_location": "",
-            "user_managed_groups": "",
-            "user_photos": "",
-            "user_posts": "",
-            "user_relationships": "",
-            "user_relationship_details": "",
-            "user_religion_politics": "",
-            "user_tagged_places": "",
-            "user_videos": "",
-            "user_website": "",
-            "user_work_history": "",
-            "read_custom_friendlists": "",
-            "read_insights": "",
-            "read_audience_network_insights": "",
-            "read_page_mailboxes": "",
-            "manage_pages": "",
-            "publish_pages": "",
-            "publish_actions": "",
-            "rsvp_event": "",
-            "pages_show_list": "",
-            "pages_manage_cta": "",
-            "pages_manage_leads": "",
-            "ads_read": "",
-            "ads_management": ""
-          }
-        }
-      }
-    },
-    "tags": [],
-    "actionCount": 195,
-    "latestVersion": "2.0.1"
-  },
-  "fitbit": {
-    "id": "fitbit",
-    "title": "Fitbit",
-    "description": "Bring Fitbit health data into your apps, including user activities, sleep, heart, glucose and blood pressure information...",
-    "security": {
-      "fitbit": {
-        "integration": "fitbit",
-        "fields": {
-          "access_token": "An OAuth access token",
-          "refresh_token": "An OAuth refresh token (optional)",
-          "client_id": "An OAuth client ID (optional)",
-          "client_secret": "An OAuth client secret (optional)",
-          "redirect_uri": "The callback URL for your application"
-        },
-        "oauth": {
-          "scopes": {
-            "weight": "The weight scope includes weight and related information, such as body mass index, body fat percentage, and goals",
-            "social": "The social scope includes friend-related features, such as friend list, invitations, and leaderboard",
-            "sleep": "The sleep scope includes sleep logs and related sleep analysis",
-            "settings": "The settings scope includes user account and device settings, such as alarms",
-            "profile": "The profile scope is the basic user information",
-            "nutrition": "The nutrition scope includes calorie consumption and nutrition related features, such as food/water logging, goals, and plans",
-            "location": "The location scope includes the GPS and other location data",
-            "heartrate": "The heartrate scope includes the continuous heart rate data and related analysis",
-            "activity": "The activity scope includes activity data and exercise log related features, such as steps, distance, calories burned, and active minutes"
-          },
-          "flow": "application",
-          "type": "oauth2"
-        }
-      }
-    },
-    "tags": [],
-    "actionCount": 74,
-    "latestVersion": "2.0.1"
-  },
-  "heroku": {
-    "id": "heroku",
-    "title": "Heroku",
-    "description": "Manage your Heroku apps, configs, collaborators & resources",
-    "security": {
-      "heroku": {
-        "integration": "heroku",
-        "fields": {
-          "access_token": "An OAuth access token",
-          "refresh_token": "An OAuth refresh token (optional)",
-          "client_id": "An OAuth client ID (optional)",
-          "client_secret": "An OAuth client secret (optional)",
-          "redirect_uri": "The callback URL for your application"
-        },
-        "oauth": {
-          "scopes": {
-            "write-protected": "Write access to all of your apps and resources, excluding account information.",
-            "read-protected": "Read access to all of your apps and resources, excluding account information.",
-            "write": "Write access to all of your apps and resources, excluding account information and configuration variables",
-            "read": "Read access to all of your apps and resources, excluding account information and configuration variables",
-            "global": "Read and write access to all of your account, apps and resources. Equivalent to the default authorization obtained when using the CLI.",
-            "identity": "Read-only access to your account information."
-          },
-          "flow": "application",
-          "type": "oauth2"
-        }
-      }
-    },
-    "tags": [],
-    "actionCount": 32,
-    "latestVersion": "2.0.1"
-  },
-  "linkedin": {
-    "id": "linkedin",
-    "title": "LinkedIn",
-    "description": "Bring user profiles and professional networks to your apps.",
-    "security": {
-      "linkedin": {
-        "integration": "linkedin",
-        "fields": {
-          "access_token": "An OAuth access token",
-          "refresh_token": "An OAuth refresh token (optional)",
-          "client_id": "An OAuth client ID (optional)",
-          "client_secret": "An OAuth client secret (optional)",
-          "redirect_uri": "The callback URL for your application"
-        },
-        "oauth": {
-          "type": "oauth2",
-          "flow": "application",
-          "scopes": {
-            "r_basicprofile": "",
-            "r_emailaddress": "",
-            "rw_company_admin": "",
-            "w_share": ""
-          }
-        }
-      }
-    },
-    "tags": [],
-    "actionCount": 20,
-    "latestVersion": "2.0.1"
-  },
-  "reddit": {
-    "id": "reddit",
-    "title": "Reddit",
-    "description": "Reddit API",
-    "security": {
-      "reddit": {
-        "integration": "reddit",
-        "fields": {
-          "access_token": "An OAuth access token",
-          "refresh_token": "An OAuth refresh token (optional)",
-          "client_id": "An OAuth client ID (optional)",
-          "client_secret": "An OAuth client secret (optional)",
-          "redirect_uri": "The callback URL for your application"
-        },
-        "oauth": {
-          "scopes": {
-            "flair": "Select my subreddit flair. Change link flair on my submissions.",
-            "history": "Access my voting history and comments or submissions I've saved or hidden.",
-            "modself": "Accept invitations to moderate a subreddit. Remove myself as a moderator or contributor of subreddits I moderate or contribute to.",
-            "modwiki": "Change editors and visibility of wiki pages in subreddits I moderate.",
-            "edit": "Edit and delete my comments and submissions.",
-            "modtraffic": "Access traffic stats in subreddits I moderate.",
-            "account": "Update preferences and related account information. Will not have access to your email or password.",
-            "livemanage": "Manage settings and contributors of live threads I contribute to.",
-            "identity": "Access my reddit username and signup date.",
-            "report": "Report content for rules violations. Hide &amp; show individual submissions.",
-            "privatemessages": "Access my inbox and send private messages to other users.",
-            "read": "Access posts and comments through my account.",
-            "modothers": "Invite or remove other moderators from subreddits I moderate.",
-            "save": "Save and unsave comments and submissions.",
-            "modflair": "Manage and assign flair in subreddits I moderate.",
-            "modposts": "Approve, remove, mark nsfw, and distinguish content in subreddits I moderate.",
-            "modlog": "Access the moderation log in subreddits I moderate.",
-            "submit": "Submit links and comments from my account.",
-            "mysubreddits": "Access the list of subreddits I moderate, contribute to, and subscribe to.",
-            "vote": "Submit and change my votes on comments and submissions.",
-            "wikiedit": "Edit wiki pages on my behalf",
-            "wikiread": "Read wiki pages through my account",
-            "subscribe": "Manage my subreddit subscriptions. Manage \"friends\" - users whose content I follow.",
-            "modconfig": "Manage the configuration, sidebar, and CSS of subreddits I moderate.",
-            "modcontributors": "Add/remove users to approved submitter lists and ban/unban or mute/unmute users from subreddits I moderate.",
-            "creddits": "Spend my reddit gold creddits on giving gold to other users."
-          },
-          "flow": "application",
-          "type": "oauth2"
-        }
-      }
-    },
-    "tags": [],
-    "actionCount": 199,
-    "latestVersion": "2.0.1"
-  },
-  "producthunt": {
-    "id": "producthunt",
-    "title": "Product Hunt",
-    "security": {
-      "producthunt": {
-        "integration": "producthunt",
-        "fields": {
-          "access_token": "An OAuth access token",
-          "refresh_token": "An OAuth refresh token (optional)",
-          "client_id": "An OAuth client ID (optional)",
-          "client_secret": "An OAuth client secret (optional)",
-          "redirect_uri": "The callback URL for your application"
-        },
-        "oauth": {
-          "scopes": {
-            "private": "Access to private data",
-            "public": "Access to public data"
-          },
-          "flow": "application",
-          "type": "oauth2"
-        }
-      }
-    },
-    "tags": [],
-    "actionCount": 4,
-    "latestVersion": "2.0.1"
-  },
-  "salesforce": {
-    "id": "salesforce",
-    "title": "Salesforce",
-    "description": "Explore the beta Salesforce REST API to integrate CRM.",
-    "security": {
-      "salesforce": {
-        "integration": "salesforce",
-        "fields": {
-          "access_token": "An OAuth access token",
-          "refresh_token": "An OAuth refresh token (optional)",
-          "client_id": "An OAuth client ID (optional)",
-          "client_secret": "An OAuth client secret (optional)",
-          "redirect_uri": "The callback URL for your application"
-        },
-        "oauth": {
-          "type": "oauth2",
-          "flow": "application",
-          "scopes": {
-            "api": "Allows access to the current, logged-in user’s account using APIs, such as REST API and Bulk API. This value also includes chatter_api, which allows access to Chatter REST API resources.",
-            "chatter_api": "Allows access to Chatter REST API resources only.",
-            "custom_permissions": "Allows access to the custom permissions in an organization associated with the connected app, and shows whether the current user has         each permission enabled.",
-            "full": "Allows access to all data accessible by the logged-in user, and encompasses all other scopes. full does not return a refresh token. You must explicitly request the refresh_token scope to get a refresh token.",
-            "id": "Allows access to the identity URL service. You can request profile, email, address, or phone, individually to get the same result as using id; they are all synonymous.",
-            "openid": "Allows access to the current, logged in user’s unique identifier for OpenID Connect apps.",
-            "refresh_token": "Allows a refresh token to be returned if you are eligible to receive one. This lets the app interact with the user’s data while the user is offline, and is synonymous with requesting offline_access.",
-            "visualforce": "Allows access to Visualforce pages.",
-            "web": "Allows the ability to use the access_token on the Web. This also includes visualforce, allowing access to Visualforce pages."
-          }
-        }
-      }
-    },
-    "tags": [],
-    "actionCount": 17,
-    "latestVersion": "2.0.1"
-  },
-  "soundcloud": {
-    "id": "soundcloud",
-    "title": "SoundCloud",
-    "description": "Access, host, upload, and comment on audio.",
-    "security": {
-      "soundcloud": {
-        "integration": "soundcloud",
-        "fields": {
-          "access_token": "An OAuth access token",
-          "refresh_token": "An OAuth refresh token (optional)",
-          "client_id": "An OAuth client ID (optional)",
-          "client_secret": "An OAuth client secret (optional)",
-          "redirect_uri": "The callback URL for your application"
-        },
-        "oauth": {
-          "name": "oauth_token",
-          "flow": "implicit",
-          "type": "oauth2"
-        }
-      }
-    },
-    "tags": [],
-    "actionCount": 52,
-    "latestVersion": "2.0.1"
-  },
-  "etsy": {
-    "id": "etsy",
-    "title": "Etsy",
-    "description": "Bring Etsy's handmade marketplace and community into your apps.",
-    "security": {},
-    "tags": [],
-    "actionCount": 115,
-    "latestVersion": "2.0.1"
-  },
-  "quandl": {
-    "id": "quandl",
-    "title": "Quandl API",
-    "description": "The Quandl API",
-    "security": {
-      "quandl": {
-        "integration": "quandl",
-        "fields": {
-          "apiKey": "API key"
-        }
-      }
-    },
-    "tags": [],
-    "actionCount": 8,
-    "latestVersion": "2.0.1"
   }
 }

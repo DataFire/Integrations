@@ -25,7 +25,7 @@
   },
   "logo": {
     "backgroundColor": "#4BC9C5",
-    "url": "https://api.apis.guru/v2/cache/logo/https_docs.jirafe.com_img_jrf-logo--white-100x36.a56c.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/jirafe.png"
   },
   "tags": [
     "marketing"

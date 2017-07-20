@@ -25,7 +25,7 @@
   },
   "logo": {
     "backgroundColor": "#FFFFFF",
-    "url": "https://api.apis.guru/v2/cache/logo/https_user-images.githubusercontent.com_21603_27885832-5da28e32-61d1-11e7-8811-ed7238df2c20.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/figshare.png"
   },
   "tags": [
     "open data"

@@ -4,7 +4,7 @@
   "description": "Magento Commerce is the leading provider of open omnichannel innovation.",
   "security": {},
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_magento.com_sites_all_themes_mag_redesign_images_magento-logo.svg"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/magento.svg"
   },
   "tags": [
     "ecommerce"

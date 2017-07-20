@@ -5,7 +5,7 @@
   "security": {},
   "logo": {
     "backgroundColor": "#FFFFFF",
-    "url": "https://api.apis.guru/v2/cache/logo/http_cnab-online.github.io_img_logo.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/cnab_online_herokuapp.png"
   },
   "tags": [
     "financial"

@@ -5,7 +5,7 @@
   "security": {},
   "logo": {
     "backgroundColor": "#98C600",
-    "url": "https://api.apis.guru/v2/cache/logo/http_swagger.io_wp-content_themes_kevinlearynet_assets_img_swagger-logo.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/swagger_generator.png"
   },
   "tags": [
     "developer tools",

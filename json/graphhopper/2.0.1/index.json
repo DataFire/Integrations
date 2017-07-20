@@ -11,7 +11,7 @@
     }
   },
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_graphhopper.com_img_header.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/graphhopper.png"
   },
   "tags": [
     "location"

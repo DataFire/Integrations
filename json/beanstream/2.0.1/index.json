@@ -4,7 +4,7 @@
   "description": "https://www.beanstream.com/api/v1",
   "security": {},
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/http_www.beanstream.com_wp-content_uploads_2015_08_Beanstream-logo.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/beanstream.png"
   },
   "tags": [
     "payment",

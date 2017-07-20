@@ -12,7 +12,7 @@
     }
   },
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/http_zoomconnect.com_assets_logo.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/zoomconnect.png"
   },
   "tags": [
     "messaging",

@@ -4,7 +4,7 @@
   "description": "Semantria applies Text and Sentiment Analysis to tweets, facebook posts, surveys, reviews or enterprise content.",
   "security": {},
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_semantria.com_marketing_img_ui_semantria-lexalytics_mainlogo.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/semantria.png"
   },
   "tags": [
     "social",

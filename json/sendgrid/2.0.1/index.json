@@ -11,7 +11,7 @@
     }
   },
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_user-images.githubusercontent.com_21603_27865240-b4c0da22-6189-11e7-9f2c-f35f4c6fa57c.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/sendgrid.png"
   },
   "tags": [
     "email",

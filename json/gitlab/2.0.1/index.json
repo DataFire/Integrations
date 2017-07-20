@@ -13,7 +13,7 @@
   },
   "logo": {
     "backgroundColor": "#FFFFFF",
-    "url": "https://api.apis.guru/v2/cache/logo/https_cloud.githubusercontent.com_assets_21603_24521837_642e411c-1585-11e7-817f-61082580b6f6.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/gitlab.png"
   },
   "tags": [
     "developer tools"

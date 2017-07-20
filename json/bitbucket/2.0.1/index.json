@@ -49,7 +49,7 @@
     }
   },
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_d301sr5gafysq2.cloudfront.net_0c55837759e5_img_homepage_bitbucket-logo-blue.svg"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/bitbucket.svg"
   },
   "tags": [
     "developer tools",

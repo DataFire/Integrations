@@ -25,7 +25,7 @@
     }
   },
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_intl_en_images_logos_books_logo_lg.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_books.png"
   },
   "tags": [
     "google"

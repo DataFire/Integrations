@@ -4,7 +4,7 @@
   "description": "Accesses the metadata for all families served by Google Fonts, providing a list of families currently available (including available styles and a list of supported script subsets).",
   "security": {},
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_www.google.com_images_branding_googlelogo_2x_googlelogo_color_272x92dp.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_webfonts.png"
   },
   "tags": [
     "google"

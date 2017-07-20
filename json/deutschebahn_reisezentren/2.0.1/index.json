@@ -5,7 +5,7 @@
   "security": {},
   "logo": {
     "backgroundColor": "#FFFFFF",
-    "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_591140150413025280_Cjcqjl2J.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/deutschebahn_reisezentren.png"
   },
   "tags": [
     "open data"

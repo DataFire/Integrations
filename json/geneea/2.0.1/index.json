@@ -11,7 +11,7 @@
     }
   },
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/http_www.geneea.com_img_geneea-logo.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/geneea.png"
   },
   "tags": [
     "text"

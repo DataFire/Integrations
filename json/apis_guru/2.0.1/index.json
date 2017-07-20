@@ -4,7 +4,7 @@
   "description": "Wikipedia for Web APIs. Repository of API specs in OpenAPI(fka Swagger) 2.0 format.\n\n**Warning**: If you want to be notified about changes in advance please subscribe to our [Gitter channel](https://gitter.im/APIs-guru/api-models).\n\nClient sample: [[Demo]](https://apis.guru/simple-ui) [[Repo]](https://github.com/APIs-guru/simple-ui)\n",
   "security": {},
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_apis.guru_branding_logo_vertical.svg"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apis_guru.svg"
   },
   "tags": [
     "open data",

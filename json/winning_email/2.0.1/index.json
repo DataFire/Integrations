@@ -11,7 +11,7 @@
     }
   },
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_winning.email_media_winning-email-logo.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/winning_email.png"
   },
   "tags": [
     "email",

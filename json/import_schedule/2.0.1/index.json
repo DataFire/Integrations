@@ -12,7 +12,7 @@
   },
   "logo": {
     "backgroundColor": "#F6248E",
-    "url": "https://api.apis.guru/v2/cache/logo/http_api.docs.import.io_images_import-io-logo.svg"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/import_schedule.svg"
   },
   "tags": [
     "tools"

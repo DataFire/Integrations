@@ -4,7 +4,7 @@
   "description": "Text to label by tfidf of contents.<BR />[Endpoint] https://api.apitore.com/api/18",
   "security": {},
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_apitore.com_img_apis_18.jpg"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_text2labelbytfidfapis.jpg"
   },
   "tags": [],
   "definitions": {

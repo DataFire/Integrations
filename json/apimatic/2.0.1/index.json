@@ -14,7 +14,7 @@
   },
   "logo": {
     "backgroundColor": "#2a313a",
-    "url": "https://api.apis.guru/v2/cache/logo/https_apimatic.io_img_theme_Convertron.svg"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apimatic.svg"
   },
   "tags": [
     "developer tools",

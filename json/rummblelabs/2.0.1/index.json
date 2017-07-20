@@ -4,7 +4,7 @@
   "description": "Seldon is an Open Predictive Platform that currently allows item recommendations and general predictive models to be deployed based on structured historical data.",
   "security": {},
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/http_www.seldon.io_wp-content_uploads_2014_10_Seldon-Logo-trans.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/rummblelabs.png"
   },
   "tags": [
     "machine learning"

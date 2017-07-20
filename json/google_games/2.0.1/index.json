@@ -27,7 +27,7 @@
     }
   },
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_www.gstatic.com_images_icons_material_product_2x_play_games_64dp.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_games.png"
   },
   "tags": [
     "google"

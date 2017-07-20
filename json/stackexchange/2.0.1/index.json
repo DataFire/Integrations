@@ -22,7 +22,7 @@
     }
   },
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/http_sstatic.net_stackexchange_img_se-logo.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/stackexchange.png"
   },
   "tags": [
     "collaboration",

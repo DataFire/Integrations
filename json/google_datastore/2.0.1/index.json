@@ -26,7 +26,7 @@
     }
   },
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_cloud.google.com__static_images_new-gcp-logo.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_datastore.png"
   },
   "tags": [
     "storage",

@@ -4,7 +4,7 @@
   "description": "Learn more about home mortgage data, download the data yourself, or build new tools using our API.",
   "security": {},
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/http_cfpb.github.io_img_logo_210.png"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/consumerfinance_gov.png"
   },
   "tags": [],
   "definitions": {

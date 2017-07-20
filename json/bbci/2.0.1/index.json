@@ -14,7 +14,7 @@
   },
   "logo": {
     "backgroundColor": "#FFFFFF",
-    "url": "https://api.apis.guru/v2/cache/logo/http_static.bbci.co.uk_tviplayer_1.101.2_img_navigation_iplayer_pink.svg"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/bbci.svg"
   },
   "tags": [
     "media"

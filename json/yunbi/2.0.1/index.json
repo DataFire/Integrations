@@ -4,7 +4,7 @@
   "description": "Professional Cloud Trading Platform for Digital Assets",
   "security": {},
   "logo": {
-    "url": "https://api.apis.guru/v2/cache/logo/https_pbs.twimg.com_profile_images_725256993741660160_LRhoyEy_.jpg"
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/yunbi.jpg"
   },
   "tags": [
     "financial"
