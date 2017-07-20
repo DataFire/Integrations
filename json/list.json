@@ -5412,8 +5412,8 @@
       "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/fitbit.png"
     },
     "tags": [],
-    "actionCount": 74,
-    "latestVersion": "2.0.2"
+    "actionCount": 69,
+    "latestVersion": "2.0.3"
   },
   "flat": {
     "id": "flat",

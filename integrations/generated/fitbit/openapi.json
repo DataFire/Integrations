@@ -24,17 +24,6 @@
       "parameters": [
         {
           "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
-          "enum": [
             "/",
             "/activities/",
             "/foods/",
@@ -77,17 +66,6 @@
       "parameters": [
         {
           "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
-          "enum": [
             "/",
             "/activities/",
             "/foods/",
@@ -109,85 +87,6 @@
         }
       ]
     },
-    "/user/-/friends/invitations/{from-user-id}.json?accept={accept}": {
-      "post": {
-        "externalDocs": {
-          "url": "http://wiki.fitbit.com/display/API/API-Accept-Invite"
-        },
-        "description": "Accept or reject an invite to become friends with inviting user.",
-        "responses": {
-          "200": {
-            "description": "Successful Response"
-          }
-        },
-        "operationId": "user._.friends.invitations.from_user_id.json_accept_accept.post"
-      },
-      "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
-          "default": "222YZL",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "from-user-id"
-        },
-        {
-          "enum": [
-            "true",
-            "false"
-          ],
-          "default": "true",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "accept"
-        }
-      ]
-    },
-    "/user/-/friends/invitations.json?invitedUserEmail={invitedUserEmail}": {
-      "post": {
-        "externalDocs": {
-          "url": "http://wiki.fitbit.com/display/API/API-Create-Invite"
-        },
-        "description": "Invite a user to become friends with authorized user. If you provide invitedUserEmail parameter with the request, standard friendship invitation email will be sent to the invited user, that he can accept later. Contrary, invitedUserId parameter creates an invite silently, so it could only be fetched through the Get Invites endpoint. You can accept or reject both invitation types on behalf of the authorized user via Accept Invite API call.",
-        "responses": {
-          "200": {
-            "description": "Successful Response"
-          }
-        },
-        "operationId": "user._.friends.invitations.json_invitedUserEmail_invitedUserEmail.post"
-      },
-      "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
-          "default": "222YZL",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "invitedUserEmail"
-        }
-      ]
-    },
     "/user/-/friends/invitations.json": {
       "get": {
         "externalDocs": {
@@ -201,19 +100,7 @@
         },
         "operationId": "user._.friends.invitations.json.get"
       },
-      "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        }
-      ]
+      "parameters": []
     },
     "/foods/units.json": {
       "get": {
@@ -228,19 +115,7 @@
         },
         "operationId": "foods.units.json.get"
       },
-      "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        }
-      ]
+      "parameters": []
     },
     "/foods/{food-id}.json": {
       "get": {
@@ -257,59 +132,11 @@
       },
       "parameters": [
         {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
           "default": "30414",
           "type": "string",
           "in": "path",
           "required": true,
           "name": "food-id"
-        }
-      ]
-    },
-    "/foods/search.json?query={query}": {
-      "get": {
-        "externalDocs": {
-          "url": "http://wiki.fitbit.com/display/API/API-Get-Activity"
-        },
-        "description": "Given a search query, get a list of public foods from Fitbit foods database and private foods the user created in the format requested.",
-        "responses": {
-          "200": {
-            "description": "Successful Response"
-          }
-        },
-        "operationId": "foods.search.json_query_query.get"
-      },
-      "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
-          "enum": [
-            "Icecream"
-          ],
-          "default": "Icecream",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "query"
         }
       ]
     },
@@ -327,17 +154,6 @@
         "operationId": "activities.id.json.get"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "90009",
           "type": "string",
@@ -360,19 +176,7 @@
         },
         "operationId": "activities.json.get"
       },
-      "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        }
-      ]
+      "parameters": []
     },
     "/user/-/devices.json": {
       "get": {
@@ -387,19 +191,7 @@
         },
         "operationId": "user._.devices.json.get"
       },
-      "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        }
-      ]
+      "parameters": []
     },
     "/user/-/foods/log/goal.json": {
       "post": {
@@ -428,17 +220,6 @@
       },
       "parameters": [
         {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
           "default": "MEDIUM",
           "type": "string",
           "in": "query",
@@ -460,19 +241,7 @@
         },
         "operationId": "user._.meals.json.get"
       },
-      "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        }
-      ]
+      "parameters": []
     },
     "/foods.json": {
       "post": {
@@ -488,17 +257,6 @@
         "operationId": "foods.json.post"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "Icecream,big",
           "type": "string",
@@ -544,17 +302,6 @@
       },
       "parameters": [
         {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
           "default": "1",
           "type": "string",
           "in": "path",
@@ -577,17 +324,6 @@
         "operationId": "user._.foods.log.water.json.post"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "300",
           "type": "string",
@@ -618,17 +354,6 @@
         "operationId": "user._.foods.log.water.date.date.json.get"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "2015-03-01",
           "type": "string",
@@ -665,115 +390,11 @@
       },
       "parameters": [
         {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
           "default": "1",
           "type": "string",
           "in": "path",
           "required": true,
           "name": "id"
-        }
-      ]
-    },
-    "/user/-/activities/goals/weekly.json?type={type}&value={value}": {
-      "post": {
-        "externalDocs": {
-          "url": "http://wiki.fitbit.com/display/API/API-Update-Activity-Weekly-Goals"
-        },
-        "description": "Create or updates user's weekly activity goals and get a response in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
-        "responses": {
-          "200": {
-            "description": "Successful Response"
-          }
-        },
-        "operationId": "user._.activities.goals.weekly.json_type_type_value_value.post"
-      },
-      "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
-          "enum": [
-            "steps",
-            "distance",
-            "floors"
-          ],
-          "default": "steps",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "type"
-        },
-        {
-          "default": "5000",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "value"
-        }
-      ]
-    },
-    "/user/-/activities/goals/daily.json?type={type}&value={value}": {
-      "post": {
-        "externalDocs": {
-          "url": "http://wiki.fitbit.com/display/API/API-Update-Activity-Daily-Goals"
-        },
-        "description": "Create or updates user's daily activity goals and get a response in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
-        "responses": {
-          "200": {
-            "description": "Successful Response"
-          }
-        },
-        "operationId": "user._.activities.goals.daily.json_type_type_value_value.post"
-      },
-      "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
-          "enum": [
-            "steps",
-            "distance",
-            "floors",
-            "caloriesOut"
-          ],
-          "default": "steps",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "type"
-        },
-        {
-          "default": "5000",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "value"
         }
       ]
     },
@@ -790,19 +411,7 @@
         },
         "operationId": "user._.activities.goals.weekly.json.get"
       },
-      "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        }
-      ]
+      "parameters": []
     },
     "/user/-/activities/goals/daily.json": {
       "get": {
@@ -817,19 +426,7 @@
         },
         "operationId": "user._.activities.goals.daily.json.get"
       },
-      "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        }
-      ]
+      "parameters": []
     },
     "/user/-/activities/log/favorite/{id}.json": {
       "delete": {
@@ -858,17 +455,6 @@
       },
       "parameters": [
         {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
           "default": "1",
           "type": "string",
           "in": "path",
@@ -890,19 +476,7 @@
         },
         "operationId": "user._.foods.log.favorite.json.get"
       },
-      "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        }
-      ]
+      "parameters": []
     },
     "/user/-/foods/log/frequent.json": {
       "get": {
@@ -917,19 +491,7 @@
         },
         "operationId": "user._.foods.log.frequent.json.get"
       },
-      "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        }
-      ]
+      "parameters": []
     },
     "/user/-/foods/log/recent.json": {
       "get": {
@@ -944,19 +506,7 @@
         },
         "operationId": "user._.foods.log.recent.json.get"
       },
-      "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        }
-      ]
+      "parameters": []
     },
     "/user/-/activities/favorite.json": {
       "get": {
@@ -971,19 +521,7 @@
         },
         "operationId": "user._.activities.favorite.json.get"
       },
-      "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        }
-      ]
+      "parameters": []
     },
     "/user/-/activities/frequent.json": {
       "get": {
@@ -998,19 +536,7 @@
         },
         "operationId": "user._.activities.frequent.json.get"
       },
-      "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        }
-      ]
+      "parameters": []
     },
     "/user/-/activities/recent.json": {
       "get": {
@@ -1025,19 +551,7 @@
         },
         "operationId": "user._.activities.recent.json.get"
       },
-      "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        }
-      ]
+      "parameters": []
     },
     "/user/{user-id}/sleep/minutesAsleep/date/{start-date-or-end-date}/{end-date-or-period}.json": {
       "get": {
@@ -1053,17 +567,6 @@
         "operationId": "user.user_id.sleep.minutesAsleep.date.start_date_or_end_date.end_date_or_period.json.get"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "-",
           "type": "string",
@@ -1101,17 +604,6 @@
         "operationId": "user.user_id.foods.log.caloriesIn.date.start_date_or_end_date.end_date_or_period.json.get"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "-",
           "type": "string",
@@ -1162,17 +654,6 @@
       },
       "parameters": [
         {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
           "default": "14",
           "type": "string",
           "in": "query",
@@ -1207,17 +688,6 @@
         "operationId": "user._.body.log.weight.goal.json.get"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "70",
           "type": "string",
@@ -1256,17 +726,6 @@
       },
       "parameters": [
         {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
           "default": "1",
           "type": "string",
           "in": "path",
@@ -1290,17 +749,6 @@
       },
       "parameters": [
         {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
           "default": "1",
           "type": "string",
           "in": "path",
@@ -1323,17 +771,6 @@
         "operationId": "user._.body.log.fat.json.post"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "14.4",
           "type": "string",
@@ -1372,17 +809,6 @@
       },
       "parameters": [
         {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
           "default": "150",
           "type": "string",
           "in": "query",
@@ -1419,17 +845,6 @@
         "operationId": "user._.body.json.post"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "150",
           "type": "string",
@@ -1468,17 +883,6 @@
       },
       "parameters": [
         {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
           "default": "-",
           "type": "string",
           "in": "path",
@@ -1515,17 +919,6 @@
         "operationId": "user.user_id.activities.calories.date.start_date_or_end_date.end_date_or_period.json.get"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "-",
           "type": "string",
@@ -1564,17 +957,6 @@
       },
       "parameters": [
         {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
           "default": "1",
           "type": "string",
           "in": "path",
@@ -1597,17 +979,6 @@
         "operationId": "user._.heart.heart_log_id.json.delete"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "1",
           "type": "string",
@@ -1632,17 +1003,6 @@
       },
       "parameters": [
         {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
           "default": "1",
           "type": "string",
           "in": "path",
@@ -1665,17 +1025,6 @@
         "operationId": "user.user_id.badges.json.get"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "-",
           "type": "string",
@@ -1700,17 +1049,6 @@
       },
       "parameters": [
         {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
           "default": "1",
           "type": "string",
           "in": "path",
@@ -1734,17 +1072,6 @@
       },
       "parameters": [
         {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
           "default": "1",
           "type": "string",
           "in": "path",
@@ -1767,17 +1094,6 @@
         "operationId": "user._.glucose.json.post"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "4.5",
           "type": "string",
@@ -1830,17 +1146,6 @@
       },
       "parameters": [
         {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
           "default": "120",
           "type": "string",
           "in": "query",
@@ -1877,17 +1182,6 @@
         "operationId": "user._.heart.json.post"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "Running",
           "type": "string",
@@ -1926,17 +1220,6 @@
       },
       "parameters": [
         {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
           "default": "02:20",
           "type": "string",
           "in": "query",
@@ -1973,17 +1256,6 @@
         "operationId": "user._.foods.log.json.post"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "30414",
           "type": "string",
@@ -2046,19 +1318,7 @@
         },
         "operationId": "user._.activities.json.post"
       },
-      "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        }
-      ]
+      "parameters": []
     },
     "/user/-/friends/leaderboard.json": {
       "get": {
@@ -2073,19 +1333,7 @@
         },
         "operationId": "user._.friends.leaderboard.json.get"
       },
-      "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        }
-      ]
+      "parameters": []
     },
     "/user/{user-id}/friends.json": {
       "get": {
@@ -2101,17 +1349,6 @@
         "operationId": "user.user_id.friends.json.get"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "-",
           "type": "string",
@@ -2136,17 +1373,6 @@
       },
       "parameters": [
         {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
           "default": "2015-03-01",
           "type": "string",
           "in": "path",
@@ -2169,17 +1395,6 @@
         "operationId": "user._.bp.date.date.json.get"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "2015-03-01",
           "type": "string",
@@ -2204,17 +1419,6 @@
       },
       "parameters": [
         {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
           "default": "2015-03-01",
           "type": "string",
           "in": "path",
@@ -2237,17 +1441,6 @@
         "operationId": "user.user_id.sleep.date.date.json.get"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "-",
           "type": "string",
@@ -2279,17 +1472,6 @@
       },
       "parameters": [
         {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
           "default": "-",
           "type": "string",
           "in": "path",
@@ -2319,17 +1501,6 @@
         "operationId": "user.user_id.activities.date.date.json.get"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "-",
           "type": "string",
@@ -2361,17 +1532,6 @@
       },
       "parameters": [
         {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
           "default": "2015-03-01",
           "type": "string",
           "in": "path",
@@ -2395,17 +1555,6 @@
       },
       "parameters": [
         {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
-        {
           "default": "2015-03-01",
           "type": "string",
           "in": "path",
@@ -2428,17 +1577,6 @@
         "operationId": "user.user_id.body.date.date.json.get"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "-",
           "type": "string",
@@ -2469,17 +1607,6 @@
         "operationId": "user._.profile.json.post"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "FEMALE",
           "type": "string",
@@ -2531,17 +1658,6 @@
         "operationId": "user.user_id.profile.json.get"
       },
       "parameters": [
-        {
-          "enum": [
-            "xml",
-            "json"
-          ],
-          "default": "json",
-          "type": "string",
-          "in": "path",
-          "required": true,
-          "name": "format"
-        },
         {
           "default": "-",
           "type": "string",
