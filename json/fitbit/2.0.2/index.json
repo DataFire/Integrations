@@ -1,0 +1,2505 @@
+{
+  "id": "fitbit",
+  "title": "Fitbit",
+  "description": "Bring Fitbit health data into your apps, including user activities, sleep, heart, glucose and blood pressure information.",
+  "security": {
+    "fitbit": {
+      "integration": "fitbit",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "scopes": {
+          "weight": "The weight scope includes weight and related information, such as body mass index, body fat percentage, and goals",
+          "social": "The social scope includes friend-related features, such as friend list, invitations, and leaderboard",
+          "sleep": "The sleep scope includes sleep logs and related sleep analysis",
+          "settings": "The settings scope includes user account and device settings, such as alarms",
+          "profile": "The profile scope is the basic user information",
+          "nutrition": "The nutrition scope includes calorie consumption and nutrition related features, such as food/water logging, goals, and plans",
+          "location": "The location scope includes the GPS and other location data",
+          "heartrate": "The heartrate scope includes the continuous heart rate data and related analysis",
+          "activity": "The activity scope includes activity data and exercise log related features, such as steps, distance, calories burned, and active minutes"
+        },
+        "flow": "application",
+        "type": "oauth2",
+        "tokenUrl": "https://api.fitbit.com/oauth2/token",
+        "authorizationUrl": "https://www.fitbit.com/oauth2/authorize"
+      }
+    }
+  },
+  "logo": {
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/fitbit.png"
+  },
+  "tags": [],
+  "actions": [
+    {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "Exchange the code passed to your redirect URI for an access_token",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "Exchange a refresh_token for an access_token",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._collection_pathapiSubscriptions.json.get",
+      "title": "user._collection_pathapiSubscriptions.json.get",
+      "description": "Get a list of user's subscriptions for your application in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "collection-path": {
+            "type": "string",
+            "enum": [
+              "/",
+              "/activities/",
+              "/foods/",
+              "/body/",
+              "/sleep/"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "collection-path"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._collection_pathapiSubscriptions.subscription_id.json.delete",
+      "title": "user._collection_pathapiSubscriptions.subscription_id.json.delete",
+      "description": "Delete a subscription for the user and get a response in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "collection-path": {
+            "type": "string",
+            "enum": [
+              "/",
+              "/activities/",
+              "/foods/",
+              "/body/",
+              "/sleep/"
+            ]
+          },
+          "subscription-id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "collection-path",
+          "subscription-id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._collection_pathapiSubscriptions.subscription_id.json.post",
+      "title": "user._collection_pathapiSubscriptions.subscription_id.json.post",
+      "description": "Add a subscription for the user to get notifications and get a response in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "collection-path": {
+            "type": "string",
+            "enum": [
+              "/",
+              "/activities/",
+              "/foods/",
+              "/body/",
+              "/sleep/"
+            ]
+          },
+          "subscription-id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "collection-path",
+          "subscription-id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.friends.invitations.from_user_id.json_accept_accept.post",
+      "title": "user._.friends.invitations.from_user_id.json_accept_accept.post",
+      "description": "Accept or reject an invite to become friends with inviting user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "from-user-id": {
+            "type": "string"
+          },
+          "accept": {
+            "type": "string",
+            "enum": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "from-user-id",
+          "accept"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.friends.invitations.json_invitedUserEmail_invitedUserEmail.post",
+      "title": "user._.friends.invitations.json_invitedUserEmail_invitedUserEmail.post",
+      "description": "Invite a user to become friends with authorized user. If you provide invitedUserEmail parameter with the request, standard friendship invitation email will be sent to the invited user, that he can accept later. Contrary, invitedUserId parameter creates an invite silently, so it could only be fetched through the Get Invites endpoint. You can accept or reject both invitation types on behalf of the authorized user via Accept Invite API call.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "invitedUserEmail": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "invitedUserEmail"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.friends.invitations.json.get",
+      "title": "user._.friends.invitations.json.get",
+      "description": "Retrieve the list of invites to become freinds for a user in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "foods.units.json.get",
+      "title": "foods.units.json.get",
+      "description": "Get list of all valid Fitbit food units in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "foods.food_id.json.get",
+      "title": "foods.food_id.json.get",
+      "description": "Get the details of a specific food in Fitbit Food database (or private food for the user) in the format requested. Note, that nutritional values currently included in response only for the private foods.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "food-id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "food-id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "foods.search.json_query_query.get",
+      "title": "foods.search.json_query_query.get",
+      "description": "Given a search query, get a list of public foods from Fitbit foods database and private foods the user created in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "query": {
+            "type": "string",
+            "enum": [
+              "Icecream"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "query"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "activities.id.json.get",
+      "title": "activities.id.json.get",
+      "description": "Get the details of a specific activity in Fitbit activities database in the format requested. If activity has levels, also get list of activity level details.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "activities.json.get",
+      "title": "activities.json.get",
+      "description": "Get a tree of all valid Fitbit public activities from the activities catalog as well as private custom activities the user created in the format requested. If activity has levels, also get a list of activity level details.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.devices.json.get",
+      "title": "user._.devices.json.get",
+      "description": "Retrieve the list of Fitbit devices for a user in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.foods.log.goal.json.post",
+      "title": "user._.foods.log.goal.json.post",
+      "description": "Update (create) a user's daily calorie consumption goal or Food Plan and get a response in the format requested. Food Plan could not be created unless user already has active goal (Update-Weight-Goal). Depending on the weight goal setup only either MAINTENANCE (in case start weight is close to target weight or smaller) or one of the four other \"lose\" food plans could be created via intensity POST parameter.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "intensity": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "intensity"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.foods.log.goal.json.get",
+      "title": "user._.foods.log.goal.json.get",
+      "description": "Get a user's current daily calorie consumption goal and/or Food Plan in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "intensity": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "intensity"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.meals.json.get",
+      "title": "user._.meals.json.get",
+      "description": "Get a list of meals user created in his food log in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "foods.json.post",
+      "title": "foods.json.post",
+      "description": "Create new private food for a user and get a response in a format requested. Created private food could be found in results of Search Foods call.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "defaultFoodMeasurementUnitId": {
+            "type": "string"
+          },
+          "defaultServingSize": {
+            "type": "string"
+          },
+          "calories": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "name",
+          "defaultFoodMeasurementUnitId",
+          "defaultServingSize",
+          "calories"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.foods.log.water.water_log_id.json.delete",
+      "title": "user._.foods.log.water.water_log_id.json.delete",
+      "description": "Delete user's water log entry with the given id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "water-log-id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "water-log-id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.foods.log.water.json.post",
+      "title": "user._.foods.log.water.json.post",
+      "description": "Create log entry for a water using units in the unit system that corresponds to the Accept-Language header provided (or waterUnit) and get a response in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "amount": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "amount",
+          "date"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.foods.log.water.date.date.json.get",
+      "title": "user._.foods.log.water.date.date.json.get",
+      "description": "Get a summary and list of a user's water log entries for a given day in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "date"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.foods.log.favorite.id.json.delete",
+      "title": "user._.foods.log.favorite.id.json.delete",
+      "description": "Delete the food with the given id from user's list of favorite foods.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.foods.log.favorite.id.json.post",
+      "title": "user._.foods.log.favorite.id.json.post",
+      "description": "Add the food with the given id to user's list of favorite foods.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.activities.goals.weekly.json_type_type_value_value.post",
+      "title": "user._.activities.goals.weekly.json_type_type_value_value.post",
+      "description": "Create or updates user's weekly activity goals and get a response in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "steps",
+              "distance",
+              "floors"
+            ]
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "type",
+          "value"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.activities.goals.daily.json_type_type_value_value.post",
+      "title": "user._.activities.goals.daily.json_type_type_value_value.post",
+      "description": "Create or updates user's daily activity goals and get a response in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "steps",
+              "distance",
+              "floors",
+              "caloriesOut"
+            ]
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "type",
+          "value"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.activities.goals.weekly.json.get",
+      "title": "user._.activities.goals.weekly.json.get",
+      "description": "Get a user's current weekly activity goals in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.activities.goals.daily.json.get",
+      "title": "user._.activities.goals.daily.json.get",
+      "description": "Get a user's current daily activity goals in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.activities.log.favorite.id.json.delete",
+      "title": "user._.activities.log.favorite.id.json.delete",
+      "description": "Delete the activity with the given id from user's list of favorite activities.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.activities.log.favorite.id.json.post",
+      "title": "user._.activities.log.favorite.id.json.post",
+      "description": "Adds the activity with the given id to user's list of favorite activities.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.foods.log.favorite.json.get",
+      "title": "user._.foods.log.favorite.json.get",
+      "description": "Get a list of a user's favorite foods in the format requested. A user marks a food as favorite on the user's Food Tab tab. A favorite food in the list provides a quick way to log the food via the Log Food endpoint.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.foods.log.frequent.json.get",
+      "title": "user._.foods.log.frequent.json.get",
+      "description": "Get a list of a user's frequent foods in the format requested. A frequent food in the list provides a quick way to log the food via the Log Food endpoint.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.foods.log.recent.json.get",
+      "title": "user._.foods.log.recent.json.get",
+      "description": "Get a list of a user's recent foods in the format requested. A recent food provides a quick way to log the food via the Log Food endpoint.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.activities.favorite.json.get",
+      "title": "user._.activities.favorite.json.get",
+      "description": "Get a list of a user's favorite activities in the format requested. A user marks an activity as favorite on the user's Activities Tab. The activity ids in the list can be used to create a new activity log entry via the Log Activity.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.activities.frequent.json.get",
+      "title": "user._.activities.frequent.json.get",
+      "description": "Get a list of a user's frequent activities in the format requested using units in the unit system which corresponds to the Accept-Language header provided. A frequent activity record contains the distance and duration values recorded the last time the activity was logged. The record retrieved can therefore be used to log the activity via the Log Activity with the same or adjusted values for distance and duration.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.activities.recent.json.get",
+      "title": "user._.activities.recent.json.get",
+      "description": "Get a list of a user's recent activities in the format requested using units in the unit system which corresponds to the Accept-Language header provided. A recent activity record contains the distance and duration values recorded the last time the activity was logged. The record retrieved can therefore be used to log the activity via the Log Activity with the same or adjusted values for distance and duration.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user.user_id.sleep.minutesAsleep.date.start_date_or_end_date.end_date_or_period.json.get",
+      "title": "user.user_id.sleep.minutesAsleep.date.start_date_or_end_date.end_date_or_period.json.get",
+      "description": "Get time series in the specified range for a given resource in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "user-id": {
+            "type": "string"
+          },
+          "start-date-or-end-date": {
+            "type": "string"
+          },
+          "end-date-or-period": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "user-id",
+          "start-date-or-end-date",
+          "end-date-or-period"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user.user_id.foods.log.caloriesIn.date.start_date_or_end_date.end_date_or_period.json.get",
+      "title": "user.user_id.foods.log.caloriesIn.date.start_date_or_end_date.end_date_or_period.json.get",
+      "description": "Get time series in the specified range for a given resource in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "user-id": {
+            "type": "string"
+          },
+          "start-date-or-end-date": {
+            "type": "string"
+          },
+          "end-date-or-period": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "user-id",
+          "start-date-or-end-date",
+          "end-date-or-period"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.body.log.fat.goal.json.post",
+      "title": "user._.body.log.fat.goal.json.post",
+      "description": "Create or updates user's fat goal and get a response in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "fat": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "fat"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.body.log.fat.goal.json.get",
+      "title": "user._.body.log.fat.goal.json.get",
+      "description": "Get a user's current fat goal in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "fat": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "fat"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.body.log.weight.goal.json.post",
+      "title": "user._.body.log.weight.goal.json.post",
+      "description": "Create or update user's weight goal using units in the unit system that corresponds to the Accept-Language header provided and get a response in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "weight": {
+            "type": "string"
+          },
+          "startWeight": {
+            "type": "string"
+          },
+          "startDate": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "weight",
+          "startWeight",
+          "startDate"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.body.log.weight.goal.json.get",
+      "title": "user._.body.log.weight.goal.json.get",
+      "description": "Get a user's current weight goal using units in the unit system that corresponds to the Accept-Language header provided in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "weight": {
+            "type": "string"
+          },
+          "startWeight": {
+            "type": "string"
+          },
+          "startDate": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "weight",
+          "startWeight",
+          "startDate"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.body.log.fat.body_fat_log_id.json.delete",
+      "title": "user._.body.log.fat.body_fat_log_id.json.delete",
+      "description": "Delete user's body fat log entry with the given id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "body-fat-log-id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "body-fat-log-id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.body.log.fat.body_weight_log_id.json.delete",
+      "title": "user._.body.log.fat.body_weight_log_id.json.delete",
+      "description": "Delete user's body weight log entry with the given id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "body-weight-log-id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "body-weight-log-id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.body.log.fat.json.post",
+      "title": "user._.body.log.fat.json.post",
+      "description": "Create log entry for a body fat and get a response in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "fat": {
+            "type": "string"
+          },
+          "time": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "fat",
+          "time",
+          "date"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.body.log.weight.json.post",
+      "title": "user._.body.log.weight.json.post",
+      "description": "Create log entry for a body weight using units in the unit system that corresponds to the Accept-Language header provided and get a response in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "weight": {
+            "type": "string"
+          },
+          "time": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "weight",
+          "time",
+          "date"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.body.json.post",
+      "title": "user._.body.json.post",
+      "description": "Log body measurements using units in the unit system that corresponds to the Accept-Language header provided.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "weight": {
+            "type": "string"
+          },
+          "fat": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "date"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user.user_id.body.weight.date.start_date_or_end_date.end_date_or_period.json.get",
+      "title": "user.user_id.body.weight.date.start_date_or_end_date.end_date_or_period.json.get",
+      "description": "Get time series in the specified range for a given resource in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "user-id": {
+            "type": "string"
+          },
+          "start-date-or-end-date": {
+            "type": "string"
+          },
+          "end-date-or-period": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "user-id",
+          "start-date-or-end-date",
+          "end-date-or-period"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user.user_id.activities.calories.date.start_date_or_end_date.end_date_or_period.json.get",
+      "title": "user.user_id.activities.calories.date.start_date_or_end_date.end_date_or_period.json.get",
+      "description": "Get time series in the specified range for a given resource in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "user-id": {
+            "type": "string"
+          },
+          "start-date-or-end-date": {
+            "type": "string"
+          },
+          "end-date-or-period": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "user-id",
+          "start-date-or-end-date",
+          "end-date-or-period"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.bp.bp_log_id.json.delete",
+      "title": "user._.bp.bp_log_id.json.delete",
+      "description": "Delete user's blood pressure log entry with the given id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "bp-log-id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "bp-log-id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.heart.heart_log_id.json.delete",
+      "title": "user._.heart.heart_log_id.json.delete",
+      "description": "Delete user's heart rate log entry with the given id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "heart-log-id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "heart-log-id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.sleep.sleep_log_id.json.delete",
+      "title": "user._.sleep.sleep_log_id.json.delete",
+      "description": "Delete user's sleep log entry with the given id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "sleep-log-id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "sleep-log-id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user.user_id.badges.json.get",
+      "title": "user.user_id.badges.json.get",
+      "description": "Get user's badges in the format requested. Response includes all badges for the user as seen on the Fitbit website badge locker (both activity and weight related). We return weight and distance badges based on the user's unit profile preference as on the website.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "user-id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "user-id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.activities.activity_log_id.json.delete",
+      "title": "user._.activities.activity_log_id.json.delete",
+      "description": "Delete user's activity log entry with the given id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "activity-log-id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "activity-log-id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.foods.log.food_log_id.json.delete",
+      "title": "user._.foods.log.food_log_id.json.delete",
+      "description": "Delete the user's food log entry with the given id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "food-log-id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "food-log-id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.glucose.json.post",
+      "title": "user._.glucose.json.post",
+      "description": "Create log entry for a blood glucose measurement and/or HbA1c using units in the unit system which corresponds to the Accept-Language header provided and get a response in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "hba1c": {
+            "type": "string"
+          },
+          "tracker": {
+            "type": "string"
+          },
+          "glucose": {
+            "type": "string"
+          },
+          "time": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "tracker",
+          "glucose",
+          "date"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.bp.json.post",
+      "title": "user._.bp.json.post",
+      "description": "Create log entry for a blood pressure measurement and get a response in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "systolic": {
+            "type": "string"
+          },
+          "diastolic": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "systolic",
+          "diastolic",
+          "date"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.heart.json.post",
+      "title": "user._.heart.json.post",
+      "description": "Create log entry for a heart rate measurement and get a response in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "tracker": {
+            "type": "string"
+          },
+          "heartRate": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "tracker",
+          "heartRate",
+          "date"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.sleep.json.post",
+      "title": "user._.sleep.json.post",
+      "description": "Create log entry for a sleep and get a response in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "startTime": {
+            "type": "string"
+          },
+          "duration": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "startTime",
+          "duration",
+          "date"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.foods.log.json.post",
+      "title": "user._.foods.log.json.post",
+      "description": "Create log entry for a food. You need to select one of the unit ids to create a food log entry. It is possible to fetch unit ids allowed for specific food via previous calls to endpoints that retrieve food lists of the user. Each unit id maps to a unit in the list returned via the Get Food Units API call.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "foodId": {
+            "type": "string"
+          },
+          "mealTypeId": {
+            "type": "string"
+          },
+          "unitId": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "foodId",
+          "mealTypeId",
+          "unitId",
+          "amount",
+          "date"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.activities.json.get",
+      "title": "user._.activities.json.get",
+      "description": "Get user's activity statistics in the format requested using units in the unit system which corresponds to the Accept-Language header provided. Response contains both lifetime statistics from the tracker device and total numbers including the manual activity log entries as seen on the Fitbit website dashboard.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.activities.json.post",
+      "title": "user._.activities.json.post",
+      "description": "Create log entry for an activity using units in the unit system which corresponds to the Accept-Language header provided (or using optional custom distanceUnit).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.friends.leaderboard.json.get",
+      "title": "user._.friends.leaderboard.json.get",
+      "description": "Get a leaderboard of user's friends progress in the format requested using units in the unit system which corresponds to the Accept-Language header provided. Authorized user himself is also included in the response.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user.user_id.friends.json.get",
+      "title": "user.user_id.friends.json.get",
+      "description": "Get user's friends in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "user-id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "user-id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.glucose.date.date.json.get",
+      "title": "user._.glucose.date.date.json.get",
+      "description": "Get a list of user's blood glucose and HbA1C measurements for a given day in the format requested using units in the unit system which corresponds to the Accept-Language header provided. Glucose measurement log entries are available only to authorized user. We always include all glucose trackers in the response body (with zero glucose value for the days with no measurements) to allow to seamlessly fetch a list of all additional user created custom trackers.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "date"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.bp.date.date.json.get",
+      "title": "user._.bp.date.date.json.get",
+      "description": "Get an average value and a list of user's blood pressure log entries for a given day in the format requested. Blood pressure log entries are available only to authorized user. Blood pressure log entries in response are sorted exactly the same as they are presented on the Fitbit website.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "date"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.heart.date.date.json.get",
+      "title": "user._.heart.date.date.json.get",
+      "description": "Get an average values and a list of user's heart rate log entries for a given day in the format requested. Heart rate data available only to the authorized user. Heart rate log entries in response are sorted exactly the same as they are presented on the Fitbit website. We always include all heart rate trackers in the \"average\" section of the response body (with zero average values for the days with no measurements) to allow to seamlessly fetch a list of all additional user created custom trackers.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "date"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user.user_id.sleep.date.date.json.get",
+      "title": "user.user_id.sleep.date.date.json.get",
+      "description": "Get a summary and list of a user's sleep log entries for a given day in the format requested. Endpoint returns summary for all sleep log entries for the given day (including naps). If you need data only for the main sleep you can fetch entry with \"isMainSleep\" = true or use Get-Time-Series calls.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "user-id": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "user-id",
+          "date"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user.user_id.foods.log.date.date.json.get",
+      "title": "user.user_id.foods.log.date.date.json.get",
+      "description": "Get a summary and list of a user's food log entries for a given day in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "user-id": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "user-id",
+          "date"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user.user_id.activities.date.date.json.get",
+      "title": "user.user_id.activities.date.date.json.get",
+      "description": "Get a summary and list of a user's activities and activity log entries for a given day in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "user-id": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "user-id",
+          "date"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.body.log.fat.date.date.json.get",
+      "title": "user._.body.log.fat.date.date.json.get",
+      "description": "Get a list of all user's body fat log entries for a given day in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "date"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.body.log.weight.date.date.json.get",
+      "title": "user._.body.log.weight.date.date.json.get",
+      "description": "Get a list of all user's body weight log entries for a given day in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "date"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user.user_id.body.date.date.json.get",
+      "title": "user.user_id.body.date.date.json.get",
+      "description": "Get a summary of a user's body measurements for a given day in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "user-id": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "user-id",
+          "date"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user._.profile.json.post",
+      "title": "user._.profile.json.post",
+      "description": "Update user's profile using units in the unit system that corresponds to the Accept-Language header provided and get a response in the format requested.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "gender": {
+            "type": "string"
+          },
+          "birthday": {
+            "type": "string"
+          },
+          "height": {
+            "type": "string"
+          },
+          "nickname": {
+            "type": "string"
+          },
+          "fullname": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    },
+    {
+      "id": "user.user_id.profile.json.get",
+      "title": "user.user_id.profile.json.get",
+      "description": "Get user's profile in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": [
+              "xml",
+              "json"
+            ]
+          },
+          "user-id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "format",
+          "user-id"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "fitbit": {
+          "integration": "fitbit"
+        }
+      }
+    }
+  ]
+}

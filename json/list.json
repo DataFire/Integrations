@@ -5413,7 +5413,7 @@
     },
     "tags": [],
     "actionCount": 74,
-    "latestVersion": "2.0.1"
+    "latestVersion": "2.0.2"
   },
   "flat": {
     "id": "flat",
@@ -9963,7 +9963,7 @@
     },
     "tags": [],
     "actionCount": 32,
-    "latestVersion": "2.0.1"
+    "latestVersion": "2.0.2"
   },
   "hetras_certification_booking": {
     "id": "hetras_certification_booking",
@@ -10329,7 +10329,7 @@
     },
     "tags": [],
     "actionCount": 20,
-    "latestVersion": "2.0.1"
+    "latestVersion": "2.0.2"
   },
   "lyft": {
     "id": "lyft",
@@ -11275,7 +11275,7 @@
     },
     "tags": [],
     "actionCount": 4,
-    "latestVersion": "2.0.1"
+    "latestVersion": "2.0.2"
   },
   "quandl": {
     "id": "quandl",
@@ -11396,7 +11396,7 @@
     },
     "tags": [],
     "actionCount": 199,
-    "latestVersion": "2.0.1"
+    "latestVersion": "2.0.2"
   },
   "reddit_rss": {
     "id": "reddit_rss",
