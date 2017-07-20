@@ -1,2122 +1,819 @@
 # @datafire/github
+
+Client library for GitHub
+
+## Installation and Usage
+```bash
+npm install --save datafire @datafire/github
+```
+
+```js
+let datafire = require('datafire');
+let github = require('@datafire/github').actions;
+
+let account = {
+  access_token: "",
+  refresh_token: "",
+  client_id: "",
+  client_secret: "",
+  redirect_uri: "",
+}
+let context = new datafire.Context({
+  accounts: {
+    github: account,
+  }
+})
+
+
+github.users.get({}, context).then(data => {
+  console.log(data);
+})
+```
+
+## Description
 Powerful collaboration, code review, and code management for open source and private projects.
 
 
-## Operation: oauthCallback
+## Actions
+### oauthCallback
+Exchange the code passed to your redirect URI for an access_token
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "code": {
-      "title": "code",
-      "type": "string"
-    }
-  },
-  "required": [
-    "code"
-  ]
-}
+```js
+github.oauthCallback({
+  "code": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: oauthRefresh
+
+#### Parameters
+* code (string) **required**
+
+### oauthRefresh
+Exchange a refresh_token for an access_token
 
 
-### Input Schema
-```json
-{}
+```js
+github.oauthRefresh(null, context)
 ```
-### Output Schema
-```json
-{
-  "properties": {
-    "access_token": {
-      "type": "string"
-    },
-    "refresh_token": {
-      "type": "string"
-    },
-    "token_type": {
-      "type": "string"
-    },
-    "scope": {
-      "type": "string"
-    },
-    "expiration": {
-      "type": "string"
-    }
-  }
-}
-```
-## Operation: emojis.get
+
+
+### emojis.get
 Lists all the emojis available to use on GitHub.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.emojis.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/emojis"
-}
-```
-## Operation: events.get
+
+
+### events.get
 List public events.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.events.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/events"
-}
-```
-## Operation: feeds.get
+
+
+### feeds.get
 List Feeds.
 GitHub provides several timeline resources in Atom format. The Feeds API
  lists all the feeds available to the authenticating user.
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.feeds.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/feeds"
-}
-```
-## Operation: gists.get
+
+
+### gists.get
 List the authenticated user's gists or if called anonymously, this will
 return all public gists.
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "since": {
-      "type": "string",
-      "description": "Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.\nOnly gists updated at or after this time are returned.\n"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.gists.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gists"
-}
-```
-## Operation: gists.post
+
+
+### gists.post
 Create a gist.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/postGist"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+github.gists.post({
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gist"
-}
-```
-## Operation: gists.public.get
+
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### gists.public.get
 List all public gists.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "since": {
-      "type": "string",
-      "description": "Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.\nOnly gists updated at or after this time are returned.\n"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.gists.public.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gists"
-}
-```
-## Operation: gists.starred.get
+
+
+### gists.starred.get
 List the authenticated user's starred gists.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "since": {
-      "type": "string",
-      "description": "Timestamp in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ.\nOnly gists updated at or after this time are returned.\n"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.gists.starred.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gists"
-}
-```
-## Operation: gists.id.delete
+
+
+### gists.id.delete
 Delete a gist.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "Id of gist."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+github.gists.id.delete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: gists.id.get
+
+#### Parameters
+* id (integer) **required** - Id of gist.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### gists.id.get
 Get a single gist.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "Id of gist."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+github.gists.id.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gist"
-}
-```
-## Operation: gists.id.patch
+
+#### Parameters
+* id (integer) **required** - Id of gist.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### gists.id.patch
 Edit a gist.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "Id of gist."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/patchGist"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "body"
-  ]
-}
+
+```js
+github.gists.id.patch({
+  "id": 0,
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gist"
-}
-```
-## Operation: gists.id.comments.get
+
+#### Parameters
+* id (integer) **required** - Id of gist.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### gists.id.comments.get
 List comments on a gist.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "Id of gist."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+github.gists.id.comments.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/comments"
-}
-```
-## Operation: gists.id.comments.post
+
+#### Parameters
+* id (integer) **required** - Id of gist.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### gists.id.comments.post
 Create a commen
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "Id of gist."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/commentBody"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "body"
-  ]
-}
+
+```js
+github.gists.id.comments.post({
+  "id": 0,
+  "body": {
+    "body": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/comment"
-}
-```
-## Operation: gists.id.comments.commentId.delete
+
+#### Parameters
+* id (integer) **required** - Id of gist.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### gists.id.comments.commentId.delete
 Delete a comment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "Id of gist."
-    },
-    "commentId": {
-      "type": "integer",
-      "description": "Id of comment."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "commentId"
-  ]
-}
+
+```js
+github.gists.id.comments.commentId.delete({
+  "id": 0,
+  "commentId": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: gists.id.comments.commentId.get
+
+#### Parameters
+* id (integer) **required** - Id of gist.
+* commentId (integer) **required** - Id of comment.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### gists.id.comments.commentId.get
 Get a single comment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "Id of gist."
-    },
-    "commentId": {
-      "type": "integer",
-      "description": "Id of comment."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "commentId"
-  ]
-}
+
+```js
+github.gists.id.comments.commentId.get({
+  "id": 0,
+  "commentId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/comment"
-}
-```
-## Operation: gists.id.comments.commentId.patch
+
+#### Parameters
+* id (integer) **required** - Id of gist.
+* commentId (integer) **required** - Id of comment.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### gists.id.comments.commentId.patch
 Edit a comment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "Id of gist."
-    },
-    "commentId": {
-      "type": "integer",
-      "description": "Id of comment."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/comment"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "commentId",
-    "body"
-  ]
-}
+
+```js
+github.gists.id.comments.commentId.patch({
+  "id": 0,
+  "commentId": 0,
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/comment"
-}
-```
-## Operation: gists.id.forks.post
+
+#### Parameters
+* id (integer) **required** - Id of gist.
+* commentId (integer) **required** - Id of comment.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### gists.id.forks.post
 Fork a gist.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "Id of gist."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+github.gists.id.forks.post({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: gists.id.star.delete
+
+#### Parameters
+* id (integer) **required** - Id of gist.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### gists.id.star.delete
 Unstar a gist.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "Id of gist."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+github.gists.id.star.delete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: gists.id.star.get
+
+#### Parameters
+* id (integer) **required** - Id of gist.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### gists.id.star.get
 Check if a gist is starred.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "Id of gist."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+github.gists.id.star.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: gists.id.star.put
+
+#### Parameters
+* id (integer) **required** - Id of gist.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### gists.id.star.put
 Star a gist.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "Id of gist."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+github.gists.id.star.put({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: gitignore.templates.get
+
+#### Parameters
+* id (integer) **required** - Id of gist.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### gitignore.templates.get
 Listing available templates.
 List all templates available to pass as an option when creating a repository.
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.gitignore.templates.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gitignore"
-}
-```
-## Operation: gitignore.templates.language.get
+
+
+### gitignore.templates.language.get
 Get a single template.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "language": {
-      "type": "string"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "language"
-  ]
-}
+
+```js
+github.gitignore.templates.language.get({
+  "language": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gitignore-lang"
-}
-```
-## Operation: issues.get
+
+#### Parameters
+* language (string) **required**
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### issues.get
 List issues.
 List all issues across all the authenticated user's visible repositories.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "filter": {
-      "type": "string",
-      "description": "Issues assigned to you / created by you / mentioning you / you're\nsubscribed to updates for / All issues the authenticated user can see\n",
-      "enum": [
-        "assigned",
-        "created",
-        "mentioned",
-        "subscribed",
-        "all"
-      ]
-    },
-    "state": {
-      "type": "string",
-      "enum": [
-        "open",
-        "closed"
-      ]
-    },
-    "labels": {
-      "type": "string",
-      "description": "String list of comma separated Label names. Example - bug,ui,@high."
-    },
-    "sort": {
-      "type": "string",
-      "enum": [
-        "created",
-        "updated",
-        "comments"
-      ]
-    },
-    "direction": {
-      "type": "string",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "since": {
-      "type": "string",
-      "description": "Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.\nOnly issues updated at or after this time are returned.\n"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "filter",
-    "state",
-    "labels",
-    "sort",
-    "direction"
-  ]
-}
+
+```js
+github.issues.get({
+  "filter": "",
+  "state": "",
+  "labels": "",
+  "sort": "",
+  "direction": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/issues"
-}
-```
-## Operation: legacy.issues.search.owner.repository.state.keyword.get
+
+#### Parameters
+* filter (string) **required** - Issues assigned to you / created by you / mentioning you / you're
+* state (string) **required**
+* labels (string) **required** - String list of comma separated Label names. Example - bug,ui,@high.
+* sort (string) **required**
+* direction (string) **required**
+* since (string) - Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### legacy.issues.search.owner.repository.state.keyword.get
 Find issues by state and keyword.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "keyword": {
-      "type": "string",
-      "description": "The search term."
-    },
-    "state": {
-      "type": "string",
-      "description": "Indicates the state of the issues to return. Can be either open or closed.",
-      "enum": [
-        "open",
-        "closed"
-      ]
-    },
-    "owner": {
-      "type": "string"
-    },
-    "repository": {
-      "type": "string"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "keyword",
-    "state",
-    "owner",
-    "repository"
-  ]
-}
+
+```js
+github.legacy.issues.search.owner.repository.state.keyword.get({
+  "keyword": "",
+  "state": "",
+  "owner": "",
+  "repository": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/search-issues-by-keyword"
-}
-```
-## Operation: legacy.repos.search.keyword.get
+
+#### Parameters
+* keyword (string) **required** - The search term.
+* state (string) **required** - Indicates the state of the issues to return. Can be either open or closed.
+* owner (string) **required**
+* repository (string) **required**
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### legacy.repos.search.keyword.get
 Find repositories by keyword. Note, this legacy method does not follow the v3 pagination pattern. This method returns up to 100 results per page and pages can be fetched using the start_page parameter.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "keyword": {
-      "type": "string",
-      "description": "The search term"
-    },
-    "order": {
-      "type": "string",
-      "description": "The sort field. if sort param is provided. Can be either asc or desc.",
-      "enum": [
-        "desc",
-        "asc"
-      ]
-    },
-    "language": {
-      "type": "string",
-      "description": "Filter results by language"
-    },
-    "start_page": {
-      "type": "string",
-      "description": "The page number to fetch"
-    },
-    "sort": {
-      "type": "string",
-      "description": "The sort field. One of stars, forks, or updated. Default: results are sorted by best match.",
-      "enum": [
-        "updated",
-        "stars",
-        "forks"
-      ]
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "keyword"
-  ]
-}
+
+```js
+github.legacy.repos.search.keyword.get({
+  "keyword": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/search-repositories-by-keyword"
-}
-```
-## Operation: legacy.user.email.email.get
+
+#### Parameters
+* keyword (string) **required** - The search term
+* order (string) - The sort field. if sort param is provided. Can be either asc or desc.
+* language (string) - Filter results by language
+* start_page (string) - The page number to fetch
+* sort (string) - The sort field. One of stars, forks, or updated. Default: results are sorted by best match.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### legacy.user.email.email.get
 This API call is added for compatibility reasons only.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "email": {
-      "type": "string",
-      "description": "The email address"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "email"
-  ]
-}
+
+```js
+github.legacy.user.email.email.get({
+  "email": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/search-user-by-email"
-}
-```
-## Operation: legacy.user.search.keyword.get
+
+#### Parameters
+* email (string) **required** - The email address
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### legacy.user.search.keyword.get
 Find users by keyword.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "keyword": {
-      "type": "string",
-      "description": "The search term"
-    },
-    "order": {
-      "type": "string",
-      "description": "The sort field. if sort param is provided. Can be either asc or desc.",
-      "enum": [
-        "desc",
-        "asc"
-      ]
-    },
-    "start_page": {
-      "type": "string",
-      "description": "The page number to fetch"
-    },
-    "sort": {
-      "type": "string",
-      "description": "The sort field. One of stars, forks, or updated. Default: results are sorted by best match.",
-      "enum": [
-        "updated",
-        "stars",
-        "forks"
-      ]
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "keyword"
-  ]
-}
+
+```js
+github.legacy.user.search.keyword.get({
+  "keyword": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/search-users-by-keyword"
-}
-```
-## Operation: markdown.post
+
+#### Parameters
+* keyword (string) **required** - The search term
+* order (string) - The sort field. if sort param is provided. Can be either asc or desc.
+* start_page (string) - The page number to fetch
+* sort (string) - The sort field. One of stars, forks, or updated. Default: results are sorted by best match.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### markdown.post
 Render an arbitrary Markdown document
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/markdown"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+github.markdown.post({
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: markdown.raw.post
+
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### markdown.raw.post
 Render a Markdown document in raw mode
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.markdown.raw.post({}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: meta.get
+
+
+### meta.get
 This gives some information about GitHub.com, the service.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.meta.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/meta"
-}
-```
-## Operation: networks.owner.repo.events.get
+
+
+### networks.owner.repo.events.get
 List public events for a network of repositories.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of the owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.networks.owner.repo.events.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/events"
-}
-```
-## Operation: notifications.get
+
+#### Parameters
+* owner (string) **required** - Name of the owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### notifications.get
 List your notifications.
 List all notifications for the current user, grouped by repository.
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "all": {
-      "type": "boolean",
-      "description": "True to show notifications marked as read."
-    },
-    "participating": {
-      "type": "boolean",
-      "description": "True to show only notifications in which the user is directly participating\nor mentioned.\n"
-    },
-    "since": {
-      "type": "string",
-      "description": "The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.\nExample: \"2012-10-09T23:39:01Z\".\n"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.notifications.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/notifications"
-}
-```
-## Operation: notifications.put
+
+
+### notifications.put
 Mark as read.
 Marking a notification as "read" removes it from the default view on GitHub.com.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/notificationMarkRead"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+github.notifications.put({
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: notifications.threads.id.get
+
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### notifications.threads.id.get
 View a single thread.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "Id of thread."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+github.notifications.threads.id.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/notifications"
-}
-```
-## Operation: notifications.threads.id.patch
+
+#### Parameters
+* id (integer) **required** - Id of thread.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### notifications.threads.id.patch
 Mark a thread as read
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "Id of thread."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+github.notifications.threads.id.patch({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: notifications.threads.id.subscription.delete
+
+#### Parameters
+* id (integer) **required** - Id of thread.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### notifications.threads.id.subscription.delete
 Delete a Thread Subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "Id of thread."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+github.notifications.threads.id.subscription.delete({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: notifications.threads.id.subscription.get
+
+#### Parameters
+* id (integer) **required** - Id of thread.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### notifications.threads.id.subscription.get
 Get a Thread Subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "Id of thread."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id"
-  ]
-}
+
+```js
+github.notifications.threads.id.subscription.get({
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/subscription"
-}
-```
-## Operation: notifications.threads.id.subscription.put
+
+#### Parameters
+* id (integer) **required** - Id of thread.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### notifications.threads.id.subscription.put
 Set a Thread Subscription.
 This lets you subscribe to a thread, or ignore it. Subscribing to a thread
 is unnecessary if the user is already subscribed to the repository. Ignoring
 a thread will mute all future notifications (until you comment or get @mentioned).
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "integer",
-      "description": "Id of thread."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/putSubscription"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "id",
-    "body"
-  ]
-}
+
+```js
+github.notifications.threads.id.subscription.put({
+  "id": 0,
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/subscription"
-}
-```
-## Operation: orgs.org.get
+
+#### Parameters
+* id (integer) **required** - Id of thread.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### orgs.org.get
 Get an Organization.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "org": {
-      "type": "string",
-      "description": "Name of organisation."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "org"
-  ]
-}
+
+```js
+github.orgs.org.get({
+  "org": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/organization"
-}
-```
-## Operation: orgs.org.patch
+
+#### Parameters
+* org (string) **required** - Name of organisation.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### orgs.org.patch
 Edit an Organization.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "org": {
-      "type": "string",
-      "description": "Name of organisation."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/patchOrg"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "org",
-    "body"
-  ]
-}
+
+```js
+github.orgs.org.patch({
+  "org": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/organization"
-}
-```
-## Operation: orgs.org.events.get
+
+#### Parameters
+* org (string) **required** - Name of organisation.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### orgs.org.events.get
 List public events for an organization.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "org": {
-      "type": "string",
-      "description": "Name of organisation."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "org"
-  ]
-}
+
+```js
+github.orgs.org.events.get({
+  "org": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/events"
-}
-```
-## Operation: orgs.org.issues.get
+
+#### Parameters
+* org (string) **required** - Name of organisation.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### orgs.org.issues.get
 List issues.
 List all issues for a given organization for the authenticated user.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "org": {
-      "type": "string",
-      "description": "Name of organisation."
-    },
-    "filter": {
-      "type": "string",
-      "description": "Issues assigned to you / created by you / mentioning you / you're\nsubscribed to updates for / All issues the authenticated user can see\n",
-      "enum": [
-        "assigned",
-        "created",
-        "mentioned",
-        "subscribed",
-        "all"
-      ]
-    },
-    "state": {
-      "type": "string",
-      "enum": [
-        "open",
-        "closed"
-      ]
-    },
-    "labels": {
-      "type": "string",
-      "description": "String list of comma separated Label names. Example - bug,ui,@high."
-    },
-    "sort": {
-      "type": "string",
-      "enum": [
-        "created",
-        "updated",
-        "comments"
-      ]
-    },
-    "direction": {
-      "type": "string",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "since": {
-      "type": "string",
-      "description": "Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.\nOnly issues updated at or after this time are returned.\n"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "org",
-    "filter",
-    "state",
-    "labels",
-    "sort",
-    "direction"
-  ]
-}
+
+```js
+github.orgs.org.issues.get({
+  "org": "",
+  "filter": "",
+  "state": "",
+  "labels": "",
+  "sort": "",
+  "direction": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/issues"
-}
-```
-## Operation: orgs.org.members.get
+
+#### Parameters
+* org (string) **required** - Name of organisation.
+* filter (string) **required** - Issues assigned to you / created by you / mentioning you / you're
+* state (string) **required**
+* labels (string) **required** - String list of comma separated Label names. Example - bug,ui,@high.
+* sort (string) **required**
+* direction (string) **required**
+* since (string) - Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### orgs.org.members.get
 Members list.
 List all users who are members of an organization. A member is a user tha
 belongs to at least 1 team in the organization. If the authenticated user
@@ -2125,972 +822,420 @@ will be returned. If the requester is not an owner of the organization the
 query will be redirected to the public members list.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "org": {
-      "type": "string",
-      "description": "Name of organisation."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "org"
-  ]
-}
+
+```js
+github.orgs.org.members.get({
+  "org": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/users"
-}
-```
-## Operation: orgs.org.members.username.delete
+
+#### Parameters
+* org (string) **required** - Name of organisation.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### orgs.org.members.username.delete
 Remove a member.
 Removing a user from this list will remove them from all teams and they
 will no longer have any access to the organization's repositories.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "org": {
-      "type": "string",
-      "description": "Name of organisation."
-    },
-    "username": {
-      "type": "string",
-      "description": "Name of the user."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "org",
-    "username"
-  ]
-}
+
+```js
+github.orgs.org.members.username.delete({
+  "org": "",
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: orgs.org.members.username.get
+
+#### Parameters
+* org (string) **required** - Name of organisation.
+* username (string) **required** - Name of the user.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### orgs.org.members.username.get
 Check if a user is, publicly or privately, a member of the organization.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "org": {
-      "type": "string",
-      "description": "Name of organisation."
-    },
-    "username": {
-      "type": "string",
-      "description": "Name of the user."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "org",
-    "username"
-  ]
-}
+
+```js
+github.orgs.org.members.username.get({
+  "org": "",
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: orgs.org.public_members.get
+
+#### Parameters
+* org (string) **required** - Name of organisation.
+* username (string) **required** - Name of the user.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### orgs.org.public_members.get
 Public members list.
 Members of an organization can choose to have their membership publicized
 or not.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "org": {
-      "type": "string",
-      "description": "Name of organisation."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "org"
-  ]
-}
+
+```js
+github.orgs.org.public_members.get({
+  "org": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/users"
-}
-```
-## Operation: orgs.org.public_members.username.delete
+
+#### Parameters
+* org (string) **required** - Name of organisation.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### orgs.org.public_members.username.delete
 Conceal a user's membership.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "org": {
-      "type": "string",
-      "description": "Name of organisation."
-    },
-    "username": {
-      "type": "string",
-      "description": "Name of the user."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "org",
-    "username"
-  ]
-}
+
+```js
+github.orgs.org.public_members.username.delete({
+  "org": "",
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: orgs.org.public_members.username.get
+
+#### Parameters
+* org (string) **required** - Name of organisation.
+* username (string) **required** - Name of the user.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### orgs.org.public_members.username.get
 Check public membership.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "org": {
-      "type": "string",
-      "description": "Name of organisation."
-    },
-    "username": {
-      "type": "string",
-      "description": "Name of the user."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "org",
-    "username"
-  ]
-}
+
+```js
+github.orgs.org.public_members.username.get({
+  "org": "",
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: orgs.org.public_members.username.put
+
+#### Parameters
+* org (string) **required** - Name of organisation.
+* username (string) **required** - Name of the user.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### orgs.org.public_members.username.put
 Publicize a user's membership.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "org": {
-      "type": "string",
-      "description": "Name of organisation."
-    },
-    "username": {
-      "type": "string",
-      "description": "Name of the user."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "org",
-    "username"
-  ]
-}
+
+```js
+github.orgs.org.public_members.username.put({
+  "org": "",
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: orgs.org.repos.get
+
+#### Parameters
+* org (string) **required** - Name of organisation.
+* username (string) **required** - Name of the user.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### orgs.org.repos.get
 List repositories for the specified org.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "org": {
-      "type": "string",
-      "description": "Name of organisation."
-    },
-    "type": {
-      "type": "string",
-      "enum": [
-        "all",
-        "public",
-        "private",
-        "forks",
-        "sources",
-        "member"
-      ]
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "org"
-  ]
-}
+
+```js
+github.orgs.org.repos.get({
+  "org": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/repos"
-}
-```
-## Operation: orgs.org.repos.post
+
+#### Parameters
+* org (string) **required** - Name of organisation.
+* type (string)
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### orgs.org.repos.post
 Create a new repository for the authenticated user. OAuth users must supply
 repo scope.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "org": {
-      "type": "string",
-      "description": "Name of organisation."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/postRepo"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "org",
-    "body"
-  ]
-}
+
+```js
+github.orgs.org.repos.post({
+  "org": "",
+  "body": {
+    "name": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/repos"
-}
-```
-## Operation: orgs.org.teams.get
+
+#### Parameters
+* org (string) **required** - Name of organisation.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### orgs.org.teams.get
 List teams.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "org": {
-      "type": "string",
-      "description": "Name of organisation."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "org"
-  ]
-}
+
+```js
+github.orgs.org.teams.get({
+  "org": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/teams"
-}
-```
-## Operation: orgs.org.teams.post
+
+#### Parameters
+* org (string) **required** - Name of organisation.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### orgs.org.teams.post
 Create team.
 In order to create a team, the authenticated user must be an owner of organization.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "org": {
-      "type": "string",
-      "description": "Name of organisation."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/orgTeamsPost"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "org",
-    "body"
-  ]
-}
+
+```js
+github.orgs.org.teams.post({
+  "org": "",
+  "body": {
+    "name": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/team"
-}
-```
-## Operation: rate_limit.get
+
+#### Parameters
+* org (string) **required** - Name of organisation.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### rate_limit.get
 Get your current rate limit status
 Note: Accessing this endpoint does not count against your rate limit.
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.rate_limit.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/rate_limit"
-}
-```
-## Operation: repos.owner.repo.delete
+
+
+### repos.owner.repo.delete
 Delete a Repository.
 Deleting a repository requires admin access. If OAuth is used, the delete_repo
 scope is required.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.delete({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.get
 Get repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/repo"
-}
-```
-## Operation: repos.owner.repo.patch
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.patch
 Edit repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/repoEdit"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.patch({
+  "owner": "",
+  "repo": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/repo"
-}
-```
-## Operation: repos.owner.repo.assignees.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.assignees.get
 List assignees.
 This call lists all the available assignees (owner + collaborators) to which
 issues may be assigned.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.assignees.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/assignees"
-}
-```
-## Operation: repos.owner.repo.assignees.assignee.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.assignees.assignee.get
 Check assignee.
 You may also check to see if a particular user is an assignee for a repository.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "assignee": {
-      "type": "string",
-      "description": "Login of the assignee."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "assignee"
-  ]
-}
+
+```js
+github.repos.owner.repo.assignees.assignee.get({
+  "owner": "",
+  "repo": "",
+  "assignee": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.branches.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* assignee (string) **required** - Login of the assignee.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.branches.get
 Get list of branches
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.branches.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/branches"
-}
-```
-## Operation: repos.owner.repo.branches.branch.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.branches.branch.get
 Get Branch
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "branch": {
-      "type": "string",
-      "description": "Name of the branch."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "branch"
-  ]
-}
+
+```js
+github.repos.owner.repo.branches.branch.get({
+  "owner": "",
+  "repo": "",
+  "branch": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/branch"
-}
-```
-## Operation: repos.owner.repo.collaborators.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* branch (string) **required** - Name of the branch.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.collaborators.get
 List.
 When authenticating as an organization owner of an organization-owned
 repository, all organization owners are included in the list of
@@ -3098,862 +1243,374 @@ collaborators. Otherwise, only users with access to the repository are
 returned in the collaborators list.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.collaborators.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/users"
-}
-```
-## Operation: repos.owner.repo.collaborators.user.delete
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.collaborators.user.delete
 Remove collaborator.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "user": {
-      "type": "string",
-      "description": "Login of the user."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "user"
-  ]
-}
+
+```js
+github.repos.owner.repo.collaborators.user.delete({
+  "owner": "",
+  "repo": "",
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.collaborators.user.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* user (string) **required** - Login of the user.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.collaborators.user.get
 Check if user is a collaborator
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "user": {
-      "type": "string",
-      "description": "Login of the user."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "user"
-  ]
-}
+
+```js
+github.repos.owner.repo.collaborators.user.get({
+  "owner": "",
+  "repo": "",
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.collaborators.user.put
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* user (string) **required** - Login of the user.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.collaborators.user.put
 Add collaborator.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "user": {
-      "type": "string",
-      "description": "Login of the user."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "user"
-  ]
-}
+
+```js
+github.repos.owner.repo.collaborators.user.put({
+  "owner": "",
+  "repo": "",
+  "user": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.comments.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* user (string) **required** - Login of the user.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.comments.get
 List commit comments for a repository.
 Comments are ordered by ascending ID.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.comments.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/repoComments"
-}
-```
-## Operation: repos.owner.repo.comments.commentId.delete
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.comments.commentId.delete
 Delete a commit comment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "commentId": {
-      "type": "integer",
-      "description": "Id of comment."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "commentId"
-  ]
-}
+
+```js
+github.repos.owner.repo.comments.commentId.delete({
+  "owner": "",
+  "repo": "",
+  "commentId": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.comments.commentId.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* commentId (integer) **required** - Id of comment.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.comments.commentId.get
 Get a single commit comment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "commentId": {
-      "type": "integer",
-      "description": "Id of comment."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "commentId"
-  ]
-}
+
+```js
+github.repos.owner.repo.comments.commentId.get({
+  "owner": "",
+  "repo": "",
+  "commentId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/commitComments"
-}
-```
-## Operation: repos.owner.repo.comments.commentId.patch
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* commentId (integer) **required** - Id of comment.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.comments.commentId.patch
 Update a commit comment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "commentId": {
-      "type": "integer",
-      "description": "Id of comment."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/commentBody"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "commentId",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.comments.commentId.patch({
+  "owner": "",
+  "repo": "",
+  "commentId": 0,
+  "body": {
+    "body": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/commitComments"
-}
-```
-## Operation: repos.owner.repo.commits.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* commentId (integer) **required** - Id of comment.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.commits.get
 List commits on a repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "since": {
-      "type": "string",
-      "description": "The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.\nExample: \"2012-10-09T23:39:01Z\".\n"
-    },
-    "sha": {
-      "type": "string",
-      "description": "Sha or branch to start listing commits from."
-    },
-    "path": {
-      "type": "string",
-      "description": "Only commits containing this file path will be returned."
-    },
-    "author": {
-      "type": "string",
-      "description": "GitHub login, name, or email by which to filter by commit author."
-    },
-    "until": {
-      "type": "string",
-      "description": "ISO 8601 Date - Only commits before this date will be returned."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.commits.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/commits"
-}
-```
-## Operation: repos.owner.repo.commits.ref.status.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* since (string) - The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+* sha (string) - Sha or branch to start listing commits from.
+* path (string) - Only commits containing this file path will be returned.
+* author (string) - GitHub login, name, or email by which to filter by commit author.
+* until (string) - ISO 8601 Date - Only commits before this date will be returned.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.commits.ref.status.get
 Get the combined Status for a specific Ref
 The Combined status endpoint is currently available for developers to preview. During the preview period, the API may change without advance notice. Please see the blog post for full details.
 To access this endpoint during the preview period, you must provide a custom media type in the Accept header:
 application/vnd.github.she-hulk-preview+json
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "ref": {
-      "type": "string"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "ref"
-  ]
-}
+
+```js
+github.repos.owner.repo.commits.ref.status.get({
+  "owner": "",
+  "repo": "",
+  "ref": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/refStatus"
-}
-```
-## Operation: repos.owner.repo.commits.shaCode.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* ref (string) **required**
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.commits.shaCode.get
 Get a single commit.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "shaCode": {
-      "type": "string",
-      "description": "SHA-1 code of the commit."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "shaCode"
-  ]
-}
+
+```js
+github.repos.owner.repo.commits.shaCode.get({
+  "owner": "",
+  "repo": "",
+  "shaCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/commit"
-}
-```
-## Operation: repos.owner.repo.commits.shaCode.comments.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* shaCode (string) **required** - SHA-1 code of the commit.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.commits.shaCode.comments.get
 List comments for a single commitList comments for a single commit.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "shaCode": {
-      "type": "string",
-      "description": "SHA-1 code of the commit."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "shaCode"
-  ]
-}
+
+```js
+github.repos.owner.repo.commits.shaCode.comments.get({
+  "owner": "",
+  "repo": "",
+  "shaCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/repoComments"
-}
-```
-## Operation: repos.owner.repo.commits.shaCode.comments.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* shaCode (string) **required** - SHA-1 code of the commit.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.commits.shaCode.comments.post
 Create a commit comment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "shaCode": {
-      "type": "string",
-      "description": "SHA-1 code of the commit."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/commitBody"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "shaCode",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.commits.shaCode.comments.post({
+  "owner": "",
+  "repo": "",
+  "shaCode": "",
+  "body": {
+    "sha": "",
+    "body": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/commitComments"
-}
-```
-## Operation: repos.owner.repo.compare.baseId...headId.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* shaCode (string) **required** - SHA-1 code of the commit.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.compare.baseId...headId.get
 Compare two commits
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "baseId": {
-      "type": "string"
-    },
-    "headId": {
-      "type": "string"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "baseId",
-    "headId"
-  ]
-}
+
+```js
+github.repos.owner.repo.compare.baseId...headId.get({
+  "owner": "",
+  "repo": "",
+  "baseId": "",
+  "headId": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/compare-commits"
-}
-```
-## Operation: repos.owner.repo.contents.path.delete
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* baseId (string) **required**
+* headId (string) **required**
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.contents.path.delete
 Delete a file.
 This method deletes a file in a repository.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "path": {
-      "type": "string"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/deleteFileBody"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "path",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.contents.path.delete({
+  "owner": "",
+  "repo": "",
+  "path": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/deleteFile"
-}
-```
-## Operation: repos.owner.repo.contents.path.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* path (string) **required**
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.contents.path.get
 Get contents.
 This method returns the contents of a file or directory in a repository.
 Files and symlinks support a custom media type for getting the raw content.
@@ -3962,793 +1619,337 @@ Note: This API supports files up to 1 megabyte in size.
 Here can be many outcomes. For details see "http://developer.github.com/v3/repos/contents/"
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "path": {
-      "type": "string"
-    },
-    "path_query": {
-      "type": "string",
-      "description": "The content path."
-    },
-    "ref": {
-      "type": "string",
-      "description": "The String name of the Commit/Branch/Tag. Defaults to 'master'."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "path"
-  ]
-}
+
+```js
+github.repos.owner.repo.contents.path.get({
+  "owner": "",
+  "repo": "",
+  "path": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/contents-path"
-}
-```
-## Operation: repos.owner.repo.contents.path.put
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* path (string) **required**
+* path_query (string) - The content path.
+* ref (string) - The String name of the Commit/Branch/Tag. Defaults to 'master'.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.contents.path.put
 Create a file.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "path": {
-      "type": "string"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/createFileBody"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "path",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.contents.path.put({
+  "owner": "",
+  "repo": "",
+  "path": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/createFile"
-}
-```
-## Operation: repos.owner.repo.contributors.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* path (string) **required**
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.contributors.get
 Get list of contributors.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "anon": {
-      "type": "string",
-      "description": "Set to 1 or true to include anonymous contributors in results."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "anon"
-  ]
-}
+
+```js
+github.repos.owner.repo.contributors.get({
+  "owner": "",
+  "repo": "",
+  "anon": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/contributors"
-}
-```
-## Operation: repos.owner.repo.deployments.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* anon (string) **required** - Set to 1 or true to include anonymous contributors in results.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.deployments.get
 Users with pull access can view deployments for a repository
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.deployments.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/repo-deployments"
-}
-```
-## Operation: repos.owner.repo.deployments.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.deployments.post
 Users with push access can create a deployment for a given ref
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/deployment"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.deployments.post({
+  "owner": "",
+  "repo": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/deployment-resp"
-}
-```
-## Operation: repos.owner.repo.deployments.id.statuses.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.deployments.id.statuses.get
 Users with pull access can view deployment statuses for a deployment
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "id": {
-      "type": "integer",
-      "description": "The Deployment ID to list the statuses from."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "id"
-  ]
-}
+
+```js
+github.repos.owner.repo.deployments.id.statuses.get({
+  "owner": "",
+  "repo": "",
+  "id": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/deployment-statuses"
-}
-```
-## Operation: repos.owner.repo.deployments.id.statuses.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* id (integer) **required** - The Deployment ID to list the statuses from.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.deployments.id.statuses.post
 Create a Deployment Status
 Users with push access can create deployment statuses for a given deployment:
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "id": {
-      "type": "integer",
-      "description": "The Deployment ID to list the statuses from."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/deployment-statuses-create"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "id",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.deployments.id.statuses.post({
+  "owner": "",
+  "repo": "",
+  "id": 0,
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.downloads.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* id (integer) **required** - The Deployment ID to list the statuses from.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.downloads.get
 Deprecated. List downloads for a repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.downloads.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/downloads"
-}
-```
-## Operation: repos.owner.repo.downloads.downloadId.delete
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.downloads.downloadId.delete
 Deprecated. Delete a download.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "downloadId": {
-      "type": "integer",
-      "description": "Id of download."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "downloadId"
-  ]
-}
+
+```js
+github.repos.owner.repo.downloads.downloadId.delete({
+  "owner": "",
+  "repo": "",
+  "downloadId": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.downloads.downloadId.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* downloadId (integer) **required** - Id of download.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.downloads.downloadId.get
 Deprecated. Get a single download.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "downloadId": {
-      "type": "integer",
-      "description": "Id of download."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "downloadId"
-  ]
-}
+
+```js
+github.repos.owner.repo.downloads.downloadId.get({
+  "owner": "",
+  "repo": "",
+  "downloadId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/downloads"
-}
-```
-## Operation: repos.owner.repo.events.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* downloadId (integer) **required** - Id of download.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.events.get
 Get list of repository events.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.events.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/events"
-}
-```
-## Operation: repos.owner.repo.forks.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.forks.get
 List forks.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "sort": {
-      "type": "string",
-      "enum": [
-        "newes",
-        "oldes",
-        "watchers"
-      ]
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.forks.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/forks"
-}
-```
-## Operation: repos.owner.repo.forks.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* sort (string)
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.forks.post
 Create a fork.
 Forking a Repository happens asynchronously. Therefore, you may have to wai
 a short period before accessing the git objects. If this takes longer than 5
 minutes, be sure to contact Support.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/forkBody"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.forks.post({
+  "owner": "",
+  "repo": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/fork"
-}
-```
-## Operation: repos.owner.repo.git.blobs.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.git.blobs.post
 Create a Blob.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/blob"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.git.blobs.post({
+  "owner": "",
+  "repo": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/blobs"
-}
-```
-## Operation: repos.owner.repo.git.blobs.shaCode.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.git.blobs.shaCode.get
 Get a Blob.
 Since blobs can be any arbitrary binary data, the input and responses for
 the blob API takes an encoding parameter that can be either utf-8 or
@@ -4756,442 +1957,196 @@ base64. If your data cannot be losslessly sent as a UTF-8 string, you can
 base64 encode it.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "shaCode": {
-      "type": "string",
-      "description": "SHA-1 code."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "shaCode"
-  ]
-}
+
+```js
+github.repos.owner.repo.git.blobs.shaCode.get({
+  "owner": "",
+  "repo": "",
+  "shaCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/blob"
-}
-```
-## Operation: repos.owner.repo.git.commits.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* shaCode (string) **required** - SHA-1 code.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.git.commits.post
 Create a Commit.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/repoCommitBody"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.git.commits.post({
+  "owner": "",
+  "repo": "",
+  "body": {
+    "message": "",
+    "parents": [],
+    "tree": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gitCommit"
-}
-```
-## Operation: repos.owner.repo.git.commits.shaCode.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.git.commits.shaCode.get
 Get a Commit.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "shaCode": {
-      "type": "string",
-      "description": "SHA-1 code."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "shaCode"
-  ]
-}
+
+```js
+github.repos.owner.repo.git.commits.shaCode.get({
+  "owner": "",
+  "repo": "",
+  "shaCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/repoCommit"
-}
-```
-## Operation: repos.owner.repo.git.refs.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* shaCode (string) **required** - SHA-1 code.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.git.refs.get
 Get all References
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.git.refs.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/refs"
-}
-```
-## Operation: repos.owner.repo.git.refs.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.git.refs.post
 Create a Reference
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/refsBody"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.git.refs.post({
+  "owner": "",
+  "repo": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/headBranch"
-}
-```
-## Operation: repos.owner.repo.git.refs.ref.delete
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.git.refs.ref.delete
 Delete a Reference
 Example: Deleting a branch: DELETE /repos/octocat/Hello-World/git/refs/heads/feature-a 
 Example: Deleting a tag:        DELETE /repos/octocat/Hello-World/git/refs/tags/v1.0
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "ref": {
-      "type": "string"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "ref"
-  ]
-}
+
+```js
+github.repos.owner.repo.git.refs.ref.delete({
+  "owner": "",
+  "repo": "",
+  "ref": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.git.refs.ref.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* ref (string) **required**
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.git.refs.ref.get
 Get a Reference
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "ref": {
-      "type": "string"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "ref"
-  ]
-}
+
+```js
+github.repos.owner.repo.git.refs.ref.get({
+  "owner": "",
+  "repo": "",
+  "ref": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/headBranch"
-}
-```
-## Operation: repos.owner.repo.git.refs.ref.patch
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* ref (string) **required**
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.git.refs.ref.patch
 Update a Reference
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "ref": {
-      "type": "string"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/gitRefPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "ref",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.git.refs.ref.patch({
+  "owner": "",
+  "repo": "",
+  "ref": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/headBranch"
-}
-```
-## Operation: repos.owner.repo.git.tags.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* ref (string) **required**
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.git.tags.post
 Create a Tag Object.
 Note that creating a tag object does not create the reference that makes a
 tag in Git. If you want to create an annotated tag in Git, you have to do
@@ -5200,503 +2155,217 @@ reference. If you want to create a lightweight tag, you only have to create
 the tag reference - this call would be unnecessary.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/tag"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.git.tags.post({
+  "owner": "",
+  "repo": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/tags"
-}
-```
-## Operation: repos.owner.repo.git.tags.shaCode.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.git.tags.shaCode.get
 Get a Tag.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "shaCode": {
-      "type": "string"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "shaCode"
-  ]
-}
+
+```js
+github.repos.owner.repo.git.tags.shaCode.get({
+  "owner": "",
+  "repo": "",
+  "shaCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/tag"
-}
-```
-## Operation: repos.owner.repo.git.trees.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* shaCode (string) **required**
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.git.trees.post
 Create a Tree.
 The tree creation API will take nested entries as well. If both a tree and
 a nested path modifying that tree are specified, it will overwrite the
 contents of that tree with the new path contents and write a new tree out.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/tree"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.git.trees.post({
+  "owner": "",
+  "repo": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/trees"
-}
-```
-## Operation: repos.owner.repo.git.trees.shaCode.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.git.trees.shaCode.get
 Get a Tree.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "shaCode": {
-      "type": "string",
-      "description": "Tree SHA."
-    },
-    "recursive": {
-      "type": "integer",
-      "description": "Get a Tree Recursively. (0 or 1)"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "shaCode"
-  ]
-}
+
+```js
+github.repos.owner.repo.git.trees.shaCode.get({
+  "owner": "",
+  "repo": "",
+  "shaCode": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/tree"
-}
-```
-## Operation: repos.owner.repo.hooks.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* shaCode (string) **required** - Tree SHA.
+* recursive (integer) - Get a Tree Recursively. (0 or 1)
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.hooks.get
 Get list of hooks.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.hooks.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/hook"
-}
-```
-## Operation: repos.owner.repo.hooks.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.hooks.post
 Create a hook.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/hookBody"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.hooks.post({
+  "owner": "",
+  "repo": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/hook"
-}
-```
-## Operation: repos.owner.repo.hooks.hookId.delete
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.hooks.hookId.delete
 Delete a hook.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "hookId": {
-      "type": "integer",
-      "description": "Id of hook."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "hookId"
-  ]
-}
+
+```js
+github.repos.owner.repo.hooks.hookId.delete({
+  "owner": "",
+  "repo": "",
+  "hookId": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.hooks.hookId.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* hookId (integer) **required** - Id of hook.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.hooks.hookId.get
 Get single hook.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "hookId": {
-      "type": "integer",
-      "description": "Id of hook."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "hookId"
-  ]
-}
+
+```js
+github.repos.owner.repo.hooks.hookId.get({
+  "owner": "",
+  "repo": "",
+  "hookId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/hook"
-}
-```
-## Operation: repos.owner.repo.hooks.hookId.patch
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* hookId (integer) **required** - Id of hook.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.hooks.hookId.patch
 Edit a hook.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "hookId": {
-      "type": "integer",
-      "description": "Id of hook."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/hookBody"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "hookId",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.hooks.hookId.patch({
+  "owner": "",
+  "repo": "",
+  "hookId": 0,
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/hook"
-}
-```
-## Operation: repos.owner.repo.hooks.hookId.tests.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* hookId (integer) **required** - Id of hook.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.hooks.hookId.tests.post
 Test a push hook.
 This will trigger the hook with the latest push to the current repository
 if the hook is subscribed to push events. If the hook is not subscribed
@@ -5705,2742 +2374,1148 @@ be generated.
 Note: Previously /repos/:owner/:repo/hooks/:id/tes
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "hookId": {
-      "type": "integer",
-      "description": "Id of hook."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "hookId"
-  ]
-}
+
+```js
+github.repos.owner.repo.hooks.hookId.tests.post({
+  "owner": "",
+  "repo": "",
+  "hookId": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.issues.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* hookId (integer) **required** - Id of hook.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.issues.get
 List issues for a repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "filter": {
-      "type": "string",
-      "description": "Issues assigned to you / created by you / mentioning you / you're\nsubscribed to updates for / All issues the authenticated user can see\n",
-      "enum": [
-        "assigned",
-        "created",
-        "mentioned",
-        "subscribed",
-        "all"
-      ]
-    },
-    "state": {
-      "type": "string",
-      "enum": [
-        "open",
-        "closed"
-      ]
-    },
-    "labels": {
-      "type": "string",
-      "description": "String list of comma separated Label names. Example - bug,ui,@high."
-    },
-    "sort": {
-      "type": "string",
-      "enum": [
-        "created",
-        "updated",
-        "comments"
-      ]
-    },
-    "direction": {
-      "type": "string",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "since": {
-      "type": "string",
-      "description": "Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.\nOnly issues updated at or after this time are returned.\n"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "filter",
-    "state",
-    "labels",
-    "sort",
-    "direction"
-  ]
-}
+
+```js
+github.repos.owner.repo.issues.get({
+  "owner": "",
+  "repo": "",
+  "filter": "",
+  "state": "",
+  "labels": "",
+  "sort": "",
+  "direction": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/issues"
-}
-```
-## Operation: repos.owner.repo.issues.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* filter (string) **required** - Issues assigned to you / created by you / mentioning you / you're
+* state (string) **required**
+* labels (string) **required** - String list of comma separated Label names. Example - bug,ui,@high.
+* sort (string) **required**
+* direction (string) **required**
+* since (string) - Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.issues.post
 Create an issue.
 Any user with pull access to a repository can create an issue.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/issue"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.issues.post({
+  "owner": "",
+  "repo": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/issue"
-}
-```
-## Operation: repos.owner.repo.issues.comments.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.issues.comments.get
 List comments in a repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "direction": {
-      "type": "string",
-      "description": "Ignored without 'sort' parameter."
-    },
-    "sort": {
-      "type": "string",
-      "description": "",
-      "enum": [
-        "created",
-        "updated"
-      ]
-    },
-    "since": {
-      "type": "string",
-      "description": "The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.\nExample: \"2012-10-09T23:39:01Z\".\n"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.issues.comments.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/issuesComments"
-}
-```
-## Operation: repos.owner.repo.issues.comments.commentId.delete
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* direction (string) - Ignored without 'sort' parameter.
+* sort (string)
+* since (string) - The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.issues.comments.commentId.delete
 Delete a comment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "commentId": {
-      "type": "integer",
-      "description": "ID of comment."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "commentId"
-  ]
-}
+
+```js
+github.repos.owner.repo.issues.comments.commentId.delete({
+  "owner": "",
+  "repo": "",
+  "commentId": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.issues.comments.commentId.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* commentId (integer) **required** - ID of comment.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.issues.comments.commentId.get
 Get a single comment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "commentId": {
-      "type": "integer",
-      "description": "ID of comment."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "commentId"
-  ]
-}
+
+```js
+github.repos.owner.repo.issues.comments.commentId.get({
+  "owner": "",
+  "repo": "",
+  "commentId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/issuesComment"
-}
-```
-## Operation: repos.owner.repo.issues.comments.commentId.patch
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* commentId (integer) **required** - ID of comment.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.issues.comments.commentId.patch
 Edit a comment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "commentId": {
-      "type": "integer",
-      "description": "ID of comment."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/commentBody"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "commentId",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.issues.comments.commentId.patch({
+  "owner": "",
+  "repo": "",
+  "commentId": 0,
+  "body": {
+    "body": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/issuesComment"
-}
-```
-## Operation: repos.owner.repo.issues.events.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* commentId (integer) **required** - ID of comment.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.issues.events.get
 List issue events for a repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.issues.events.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/events"
-}
-```
-## Operation: repos.owner.repo.issues.events.eventId.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.issues.events.eventId.get
 Get a single event.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "eventId": {
-      "type": "integer",
-      "description": "Id of the event."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "eventId"
-  ]
-}
+
+```js
+github.repos.owner.repo.issues.events.eventId.get({
+  "owner": "",
+  "repo": "",
+  "eventId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/event"
-}
-```
-## Operation: repos.owner.repo.issues.number.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* eventId (integer) **required** - Id of the event.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.issues.number.get
 Get a single issue
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Number of issue."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number"
-  ]
-}
+
+```js
+github.repos.owner.repo.issues.number.get({
+  "owner": "",
+  "repo": "",
+  "number": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/issue"
-}
-```
-## Operation: repos.owner.repo.issues.number.patch
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Number of issue.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.issues.number.patch
 Edit an issue.
 Issue owners and users with push access can edit an issue.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Number of issue."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/issue"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.issues.number.patch({
+  "owner": "",
+  "repo": "",
+  "number": 0,
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/issue"
-}
-```
-## Operation: repos.owner.repo.issues.number.comments.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Number of issue.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.issues.number.comments.get
 List comments on an issue.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Number of issue."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number"
-  ]
-}
+
+```js
+github.repos.owner.repo.issues.number.comments.get({
+  "owner": "",
+  "repo": "",
+  "number": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/issuesComments"
-}
-```
-## Operation: repos.owner.repo.issues.number.comments.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Number of issue.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.issues.number.comments.post
 Create a comment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Number of issue."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/commentBody"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.issues.number.comments.post({
+  "owner": "",
+  "repo": "",
+  "number": 0,
+  "body": {
+    "body": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/issuesComment"
-}
-```
-## Operation: repos.owner.repo.issues.number.events.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Number of issue.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.issues.number.events.get
 List events for an issue.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Number of issue."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number"
-  ]
-}
+
+```js
+github.repos.owner.repo.issues.number.events.get({
+  "owner": "",
+  "repo": "",
+  "number": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/events"
-}
-```
-## Operation: repos.owner.repo.issues.number.labels.delete
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Number of issue.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.issues.number.labels.delete
 Remove all labels from an issue.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Number of issue."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number"
-  ]
-}
+
+```js
+github.repos.owner.repo.issues.number.labels.delete({
+  "owner": "",
+  "repo": "",
+  "number": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.issues.number.labels.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Number of issue.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.issues.number.labels.get
 List labels on an issue.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Number of issue."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number"
-  ]
-}
+
+```js
+github.repos.owner.repo.issues.number.labels.get({
+  "owner": "",
+  "repo": "",
+  "number": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/labels"
-}
-```
-## Operation: repos.owner.repo.issues.number.labels.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Number of issue.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.issues.number.labels.post
 Add labels to an issue.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Number of issue."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/emailsPost"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.issues.number.labels.post({
+  "owner": "",
+  "repo": "",
+  "number": 0,
+  "body": []
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/label"
-}
-```
-## Operation: repos.owner.repo.issues.number.labels.put
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Number of issue.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (array) **required**
+
+### repos.owner.repo.issues.number.labels.put
 Replace all labels for an issue.
 Sending an empty array ([]) will remove all Labels from the Issue.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Number of issue."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/emailsPost"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.issues.number.labels.put({
+  "owner": "",
+  "repo": "",
+  "number": 0,
+  "body": []
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/label"
-}
-```
-## Operation: repos.owner.repo.issues.number.labels.name.delete
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Number of issue.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (array) **required**
+
+### repos.owner.repo.issues.number.labels.name.delete
 Remove a label from an issue.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Number of issue."
-    },
-    "name": {
-      "type": "string",
-      "description": "Name of the label."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number",
-    "name"
-  ]
-}
+
+```js
+github.repos.owner.repo.issues.number.labels.name.delete({
+  "owner": "",
+  "repo": "",
+  "number": 0,
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.keys.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Number of issue.
+* name (string) **required** - Name of the label.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.keys.get
 Get list of keys.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.keys.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/keys"
-}
-```
-## Operation: repos.owner.repo.keys.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.keys.post
 Create a key.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/user-keys-post"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.keys.post({
+  "owner": "",
+  "repo": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/user-keys-keyId"
-}
-```
-## Operation: repos.owner.repo.keys.keyId.delete
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.keys.keyId.delete
 Delete a key.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "keyId": {
-      "type": "integer",
-      "description": "Id of key."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "keyId"
-  ]
-}
+
+```js
+github.repos.owner.repo.keys.keyId.delete({
+  "owner": "",
+  "repo": "",
+  "keyId": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.keys.keyId.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* keyId (integer) **required** - Id of key.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.keys.keyId.get
 Get a key
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "keyId": {
-      "type": "integer",
-      "description": "Id of key."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "keyId"
-  ]
-}
+
+```js
+github.repos.owner.repo.keys.keyId.get({
+  "owner": "",
+  "repo": "",
+  "keyId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/user-keys-keyId"
-}
-```
-## Operation: repos.owner.repo.labels.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* keyId (integer) **required** - Id of key.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.labels.get
 List all labels for this repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.labels.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/labels"
-}
-```
-## Operation: repos.owner.repo.labels.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.labels.post
 Create a label.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/emailsPost"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.labels.post({
+  "owner": "",
+  "repo": "",
+  "body": []
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/label"
-}
-```
-## Operation: repos.owner.repo.labels.name.delete
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (array) **required**
+
+### repos.owner.repo.labels.name.delete
 Delete a label.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "name": {
-      "type": "string",
-      "description": "Name of the label."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "name"
-  ]
-}
+
+```js
+github.repos.owner.repo.labels.name.delete({
+  "owner": "",
+  "repo": "",
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.labels.name.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* name (string) **required** - Name of the label.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.labels.name.get
 Get a single label.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "name": {
-      "type": "string",
-      "description": "Name of the label."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "name"
-  ]
-}
+
+```js
+github.repos.owner.repo.labels.name.get({
+  "owner": "",
+  "repo": "",
+  "name": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/label"
-}
-```
-## Operation: repos.owner.repo.labels.name.patch
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* name (string) **required** - Name of the label.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.labels.name.patch
 Update a label.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "name": {
-      "type": "string",
-      "description": "Name of the label."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/emailsPost"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "name",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.labels.name.patch({
+  "owner": "",
+  "repo": "",
+  "name": "",
+  "body": []
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/label"
-}
-```
-## Operation: repos.owner.repo.languages.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* name (string) **required** - Name of the label.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (array) **required**
+
+### repos.owner.repo.languages.get
 List languages.
 List languages for the specified repository. The value on the right of a
 language is the number of bytes of code written in that language.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.languages.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/languages"
-}
-```
-## Operation: repos.owner.repo.merges.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.merges.post
 Perform a merge.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/mergesBody"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.merges.post({
+  "owner": "",
+  "repo": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/mergesSuccessful"
-}
-```
-## Operation: repos.owner.repo.milestones.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.milestones.get
 List milestones for a repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "state": {
-      "type": "string",
-      "description": "String to filter by state.",
-      "enum": [
-        "open",
-        "closed"
-      ]
-    },
-    "direction": {
-      "type": "string",
-      "description": "Ignored without 'sort' parameter."
-    },
-    "sort": {
-      "type": "string",
-      "description": "",
-      "enum": [
-        "due_date",
-        "completeness"
-      ]
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.milestones.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/milestone"
-}
-```
-## Operation: repos.owner.repo.milestones.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* state (string) - String to filter by state.
+* direction (string) - Ignored without 'sort' parameter.
+* sort (string)
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.milestones.post
 Create a milestone.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/milestoneUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.milestones.post({
+  "owner": "",
+  "repo": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/milestone"
-}
-```
-## Operation: repos.owner.repo.milestones.number.delete
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.milestones.number.delete
 Delete a milestone.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Number of milestone."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number"
-  ]
-}
+
+```js
+github.repos.owner.repo.milestones.number.delete({
+  "owner": "",
+  "repo": "",
+  "number": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.milestones.number.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Number of milestone.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.milestones.number.get
 Get a single milestone.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Number of milestone."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number"
-  ]
-}
+
+```js
+github.repos.owner.repo.milestones.number.get({
+  "owner": "",
+  "repo": "",
+  "number": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/milestone"
-}
-```
-## Operation: repos.owner.repo.milestones.number.patch
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Number of milestone.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.milestones.number.patch
 Update a milestone.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Number of milestone."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/milestoneUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.milestones.number.patch({
+  "owner": "",
+  "repo": "",
+  "number": 0,
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/milestone"
-}
-```
-## Operation: repos.owner.repo.milestones.number.labels.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Number of milestone.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.milestones.number.labels.get
 Get labels for every issue in a milestone.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Number of milestone."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number"
-  ]
-}
+
+```js
+github.repos.owner.repo.milestones.number.labels.get({
+  "owner": "",
+  "repo": "",
+  "number": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/labels"
-}
-```
-## Operation: repos.owner.repo.notifications.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Number of milestone.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.notifications.get
 List your notifications in a repository
 List all notifications for the current user.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "all": {
-      "type": "boolean",
-      "description": "True to show notifications marked as read."
-    },
-    "participating": {
-      "type": "boolean",
-      "description": "True to show only notifications in which the user is directly participating\nor mentioned.\n"
-    },
-    "since": {
-      "type": "string",
-      "description": "The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.\nExample: \"2012-10-09T23:39:01Z\".\n"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.notifications.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/notifications"
-}
-```
-## Operation: repos.owner.repo.notifications.put
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* all (boolean) - True to show notifications marked as read.
+* participating (boolean) - True to show only notifications in which the user is directly participating
+* since (string) - The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.notifications.put
 Mark notifications as read in a repository.
 Marking all notifications in a repository as "read" removes them from the
 default view on GitHub.com.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/notificationMarkRead"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.notifications.put({
+  "owner": "",
+  "repo": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.pulls.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.pulls.get
 List pull requests.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "state": {
-      "type": "string",
-      "description": "String to filter by state.",
-      "enum": [
-        "open",
-        "closed"
-      ]
-    },
-    "head": {
-      "type": "string",
-      "description": "Filter pulls by head user and branch name in the format of 'user:ref-name'.\nExample: github:new-script-format.\n"
-    },
-    "base": {
-      "type": "string",
-      "description": "Filter pulls by base branch name. Example - gh-pages."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.pulls.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pulls"
-}
-```
-## Operation: repos.owner.repo.pulls.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* state (string) - String to filter by state.
+* head (string) - Filter pulls by head user and branch name in the format of 'user:ref-name'.
+* base (string) - Filter pulls by base branch name. Example - gh-pages.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.pulls.post
 Create a pull request.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/pullsPost"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.pulls.post({
+  "owner": "",
+  "repo": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pulls"
-}
-```
-## Operation: repos.owner.repo.pulls.comments.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.pulls.comments.get
 List comments in a repository.
 By default, Review Comments are ordered by ascending ID.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "direction": {
-      "type": "string",
-      "description": "Ignored without 'sort' parameter."
-    },
-    "sort": {
-      "type": "string",
-      "description": "",
-      "enum": [
-        "created",
-        "updated"
-      ]
-    },
-    "since": {
-      "type": "string",
-      "description": "The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.\nExample: \"2012-10-09T23:39:01Z\".\n"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.pulls.comments.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/issuesComments"
-}
-```
-## Operation: repos.owner.repo.pulls.comments.commentId.delete
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* direction (string) - Ignored without 'sort' parameter.
+* sort (string)
+* since (string) - The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.pulls.comments.commentId.delete
 Delete a comment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "commentId": {
-      "type": "integer",
-      "description": "Id of comment."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "commentId"
-  ]
-}
+
+```js
+github.repos.owner.repo.pulls.comments.commentId.delete({
+  "owner": "",
+  "repo": "",
+  "commentId": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.pulls.comments.commentId.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* commentId (integer) **required** - Id of comment.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.pulls.comments.commentId.get
 Get a single comment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "commentId": {
-      "type": "integer",
-      "description": "Id of comment."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "commentId"
-  ]
-}
+
+```js
+github.repos.owner.repo.pulls.comments.commentId.get({
+  "owner": "",
+  "repo": "",
+  "commentId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pullsComment"
-}
-```
-## Operation: repos.owner.repo.pulls.comments.commentId.patch
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* commentId (integer) **required** - Id of comment.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.pulls.comments.commentId.patch
 Edit a comment.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "commentId": {
-      "type": "integer",
-      "description": "Id of comment."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/commentBody"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "commentId",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.pulls.comments.commentId.patch({
+  "owner": "",
+  "repo": "",
+  "commentId": 0,
+  "body": {
+    "body": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pullsComment"
-}
-```
-## Operation: repos.owner.repo.pulls.number.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* commentId (integer) **required** - Id of comment.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.pulls.number.get
 Get a single pull request.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Id of pull."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number"
-  ]
-}
+
+```js
+github.repos.owner.repo.pulls.number.get({
+  "owner": "",
+  "repo": "",
+  "number": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pullRequest"
-}
-```
-## Operation: repos.owner.repo.pulls.number.patch
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Id of pull.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.pulls.number.patch
 Update a pull request.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Id of pull."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/pullUpdate"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.pulls.number.patch({
+  "owner": "",
+  "repo": "",
+  "number": 0,
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/repo"
-}
-```
-## Operation: repos.owner.repo.pulls.number.comments.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Id of pull.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.pulls.number.comments.get
 List comments on a pull request.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Id of pull."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number"
-  ]
-}
+
+```js
+github.repos.owner.repo.pulls.number.comments.get({
+  "owner": "",
+  "repo": "",
+  "number": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pullsComment"
-}
-```
-## Operation: repos.owner.repo.pulls.number.comments.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Id of pull.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.pulls.number.comments.post
 Create a comment.
   #TODO Alternative input ( http://developer.github.com/v3/pulls/comments/ )
   description: |
@@ -8454,1105 +3529,479 @@ Create a comment.
            Required number - Comment id to reply to.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Id of pull."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/pullsCommentPost"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.pulls.number.comments.post({
+  "owner": "",
+  "repo": "",
+  "number": 0,
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pullsComment"
-}
-```
-## Operation: repos.owner.repo.pulls.number.commits.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Id of pull.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.pulls.number.commits.get
 List commits on a pull request.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Id of pull."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number"
-  ]
-}
+
+```js
+github.repos.owner.repo.pulls.number.commits.get({
+  "owner": "",
+  "repo": "",
+  "number": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/commits"
-}
-```
-## Operation: repos.owner.repo.pulls.number.files.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Id of pull.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.pulls.number.files.get
 List pull requests files.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Id of pull."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number"
-  ]
-}
+
+```js
+github.repos.owner.repo.pulls.number.files.get({
+  "owner": "",
+  "repo": "",
+  "number": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/pulls"
-}
-```
-## Operation: repos.owner.repo.pulls.number.merge.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Id of pull.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.pulls.number.merge.get
 Get if a pull request has been merged.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Id of pull."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number"
-  ]
-}
+
+```js
+github.repos.owner.repo.pulls.number.merge.get({
+  "owner": "",
+  "repo": "",
+  "number": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.pulls.number.merge.put
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Id of pull.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.pulls.number.merge.put
 Merge a pull request (Merge Button's)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "number": {
-      "type": "integer",
-      "description": "Id of pull."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/mergePullBody"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "number",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.pulls.number.merge.put({
+  "owner": "",
+  "repo": "",
+  "number": 0,
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/merge"
-}
-```
-## Operation: repos.owner.repo.readme.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* number (integer) **required** - Id of pull.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.readme.get
 Get the README.
 This method returns the preferred README for a repository.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "ref": {
-      "type": "string",
-      "description": "The String name of the Commit/Branch/Tag. Defaults to master."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.readme.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/contents-path"
-}
-```
-## Operation: repos.owner.repo.releases.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* ref (string) - The String name of the Commit/Branch/Tag. Defaults to master.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.releases.get
 Users with push access to the repository will receive all releases (i.e., published releases and draft releases). Users with pull access will receive published releases only
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.releases.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/releases"
-}
-```
-## Operation: repos.owner.repo.releases.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.releases.post
 Create a release
 Users with push access to the repository can create a release.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/release-create"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.releases.post({
+  "owner": "",
+  "repo": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/release"
-}
-```
-## Operation: repos.owner.repo.releases.assets.id.delete
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.releases.assets.id.delete
 Delete a release asset
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "id": {
-      "type": "string"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "id"
-  ]
-}
+
+```js
+github.repos.owner.repo.releases.assets.id.delete({
+  "owner": "",
+  "repo": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.releases.assets.id.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* id (string) **required**
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.releases.assets.id.get
 Get a single release asset
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "id": {
-      "type": "string"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "id"
-  ]
-}
+
+```js
+github.repos.owner.repo.releases.assets.id.get({
+  "owner": "",
+  "repo": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/asset"
-}
-```
-## Operation: repos.owner.repo.releases.assets.id.patch
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* id (string) **required**
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.releases.assets.id.patch
 Edit a release asset
 Users with push access to the repository can edit a release asset.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "id": {
-      "type": "string"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/assetPatch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "id",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.releases.assets.id.patch({
+  "owner": "",
+  "repo": "",
+  "id": "",
+  "body": {
+    "name": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/asset"
-}
-```
-## Operation: repos.owner.repo.releases.id.delete
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* id (string) **required**
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.releases.id.delete
 Users with push access to the repository can delete a release.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "id": {
-      "type": "string"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "id"
-  ]
-}
+
+```js
+github.repos.owner.repo.releases.id.delete({
+  "owner": "",
+  "repo": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.releases.id.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* id (string) **required**
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.releases.id.get
 Get a single release
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "id": {
-      "type": "string"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "id"
-  ]
-}
+
+```js
+github.repos.owner.repo.releases.id.get({
+  "owner": "",
+  "repo": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/release"
-}
-```
-## Operation: repos.owner.repo.releases.id.patch
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* id (string) **required**
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.releases.id.patch
 Users with push access to the repository can edit a release
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "id": {
-      "type": "string"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/release-create"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "id",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.releases.id.patch({
+  "owner": "",
+  "repo": "",
+  "id": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/release"
-}
-```
-## Operation: repos.owner.repo.releases.id.assets.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* id (string) **required**
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.releases.id.assets.get
 List assets for a release
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "id": {
-      "type": "string"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "id"
-  ]
-}
+
+```js
+github.repos.owner.repo.releases.id.assets.get({
+  "owner": "",
+  "repo": "",
+  "id": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/assets"
-}
-```
-## Operation: repos.owner.repo.stargazers.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* id (string) **required**
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.stargazers.get
 List Stargazers.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.stargazers.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/users"
-}
-```
-## Operation: repos.owner.repo.stats.code_frequency.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.stats.code_frequency.get
 Get the number of additions and deletions per week.
 Returns a weekly aggregate of the number of additions and deletions pushed
 to a repository.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.stats.code_frequency.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/codeFrequencyStats"
-}
-```
-## Operation: repos.owner.repo.stats.commit_activity.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.stats.commit_activity.get
 Get the last year of commit activity data.
 Returns the last year of commit activity grouped by week. The days array
 is a group of commits per day, starting on Sunday.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.stats.commit_activity.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/commitActivityStats"
-}
-```
-## Operation: repos.owner.repo.stats.contributors.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.stats.contributors.get
 Get contributors list with additions, deletions, and commit counts.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.stats.contributors.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/contributorsStats"
-}
-```
-## Operation: repos.owner.repo.stats.participation.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.stats.participation.get
 Get the weekly commit count for the repo owner and everyone else.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.stats.participation.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/participationStats"
-}
-```
-## Operation: repos.owner.repo.stats.punch_card.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.stats.punch_card.get
 Get the number of commits per hour in each day.
 Each array contains the day number, hour number, and number of commits
 0-6 Sunday - Saturday
@@ -9564,532 +4013,226 @@ the 2.00pm hour on Tuesdays. All times are based on the time zone of
 individual commits.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.stats.punch_card.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/codeFrequencyStats"
-}
-```
-## Operation: repos.owner.repo.statuses.ref.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.statuses.ref.get
 List Statuses for a specific Ref.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "ref": {
-      "type": "string",
-      "description": "Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.\n"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "ref"
-  ]
-}
+
+```js
+github.repos.owner.repo.statuses.ref.get({
+  "owner": "",
+  "repo": "",
+  "ref": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ref"
-}
-```
-## Operation: repos.owner.repo.statuses.ref.post
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* ref (string) **required** - Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.statuses.ref.post
 Create a Status.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "ref": {
-      "type": "string",
-      "description": "Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.\n"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/headBranch"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "ref",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.statuses.ref.post({
+  "owner": "",
+  "repo": "",
+  "ref": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/ref"
-}
-```
-## Operation: repos.owner.repo.subscribers.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* ref (string) **required** - Ref to list the statuses from. It can be a SHA, a branch name, or a tag name.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.subscribers.get
 List watchers.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.subscribers.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/users"
-}
-```
-## Operation: repos.owner.repo.subscription.delete
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.subscription.delete
 Delete a Repository Subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.subscription.delete({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repos.owner.repo.subscription.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.subscription.get
 Get a Repository Subscription.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.subscription.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/subscribition"
-}
-```
-## Operation: repos.owner.repo.subscription.put
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repos.owner.repo.subscription.put
 Set a Repository Subscription
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/subscribitionBody"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "body"
-  ]
-}
+
+```js
+github.repos.owner.repo.subscription.put({
+  "owner": "",
+  "repo": "",
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/subscribition"
-}
-```
-## Operation: repos.owner.repo.tags.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### repos.owner.repo.tags.get
 Get list of tags.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.tags.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/tags"
-}
-```
-## Operation: repos.owner.repo.teams.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.teams.get
 Get list of teams
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.teams.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/teams"
-}
-```
-## Operation: repos.owner.repo.watchers.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.watchers.get
 List Stargazers. New implementation.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.repos.owner.repo.watchers.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/users"
-}
-```
-## Operation: repos.owner.repo.archive_format.path.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### repos.owner.repo.archive_format.path.get
 Get archive link.
 This method will return a 302 to a URL to download a tarball or zipball
 archive for a repository. Please make sure your HTTP framework is
@@ -10098,65 +4241,29 @@ to make a second GET request.
 Note: For private repositories, these links are temporary and expire quickly.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "archive_format": {
-      "type": "string",
-      "enum": [
-        "tarball",
-        "zipball"
-      ]
-    },
-    "path": {
-      "type": "string",
-      "description": "Valid Git reference, defaults to 'master'."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo",
-    "archive_format",
-    "path"
-  ]
-}
+
+```js
+github.repos.owner.repo.archive_format.path.get({
+  "owner": "",
+  "repo": "",
+  "archive_format": "",
+  "path": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: repositories.get
+
+#### Parameters
+* owner (string) **required** - Name of repository owner.
+* repo (string) **required** - Name of repository.
+* archive_format (string) **required**
+* path (string) **required** - Valid Git reference, defaults to 'master'.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### repositories.get
 List all public repositories.
 This provides a dump of every public repository, in the order that they
 were created.
@@ -10164,501 +4271,190 @@ Note: Pagination is powered exclusively by the since parameter. is the
 Link header to get the URL for the next page of repositories.
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "since": {
-      "type": "string",
-      "description": "The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.\nExample: \"2012-10-09T23:39:01Z\".\n"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.repositories.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/repositories"
-}
-```
-## Operation: search.code.get
+
+
+### search.code.get
 Search code.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "order": {
-      "type": "string",
-      "description": "The sort field. if sort param is provided. Can be either asc or desc.",
-      "enum": [
-        "desc",
-        "asc"
-      ]
-    },
-    "q": {
-      "type": "string",
-      "description": "The search terms. This can be any combination of the supported code\nsearch parameters:\n'Search In' Qualifies which fields are searched. With this qualifier\nyou can restrict the search to just the file contents, the file path,\nor both.\n'Languages' Searches code based on the language it's written in.\n'Forks' Filters repositories based on the number of forks, and/or\nwhether code from forked repositories should be included in the results\nat all.\n'Size' Finds files that match a certain size (in bytes).\n'Path' Specifies the path that the resulting file must be at.\n'Extension' Matches files with a certain extension.\n'Users' or 'Repositories' Limits searches to a specific user or repository.\n"
-    },
-    "sort": {
-      "type": "string",
-      "description": "Can only be 'indexed', which indicates how recently a file has been indexed\nby the GitHub search infrastructure. If not provided, results are sorted\nby best match.\n",
-      "enum": [
-        "indexed"
-      ]
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "q"
-  ]
-}
+
+```js
+github.search.code.get({
+  "q": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/search-code"
-}
-```
-## Operation: search.issues.get
+
+#### Parameters
+* order (string) - The sort field. if sort param is provided. Can be either asc or desc.
+* q (string) **required** - The search terms. This can be any combination of the supported code
+* sort (string) - Can only be 'indexed', which indicates how recently a file has been indexed
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### search.issues.get
 Find issues by state and keyword. (This method returns up to 100 results per page.)
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "order": {
-      "type": "string",
-      "description": "The sort field. if sort param is provided. Can be either asc or desc.",
-      "enum": [
-        "desc",
-        "asc"
-      ]
-    },
-    "q": {
-      "type": "string",
-      "description": "The q search term can also contain any combination of the supported issue search qualifiers:"
-    },
-    "sort": {
-      "type": "string",
-      "description": "The sort field. Can be comments, created, or updated. Default: results are sorted by best match.",
-      "enum": [
-        "updated",
-        "created",
-        "comments"
-      ]
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "q"
-  ]
-}
+
+```js
+github.search.issues.get({
+  "q": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/search-issues"
-}
-```
-## Operation: search.repositories.get
+
+#### Parameters
+* order (string) - The sort field. if sort param is provided. Can be either asc or desc.
+* q (string) **required** - The q search term can also contain any combination of the supported issue search qualifiers:
+* sort (string) - The sort field. Can be comments, created, or updated. Default: results are sorted by best match.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### search.repositories.get
 Search repositories.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "order": {
-      "type": "string",
-      "description": "The sort field. if sort param is provided. Can be either asc or desc.",
-      "enum": [
-        "desc",
-        "asc"
-      ]
-    },
-    "q": {
-      "type": "string",
-      "description": "The search terms. This can be any combination of the supported repository\nsearch parameters:\n'Search In' Qualifies which fields are searched. With this qualifier you\ncan restrict the search to just the repository name, description, readme,\nor any combination of these.\n'Size' Finds repositories that match a certain size (in kilobytes).\n'Forks' Filters repositories based on the number of forks, and/or whether\nforked repositories should be included in the results at all.\n'Created' and 'Last Updated' Filters repositories based on times of\ncreation, or when they were last updated.\n'Users or Repositories' Limits searches to a specific user or repository.\n'Languages' Searches repositories based on the language they are written in.\n'Stars' Searches repositories based on the number of stars.\n"
-    },
-    "sort": {
-      "type": "string",
-      "description": "If not provided, results are sorted by best match.",
-      "enum": [
-        "stars",
-        "forks",
-        "updated"
-      ]
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "q"
-  ]
-}
+
+```js
+github.search.repositories.get({
+  "q": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/search-repositories"
-}
-```
-## Operation: search.users.get
+
+#### Parameters
+* order (string) - The sort field. if sort param is provided. Can be either asc or desc.
+* q (string) **required** - The search terms. This can be any combination of the supported repository
+* sort (string) - If not provided, results are sorted by best match.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### search.users.get
 Search users.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "order": {
-      "type": "string",
-      "description": "The sort field. if sort param is provided. Can be either asc or desc.",
-      "enum": [
-        "desc",
-        "asc"
-      ]
-    },
-    "q": {
-      "type": "string",
-      "description": "The search terms. This can be any combination of the supported user\nsearch parameters:\n'Search In' Qualifies which fields are searched. With this qualifier you\ncan restrict the search to just the username, public email, full name,\nlocation, or any combination of these.\n'Repository count' Filters users based on the number of repositories they\nhave.\n'Location' Filter users by the location indicated in their profile.\n'Language' Search for users that have repositories that match a certain\nlanguage.\n'Created' Filter users based on when they joined.\n'Followers' Filter users based on the number of followers they have.\n"
-    },
-    "sort": {
-      "type": "string",
-      "description": "If not provided, results are sorted by best match.",
-      "enum": [
-        "followers",
-        "repositories",
-        "joined"
-      ]
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "q"
-  ]
-}
+
+```js
+github.search.users.get({
+  "q": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/search-users"
-}
-```
-## Operation: teams.teamId.delete
+
+#### Parameters
+* order (string) - The sort field. if sort param is provided. Can be either asc or desc.
+* q (string) **required** - The search terms. This can be any combination of the supported user
+* sort (string) - If not provided, results are sorted by best match.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### teams.teamId.delete
 Delete team.
 In order to delete a team, the authenticated user must be an owner of the
 org that the team is associated with.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "teamId": {
-      "type": "integer",
-      "description": "Id of team."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "teamId"
-  ]
-}
+
+```js
+github.teams.teamId.delete({
+  "teamId": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: teams.teamId.get
+
+#### Parameters
+* teamId (integer) **required** - Id of team.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### teams.teamId.get
 Get team.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "teamId": {
-      "type": "integer",
-      "description": "Id of team."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "teamId"
-  ]
-}
+
+```js
+github.teams.teamId.get({
+  "teamId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/team"
-}
-```
-## Operation: teams.teamId.patch
+
+#### Parameters
+* teamId (integer) **required** - Id of team.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### teams.teamId.patch
 Edit team.
 In order to edit a team, the authenticated user must be an owner of the org
 that the team is associated with.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "teamId": {
-      "type": "integer",
-      "description": "Id of team."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/editTeam"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "teamId",
-    "body"
-  ]
-}
+
+```js
+github.teams.teamId.patch({
+  "teamId": 0,
+  "body": {
+    "name": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/team"
-}
-```
-## Operation: teams.teamId.members.get
+
+#### Parameters
+* teamId (integer) **required** - Id of team.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### teams.teamId.members.get
 List team members.
 In order to list members in a team, the authenticated user must be a member
 of the team.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "teamId": {
-      "type": "integer",
-      "description": "Id of team."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "teamId"
-  ]
-}
+
+```js
+github.teams.teamId.members.get({
+  "teamId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/users"
-}
-```
-## Operation: teams.teamId.members.username.delete
+
+#### Parameters
+* teamId (integer) **required** - Id of team.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### teams.teamId.members.username.delete
 The "Remove team member" API is deprecated and is scheduled for removal in the next major version of the API. We recommend using the Remove team membership API instead. It allows you to remove both active and pending memberships.
 
 Remove team member.
@@ -10668,52 +4464,25 @@ with.
 NOTE This does not delete the user, it just remove them from the team.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "teamId": {
-      "type": "integer",
-      "description": "Id of team."
-    },
-    "username": {
-      "type": "string",
-      "description": "Name of a member."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "teamId",
-    "username"
-  ]
-}
+
+```js
+github.teams.teamId.members.username.delete({
+  "teamId": 0,
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: teams.teamId.members.username.get
+
+#### Parameters
+* teamId (integer) **required** - Id of team.
+* username (string) **required** - Name of a member.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### teams.teamId.members.username.get
 The "Get team member" API is deprecated and is scheduled for removal in the next major version of the API. We recommend using the Get team membership API instead. It allows you to get both active and pending memberships.
 
 Get team member.
@@ -10721,52 +4490,25 @@ In order to get if a user is a member of a team, the authenticated user mus
 be a member of the team.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "teamId": {
-      "type": "integer",
-      "description": "Id of team."
-    },
-    "username": {
-      "type": "string",
-      "description": "Name of a member."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "teamId",
-    "username"
-  ]
-}
+
+```js
+github.teams.teamId.members.username.get({
+  "teamId": 0,
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: teams.teamId.members.username.put
+
+#### Parameters
+* teamId (integer) **required** - Id of team.
+* username (string) **required** - Name of a member.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### teams.teamId.members.username.put
 The API (described below) is deprecated and is scheduled for removal in the next major version of the API. We recommend using the Add team membership API instead. It allows you to invite new organization members to your teams.
 
 Add team member.
@@ -10775,154 +4517,71 @@ permissions to the team or be an owner of the org that the team is associated
 with.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "teamId": {
-      "type": "integer",
-      "description": "Id of team."
-    },
-    "username": {
-      "type": "string",
-      "description": "Name of a member."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "teamId",
-    "username"
-  ]
-}
+
+```js
+github.teams.teamId.members.username.put({
+  "teamId": 0,
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: teams.teamId.memberships.username.delete
+
+#### Parameters
+* teamId (integer) **required** - Id of team.
+* username (string) **required** - Name of a member.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### teams.teamId.memberships.username.delete
 Remove team membership.
 In order to remove a membership between a user and a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with. NOTE: This does not delete the user, it just removes their membership from the team.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "teamId": {
-      "type": "integer",
-      "description": "Id of team."
-    },
-    "username": {
-      "type": "string",
-      "description": "Name of a member."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "teamId",
-    "username"
-  ]
-}
+
+```js
+github.teams.teamId.memberships.username.delete({
+  "teamId": 0,
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: teams.teamId.memberships.username.get
+
+#### Parameters
+* teamId (integer) **required** - Id of team.
+* username (string) **required** - Name of a member.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### teams.teamId.memberships.username.get
 Get team membership.
 In order to get a user's membership with a team, the authenticated user must be a member of the team or an owner of the team's organization.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "teamId": {
-      "type": "integer",
-      "description": "Id of team."
-    },
-    "username": {
-      "type": "string",
-      "description": "Name of a member."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "teamId",
-    "username"
-  ]
-}
+
+```js
+github.teams.teamId.memberships.username.get({
+  "teamId": 0,
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/teamMembership"
-}
-```
-## Operation: teams.teamId.memberships.username.put
+
+#### Parameters
+* teamId (integer) **required** - Id of team.
+* username (string) **required** - Name of a member.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### teams.teamId.memberships.username.put
 Add team membership.
 In order to add a membership between a user and a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with.
 
@@ -10931,390 +4590,163 @@ If the user is already a part of the team's organization (meaning they're on at 
 If the user is completely unaffiliated with the team's organization (meaning they're on none of the organization's teams), this endpoint will send an invitation to the user via email. This newly-created membership will be in the 'pending' state until the user accepts the invitation, at which point the membership will transition to the 'active' state and the user will be added as a member of the team.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "teamId": {
-      "type": "integer",
-      "description": "Id of team."
-    },
-    "username": {
-      "type": "string",
-      "description": "Name of a member."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "teamId",
-    "username"
-  ]
-}
+
+```js
+github.teams.teamId.memberships.username.put({
+  "teamId": 0,
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/teamMembership"
-}
-```
-## Operation: teams.teamId.repos.get
+
+#### Parameters
+* teamId (integer) **required** - Id of team.
+* username (string) **required** - Name of a member.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### teams.teamId.repos.get
 List team repos
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "teamId": {
-      "type": "integer",
-      "description": "Id of team."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "teamId"
-  ]
-}
+
+```js
+github.teams.teamId.repos.get({
+  "teamId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/teamRepos"
-}
-```
-## Operation: teams.teamId.repos.org.repo.put
+
+#### Parameters
+* teamId (integer) **required** - Id of team.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### teams.teamId.repos.org.repo.put
 In order to add a repository to a team, the authenticated user must be an owner of the org that the team is associated with. Also, the repository must be owned by the organization, or a direct fork of a repository owned by the organization.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "teamId": {
-      "type": "integer",
-      "description": "Id of team."
-    },
-    "org": {
-      "type": "string",
-      "description": "Name of a organization."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of a repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "teamId",
-    "org",
-    "repo"
-  ]
-}
+
+```js
+github.teams.teamId.repos.org.repo.put({
+  "teamId": 0,
+  "org": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: teams.teamId.repos.owner.repo.delete
+
+#### Parameters
+* teamId (integer) **required** - Id of team.
+* org (string) **required** - Name of a organization.
+* repo (string) **required** - Name of a repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### teams.teamId.repos.owner.repo.delete
 In order to remove a repository from a team, the authenticated user must be an owner of the org that the team is associated with. NOTE: This does not delete the repository, it just removes it from the team.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "teamId": {
-      "type": "integer",
-      "description": "Id of team."
-    },
-    "owner": {
-      "type": "string",
-      "description": "Name of a repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of a repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "teamId",
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.teams.teamId.repos.owner.repo.delete({
+  "teamId": 0,
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: teams.teamId.repos.owner.repo.get
+
+#### Parameters
+* teamId (integer) **required** - Id of team.
+* owner (string) **required** - Name of a repository owner.
+* repo (string) **required** - Name of a repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### teams.teamId.repos.owner.repo.get
 Check if a team manages a repository
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "teamId": {
-      "type": "integer",
-      "description": "Id of team."
-    },
-    "owner": {
-      "type": "string",
-      "description": "Name of a repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of a repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "teamId",
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.teams.teamId.repos.owner.repo.get({
+  "teamId": 0,
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.get
+
+#### Parameters
+* teamId (integer) **required** - Id of team.
+* owner (string) **required** - Name of a repository owner.
+* repo (string) **required** - Name of a repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### user.get
 Get the authenticated user.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.user.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/user"
-}
-```
-## Operation: user.patch
+
+
+### user.patch
 Update the authenticated user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/user-update"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+github.user.patch({
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/user"
-}
-```
-## Operation: user.emails.delete
+
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### user.emails.delete
 Delete email address(es).
 You can include a single email address or an array of addresses.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/user-emails"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+github.user.emails.delete({
+  "body": []
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.emails.get
+
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (array) **required**
+
+### user.emails.get
 List email addresses for a user.
 In the final version of the API, this method will return an array of hashes
 with extended information for each email address indicating if the address
@@ -11323,1829 +4755,685 @@ Until API v3 is finalized, use the application/vnd.github.v3 media type to
 get other response format.
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.user.emails.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/user-emails"
-}
-```
-## Operation: user.emails.post
+
+
+### user.emails.post
 Add email address(es).
 You can post a single email address or an array of addresses.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/emailsPost"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+github.user.emails.post({
+  "body": []
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.followers.get
+
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (array) **required**
+
+### user.followers.get
 List the authenticated user's followers
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.user.followers.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/users"
-}
-```
-## Operation: user.following.get
+
+
+### user.following.get
 List who the authenticated user is following.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.user.following.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/users"
-}
-```
-## Operation: user.following.username.delete
+
+
+### user.following.username.delete
 Unfollow a user.
 Unfollowing a user requires the user to be logged in and authenticated with
 basic auth or OAuth with the user:follow scope.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "Name of user."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+github.user.following.username.delete({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.following.username.get
+
+#### Parameters
+* username (string) **required** - Name of user.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### user.following.username.get
 Check if you are following a user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "Name of user."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+github.user.following.username.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.following.username.put
+
+#### Parameters
+* username (string) **required** - Name of user.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### user.following.username.put
 Follow a user.
 Following a user requires the user to be logged in and authenticated with
 basic auth or OAuth with the user:follow scope.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "Name of user."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+github.user.following.username.put({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.issues.get
+
+#### Parameters
+* username (string) **required** - Name of user.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### user.issues.get
 List issues.
 List all issues across owned and member repositories for the authenticated
 user.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "filter": {
-      "type": "string",
-      "description": "Issues assigned to you / created by you / mentioning you / you're\nsubscribed to updates for / All issues the authenticated user can see\n",
-      "enum": [
-        "assigned",
-        "created",
-        "mentioned",
-        "subscribed",
-        "all"
-      ]
-    },
-    "state": {
-      "type": "string",
-      "enum": [
-        "open",
-        "closed"
-      ]
-    },
-    "labels": {
-      "type": "string",
-      "description": "String list of comma separated Label names. Example - bug,ui,@high."
-    },
-    "sort": {
-      "type": "string",
-      "enum": [
-        "created",
-        "updated",
-        "comments"
-      ]
-    },
-    "direction": {
-      "type": "string",
-      "enum": [
-        "asc",
-        "desc"
-      ]
-    },
-    "since": {
-      "type": "string",
-      "description": "Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.\nOnly issues updated at or after this time are returned.\n"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "filter",
-    "state",
-    "labels",
-    "sort",
-    "direction"
-  ]
-}
+
+```js
+github.user.issues.get({
+  "filter": "",
+  "state": "",
+  "labels": "",
+  "sort": "",
+  "direction": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/issues"
-}
-```
-## Operation: user.keys.get
+
+#### Parameters
+* filter (string) **required** - Issues assigned to you / created by you / mentioning you / you're
+* state (string) **required**
+* labels (string) **required** - String list of comma separated Label names. Example - bug,ui,@high.
+* sort (string) **required**
+* direction (string) **required**
+* since (string) - Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### user.keys.get
 List your public keys.
 Lists the current user's keys. Management of public keys via the API requires
 that you are authenticated through basic auth, or OAuth with the 'user', 'write:public_key' scopes.
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.user.keys.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gitignore"
-}
-```
-## Operation: user.keys.post
+
+
+### user.keys.post
 Create a public key.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/user-keys-post"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+github.user.keys.post({
+  "body": {}
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/user-keys-keyId"
-}
-```
-## Operation: user.keys.keyId.delete
+
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### user.keys.keyId.delete
 Delete a public key. Removes a public key. Requires that you are authenticated via Basic Auth or via OAuth with at least admin:public_key scope.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "keyId": {
-      "type": "integer",
-      "description": "ID of key."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "keyId"
-  ]
-}
+
+```js
+github.user.keys.keyId.delete({
+  "keyId": 0
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.keys.keyId.get
+
+#### Parameters
+* keyId (integer) **required** - ID of key.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### user.keys.keyId.get
 Get a single public key.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "keyId": {
-      "type": "integer",
-      "description": "ID of key."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "keyId"
-  ]
-}
+
+```js
+github.user.keys.keyId.get({
+  "keyId": 0
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/user-keys-keyId"
-}
-```
-## Operation: user.orgs.get
+
+#### Parameters
+* keyId (integer) **required** - ID of key.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### user.orgs.get
 List public and private organizations for the authenticated user.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.user.orgs.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gitignore"
-}
-```
-## Operation: user.repos.get
+
+
+### user.repos.get
 List repositories for the authenticated user. Note that this does not include
 repositories owned by organizations which the user can access. You can lis
 user organizations and list organization repositories separately.
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "type": {
-      "type": "string",
-      "enum": [
-        "all",
-        "public",
-        "private",
-        "forks",
-        "sources",
-        "member"
-      ]
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.user.repos.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/repos"
-}
-```
-## Operation: user.repos.post
+
+
+### user.repos.post
 Create a new repository for the authenticated user. OAuth users must supply
 repo scope.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "body": {
-      "$ref": "#/definitions/postRepo"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "body"
-  ]
-}
+
+```js
+github.user.repos.post({
+  "body": {
+    "name": ""
+  }
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/repos"
-}
-```
-## Operation: user.starred.get
+
+#### Parameters
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* body (object) **required**
+
+### user.starred.get
 List repositories being starred by the authenticated user.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "direction": {
-      "type": "string",
-      "description": "Ignored without 'sort' parameter."
-    },
-    "sort": {
-      "type": "string",
-      "description": "",
-      "enum": [
-        "created",
-        "updated"
-      ]
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.user.starred.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gitignore"
-}
-```
-## Operation: user.starred.owner.repo.delete
+
+
+### user.starred.owner.repo.delete
 Unstar a repository
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of a repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of a repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.user.starred.owner.repo.delete({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.starred.owner.repo.get
+
+#### Parameters
+* owner (string) **required** - Name of a repository owner.
+* repo (string) **required** - Name of a repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### user.starred.owner.repo.get
 Check if you are starring a repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of a repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of a repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.user.starred.owner.repo.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.starred.owner.repo.put
+
+#### Parameters
+* owner (string) **required** - Name of a repository owner.
+* repo (string) **required** - Name of a repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### user.starred.owner.repo.put
 Star a repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of a repository owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of a repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.user.starred.owner.repo.put({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.subscriptions.get
+
+#### Parameters
+* owner (string) **required** - Name of a repository owner.
+* repo (string) **required** - Name of a repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### user.subscriptions.get
 List repositories being watched by the authenticated user.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.user.subscriptions.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/user-userId-subscribitions"
-}
-```
-## Operation: user.subscriptions.owner.repo.delete
+
+
+### user.subscriptions.owner.repo.delete
 Stop watching a repository
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of the owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.user.subscriptions.owner.repo.delete({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.subscriptions.owner.repo.get
+
+#### Parameters
+* owner (string) **required** - Name of the owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### user.subscriptions.owner.repo.get
 Check if you are watching a repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of the owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.user.subscriptions.owner.repo.get({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.subscriptions.owner.repo.put
+
+#### Parameters
+* owner (string) **required** - Name of the owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### user.subscriptions.owner.repo.put
 Watch a repository.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "owner": {
-      "type": "string",
-      "description": "Name of the owner."
-    },
-    "repo": {
-      "type": "string",
-      "description": "Name of repository."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "owner",
-    "repo"
-  ]
-}
+
+```js
+github.user.subscriptions.owner.repo.put({
+  "owner": "",
+  "repo": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: user.teams.get
+
+#### Parameters
+* owner (string) **required** - Name of the owner.
+* repo (string) **required** - Name of repository.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### user.teams.get
 List all of the teams across all of the organizations to which the authenticated user belongs. This method requires user or repo scope when authenticating via OAuth.
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.user.teams.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/teams-list"
-}
-```
-## Operation: users.get
+
+
+### users.get
 Get all users.
 This provides a dump of every user, in the order that they signed up for GitHub.
 Note: Pagination is powered exclusively by the since parameter. Use the Link
 header to get the URL for the next page of users.
 
 
-### Input Schema
-```json
-{
-  "type": [
-    "object",
-    "null"
-  ],
-  "properties": {
-    "since": {
-      "type": "integer",
-      "description": "The integer ID of the last User that you've seen."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false
-}
+
+```js
+github.users.get({}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/users"
-}
-```
-## Operation: users.username.get
+
+
+### users.username.get
 Get a single user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "Name of user."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+github.users.username.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/users"
-}
-```
-## Operation: users.username.events.get
+
+#### Parameters
+* username (string) **required** - Name of user.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### users.username.events.get
 If you are authenticated as the given user, you will see your private events. Otherwise, you'll only see public events.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "Name of user."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+github.users.username.events.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: users.username.events.orgs.org.get
+
+#### Parameters
+* username (string) **required** - Name of user.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### users.username.events.orgs.org.get
 This is the user's organization dashboard. You must be authenticated as the user to view this.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "Name of user."
-    },
-    "org": {
-      "type": "string"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "org"
-  ]
-}
+
+```js
+github.users.username.events.orgs.org.get({
+  "username": "",
+  "org": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: users.username.followers.get
+
+#### Parameters
+* username (string) **required** - Name of user.
+* org (string) **required**
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### users.username.followers.get
 List a user's followers
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "Name of user."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+github.users.username.followers.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/users"
-}
-```
-## Operation: users.username.following.targetUser.get
+
+#### Parameters
+* username (string) **required** - Name of user.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### users.username.following.targetUser.get
 Check if one user follows another.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "Name of user."
-    },
-    "targetUser": {
-      "type": "string",
-      "description": "Name of user."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username",
-    "targetUser"
-  ]
-}
+
+```js
+github.users.username.following.targetUser.get({
+  "username": "",
+  "targetUser": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: users.username.gists.get
+
+#### Parameters
+* username (string) **required** - Name of user.
+* targetUser (string) **required** - Name of user.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### users.username.gists.get
 List a users gists.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "Name of user."
-    },
-    "since": {
-      "type": "string",
-      "description": "The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.\nExample: \"2012-10-09T23:39:01Z\".\n"
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+github.users.username.gists.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gists"
-}
-```
-## Operation: users.username.keys.get
+
+#### Parameters
+* username (string) **required** - Name of user.
+* since (string) - The time should be passed in as UTC in the ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### users.username.keys.get
 List public keys for a user.
 Lists the verified public keys for a user. This is accessible by anyone.
 
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "Name of user."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+github.users.username.keys.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gitignore"
-}
-```
-## Operation: users.username.orgs.get
+
+#### Parameters
+* username (string) **required** - Name of user.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### users.username.orgs.get
 List all public organizations for a user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "Name of user."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+github.users.username.orgs.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/gitignore"
-}
-```
-## Operation: users.username.received_events.get
+
+#### Parameters
+* username (string) **required** - Name of user.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### users.username.received_events.get
 These are events that you'll only see public events.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "Name of user."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+github.users.username.received_events.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: users.username.received_events.public.get
+
+#### Parameters
+* username (string) **required** - Name of user.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### users.username.received_events.public.get
 List public events that a user has received
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "Name of user."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+github.users.username.received_events.public.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: users.username.repos.get
+
+#### Parameters
+* username (string) **required** - Name of user.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### users.username.repos.get
 List public repositories for the specified user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "Name of user."
-    },
-    "type": {
-      "type": "string",
-      "enum": [
-        "all",
-        "public",
-        "private",
-        "forks",
-        "sources",
-        "member"
-      ]
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+github.users.username.repos.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{
-  "$ref": "#/definitions/repos"
-}
-```
-## Operation: users.username.starred.get
+
+#### Parameters
+* username (string) **required** - Name of user.
+* type (string)
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
+### users.username.starred.get
 List repositories being starred by a user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "Name of user."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+github.users.username.starred.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
-## Operation: users.username.subscriptions.get
+
+#### Parameters
+* username (string) **required** - Name of user.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+
+### users.username.subscriptions.get
 List repositories being watched by a user.
 
-### Input Schema
-```json
-{
-  "type": "object",
-  "properties": {
-    "username": {
-      "type": "string",
-      "description": "Name of user."
-    },
-    "X-GitHub-Media-Type": {
-      "type": "string",
-      "description": "You can check the current version of media type in responses.\n"
-    },
-    "Accept": {
-      "type": "string",
-      "description": "Is used to set specified media type."
-    },
-    "X-RateLimit-Limit": {
-      "type": "integer"
-    },
-    "X-RateLimit-Remaining": {
-      "type": "integer"
-    },
-    "X-RateLimit-Reset": {
-      "type": "integer"
-    },
-    "X-GitHub-Request-Id": {
-      "type": "integer"
-    },
-    "page": {
-      "type": "integer"
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "username"
-  ]
-}
+
+```js
+github.users.username.subscriptions.get({
+  "username": ""
+}, context)
 ```
-### Output Schema
-```json
-{}
-```
+
+#### Parameters
+* username (string) **required** - Name of user.
+* X-GitHub-Media-Type (string) - You can check the current version of media type in responses.
+* Accept (string) - Is used to set specified media type.
+* X-RateLimit-Limit (integer)
+* X-RateLimit-Remaining (integer)
+* X-RateLimit-Reset (integer)
+* X-GitHub-Request-Id (integer)
+* page (integer)
+
