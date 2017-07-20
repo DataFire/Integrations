@@ -14,7 +14,9 @@
         "r_emailaddress": "",
         "rw_company_admin": "",
         "w_share": ""
-      }
+      },
+      "tokenUrl": "https://www.linkedin.com/oauth/v2/accessToken",
+      "authorizationUrl": "https://www.linkedin.com/oauth/v2/authorization"
     }
   },
   "paths": {

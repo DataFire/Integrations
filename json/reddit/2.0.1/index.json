@@ -42,7 +42,9 @@
           "creddits": "Spend my reddit gold creddits on giving gold to other users."
         },
         "flow": "application",
-        "type": "oauth2"
+        "type": "oauth2",
+        "authorizationUrl": "https://ssl.reddit.com/api/v1/authorize",
+        "tokenUrl": "https://www.reddit.com/api/v1/access_token"
       }
     }
   },

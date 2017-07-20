@@ -22,7 +22,9 @@
           "identity": "Read-only access to your account information."
         },
         "flow": "application",
-        "type": "oauth2"
+        "type": "oauth2",
+        "tokenUrl": "https://id.heroku.com/oauth/token",
+        "authorizationUrl": "https://id.heroku.com/oauth/authorize"
       }
     }
   },

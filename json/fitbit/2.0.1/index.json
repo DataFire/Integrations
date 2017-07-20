@@ -25,7 +25,9 @@
           "activity": "The activity scope includes activity data and exercise log related features, such as steps, distance, calories burned, and active minutes"
         },
         "flow": "application",
-        "type": "oauth2"
+        "type": "oauth2",
+        "tokenUrl": "https://api.fitbit.com/oauth2/token",
+        "authorizationUrl": "https://www.fitbit.com/oauth2/authorize"
       }
     }
   },
