@@ -38,7 +38,7 @@
     }
   },
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/squareup.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/squareup.png"
   },
   "tags": [
     "payment"

@@ -4,7 +4,7 @@
   "description": "Finds the least expensive flights between an origin and a destination.",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_qpxexpress.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_qpxexpress.png"
   },
   "tags": [
     "google"

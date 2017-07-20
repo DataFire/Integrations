@@ -6,7 +6,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#24292e",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/1forge.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/1forge.png"
     },
     "tags": [
       "financial"
@@ -20,7 +20,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#F26641",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/6_dot_authentiqio_appspot.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/6_dot_authentiqio_appspot.svg"
     },
     "tags": [],
     "actionCount": 14,
@@ -38,7 +38,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amadeus.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amadeus.png"
     },
     "tags": [],
     "actionCount": 23,
@@ -58,7 +58,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_acm.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_acm.jpg"
     },
     "tags": [
       "cloud",
@@ -81,7 +81,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_apigateway.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_apigateway.jpg"
     },
     "tags": [
       "cloud",
@@ -104,7 +104,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_appstream2.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_appstream2.jpg"
     },
     "tags": [
       "cloud",
@@ -127,7 +127,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_athena.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_athena.jpg"
     },
     "tags": [
       "cloud",
@@ -150,7 +150,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_autoscaling.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_autoscaling.jpg"
     },
     "tags": [
       "cloud",
@@ -173,7 +173,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_batch.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_batch.jpg"
     },
     "tags": [
       "cloud",
@@ -196,7 +196,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_budgets.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_budgets.jpg"
     },
     "tags": [
       "cloud",
@@ -219,7 +219,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_clouddirectory.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_clouddirectory.jpg"
     },
     "tags": [
       "cloud",
@@ -242,7 +242,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_cloudformation.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudformation.jpg"
     },
     "tags": [
       "cloud",
@@ -265,7 +265,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_cloudfront.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudfront.jpg"
     },
     "tags": [
       "cloud",
@@ -288,7 +288,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_cloudhsm.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudhsm.jpg"
     },
     "tags": [
       "cloud",
@@ -311,7 +311,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_cloudsearch.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudsearch.jpg"
     },
     "tags": [
       "cloud",
@@ -334,7 +334,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_cloudsearchdomain.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudsearchdomain.jpg"
     },
     "tags": [
       "cloud",
@@ -357,7 +357,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_cloudtrail.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cloudtrail.jpg"
     },
     "tags": [
       "cloud",
@@ -380,7 +380,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_codebuild.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codebuild.jpg"
     },
     "tags": [
       "cloud",
@@ -403,7 +403,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_codecommit.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codecommit.jpg"
     },
     "tags": [
       "cloud",
@@ -426,7 +426,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_codedeploy.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codedeploy.jpg"
     },
     "tags": [
       "cloud",
@@ -449,7 +449,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_codepipeline.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codepipeline.jpg"
     },
     "tags": [
       "cloud",
@@ -472,7 +472,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_codestar.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_codestar.jpg"
     },
     "tags": [
       "cloud",
@@ -495,7 +495,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_cognito_identity.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cognito_identity.jpg"
     },
     "tags": [
       "cloud",
@@ -518,7 +518,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_cognito_idp.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cognito_idp.jpg"
     },
     "tags": [
       "cloud",
@@ -541,7 +541,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_cognito_sync.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cognito_sync.jpg"
     },
     "tags": [
       "cloud",
@@ -564,7 +564,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_config.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_config.jpg"
     },
     "tags": [
       "cloud",
@@ -587,7 +587,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_cur.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_cur.jpg"
     },
     "tags": [
       "cloud",
@@ -610,7 +610,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_data_iot.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_data_iot.jpg"
     },
     "tags": [
       "cloud",
@@ -633,7 +633,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_datapipeline.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_datapipeline.jpg"
     },
     "tags": [
       "cloud",
@@ -656,7 +656,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_dax.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_dax.jpg"
     },
     "tags": [
       "cloud",
@@ -679,7 +679,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_devicefarm.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_devicefarm.jpg"
     },
     "tags": [
       "cloud",
@@ -702,7 +702,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_directconnect.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_directconnect.jpg"
     },
     "tags": [
       "cloud",
@@ -725,7 +725,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_discovery.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_discovery.jpg"
     },
     "tags": [
       "cloud",
@@ -748,7 +748,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_dms.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_dms.jpg"
     },
     "tags": [
       "cloud",
@@ -771,7 +771,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_ds.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ds.jpg"
     },
     "tags": [
       "cloud",
@@ -794,7 +794,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_dynamodb.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_dynamodb.jpg"
     },
     "tags": [
       "cloud",
@@ -817,7 +817,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_ec2.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ec2.jpg"
     },
     "tags": [
       "cloud",
@@ -840,7 +840,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_ecr.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ecr.jpg"
     },
     "tags": [
       "cloud",
@@ -863,7 +863,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_ecs.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ecs.jpg"
     },
     "tags": [
       "cloud",
@@ -886,7 +886,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_elasticache.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticache.jpg"
     },
     "tags": [
       "cloud",
@@ -909,7 +909,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_elasticbeanstalk.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticbeanstalk.jpg"
     },
     "tags": [
       "cloud",
@@ -932,7 +932,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_elasticfilesystem.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticfilesystem.jpg"
     },
     "tags": [
       "cloud",
@@ -955,7 +955,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_elasticloadbalancing.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticloadbalancing.jpg"
     },
     "tags": [
       "cloud",
@@ -978,7 +978,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_elasticmapreduce.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elasticmapreduce.jpg"
     },
     "tags": [
       "cloud",
@@ -1001,7 +1001,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_elastictranscoder.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_elastictranscoder.jpg"
     },
     "tags": [
       "cloud",
@@ -1024,7 +1024,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_email.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_email.jpg"
     },
     "tags": [
       "cloud",
@@ -1047,7 +1047,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_entitlement_marketplace.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_entitlement_marketplace.jpg"
     },
     "tags": [
       "cloud",
@@ -1070,7 +1070,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_es.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_es.jpg"
     },
     "tags": [
       "cloud",
@@ -1093,7 +1093,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_events.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_events.jpg"
     },
     "tags": [
       "cloud",
@@ -1116,7 +1116,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_firehose.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_firehose.jpg"
     },
     "tags": [
       "cloud",
@@ -1139,7 +1139,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_gamelift.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_gamelift.jpg"
     },
     "tags": [
       "cloud",
@@ -1162,7 +1162,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_glacier.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_glacier.jpg"
     },
     "tags": [
       "cloud",
@@ -1185,7 +1185,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_greengrass.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_greengrass.jpg"
     },
     "tags": [
       "cloud",
@@ -1208,7 +1208,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_health.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_health.jpg"
     },
     "tags": [
       "cloud",
@@ -1231,7 +1231,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_iam.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_iam.jpg"
     },
     "tags": [
       "cloud",
@@ -1254,7 +1254,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_importexport.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_importexport.jpg"
     },
     "tags": [
       "cloud",
@@ -1277,7 +1277,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_inspector.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_inspector.jpg"
     },
     "tags": [
       "cloud",
@@ -1300,7 +1300,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_iot.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_iot.jpg"
     },
     "tags": [
       "cloud",
@@ -1323,7 +1323,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_kinesis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_kinesis.jpg"
     },
     "tags": [
       "cloud",
@@ -1345,7 +1345,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_kinesisanalytics.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_kinesisanalytics.jpg"
     },
     "tags": [
       "cloud",
@@ -1368,7 +1368,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_kms.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_kms.jpg"
     },
     "tags": [
       "cloud",
@@ -1391,7 +1391,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_lambda.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_lambda.jpg"
     },
     "tags": [
       "cloud",
@@ -1414,7 +1414,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_lightsail.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_lightsail.jpg"
     },
     "tags": [
       "cloud",
@@ -1437,7 +1437,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_machinelearning.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_machinelearning.jpg"
     },
     "tags": [
       "cloud",
@@ -1460,7 +1460,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_marketplacecommerceanalytics.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_marketplacecommerceanalytics.jpg"
     },
     "tags": [
       "cloud",
@@ -1483,7 +1483,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_metering_marketplace.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_metering_marketplace.jpg"
     },
     "tags": [
       "cloud",
@@ -1506,7 +1506,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_mobileanalytics.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mobileanalytics.jpg"
     },
     "tags": [
       "cloud",
@@ -1529,7 +1529,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_models_lex.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_models_lex.jpg"
     },
     "tags": [
       "cloud",
@@ -1552,7 +1552,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_monitoring.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_monitoring.jpg"
     },
     "tags": [
       "cloud",
@@ -1575,7 +1575,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_mturk_requester.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_mturk_requester.jpg"
     },
     "tags": [
       "cloud",
@@ -1598,7 +1598,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_opsworks.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_opsworks.jpg"
     },
     "tags": [
       "cloud",
@@ -1621,7 +1621,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_opsworks_cm.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_opsworks_cm.jpg"
     },
     "tags": [
       "cloud",
@@ -1644,7 +1644,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_organizations.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_organizations.jpg"
     },
     "tags": [
       "cloud",
@@ -1666,7 +1666,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_pinpoint.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_pinpoint.jpg"
     },
     "tags": [
       "cloud",
@@ -1689,7 +1689,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_polly.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_polly.jpg"
     },
     "tags": [
       "cloud",
@@ -1712,7 +1712,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_rds.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_rds.jpg"
     },
     "tags": [
       "cloud",
@@ -1735,7 +1735,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_redshift.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_redshift.jpg"
     },
     "tags": [
       "cloud",
@@ -1758,7 +1758,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_rekognition.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_rekognition.jpg"
     },
     "tags": [
       "cloud",
@@ -1780,7 +1780,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_route53.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_route53.jpg"
     },
     "tags": [
       "cloud",
@@ -1803,7 +1803,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_route53domains.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_route53domains.jpg"
     },
     "tags": [
       "cloud",
@@ -1826,7 +1826,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_runtime_lex.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_runtime_lex.jpg"
     },
     "tags": [
       "cloud",
@@ -1848,7 +1848,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_s3.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_s3.jpg"
     },
     "tags": [
       "cloud",
@@ -1871,7 +1871,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_sdb.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sdb.jpg"
     },
     "tags": [
       "cloud",
@@ -1894,7 +1894,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_servicecatalog.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_servicecatalog.jpg"
     },
     "tags": [
       "cloud",
@@ -1917,7 +1917,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_shield.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_shield.jpg"
     },
     "tags": [
       "cloud",
@@ -1940,7 +1940,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_sms.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sms.jpg"
     },
     "tags": [
       "cloud",
@@ -1963,7 +1963,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_snowball.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_snowball.jpg"
     },
     "tags": [
       "cloud",
@@ -1986,7 +1986,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_sns.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sns.jpg"
     },
     "tags": [
       "cloud",
@@ -2009,7 +2009,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_sqs.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sqs.jpg"
     },
     "tags": [
       "cloud",
@@ -2032,7 +2032,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_ssm.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_ssm.jpg"
     },
     "tags": [
       "cloud",
@@ -2055,7 +2055,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_states.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_states.jpg"
     },
     "tags": [
       "cloud",
@@ -2078,7 +2078,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_storagegateway.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_storagegateway.jpg"
     },
     "tags": [
       "cloud",
@@ -2101,7 +2101,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_streams_dynamodb.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_streams_dynamodb.jpg"
     },
     "tags": [
       "cloud",
@@ -2124,7 +2124,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_sts.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_sts.jpg"
     },
     "tags": [
       "cloud",
@@ -2147,7 +2147,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_support.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_support.jpg"
     },
     "tags": [
       "cloud",
@@ -2170,7 +2170,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_swf.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_swf.jpg"
     },
     "tags": [
       "cloud",
@@ -2193,7 +2193,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_tagging.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_tagging.jpg"
     },
     "tags": [
       "cloud",
@@ -2216,7 +2216,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_waf.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_waf.jpg"
     },
     "tags": [
       "cloud",
@@ -2239,7 +2239,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_waf_regional.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_waf_regional.jpg"
     },
     "tags": [
       "cloud",
@@ -2262,7 +2262,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_workdocs.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_workdocs.jpg"
     },
     "tags": [
       "cloud",
@@ -2285,7 +2285,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_workspaces.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_workspaces.jpg"
     },
     "tags": [
       "cloud",
@@ -2308,7 +2308,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/amazonaws_xray.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/amazonaws_xray.jpg"
     },
     "tags": [
       "cloud",
@@ -2332,7 +2332,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apacta.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apacta.png"
     },
     "tags": [],
     "actionCount": 123,
@@ -2354,7 +2354,7 @@
     },
     "logo": {
       "backgroundColor": "#2a313a",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apimatic.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apimatic.svg"
     },
     "tags": [
       "developer tools",
@@ -2369,7 +2369,7 @@
     "description": "Wikipedia for Web APIs. Repository of API specs in OpenAPI(fka Swagger) 2.0 format.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apis_guru.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apis_guru.svg"
     },
     "tags": [
       "open data",
@@ -2384,7 +2384,7 @@
     "description": "Various 2ch matome feeds.[Endpoint] https://api.apitore.com/api/29",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_2chmatomefeedsapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_2chmatomefeedsapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2396,7 +2396,7 @@
     "description": "Various certificate feeds.[Endpoint] https://api.apitore.com/api/31",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_certificatefeedsapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_certificatefeedsapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2408,7 +2408,7 @@
     "description": "Various design feeds.[Endpoint] https://api.apitore.com/api/32",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_designfeedsapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_designfeedsapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2420,7 +2420,7 @@
     "description": "Document frequency of Wikipedia.[Endpoint] https://api.apitore.com/api/16",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_documentfrequencyapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_documentfrequencyapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2432,7 +2432,7 @@
     "description": "Various game feeds.[Endpoint] https://api.apitore.com/api/33",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_gamefeedsapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_gamefeedsapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2444,7 +2444,7 @@
     "description": "Kuromoji: japanese morphological analyzer.[Endpoint] https://api.apitore.com/api/7",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_kuromojiapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_kuromojiapis.jpg"
     },
     "tags": [],
     "actionCount": 2,
@@ -2456,7 +2456,7 @@
     "description": "Language detection.[Endpoint] https://api.apitore.com/api/22",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_languagedetectionapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_languagedetectionapis.jpg"
     },
     "tags": [],
     "actionCount": 2,
@@ -2468,7 +2468,7 @@
     "description": "Various news feeds.[Endpoint] https://api.apitore.com/api/34",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_newsfeedsapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_newsfeedsapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2480,7 +2480,7 @@
     "description": "Various blog feeds.[Endpoint] https://api.apitore.com/api/30",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_pioneerblogfeedsapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_pioneerblogfeedsapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2492,7 +2492,7 @@
     "description": "Rss to Json.[Endpoint] https://api.apitore.com/api/28",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_rss2jsonapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_rss2jsonapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2504,7 +2504,7 @@
     "description": "SentencePiece tokenizer (wikipedia).[Endpoint] https://api.apitore.com/api/37",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_sentencepieceapis_wikipedia_.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_sentencepieceapis_wikipedia_.jpg"
     },
     "tags": [],
     "actionCount": 2,
@@ -2516,7 +2516,7 @@
     "description": "Simple sentence separator.[Endpoint] https://api.apitore.com/api/17",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_sentenceseparatorapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_sentenceseparatorapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2528,7 +2528,7 @@
     "description": "Japanese sentiment analyzer.[Endpoint] https://api.apitore.com/api/11",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_sentimentapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_sentimentapis.jpg"
     },
     "tags": [
       "developer tools"
@@ -2542,7 +2542,7 @@
     "description": "Return synonymous words. (equal to \"word2vec distance\")[Endpoint] https://api.apitore.com/api/9",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_synonymapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_synonymapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2554,7 +2554,7 @@
     "description": "Various tech feeds.[Endpoint] https://api.apitore.com/api/35",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_techfeedsapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_techfeedsapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2566,7 +2566,7 @@
     "description": "Text to label by tfidf of contents.[Endpoint] https://api.apitore.com/api/18",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_text2labelbytfidfapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_text2labelbytfidfapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2578,7 +2578,7 @@
     "description": "Text to label by word2vec of contents.[Endpoint] https://api.apitore.com/api/19",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_text2labelbywordvectorapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_text2labelbywordvectorapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2590,7 +2590,7 @@
     "description": "Various travel feeds.[Endpoint] https://api.apitore.com/api/36",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_travelfeedsapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_travelfeedsapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2602,7 +2602,7 @@
     "description": "Tweet summarization.[Endpoint] https://api.apitore.com/api/27",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_tweetsummarizationapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_tweetsummarizationapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2614,7 +2614,7 @@
     "description": "Call Twitter APIs.[Endpoint] https://api.apitore.com/api/23",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_twitterapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_twitterapis.jpg"
     },
     "tags": [],
     "actionCount": 3,
@@ -2626,7 +2626,7 @@
     "description": "Call Twitter APIs with word2vec query expansion.[Endpoint] https://api.apitore.com/api/24",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_twitterapiswithword2vecqueryexpansion.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_twitterapiswithword2vecqueryexpansion.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2638,7 +2638,7 @@
     "description": "Url to Href links.[Endpoint] https://api.apitore.com/api/14",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_url2hrefapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_url2hrefapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2650,7 +2650,7 @@
     "description": "Url to Html.[Endpoint] https://api.apitore.com/api/12",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_url2htmlapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_url2htmlapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2662,7 +2662,7 @@
     "description": "Url to label by tfidf of contents.[Endpoint] https://api.apitore.com/api/20",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_url2labelbytfidfapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_url2labelbytfidfapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2674,7 +2674,7 @@
     "description": "Url to label by word2vec of contents.[Endpoint] https://api.apitore.com/api/21",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_url2labelbywordvectorapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_url2labelbywordvectorapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2686,7 +2686,7 @@
     "description": "Url to Image src urls.[Endpoint] https://api.apitore.com/api/15",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_url2srcapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_url2srcapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2698,7 +2698,7 @@
     "description": "Url to Text.[Endpoint] https://api.apitore.com/api/13",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_url2textapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_url2textapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2710,7 +2710,7 @@
     "description": "Word2Vec.[Endpoint] https://api.apitore.com/api/8",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_word2vecapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_word2vecapis.jpg"
     },
     "tags": [],
     "actionCount": 5,
@@ -2722,7 +2722,7 @@
     "description": "Word to vectors.[Endpoint] https://api.apitore.com/api/10",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_wordstovectorsapis.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_wordstovectorsapis.jpg"
     },
     "tags": [],
     "actionCount": 1,
@@ -2741,7 +2741,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/appveyor.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/appveyor.png"
     },
     "tags": [],
     "actionCount": 45,
@@ -2782,7 +2782,7 @@
     },
     "logo": {
       "backgroundColor": "#F26641",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/authentiq.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/authentiq.svg"
     },
     "tags": [],
     "actionCount": 11,
@@ -2814,7 +2814,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_advisor.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_advisor.png"
     },
     "tags": [
       "cloud",
@@ -2849,7 +2849,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_analysisservices.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_analysisservices.png"
     },
     "tags": [
       "cloud",
@@ -2884,7 +2884,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_apimanagement.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_apimanagement.png"
     },
     "tags": [
       "cloud",
@@ -2919,7 +2919,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_appinsights.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_appinsights.png"
     },
     "tags": [
       "cloud",
@@ -2954,7 +2954,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_authorization.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_authorization.png"
     },
     "tags": [
       "cloud",
@@ -2988,7 +2988,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_batch.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_batch.png"
     },
     "tags": [
       "cloud",
@@ -3023,7 +3023,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_billing.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_billing.png"
     },
     "tags": [
       "cloud",
@@ -3058,7 +3058,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_cdn.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_cdn.png"
     },
     "tags": [
       "cloud",
@@ -3074,7 +3074,7 @@
     "description": "Cognitive Services Management Client",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_cognitiveservices.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_cognitiveservices.png"
     },
     "tags": [
       "machine learning",
@@ -3089,7 +3089,7 @@
     "title": "UsageManagementClient",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_commerce.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_commerce.png"
     },
     "tags": [
       "ecommerce",
@@ -3125,7 +3125,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_compute.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_compute.png"
     },
     "tags": [
       "cloud",
@@ -3140,7 +3140,7 @@
     "description": "The Container Service Client.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_compute_containerservice.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_compute_containerservice.png"
     },
     "tags": [
       "cloud",
@@ -3155,7 +3155,7 @@
     "description": "The Disk Resource Provider Client.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_compute_disk.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_compute_disk.png"
     },
     "tags": [
       "cloud",
@@ -3190,7 +3190,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_consumption.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_consumption.png"
     },
     "tags": [
       "cloud",
@@ -3204,7 +3204,7 @@
     "title": "ContainerRegistryManagementClient",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_containerregistry.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_containerregistry.png"
     },
     "tags": [
       "cloud",
@@ -3239,7 +3239,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_devtestlabs.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_devtestlabs.png"
     },
     "tags": [
       "developer tools",
@@ -3255,7 +3255,7 @@
     "description": "The DNS Management Client.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_dns.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_dns.png"
     },
     "tags": [
       "hosting",
@@ -3291,7 +3291,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_documentdb.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_documentdb.png"
     },
     "tags": [
       "cloud",
@@ -3326,7 +3326,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_eventhub.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_eventhub.png"
     },
     "tags": [
       "cloud",
@@ -3340,7 +3340,7 @@
     "title": "InsightsManagementClient",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_insights.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_insights.png"
     },
     "tags": [
       "cloud",
@@ -3355,7 +3355,7 @@
     "description": "Microsoft.Intune Resource provider Api features in the swagger-2.0 specification",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_intune.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_intune.png"
     },
     "tags": [
       "enterprise",
@@ -3372,7 +3372,7 @@
     "description": "Use this API to manage the IoT hubs in your Azure subscription.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_iothub.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_iothub.png"
     },
     "tags": [
       "iot",
@@ -3388,7 +3388,7 @@
     "description": "The Azure management API provides a RESTful set of web services that interact with Azure Key Vault.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_keyvault.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_keyvault.png"
     },
     "tags": [
       "developer tools",
@@ -3425,7 +3425,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_logic.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_logic.png"
     },
     "tags": [
       "developer tools",
@@ -3441,7 +3441,7 @@
     "description": "These APIs allow end users to operate on Azure Machine Learning Commitment Plans resources and their child Commitment As...",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_machinelearning_commitmentplans.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_machinelearning_commitmentplans.png"
     },
     "tags": [
       "machine learning",
@@ -3456,7 +3456,7 @@
     "description": "These APIs allow end users to operate on Azure Machine Learning Web Services resources. They support the following opera...",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_machinelearning_webservices.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_machinelearning_webservices.png"
     },
     "tags": [
       "machine learning",
@@ -3491,7 +3491,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_mediaservices.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_mediaservices.png"
     },
     "tags": [
       "media",
@@ -3527,7 +3527,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_mobileengagement.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_mobileengagement.png"
     },
     "tags": [
       "analytics",
@@ -3563,7 +3563,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_monitor.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_monitor.png"
     },
     "tags": [
       "cloud",
@@ -3598,7 +3598,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_network.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_network.png"
     },
     "tags": [
       "cloud",
@@ -3633,7 +3633,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_notificationhubs.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_notificationhubs.png"
     },
     "tags": [
       "cloud",
@@ -3668,7 +3668,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_operationalinsights.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_operationalinsights.png"
     },
     "tags": [
       "analytics",
@@ -3683,7 +3683,7 @@
     "description": "Client to manage your Power BI Embedded workspace collections and retrieve workspaces.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_powerbiembedded.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_powerbiembedded.png"
     },
     "tags": [
       "cloud",
@@ -3717,7 +3717,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_recoveryservicesbackup.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_recoveryservicesbackup.png"
     },
     "tags": [
       "storage",
@@ -3752,7 +3752,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_redis.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_redis.png"
     },
     "tags": [
       "cloud",
@@ -3787,7 +3787,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_relay.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_relay.png"
     },
     "tags": [
       "cloud",
@@ -3822,7 +3822,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_resourcehealth.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_resourcehealth.png"
     },
     "tags": [
       "cloud",
@@ -3836,7 +3836,7 @@
     "title": "SchedulerManagementClient",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_scheduler.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_scheduler.png"
     },
     "tags": [
       "time management",
@@ -3871,7 +3871,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_search.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_search.png"
     },
     "tags": [
       "search",
@@ -3906,7 +3906,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_servermanagement.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_servermanagement.png"
     },
     "tags": [
       "developer tools",
@@ -3941,7 +3941,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_service_map.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_service_map.png"
     },
     "tags": [
       "cloud",
@@ -3976,7 +3976,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_servicebus.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_servicebus.png"
     },
     "tags": [
       "cloud",
@@ -4010,7 +4010,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_servicefabric.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_servicefabric.png"
     },
     "tags": [
       "cloud",
@@ -4025,7 +4025,7 @@
     "description": "Provides read functionality for Azure SQL Database Backups",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_sql.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_sql.png"
     },
     "tags": [
       "enterprise",
@@ -4040,7 +4040,7 @@
     "description": "The Azure Storage Management API.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_storage.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_storage.png"
     },
     "tags": [
       "storage",
@@ -4075,7 +4075,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_storageimportexport.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_storageimportexport.png"
     },
     "tags": [
       "storage",
@@ -4109,7 +4109,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_storsimple8000series.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_storsimple8000series.png"
     },
     "tags": [
       "cloud",
@@ -4123,7 +4123,7 @@
     "title": "TrafficManagerManagementClient",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_trafficmanager.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_trafficmanager.png"
     },
     "tags": [
       "cloud",
@@ -4158,7 +4158,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_web.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_web.png"
     },
     "tags": [
       "cloud",
@@ -4172,7 +4172,7 @@
     "title": "InsightsClient",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_insights.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_insights.png"
     },
     "tags": [
       "cloud",
@@ -4206,7 +4206,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_monitor.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_monitor.png"
     },
     "tags": [
       "cloud",
@@ -4229,7 +4229,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/bbc.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bbc.png"
     },
     "tags": [
       "media",
@@ -4262,7 +4262,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/bbci.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bbci.svg"
     },
     "tags": [
       "media"
@@ -4276,7 +4276,7 @@
     "description": "BC Laws is an electronic library providing free public access to the laws of British Columbia. BC Laws is hosted by the ...",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/bclaws_ca_bclaws.jpeg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bclaws_ca_bclaws.jpeg"
     },
     "tags": [
       "open data"
@@ -4290,7 +4290,7 @@
     "description": "https://www.beanstream.com/api/v1",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/beanstream.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/beanstream.png"
     },
     "tags": [
       "payment",
@@ -4314,7 +4314,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/beezup.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/beezup.png"
     },
     "tags": [
       "ecommerce"
@@ -4337,7 +4337,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/bigoven.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bigoven.png"
     },
     "tags": [],
     "actionCount": 47,
@@ -4349,7 +4349,7 @@
     "description": "This is an API for accessing information about bicycling related incidents. You can find the source code on GitHub.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/bikewise.ico"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bikewise.ico"
     },
     "tags": [
       "open data"
@@ -4408,7 +4408,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/bitbucket.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bitbucket.svg"
     },
     "tags": [
       "developer tools",
@@ -4423,7 +4423,7 @@
     "description": "Containers are virtual software objects that include all the elements that an app needs to run. A container has the bene...",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/bluemix_containers.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bluemix_containers.jpg"
     },
     "tags": [],
     "actionCount": 47,
@@ -4443,7 +4443,7 @@
     },
     "logo": {
       "backgroundColor": "#1A1A1A",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/botify.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/botify.png"
     },
     "tags": [
       "analytics",
@@ -4458,7 +4458,7 @@
     "description": "The Box Authorization API gives you access to authenticate and authorize an application to work with the Box APIs",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/box_authorization.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/box_authorization.jpg"
     },
     "tags": [
       "cloud"
@@ -4489,7 +4489,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/box_content.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/box_content.jpg"
     },
     "tags": [
       "cloud"
@@ -4503,7 +4503,7 @@
     "description": "The Box Token API provides methods to retrieve an access token and revoke an access token. An access token is a data str...",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/box_token.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/box_token.jpg"
     },
     "tags": [
       "cloud"
@@ -4534,7 +4534,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/box_upload.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/box_upload.jpg"
     },
     "tags": [
       "cloud"
@@ -4556,7 +4556,7 @@
     },
     "logo": {
       "backgroundColor": "#E34056",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/brandlovers.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/brandlovers.png"
     },
     "tags": [
       "ecommerce"
@@ -4577,7 +4577,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/browshot.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/browshot.png"
     },
     "tags": [
       "tools"
@@ -4610,7 +4610,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/bufferapp.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/bufferapp.png"
     },
     "tags": [
       "social",
@@ -4625,7 +4625,7 @@
     "description": "Cambase.io is a project by Evercam.io in order to make it easier for software developers to have a reliable, up to date ...",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/cambase.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cambase.jpg"
     },
     "tags": [],
     "actionCount": 17,
@@ -4645,7 +4645,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/cenit.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cenit.png"
     },
     "tags": [],
     "actionCount": 40,
@@ -4665,7 +4665,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/channel4.gif"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/channel4.gif"
     },
     "tags": [
       "media"
@@ -4686,7 +4686,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/circleci.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/circleci.png"
     },
     "tags": [
       "developer tools"
@@ -4732,7 +4732,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#5F6166",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/citrix_gotoassistseeit.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/citrix_gotoassistseeit.png"
     },
     "tags": [
       "support"
@@ -4747,7 +4747,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#5F6166",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/citrix_gotomeeting.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/citrix_gotomeeting.png"
     },
     "tags": [
       "collaboration"
@@ -4762,7 +4762,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#5F6166",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/citrix_gototraining.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/citrix_gototraining.png"
     },
     "tags": [],
     "actionCount": 22,
@@ -4775,7 +4775,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#5F6166",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/citrix_gotowebinar.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/citrix_gotowebinar.png"
     },
     "tags": [
       "marketing"
@@ -4790,7 +4790,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#5F6166",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/citrix_scim.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/citrix_scim.png"
     },
     "tags": [],
     "actionCount": 17,
@@ -4821,7 +4821,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#65A8B5",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/clarify.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/clarify.png"
     },
     "tags": [
       "search"
@@ -4842,7 +4842,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/clickmeter.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/clickmeter.svg"
     },
     "tags": [
       "marketing"
@@ -4856,7 +4856,7 @@
     "description": "This API drives the Discovery Market Research Tool.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/cloud_gov.gif"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cloud_gov.gif"
     },
     "tags": [
       "open data"
@@ -4871,7 +4871,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/cnab_online_herokuapp.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cnab_online_herokuapp.png"
     },
     "tags": [
       "financial"
@@ -4893,7 +4893,7 @@
     "description": "Learn more about home mortgage data, download the data yourself, or build new tools using our API.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/consumerfinance_gov.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/consumerfinance_gov.png"
     },
     "tags": [],
     "actionCount": 6,
@@ -4912,7 +4912,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/core_ac_uk.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/core_ac_uk.png"
     },
     "tags": [
       "open data"
@@ -4926,7 +4926,7 @@
     "description": "The Unified Taxonomic Information Service (UTIS) is the taxonomic backbone for the EU-BON project",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/cybertaxonomy_eu.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/cybertaxonomy_eu.jpg"
     },
     "tags": [
       "open data"
@@ -4941,7 +4941,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#3089CF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/data2crm.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/data2crm.png"
     },
     "tags": [],
     "actionCount": 95,
@@ -4960,7 +4960,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/data_gov.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/data_gov.png"
     },
     "tags": [],
     "actionCount": 3,
@@ -4979,7 +4979,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/datumbox.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/datumbox.png"
     },
     "tags": [
       "machine learning",
@@ -4995,7 +4995,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/deutschebahn_betriebsstellen.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/deutschebahn_betriebsstellen.png"
     },
     "tags": [
       "open data"
@@ -5010,7 +5010,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/deutschebahn_fahrplan.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/deutschebahn_fahrplan.png"
     },
     "tags": [
       "open data"
@@ -5032,7 +5032,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/deutschebahn_fasta.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/deutschebahn_fasta.png"
     },
     "tags": [
       "open data"
@@ -5047,7 +5047,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/deutschebahn_flinkster.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/deutschebahn_flinkster.png"
     },
     "tags": [
       "open data"
@@ -5062,7 +5062,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/deutschebahn_reisezentren.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/deutschebahn_reisezentren.png"
     },
     "tags": [
       "open data"
@@ -5077,7 +5077,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/deutschebahn_stada.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/deutschebahn_stada.png"
     },
     "tags": [
       "open data"
@@ -5103,7 +5103,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/epa_gov_air.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_air.png"
     },
     "tags": [
       "open data"
@@ -5118,7 +5118,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/epa_gov_case.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_case.png"
     },
     "tags": [
       "open data"
@@ -5133,7 +5133,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/epa_gov_cwa.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_cwa.png"
     },
     "tags": [
       "open data"
@@ -5148,7 +5148,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/epa_gov_dfr.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_dfr.png"
     },
     "tags": [
       "open data"
@@ -5163,7 +5163,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/epa_gov_echo.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_echo.png"
     },
     "tags": [
       "open data"
@@ -5178,7 +5178,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/epa_gov_eff.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_eff.png"
     },
     "tags": [
       "open data"
@@ -5193,7 +5193,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/epa_gov_rcra.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_rcra.png"
     },
     "tags": [
       "open data"
@@ -5208,7 +5208,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/epa_gov_sdw.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/epa_gov_sdw.png"
     },
     "tags": [
       "open data"
@@ -5222,7 +5222,7 @@
     "description": "Bring Etsy's handmade marketplace and community into your apps.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/etsy.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/etsy.png"
     },
     "tags": [],
     "actionCount": 115,
@@ -5234,7 +5234,7 @@
     "description": "This Swagger API console provides an overview of an interface to the Europeana REST API. You can build and test anything...",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/europeana_eu.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/europeana_eu.png"
     },
     "tags": [
       "open data"
@@ -5249,7 +5249,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#222222",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/exavault.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/exavault.png"
     },
     "tags": [
       "storage"
@@ -5320,7 +5320,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/facebook.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/facebook.jpg"
     },
     "tags": [],
     "actionCount": 195,
@@ -5353,7 +5353,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/figshare.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/figshare.png"
     },
     "tags": [
       "open data"
@@ -5367,7 +5367,7 @@
     "description": "A simple and elegant way to explore cancer data",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/firebrowse.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/firebrowse.png"
     },
     "tags": [
       "open data"
@@ -5407,7 +5407,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/fitbit.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/fitbit.png"
     },
     "tags": [],
     "actionCount": 74,
@@ -5444,7 +5444,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/flat.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/flat.svg"
     },
     "tags": [
       "media",
@@ -5479,7 +5479,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/furkot.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/furkot.svg"
     },
     "tags": [
       "location"
@@ -5500,7 +5500,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/geneea.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/geneea.png"
     },
     "tags": [
       "text"
@@ -5522,7 +5522,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/geodesystems.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/geodesystems.png"
     },
     "tags": [],
     "actionCount": 228,
@@ -5560,7 +5560,7 @@
     },
     "logo": {
       "backgroundColor": "#161924",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/getsandbox.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/getsandbox.png"
     },
     "tags": [
       "developer tools"
@@ -5581,7 +5581,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/gettyimages.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gettyimages.jpg"
     },
     "tags": [
       "media"
@@ -5635,7 +5635,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/github.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/github.png"
     },
     "tags": [
       "collaboration",
@@ -5659,7 +5659,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/gitlab.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gitlab.png"
     },
     "tags": [
       "developer tools"
@@ -5673,7 +5673,7 @@
     "description": "Retrieves the list of AMP URL (and equivalent AMP Cache URL) for a given list of public URL(s).",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_acceleratedmobilepageurl.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_acceleratedmobilepageurl.png"
     },
     "tags": [
       "google"
@@ -5708,7 +5708,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_adexchangebuyer.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_adexchangebuyer.svg"
     },
     "tags": [
       "google"
@@ -5743,7 +5743,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_adexchangebuyer2.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_adexchangebuyer2.png"
     },
     "tags": [
       "google"
@@ -5779,7 +5779,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_adexchangeseller.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_adexchangeseller.svg"
     },
     "tags": [
       "google"
@@ -5814,7 +5814,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_adexperiencereport.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_adexperiencereport.png"
     },
     "tags": [
       "google"
@@ -5850,7 +5850,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_admin.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_admin.png"
     },
     "tags": [
       "analytics",
@@ -5887,7 +5887,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_adsense.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_adsense.png"
     },
     "tags": [
       "google"
@@ -5922,7 +5922,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_adsensehost.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_adsensehost.png"
     },
     "tags": [
       "google"
@@ -5962,7 +5962,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_analytics.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_analytics.png"
     },
     "tags": [
       "analytics",
@@ -5999,7 +5999,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_analyticsreporting.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_analyticsreporting.png"
     },
     "tags": [
       "google"
@@ -6013,7 +6013,7 @@
     "description": "Android Device Provisioning Partner API",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_androiddeviceprovisioning.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_androiddeviceprovisioning.png"
     },
     "tags": [
       "google"
@@ -6048,7 +6048,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_androidenterprise.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_androidenterprise.png"
     },
     "tags": [
       "google"
@@ -6083,7 +6083,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_androidpublisher.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_androidpublisher.png"
     },
     "tags": [
       "developer tools",
@@ -6121,7 +6121,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_appengine.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_appengine.png"
     },
     "tags": [
       "google"
@@ -6160,7 +6160,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_appsactivity.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_appsactivity.png"
     },
     "tags": [
       "google"
@@ -6195,7 +6195,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_appstate.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_appstate.png"
     },
     "tags": [
       "google"
@@ -6236,7 +6236,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_bigquery.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_bigquery.png"
     },
     "tags": [
       "search",
@@ -6272,7 +6272,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_bigquerydatatransfer.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_bigquerydatatransfer.png"
     },
     "tags": [
       "google"
@@ -6308,7 +6308,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_blogger.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_blogger.png"
     },
     "tags": [
       "social",
@@ -6344,7 +6344,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_books.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_books.png"
     },
     "tags": [
       "google"
@@ -6380,7 +6380,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_calendar.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_calendar.png"
     },
     "tags": [
       "time management",
@@ -6395,7 +6395,7 @@
     "description": "Provides polling places, early vote locations, contest data, election officials, and government representatives for U.S....",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_civicinfo.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_civicinfo.png"
     },
     "tags": [
       "google"
@@ -6441,7 +6441,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_classroom.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_classroom.png"
     },
     "tags": [
       "education",
@@ -6477,7 +6477,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_cloudbilling.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudbilling.png"
     },
     "tags": [
       "google"
@@ -6512,7 +6512,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_cloudbuild.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudbuild.png"
     },
     "tags": [
       "google"
@@ -6548,7 +6548,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_clouddebugger.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_clouddebugger.png"
     },
     "tags": [
       "google"
@@ -6583,7 +6583,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_clouderrorreporting.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_clouderrorreporting.png"
     },
     "tags": [
       "google"
@@ -6618,7 +6618,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_cloudfunctions.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudfunctions.png"
     },
     "tags": [
       "google"
@@ -6653,7 +6653,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_cloudkms.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudkms.png"
     },
     "tags": [
       "security",
@@ -6690,7 +6690,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_cloudmonitoring.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudmonitoring.png"
     },
     "tags": [
       "google"
@@ -6726,7 +6726,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_cloudresourcemanager.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudresourcemanager.png"
     },
     "tags": [
       "google"
@@ -6763,7 +6763,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_cloudtrace.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_cloudtrace.png"
     },
     "tags": [
       "google"
@@ -6801,7 +6801,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_clouduseraccounts.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_clouduseraccounts.png"
     },
     "tags": [
       "google"
@@ -6841,7 +6841,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_compute.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_compute.png"
     },
     "tags": [
       "google"
@@ -6878,7 +6878,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_consumersurveys.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_consumersurveys.png"
     },
     "tags": [
       "google"
@@ -6913,7 +6913,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_container.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_container.png"
     },
     "tags": [
       "google"
@@ -6948,7 +6948,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_content.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_content.png"
     },
     "tags": [
       "ecommerce",
@@ -6963,7 +6963,7 @@
     "description": "Searches over a website or collection of websites",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_customsearch.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_customsearch.png"
     },
     "tags": [
       "search",
@@ -7001,7 +7001,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_dataflow.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_dataflow.png"
     },
     "tags": [
       "google"
@@ -7036,7 +7036,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_dataproc.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_dataproc.png"
     },
     "tags": [
       "google"
@@ -7072,7 +7072,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_datastore.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_datastore.png"
     },
     "tags": [
       "storage",
@@ -7111,7 +7111,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_deploymentmanager.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_deploymentmanager.png"
     },
     "tags": [
       "google"
@@ -7148,7 +7148,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_dfareporting.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_dfareporting.png"
     },
     "tags": [
       "google"
@@ -7162,7 +7162,7 @@
     "description": "Provides information about other Google APIs, such as what APIs are available, the resource, and method details for each...",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_discovery.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_discovery.png"
     },
     "tags": [
       "google"
@@ -7197,7 +7197,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_dlp.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_dlp.png"
     },
     "tags": [
       "google"
@@ -7235,7 +7235,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_dns.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_dns.png"
     },
     "tags": [
       "google"
@@ -7249,7 +7249,7 @@
     "description": "API for viewing and managing your reports in DoubleClick Bid Manager.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_doubleclickbidmanager.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_doubleclickbidmanager.svg"
     },
     "tags": [
       "google"
@@ -7284,7 +7284,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_doubleclicksearch.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_doubleclicksearch.svg"
     },
     "tags": [
       "google"
@@ -7326,7 +7326,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_drive.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_drive.png"
     },
     "tags": [
       "storage",
@@ -7362,7 +7362,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_firebasedynamiclinks.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_firebasedynamiclinks.png"
     },
     "tags": [
       "google"
@@ -7399,7 +7399,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_firebaserules.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_firebaserules.png"
     },
     "tags": [
       "google"
@@ -7451,7 +7451,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_fitness.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_fitness.png"
     },
     "tags": [
       "google"
@@ -7487,7 +7487,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_fusiontables.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_fusiontables.png"
     },
     "tags": [
       "google"
@@ -7524,7 +7524,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_games.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_games.png"
     },
     "tags": [
       "google"
@@ -7559,7 +7559,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_gamesconfiguration.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_gamesconfiguration.png"
     },
     "tags": [
       "google"
@@ -7595,7 +7595,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_gamesmanagement.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_gamesmanagement.png"
     },
     "tags": [
       "google"
@@ -7634,7 +7634,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_genomics.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_genomics.png"
     },
     "tags": [
       "google"
@@ -7678,7 +7678,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_gmail.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_gmail.png"
     },
     "tags": [
       "email",
@@ -7714,7 +7714,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_groupsmigration.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_groupsmigration.png"
     },
     "tags": [
       "google"
@@ -7749,7 +7749,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_groupssettings.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_groupssettings.png"
     },
     "tags": [
       "google"
@@ -7784,7 +7784,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_iam.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_iam.png"
     },
     "tags": [
       "google"
@@ -7820,7 +7820,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_identitytoolkit.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_identitytoolkit.png"
     },
     "tags": [
       "google"
@@ -7834,7 +7834,7 @@
     "description": "Searches the Google Knowledge Graph for entities.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_kgsearch.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_kgsearch.png"
     },
     "tags": [
       "google"
@@ -7869,7 +7869,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_language.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_language.png"
     },
     "tags": [
       "text",
@@ -7905,7 +7905,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_licensing.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_licensing.png"
     },
     "tags": [
       "enterprise",
@@ -7945,7 +7945,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_logging.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_logging.png"
     },
     "tags": [
       "google"
@@ -7980,7 +7980,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_manufacturers.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_manufacturers.png"
     },
     "tags": [
       "google"
@@ -8016,7 +8016,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_mirror.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_mirror.png"
     },
     "tags": [
       "google"
@@ -8051,7 +8051,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_ml.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_ml.png"
     },
     "tags": [
       "machine learning",
@@ -8090,7 +8090,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_monitoring.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_monitoring.png"
     },
     "tags": [
       "google"
@@ -8128,7 +8128,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_oauth2.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_oauth2.png"
     },
     "tags": [
       "google"
@@ -8142,7 +8142,7 @@
     "description": "Analyzes the performance of a web page and provides tailored suggestions to make that page faster.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_pagespeedonline.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_pagespeedonline.png"
     },
     "tags": [
       "tools",
@@ -8157,7 +8157,7 @@
     "description": "Searches certified companies and creates contact leads with them, and also audits the usage of clients.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_partners.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_partners.png"
     },
     "tags": [
       "google"
@@ -8200,7 +8200,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_people.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_people.png"
     },
     "tags": [
       "google"
@@ -8235,7 +8235,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_playmoviespartner.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_playmoviespartner.png"
     },
     "tags": [
       "google"
@@ -8273,7 +8273,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_plus.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_plus.png"
     },
     "tags": [
       "social",
@@ -8318,7 +8318,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_plusdomains.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_plusdomains.png"
     },
     "tags": [
       "google"
@@ -8357,7 +8357,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_prediction.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_prediction.png"
     },
     "tags": [
       "prediction",
@@ -8393,7 +8393,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_proximitybeacon.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_proximitybeacon.png"
     },
     "tags": [
       "google"
@@ -8429,7 +8429,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_pubsub.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_pubsub.png"
     },
     "tags": [
       "messaging",
@@ -8444,7 +8444,7 @@
     "description": "Finds the least expensive flights between an origin and a destination.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_qpxexpress.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_qpxexpress.png"
     },
     "tags": [
       "google"
@@ -8482,7 +8482,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_replicapool.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_replicapool.png"
     },
     "tags": [
       "google"
@@ -8520,7 +8520,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_replicapoolupdater.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_replicapoolupdater.png"
     },
     "tags": [
       "google"
@@ -8556,7 +8556,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_reseller.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_reseller.png"
     },
     "tags": [
       "enterprise",
@@ -8597,7 +8597,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_resourceviews.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_resourceviews.png"
     },
     "tags": [
       "google"
@@ -8633,7 +8633,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_runtimeconfig.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_runtimeconfig.png"
     },
     "tags": [
       "google"
@@ -8647,7 +8647,7 @@
     "description": "The Safe Browsing API is an experimental API that allows client applications to check URLs against Google's constantly-u...",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_safebrowsing.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_safebrowsing.png"
     },
     "tags": [
       "security",
@@ -8693,7 +8693,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_script.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_script.png"
     },
     "tags": [
       "google"
@@ -8707,7 +8707,7 @@
     "description": "Provides tools for running validation tests against single URLs",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_searchconsole.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_searchconsole.png"
     },
     "tags": [
       "search",
@@ -8744,7 +8744,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_servicecontrol.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_servicecontrol.png"
     },
     "tags": [
       "google"
@@ -8782,7 +8782,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_servicemanagement.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_servicemanagement.png"
     },
     "tags": [
       "google"
@@ -8819,7 +8819,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_serviceuser.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_serviceuser.png"
     },
     "tags": [
       "google"
@@ -8857,7 +8857,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_sheets.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_sheets.png"
     },
     "tags": [
       "google"
@@ -8893,7 +8893,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_siteverification.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_siteverification.png"
     },
     "tags": [
       "google"
@@ -8933,7 +8933,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_slides.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_slides.png"
     },
     "tags": [
       "google"
@@ -8968,7 +8968,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_sourcerepo.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_sourcerepo.png"
     },
     "tags": [
       "google"
@@ -9003,7 +9003,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_spanner.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_spanner.png"
     },
     "tags": [
       "google"
@@ -9017,7 +9017,7 @@
     "description": "API for spectrum-management functions.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_spectrum.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_spectrum.png"
     },
     "tags": [
       "google"
@@ -9052,7 +9052,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_speech.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_speech.png"
     },
     "tags": [
       "google"
@@ -9088,7 +9088,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_sqladmin.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_sqladmin.png"
     },
     "tags": [
       "google"
@@ -9127,7 +9127,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_storage.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_storage.png"
     },
     "tags": [
       "storage",
@@ -9163,7 +9163,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_storagetransfer.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_storagetransfer.png"
     },
     "tags": [
       "storage",
@@ -9201,7 +9201,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_supportcases.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_supportcases.png"
     },
     "tags": [
       "google"
@@ -9238,7 +9238,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_surveys.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_surveys.png"
     },
     "tags": [
       "google"
@@ -9279,7 +9279,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_tagmanager.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_tagmanager.png"
     },
     "tags": [
       "google"
@@ -9315,7 +9315,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_taskqueue.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_taskqueue.png"
     },
     "tags": [
       "google"
@@ -9351,7 +9351,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_tasks.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_tasks.png"
     },
     "tags": [
       "time management",
@@ -9387,7 +9387,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_toolresults.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_toolresults.png"
     },
     "tags": [
       "google"
@@ -9424,7 +9424,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_tracing.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_tracing.png"
     },
     "tags": [
       "google"
@@ -9438,7 +9438,7 @@
     "description": "The Google Cloud Translation API lets websites and programs integrate with",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_translate.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_translate.png"
     },
     "tags": [
       "text",
@@ -9474,7 +9474,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_urlshortener.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_urlshortener.png"
     },
     "tags": [
       "tools",
@@ -9510,7 +9510,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_videointelligence.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_videointelligence.png"
     },
     "tags": [
       "google"
@@ -9545,7 +9545,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_vision.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_vision.png"
     },
     "tags": [
       "google"
@@ -9559,7 +9559,7 @@
     "description": "Accesses the metadata for all families served by Google Fonts, providing a list of families currently available (includi...",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_webfonts.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_webfonts.png"
     },
     "tags": [
       "google"
@@ -9595,7 +9595,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_webmasters.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_webmasters.png"
     },
     "tags": [
       "google"
@@ -9635,7 +9635,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_youtube.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_youtube.png"
     },
     "tags": [
       "google"
@@ -9674,7 +9674,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_youtubeanalytics.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_youtubeanalytics.png"
     },
     "tags": [
       "analytics",
@@ -9711,7 +9711,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_youtubereporting.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_youtubereporting.png"
     },
     "tags": [
       "analytics",
@@ -9765,7 +9765,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/gov_bc_ca_bcdc.jpeg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_bcdc.jpeg"
     },
     "tags": [
       "open data"
@@ -9779,7 +9779,7 @@
     "description": "This REST API provides searchable access to information about geographical names in the province of British Columbia, in...",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/gov_bc_ca_bcgnws.jpeg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_bcgnws.jpeg"
     },
     "tags": [
       "open data"
@@ -9800,7 +9800,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/gov_bc_ca_geocoder.jpeg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_geocoder.jpeg"
     },
     "tags": [
       "open data"
@@ -9814,7 +9814,7 @@
     "description": "The Geomark Web Service allows you to create and share geographic areas of interest over the web in a variety of formats...",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/gov_bc_ca_geomark.jpeg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_geomark.jpeg"
     },
     "tags": [
       "open data"
@@ -9828,7 +9828,7 @@
     "description": "This API allows you to receive a feed of jobs from WorkBC's Job Board. Please see our data collection notice.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/gov_bc_ca_jobposting.jpeg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_jobposting.jpeg"
     },
     "tags": [
       "open data"
@@ -9842,7 +9842,7 @@
     "description": "This API is DriveBC's implementation of the Open511 specification.  It provides information about known road events (tra...",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/gov_bc_ca_open511.jpeg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_open511.jpeg"
     },
     "tags": [
       "open data"
@@ -9863,7 +9863,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/gov_bc_ca_router.jpeg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_router.jpeg"
     },
     "tags": [
       "open data"
@@ -9884,7 +9884,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/graphhopper.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/graphhopper.png"
     },
     "tags": [
       "location"
@@ -9898,7 +9898,7 @@
     "description": "Put all those great ideas for Groupon improvements, extensions, and multiple-platform interfaces to work.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/groupon.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/groupon.jpg"
     },
     "tags": [],
     "actionCount": 6,
@@ -9918,7 +9918,7 @@
     "title": "Healthcare",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/healthcare_gov.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/healthcare_gov.png"
     },
     "tags": [
       "open data"
@@ -9955,7 +9955,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/heroku.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/heroku.png"
     },
     "tags": [],
     "actionCount": 32,
@@ -9966,7 +9966,7 @@
     "title": "hetras Booking API Version 0",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/hetras_certification_booking.gif"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hetras_certification_booking.gif"
     },
     "tags": [],
     "actionCount": 15,
@@ -9977,7 +9977,7 @@
     "title": "hetras Hotel API Version 0",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/hetras_certification_hotel.gif"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hetras_certification_hotel.gif"
     },
     "tags": [],
     "actionCount": 19,
@@ -9990,7 +9990,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#185394",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/hhs_gov.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hhs_gov.png"
     },
     "tags": [
       "open data"
@@ -10005,7 +10005,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#222222",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/idtbeyond.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/idtbeyond.png"
     },
     "tags": [
       "telecom"
@@ -10027,7 +10027,7 @@
     },
     "logo": {
       "backgroundColor": "#383D41",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/ijenko.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ijenko.png"
     },
     "tags": [
       "iot"
@@ -10048,7 +10048,7 @@
     },
     "logo": {
       "backgroundColor": "#F6248E",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/import_data.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/import_data.svg"
     },
     "tags": [
       "tools"
@@ -10069,7 +10069,7 @@
     },
     "logo": {
       "backgroundColor": "#F6248E",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/import_extraction.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/import_extraction.svg"
     },
     "tags": [
       "tools"
@@ -10090,7 +10090,7 @@
     },
     "logo": {
       "backgroundColor": "#F6248E",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/import_rss.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/import_rss.svg"
     },
     "tags": [
       "tools"
@@ -10111,7 +10111,7 @@
     },
     "logo": {
       "backgroundColor": "#F6248E",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/import_run.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/import_run.svg"
     },
     "tags": [
       "tools"
@@ -10132,7 +10132,7 @@
     },
     "logo": {
       "backgroundColor": "#F6248E",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/import_schedule.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/import_schedule.svg"
     },
     "tags": [
       "tools"
@@ -10153,7 +10153,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/inboxroute.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/inboxroute.png"
     },
     "tags": [
       "email",
@@ -10169,7 +10169,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#1576D1",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/infermedica.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/infermedica.png"
     },
     "tags": [],
     "actionCount": 9,
@@ -10181,7 +10181,7 @@
     "description": "Search our rich and robust data on companies and people. Utilize our fuzzy matching to power your new app or website wit...",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/infoconnect.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/infoconnect.jpg"
     },
     "tags": [],
     "actionCount": 12,
@@ -10218,7 +10218,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/instagram.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/instagram.jpg"
     },
     "tags": [
       "social",
@@ -10254,7 +10254,7 @@
     },
     "logo": {
       "backgroundColor": "#4BC9C5",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/jirafe.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/jirafe.png"
     },
     "tags": [
       "marketing"
@@ -10284,7 +10284,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#000000",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/learnifier.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/learnifier.png"
     },
     "tags": [
       "education"
@@ -10319,7 +10319,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/linkedin.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/linkedin.png"
     },
     "tags": [],
     "actionCount": 20,
@@ -10355,7 +10355,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/lyft.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/lyft.jpg"
     },
     "tags": [
       "location"
@@ -10369,7 +10369,7 @@
     "description": "Magento Commerce is the leading provider of open omnichannel innovation.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/magento.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/magento.svg"
     },
     "tags": [
       "ecommerce"
@@ -10383,7 +10383,7 @@
     "description": "Authentication is required to access all methods of the API. Enter username and password.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/magick_nu.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/magick_nu.png"
     },
     "tags": [
       "financial"
@@ -10404,7 +10404,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/mailchimp.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mailchimp.jpg"
     },
     "tags": [],
     "actionCount": 96,
@@ -10416,7 +10416,7 @@
     "description": "Mandrill is a reliable, scalable, and secure delivery API for transactional emails from websites and applications. It's ...",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/mandrillapp.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mandrillapp.png"
     },
     "tags": [
       "email",
@@ -10456,7 +10456,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/medium.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/medium.png"
     },
     "tags": [
       "media",
@@ -10478,7 +10478,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/microsoft_security_updates.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/microsoft_security_updates.png"
     },
     "tags": [
       "security"
@@ -10493,7 +10493,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#000000",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/moonmoonmoonmoon.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/moonmoonmoonmoon.png"
     },
     "tags": [],
     "actionCount": 2,
@@ -10522,7 +10522,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/motaword.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/motaword.png"
     },
     "tags": [],
     "actionCount": 45,
@@ -10542,7 +10542,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/mozilla_kinto.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/mozilla_kinto.png"
     },
     "tags": [
       "cloud"
@@ -10556,7 +10556,7 @@
     "description": "Create apps and games within the MySpace platform. Monetize through advertising and virtual goods.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/myspace.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/myspace.png"
     },
     "tags": [],
     "actionCount": 52,
@@ -10568,7 +10568,7 @@
     "description": "This is a Native Ads Publisher API it provides same functionality as Native Ads Publisher Account GUI.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nativeads.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nativeads.png"
     },
     "tags": [],
     "actionCount": 4,
@@ -10580,7 +10580,7 @@
     "description": "The destination for current and historic NBA statistics.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nba.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nba.png"
     },
     "tags": [
       "media",
@@ -10631,7 +10631,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/netatmo.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/netatmo.png"
     },
     "tags": [
       "iot"
@@ -10654,7 +10654,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/netlicensing.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/netlicensing.png"
     },
     "tags": [],
     "actionCount": 39,
@@ -10675,7 +10675,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/neutrinoapi.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/neutrinoapi.png"
     },
     "tags": [
       "email",
@@ -10693,7 +10693,7 @@
     "description": "Advanced Caller ID. Obtain name, address, and email of your inbound callers.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nextcaller.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nextcaller.png"
     },
     "tags": [],
     "actionCount": 2,
@@ -10721,7 +10721,7 @@
     },
     "logo": {
       "backgroundColor": "#0079C5",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nrel_building_case_studies.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nrel_building_case_studies.png"
     },
     "tags": [
       "open data"
@@ -10743,7 +10743,7 @@
     },
     "logo": {
       "backgroundColor": "#0079C5",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nrel_transportation_incentives_laws.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nrel_transportation_incentives_laws.png"
     },
     "tags": [
       "open data"
@@ -10757,7 +10757,7 @@
     "description": "This API allows programmers to build National Snow and Ice Data Center data and metadata services into their application...",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nsidc.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nsidc.jpg"
     },
     "tags": [
       "open data"
@@ -10778,7 +10778,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nytimes_article_search.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_article_search.png"
     },
     "tags": [
       "media",
@@ -10800,7 +10800,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nytimes_books_api.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_books_api.png"
     },
     "tags": [
       "media",
@@ -10822,7 +10822,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nytimes_community.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_community.png"
     },
     "tags": [
       "media",
@@ -10844,7 +10844,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nytimes_geo_api.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_geo_api.png"
     },
     "tags": [
       "media",
@@ -10866,7 +10866,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nytimes_most_popular_api.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_most_popular_api.png"
     },
     "tags": [
       "media",
@@ -10888,7 +10888,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nytimes_movie_reviews.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_movie_reviews.png"
     },
     "tags": [
       "media",
@@ -10918,7 +10918,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nytimes_semantic_api.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_semantic_api.png"
     },
     "tags": [
       "media",
@@ -10940,7 +10940,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nytimes_times_tags.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_times_tags.png"
     },
     "tags": [
       "media",
@@ -10962,7 +10962,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nytimes_timeswire.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_timeswire.png"
     },
     "tags": [
       "media",
@@ -10984,7 +10984,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nytimes_top_stories.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nytimes_top_stories.png"
     },
     "tags": [
       "media",
@@ -11011,7 +11011,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/omdbapi.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/omdbapi.png"
     },
     "tags": [
       "media",
@@ -11026,7 +11026,7 @@
     "description": "Easily capture content into OneNote with this REST API.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/onenote.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/onenote.png"
     },
     "tags": [],
     "actionCount": 19,
@@ -11039,7 +11039,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/openapi_converter_herokuapp.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/openapi_converter_herokuapp.png"
     },
     "tags": [
       "developer tools"
@@ -11053,7 +11053,7 @@
     "description": "Worldwide forward and reverse geocoding",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/opencagedata.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/opencagedata.png"
     },
     "tags": [
       "location"
@@ -11074,7 +11074,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/orghunter.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/orghunter.jpg"
     },
     "tags": [],
     "actionCount": 6,
@@ -11093,7 +11093,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/owler.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/owler.png"
     },
     "tags": [
       "search"
@@ -11106,7 +11106,7 @@
     "title": "Oxford Dictionaries",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/oxforddictionaries.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/oxforddictionaries.png"
     },
     "tags": [
       "text"
@@ -11148,7 +11148,7 @@
     "description": "The recommended REST API endpoints to be used when integrating with PatientView",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/patientview.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/patientview.png"
     },
     "tags": [],
     "actionCount": 15,
@@ -11160,7 +11160,7 @@
     "description": "Bring payments to apps, mobile and social with Adaptive Payments (Sandbox API).",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/paypal.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/paypal.png"
     },
     "tags": [],
     "actionCount": 32,
@@ -11172,7 +11172,7 @@
     "description": "The machine learning service APIs utilize hashtags from Twitter to find related, trending shows, related Twitter hashtag...",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/peel_ci.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/peel_ci.svg"
     },
     "tags": [
       "media"
@@ -11186,7 +11186,7 @@
     "description": "Create buttons to export images from Picasa into other apps and services. (Active but deprecated by Google)",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/picasa.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/picasa.jpg"
     },
     "tags": [],
     "actionCount": 14,
@@ -11198,7 +11198,7 @@
     "description": "Store, manage and share bookmarks on Pinboard",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/pinboard.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/pinboard.png"
     },
     "tags": [],
     "actionCount": 12,
@@ -11210,7 +11210,7 @@
     "description": "Access and manipulate agile project management data including projects, stories and tasks.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/pivotaltracker.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/pivotaltracker.png"
     },
     "tags": [],
     "actionCount": 31,
@@ -11222,7 +11222,7 @@
     "description": "Send emails, retrieve bounces and start accepting inbound emails, all via an easy-to-use HTTP API.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/postmark.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/postmark.png"
     },
     "tags": [],
     "actionCount": 10,
@@ -11263,7 +11263,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/producthunt.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/producthunt.png"
     },
     "tags": [],
     "actionCount": 4,
@@ -11282,7 +11282,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/quandl.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/quandl.png"
     },
     "tags": [],
     "actionCount": 8,
@@ -11301,7 +11301,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/rbaskets_in.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/rbaskets_in.svg"
     },
     "tags": [],
     "actionCount": 9,
@@ -11324,7 +11324,7 @@
     },
     "logo": {
       "backgroundColor": "#0033A0",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/rebilly.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/rebilly.svg"
     },
     "tags": [
       "payment",
@@ -11382,7 +11382,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/reddit.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/reddit.svg"
     },
     "tags": [],
     "actionCount": 199,
@@ -11403,7 +11403,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#4C4C4C",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/refugerestrooms.jpeg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/refugerestrooms.jpeg"
     },
     "tags": [
       "open data"
@@ -11451,7 +11451,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/reverb.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/reverb.svg"
     },
     "tags": [
       "ecommerce"
@@ -11465,7 +11465,7 @@
     "description": "Access Rhapsody technologies and content, including metadeta, search and music player.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/rhapsody.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/rhapsody.png"
     },
     "tags": [],
     "actionCount": 20,
@@ -11484,7 +11484,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/ritc.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/ritc.jpg"
     },
     "tags": [
       "cloud"
@@ -11505,7 +11505,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/rottentomatoes.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/rottentomatoes.jpg"
     },
     "tags": [
       "media"
@@ -11519,7 +11519,7 @@
     "description": "Interact with RubyGems.org to query and create gems, mange owners and more.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/rubygems.ico"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/rubygems.ico"
     },
     "tags": [],
     "actionCount": 24,
@@ -11531,7 +11531,7 @@
     "description": "Seldon is an Open Predictive Platform that currently allows item recommendations and general predictive models to be dep...",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/rummblelabs.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/rummblelabs.png"
     },
     "tags": [
       "machine learning"
@@ -11573,7 +11573,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/runscope.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/runscope.png"
     },
     "tags": [
       "developer tools"
@@ -11613,7 +11613,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/salesforce.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/salesforce.png"
     },
     "tags": [],
     "actionCount": 17,
@@ -11625,7 +11625,7 @@
     "description": "Create applications for the social enterprise with Salesforce's collaboration platform",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/salesforcechatter.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/salesforcechatter.png"
     },
     "tags": [],
     "actionCount": 58,
@@ -11661,7 +11661,7 @@
     "description": "Semantria applies Text and Sentiment Analysis to tweets, facebook posts, surveys, reviews or enterprise content.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/semantria.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/semantria.png"
     },
     "tags": [
       "social",
@@ -11683,7 +11683,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/sendgrid.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/sendgrid.png"
     },
     "tags": [
       "email",
@@ -11698,7 +11698,7 @@
     "description": "Shopping.com offers Publishers rich content via the Shopping.com's API.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/shopping_com.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/shopping_com.jpg"
     },
     "tags": [],
     "actionCount": 2,
@@ -11727,7 +11727,7 @@
     "description": "Interact with Skyrock.com features: blogs, profiles, messaging, 'what's new', friends & activities!",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/skyrock.jpeg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/skyrock.jpeg"
     },
     "tags": [],
     "actionCount": 70,
@@ -11800,7 +11800,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/slack.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/slack.png"
     },
     "tags": [
       "collaboration",
@@ -11816,7 +11816,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#000000",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/slideroom.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/slideroom.png"
     },
     "tags": [],
     "actionCount": 11,
@@ -11836,7 +11836,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/smart_me.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/smart_me.png"
     },
     "tags": [],
     "actionCount": 23,
@@ -11855,7 +11855,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/solarvps.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/solarvps.png"
     },
     "tags": [],
     "actionCount": 20,
@@ -11883,7 +11883,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/soundcloud.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/soundcloud.png"
     },
     "tags": [],
     "actionCount": 52,
@@ -11895,7 +11895,7 @@
     "description": "This is an API designed for merchants who are using SpectroCoin services and wishes to integrate them locally.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/spectrocoin.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/spectrocoin.svg"
     },
     "tags": [
       "ecommerce",
@@ -11941,7 +11941,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/spotify.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/spotify.png"
     },
     "tags": [
       "media"
@@ -11989,7 +11989,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/squareup.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/squareup.png"
     },
     "tags": [
       "payment"
@@ -12021,7 +12021,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/stackexchange.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/stackexchange.png"
     },
     "tags": [
       "collaboration",
@@ -12044,7 +12044,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/statsocial.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/statsocial.svg"
     },
     "tags": [
       "social",
@@ -12060,7 +12060,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#98C600",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/swagger_generator.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/swagger_generator.png"
     },
     "tags": [
       "developer tools",
@@ -12082,7 +12082,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/swaggerhub.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/swaggerhub.jpg"
     },
     "tags": [
       "developer tools"
@@ -12096,7 +12096,7 @@
     "description": "* [Sign up for a developer API key!](https://www.synq.fm/register)",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/synq_fm.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/synq_fm.jpg"
     },
     "tags": [
       "media"
@@ -12110,7 +12110,7 @@
     "description": "Magento Commerce is the leading provider of open omnichannel innovation.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/t213_vg.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/t213_vg.svg"
     },
     "tags": [
       "ecommerce"
@@ -12131,7 +12131,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/taxamo.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/taxamo.png"
     },
     "tags": [
       "payment"
@@ -12153,7 +12153,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/tfl_gov_uk.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/tfl_gov_uk.jpg"
     },
     "tags": [
       "location",
@@ -12168,7 +12168,7 @@
     "description": "Icons for Everything",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/thenounproject.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/thenounproject.png"
     },
     "tags": [],
     "actionCount": 13,
@@ -12187,7 +12187,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/thetvdb.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/thetvdb.png"
     },
     "tags": [
       "media",
@@ -12210,7 +12210,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/traccar.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/traccar.png"
     },
     "tags": [
       "location"
@@ -12232,7 +12232,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/trello.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/trello.svg"
     },
     "tags": [
       "collaboration"
@@ -12262,7 +12262,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/tumblr.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/tumblr.png"
     },
     "tags": [],
     "actionCount": 18,
@@ -12282,7 +12282,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/twilio.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/twilio.svg"
     },
     "tags": [
       "telecom",
@@ -12297,7 +12297,7 @@
     "description": "Enable people to store spots on public and private maps",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/uebermaps.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/uebermaps.jpg"
     },
     "tags": [
       "location"
@@ -12311,7 +12311,7 @@
     "description": "The Urban Airship's API powers mobile applications with push, rich push, in-app purchases and subscription services.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/urbanairship.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/urbanairship.png"
     },
     "tags": [],
     "actionCount": 59,
@@ -12330,7 +12330,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/vatapi.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/vatapi.jpg"
     },
     "tags": [],
     "actionCount": 10,
@@ -12342,7 +12342,7 @@
     "description": "VersionEye is a cross-platform search engine for free/libre/open source software libraries.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/versioneye.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/versioneye.png"
     },
     "tags": [
       "open data",
@@ -12358,7 +12358,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#252832",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/vestorly.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/vestorly.png"
     },
     "tags": [
       "marketing"
@@ -12372,7 +12372,7 @@
     "description": "This API allows you to interact with the VictorOps platform in various ways. Your account may be limited",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/victorops.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/victorops.jpg"
     },
     "tags": [
       "developer tools"
@@ -12393,7 +12393,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/visagecloud.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/visagecloud.png"
     },
     "tags": [
       "search"
@@ -12407,7 +12407,7 @@
     "description": "An API for the distribution and annotation of open data, for small cities and big metropolitan areas.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/waag.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/waag.svg"
     },
     "tags": [
       "open data"
@@ -12421,7 +12421,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#1B4E65",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/watchful_li.svg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/watchful_li.svg"
     },
     "tags": [],
     "actionCount": 61,
@@ -12442,7 +12442,7 @@
     },
     "logo": {
       "backgroundColor": "#050917",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/wavecell.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wavecell.jpg"
     },
     "tags": [
       "messaging"
@@ -12465,7 +12465,7 @@
     },
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/wealthport.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wealthport.png"
     },
     "tags": [
       "analytics",
@@ -12487,7 +12487,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/wikimedia.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wikimedia.png"
     },
     "tags": [
       "media"
@@ -12521,7 +12521,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/windows_arm_graphrbac.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/windows_arm_graphrbac.png"
     },
     "tags": [],
     "actionCount": 34,
@@ -12533,7 +12533,7 @@
     "description": "A client for issuing REST requests to the Azure Batch service.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/windows_batch.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/windows_batch.png"
     },
     "tags": [],
     "actionCount": 74,
@@ -12552,7 +12552,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/winning_email.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/winning_email.png"
     },
     "tags": [
       "email",
@@ -12574,7 +12574,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/wordnik.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wordnik.png"
     },
     "tags": [
       "text"
@@ -12588,7 +12588,7 @@
     "description": "Webcomic of romance, sarcasm, math, and language.",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/xkcd.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/xkcd.png"
     },
     "tags": [
       "media"
@@ -12602,7 +12602,7 @@
     "description": "Use YP Places API to power your web and mobile apps with business listings, reviews, maps and much more...",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/yellowpages.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/yellowpages.png"
     },
     "tags": [],
     "actionCount": 4,
@@ -12614,7 +12614,7 @@
     "description": "Youphoric SMS API allows you to create and launch SMS-based apps quickly to reach Smart subscribers in the Philippines. ",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/youphoric.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/youphoric.png"
     },
     "tags": [],
     "actionCount": 2,
@@ -12626,7 +12626,7 @@
     "description": "Professional Cloud Trading Platform for Digital Assets",
     "security": {},
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/yunbi.jpg"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/yunbi.jpg"
     },
     "tags": [
       "financial"
@@ -12641,7 +12641,7 @@
     "security": {},
     "logo": {
       "backgroundColor": "#FFFFFF",
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/zappiti.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/zappiti.png"
     },
     "tags": [
       "entertainment"
@@ -12663,7 +12663,7 @@
       }
     },
     "logo": {
-      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/zoomconnect.png"
+      "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/zoomconnect.png"
     },
     "tags": [
       "messaging",

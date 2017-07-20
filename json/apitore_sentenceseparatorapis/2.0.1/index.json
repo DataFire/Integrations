@@ -4,7 +4,7 @@
   "description": "Simple sentence separator.<BR />[Endpoint] https://api.apitore.com/api/17",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_sentenceseparatorapis.jpg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_sentenceseparatorapis.jpg"
   },
   "tags": [],
   "definitions": {

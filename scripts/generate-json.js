@@ -7,7 +7,7 @@ const args = require('yargs').argv;
 const iterateIntegs = require('./iterate-integrations');
 
 const MAX_DESCRIPTION_LENGTH = 120;
-const LOGO_BASE = 'http://datafire-logos.s3-website-us-west-2.amazonaws.com'
+const LOGO_BASE = 'https://s3-us-west-2.amazonaws.com/datafire-logos';
 
 const maybeMkdirp = (dir) => {
   try {

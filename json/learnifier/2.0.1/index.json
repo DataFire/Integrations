@@ -5,7 +5,7 @@
   "security": {},
   "logo": {
     "backgroundColor": "#000000",
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/learnifier.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/learnifier.png"
   },
   "tags": [
     "education"

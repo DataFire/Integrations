@@ -5,7 +5,7 @@
   "security": {},
   "logo": {
     "backgroundColor": "#252832",
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/vestorly.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/vestorly.png"
   },
   "tags": [
     "marketing"

@@ -4,7 +4,7 @@
   "description": "Authentication is required to access all methods of the API. Enter username and password.\n                Credentials are automatically set as you type.",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/magick_nu.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/magick_nu.png"
   },
   "tags": [
     "financial"

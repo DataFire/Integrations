@@ -12,7 +12,7 @@
   },
   "logo": {
     "backgroundColor": "#FFFFFF",
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/deutschebahn_fasta.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/deutschebahn_fasta.png"
   },
   "tags": [
     "open data"

@@ -29,7 +29,7 @@
     }
   },
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/instagram.jpg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/instagram.jpg"
   },
   "tags": [
     "social",

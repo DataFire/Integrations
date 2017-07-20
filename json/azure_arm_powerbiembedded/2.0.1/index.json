@@ -4,7 +4,7 @@
   "description": "Client to manage your Power BI Embedded workspace collections and retrieve workspaces.",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_powerbiembedded.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_powerbiembedded.png"
   },
   "tags": [
     "cloud",

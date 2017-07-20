@@ -11,7 +11,7 @@
     }
   },
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/rbaskets_in.svg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/rbaskets_in.svg"
   },
   "tags": [],
   "definitions": {

@@ -5,7 +5,7 @@
   "security": {},
   "logo": {
     "backgroundColor": "#222222",
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/exavault.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/exavault.png"
   },
   "tags": [
     "storage"

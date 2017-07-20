@@ -4,7 +4,7 @@
   "description": "Shopping.com offers Publishers rich content via the Shopping.com's API.",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/shopping_com.jpg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/shopping_com.jpg"
   },
   "tags": [],
   "actions": [

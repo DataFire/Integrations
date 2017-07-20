@@ -4,7 +4,7 @@
   "description": "Send emails, retrieve bounces and start accepting inbound emails, all via an easy-to-use HTTP API.",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/postmark.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/postmark.png"
   },
   "tags": [],
   "actions": [

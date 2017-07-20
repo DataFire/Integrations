@@ -4,7 +4,7 @@
   "description": "Word2Vec.<BR />[Endpoint] https://api.apitore.com/api/8",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_word2vecapis.jpg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_word2vecapis.jpg"
   },
   "tags": [],
   "definitions": {

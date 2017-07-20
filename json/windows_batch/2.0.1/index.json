@@ -4,7 +4,7 @@
   "description": "A client for issuing REST requests to the Azure Batch service.",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/windows_batch.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/windows_batch.png"
   },
   "tags": [],
   "definitions": {

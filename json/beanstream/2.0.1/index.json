@@ -4,7 +4,7 @@
   "description": "https://www.beanstream.com/api/v1",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/beanstream.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/beanstream.png"
   },
   "tags": [
     "payment",

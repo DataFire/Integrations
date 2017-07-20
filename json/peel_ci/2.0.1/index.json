@@ -4,7 +4,7 @@
   "description": "The machine learning service APIs utilize hashtags from Twitter to find related, trending shows, related Twitter hashtags in real time and to generate direct tune-in URLs.",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/peel_ci.svg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/peel_ci.svg"
   },
   "tags": [
     "media"

@@ -4,7 +4,7 @@
   "description": "Access and manipulate agile project management data including projects, stories and tasks.",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/pivotaltracker.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/pivotaltracker.png"
   },
   "tags": [],
   "actions": [

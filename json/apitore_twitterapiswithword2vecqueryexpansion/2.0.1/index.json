@@ -4,7 +4,7 @@
   "description": "Call Twitter APIs with word2vec query expansion.<BR />[Endpoint] https://api.apitore.com/api/24",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_twitterapiswithword2vecqueryexpansion.jpg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_twitterapiswithword2vecqueryexpansion.jpg"
   },
   "tags": [],
   "definitions": {

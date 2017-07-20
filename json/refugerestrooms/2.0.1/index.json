@@ -5,7 +5,7 @@
   "security": {},
   "logo": {
     "backgroundColor": "#4C4C4C",
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/refugerestrooms.jpeg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/refugerestrooms.jpeg"
   },
   "tags": [
     "open data"

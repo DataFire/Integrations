@@ -4,7 +4,7 @@
   "description": "The Box Authorization API gives you access to authenticate and authorize an application to work with the Box APIs",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/box_authorization.jpg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/box_authorization.jpg"
   },
   "tags": [
     "cloud"

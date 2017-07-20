@@ -4,7 +4,7 @@
   "description": "Various travel feeds.<BR />[Endpoint] https://api.apitore.com/api/36",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_travelfeedsapis.jpg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_travelfeedsapis.jpg"
   },
   "tags": [],
   "definitions": {

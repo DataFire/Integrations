@@ -5,7 +5,7 @@
   "security": {},
   "logo": {
     "backgroundColor": "#185394",
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/hhs_gov.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/hhs_gov.png"
   },
   "tags": [
     "open data"

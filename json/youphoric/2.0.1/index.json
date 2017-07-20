@@ -4,7 +4,7 @@
   "description": "Youphoric SMS API allows you to create and launch SMS-based apps quickly to reach Smart subscribers in the Philippines. ",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/youphoric.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/youphoric.png"
   },
   "tags": [],
   "actions": [

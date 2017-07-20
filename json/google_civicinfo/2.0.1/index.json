@@ -4,7 +4,7 @@
   "description": "Provides polling places, early vote locations, contest data, election officials, and government representatives for U.S. residential addresses.",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_civicinfo.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_civicinfo.png"
   },
   "tags": [
     "google"

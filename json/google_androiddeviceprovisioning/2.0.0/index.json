@@ -4,7 +4,7 @@
   "description": "Android Device Provisioning Partner API",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_androiddeviceprovisioning.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_androiddeviceprovisioning.png"
   },
   "tags": [
     "google"

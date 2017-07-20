@@ -12,7 +12,7 @@
   },
   "logo": {
     "backgroundColor": "#0079C5",
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nrel_building_case_studies.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nrel_building_case_studies.png"
   },
   "tags": [
     "open data"

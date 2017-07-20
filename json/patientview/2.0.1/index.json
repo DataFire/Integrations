@@ -4,7 +4,7 @@
   "description": "The recommended REST API endpoints to be used when integrating with PatientView",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/patientview.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/patientview.png"
   },
   "tags": [],
   "definitions": {

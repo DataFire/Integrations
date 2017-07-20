@@ -4,7 +4,7 @@
   "description": "Rss to Json.<BR />[Endpoint] https://api.apitore.com/api/28",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_rss2jsonapis.jpg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_rss2jsonapis.jpg"
   },
   "tags": [],
   "definitions": {

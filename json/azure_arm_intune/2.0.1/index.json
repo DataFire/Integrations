@@ -4,7 +4,7 @@
   "description": "Microsoft.Intune Resource provider Api features in the swagger-2.0 specification",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_intune.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_intune.png"
   },
   "tags": [
     "enterprise",

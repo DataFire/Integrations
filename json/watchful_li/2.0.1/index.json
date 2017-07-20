@@ -5,7 +5,7 @@
   "security": {},
   "logo": {
     "backgroundColor": "#1B4E65",
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/watchful_li.svg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/watchful_li.svg"
   },
   "tags": [],
   "definitions": {

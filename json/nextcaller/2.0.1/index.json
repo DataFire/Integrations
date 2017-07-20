@@ -4,7 +4,7 @@
   "description": "Advanced Caller ID. Obtain name, address, and email of your inbound callers.",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nextcaller.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/nextcaller.png"
   },
   "tags": [],
   "actions": [

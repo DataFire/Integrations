@@ -4,7 +4,7 @@
   "description": "Use YP Places API to power your web and mobile apps with business listings, reviews, maps and much more...",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/yellowpages.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/yellowpages.png"
   },
   "tags": [],
   "actions": [

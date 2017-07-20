@@ -4,7 +4,7 @@
   "description": "Create applications for the social enterprise with Salesforce's collaboration platform",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/salesforcechatter.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/salesforcechatter.png"
   },
   "tags": [],
   "actions": [

@@ -4,7 +4,7 @@
   "description": "Create buttons to export images from Picasa into other apps and services. (Active but deprecated by Google)",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/picasa.jpg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/picasa.jpg"
   },
   "tags": [],
   "actions": [

@@ -4,7 +4,7 @@
   "description": "The Safe Browsing API is an experimental API that allows client applications to check URLs against Google's constantly-updated blacklists of suspected phishing and malware pages. Your client application can use the API to download an encrypted table for local, client-side lookups of URLs.",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_safebrowsing.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_safebrowsing.png"
   },
   "tags": [
     "security",

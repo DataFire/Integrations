@@ -4,7 +4,7 @@
   "description": "Provides read functionality for Azure SQL Database Backups",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/azure_arm_sql.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/azure_arm_sql.png"
   },
   "tags": [
     "enterprise",

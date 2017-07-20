@@ -5,7 +5,7 @@
   "security": {},
   "logo": {
     "backgroundColor": "#98C600",
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/swagger_generator.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/swagger_generator.png"
   },
   "tags": [
     "developer tools",

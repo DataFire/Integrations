@@ -22,7 +22,7 @@
     }
   },
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/stackexchange.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/stackexchange.png"
   },
   "tags": [
     "collaboration",

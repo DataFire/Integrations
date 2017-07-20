@@ -4,7 +4,7 @@
   "description": "Url to label by tfidf of contents.<BR />[Endpoint] https://api.apitore.com/api/20",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_url2labelbytfidfapis.jpg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_url2labelbytfidfapis.jpg"
   },
   "tags": [],
   "definitions": {

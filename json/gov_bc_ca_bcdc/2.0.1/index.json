@@ -43,7 +43,7 @@
     }
   },
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/gov_bc_ca_bcdc.jpeg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/gov_bc_ca_bcdc.jpeg"
   },
   "tags": [
     "open data"

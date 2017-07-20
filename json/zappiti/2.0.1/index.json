@@ -5,7 +5,7 @@
   "security": {},
   "logo": {
     "backgroundColor": "#FFFFFF",
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/zappiti.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/zappiti.png"
   },
   "tags": [
     "entertainment"

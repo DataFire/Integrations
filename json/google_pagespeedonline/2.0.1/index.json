@@ -4,7 +4,7 @@
   "description": "Analyzes the performance of a web page and provides tailored suggestions to make that page faster.",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_pagespeedonline.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_pagespeedonline.png"
   },
   "tags": [
     "tools",

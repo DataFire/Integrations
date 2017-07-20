@@ -12,7 +12,7 @@
   },
   "logo": {
     "backgroundColor": "#F6248E",
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/import_data.svg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/import_data.svg"
   },
   "tags": [
     "tools"

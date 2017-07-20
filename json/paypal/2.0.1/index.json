@@ -4,7 +4,7 @@
   "description": "Bring payments to apps, mobile and social with Adaptive Payments <b>(Sandbox API).</b>",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/paypal.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/paypal.png"
   },
   "tags": [],
   "actions": [

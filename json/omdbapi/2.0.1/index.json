@@ -5,7 +5,7 @@
   "security": {},
   "logo": {
     "backgroundColor": "#FFFFFF",
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/omdbapi.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/omdbapi.png"
   },
   "tags": [
     "media",

@@ -4,7 +4,7 @@
   "description": "Access Rhapsody technologies and content, including metadeta, search and music player.",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/rhapsody.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/rhapsody.png"
   },
   "tags": [],
   "actions": [

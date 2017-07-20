@@ -29,7 +29,7 @@
     }
   },
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_storage.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_storage.png"
   },
   "tags": [
     "storage",

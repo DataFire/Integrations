@@ -4,7 +4,7 @@
   "description": "The Box Token API provides methods to retrieve an access token and revoke an access token. An access token is a data string that enables Box to verify that a request belongs to an authorized session. In the normal order of operations you will being by requesting authentication from the Box.",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/box_token.jpg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/box_token.jpg"
   },
   "tags": [
     "cloud"

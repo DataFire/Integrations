@@ -4,7 +4,7 @@
   "description": "Interact with RubyGems.org to query and create gems, mange owners and more.",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/rubygems.ico"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/rubygems.ico"
   },
   "tags": [],
   "actions": [

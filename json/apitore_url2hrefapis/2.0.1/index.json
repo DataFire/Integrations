@@ -4,7 +4,7 @@
   "description": "Url to Href links.<BR />[Endpoint] https://api.apitore.com/api/14",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_url2hrefapis.jpg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_url2hrefapis.jpg"
   },
   "tags": [],
   "definitions": {

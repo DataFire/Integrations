@@ -4,7 +4,7 @@
   "description": "Put all those great ideas for Groupon improvements, extensions, and multiple-platform interfaces to work.",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/groupon.jpg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/groupon.jpg"
   },
   "tags": [],
   "actions": [

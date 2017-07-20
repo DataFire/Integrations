@@ -4,7 +4,7 @@
   "description": "Provides information about other Google APIs, such as what APIs are available, the resource, and method details for each API.",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_discovery.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_discovery.png"
   },
   "tags": [
     "google"

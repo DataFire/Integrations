@@ -5,7 +5,7 @@
   "security": {},
   "logo": {
     "backgroundColor": "#5F6166",
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/citrix_scim.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/citrix_scim.png"
   },
   "tags": [],
   "definitions": {

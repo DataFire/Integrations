@@ -4,7 +4,7 @@
   "description": "Various blog feeds.<BR />[Endpoint] https://api.apitore.com/api/30",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_pioneerblogfeedsapis.jpg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_pioneerblogfeedsapis.jpg"
   },
   "tags": [],
   "definitions": {

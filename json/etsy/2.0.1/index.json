@@ -4,7 +4,7 @@
   "description": "Bring Etsy's handmade marketplace and community into your apps.",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/etsy.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/etsy.png"
   },
   "tags": [],
   "actions": [

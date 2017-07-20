@@ -4,7 +4,7 @@
   "description": "Retrieves the list of AMP URL (and equivalent AMP Cache URL) for a given list of public URL(s).\n",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_acceleratedmobilepageurl.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_acceleratedmobilepageurl.png"
   },
   "tags": [
     "google"

@@ -4,7 +4,7 @@
   "description": "Url to Html.<BR />[Endpoint] https://api.apitore.com/api/12",
   "security": {},
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/apitore_url2htmlapis.jpg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/apitore_url2htmlapis.jpg"
   },
   "tags": [],
   "definitions": {

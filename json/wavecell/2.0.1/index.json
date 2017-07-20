@@ -13,7 +13,7 @@
   },
   "logo": {
     "backgroundColor": "#050917",
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/wavecell.jpg"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/wavecell.jpg"
   },
   "tags": [
     "messaging"

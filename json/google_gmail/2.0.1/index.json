@@ -34,7 +34,7 @@
     }
   },
   "logo": {
-    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/google_gmail.png"
+    "url": "https://s3-us-west-2.amazonaws.com/datafire-logos/google_gmail.png"
   },
   "tags": [
     "email",
