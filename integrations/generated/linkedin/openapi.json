@@ -1,0 +1,648 @@
+{
+  "swagger": "2.0",
+  "host": "api.linkedin.com",
+  "basePath": "/v1",
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "OAuth": {
+      "type": "oauth2",
+      "flow": "application",
+      "scopes": {
+        "r_basicprofile": "",
+        "r_emailaddress": "",
+        "rw_company_admin": "",
+        "w_share": ""
+      }
+    }
+  },
+  "paths": {
+    "/people/~?format=json": {
+      "parameters": [
+        {
+          "name": "Accept-Language",
+          "required": false,
+          "in": "header",
+          "type": "string",
+          "default": "es-ES, en-US, it-IT",
+          "description": "Some members have profiles in multiple languages. To specify the language you prefer, set the values to a comma separated list of locales ordered from highest to lowest preference. For example, if your preferred order is Spanish, then English (American), and finally Italian, your header should be: Accept-Language: es-ES, en-US, it-IT. At present, we will always return data if possible. So, if you specify just one locale, but the member hasn't localized her profile for that locale, we will return data in her primary language. We support any language the member has specified. For example, for Simplified Chinese, use zh-CN. However, the six most popular languages are: en-US, fr-FR, de-DE, it-IT, pt-BR and es-ES."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "externalDocs": {
+          "url": "https://developer.linkedin.com/docs/signin-with-linkedin"
+        },
+        "operationId": "people._format_json.get"
+      }
+    },
+    "/people/~:(id,num-connections,picture-url)?format=json": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "externalDocs": {
+          "url": "https://developer.linkedin.com/docs/signin-with-linkedin"
+        },
+        "operationId": "people._id_num_connections_picture_url_format_json.get"
+      }
+    },
+    "/people/~/shares?format=json": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "The content type."
+          },
+          {
+            "name": "x-li-format",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "json",
+            "description": "The content type."
+          }
+        ],
+        "externalDocs": {
+          "url": "https://developer.linkedin.com/docs/share-on-linkedin"
+        },
+        "operationId": "people._.shares_format_json.post"
+      }
+    },
+    "/companies/{id}/is-company-share-enabled?format=json": {
+      "parameters": [
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "1337",
+          "description": "The unique internal numeric company identifier."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "externalDocs": {
+          "url": "https://developer.linkedin.com/docs/company-pages"
+        },
+        "operationId": "companies.id.is_company_share_enabled_format_json.get"
+      }
+    },
+    "/companies/{id}/relation-to-viewer/is-company-share-enabled?format=json": {
+      "parameters": [
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "1337",
+          "description": "The unique internal numeric company identifier."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "externalDocs": {
+          "url": "https://developer.linkedin.com/docs/company-pages"
+        },
+        "operationId": "companies.id.relation_to_viewer.is_company_share_enabled_format_json.get"
+      }
+    },
+    "/companies?format=json&is-company-admin=true": {
+      "parameters": [
+        {
+          "name": "start",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647,
+          "default": 0,
+          "description": "The offset value for paginating company results by."
+        },
+        {
+          "name": "count",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647,
+          "default": 10,
+          "description": "Maximum number of companies to return."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "externalDocs": {
+          "url": "https://developer.linkedin.com/docs/company-pages"
+        },
+        "operationId": "companies_format_json_is_company_admin_true.get"
+      }
+    },
+    "/companies/{id}?format=json": {
+      "parameters": [
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "1337",
+          "description": "The unique internal numeric company identifier."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "externalDocs": {
+          "url": "https://developer.linkedin.com/docs/company-pages"
+        },
+        "operationId": "companies.id_format_json.get"
+      }
+    },
+    "/companies/{id}:(id,name,ticker,description)?format=json": {
+      "parameters": [
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "1337",
+          "description": "The unique internal numeric company identifier."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "externalDocs": {
+          "url": "https://developer.linkedin.com/docs/company-pages"
+        },
+        "operationId": "companies.id_id_name_ticker_description_format_json.get"
+      }
+    },
+    "/companies/{id}/updates?format=json": {
+      "parameters": [
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "1337",
+          "description": "The unique internal numeric company identifier."
+        },
+        {
+          "name": "event-type",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647,
+          "default": 0,
+          "description": "The offset value for paginating update results by."
+        },
+        {
+          "name": "start",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647,
+          "default": 0,
+          "description": "The offset value for paginating update results by."
+        },
+        {
+          "name": "count",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 2147483647,
+          "default": 10,
+          "description": "Maximum number of updates to return."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "externalDocs": {
+          "url": "https://developer.linkedin.com/docs/company-pages"
+        },
+        "operationId": "companies.id.updates_format_json.get"
+      }
+    },
+    "/companies/{id}/updates/key={update-key}?format=json": {
+      "parameters": [
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "1337",
+          "description": "The unique internal numeric company identifier."
+        },
+        {
+          "name": "update-key",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "UPDATE-c1337-5986518397255454720",
+          "description": "The unique company update identifier."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "externalDocs": {
+          "url": "https://developer.linkedin.com/docs/company-pages"
+        },
+        "operationId": "companies.id.updates.key_update_key_format_json.get"
+      }
+    },
+    "/companies/{id}/updates/key={update-key}/update-comments?format=json": {
+      "parameters": [
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "1337",
+          "description": "The unique internal numeric company identifier."
+        },
+        {
+          "name": "update-key",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "UPDATE-c1337-5986518397255454720",
+          "description": "The unique company update identifier."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "externalDocs": {
+          "url": "https://developer.linkedin.com/docs/company-pages"
+        },
+        "operationId": "companies.id.updates.key_update_key.update_comments_format_json.get"
+      }
+    },
+    "/companies/{id}/updates/key={update-key}/likes?format=json": {
+      "parameters": [
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "1337",
+          "description": "The unique internal numeric company identifier."
+        },
+        {
+          "name": "update-key",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "UPDATE-c1337-5986518397255454720",
+          "description": "The unique company update identifier."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "externalDocs": {
+          "url": "https://developer.linkedin.com/docs/company-pages"
+        },
+        "operationId": "companies.id.updates.key_update_key.likes_format_json.get"
+      }
+    },
+    "/companies/{id}/shares?format=json": {
+      "parameters": [
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "2414183",
+          "description": "The unique internal numeric company identifier."
+        },
+        {
+          "name": "Content-Type",
+          "required": true,
+          "in": "header",
+          "type": "string",
+          "default": "application/json",
+          "description": "The content type."
+        },
+        {
+          "name": "x-li-format",
+          "required": true,
+          "in": "header",
+          "type": "string",
+          "default": "json",
+          "description": "The content type."
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [],
+        "externalDocs": {
+          "url": "https://developer.linkedin.com/docs/company-pages"
+        },
+        "operationId": "companies.id.shares_format_json.post"
+      }
+    },
+    "/companies/{id}/num-followers?format=json&seniorities=vp,d&jobFunc=it&geos=na.ca": {
+      "parameters": [
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "1337",
+          "description": "The unique internal numeric company identifier."
+        },
+        {
+          "name": "geos",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "",
+          "description": "Segment by a particular geographic area."
+        },
+        {
+          "name": "companySizes",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "",
+          "description": "Segment by a particular company size targeting code."
+        },
+        {
+          "name": "jobFunc",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "",
+          "description": "Segment by member job function targeting code."
+        },
+        {
+          "name": "industries",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "",
+          "description": "Segment by member industry."
+        },
+        {
+          "name": "seniorities",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "",
+          "description": "Segment by member seniority level targeting code."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "externalDocs": {
+          "url": "https://developer.linkedin.com/docs/company-pages"
+        },
+        "operationId": "companies.id.num_followers_format_json_seniorities_vp_d_jobFunc_it_geos_na.ca.get"
+      }
+    },
+    "/companies/{id}/updates/key={update-key}/update-comments-as-company/": {
+      "parameters": [
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "2414183",
+          "description": "The unique internal numeric company identifier."
+        },
+        {
+          "name": "update-key",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "UPDATE-c2414183-5986959985467285504",
+          "description": "The unique company update identifier."
+        },
+        {
+          "name": "Content-Type",
+          "required": true,
+          "in": "header",
+          "type": "string",
+          "default": "application/json",
+          "description": "The content type."
+        },
+        {
+          "name": "x-li-format",
+          "required": true,
+          "in": "header",
+          "type": "string",
+          "default": "json",
+          "description": "The content type."
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [],
+        "externalDocs": {
+          "url": "https://developer.linkedin.com/docs/company-pages"
+        },
+        "operationId": "companies.id.updates.key_update_key.update_comments_as_company.post"
+      }
+    },
+    "/companies/{id}/historical-follow-statistics?format=json": {
+      "parameters": [
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "1337",
+          "description": "The unique internal numeric company identifier."
+        },
+        {
+          "name": "time-granularity",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "",
+          "description": "Granularity of statistics. Supported values are:\n\t                day\n\t                month"
+        },
+        {
+          "name": "start-timestamp",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "",
+          "description": "Starting timestamp of when the stats search should begin (milliseconds since epoch)"
+        },
+        {
+          "name": "end-timestamp",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "",
+          "description": "Ending timestamp of when the stats search should end (milliseconds since epoch). The current time will be used if parameter not set."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "externalDocs": {
+          "url": "https://developer.linkedin.com/docs/company-pages"
+        },
+        "operationId": "companies.id.historical_follow_statistics_format_json.get"
+      }
+    },
+    "/companies/{id}/historical-status-update-statistics?format=json": {
+      "parameters": [
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "1337",
+          "description": "The unique internal numeric company identifier."
+        },
+        {
+          "name": "time-granularity",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "",
+          "description": "Granularity of statistics. Supported values are:\n\t                day\n\t                month"
+        },
+        {
+          "name": "start-timestamp",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "",
+          "description": "Starting timestamp of when the stats search should begin (milliseconds since epoch)"
+        },
+        {
+          "name": "end-timestamp",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "",
+          "description": "Ending timestamp of when the stats search should end (milliseconds since epoch). The current time will be used if parameter not set."
+        },
+        {
+          "name": "update-key",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "",
+          "description": "Optionally provide an update key value to return statistics for a specific company update."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "externalDocs": {
+          "url": "https://developer.linkedin.com/docs/company-pages"
+        },
+        "operationId": "companies.id.historical_status_update_statistics_format_json.get"
+      }
+    },
+    "/companies/{id}/company-statistics?format=json": {
+      "parameters": [
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "1337",
+          "description": "The unique internal numeric company identifier."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "externalDocs": {
+          "url": "https://developer.linkedin.com/docs/company-pages"
+        },
+        "operationId": "companies.id.company_statistics_format_json.get"
+      }
+    }
+  },
+  "info": {
+    "title": "LinkedIn",
+    "description": "Bring user profiles and professional networks to your apps.",
+    "x-datafire": {
+      "name": "linkedin",
+      "type": "openapi"
+    }
+  }
+}

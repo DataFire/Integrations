@@ -1,0 +1,3408 @@
+{
+  "swagger": "2.0",
+  "host": "openapi.etsy.com",
+  "basePath": "/v2/private",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/countries/{country_id}": {
+      "parameters": [
+        {
+          "name": "country_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a Country by id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_country#getcountry"
+        },
+        "operationId": "countries.country_id.get"
+      }
+    },
+    "/countries": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Finds all Country.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_country#findallcountry"
+        },
+        "operationId": "countries.get"
+      }
+    },
+    "/users/{user_id}/favorites/listings": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Finds all favorite listings for a user",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_favoritelisting#findalluserfavoritelistings"
+        },
+        "operationId": "users.user_id.favorites.listings.get"
+      }
+    },
+    "/users/{user_id}/favorites/listings/{listing_id}": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "listing_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Finds a favorite listing for a user",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_favoritelisting#finduserfavoritelistings"
+        },
+        "operationId": "users.user_id.favorites.listings.listing_id.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Creates a new favorite listing for a user",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_favoritelisting#createuserfavoritelistings"
+        },
+        "operationId": "users.user_id.favorites.listings.listing_id.post"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Delete a favorite listing for a user",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_favoritelisting#deleteuserfavoritelistings"
+        },
+        "operationId": "users.user_id.favorites.listings.listing_id.delete"
+      }
+    },
+    "/users/{user_id}/favorites/users": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Finds all favorite users for a user",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_favoriteuser#findalluserfavoriteusers"
+        },
+        "operationId": "users.user_id.favorites.users.get"
+      }
+    },
+    "/users/{user_id}/favorites/users/{target_user_id}": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "target_user_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Finds a favorite user for a user",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_favoriteuser#finduserfavoriteusers"
+        },
+        "operationId": "users.user_id.favorites.users.target_user_id.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "user_id",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "target_user_id",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Creates a new favorite listing for a user",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_favoriteuser#createuserfavoriteusers"
+        },
+        "operationId": "users.user_id.favorites.users.target_user_id.post"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Delete a favorite listing for a user",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_favoriteuser#deleteuserfavoriteusers"
+        },
+        "operationId": "users.user_id.favorites.users.target_user_id.delete"
+      }
+    },
+    "/homepages/pickers/": {
+      "parameters": [
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Finds all FeaturedListingPicker in scope active.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_featuredlistingpicker#findallfeaturedlistingpickeractive"
+        },
+        "operationId": "homepages.pickers.get"
+      }
+    },
+    "/homepages/pickers/{featured_listing_picker_id}": {
+      "parameters": [
+        {
+          "name": "featured_listing_picker_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a FeaturedListingPicker by id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_featuredlistingpicker#getfeaturedlistingpicker"
+        },
+        "operationId": "homepages.pickers.featured_listing_picker_id.get"
+      }
+    },
+    "/homepages/pickers/{featured_listing_picker_id}/featured": {
+      "parameters": [
+        {
+          "name": "featured_listing_picker_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of FeaturedListing objects associated to a FeaturedListingPicker.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_featuredlisting#findallfeaturedlistingpickerfeatured"
+        },
+        "operationId": "homepages.pickers.featured_listing_picker_id.featured.get"
+      }
+    },
+    "/homepages/pickers/{featured_listing_picker_id}/listings": {
+      "parameters": [
+        {
+          "name": "featured_listing_picker_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of Listing objects associated to a FeaturedListingPicker.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listing#findallfeaturedlistingpickerlistings"
+        },
+        "operationId": "homepages.pickers.featured_listing_picker_id.listings.get"
+      }
+    },
+    "/homepages/pickers/{featured_listing_picker_id}/listings/active": {
+      "parameters": [
+        {
+          "name": "featured_listing_picker_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of Listing objects associated to a FeaturedListingPicker in scope active.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listing#findallfeaturedlistingpickerlistingsactive"
+        },
+        "operationId": "homepages.pickers.featured_listing_picker_id.listings.active.get"
+      }
+    },
+    "/homepages/listings/": {
+      "parameters": [
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Finds all FeaturedListings regardless of Listing state",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_featuredlisting#findallfeaturedlisting"
+        },
+        "operationId": "homepages.listings.get"
+      }
+    },
+    "/homepages/listings/active": {
+      "parameters": [
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Finds all FeaturedListings that point to active Listings",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_featuredlisting#findallfeaturedlistingactive"
+        },
+        "operationId": "homepages.listings.active.get"
+      }
+    },
+    "/homepages/listings/{featured_listing_id}": {
+      "parameters": [
+        {
+          "name": "featured_listing_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a FeaturedListing by id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_featuredlisting#getfeaturedlisting"
+        },
+        "operationId": "homepages.listings.featured_listing_id.get"
+      }
+    },
+    "/homepages/listings/{featured_listing_id}/picker": {
+      "parameters": [
+        {
+          "name": "featured_listing_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of FeaturedListingPicker objects associated to a FeaturedListing.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_featuredlistingpicker#getfeaturedlistingassociatedpicker"
+        },
+        "operationId": "homepages.listings.featured_listing_id.picker.get"
+      }
+    },
+    "/homepages/listings/{featured_listing_id}/listing": {
+      "parameters": [
+        {
+          "name": "featured_listing_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of Listing objects associated to a FeaturedListing.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listing#getfeaturedlistinglisting"
+        },
+        "operationId": "homepages.listings.featured_listing_id.listing.get"
+      }
+    },
+    "/listings/{listing_id}/images/{listing_image_id}": {
+      "parameters": [
+        {
+          "name": "listing_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "listing_image_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a ListingImage by id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listingimage#getlistingimage"
+        },
+        "operationId": "listings.listing_id.images.listing_image_id.get"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes a listing image",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listingimage#deletelistingimage"
+        },
+        "operationId": "listings.listing_id.images.listing_image_id.delete"
+      }
+    },
+    "/listings/{listing_id}/images": {
+      "parameters": [
+        {
+          "name": "listing_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "image",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Upload a new listing image",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listingimage#uploadlistingimage"
+        },
+        "operationId": "listings.listing_id.images.post"
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of ListingImage objects associated to a Listing.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listingimage#findalllistingimages"
+        },
+        "operationId": "listings.listing_id.images.get"
+      }
+    },
+    "/listings/{listing_id}": {
+      "parameters": [
+        {
+          "name": "listing_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a Listing by id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listing#getlisting"
+        },
+        "operationId": "listings.listing_id.get"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "quantity",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "title",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "description",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "price",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "materials",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "renew",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "tags",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "shipping_template_id",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "shop_section_id",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "state",
+            "required": false,
+            "in": "query",
+            "enum": [
+              "active",
+              "inactive"
+            ]
+          }
+        ],
+        "description": "Updates a Listing",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listing#updatelisting"
+        },
+        "operationId": "listings.listing_id.put"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes a Listing",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listing#deletelisting"
+        },
+        "operationId": "listings.listing_id.delete"
+      }
+    },
+    "/listings/{listing_id}/favored-by": {
+      "parameters": [
+        {
+          "name": "listing_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of FavoriteListing objects associated to a Listing.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_favoritelisting#findalllistingfavoredby"
+        },
+        "operationId": "listings.listing_id.favored_by.get"
+      }
+    },
+    "/listings/{listing_id}/shipping/info": {
+      "parameters": [
+        {
+          "name": "listing_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of ShippingInfo objects associated to a Listing.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shippinginfo#findalllistingshippinginfo"
+        },
+        "operationId": "listings.listing_id.shipping.info.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "origin_country_id",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "destination_country_id",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "primary_cost",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "secondary_cost",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "region_id",
+            "required": false,
+            "in": "query"
+          }
+        ],
+        "description": "Creates a new ShippingInfo.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shippinginfo#createshippinginfo"
+        },
+        "operationId": "listings.listing_id.shipping.info.post"
+      }
+    },
+    "/listings/{listing_id}/payments": {
+      "parameters": [
+        {
+          "name": "listing_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of ListingPayment objects associated to a Listing.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listingpayment#getlistingpaymentinfo"
+        },
+        "operationId": "listings.listing_id.payments.get"
+      }
+    },
+    "/listings/active": {
+      "parameters": [
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        },
+        {
+          "name": "keywords",
+          "required": false,
+          "in": "query"
+        },
+        {
+          "name": "sort_on",
+          "required": false,
+          "in": "query",
+          "enum": [
+            "created",
+            "price",
+            "score"
+          ]
+        },
+        {
+          "name": "sort_order",
+          "required": false,
+          "in": "query",
+          "enum": [
+            "up",
+            "down"
+          ]
+        },
+        {
+          "name": "min_price",
+          "required": false,
+          "in": "query"
+        },
+        {
+          "name": "max_price",
+          "required": false,
+          "in": "query"
+        },
+        {
+          "name": "color",
+          "required": false,
+          "in": "query"
+        },
+        {
+          "name": "color_accuracy",
+          "required": false,
+          "in": "query",
+          "default": 0
+        },
+        {
+          "name": "tags",
+          "required": false,
+          "in": "query"
+        },
+        {
+          "name": "materials",
+          "required": false,
+          "in": "query"
+        },
+        {
+          "name": "category",
+          "required": false,
+          "in": "query"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Finds all active Listing",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listing#findalllistingactive"
+        },
+        "operationId": "listings.active.get"
+      }
+    },
+    "/shops/{shop_id}/listings/active": {
+      "parameters": [
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        },
+        {
+          "name": "shop_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "keywords",
+          "required": false,
+          "in": "query"
+        },
+        {
+          "name": "sort_on",
+          "required": false,
+          "in": "query",
+          "enum": [
+            "created",
+            "price",
+            "score"
+          ]
+        },
+        {
+          "name": "sort_order",
+          "required": false,
+          "in": "query",
+          "enum": [
+            "up",
+            "down"
+          ]
+        },
+        {
+          "name": "min_price",
+          "required": false,
+          "in": "query"
+        },
+        {
+          "name": "max_price",
+          "required": false,
+          "in": "query"
+        },
+        {
+          "name": "color",
+          "required": false,
+          "in": "query"
+        },
+        {
+          "name": "color_accuracy",
+          "required": false,
+          "in": "query",
+          "default": 0
+        },
+        {
+          "name": "tags",
+          "required": false,
+          "in": "query"
+        },
+        {
+          "name": "materials",
+          "required": false,
+          "in": "query"
+        },
+        {
+          "name": "category",
+          "required": false,
+          "in": "query"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Finds all active Listings associated with a Shop",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listing#findallshoplistingsactive"
+        },
+        "operationId": "shops.shop_id.listings.active.get"
+      }
+    },
+    "/listings": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "quantity",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "title",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "description",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "price",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "materials",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "tags",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "shipping_template_id",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "shop_section_id",
+            "required": false,
+            "in": "query"
+          }
+        ],
+        "description": "Creates a new Listing",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listing#createlisting"
+        },
+        "operationId": "listings.post"
+      }
+    },
+    "/orders/{order_id}": {
+      "parameters": [
+        {
+          "name": "order_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a Order by id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_order#getorder"
+        },
+        "operationId": "orders.order_id.get"
+      }
+    },
+    "/orders/{order_id}/receipts": {
+      "parameters": [
+        {
+          "name": "order_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of Receipt objects associated to a Order.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_receipt#findallorderreceipts"
+        },
+        "operationId": "orders.order_id.receipts.get"
+      }
+    },
+    "/receipts/{receipt_id}": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a Receipt by id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_receipt#getreceipt"
+        },
+        "operationId": "receipts.receipt_id.get"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "receipt_id",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "was_paid",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "was_shipped",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "message_from_seller",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "message_from_buyer",
+            "required": false,
+            "in": "query"
+          }
+        ],
+        "description": "Updates a Receipt",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_receipt#updatereceipt"
+        },
+        "operationId": "receipts.receipt_id.put"
+      }
+    },
+    "/receipts/{receipt_id}/transactions": {
+      "parameters": [
+        {
+          "name": "receipt_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of Transaction objects associated to a Receipt.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_transaction#findallreceipttransactions"
+        },
+        "operationId": "receipts.receipt_id.transactions.get"
+      }
+    },
+    "/users/{user_id}/recommended_listings": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "excluded_listing_ids",
+          "required": false,
+          "in": "query"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Get recommended listings for an authenticated member. The number of listings returned may not match the specified limit if there is no activity from recommended shops.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listing#getrecommendedlistings"
+        },
+        "operationId": "users.user_id.recommended_listings.get"
+      }
+    },
+    "/users/{user_id}/recommended_listings/rejects/{listing_ids}": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "header"
+        },
+        {
+          "name": "listing_ids",
+          "required": true,
+          "in": "header"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Registers rejections of recommended listings. Affects future recommended listings.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listing#registerrecommendedlistingrejects"
+        },
+        "operationId": "users.user_id.recommended_listings.rejects.listing_ids.post"
+      }
+    },
+    "/users/{user_id}/recommended_listings/views/{listing_ids}": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "header"
+        },
+        {
+          "name": "listing_ids",
+          "required": true,
+          "in": "header"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Register viewings of recommended listings. Affects future recommended listings.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listing#registerrecommendedlistingviews"
+        },
+        "operationId": "users.user_id.recommended_listings.views.listing_ids.post"
+      }
+    },
+    "/regions/{region_id}": {
+      "parameters": [
+        {
+          "name": "region_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a Region by id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_region#getregion"
+        },
+        "operationId": "regions.region_id.get"
+      }
+    },
+    "/regions": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Finds all Region.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_region#findallregion"
+        },
+        "operationId": "regions.get"
+      }
+    },
+    "/shipping/info/{shipping_info_id}": {
+      "parameters": [
+        {
+          "name": "shipping_info_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a ShippingInfo by id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shippinginfo#getshippinginfo"
+        },
+        "operationId": "shipping.info.shipping_info_id.get"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "origin_country_id",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "destination_country_id",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "primary_cost",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "secondary_cost",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "listing_id",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "region_id",
+            "required": false,
+            "in": "query"
+          }
+        ],
+        "description": "Updates a ShippingInfo with the given id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shippinginfo#updateshippinginfo"
+        },
+        "operationId": "shipping.info.shipping_info_id.put"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes the ShippingInfo with the given id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shippinginfo#deleteshippinginfo"
+        },
+        "operationId": "shipping.info.shipping_info_id.delete"
+      }
+    },
+    "/shipping/templates/entries/{shipping_template_entry_id}": {
+      "parameters": [
+        {
+          "name": "shipping_template_entry_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a ShippingTemplateEntry by id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shippingtemplateentry#getshippingtemplateentry"
+        },
+        "operationId": "shipping.templates.entries.shipping_template_entry_id.get"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "destination_country_id",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "primary_cost",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "secondary_cost",
+            "required": false,
+            "in": "query"
+          }
+        ],
+        "description": "Updates a ShippingTemplateEntry",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shippingtemplateentry#updateshippingtemplateentry"
+        },
+        "operationId": "shipping.templates.entries.shipping_template_entry_id.put"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes a ShippingTemplateEntry",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shippingtemplateentry#deleteshippingtemplateentry"
+        },
+        "operationId": "shipping.templates.entries.shipping_template_entry_id.delete"
+      }
+    },
+    "/shipping/templates/entries": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "shipping_template_id",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "destination_country_id",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "primary_cost",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "secondary_cost",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "destination_region_id",
+            "required": false,
+            "in": "query"
+          }
+        ],
+        "description": "Creates a new ShippingTemplateEntry",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shippingtemplateentry#createshippingtemplateentry"
+        },
+        "operationId": "shipping.templates.entries.post"
+      }
+    },
+    "/shipping/templates/{shipping_template_id}": {
+      "parameters": [
+        {
+          "name": "shipping_template_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a ShippingTemplate by id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shippingtemplate#getshippingtemplate"
+        },
+        "operationId": "shipping.templates.shipping_template_id.get"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes the ShippingTemplate with the given id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shippingtemplate#deleteshippingtemplate"
+        },
+        "operationId": "shipping.templates.shipping_template_id.delete"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "title",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "origin_country_id",
+            "required": false,
+            "in": "query"
+          }
+        ],
+        "description": "Updates a ShippingTemplate",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shippingtemplate#updateshippingtemplate"
+        },
+        "operationId": "shipping.templates.shipping_template_id.put"
+      }
+    },
+    "/shipping/templates/{shipping_template_id}/entries": {
+      "parameters": [
+        {
+          "name": "shipping_template_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of ShippingTemplateEntry objects associated to a ShippingTemplate.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shippingtemplateentry#findallshippingtemplateentries"
+        },
+        "operationId": "shipping.templates.shipping_template_id.entries.get"
+      }
+    },
+    "/shipping/templates": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "title",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "origin_country_id",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "destination_country_id",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "primary_cost",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "secondary_cost",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "destination_region_id",
+            "required": false,
+            "in": "query"
+          }
+        ],
+        "description": "Creates a new ShippingTemplate",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shippingtemplate#createshippingtemplate"
+        },
+        "operationId": "shipping.templates.post"
+      }
+    },
+    "/shops/{shop_id}": {
+      "parameters": [
+        {
+          "name": "shop_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a Shop by id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shop#getshop"
+        },
+        "operationId": "shops.shop_id.get"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "title",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "announcement",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "is_refusing_alchemy",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "alchemy_message",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "sale_message",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "policy_welcome",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "policy_payment",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "policy_shipping",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "policy_refunds",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "policy_additional",
+            "required": false,
+            "in": "query"
+          }
+        ],
+        "description": "Updates a Shop",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shop#updateshop"
+        },
+        "operationId": "shops.shop_id.put"
+      }
+    },
+    "/shops/{shop_id}/receipts": {
+      "parameters": [
+        {
+          "name": "shop_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of Receipt objects associated to a Shop.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_receipt#findallshopreceipts"
+        },
+        "operationId": "shops.shop_id.receipts.get"
+      }
+    },
+    "/shops/{shop_id}/transactions": {
+      "parameters": [
+        {
+          "name": "shop_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of Transaction objects associated to a Shop.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_transaction#findallshoptransactions"
+        },
+        "operationId": "shops.shop_id.transactions.get"
+      }
+    },
+    "/shops/{shop_id}/sections": {
+      "parameters": [
+        {
+          "name": "shop_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of ShopSection objects associated to a Shop.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shopsection#findallshopsections"
+        },
+        "operationId": "shops.shop_id.sections.get"
+      }
+    },
+    "/shops": {
+      "parameters": [
+        {
+          "name": "shop_name",
+          "required": false,
+          "in": "query"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Finds all Shops. If there is a keywords parameter, finds shops with shop_name starting with keywords.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shop#findallshops"
+        },
+        "operationId": "shops.get"
+      }
+    },
+    "/shops/{shop_id}/listings/featured": {
+      "parameters": [
+        {
+          "name": "shop_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves Listings associated to a Shop that are featured",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listing#findallshoplistingsfeatured"
+        },
+        "operationId": "shops.shop_id.listings.featured.get"
+      }
+    },
+    "/shops/{shop_id}/listings/inactive": {
+      "parameters": [
+        {
+          "name": "shop_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves Listings associated to a Shop that are inactive",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listing#findallshoplistingsinactive"
+        },
+        "operationId": "shops.shop_id.listings.inactive.get"
+      }
+    },
+    "/shops/{shop_id}/listings/expired": {
+      "parameters": [
+        {
+          "name": "shop_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves Listings associated to a Shop that are expired",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listing#findallshoplistingsexpired"
+        },
+        "operationId": "shops.shop_id.listings.expired.get"
+      }
+    },
+    "/shops/{shop_id}/listings/inactive/{listing_id}": {
+      "parameters": [
+        {
+          "name": "shop_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "listing_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a Listing associated to a Shop that is inactive",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listing#getshoplistinginactive"
+        },
+        "operationId": "shops.shop_id.listings.inactive.listing_id.get"
+      }
+    },
+    "/shops/{shop_id}/listings/expired/{listing_id}": {
+      "parameters": [
+        {
+          "name": "shop_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "listing_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a Listing associated to a Shop that is inactive",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listing#getshoplistingexpired"
+        },
+        "operationId": "shops.shop_id.listings.expired.listing_id.get"
+      }
+    },
+    "/shops/{shop_id}/appearance/banner": {
+      "parameters": [
+        {
+          "name": "shop_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "image",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Upload a new shop banner image",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shopbanner#uploadshopbanner"
+        },
+        "operationId": "shops.shop_id.appearance.banner.post"
+      }
+    },
+    "/shops/{shop_id}/appearance/banner/{shop_banner_id}": {
+      "parameters": [
+        {
+          "name": "shop_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "shop_banner_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes a shop banner image",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shopbanner#deleteshopbanner"
+        },
+        "operationId": "shops.shop_id.appearance.banner.shop_banner_id.delete"
+      }
+    },
+    "/sections/{shop_section_id}": {
+      "parameters": [
+        {
+          "name": "shop_section_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a ShopSection by id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shopsection#getshopsection"
+        },
+        "operationId": "sections.shop_section_id.get"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "title",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "rank",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "user_id",
+            "required": false,
+            "in": "query"
+          }
+        ],
+        "description": "Updates a ShopSection with the given id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shopsection#updateshopsection"
+        },
+        "operationId": "sections.shop_section_id.put"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes the ShopSection with the given id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shopsection#deleteshopsection"
+        },
+        "operationId": "sections.shop_section_id.delete"
+      }
+    },
+    "/sections": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "title",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "user_id",
+            "required": false,
+            "in": "query"
+          }
+        ],
+        "description": "Creates a new ShopSection.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shopsection#createshopsection"
+        },
+        "operationId": "sections.post"
+      }
+    },
+    "/categories/{tag}": {
+      "parameters": [
+        {
+          "name": "tag",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a top-level Category by tag.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_category#getcategory"
+        },
+        "operationId": "categories.tag.get"
+      }
+    },
+    "/categories/{tag}/{subtag}": {
+      "parameters": [
+        {
+          "name": "tag",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "subtag",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a second-level Category by tag and subtag.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_category#getsubcategory"
+        },
+        "operationId": "categories.tag.subtag.get"
+      }
+    },
+    "/categories/{tag}/{subtag}/{subsubtag}": {
+      "parameters": [
+        {
+          "name": "tag",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "subtag",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "subsubtag",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a third-level Category by tag, subtag and subsubtag.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_category#getsubsubcategory"
+        },
+        "operationId": "categories.tag.subtag.subsubtag.get"
+      }
+    },
+    "/taxonomy/categories": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves all top-level Categories.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_category#findalltopcategory"
+        },
+        "operationId": "taxonomy.categories.get"
+      }
+    },
+    "/taxonomy/categories/{tag}": {
+      "parameters": [
+        {
+          "name": "tag",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves children of a top-level Category by tag.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_category#findalltopcategorychildren"
+        },
+        "operationId": "taxonomy.categories.tag.get"
+      }
+    },
+    "/taxonomy/categories/{tag}/{subtag}": {
+      "parameters": [
+        {
+          "name": "tag",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "subtag",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves children of a second-level Category by tag and subtag.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_category#findallsubcategorychildren"
+        },
+        "operationId": "taxonomy.categories.tag.subtag.get"
+      }
+    },
+    "/taxonomy/tags": {
+      "parameters": [
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves all related tags for the given tag set.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_tag#findpopulartags"
+        },
+        "operationId": "taxonomy.tags.get"
+      }
+    },
+    "/taxonomy/tags/{tags}": {
+      "parameters": [
+        {
+          "name": "tags",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves all related tags for the given tag set.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_tag#findallrelatedtags"
+        },
+        "operationId": "taxonomy.tags.tags.get"
+      }
+    },
+    "/transactions/{transaction_id}": {
+      "parameters": [
+        {
+          "name": "transaction_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a Transaction by id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_transaction#gettransaction"
+        },
+        "operationId": "transactions.transaction_id.get"
+      }
+    },
+    "/treasuries/{treasury_id}": {
+      "parameters": [
+        {
+          "name": "treasury_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Get a Treasury",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_treasury#gettreasury"
+        },
+        "operationId": "treasuries.treasury_id.get"
+      }
+    },
+    "/treasuries": {
+      "parameters": [
+        {
+          "name": "keywords",
+          "required": false,
+          "in": "query"
+        },
+        {
+          "name": "sort_on",
+          "required": false,
+          "in": "query",
+          "enum": [
+            "hotness",
+            "created"
+          ]
+        },
+        {
+          "name": "sort_order",
+          "required": false,
+          "in": "query",
+          "enum": [
+            "up",
+            "down"
+          ]
+        },
+        {
+          "name": "maturity",
+          "required": false,
+          "in": "query",
+          "enum": [
+            "safe_only",
+            "safe_and_mature"
+          ]
+        },
+        {
+          "name": "detail_level",
+          "required": false,
+          "in": "query",
+          "enum": [
+            "low",
+            "medium"
+          ]
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Search Treasuries or else List all Treasuries",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_treasury#findalltreasuries"
+        },
+        "operationId": "treasuries.get"
+      }
+    },
+    "/users/{user_id}/treasuries": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "sort_on",
+          "required": false,
+          "in": "query",
+          "enum": [
+            "hotness",
+            "created"
+          ]
+        },
+        {
+          "name": "sort_order",
+          "required": false,
+          "in": "query",
+          "enum": [
+            "up",
+            "down"
+          ]
+        },
+        {
+          "name": "maturity",
+          "required": false,
+          "in": "query",
+          "enum": [
+            "safe_only",
+            "safe_and_mature"
+          ]
+        },
+        {
+          "name": "detail_level",
+          "required": false,
+          "in": "query",
+          "enum": [
+            "low",
+            "medium"
+          ]
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Get a user's Treasuries",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_treasury#findallusertreasuries"
+        },
+        "operationId": "users.user_id.treasuries.get"
+      }
+    },
+    "/users/{user_id}": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a User by id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_user#getuser"
+        },
+        "operationId": "users.user_id.get"
+      }
+    },
+    "/users/{user_id}/shops": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of Shop objects associated to a User.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shop#findallusershops"
+        },
+        "operationId": "users.user_id.shops.get"
+      }
+    },
+    "/users/{user_id}/favored-by": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of FavoriteUser objects associated to a User.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_favoriteuser#findalluserfavoredby"
+        },
+        "operationId": "users.user_id.favored_by.get"
+      }
+    },
+    "/users/{user_id}/feedback/as-subject": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of Feedback objects associated to a User.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_feedback#findalluserfeedbackassubject"
+        },
+        "operationId": "users.user_id.feedback.as_subject.get"
+      }
+    },
+    "/users/{user_id}/feedback/as-author": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of Feedback objects associated to a User.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_feedback#findalluserfeedbackasauthor"
+        },
+        "operationId": "users.user_id.feedback.as_author.get"
+      }
+    },
+    "/users/{user_id}/feedback/as-buyer": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of Feedback objects associated to a User.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_feedback#findalluserfeedbackasbuyer"
+        },
+        "operationId": "users.user_id.feedback.as_buyer.get"
+      }
+    },
+    "/users/{user_id}/feedback/as-seller": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of Feedback objects associated to a User.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_feedback#findalluserfeedbackasseller"
+        },
+        "operationId": "users.user_id.feedback.as_seller.get"
+      }
+    },
+    "/users/{user_id}/orders": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of Order objects associated to a User.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_order#findalluserorders"
+        },
+        "operationId": "users.user_id.orders.get"
+      }
+    },
+    "/users/{user_id}/receipts": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of Receipt objects associated to a User.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_receipt#findalluserbuyerreceipts"
+        },
+        "operationId": "users.user_id.receipts.get"
+      }
+    },
+    "/users/{user_id}/transactions": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of Transaction objects associated to a User.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_transaction#findalluserbuyertransactions"
+        },
+        "operationId": "users.user_id.transactions.get"
+      }
+    },
+    "/users/{user_id}/charges": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of BillCharge objects associated to a User.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_billcharge#findallusercharges"
+        },
+        "operationId": "users.user_id.charges.get"
+      }
+    },
+    "/users/{user_id}/payments": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of BillPayment objects associated to a User.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_billpayment#findalluserpayments"
+        },
+        "operationId": "users.user_id.payments.get"
+      }
+    },
+    "/users/{user_id}/shipping/templates": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of ShippingTemplate objects associated to a User.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_shippingtemplate#findallusershippingtemplates"
+        },
+        "operationId": "users.user_id.shipping.templates.get"
+      }
+    },
+    "/users/{user_id}/payments/templates": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of PaymentTemplate objects associated to a User.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_paymenttemplate#findalluserpaymenttemplates"
+        },
+        "operationId": "users.user_id.payments.templates.get"
+      }
+    },
+    "/users/{user_id}/addresses": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a set of UserAddress objects associated to a User.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_useraddress#findalluseraddresses"
+        },
+        "operationId": "users.user_id.addresses.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "first_line",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "second_line",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "city",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "state",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "zip",
+            "required": true,
+            "in": "query"
+          },
+          {
+            "name": "country_id",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Creates a new UserAddress.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_useraddress#createuseraddress"
+        },
+        "operationId": "users.user_id.addresses.post"
+      }
+    },
+    "/payments/templates/{payment_template_id}": {
+      "parameters": [
+        {
+          "name": "payment_template_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a PaymentTemplate by id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_paymenttemplate#getpaymenttemplate"
+        },
+        "operationId": "payments.templates.payment_template_id.get"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "allow_check",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "allow_mo",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "allow_other",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "allow_paypal",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "paypal_email",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "name",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "first_line",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "second_line",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "city",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "state",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "zip",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "country_id",
+            "required": false,
+            "in": "query"
+          }
+        ],
+        "description": "Updates a PaymentTemplate",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_paymenttemplate#updatepaymenttemplate"
+        },
+        "operationId": "payments.templates.payment_template_id.put"
+      }
+    },
+    "/payments/templates": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "allow_check",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "allow_mo",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "allow_other",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "allow_paypal",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "paypal_email",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "name",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "first_line",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "second_line",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "city",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "state",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "zip",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "country_id",
+            "required": false,
+            "in": "query"
+          }
+        ],
+        "description": "Creates a new PaymentTemplate",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_paymenttemplate#createpaymenttemplate"
+        },
+        "operationId": "payments.templates.post"
+      }
+    },
+    "/payments/{listing_payment_id}": {
+      "parameters": [
+        {
+          "name": "listing_payment_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a ListingPayment by id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_listingpayment#getlistingpayment"
+        },
+        "operationId": "payments.listing_payment_id.get"
+      }
+    },
+    "/users/{user_id}/avatar": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": false,
+          "in": "path"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "src",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "image",
+            "required": false,
+            "in": "query"
+          }
+        ],
+        "description": "Upload a new user avatar image",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_avatar#uploadavatar"
+        },
+        "operationId": "users.user_id.avatar.post"
+      }
+    },
+    "/users/{user_id}/avatar/src": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": false,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Get avatar image source",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_array#getavatarimgsrc"
+        },
+        "operationId": "users.user_id.avatar.src.get"
+      }
+    },
+    "/users/{user_id}/addresses/{user_address_id}": {
+      "parameters": [
+        {
+          "name": "user_address_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a UserAddress by id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_useraddress#getuseraddress"
+        },
+        "operationId": "users.user_id.addresses.user_address_id.get"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "first_line",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "second_line",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "city",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "state",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "zip",
+            "required": false,
+            "in": "query"
+          },
+          {
+            "name": "country_id",
+            "required": false,
+            "in": "query"
+          }
+        ],
+        "description": "Updates a UserAddress with the given id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_useraddress#updateuseraddress"
+        },
+        "operationId": "users.user_id.addresses.user_address_id.put"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes the UserAddress with the given id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_useraddress#deleteuseraddress"
+        },
+        "operationId": "users.user_id.addresses.user_address_id.delete"
+      }
+    },
+    "/featured/users": {
+      "parameters": [
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "default": 25
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "default": 0
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Finds all FeaturedUser.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_featureduser#findallfeaturedusers"
+        },
+        "operationId": "featured.users.get"
+      }
+    },
+    "/featured/users/{featured_user_id}": {
+      "parameters": [
+        {
+          "name": "featured_user_id",
+          "required": true,
+          "in": "path"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a FeaturedUser by id.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_featureduser#getfeatureduser"
+        },
+        "operationId": "featured.users.featured_user_id.get"
+      }
+    },
+    "/": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Get a list of all methods available.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_apimethod#getmethodtable"
+        },
+        "operationId": ".get"
+      }
+    },
+    "/server/epoch": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Get server time, in epoch seconds notation.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_int#getserverepoch"
+        },
+        "operationId": "server.epoch.get"
+      }
+    },
+    "/server/ping": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Check that the server is alive.",
+        "externalDocs": {
+          "url": "http://developer.etsy.com/docs/resource_string#ping"
+        },
+        "operationId": "server.ping.get"
+      }
+    }
+  },
+  "info": {
+    "title": "Etsy",
+    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+    "x-datafire": {
+      "name": "etsy",
+      "type": "openapi"
+    }
+  }
+}

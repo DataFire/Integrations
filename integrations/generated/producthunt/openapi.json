@@ -1,0 +1,66 @@
+{
+  "info": {
+    "title": "Product Hunt",
+    "x-datafire": {
+      "name": "producthunt",
+      "type": "openapi"
+    }
+  },
+  "paths": {
+    "/users/{username}": {
+      "get": {
+        "parameters": [
+          {
+            "type": "string",
+            "in": "path",
+            "name": "username"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "operationId": "users.username.get"
+      }
+    },
+    "/categories/{category}/posts": {
+      "get": {
+        "parameters": [
+          {
+            "type": "string",
+            "in": "path",
+            "name": "category"
+          },
+          {
+            "type": "string",
+            "in": "query",
+            "name": "days_ago"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "operationId": "categories.category.posts.get"
+      }
+    }
+  },
+  "securityDefinitions": {
+    "oauth": {
+      "scopes": {
+        "private": "Access to private data",
+        "public": "Access to public data"
+      },
+      "flow": "application",
+      "type": "oauth2"
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "basePath": "/v1",
+  "host": "api.producthunt.com",
+  "swagger": "2.0"
+}

@@ -1,0 +1,1228 @@
+{
+  "swagger": "2.0",
+  "host": "api.soundcloud.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/tracks.json": {
+      "parameters": [
+        {
+          "name": "title",
+          "required": true,
+          "in": "header",
+          "type": "string",
+          "default": "A Track Title"
+        },
+        {
+          "name": "asset_data",
+          "required": true,
+          "in": "header",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns a collection of tracks",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks"
+        },
+        "operationId": "tracks.json.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Uploads a track",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks"
+        },
+        "operationId": "tracks.json.post"
+      }
+    },
+    "/tracks/{track_id}.json": {
+      "parameters": [
+        {
+          "name": "track_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "291"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns a track by track id",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks"
+        },
+        "operationId": "tracks.track_id.json.get"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Updates a given track",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks-continued"
+        },
+        "operationId": "tracks.track_id.json.put"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes a given track",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks-continued"
+        },
+        "operationId": "tracks.track_id.json.delete"
+      }
+    },
+    "/tracks/{track_id}/comments.json": {
+      "parameters": [
+        {
+          "name": "track_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "291"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns comments of a track by track id",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks-continued"
+        },
+        "operationId": "tracks.track_id.comments.json.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Posts a comments to a track by track id",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks-continued"
+        },
+        "operationId": "tracks.track_id.comments.json.post"
+      }
+    },
+    "/tracks/{track_id}/permissions.json": {
+      "parameters": [
+        {
+          "name": "track_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "291"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns all users with permission for a track by track id",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks-continued"
+        },
+        "operationId": "tracks.track_id.permissions.json.get"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Updates the list of permitted users for a track by track id",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks-continued"
+        },
+        "operationId": "tracks.track_id.permissions.json.put"
+      }
+    },
+    "/tracks/{track_id}/secret-token.json": {
+      "parameters": [
+        {
+          "name": "track_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "291"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns the secret token for a track by track id. This resource can only be used by the track owner.",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks-continued"
+        },
+        "operationId": "tracks.track_id.secret_token.json.get"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Resets the secret token for a track by track id. The secret token can not be specified but will be randomly chosen on\n          the server and returned. This resource can only be used by the track owner.",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.2-Resources:-tracks-continued"
+        },
+        "operationId": "tracks.track_id.secret_token.json.put"
+      }
+    },
+    "/users.json": {
+      "parameters": [
+        {
+          "name": "q",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns a collection of users",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "users.json.get"
+      }
+    },
+    "/users/{user_id}.json": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "183"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns a user by user id",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "users.user_id.json.get"
+      }
+    },
+    "/users/{user_id}/tracks.json": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "183"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns a collection of tracks uploaded by user id",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "users.user_id.tracks.json.get"
+      }
+    },
+    "/users/{user_id}/comments.json": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "183"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns a collection of comments made by user id",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "users.user_id.comments.json.get"
+      }
+    },
+    "/users/{user_id}/followings.json": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "183"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns a collection of users the user with user id is following",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "users.user_id.followings.json.get"
+      }
+    },
+    "/users/{user_id}/followings/{contact_id}.json": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "183"
+        },
+        {
+          "name": "contact_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "183"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Checks if the user with the id contact_id is in the givens user's list of contacts.",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "users.user_id.followings.contact_id.json.get"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Adds the user with the id contact_id to the givens user's list of contacts.",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "users.user_id.followings.contact_id.json.put"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Removes the user with the id contact_id from the givens user's list of contacts.",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "users.user_id.followings.contact_id.json.delete"
+      }
+    },
+    "/users/{user_id}/followers.json": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "183"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns a collection of users who follow the user with user id",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "users.user_id.followers.json.get"
+      }
+    },
+    "/users/{user_id}/followers/{contact_id}.json": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "183"
+        },
+        {
+          "name": "contact_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "183"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Checks if the user with contact_id is a follower of the given user.",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "users.user_id.followers.contact_id.json.get"
+      }
+    },
+    "/users/{user_id}/favorites.json": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "183"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns a collection of tracks favorited by the user with user id",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "users.user_id.favorites.json.get"
+      }
+    },
+    "/users/{user_id}/favorites/{track_id}.json": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "183"
+        },
+        {
+          "name": "track_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "291"
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Adds the given track to the given user's list of favorites.",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "users.user_id.favorites.track_id.json.put"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes the given track from the given user's list of favorites.",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "users.user_id.favorites.track_id.json.delete"
+      }
+    },
+    "/users/{user_id}/groups.json": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "183"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns a collection of groups joined by user with user id",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "users.user_id.groups.json.get"
+      }
+    },
+    "/users/{user_id}/playlists.json": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "183"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns a collection of playlists created by user with user id",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "users.user_id.playlists.json.get"
+      }
+    },
+    "/me.json": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns the logged-in user",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "me.json.get"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Updates the logged-in user",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "me.json.put"
+      }
+    },
+    "/me/tracks.json": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns a collection of tracks uploaded by logged-in user",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "me.tracks.json.get"
+      }
+    },
+    "/me/comments.json": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns a collection of comments made by logged-in user",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "me.comments.json.get"
+      }
+    },
+    "/me/followings.json": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns a collection of users the logged-in user is following",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "me.followings.json.get"
+      }
+    },
+    "/me/followings/{contact_id}.json": {
+      "parameters": [
+        {
+          "name": "contact_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "183"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Checks if the user with the id contact_id is in the logged-in user's list of contacts.",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "me.followings.contact_id.json.get"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Adds the user with the id contact_id to the logged-in user's list of contacts.",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "me.followings.contact_id.json.put"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes the user with the id contact_id from the logged-in user's list of contacts.",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "me.followings.contact_id.json.delete"
+      }
+    },
+    "/me/followers.json": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns a collection of users who follow the logged-in user",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "me.followers.json.get"
+      }
+    },
+    "/me/followers/{contact_id}.json": {
+      "parameters": [
+        {
+          "name": "contact_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "183"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Checks if the user with the id contact_id is a follower of the logged-in user",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "me.followers.contact_id.json.get"
+      }
+    },
+    "/me/favorites.json": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns a collection of tracks favorited by the logged-in user",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "me.favorites.json.get"
+      }
+    },
+    "/me/favorites/{track_id}.json": {
+      "parameters": [
+        {
+          "name": "track_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "291"
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Adds the given track to the logged-in user's list of favorites.",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "me.favorites.track_id.json.put"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes the given track from the logged-in user's list of favorites.",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "me.favorites.track_id.json.delete"
+      }
+    },
+    "/me/groups.json": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns a collection of groups joined by logged-in user",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "me.groups.json.get"
+      }
+    },
+    "/me/playlists.json": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns a collection of playlists created by the logged-in user",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.1-Resources:-users"
+        },
+        "operationId": "me.playlists.json.get"
+      }
+    },
+    "/playlists.json": {
+      "parameters": [
+        {
+          "name": "q",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "filter",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "all",
+          "enum": [
+            "all",
+            "public",
+            "private"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns a collection of playlists",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.3-Resources:-playlists"
+        },
+        "operationId": "playlists.json.get"
+      }
+    },
+    "/playlists/{playlist_id}.json": {
+      "parameters": [
+        {
+          "name": "playlist_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "18"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns a playlist by playlist id",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.3-Resources:-playlists"
+        },
+        "operationId": "playlists.playlist_id.json.get"
+      }
+    },
+    "/groups.json": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns a collection of groups",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.4-Resources:-groups"
+        },
+        "operationId": "groups.json.get"
+      }
+    },
+    "/groups/{group_id}.json": {
+      "parameters": [
+        {
+          "name": "playlist_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "18"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns a group by group id",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.4-Resources:-groups"
+        },
+        "operationId": "groups.group_id.json.get"
+      }
+    },
+    "/groups/{group_id}/users.json": {
+      "parameters": [
+        {
+          "name": "playlist_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "18"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns a combined collection of moderators, members and contributors of the group with group id",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.4-Resources:-groups"
+        },
+        "operationId": "groups.group_id.users.json.get"
+      }
+    },
+    "/groups/{group_id}/moderators.json": {
+      "parameters": [
+        {
+          "name": "playlist_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "18"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns a collection of moderators of the group with group id",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.4-Resources:-groups"
+        },
+        "operationId": "groups.group_id.moderators.json.get"
+      }
+    },
+    "/groups/{group_id}/members.json": {
+      "parameters": [
+        {
+          "name": "playlist_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "18"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns a collection of members of the group with group id",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.4-Resources:-groups"
+        },
+        "operationId": "groups.group_id.members.json.get"
+      }
+    },
+    "/groups/{group_id}/contributors.json": {
+      "parameters": [
+        {
+          "name": "playlist_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "18"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns a collection of contributors of the group with group id",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.4-Resources:-groups"
+        },
+        "operationId": "groups.group_id.contributors.json.get"
+      }
+    },
+    "/groups/{group_id}/tracks.json": {
+      "parameters": [
+        {
+          "name": "playlist_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "18"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns a collection of tracks contributed to the group with group id",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.4-Resources:-groups"
+        },
+        "operationId": "groups.group_id.tracks.json.get"
+      }
+    },
+    "/comments/{comment_id}.json": {
+      "parameters": [
+        {
+          "name": "playlist_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "18"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Returns a comment by comment id",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/10.5-Resources:-comments"
+        },
+        "operationId": "comments.comment_id.json.get"
+      }
+    },
+    "/resolve.json": {
+      "parameters": [
+        {
+          "name": "url",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "http://soundcloud.com/forss"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "consumer_key",
+            "required": true,
+            "in": "query"
+          }
+        ],
+        "description": "Translates a website URI into an API URI",
+        "externalDocs": {
+          "url": "http://github.com/soundcloud/api/wiki/12-Resolver"
+        },
+        "operationId": "resolve.json.get"
+      }
+    }
+  },
+  "securityDefinitions": {
+    "oauth2": {
+      "name": "oauth_token",
+      "flow": "implicit",
+      "type": "oauth2"
+    }
+  },
+  "info": {
+    "title": "SoundCloud",
+    "description": "Access, host, upload, and comment on audio.",
+    "x-datafire": {
+      "name": "soundcloud",
+      "type": "openapi"
+    }
+  }
+}

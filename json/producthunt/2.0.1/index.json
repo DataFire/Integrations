@@ -1,0 +1,148 @@
+{
+  "id": "producthunt",
+  "title": "Product Hunt",
+  "description": "",
+  "security": {
+    "producthunt": {
+      "integration": "producthunt",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "scopes": {
+          "private": "Access to private data",
+          "public": "Access to public data"
+        },
+        "flow": "application",
+        "type": "oauth2"
+      }
+    }
+  },
+  "tags": [],
+  "actions": [
+    {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "producthunt": {
+          "integration": "producthunt"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "producthunt": {
+          "integration": "producthunt"
+        }
+      }
+    },
+    {
+      "id": "users.username.get",
+      "title": "users.username.get",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "username": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "producthunt": {
+          "integration": "producthunt"
+        }
+      }
+    },
+    {
+      "id": "categories.category.posts.get",
+      "title": "categories.category.posts.get",
+      "description": "",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "days_ago": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {},
+      "security": {
+        "producthunt": {
+          "integration": "producthunt"
+        }
+      }
+    }
+  ]
+}

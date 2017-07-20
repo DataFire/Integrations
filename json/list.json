@@ -12099,5 +12099,332 @@
     "tags": [],
     "actionCount": 746,
     "latestVersion": "2.0.1"
+  },
+  "facebook": {
+    "id": "facebook",
+    "title": "Facebook",
+    "description": "Connect to the social network with the Graph API.",
+    "security": {
+      "facebook": {
+        "integration": "facebook",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "description": "OAuth 2.0 authentication",
+          "flow": "implicit",
+          "type": "oauth2",
+          "scopes": {
+            "public_profile": "",
+            "user_friends": "",
+            "email": "",
+            "user_about_me": "",
+            "user_actions.video": "",
+            "user_actions.music": "",
+            "user_actions.fitness": "",
+            "user_actions.news": "",
+            "user_actions.books": "",
+            "user_birthday": "",
+            "user_education_history": "",
+            "user_events": "",
+            "user_games_activity": "",
+            "user_hometown": "",
+            "user_likes": "",
+            "user_location": "",
+            "user_managed_groups": "",
+            "user_photos": "",
+            "user_posts": "",
+            "user_relationships": "",
+            "user_relationship_details": "",
+            "user_religion_politics": "",
+            "user_tagged_places": "",
+            "user_videos": "",
+            "user_website": "",
+            "user_work_history": "",
+            "read_custom_friendlists": "",
+            "read_insights": "",
+            "read_audience_network_insights": "",
+            "read_page_mailboxes": "",
+            "manage_pages": "",
+            "publish_pages": "",
+            "publish_actions": "",
+            "rsvp_event": "",
+            "pages_show_list": "",
+            "pages_manage_cta": "",
+            "pages_manage_leads": "",
+            "ads_read": "",
+            "ads_management": ""
+          }
+        }
+      }
+    },
+    "tags": [],
+    "actionCount": 195,
+    "latestVersion": "2.0.1"
+  },
+  "fitbit": {
+    "id": "fitbit",
+    "title": "Fitbit",
+    "description": "Bring Fitbit health data into your apps, including user activities, sleep, heart, glucose and blood pressure information...",
+    "security": {
+      "fitbit": {
+        "integration": "fitbit",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "scopes": {
+            "weight": "The weight scope includes weight and related information, such as body mass index, body fat percentage, and goals",
+            "social": "The social scope includes friend-related features, such as friend list, invitations, and leaderboard",
+            "sleep": "The sleep scope includes sleep logs and related sleep analysis",
+            "settings": "The settings scope includes user account and device settings, such as alarms",
+            "profile": "The profile scope is the basic user information",
+            "nutrition": "The nutrition scope includes calorie consumption and nutrition related features, such as food/water logging, goals, and plans",
+            "location": "The location scope includes the GPS and other location data",
+            "heartrate": "The heartrate scope includes the continuous heart rate data and related analysis",
+            "activity": "The activity scope includes activity data and exercise log related features, such as steps, distance, calories burned, and active minutes"
+          },
+          "flow": "application",
+          "type": "oauth2"
+        }
+      }
+    },
+    "tags": [],
+    "actionCount": 74,
+    "latestVersion": "2.0.1"
+  },
+  "heroku": {
+    "id": "heroku",
+    "title": "Heroku",
+    "description": "Manage your Heroku apps, configs, collaborators & resources",
+    "security": {
+      "heroku": {
+        "integration": "heroku",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "scopes": {
+            "write-protected": "Write access to all of your apps and resources, excluding account information.",
+            "read-protected": "Read access to all of your apps and resources, excluding account information.",
+            "write": "Write access to all of your apps and resources, excluding account information and configuration variables",
+            "read": "Read access to all of your apps and resources, excluding account information and configuration variables",
+            "global": "Read and write access to all of your account, apps and resources. Equivalent to the default authorization obtained when using the CLI.",
+            "identity": "Read-only access to your account information."
+          },
+          "flow": "application",
+          "type": "oauth2"
+        }
+      }
+    },
+    "tags": [],
+    "actionCount": 32,
+    "latestVersion": "2.0.1"
+  },
+  "linkedin": {
+    "id": "linkedin",
+    "title": "LinkedIn",
+    "description": "Bring user profiles and professional networks to your apps.",
+    "security": {
+      "linkedin": {
+        "integration": "linkedin",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "type": "oauth2",
+          "flow": "application",
+          "scopes": {
+            "r_basicprofile": "",
+            "r_emailaddress": "",
+            "rw_company_admin": "",
+            "w_share": ""
+          }
+        }
+      }
+    },
+    "tags": [],
+    "actionCount": 20,
+    "latestVersion": "2.0.1"
+  },
+  "reddit": {
+    "id": "reddit",
+    "title": "Reddit",
+    "description": "Reddit API",
+    "security": {
+      "reddit": {
+        "integration": "reddit",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "scopes": {
+            "flair": "Select my subreddit flair. Change link flair on my submissions.",
+            "history": "Access my voting history and comments or submissions I've saved or hidden.",
+            "modself": "Accept invitations to moderate a subreddit. Remove myself as a moderator or contributor of subreddits I moderate or contribute to.",
+            "modwiki": "Change editors and visibility of wiki pages in subreddits I moderate.",
+            "edit": "Edit and delete my comments and submissions.",
+            "modtraffic": "Access traffic stats in subreddits I moderate.",
+            "account": "Update preferences and related account information. Will not have access to your email or password.",
+            "livemanage": "Manage settings and contributors of live threads I contribute to.",
+            "identity": "Access my reddit username and signup date.",
+            "report": "Report content for rules violations. Hide &amp; show individual submissions.",
+            "privatemessages": "Access my inbox and send private messages to other users.",
+            "read": "Access posts and comments through my account.",
+            "modothers": "Invite or remove other moderators from subreddits I moderate.",
+            "save": "Save and unsave comments and submissions.",
+            "modflair": "Manage and assign flair in subreddits I moderate.",
+            "modposts": "Approve, remove, mark nsfw, and distinguish content in subreddits I moderate.",
+            "modlog": "Access the moderation log in subreddits I moderate.",
+            "submit": "Submit links and comments from my account.",
+            "mysubreddits": "Access the list of subreddits I moderate, contribute to, and subscribe to.",
+            "vote": "Submit and change my votes on comments and submissions.",
+            "wikiedit": "Edit wiki pages on my behalf",
+            "wikiread": "Read wiki pages through my account",
+            "subscribe": "Manage my subreddit subscriptions. Manage \"friends\" - users whose content I follow.",
+            "modconfig": "Manage the configuration, sidebar, and CSS of subreddits I moderate.",
+            "modcontributors": "Add/remove users to approved submitter lists and ban/unban or mute/unmute users from subreddits I moderate.",
+            "creddits": "Spend my reddit gold creddits on giving gold to other users."
+          },
+          "flow": "application",
+          "type": "oauth2"
+        }
+      }
+    },
+    "tags": [],
+    "actionCount": 199,
+    "latestVersion": "2.0.1"
+  },
+  "producthunt": {
+    "id": "producthunt",
+    "title": "Product Hunt",
+    "security": {
+      "producthunt": {
+        "integration": "producthunt",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "scopes": {
+            "private": "Access to private data",
+            "public": "Access to public data"
+          },
+          "flow": "application",
+          "type": "oauth2"
+        }
+      }
+    },
+    "tags": [],
+    "actionCount": 4,
+    "latestVersion": "2.0.1"
+  },
+  "salesforce": {
+    "id": "salesforce",
+    "title": "Salesforce",
+    "description": "Explore the beta Salesforce REST API to integrate CRM.",
+    "security": {
+      "salesforce": {
+        "integration": "salesforce",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "type": "oauth2",
+          "flow": "application",
+          "scopes": {
+            "api": "Allows access to the current, logged-in user’s account using APIs, such as REST API and Bulk API. This value also includes chatter_api, which allows access to Chatter REST API resources.",
+            "chatter_api": "Allows access to Chatter REST API resources only.",
+            "custom_permissions": "Allows access to the custom permissions in an organization associated with the connected app, and shows whether the current user has         each permission enabled.",
+            "full": "Allows access to all data accessible by the logged-in user, and encompasses all other scopes. full does not return a refresh token. You must explicitly request the refresh_token scope to get a refresh token.",
+            "id": "Allows access to the identity URL service. You can request profile, email, address, or phone, individually to get the same result as using id; they are all synonymous.",
+            "openid": "Allows access to the current, logged in user’s unique identifier for OpenID Connect apps.",
+            "refresh_token": "Allows a refresh token to be returned if you are eligible to receive one. This lets the app interact with the user’s data while the user is offline, and is synonymous with requesting offline_access.",
+            "visualforce": "Allows access to Visualforce pages.",
+            "web": "Allows the ability to use the access_token on the Web. This also includes visualforce, allowing access to Visualforce pages."
+          }
+        }
+      }
+    },
+    "tags": [],
+    "actionCount": 17,
+    "latestVersion": "2.0.1"
+  },
+  "soundcloud": {
+    "id": "soundcloud",
+    "title": "SoundCloud",
+    "description": "Access, host, upload, and comment on audio.",
+    "security": {
+      "soundcloud": {
+        "integration": "soundcloud",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "name": "oauth_token",
+          "flow": "implicit",
+          "type": "oauth2"
+        }
+      }
+    },
+    "tags": [],
+    "actionCount": 52,
+    "latestVersion": "2.0.1"
+  },
+  "etsy": {
+    "id": "etsy",
+    "title": "Etsy",
+    "description": "Bring Etsy's handmade marketplace and community into your apps.",
+    "security": {},
+    "tags": [],
+    "actionCount": 115,
+    "latestVersion": "2.0.1"
+  },
+  "quandl": {
+    "id": "quandl",
+    "title": "Quandl API",
+    "description": "The Quandl API",
+    "security": {
+      "quandl": {
+        "integration": "quandl",
+        "fields": {
+          "apiKey": "API key"
+        }
+      }
+    },
+    "tags": [],
+    "actionCount": 8,
+    "latestVersion": "2.0.1"
   }
 }

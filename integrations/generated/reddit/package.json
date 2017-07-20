@@ -1,0 +1,26 @@
+{
+  "name": "@datafire/reddit",
+  "version": "2.0.1",
+  "main": "index.js",
+  "description": "DataFire integration for Reddit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataFire/integrations.git"
+  },
+  "author": "DataFire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataFire/integrations/issues"
+  },
+  "homepage": "https://github.com/DataFire/integrations#readme",
+  "datafire": {
+    "origin": "https://datafire.io/api/connection/56818e50b9ef0649538cc36a/swagger",
+    "type": "openapi"
+  },
+  "peerDependencies": {
+    "datafire": "^2.0.0"
+  },
+  "dependencies": {
+    "datafire": "^2.0.0"
+  }
+}

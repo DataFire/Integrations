@@ -1,0 +1,1175 @@
+{
+  "swagger": "2.0",
+  "host": "na14.salesforce.com",
+  "basePath": "/services/data",
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "OAuth": {
+      "type": "oauth2",
+      "flow": "application",
+      "scopes": {
+        "api": "Allows access to the current, logged-in user’s account using APIs, such as REST API and Bulk API. This value also includes chatter_api, which allows access to Chatter REST API resources.",
+        "chatter_api": "Allows access to Chatter REST API resources only.",
+        "custom_permissions": "Allows access to the custom permissions in an organization associated with the connected app, and shows whether the current user has         each permission enabled.",
+        "full": "Allows access to all data accessible by the logged-in user, and encompasses all other scopes. full does not return a refresh token. You must explicitly request the refresh_token scope to get a refresh token.",
+        "id": "Allows access to the identity URL service. You can request profile, email, address, or phone, individually to get the same result as using id; they are all synonymous.",
+        "openid": "Allows access to the current, logged in user’s unique identifier for OpenID Connect apps.",
+        "refresh_token": "Allows a refresh token to be returned if you are eligible to receive one. This lets the app interact with the user’s data while the user is offline, and is synonymous with requesting offline_access.",
+        "visualforce": "Allows access to Visualforce pages.",
+        "web": "Allows the ability to use the access_token on the Web. This also includes visualforce, allowing access to Visualforce pages."
+      }
+    }
+  },
+  "paths": {
+    "/": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Lists summary information about each Salesforce version currently available, including the version, label, and a link to each version's root.",
+        "externalDocs": {
+          "url": "http://www.salesforce.com/us/developer/docs/api_rest/Content/resources_versions.htm"
+        },
+        "operationId": ".get"
+      }
+    },
+    "/{version}": {
+      "parameters": [
+        {
+          "name": "version",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "v24.0",
+          "description": "An API version.",
+          "enum": [
+            "v20.0",
+            "v21.0",
+            "v22.0",
+            "v23.0",
+            "v24.0"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Lists available resources for the specified API version, including resource name and URI.",
+        "externalDocs": {
+          "url": "http://www.salesforce.com/us/developer/docs/api_rest/Content/resources_discoveryresource.htm"
+        },
+        "operationId": "version.get"
+      }
+    },
+    "/{version}/sobjects": {
+      "parameters": [
+        {
+          "name": "version",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "v24.0",
+          "description": "An API version.",
+          "enum": [
+            "v20.0",
+            "v21.0",
+            "v22.0",
+            "v23.0",
+            "v24.0"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Lists the available objects and their metadata for your organization's data. In addition, it provides the organization encoding, as well as maximum batch size permitted in queries. For more information, see Internationalization and Character Sets (http://www.salesforce.com/us/developer/docs/api/Content/implementation_considerations.htm#sforce_api_other_internationalization).",
+        "externalDocs": {
+          "url": "http://www.salesforce.com/us/developer/docs/api_rest/Content/resources_describeGlobal.htm"
+        },
+        "operationId": "version.sobjects.get"
+      }
+    },
+    "/{version}/sobjects/{sobject}": {
+      "parameters": [
+        {
+          "name": "version",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "v24.0",
+          "description": "An API version.",
+          "enum": [
+            "v20.0",
+            "v21.0",
+            "v22.0",
+            "v23.0",
+            "v24.0"
+          ]
+        },
+        {
+          "name": "sobject",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "A Salesforce's object.",
+          "enum": [
+            "Account",
+            "AccountContactRole",
+            "AccountFeed",
+            "AccountHistory",
+            "AccountPartner",
+            "AccountShare",
+            "ActivityHistory",
+            "AdditionalNumber",
+            "AggregateResult",
+            "ApexClass",
+            "ApexComponent",
+            "ApexLog",
+            "ApexPage",
+            "ApexTestQueueItem",
+            "ApexTestResult",
+            "ApexTrigger",
+            "Approval",
+            "Asset",
+            "AssetFeed",
+            "AssignmentRule",
+            "AsyncApexJob",
+            "Attachment",
+            "BrandTemplate",
+            "BusinessHours",
+            "BusinessProcess",
+            "CallCenter",
+            "Campaign",
+            "CampaignFeed",
+            "CampaignMember",
+            "CampaignMemberStatus",
+            "CampaignShare",
+            "Case",
+            "CaseComment",
+            "CaseContactRole",
+            "CaseFeed",
+            "CaseHistory",
+            "CaseShare",
+            "CaseSolution",
+            "CaseStatus",
+            "CaseTeamMember",
+            "CaseTeamRole",
+            "CaseTeamTemplate",
+            "CaseTeamTemplateMember",
+            "CaseTeamTemplateRecord",
+            "CategoryData",
+            "CategoryNode",
+            "ChatterActivity",
+            "CollaborationGroup",
+            "CollaborationGroupFeed",
+            "CollaborationGroupMember",
+            "CollaborationGroupMemberRequest",
+            "CollaborationInvitation",
+            "Community",
+            "Contact",
+            "ContactFeed",
+            "ContactHistory",
+            "ContactShare",
+            "ContentDocument",
+            "ContentDocumentFeed",
+            "ContentDocumentHistory",
+            "ContentDocumentLink",
+            "ContentVersion",
+            "ContentVersionHistory",
+            "Contract",
+            "ContractContactRole",
+            "ContractFeed",
+            "ContractHistory",
+            "ContractStatus",
+            "CronTrigger",
+            "Dashboard",
+            "DashboardComponent",
+            "DashboardComponentFeed",
+            "DashboardFeed",
+            "Document",
+            "DocumentAttachmentMap",
+            "EmailServicesAddress",
+            "EmailServicesFunction",
+            "EmailStatus",
+            "EmailTemplate",
+            "EntitySubscription",
+            "Event",
+            "EventAttendee",
+            "EventFeed",
+            "FeedComment",
+            "FeedItem",
+            "FeedLike",
+            "FeedTrackedChange",
+            "FieldPermissions",
+            "FiscalYearSettings",
+            "Folder",
+            "ForecastShare",
+            "Group",
+            "GroupMember",
+            "Holiday",
+            "Idea",
+            "IdeaComment",
+            "Lead",
+            "LeadFeed",
+            "LeadHistory",
+            "LeadShare",
+            "LeadStatus",
+            "LoginHistory",
+            "MailmergeTemplate",
+            "Name",
+            "NewsFeed",
+            "Note",
+            "NoteAndAttachment",
+            "ObjectPermissions",
+            "OpenActivity",
+            "Opportunity",
+            "OpportunityCompetitor",
+            "OpportunityContactRole",
+            "OpportunityFeed",
+            "OpportunityFieldHistory",
+            "OpportunityHistory",
+            "OpportunityLineItem",
+            "OpportunityPartner",
+            "OpportunityShare",
+            "OpportunityStage",
+            "OrgWideEmailAddress",
+            "Organization",
+            "Partner",
+            "PartnerRole",
+            "Period",
+            "PermissionSet",
+            "PermissionSetAssignment",
+            "Position__Feed",
+            "Position__c",
+            "Pricebook2",
+            "PricebookEntry",
+            "ProcessInstance",
+            "ProcessInstanceHistory",
+            "ProcessInstanceStep",
+            "ProcessInstanceWorkitem",
+            "Product2",
+            "Product2Feed",
+            "Profile",
+            "PushTopic",
+            "QueueSobject",
+            "RecordType",
+            "Report",
+            "ReportFeed",
+            "SelfServiceUser",
+            "Site",
+            "SiteDomain",
+            "SiteFeed",
+            "SiteHistory",
+            "Solution",
+            "SolutionFeed",
+            "SolutionHistory",
+            "SolutionStatus",
+            "StaticResource",
+            "Task",
+            "TaskFeed",
+            "TaskPriority",
+            "TaskStatus",
+            "User",
+            "UserFeed",
+            "UserLicense",
+            "UserPreference",
+            "UserProfileFeed",
+            "UserRecordAccess",
+            "UserRole",
+            "Vote",
+            "WebLink"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves the metadata for an object.",
+        "externalDocs": {
+          "url": "http://www.salesforce.com/us/developer/docs/api_rest/Content/resources_sobject_basic_info.htm"
+        },
+        "operationId": "version.sobjects.sobject.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [],
+        "description": "Creates a new object.",
+        "externalDocs": {
+          "url": "http://www.salesforce.com/us/developer/docs/api_rest/Content/resources_sobject_basic_info.htm"
+        },
+        "operationId": "version.sobjects.sobject.post"
+      }
+    },
+    "/{version}/sobjects/{sobject}/describe": {
+      "parameters": [
+        {
+          "name": "version",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "v24.0",
+          "description": "An API version.",
+          "enum": [
+            "v20.0",
+            "v21.0",
+            "v22.0",
+            "v23.0",
+            "v24.0"
+          ]
+        },
+        {
+          "name": "sobject",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "A Salesforce's object.",
+          "enum": [
+            "Account",
+            "AccountContactRole",
+            "AccountFeed",
+            "AccountHistory",
+            "AccountPartner",
+            "AccountShare",
+            "ActivityHistory",
+            "AdditionalNumber",
+            "AggregateResult",
+            "ApexClass",
+            "ApexComponent",
+            "ApexLog",
+            "ApexPage",
+            "ApexTestQueueItem",
+            "ApexTestResult",
+            "ApexTrigger",
+            "Approval",
+            "Asset",
+            "AssetFeed",
+            "AssignmentRule",
+            "AsyncApexJob",
+            "Attachment",
+            "BrandTemplate",
+            "BusinessHours",
+            "BusinessProcess",
+            "CallCenter",
+            "Campaign",
+            "CampaignFeed",
+            "CampaignMember",
+            "CampaignMemberStatus",
+            "CampaignShare",
+            "Case",
+            "CaseComment",
+            "CaseContactRole",
+            "CaseFeed",
+            "CaseHistory",
+            "CaseShare",
+            "CaseSolution",
+            "CaseStatus",
+            "CaseTeamMember",
+            "CaseTeamRole",
+            "CaseTeamTemplate",
+            "CaseTeamTemplateMember",
+            "CaseTeamTemplateRecord",
+            "CategoryData",
+            "CategoryNode",
+            "ChatterActivity",
+            "CollaborationGroup",
+            "CollaborationGroupFeed",
+            "CollaborationGroupMember",
+            "CollaborationGroupMemberRequest",
+            "CollaborationInvitation",
+            "Community",
+            "Contact",
+            "ContactFeed",
+            "ContactHistory",
+            "ContactShare",
+            "ContentDocument",
+            "ContentDocumentFeed",
+            "ContentDocumentHistory",
+            "ContentDocumentLink",
+            "ContentVersion",
+            "ContentVersionHistory",
+            "Contract",
+            "ContractContactRole",
+            "ContractFeed",
+            "ContractHistory",
+            "ContractStatus",
+            "CronTrigger",
+            "Dashboard",
+            "DashboardComponent",
+            "DashboardComponentFeed",
+            "DashboardFeed",
+            "Document",
+            "DocumentAttachmentMap",
+            "EmailServicesAddress",
+            "EmailServicesFunction",
+            "EmailStatus",
+            "EmailTemplate",
+            "EntitySubscription",
+            "Event",
+            "EventAttendee",
+            "EventFeed",
+            "FeedComment",
+            "FeedItem",
+            "FeedLike",
+            "FeedTrackedChange",
+            "FieldPermissions",
+            "FiscalYearSettings",
+            "Folder",
+            "ForecastShare",
+            "Group",
+            "GroupMember",
+            "Holiday",
+            "Idea",
+            "IdeaComment",
+            "Lead",
+            "LeadFeed",
+            "LeadHistory",
+            "LeadShare",
+            "LeadStatus",
+            "LoginHistory",
+            "MailmergeTemplate",
+            "Name",
+            "NewsFeed",
+            "Note",
+            "NoteAndAttachment",
+            "ObjectPermissions",
+            "OpenActivity",
+            "Opportunity",
+            "OpportunityCompetitor",
+            "OpportunityContactRole",
+            "OpportunityFeed",
+            "OpportunityFieldHistory",
+            "OpportunityHistory",
+            "OpportunityLineItem",
+            "OpportunityPartner",
+            "OpportunityShare",
+            "OpportunityStage",
+            "OrgWideEmailAddress",
+            "Organization",
+            "Partner",
+            "PartnerRole",
+            "Period",
+            "PermissionSet",
+            "PermissionSetAssignment",
+            "Position__Feed",
+            "Position__c",
+            "Pricebook2",
+            "PricebookEntry",
+            "ProcessInstance",
+            "ProcessInstanceHistory",
+            "ProcessInstanceStep",
+            "ProcessInstanceWorkitem",
+            "Product2",
+            "Product2Feed",
+            "Profile",
+            "PushTopic",
+            "QueueSobject",
+            "RecordType",
+            "Report",
+            "ReportFeed",
+            "SelfServiceUser",
+            "Site",
+            "SiteDomain",
+            "SiteFeed",
+            "SiteHistory",
+            "Solution",
+            "SolutionFeed",
+            "SolutionHistory",
+            "SolutionStatus",
+            "StaticResource",
+            "Task",
+            "TaskFeed",
+            "TaskPriority",
+            "TaskStatus",
+            "User",
+            "UserFeed",
+            "UserLicense",
+            "UserPreference",
+            "UserProfileFeed",
+            "UserRecordAccess",
+            "UserRole",
+            "Vote",
+            "WebLink"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Completely describes the individual metadata at all levels for the specified object. For example, this can be used to retrieve the fields, URLs, and child relationships for the Account object.",
+        "externalDocs": {
+          "url": "http://www.salesforce.com/us/developer/docs/api_rest/Content/resources_sobject_describe.htm"
+        },
+        "operationId": "version.sobjects.sobject.describe.get"
+      }
+    },
+    "/{version}/sobjects/{sobject}/{id}": {
+      "parameters": [
+        {
+          "name": "version",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "v24.0",
+          "description": "An API version.",
+          "enum": [
+            "v20.0",
+            "v21.0",
+            "v22.0",
+            "v23.0",
+            "v24.0"
+          ]
+        },
+        {
+          "name": "sobject",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "A Salesforce's object.",
+          "enum": [
+            "Account",
+            "AccountContactRole",
+            "AccountFeed",
+            "AccountHistory",
+            "AccountPartner",
+            "AccountShare",
+            "ActivityHistory",
+            "AdditionalNumber",
+            "AggregateResult",
+            "ApexClass",
+            "ApexComponent",
+            "ApexLog",
+            "ApexPage",
+            "ApexTestQueueItem",
+            "ApexTestResult",
+            "ApexTrigger",
+            "Approval",
+            "Asset",
+            "AssetFeed",
+            "AssignmentRule",
+            "AsyncApexJob",
+            "Attachment",
+            "BrandTemplate",
+            "BusinessHours",
+            "BusinessProcess",
+            "CallCenter",
+            "Campaign",
+            "CampaignFeed",
+            "CampaignMember",
+            "CampaignMemberStatus",
+            "CampaignShare",
+            "Case",
+            "CaseComment",
+            "CaseContactRole",
+            "CaseFeed",
+            "CaseHistory",
+            "CaseShare",
+            "CaseSolution",
+            "CaseStatus",
+            "CaseTeamMember",
+            "CaseTeamRole",
+            "CaseTeamTemplate",
+            "CaseTeamTemplateMember",
+            "CaseTeamTemplateRecord",
+            "CategoryData",
+            "CategoryNode",
+            "ChatterActivity",
+            "CollaborationGroup",
+            "CollaborationGroupFeed",
+            "CollaborationGroupMember",
+            "CollaborationGroupMemberRequest",
+            "CollaborationInvitation",
+            "Community",
+            "Contact",
+            "ContactFeed",
+            "ContactHistory",
+            "ContactShare",
+            "ContentDocument",
+            "ContentDocumentFeed",
+            "ContentDocumentHistory",
+            "ContentDocumentLink",
+            "ContentVersion",
+            "ContentVersionHistory",
+            "Contract",
+            "ContractContactRole",
+            "ContractFeed",
+            "ContractHistory",
+            "ContractStatus",
+            "CronTrigger",
+            "Dashboard",
+            "DashboardComponent",
+            "DashboardComponentFeed",
+            "DashboardFeed",
+            "Document",
+            "DocumentAttachmentMap",
+            "EmailServicesAddress",
+            "EmailServicesFunction",
+            "EmailStatus",
+            "EmailTemplate",
+            "EntitySubscription",
+            "Event",
+            "EventAttendee",
+            "EventFeed",
+            "FeedComment",
+            "FeedItem",
+            "FeedLike",
+            "FeedTrackedChange",
+            "FieldPermissions",
+            "FiscalYearSettings",
+            "Folder",
+            "ForecastShare",
+            "Group",
+            "GroupMember",
+            "Holiday",
+            "Idea",
+            "IdeaComment",
+            "Lead",
+            "LeadFeed",
+            "LeadHistory",
+            "LeadShare",
+            "LeadStatus",
+            "LoginHistory",
+            "MailmergeTemplate",
+            "Name",
+            "NewsFeed",
+            "Note",
+            "NoteAndAttachment",
+            "ObjectPermissions",
+            "OpenActivity",
+            "Opportunity",
+            "OpportunityCompetitor",
+            "OpportunityContactRole",
+            "OpportunityFeed",
+            "OpportunityFieldHistory",
+            "OpportunityHistory",
+            "OpportunityLineItem",
+            "OpportunityPartner",
+            "OpportunityShare",
+            "OpportunityStage",
+            "OrgWideEmailAddress",
+            "Organization",
+            "Partner",
+            "PartnerRole",
+            "Period",
+            "PermissionSet",
+            "PermissionSetAssignment",
+            "Position__Feed",
+            "Position__c",
+            "Pricebook2",
+            "PricebookEntry",
+            "ProcessInstance",
+            "ProcessInstanceHistory",
+            "ProcessInstanceStep",
+            "ProcessInstanceWorkitem",
+            "Product2",
+            "Product2Feed",
+            "Profile",
+            "PushTopic",
+            "QueueSobject",
+            "RecordType",
+            "Report",
+            "ReportFeed",
+            "SelfServiceUser",
+            "Site",
+            "SiteDomain",
+            "SiteFeed",
+            "SiteHistory",
+            "Solution",
+            "SolutionFeed",
+            "SolutionHistory",
+            "SolutionStatus",
+            "StaticResource",
+            "Task",
+            "TaskFeed",
+            "TaskPriority",
+            "TaskStatus",
+            "User",
+            "UserFeed",
+            "UserLicense",
+            "UserPreference",
+            "UserProfileFeed",
+            "UserRecordAccess",
+            "UserRole",
+            "Vote",
+            "WebLink"
+          ]
+        },
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "A Salesforce's object ID."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "fields",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Optional list of fields used to return values for."
+          }
+        ],
+        "description": "Retrieves individual records for an object.",
+        "externalDocs": {
+          "url": "http://www.salesforce.com/us/developer/docs/api_rest/Content/resources_sobject_retrieve.htm"
+        },
+        "operationId": "version.sobjects.sobject.id.get"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes a record.",
+        "externalDocs": {
+          "url": "http://www.salesforce.com/us/developer/docs/api_rest/Content/resources_sobject_retrieve.htm"
+        },
+        "operationId": "version.sobjects.sobject.id.delete"
+      }
+    },
+    "/{version}/sobjects/{sobject}/{id}/{blobField}": {
+      "parameters": [
+        {
+          "name": "version",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "v24.0",
+          "description": "An API version.",
+          "enum": [
+            "v20.0",
+            "v21.0",
+            "v22.0",
+            "v23.0",
+            "v24.0"
+          ]
+        },
+        {
+          "name": "sobject",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "A Salesforce's object.",
+          "enum": [
+            "Account",
+            "AccountContactRole",
+            "AccountFeed",
+            "AccountHistory",
+            "AccountPartner",
+            "AccountShare",
+            "ActivityHistory",
+            "AdditionalNumber",
+            "AggregateResult",
+            "ApexClass",
+            "ApexComponent",
+            "ApexLog",
+            "ApexPage",
+            "ApexTestQueueItem",
+            "ApexTestResult",
+            "ApexTrigger",
+            "Approval",
+            "Asset",
+            "AssetFeed",
+            "AssignmentRule",
+            "AsyncApexJob",
+            "Attachment",
+            "BrandTemplate",
+            "BusinessHours",
+            "BusinessProcess",
+            "CallCenter",
+            "Campaign",
+            "CampaignFeed",
+            "CampaignMember",
+            "CampaignMemberStatus",
+            "CampaignShare",
+            "Case",
+            "CaseComment",
+            "CaseContactRole",
+            "CaseFeed",
+            "CaseHistory",
+            "CaseShare",
+            "CaseSolution",
+            "CaseStatus",
+            "CaseTeamMember",
+            "CaseTeamRole",
+            "CaseTeamTemplate",
+            "CaseTeamTemplateMember",
+            "CaseTeamTemplateRecord",
+            "CategoryData",
+            "CategoryNode",
+            "ChatterActivity",
+            "CollaborationGroup",
+            "CollaborationGroupFeed",
+            "CollaborationGroupMember",
+            "CollaborationGroupMemberRequest",
+            "CollaborationInvitation",
+            "Community",
+            "Contact",
+            "ContactFeed",
+            "ContactHistory",
+            "ContactShare",
+            "ContentDocument",
+            "ContentDocumentFeed",
+            "ContentDocumentHistory",
+            "ContentDocumentLink",
+            "ContentVersion",
+            "ContentVersionHistory",
+            "Contract",
+            "ContractContactRole",
+            "ContractFeed",
+            "ContractHistory",
+            "ContractStatus",
+            "CronTrigger",
+            "Dashboard",
+            "DashboardComponent",
+            "DashboardComponentFeed",
+            "DashboardFeed",
+            "Document",
+            "DocumentAttachmentMap",
+            "EmailServicesAddress",
+            "EmailServicesFunction",
+            "EmailStatus",
+            "EmailTemplate",
+            "EntitySubscription",
+            "Event",
+            "EventAttendee",
+            "EventFeed",
+            "FeedComment",
+            "FeedItem",
+            "FeedLike",
+            "FeedTrackedChange",
+            "FieldPermissions",
+            "FiscalYearSettings",
+            "Folder",
+            "ForecastShare",
+            "Group",
+            "GroupMember",
+            "Holiday",
+            "Idea",
+            "IdeaComment",
+            "Lead",
+            "LeadFeed",
+            "LeadHistory",
+            "LeadShare",
+            "LeadStatus",
+            "LoginHistory",
+            "MailmergeTemplate",
+            "Name",
+            "NewsFeed",
+            "Note",
+            "NoteAndAttachment",
+            "ObjectPermissions",
+            "OpenActivity",
+            "Opportunity",
+            "OpportunityCompetitor",
+            "OpportunityContactRole",
+            "OpportunityFeed",
+            "OpportunityFieldHistory",
+            "OpportunityHistory",
+            "OpportunityLineItem",
+            "OpportunityPartner",
+            "OpportunityShare",
+            "OpportunityStage",
+            "OrgWideEmailAddress",
+            "Organization",
+            "Partner",
+            "PartnerRole",
+            "Period",
+            "PermissionSet",
+            "PermissionSetAssignment",
+            "Position__Feed",
+            "Position__c",
+            "Pricebook2",
+            "PricebookEntry",
+            "ProcessInstance",
+            "ProcessInstanceHistory",
+            "ProcessInstanceStep",
+            "ProcessInstanceWorkitem",
+            "Product2",
+            "Product2Feed",
+            "Profile",
+            "PushTopic",
+            "QueueSobject",
+            "RecordType",
+            "Report",
+            "ReportFeed",
+            "SelfServiceUser",
+            "Site",
+            "SiteDomain",
+            "SiteFeed",
+            "SiteHistory",
+            "Solution",
+            "SolutionFeed",
+            "SolutionHistory",
+            "SolutionStatus",
+            "StaticResource",
+            "Task",
+            "TaskFeed",
+            "TaskPriority",
+            "TaskStatus",
+            "User",
+            "UserFeed",
+            "UserLicense",
+            "UserPreference",
+            "UserProfileFeed",
+            "UserRecordAccess",
+            "UserRole",
+            "Vote",
+            "WebLink"
+          ]
+        },
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "A Salesforce's object ID."
+        },
+        {
+          "name": "blobField",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "A Salesforce's object blob field."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "fields",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Optional list of fields used to return values for."
+          }
+        ],
+        "description": "Retrieves the specified blob field from an individual record. Because blob fields contain binary data, you can't use JSON or XML to retrieve this data.",
+        "externalDocs": {
+          "url": "http://www.salesforce.com/us/developer/docs/api_rest/Content/resources_sobject_blob_retrieve.htm"
+        },
+        "operationId": "version.sobjects.sobject.id.blobField.get"
+      }
+    },
+    "/{version}/sobjects/User/{id}/password": {
+      "parameters": [
+        {
+          "name": "version",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "v24.0",
+          "description": "An API version.",
+          "enum": [
+            "v20.0",
+            "v21.0",
+            "v22.0",
+            "v23.0",
+            "v24.0"
+          ]
+        },
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "A Salesforce's user ID."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Gets password expiration status for a given user. The session must have permission to access the given user password information, otherwise an error response is returned.",
+        "externalDocs": {
+          "url": "http://www.salesforce.com/us/developer/docs/api_rest/Content/resources_sobject_user_password.htm"
+        },
+        "operationId": "version.sobjects.User.id.password.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [],
+        "description": "Changes the password for a given user ID. The new password must conform to the password policies for the organization, otherwise you will get an error response. You can only change one password per request.",
+        "externalDocs": {
+          "url": "http://www.salesforce.com/us/developer/docs/api_rest/Content/resources_sobject_user_password.htm"
+        },
+        "operationId": "version.sobjects.User.id.password.post"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Resets an user password. Salesforce will reset the user password to an auto-generated password, which will be returned in the response.",
+        "externalDocs": {
+          "url": "http://www.salesforce.com/us/developer/docs/api_rest/Content/resources_sobject_user_password.htm"
+        },
+        "operationId": "version.sobjects.User.id.password.delete"
+      }
+    },
+    "/{version}/query": {
+      "parameters": [
+        {
+          "name": "version",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "v24.0",
+          "description": "An API version.",
+          "enum": [
+            "v20.0",
+            "v21.0",
+            "v22.0",
+            "v23.0",
+            "v24.0"
+          ]
+        },
+        {
+          "name": "q",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "SELECT+name+from+Account",
+          "description": "A SOQL query."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Executes the specified SOQL query. If the initial query returns only part of the results, the end of the response will contain a field called nextRecordsUrl. In such cases, use the resource {version}/query/{id} to request the next batch of records and repeat until all records have been retrieved.",
+        "externalDocs": {
+          "url": "http://www.salesforce.com/us/developer/docs/api_rest/Content/resources_query.htm"
+        },
+        "operationId": "version.query.get"
+      }
+    },
+    "/{version}/query/{id}": {
+      "parameters": [
+        {
+          "name": "version",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "v24.0",
+          "description": "An API version.",
+          "enum": [
+            "v20.0",
+            "v21.0",
+            "v22.0",
+            "v23.0",
+            "v24.0"
+          ]
+        },
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "An identifier used to retrieve the remaining results."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves the remaining SOQL query results using the identifier within the field \"nextRecordsUrl\" value (i.e. \"nextRecordsUrl\" : \"/services/data/v24.0/query/01gD0000002HU6KIAW-2000\") located at the end of the initial query results. Requests the next batch of records and you could repeat (using the corresponding identifier) until all records have been retrieved.",
+        "externalDocs": {
+          "url": "http://www.salesforce.com/us/developer/docs/api_rest/Content/resources_query.htm"
+        },
+        "operationId": "version.query.id.get"
+      }
+    },
+    "/{version}/search": {
+      "parameters": [
+        {
+          "name": "version",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "v24.0",
+          "description": "An API version.",
+          "enum": [
+            "v20.0",
+            "v21.0",
+            "v22.0",
+            "v23.0",
+            "v24.0"
+          ]
+        },
+        {
+          "name": "q",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "FIND+%7Btest%7D",
+          "description": "A SOSL statement."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Executes the specified SOSL search. The search string must be URL-encoded.",
+        "externalDocs": {
+          "url": "http://www.salesforce.com/us/developer/docs/api_rest/Content/resources_search.htm"
+        },
+        "operationId": "version.search.get"
+      }
+    }
+  },
+  "info": {
+    "title": "Salesforce",
+    "description": "Explore the beta Salesforce REST API to integrate CRM.",
+    "x-datafire": {
+      "name": "salesforce",
+      "type": "openapi"
+    }
+  }
+}

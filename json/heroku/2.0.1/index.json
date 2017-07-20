@@ -1,0 +1,1156 @@
+{
+  "id": "heroku",
+  "title": "Heroku",
+  "description": "Manage your Heroku apps, configs, collaborators & resources",
+  "security": {
+    "heroku": {
+      "integration": "heroku",
+      "fields": {
+        "access_token": "An OAuth access token",
+        "refresh_token": "An OAuth refresh token (optional)",
+        "client_id": "An OAuth client ID (optional)",
+        "client_secret": "An OAuth client secret (optional)",
+        "redirect_uri": "The callback URL for your application"
+      },
+      "oauth": {
+        "scopes": {
+          "write-protected": "Write access to all of your apps and resources, excluding account information.",
+          "read-protected": "Read access to all of your apps and resources, excluding account information.",
+          "write": "Write access to all of your apps and resources, excluding account information and configuration variables",
+          "read": "Read access to all of your apps and resources, excluding account information and configuration variables",
+          "global": "Read and write access to all of your account, apps and resources. Equivalent to the default authorization obtained when using the CLI.",
+          "identity": "Read-only access to your account information."
+        },
+        "flow": "application",
+        "type": "oauth2"
+      }
+    }
+  },
+  "tags": [],
+  "actions": [
+    {
+      "id": "oauthCallback",
+      "title": "",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "oauthRefresh",
+      "title": "",
+      "description": "",
+      "inputSchema": {},
+      "outputSchema": {
+        "properties": {
+          "access_token": {
+            "type": "string"
+          },
+          "refresh_token": {
+            "type": "string"
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "expiration": {
+            "type": "string"
+          }
+        }
+      },
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "addons.get",
+      "title": "addons.get",
+      "description": "List all available addons.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.addons.get",
+      "title": "apps.app.addons.get",
+      "description": "List addons installed on an app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "app"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.addons.addon.post",
+      "title": "apps.app.addons.addon.post",
+      "description": "Install an addon to an app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          },
+          "addon": {
+            "type": "string",
+            "description": "the addon name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "app",
+          "addon"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.addons.addon.put",
+      "title": "apps.app.addons.addon.put",
+      "description": "Upgrade an addon to an app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          },
+          "addon": {
+            "type": "string",
+            "description": "the addon name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "app",
+          "addon"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.addons.addon.delete",
+      "title": "apps.app.addons.addon.delete",
+      "description": "Uninstall an addon from an app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          },
+          "addon": {
+            "type": "string",
+            "description": "the addon name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "app",
+          "addon"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.get",
+      "title": "apps.get",
+      "description": "List apps.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.post",
+      "title": "apps.post",
+      "description": "Create an app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.name.get",
+      "title": "apps.name.get",
+      "description": "Get info for an app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "description": "The app name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "name"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.name.delete",
+      "title": "apps.name.delete",
+      "description": "Destroy an app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "description": "The app name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "name"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.collaborators.get",
+      "title": "apps.app.collaborators.get",
+      "description": "List collaborators for an app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "app"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.collaborators.email.delete",
+      "title": "apps.app.collaborators.email.delete",
+      "description": "Remove a collaborator from an app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          },
+          "email": {
+            "type": "string",
+            "description": "The email of the user to remove as a collaborator."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "app",
+          "email"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.config_vars.get",
+      "title": "apps.app.config_vars.get",
+      "description": "List config vars for an app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "app"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.config_vars.put",
+      "title": "apps.app.config_vars.put",
+      "description": "Add config vars to an app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "app"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.config_vars.key.delete",
+      "title": "apps.app.config_vars.key.delete",
+      "description": "Remove a config var from an app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          },
+          "key": {
+            "type": "string",
+            "description": "The config var to remove."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "app",
+          "key"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.domains.get",
+      "title": "apps.app.domains.get",
+      "description": "List domains for an app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "app"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.domains.domain_name.delete",
+      "title": "apps.app.domains.domain_name.delete",
+      "description": "Remove a domain from an app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          },
+          "domain_name": {
+            "type": "string",
+            "description": "The domain to remove."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "app",
+          "domain_name"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "user.keys.get",
+      "title": "user.keys.get",
+      "description": "List SSH keys.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "user.keys.post",
+      "title": "user.keys.post",
+      "description": "Associate an SSH key with this account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "user.keys.key.delete",
+      "title": "user.keys.key.delete",
+      "description": "Remove an SSH key from this account.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "key": {
+            "type": "string",
+            "description": "The username@hostname description field of the key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "key"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.logs.get",
+      "title": "apps.app.logs.get",
+      "description": "Get logs for an app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          },
+          "logplex": {
+            "type": "string",
+            "description": "Use logplex to stream logs (always true)."
+          },
+          "num": {
+            "type": "integer",
+            "description": "The number of lines to display."
+          },
+          "ps": {
+            "type": "string",
+            "description": "Only display logs from a given process."
+          },
+          "source": {
+            "type": "string",
+            "description": "Only display logs from a given source."
+          },
+          "tail": {
+            "type": "string",
+            "description": "1: continually stream logs - <blank>: display only num logs"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "app",
+          "logplex"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.ps.get",
+      "title": "apps.app.ps.get",
+      "description": "List processes for an app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "app"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.ps.post",
+      "title": "apps.app.ps.post",
+      "description": "Run a one-off process.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "command": {
+            "type": "string",
+            "description": "The command to run."
+          },
+          "attach": {
+            "type": "string",
+            "description": "true: use rendezvous to access stdin/stdout - <blank>: stream process output to the application log"
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "command",
+          "app"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.ps.restart.post",
+      "title": "apps.app.ps.restart.post",
+      "description": "Restart processes of an app. Specify either ps or type to restart only the specified processes. Leave both blank to restart the entire app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          },
+          "ps": {
+            "type": "string",
+            "description": "The name of a process to restart."
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of process to restart."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "app"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.ps.stop.post",
+      "title": "apps.app.ps.stop.post",
+      "description": "Stop processes of an app. Specify either ps or type to stop the specified processes.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "app"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.ps.scale.post",
+      "title": "apps.app.ps.scale.post",
+      "description": "Scale processes of an app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of process to scale."
+          },
+          "qty": {
+            "type": "string",
+            "description": "The desired number of processes of this type."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "app",
+          "type",
+          "qty"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.releases.get",
+      "title": "apps.app.releases.get",
+      "description": "List releases for an app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "app"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.releases.post",
+      "title": "apps.app.releases.post",
+      "description": "Rollback to a release.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "rollback": {
+            "type": "string",
+            "description": "The release to which to roll back."
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "rollback",
+          "app"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.releases.release.get",
+      "title": "apps.app.releases.release.get",
+      "description": "Get info for a release.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          },
+          "release": {
+            "type": "string",
+            "description": "The release name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "app",
+          "release"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.stack.get",
+      "title": "apps.app.stack.get",
+      "description": "List available stacks for an app.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "app"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    },
+    {
+      "id": "apps.app.stack.put",
+      "title": "apps.app.stack.put",
+      "description": "Migrate an app to a new stack.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Accept": {
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "application/json",
+              "application/xml"
+            ]
+          },
+          "app": {
+            "type": "string",
+            "description": "The app name."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Accept",
+          "app"
+        ]
+      },
+      "outputSchema": {},
+      "security": {
+        "heroku": {
+          "integration": "heroku"
+        }
+      }
+    }
+  ]
+}

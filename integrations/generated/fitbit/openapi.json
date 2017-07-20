@@ -1,0 +1,2578 @@
+{
+  "info": {
+    "description": "Bring Fitbit health data into your apps, including user activities, sleep, heart, glucose and blood pressure information.",
+    "title": "Fitbit",
+    "x-datafire": {
+      "name": "fitbit",
+      "type": "openapi"
+    }
+  },
+  "paths": {
+    "/user/-{collection-path}apiSubscriptions.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/Subscriptions-API#Subscriptions-API-Listexistingsubscriptions"
+        },
+        "description": "Get a list of user's subscriptions for your application in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._collection_pathapiSubscriptions.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "enum": [
+            "/",
+            "/activities/",
+            "/foods/",
+            "/body/",
+            "/sleep/"
+          ],
+          "default": "/",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "collection-path"
+        }
+      ]
+    },
+    "/user/-{collection-path}apiSubscriptions/{subscription-id}.json": {
+      "delete": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/Subscriptions-API#Subscriptions-API-Removeasubscription"
+        },
+        "description": "Delete a subscription for the user and get a response in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._collection_pathapiSubscriptions.subscription_id.json.delete"
+      },
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/Subscriptions-API#Subscriptions-API-Addasubscription"
+        },
+        "description": "Add a subscription for the user to get notifications and get a response in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._collection_pathapiSubscriptions.subscription_id.json.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "enum": [
+            "/",
+            "/activities/",
+            "/foods/",
+            "/body/",
+            "/sleep/"
+          ],
+          "default": "/",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "collection-path"
+        },
+        {
+          "default": "1",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "subscription-id"
+        }
+      ]
+    },
+    "/user/-/friends/invitations/{from-user-id}.json?accept={accept}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Accept-Invite"
+        },
+        "description": "Accept or reject an invite to become friends with inviting user.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.friends.invitations.from_user_id.json_accept_accept.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "222YZL",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "from-user-id"
+        },
+        {
+          "enum": [
+            "true",
+            "false"
+          ],
+          "default": "true",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "accept"
+        }
+      ]
+    },
+    "/user/-/friends/invitations.json?invitedUserEmail={invitedUserEmail}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Create-Invite"
+        },
+        "description": "Invite a user to become friends with authorized user. If you provide invitedUserEmail parameter with the request, standard friendship invitation email will be sent to the invited user, that he can accept later. Contrary, invitedUserId parameter creates an invite silently, so it could only be fetched through the Get Invites endpoint. You can accept or reject both invitation types on behalf of the authorized user via Accept Invite API call.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.friends.invitations.json_invitedUserEmail_invitedUserEmail.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "222YZL",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "invitedUserEmail"
+        }
+      ]
+    },
+    "/user/-/friends/invitations.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Invites"
+        },
+        "description": "Retrieve the list of invites to become freinds for a user in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.friends.invitations.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/foods/units.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Food-Units"
+        },
+        "description": "Get list of all valid Fitbit food units in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "foods.units.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/foods/{food-id}.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Food"
+        },
+        "description": "Get the details of a specific food in Fitbit Food database (or private food for the user) in the format requested. Note, that nutritional values currently included in response only for the private foods.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "foods.food_id.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "30414",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "food-id"
+        }
+      ]
+    },
+    "/foods/search.json?query={query}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Activity"
+        },
+        "description": "Given a search query, get a list of public foods from Fitbit foods database and private foods the user created in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "foods.search.json_query_query.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "enum": [
+            "Icecream"
+          ],
+          "default": "Icecream",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "query"
+        }
+      ]
+    },
+    "/activities/{id}.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Activity"
+        },
+        "description": "Get the details of a specific activity in Fitbit activities database in the format requested. If activity has levels, also get list of activity level details.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "activities.id.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "90009",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "id"
+        }
+      ]
+    },
+    "/activities.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Browse-Activities"
+        },
+        "description": "Get a tree of all valid Fitbit public activities from the activities catalog as well as private custom activities the user created in the format requested. If activity has levels, also get a list of activity level details.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "activities.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/-/devices.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Devices"
+        },
+        "description": "Retrieve the list of Fitbit devices for a user in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.devices.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/-/foods/log/goal.json": {
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Update-Food-Goals"
+        },
+        "description": "Update (create) a user's daily calorie consumption goal or Food Plan and get a response in the format requested. Food Plan could not be created unless user already has active goal (Update-Weight-Goal). Depending on the weight goal setup only either MAINTENANCE (in case start weight is close to target weight or smaller) or one of the four other \"lose\" food plans could be created via intensity POST parameter.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.foods.log.goal.json.post"
+      },
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Food-Goals"
+        },
+        "description": "Get a user's current daily calorie consumption goal and/or Food Plan in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.foods.log.goal.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "MEDIUM",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "intensity"
+        }
+      ]
+    },
+    "/user/-/meals.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Meals"
+        },
+        "description": "Get a list of meals user created in his food log in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.meals.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/foods.json": {
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Create-Food"
+        },
+        "description": "Create new private food for a user and get a response in a format requested. Created private food could be found in results of Search Foods call.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "foods.json.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "Icecream,big",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "name"
+        },
+        {
+          "default": "147",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "defaultFoodMeasurementUnitId"
+        },
+        {
+          "default": "1",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "defaultServingSize"
+        },
+        {
+          "default": "500",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "calories"
+        }
+      ]
+    },
+    "/user/-/foods/log/water/{water-log-id}.json": {
+      "delete": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/Delete-Water-Log"
+        },
+        "description": "Delete user's water log entry with the given id.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.foods.log.water.water_log_id.json.delete"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "1",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "water-log-id"
+        }
+      ]
+    },
+    "/user/-/foods/log/water.json": {
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Log-Water"
+        },
+        "description": "Create log entry for a water using units in the unit system that corresponds to the Accept-Language header provided (or waterUnit) and get a response in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.foods.log.water.json.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "300",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "amount"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "date"
+        }
+      ]
+    },
+    "/user/-/foods/log/water/date/{date}.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Water"
+        },
+        "description": "Get a summary and list of a user's water log entries for a given day in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.foods.log.water.date.date.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "date"
+        }
+      ]
+    },
+    "/user/-/foods/log/favorite/{id}.json": {
+      "delete": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Delete-Favorite-Food"
+        },
+        "description": "Delete the food with the given id from user's list of favorite foods.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.foods.log.favorite.id.json.delete"
+      },
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Add-Favorite-Food"
+        },
+        "description": "Add the food with the given id to user's list of favorite foods.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.foods.log.favorite.id.json.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "1",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "id"
+        }
+      ]
+    },
+    "/user/-/activities/goals/weekly.json?type={type}&value={value}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Update-Activity-Weekly-Goals"
+        },
+        "description": "Create or updates user's weekly activity goals and get a response in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.activities.goals.weekly.json_type_type_value_value.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "enum": [
+            "steps",
+            "distance",
+            "floors"
+          ],
+          "default": "steps",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "type"
+        },
+        {
+          "default": "5000",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "value"
+        }
+      ]
+    },
+    "/user/-/activities/goals/daily.json?type={type}&value={value}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Update-Activity-Daily-Goals"
+        },
+        "description": "Create or updates user's daily activity goals and get a response in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.activities.goals.daily.json_type_type_value_value.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "enum": [
+            "steps",
+            "distance",
+            "floors",
+            "caloriesOut"
+          ],
+          "default": "steps",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "type"
+        },
+        {
+          "default": "5000",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "value"
+        }
+      ]
+    },
+    "/user/-/activities/goals/weekly.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Activity-Weekly-Goals"
+        },
+        "description": "Get a user's current weekly activity goals in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.activities.goals.weekly.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/-/activities/goals/daily.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Activity-Daily-Goals"
+        },
+        "description": "Get a user's current daily activity goals in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.activities.goals.daily.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/-/activities/log/favorite/{id}.json": {
+      "delete": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Delete-Favorite-Activity"
+        },
+        "description": "Delete the activity with the given id from user's list of favorite activities.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.activities.log.favorite.id.json.delete"
+      },
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Add-Favorite-Activity"
+        },
+        "description": "Adds the activity with the given id to user's list of favorite activities.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.activities.log.favorite.id.json.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "1",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "id"
+        }
+      ]
+    },
+    "/user/-/foods/log/favorite.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Favorite-Foods"
+        },
+        "description": "Get a list of a user's favorite foods in the format requested. A user marks a food as favorite on the user's Food Tab tab. A favorite food in the list provides a quick way to log the food via the Log Food endpoint.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.foods.log.favorite.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/-/foods/log/frequent.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Frequent-Foods"
+        },
+        "description": "Get a list of a user's frequent foods in the format requested. A frequent food in the list provides a quick way to log the food via the Log Food endpoint.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.foods.log.frequent.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/-/foods/log/recent.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Recent-Foods"
+        },
+        "description": "Get a list of a user's recent foods in the format requested. A recent food provides a quick way to log the food via the Log Food endpoint.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.foods.log.recent.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/-/activities/favorite.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Recent-Activities"
+        },
+        "description": "Get a list of a user's favorite activities in the format requested. A user marks an activity as favorite on the user's Activities Tab. The activity ids in the list can be used to create a new activity log entry via the Log Activity.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.activities.favorite.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/-/activities/frequent.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Frequent-Activities"
+        },
+        "description": "Get a list of a user's frequent activities in the format requested using units in the unit system which corresponds to the Accept-Language header provided. A frequent activity record contains the distance and duration values recorded the last time the activity was logged. The record retrieved can therefore be used to log the activity via the Log Activity with the same or adjusted values for distance and duration.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.activities.frequent.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/-/activities/recent.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Recent-Activities"
+        },
+        "description": "Get a list of a user's recent activities in the format requested using units in the unit system which corresponds to the Accept-Language header provided. A recent activity record contains the distance and duration values recorded the last time the activity was logged. The record retrieved can therefore be used to log the activity via the Log Activity with the same or adjusted values for distance and duration.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.activities.recent.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/{user-id}/sleep/minutesAsleep/date/{start-date-or-end-date}/{end-date-or-period}.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Time-Series"
+        },
+        "description": "Get time series in the specified range for a given resource in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.user_id.sleep.minutesAsleep.date.start_date_or_end_date.end_date_or_period.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "-",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "user-id"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "start-date-or-end-date"
+        },
+        {
+          "default": "7d",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "end-date-or-period"
+        }
+      ]
+    },
+    "/user/{user-id}/foods/log/caloriesIn/date/{start-date-or-end-date}/{end-date-or-period}.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Time-Series"
+        },
+        "description": "Get time series in the specified range for a given resource in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.user_id.foods.log.caloriesIn.date.start_date_or_end_date.end_date_or_period.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "-",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "user-id"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "start-date-or-end-date"
+        },
+        {
+          "default": "7d",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "end-date-or-period"
+        }
+      ]
+    },
+    "/user/-/body/log/fat/goal.json": {
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Update-Fat-Goal"
+        },
+        "description": "Create or updates user's fat goal and get a response in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.body.log.fat.goal.json.post"
+      },
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Body-Fat-Goal"
+        },
+        "description": "Get a user's current fat goal in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.body.log.fat.goal.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "14",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "fat"
+        }
+      ]
+    },
+    "/user/-/body/log/weight/goal.json": {
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Update-Weight-Goal"
+        },
+        "description": "Create or update user's weight goal using units in the unit system that corresponds to the Accept-Language header provided and get a response in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.body.log.weight.goal.json.post"
+      },
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Body-Weight-Goal"
+        },
+        "description": "Get a user's current weight goal using units in the unit system that corresponds to the Accept-Language header provided in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.body.log.weight.goal.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "70",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "weight"
+        },
+        {
+          "default": "75",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "startWeight"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "startDate"
+        }
+      ]
+    },
+    "/user/-/body/log/fat/{body-fat-log-id}.json": {
+      "delete": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Delete-Body-Fat-Log"
+        },
+        "description": "Delete user's body fat log entry with the given id.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.body.log.fat.body_fat_log_id.json.delete"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "1",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "body-fat-log-id"
+        }
+      ]
+    },
+    "/user/-/body/log/fat/{body-weight-log-id}.json": {
+      "delete": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Delete-Body-Weight-Log"
+        },
+        "description": "Delete user's body weight log entry with the given id.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.body.log.fat.body_weight_log_id.json.delete"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "1",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "body-weight-log-id"
+        }
+      ]
+    },
+    "/user/-/body/log/fat.json": {
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Log-Body-Fat"
+        },
+        "description": "Create log entry for a body fat and get a response in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.body.log.fat.json.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "14.4",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "fat"
+        },
+        {
+          "default": "12:20",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "time"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "date"
+        }
+      ]
+    },
+    "/user/-/body/log/weight.json": {
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Log-Body-Weight"
+        },
+        "description": "Create log entry for a body weight using units in the unit system that corresponds to the Accept-Language header provided and get a response in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.body.log.weight.json.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "150",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "weight"
+        },
+        {
+          "default": "12:20:00",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "time"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "date"
+        }
+      ]
+    },
+    "/user/-/body.json": {
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Log-Body-Measurements"
+        },
+        "description": "Log body measurements using units in the unit system that corresponds to the Accept-Language header provided.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.body.json.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "150",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "weight"
+        },
+        {
+          "default": "14.4",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "fat"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "date"
+        }
+      ]
+    },
+    "/user/{user-id}/body/weight/date/{start-date-or-end-date}/{end-date-or-period}.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Time-Series"
+        },
+        "description": "Get time series in the specified range for a given resource in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.user_id.body.weight.date.start_date_or_end_date.end_date_or_period.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "-",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "user-id"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "start-date-or-end-date"
+        },
+        {
+          "default": "7d",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "end-date-or-period"
+        }
+      ]
+    },
+    "/user/{user-id}/activities/calories/date/{start-date-or-end-date}/{end-date-or-period}.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Time-Series"
+        },
+        "description": "Get time series in the specified range for a given resource in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.user_id.activities.calories.date.start_date_or_end_date.end_date_or_period.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "-",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "user-id"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "start-date-or-end-date"
+        },
+        {
+          "default": "7d",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "end-date-or-period"
+        }
+      ]
+    },
+    "/user/-/bp/{bp-log-id}.json": {
+      "delete": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Delete-Blood-Pressure-Log"
+        },
+        "description": "Delete user's blood pressure log entry with the given id.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.bp.bp_log_id.json.delete"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "1",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "bp-log-id"
+        }
+      ]
+    },
+    "/user/-/heart/{heart-log-id}.json": {
+      "delete": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Delete-Heart-Rate-Log"
+        },
+        "description": "Delete user's heart rate log entry with the given id.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.heart.heart_log_id.json.delete"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "1",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "heart-log-id"
+        }
+      ]
+    },
+    "/user/-/sleep/{sleep-log-id}.json": {
+      "delete": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/Delete-Sleep-Log"
+        },
+        "description": "Delete user's sleep log entry with the given id.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.sleep.sleep_log_id.json.delete"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "1",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "sleep-log-id"
+        }
+      ]
+    },
+    "/user/{user-id}/badges.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Badges"
+        },
+        "description": "Get user's badges in the format requested. Response includes all badges for the user as seen on the Fitbit website badge locker (both activity and weight related). We return weight and distance badges based on the user's unit profile preference as on the website.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.user_id.badges.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "-",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "user-id"
+        }
+      ]
+    },
+    "/user/-/activities/{activity-log-id}.json": {
+      "delete": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Delete-Activity-Log"
+        },
+        "description": "Delete user's activity log entry with the given id.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.activities.activity_log_id.json.delete"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "1",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "activity-log-id"
+        }
+      ]
+    },
+    "/user/-/foods/log/{food-log-id}.json": {
+      "delete": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Delete-Food-Log"
+        },
+        "description": "Delete the user's food log entry with the given id.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.foods.log.food_log_id.json.delete"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "1",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "food-log-id"
+        }
+      ]
+    },
+    "/user/-/glucose.json": {
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Log-Glucose"
+        },
+        "description": "Create log entry for a blood glucose measurement and/or HbA1c using units in the unit system which corresponds to the Accept-Language header provided and get a response in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.glucose.json.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "4.5",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "hba1c"
+        },
+        {
+          "default": "Afternoon",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "tracker"
+        },
+        {
+          "default": "3",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "glucose"
+        },
+        {
+          "default": "12:30",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "time"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "date"
+        }
+      ]
+    },
+    "/user/-/bp.json": {
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Log-Blood-Pressure"
+        },
+        "description": "Create log entry for a blood pressure measurement and get a response in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.bp.json.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "120",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "systolic"
+        },
+        {
+          "default": "80",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "diastolic"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "date"
+        }
+      ]
+    },
+    "/user/-/heart.json": {
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Log-Heart-Rate"
+        },
+        "description": "Create log entry for a heart rate measurement and get a response in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.heart.json.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "Running",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "tracker"
+        },
+        {
+          "default": "80",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "heartRate"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "date"
+        }
+      ]
+    },
+    "/user/-/sleep.json": {
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Log-Sleep"
+        },
+        "description": "Create log entry for a sleep and get a response in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.sleep.json.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "02:20",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "startTime"
+        },
+        {
+          "default": "24000000",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "duration"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "date"
+        }
+      ]
+    },
+    "/user/-/foods/log.json": {
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Log-Food"
+        },
+        "description": "Create log entry for a food. You need to select one of the unit ids to create a food log entry. It is possible to fetch unit ids allowed for specific food via previous calls to endpoints that retrieve food lists of the user. Each unit id maps to a unit in the list returned via the Get Food Units API call.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.foods.log.json.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "30414",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "foodId"
+        },
+        {
+          "default": "1",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "mealTypeId"
+        },
+        {
+          "default": "147",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "unitId"
+        },
+        {
+          "default": "1",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "amount"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "date"
+        }
+      ]
+    },
+    "/user/-/activities.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Activity-Stats"
+        },
+        "description": "Get user's activity statistics in the format requested using units in the unit system which corresponds to the Accept-Language header provided. Response contains both lifetime statistics from the tracker device and total numbers including the manual activity log entries as seen on the Fitbit website dashboard.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.activities.json.get"
+      },
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Log-Activity"
+        },
+        "description": "Create log entry for an activity using units in the unit system which corresponds to the Accept-Language header provided (or using optional custom distanceUnit).",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.activities.json.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/-/friends/leaderboard.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Friends"
+        },
+        "description": "Get a leaderboard of user's friends progress in the format requested using units in the unit system which corresponds to the Accept-Language header provided. Authorized user himself is also included in the response.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.friends.leaderboard.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/{user-id}/friends.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Friends"
+        },
+        "description": "Get user's friends in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.user_id.friends.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "-",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "user-id"
+        }
+      ]
+    },
+    "/user/-/glucose/date/{date}.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Glucose"
+        },
+        "description": "Get a list of user's blood glucose and HbA1C measurements for a given day in the format requested using units in the unit system which corresponds to the Accept-Language header provided. Glucose measurement log entries are available only to authorized user. We always include all glucose trackers in the response body (with zero glucose value for the days with no measurements) to allow to seamlessly fetch a list of all additional user created custom trackers.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.glucose.date.date.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "date"
+        }
+      ]
+    },
+    "/user/-/bp/date/{date}.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Blood-Pressure"
+        },
+        "description": "Get an average value and a list of user's blood pressure log entries for a given day in the format requested. Blood pressure log entries are available only to authorized user. Blood pressure log entries in response are sorted exactly the same as they are presented on the Fitbit website.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.bp.date.date.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "date"
+        }
+      ]
+    },
+    "/user/-/heart/date/{date}.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Heart-Rate"
+        },
+        "description": "Get an average values and a list of user's heart rate log entries for a given day in the format requested. Heart rate data available only to the authorized user. Heart rate log entries in response are sorted exactly the same as they are presented on the Fitbit website. We always include all heart rate trackers in the \"average\" section of the response body (with zero average values for the days with no measurements) to allow to seamlessly fetch a list of all additional user created custom trackers.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.heart.date.date.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "date"
+        }
+      ]
+    },
+    "/user/{user-id}/sleep/date/{date}.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Sleep"
+        },
+        "description": "Get a summary and list of a user's sleep log entries for a given day in the format requested. Endpoint returns summary for all sleep log entries for the given day (including naps). If you need data only for the main sleep you can fetch entry with \"isMainSleep\" = true or use Get-Time-Series calls.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.user_id.sleep.date.date.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "-",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "user-id"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "date"
+        }
+      ]
+    },
+    "/user/{user-id}/foods/log/date/{date}.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Foods"
+        },
+        "description": "Get a summary and list of a user's food log entries for a given day in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.user_id.foods.log.date.date.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "-",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "user-id"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "date"
+        }
+      ]
+    },
+    "/user/{user-id}/activities/date/{date}.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Activities"
+        },
+        "description": "Get a summary and list of a user's activities and activity log entries for a given day in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.user_id.activities.date.date.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "-",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "user-id"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "date"
+        }
+      ]
+    },
+    "/user/-/body/log/fat/date/{date}.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Body-Fat"
+        },
+        "description": "Get a list of all user's body fat log entries for a given day in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.body.log.fat.date.date.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "date"
+        }
+      ]
+    },
+    "/user/-/body/log/weight/date/{date}.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Body-Weight"
+        },
+        "description": "Get a list of all user's body weight log entries for a given day in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.body.log.weight.date.date.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "date"
+        }
+      ]
+    },
+    "/user/{user-id}/body/date/{date}.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-Body-Measurements"
+        },
+        "description": "Get a summary of a user's body measurements for a given day in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.user_id.body.date.date.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "-",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "user-id"
+        },
+        {
+          "default": "2015-03-01",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "date"
+        }
+      ]
+    },
+    "/user/-/profile.json": {
+      "post": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Update-User-Info"
+        },
+        "description": "Update user's profile using units in the unit system that corresponds to the Accept-Language header provided and get a response in the format requested.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user._.profile.json.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "FEMALE",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "gender"
+        },
+        {
+          "default": "1980-02-01",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "birthday"
+        },
+        {
+          "default": "176",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "height"
+        },
+        {
+          "default": "Me",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "nickname"
+        },
+        {
+          "default": "TestUser",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "fullname"
+        }
+      ]
+    },
+    "/user/{user-id}/profile.json": {
+      "get": {
+        "externalDocs": {
+          "url": "http://wiki.fitbit.com/display/API/API-Get-User-Info"
+        },
+        "description": "Get user's profile in the format requested using units in the unit system which corresponds to the Accept-Language header provided.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.user_id.profile.json.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "xml",
+            "json"
+          ],
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "default": "-",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "user-id"
+        }
+      ]
+    }
+  },
+  "securityDefinitions": {
+    "oauth2": {
+      "scopes": {
+        "weight": "The weight scope includes weight and related information, such as body mass index, body fat percentage, and goals",
+        "social": "The social scope includes friend-related features, such as friend list, invitations, and leaderboard",
+        "sleep": "The sleep scope includes sleep logs and related sleep analysis",
+        "settings": "The settings scope includes user account and device settings, such as alarms",
+        "profile": "The profile scope is the basic user information",
+        "nutrition": "The nutrition scope includes calorie consumption and nutrition related features, such as food/water logging, goals, and plans",
+        "location": "The location scope includes the GPS and other location data",
+        "heartrate": "The heartrate scope includes the continuous heart rate data and related analysis",
+        "activity": "The activity scope includes activity data and exercise log related features, such as steps, distance, calories burned, and active minutes"
+      },
+      "flow": "application",
+      "type": "oauth2"
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "basePath": "/1",
+  "host": "api.fitbit.com",
+  "swagger": "2.0"
+}
