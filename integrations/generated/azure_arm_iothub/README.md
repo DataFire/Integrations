@@ -1,5 +1,5 @@
 # @datafire/azure_arm_iothub
-Use this API to manage the IoT hubs in your subscription.
+Use this API to manage the IoT hubs in your Azure subscription.
 
 ## Operation: IotHubResource_ListBySubscription
 Get all the IoT hubs in a subscription.

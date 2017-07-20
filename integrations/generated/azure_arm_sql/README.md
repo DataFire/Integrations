@@ -1,5 +1,5 @@
 # @datafire/azure_arm_sql
-Provides create, read, update and delete functionality for Azure SQL Database resources including servers, databases, elastic pools, recommendations, operations, and usage metrics.
+Provides read functionality for Azure SQL Database Backups
 
 ## Operation: Databases_ListRestorePoints
 Returns a list of database restore points.

@@ -1,5 +1,5 @@
 # @datafire/azure_arm_devtestlabs
-Azure DevTest Labs REST API.
+The DevTest Labs Client.
 
 ## Operation: Lab_ListBySubscription
 List labs in a subscription.

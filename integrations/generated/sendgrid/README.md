@@ -1,5 +1,13 @@
 # @datafire/sendgrid
+# The SendGrid Web API V3 Documentation
 
+This is the entirety of the documented v3 endpoints. We have updated all the descriptions, parameters, requests, and responses.
+
+## Authentication 
+
+Every endpoint requires Authentication in the form of an Authorization Header:
+
+Authorization: Bearer API_KEY
 
 ## Operation: access_settings.activity.get
 **This endpoint allows you to retrieve a list of all of the IP addresses that recently attempted to access your account either through the User Interface or the API.**

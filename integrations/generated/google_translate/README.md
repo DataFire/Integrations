@@ -1,5 +1,6 @@
 # @datafire/google_translate
-Translates text from one language to another.
+The Google Cloud Translation API lets websites and programs integrate with
+    Google Translate programmatically.
 
 ## Operation: translations.list
 Returns text translations from one language to another.

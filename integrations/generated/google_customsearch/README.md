@@ -1,5 +1,5 @@
 # @datafire/google_customsearch
-Lets you search over a website or collection of websites
+Searches over a website or collection of websites
 
 ## Operation: cse.list
 Returns metadata about the search performed, metadata about the custom search engine used for the search, and the search results.

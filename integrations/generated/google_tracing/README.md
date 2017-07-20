@@ -1,5 +1,5 @@
 # @datafire/google_tracing
-Send and retrieve trace data from Google Stackdriver Trace.
+Send and retrieve trace data from Stackdriver Trace. Data is generated and available by default for all App Engine applications. Data from other applications can be written to Stackdriver Trace for display, reporting, and analysis.
 
 
 ## Operation: oauthCallback

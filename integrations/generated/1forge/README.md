@@ -1,5 +1,5 @@
 # @datafire/1forge
-API Program description
+Stock and Forex Data and Realtime Quotes
 
 ## Operation: quotes.get
 Get quotes

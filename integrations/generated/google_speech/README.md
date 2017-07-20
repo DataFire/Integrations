@@ -1,5 +1,5 @@
 # @datafire/google_speech
-Google Cloud Speech API.
+Converts audio to text by applying powerful neural network models.
 
 ## Operation: oauthCallback
 

@@ -1,5 +1,5 @@
 # @datafire/bbc
-BBC Nitro is the BBC's application programming interface (API) for BBC Programmes Metadata.
+We encapsulate Radio & Music business logic for iPlayer Radio and BBC Music products on all platforms. We add value by reliably providing the right blend of metadata needed by clients.
 
 ## Operation: getAPI
 Get API definition

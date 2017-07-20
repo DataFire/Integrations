@@ -76,21 +76,17 @@ Lists a business's customers.
 ### Input Schema
 ```json
 {
-  "type": "object",
+  "type": [
+    "object",
+    "null"
+  ],
   "properties": {
-    "Authorization": {
-      "type": "string",
-      "description": "The value to provide in the Authorization header of\nyour request. This value should follow the format `Bearer YOUR_ACCESS_TOKEN_HERE`."
-    },
     "cursor": {
       "type": "string",
       "description": "A pagination cursor returned by a previous call to this endpoint.\nProvide this to retrieve the next set of results for your original query.\n\nSee [Paginating results](#paginatingresults) for more information."
     }
   },
-  "additionalProperties": false,
-  "required": [
-    "Authorization"
-  ]
+  "additionalProperties": false
 }
 ```
 ### Output Schema
@@ -120,17 +116,12 @@ a duplicate customer, you can delete it with the
 {
   "type": "object",
   "properties": {
-    "Authorization": {
-      "type": "string",
-      "description": "The value to provide in the Authorization header of\nyour request. This value should follow the format `Bearer YOUR_ACCESS_TOKEN_HERE`."
-    },
     "body": {
       "$ref": "#/definitions/CreateCustomerRequest"
     }
   },
   "additionalProperties": false,
   "required": [
-    "Authorization",
     "body"
   ]
 }
@@ -149,10 +140,6 @@ Deletes a customer from a business, along with any linked cards on file.
 {
   "type": "object",
   "properties": {
-    "Authorization": {
-      "type": "string",
-      "description": "The value to provide in the Authorization header of\nyour request. This value should follow the format `Bearer YOUR_ACCESS_TOKEN_HERE`."
-    },
     "customer_id": {
       "type": "string",
       "description": "The ID of the customer to delete."
@@ -160,7 +147,6 @@ Deletes a customer from a business, along with any linked cards on file.
   },
   "additionalProperties": false,
   "required": [
-    "Authorization",
     "customer_id"
   ]
 }
@@ -179,10 +165,6 @@ Returns details for a single customer.
 {
   "type": "object",
   "properties": {
-    "Authorization": {
-      "type": "string",
-      "description": "The value to provide in the Authorization header of\nyour request. This value should follow the format `Bearer YOUR_ACCESS_TOKEN_HERE`."
-    },
     "customer_id": {
       "type": "string",
       "description": "The ID of the customer to retrieve."
@@ -190,7 +172,6 @@ Returns details for a single customer.
   },
   "additionalProperties": false,
   "required": [
-    "Authorization",
     "customer_id"
   ]
 }
@@ -214,10 +195,6 @@ to a card on file, you must delete the existing card on file with the
 {
   "type": "object",
   "properties": {
-    "Authorization": {
-      "type": "string",
-      "description": "The value to provide in the Authorization header of\nyour request. This value should follow the format `Bearer YOUR_ACCESS_TOKEN_HERE`."
-    },
     "customer_id": {
       "type": "string",
       "description": "The ID of the customer to update."
@@ -228,7 +205,6 @@ to a card on file, you must delete the existing card on file with the
   },
   "additionalProperties": false,
   "required": [
-    "Authorization",
     "customer_id",
     "body"
   ]
@@ -248,10 +224,6 @@ Adds a card on file to an existing customer.
 {
   "type": "object",
   "properties": {
-    "Authorization": {
-      "type": "string",
-      "description": "The value to provide in the Authorization header of\nyour request. This value should follow the format `Bearer YOUR_ACCESS_TOKEN_HERE`."
-    },
     "customer_id": {
       "type": "string",
       "description": "The ID of the customer to link the card on file to."
@@ -262,7 +234,6 @@ Adds a card on file to an existing customer.
   },
   "additionalProperties": false,
   "required": [
-    "Authorization",
     "customer_id",
     "body"
   ]
@@ -282,10 +253,6 @@ Removes a card on file from a customer.
 {
   "type": "object",
   "properties": {
-    "Authorization": {
-      "type": "string",
-      "description": "The value to provide in the Authorization header of\nyour request. This value should follow the format `Bearer YOUR_ACCESS_TOKEN_HERE`."
-    },
     "customer_id": {
       "type": "string",
       "description": "The ID of the customer that the card on file belongs to."
@@ -297,7 +264,6 @@ Removes a card on file from a customer.
   },
   "additionalProperties": false,
   "required": [
-    "Authorization",
     "customer_id",
     "card_id"
   ]
@@ -318,19 +284,7 @@ endpoint correspond to that `location_id` parameter.
 
 ### Input Schema
 ```json
-{
-  "type": "object",
-  "properties": {
-    "Authorization": {
-      "type": "string",
-      "description": "The value to provide in the Authorization header of\nyour request. This value should follow the format `Bearer YOUR_ACCESS_TOKEN_HERE`."
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "Authorization"
-  ]
-}
+{}
 ```
 ### Output Schema
 ```json
@@ -349,10 +303,6 @@ workflow hosted on connect.squareup.com.
 {
   "type": "object",
   "properties": {
-    "Authorization": {
-      "type": "string",
-      "description": "The value to provide in the Authorization header of\nyour request. This value should follow the format `Bearer YOUR_ACCESS_TOKEN_HERE`."
-    },
     "location_id": {
       "type": "string",
       "description": "The ID of the business location to associate the checkout with."
@@ -363,7 +313,6 @@ workflow hosted on connect.squareup.com.
   },
   "additionalProperties": false,
   "required": [
-    "Authorization",
     "location_id",
     "body"
   ]
@@ -388,10 +337,6 @@ Max results per [page](#paginatingresults): 50
 {
   "type": "object",
   "properties": {
-    "Authorization": {
-      "type": "string",
-      "description": "The value to provide in the Authorization header of\nyour request. This value should follow the format `Bearer YOUR_ACCESS_TOKEN_HERE`."
-    },
     "location_id": {
       "type": "string",
       "description": "The ID of the location to list refunds for."
@@ -419,7 +364,6 @@ Max results per [page](#paginatingresults): 50
   },
   "additionalProperties": false,
   "required": [
-    "Authorization",
     "location_id"
   ]
 }
@@ -440,10 +384,6 @@ Max results per [page](#paginatingresults): 50
 {
   "type": "object",
   "properties": {
-    "Authorization": {
-      "type": "string",
-      "description": "The value to provide in the Authorization header of\nyour request. This value should follow the format `Bearer YOUR_ACCESS_TOKEN_HERE`."
-    },
     "location_id": {
       "type": "string",
       "description": "The ID of the location to list transactions for."
@@ -471,7 +411,6 @@ Max results per [page](#paginatingresults): 50
   },
   "additionalProperties": false,
   "required": [
-    "Authorization",
     "location_id"
   ]
 }
@@ -509,10 +448,6 @@ field of each [Tender included](#type-tender) in the transaction.
 {
   "type": "object",
   "properties": {
-    "Authorization": {
-      "type": "string",
-      "description": "The value to provide in the Authorization header of\nyour request. This value should follow the format `Bearer YOUR_ACCESS_TOKEN_HERE`."
-    },
     "location_id": {
       "type": "string",
       "description": "The ID of the location to associate the created transaction with."
@@ -523,7 +458,6 @@ field of each [Tender included](#type-tender) in the transaction.
   },
   "additionalProperties": false,
   "required": [
-    "Authorization",
     "location_id",
     "body"
   ]
@@ -543,10 +477,6 @@ Retrieves details for a single transaction.
 {
   "type": "object",
   "properties": {
-    "Authorization": {
-      "type": "string",
-      "description": "The value to provide in the Authorization header of\nyour request. This value should follow the format `Bearer YOUR_ACCESS_TOKEN_HERE`."
-    },
     "location_id": {
       "type": "string",
       "description": "The ID of the transaction's associated location."
@@ -558,7 +488,6 @@ Retrieves details for a single transaction.
   },
   "additionalProperties": false,
   "required": [
-    "Authorization",
     "location_id",
     "transaction_id"
   ]
@@ -582,10 +511,6 @@ for more information.
 {
   "type": "object",
   "properties": {
-    "Authorization": {
-      "type": "string",
-      "description": "The value to provide in the Authorization header of\nyour request. This value should follow the format `Bearer YOUR_ACCESS_TOKEN_HERE`."
-    },
     "location_id": {
       "type": "string",
       "description": ""
@@ -597,7 +522,6 @@ for more information.
   },
   "additionalProperties": false,
   "required": [
-    "Authorization",
     "location_id",
     "transaction_id"
   ]
@@ -617,10 +541,6 @@ Initiates a refund for a previously charged tender.
 {
   "type": "object",
   "properties": {
-    "Authorization": {
-      "type": "string",
-      "description": "The value to provide in the Authorization header of\nyour request. This value should follow the format `Bearer YOUR_ACCESS_TOKEN_HERE`."
-    },
     "location_id": {
       "type": "string",
       "description": "The ID of the original transaction's associated location."
@@ -635,7 +555,6 @@ Initiates a refund for a previously charged tender.
   },
   "additionalProperties": false,
   "required": [
-    "Authorization",
     "location_id",
     "transaction_id",
     "body"
@@ -660,10 +579,6 @@ for more information.
 {
   "type": "object",
   "properties": {
-    "Authorization": {
-      "type": "string",
-      "description": "The value to provide in the Authorization header of\nyour request. This value should follow the format `Bearer YOUR_ACCESS_TOKEN_HERE`."
-    },
     "location_id": {
       "type": "string",
       "description": ""
@@ -675,7 +590,6 @@ for more information.
   },
   "additionalProperties": false,
   "required": [
-    "Authorization",
     "location_id",
     "transaction_id"
   ]

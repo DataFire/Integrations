@@ -1,5 +1,5 @@
 # @datafire/google_language
-Google Cloud Natural Language API provides natural language understanding technologies to developers. Examples include sentiment analysis, entity recognition, and text annotations.
+Provides natural language understanding technologies to developers. Examples include sentiment analysis, entity recognition, entity sentiment analysis, and text annotations.
 
 ## Operation: oauthCallback
 

@@ -1,5 +1,5 @@
 # @datafire/google_firebasedynamiclinks
-Firebase Dynamic Links API enables third party developers to programmatically create and manage Dynamic Links.
+Programmatically creates and manages Firebase Dynamic Links.
 
 ## Operation: oauthCallback
 

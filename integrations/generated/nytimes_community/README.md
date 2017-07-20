@@ -1,5 +1,5 @@
 # @datafire/nytimes_community
-Get access to comments from registered users on New York Times articles.
+Get access to comments from registered users on New York Times articles.  NOTE: This API is deprecated.
 
 ## Operation: user_content.by_date.json.get
 Comments by Date

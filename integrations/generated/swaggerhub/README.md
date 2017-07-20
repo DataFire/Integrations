@@ -1,5 +1,10 @@
 # @datafire/swaggerhub
-The registry API for SwaggerHub
+# Introduction
+This is the registry API for SwaggerHub. It allows you to access, manage, and update your APIs and Domains in SwaggerHub bypassing the Web application.
+
+# Authentication
+Use your personal API Key: you may find it by visiting the   [API Key page](https://app.swaggerhub.com/settings/apiKey).
+
 
 ## Operation: searchApis
 Retrieves a list of currently defined APIs in APIs.json format

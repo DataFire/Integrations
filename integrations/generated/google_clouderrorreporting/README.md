@@ -1,5 +1,5 @@
 # @datafire/google_clouderrorreporting
-Stackdriver Error Reporting groups and counts similar errors from cloud services. The Stackdriver Error Reporting API provides a way to report new errors and read access to error groups and their associated errors.
+Groups and counts similar errors from cloud services and applications, reports new errors, and provides access to error groups and their associated errors.
 
 
 ## Operation: oauthCallback
