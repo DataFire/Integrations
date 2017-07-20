@@ -3902,7 +3902,7 @@
     {
       "id": "oauthCallback",
       "title": "",
-      "description": "",
+      "description": "Exchange the code passed to your redirect URI for an access_token",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -3943,7 +3943,7 @@
     {
       "id": "oauthRefresh",
       "title": "",
-      "description": "",
+      "description": "Exchange a refresh_token for an access_token",
       "inputSchema": {},
       "outputSchema": {
         "properties": {
