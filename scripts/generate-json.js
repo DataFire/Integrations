@@ -39,9 +39,16 @@ iterateIntegs((dir, name, integ) => {
     console.log('adding', name);
     let package = require(path.join(dir, 'package.json'));
     let openapiFile = path.join(dir, 'openapi.json');
-    let openapi = {info: {}};
+    let infoFile = path.join(dir, 'info.json');
+    let info = {};
     if (fs.existsSync(openapiFile)) {
-      openapi = JSON.parse(fs.readFileSync(openapiFile, 'utf8'));
+      let openapi = JSON.parse(fs.readFileSync(openapiFile, 'utf8'));
+      info = openapi.info;
+      info.logo = info['x-logo'];
+      info.tags = info['x-apisguru-categories'];
+    }
+    if (fs.existsSync(infoFile)) {
+      Object.assign(info, require(infoFile));
     }
     if (list[name] && !args.name) throw new Error("Duplicate name " + name);
     list[name] = {
@@ -49,8 +56,8 @@ iterateIntegs((dir, name, integ) => {
       title: integ.title,
       description: integ.description,
       security: integ.security,
-      logo: openapi.info['x-logo'],
-      tags: (openapi.info['x-apisguru-categories'] || []).map(t => t.replace(/_/g, ' ')),
+      logo: info.logo,
+      tags: (info.tags || []).map(t => t.replace(/_/g, ' ')),
     };
     if (name.indexOf('google_') === 0) list[name].tags.push('google');
     if (name.indexOf('amazonaws_') === 0) list[name].tags.push('aws');
