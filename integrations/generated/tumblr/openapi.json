@@ -1,0 +1,770 @@
+{
+  "swagger": "2.0",
+  "host": "api.tumblr.com",
+  "basePath": "/v2/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/blog/{base-hostname}/info": {
+      "parameters": [
+        {
+          "name": "base-hostname",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The unique hostname of the blog."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "This method returns general information about the blog, such as the title, number of posts, and other high-level data.",
+        "externalDocs": {
+          "url": "http://www.tumblr.com/docs/en/api/v2#blog-info"
+        },
+        "operationId": "blog.base_hostname.info.get"
+      }
+    },
+    "/blog/{base-hostname}/avatar/{size}": {
+      "parameters": [
+        {
+          "name": "base-hostname",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The unique hostname of the blog."
+        },
+        {
+          "name": "size",
+          "required": false,
+          "in": "path",
+          "type": "string",
+          "default": "64",
+          "description": "The size of the avatar (square, one value for both length and width). Must be one of the values: 16, 24, 30, 40, 48, 64, 96, 128, 512",
+          "enum": [
+            "16",
+            "24",
+            "30",
+            "40",
+            "48",
+            "64",
+            "96",
+            "128",
+            "512"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves a blog's avatar in one of 9 different sizes.",
+        "externalDocs": {
+          "url": "http://www.tumblr.com/docs/en/api/v2#blog-avatar"
+        },
+        "operationId": "blog.base_hostname.avatar.size.get"
+      }
+    },
+    "/blog/{base-hostname}/followers": {
+      "parameters": [
+        {
+          "name": "base-hostname",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The unique hostname of the blog."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "default": 20,
+            "description": "The number of results to return: 1–20, inclusive"
+          },
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "default": 0,
+            "description": "Result to start at."
+          }
+        ],
+        "description": "Retrieves a blog's followers.",
+        "externalDocs": {
+          "url": "http://www.tumblr.com/docs/en/api/v2#blog-followers"
+        },
+        "operationId": "blog.base_hostname.followers.get"
+      }
+    },
+    "/blog/{base-hostname}/posts/{type}": {
+      "parameters": [
+        {
+          "name": "base-hostname",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The unique hostname of the blog."
+        },
+        {
+          "name": "type",
+          "required": false,
+          "in": "path",
+          "type": "string",
+          "description": "The type of post to return. Specify one of the following:  text, quote, link, answer, video, audio, photo. By default, all types are returned",
+          "enum": [
+            "text",
+            "quote",
+            "link",
+            "answer",
+            "video",
+            "audio",
+            "photo"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "description": "A specific post ID. Returns the single post specified or (if not found) a 404 error."
+          },
+          {
+            "name": "tag",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Limits the response to posts with the specified tag"
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "default": 20,
+            "description": "The number of posts to return: 1–20, inclusive"
+          },
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "default": 0,
+            "description": "Post number to start at."
+          },
+          {
+            "name": "reblog_info",
+            "required": false,
+            "in": "query",
+            "type": "boolean",
+            "default": false,
+            "description": "Indicates whether to return reblog information (specify true or false). Returns the various reblogged_ fields."
+          },
+          {
+            "name": "notes_info",
+            "required": false,
+            "in": "query",
+            "type": "boolean",
+            "default": false,
+            "description": "Indicates whether to return notes information (specify true or false). Returns note count and note metadata."
+          },
+          {
+            "name": "format",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Specifies the post format to return, other than HTML.",
+            "enum": [
+              "text",
+              "raw"
+            ]
+          }
+        ],
+        "description": "Retrieves published posts.",
+        "externalDocs": {
+          "url": "http://www.tumblr.com/docs/en/api/v2#posts"
+        },
+        "operationId": "blog.base_hostname.posts.type.get"
+      }
+    },
+    "/blog/{base-hostname}/posts/queue": {
+      "parameters": [
+        {
+          "name": "base-hostname",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The unique hostname of the blog."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves queued posts.",
+        "externalDocs": {
+          "url": "http://www.tumblr.com/docs/en/api/v2#blog-queue"
+        },
+        "operationId": "blog.base_hostname.posts.queue.get"
+      }
+    },
+    "/blog/{base-hostname}/posts/draft": {
+      "parameters": [
+        {
+          "name": "base-hostname",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The unique hostname of the blog."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves draft posts.",
+        "externalDocs": {
+          "url": "http://www.tumblr.com/docs/en/api/v2#blog-drafts"
+        },
+        "operationId": "blog.base_hostname.posts.draft.get"
+      }
+    },
+    "/blog/{base-hostname}/posts/submission": {
+      "parameters": [
+        {
+          "name": "base-hostname",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The unique hostname of the blog."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves submission posts.",
+        "externalDocs": {
+          "url": "http://www.tumblr.com/docs/en/api/v2#blog-submissions"
+        },
+        "operationId": "blog.base_hostname.posts.submission.get"
+      }
+    },
+    "/blog/{base-hostname}/post": {
+      "parameters": [
+        {
+          "name": "base-hostname",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The unique hostname of the blog."
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "type",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "default": "video",
+            "description": "The type of post to create.",
+            "enum": [
+              "text",
+              "photo",
+              "quote",
+              "link",
+              "chat",
+              "audio",
+              "video"
+            ]
+          },
+          {
+            "name": "tags",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Comma-separated tags for this post."
+          },
+          {
+            "name": "tweet",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+          },
+          {
+            "name": "date",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+          },
+          {
+            "name": "markdown",
+            "required": false,
+            "in": "query",
+            "type": "boolean",
+            "default": false,
+            "description": "Indicates whether the post uses markdown syntax."
+          },
+          {
+            "name": "caption",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "The user-supplied caption."
+          },
+          {
+            "name": "embed",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "HTML embed code for the video. Either the embed or data parameter is required."
+          },
+          {
+            "name": "data",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "A video file, as URL-encoded binary. Either the embed or data parameter is required."
+          }
+        ],
+        "description": "Creates a new video blog post.",
+        "externalDocs": {
+          "url": "http://www.tumblr.com/docs/en/api/v2#posting"
+        },
+        "operationId": "blog.base_hostname.post.post"
+      }
+    },
+    "/blog/{base-hostname}/post/edit": {
+      "parameters": [
+        {
+          "name": "base-hostname",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The unique hostname of the blog."
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "type",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "description": "The post type.",
+            "enum": [
+              "text",
+              "photo",
+              "quote",
+              "link",
+              "chat",
+              "audio",
+              "video"
+            ]
+          },
+          {
+            "name": "tags",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Comma-separated tags for this post."
+          },
+          {
+            "name": "tweet",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+          },
+          {
+            "name": "date",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+          },
+          {
+            "name": "markdown",
+            "required": false,
+            "in": "query",
+            "type": "boolean",
+            "default": false,
+            "description": "Indicates whether the post uses markdown syntax."
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "query",
+            "type": "integer",
+            "description": "The ID of the post to edit."
+          }
+        ],
+        "description": "Edits a blog post.",
+        "externalDocs": {
+          "url": "http://www.tumblr.com/docs/en/api/v2#editing"
+        },
+        "operationId": "blog.base_hostname.post.edit.post"
+      }
+    },
+    "/blog/{base-hostname}/post/reblog": {
+      "parameters": [
+        {
+          "name": "base-hostname",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The unique hostname of the blog."
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "type",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "description": "The post type.",
+            "enum": [
+              "text",
+              "photo",
+              "quote",
+              "link",
+              "chat",
+              "audio",
+              "video"
+            ]
+          },
+          {
+            "name": "tags",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Comma-separated tags for this post."
+          },
+          {
+            "name": "tweet",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+          },
+          {
+            "name": "date",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+          },
+          {
+            "name": "markdown",
+            "required": false,
+            "in": "query",
+            "type": "boolean",
+            "default": false,
+            "description": "Indicates whether the post uses markdown syntax."
+          },
+          {
+            "name": "id",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "description": "The ID of the reblogged post on tumblelog. Default is the next available ID."
+          },
+          {
+            "name": "reblog_key",
+            "required": true,
+            "in": "query",
+            "type": "integer",
+            "description": "The reblog key for the reblogged post – get the reblog key with a /posts request"
+          },
+          {
+            "name": "comment",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "A comment added to the reblogged post."
+          }
+        ],
+        "description": "Reblogs a post.",
+        "externalDocs": {
+          "url": "http://www.tumblr.com/docs/en/api/v2#reblogging"
+        },
+        "operationId": "blog.base_hostname.post.reblog.post"
+      }
+    },
+    "/blog/{base-hostname}/post/delete": {
+      "parameters": [
+        {
+          "name": "base-hostname",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The unique hostname of the blog."
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "query",
+            "type": "integer",
+            "description": "The ID of the post to delete."
+          }
+        ],
+        "description": "Deletes a post.",
+        "externalDocs": {
+          "url": "http://www.tumblr.com/docs/en/api/v2#deleting-posts"
+        },
+        "operationId": "blog.base_hostname.post.delete.post"
+      }
+    },
+    "/user/dashboard": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "default": 20,
+            "description": "The number of results to return: 1–20, inclusive"
+          },
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "default": 0,
+            "description": "Post number to start at."
+          },
+          {
+            "name": "type",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "The type of post to return.",
+            "enum": [
+              "text",
+              "photo",
+              "quote",
+              "link",
+              "chat",
+              "audio",
+              "video",
+              "question"
+            ]
+          },
+          {
+            "name": "since_id",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "default": 0,
+            "description": "Return posts that have appeared after this ID. Use this parameter to page through the results: first get a set of posts, and then get posts since the last ID of the previous set."
+          }
+        ],
+        "description": "Use this method to retrieve the dashboard that matches the OAuth credentials submitted with the request.",
+        "externalDocs": {
+          "url": "http://www.tumblr.com/docs/en/api/v2#m-ug-dashboard"
+        },
+        "operationId": "user.dashboard.get"
+      }
+    },
+    "/user/likes": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "default": 20,
+            "description": "The number of results to return: 1–20, inclusive"
+          },
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "default": 0,
+            "description": "Liked post number to start at."
+          }
+        ],
+        "description": "Use this method to retrieve the liked posts that match the OAuth credentials submitted with the request.",
+        "externalDocs": {
+          "url": "http://www.tumblr.com/docs/en/api/v2#m-ug-likes"
+        },
+        "operationId": "user.likes.get"
+      }
+    },
+    "/user/following": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "default": 20,
+            "description": "The number of results to return: 1–20, inclusive"
+          },
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "default": 0,
+            "description": "Result number to start at."
+          }
+        ],
+        "description": "Use this method to retrieve the blogs followed by the user whose OAuth credentials are submitted with the request.",
+        "externalDocs": {
+          "url": "http://www.tumblr.com/docs/en/api/v2#m-ug-following"
+        },
+        "operationId": "user.following.get"
+      }
+    },
+    "/user/follow": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "url",
+            "required": true,
+            "in": "query",
+            "description": "The URL of the blog to follow."
+          }
+        ],
+        "description": "Follow a blog.",
+        "externalDocs": {
+          "url": "http://www.tumblr.com/docs/en/api/v2#m-up-follow"
+        },
+        "operationId": "user.follow.post"
+      }
+    },
+    "/user/unfollow": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "url",
+            "required": true,
+            "in": "query",
+            "description": "The URL of the blog to unfollow."
+          }
+        ],
+        "description": "Unfollow a blog.",
+        "externalDocs": {
+          "url": "http://www.tumblr.com/docs/en/api/v2#m-up-unfollow"
+        },
+        "operationId": "user.unfollow.post"
+      }
+    }
+  },
+  "securityDefinitions": {
+    "OAuth": {
+      "description": "OAuth 2.0 authentication",
+      "flow": "oauth1",
+      "type": "oauth2"
+    }
+  },
+  "info": {
+    "title": "Tumblr",
+    "description": "\n\tShare photos, mobile apps, and social network using Tumblr's API's.\n    ",
+    "x-datafire": {
+      "name": "tumblr",
+      "type": "openapi"
+    }
+  }
+}

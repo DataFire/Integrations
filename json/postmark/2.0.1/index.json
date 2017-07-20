@@ -1,0 +1,418 @@
+{
+  "id": "postmark",
+  "title": "Postmark",
+  "description": "Send emails, retrieve bounces and start accepting inbound emails, all via an easy-to-use HTTP API.",
+  "security": {},
+  "logo": {
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/postmark.png"
+  },
+  "tags": [],
+  "actions": [
+    {
+      "id": "email.post",
+      "title": "email.post",
+      "description": "Sends e-mails. Currently Postmark supports JSON message format. The mail message format is:\n\n{\n    \"From\" : \"sender@example.com\",\n    \"To\" : \"receiver@example.com\",\n    \"Cc\" : \"copied@example.com\",\n    \"Bcc\": \"blank-copied@example.com\",\n    \"Subject\" : \"Test\",\n    \"Tag\" : \"Invitation\",\n    \"HtmlBody\" : \"<b>Hello</b>\",\n    \"TextBody\" : \"Hello\",\n    \"ReplyTo\" : \"reply@example.com\",\n    \"Headers\" : [{ \"Name\" : \"CUSTOM-HEADER\", \"Value\" : \"value\" }],\n    \"Attachments\": [\n        {\n             \"Name\": \"readme.txt\",\n             \"Content\": \"dGVzdCBjb250ZW50\",\n             \"ContentType\": \"text/plain\"\n        },\n        {\n            \"Name\": \"report.pdf\",\n            \"Content\": \"dGVzdCBjb250ZW50\",\n            \"ContentType\": \"application/octet-stream\"\n        }\n    ]\n}\n\nYou should pass the json encoded message in the body of the request. Both from and to accept name, in the format of John Doe <email@example.com>. You can provide HtmlBody for html formatted messages, TextBody for plain text, or both for multipart. Multipart sends html with a text version for clients that don’t support html. Passing headers is optional.\n\n1. You should have a registered and confirmed sender signature with the sender email. Otherwise you will receive HTTP Response 422 (Unprocessable Entity).\n2. It is possible to override the Name in the sender signature through the API. This is useful if you want to use member’s information in the email while keeping your from email address. just pass the name in the From parameter, From: \"John Smith <sender@example.com>\".\n3. You can pass multiple recipient addresses in the ‘To’ field and the optional ‘Cc’ and ‘Bcc’ fields. Separate multiple addresses with a comma. Note that Postmark has a limit of twenty recipients per message in total. You need to take care not to exceed that limit. Otherwise you will get an error.\n4. You can categorize outgoing email using the optional Tag property. If you use different tags for the different types of emails your application generates, you will be able to get detailed statistics for them through the Postmark user interface.\n\nAttachments\nAttachments are specified in the Attachments array property. An attachment is an object that has to provide the file name (via the Name property), the content type (ContentType property) and the actual binary data (Content property) that has to be sent with the message.\n\nThe name is the actual file name that will be displayed to the message recipient. Note that the file extension is important. To eliminate the possibility of spreading viruses or spyware we allow only a number of file types. That is, instead of using a list of forbidden files and risking an unanticipated file type spreading infections, we have taken the opposite approach — we whitelist document file types that we are certain are safe. Here is the list of allowed files:\n\n- Media files: gif, jpg, jpeg, png, swf, flv, avi, mpg, mp3, mp4, ogv, wav, rm, mov, psd, ai, tif, tiff\n- Documents: txt, rtf, htm, html, pdf, epub, mobi, doc, docx, ppt, pptx, xls, xlsx, ps, eps, iif\n- Miscellaneous: log, csv, ics, xml, zip\n\nContact us if you feel we need to whitelist a file that your application needs.\n\nThe content type is the MIME content type that email clients use to interpret various attachments such as: text/plain, text/html, image/jpeg, etc. Your code can either detect it by the file extension, use a third party library to infer it, ask the user to provide it or just default to application/octet-stream.\n\nThe binary data has to be transmitted as a base64-encoded string. Most programming languages and libraries have this built in e.g. Java, .NET, PHP, Ruby.\n\nYou can use SSL encryption by issuing requests to https://api.postmarkapp.com/email.\n\nSuccess\nIf all goes well, you will get back a JSON message looking a lot like:\n\n{\n    \"ErrorCode\" : 0,\n    \"Message\" : \"OK\",\n    \"MessageID\" : \"b7bc2f4a-e38e-4336-af7d-e6c392c2f817\",\n    \"SubmittedAt\" : \"2010-11-26T12:01:05.1794748-05:00\",\n    \"To\" : \"receiver@example.com\"\n}\n\nNote the MessageID property. You can log it in your system and use it to associate the message you just sent to a possible bounce that you obtained from a bounce web hook or the bounce API.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "The content type of the request. Must be set to application/json, text/json, or text/x-json.",
+            "enum": [
+              "application/json",
+              "text/json",
+              "text/x-json"
+            ]
+          },
+          "Accept": {
+            "type": "string",
+            "description": "The accepted type for the response. Must be set to application/json, text/json, or text/x-json.",
+            "enum": [
+              "application/json",
+              "text/json",
+              "text/x-json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "Accept"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "email.batch.post",
+      "title": "email.batch.post",
+      "description": "While Postmark is focused on transactional email, we understand that developers with higher volumes or processing time constraints need to send their messages in batches. To facilitate this we provide a batching endpoint that permits you to send up to 500 well-formed Postmark messages in a single API call.\n                    \nThe format of the batched message is a JSON array containing multiple message requests like the following example:\n[\n    {From: 'sender@example.com', To: 'receiver1@example.com', Subject: 'Postmark test #1', HtmlBody: '<html><body><strong>Hello</strong> dear Postmark user.</body></html>'},\n    {From: 'sender@example.com', To: 'receiver2@example.com', Subject: 'Postmark test #2', HtmlBody: '<html><body><strong>Hello</strong> dear Postmark user.</body></html>'}\n]\n\nYou can use SSL encryption by issuing requests to https://api.postmarkapp.com/email/batch.\n\nSimilarly, you will receive a matching JSON array containing each response for the messages you sent in your batched call:\n\n[\n    {\n        \"ErrorCode\" : 0,\n        \"Message\" : \"OK\",\n        \"MessageID\" : \"b7bc2f4a-e38e-4336-af7d-e6c392c2f817\",\n        \"SubmittedAt\" : \"2010-11-26T12:01:05.1794748-05:00\",\n        \"To\" : \"receiver1@example.com\"\n    },\n    {\n        \"ErrorCode\" : 0,\n        \"Message\" : \"OK\",\n        \"MessageID\" : \"e2ecbbfc-fe12-463d-b933-9fe22915106d\",\n        \"SubmittedAt\" : \"2010-11-26T12:01:05.1794748-05:00\",\n        \"To\" : \"receiver2@example.com\"\n    },\n]",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "The content type of the request. Must be set to application/json, text/json, or text/x-json.",
+            "enum": [
+              "application/json",
+              "text/json",
+              "text/x-json"
+            ]
+          },
+          "Accept": {
+            "type": "string",
+            "description": "The accepted type for the response. Must be set to application/json, text/json, or text/x-json.",
+            "enum": [
+              "application/json",
+              "text/json",
+              "text/x-json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "Accept"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "deliverystats.get",
+      "title": "deliverystats.get",
+      "description": "Returns a summary of inactive emails and bounces by type.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "The content type of the request. Must be set to application/json, text/json, or text/x-json.",
+            "enum": [
+              "application/json",
+              "text/json",
+              "text/x-json"
+            ]
+          },
+          "Accept": {
+            "type": "string",
+            "description": "The accepted type for the response. Must be set to application/json, text/json, or text/x-json.",
+            "enum": [
+              "application/json",
+              "text/json",
+              "text/x-json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "Accept"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "bounces.get",
+      "title": "bounces.get",
+      "description": "Fetches a portion of bounces according to the specified input criteria. Supported filters: type, inactive, email like, tag. Paging: page_size (count), page_start (offset). Bounces are sorted by BouncedAt in a descending order.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "The content type of the request. Must be set to application/json, text/json, or text/x-json.",
+            "enum": [
+              "application/json",
+              "text/json",
+              "text/x-json"
+            ]
+          },
+          "Accept": {
+            "type": "string",
+            "description": "The accepted type for the response. Must be set to application/json, text/json, or text/x-json.",
+            "enum": [
+              "application/json",
+              "text/json",
+              "text/x-json"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "description": "Filter by bounce type. Supported types are:\n- HardBounce\n- Transient\n- Unsubscribe\n- Subscribe\n- AutoResponder\n- AddressChange\n- DnsError\n- SpamNotification\n- OpenRelayTest\n- Unknown\n- SoftBounce\n- VirusNotification\n- ChallengeVerification\n- BadEmailAddress\n- SpamComplaint\n- ManuallyDeactivated\n- Unconfirmed\n- Blocked",
+            "enum": [
+              "HardBounce",
+              "Transient",
+              "Unsubscribe",
+              "Subscribe",
+              "AutoResponder",
+              "AddressChange",
+              "DnsError",
+              "SpamNotification",
+              "OpenRelayTest",
+              "Unknown",
+              "SoftBounce",
+              "VirusNotification",
+              "ChallengeVerification",
+              "BadEmailAddress",
+              "SpamComplaint",
+              "ManuallyDeactivated",
+              "Unconfirmed",
+              "Blocked"
+            ]
+          },
+          "inactive": {
+            "type": "string",
+            "description": "Filter by active/inactive status. Note that we have three options here: true, false, and null (no value). To get all bounces no matter if they are active or inactive, do not pass a value.",
+            "enum": [
+              "true",
+              "false",
+              ""
+            ]
+          },
+          "emailFilter": {
+            "type": "string",
+            "description": "Return only bounces whose recipient address contains the provided string."
+          },
+          "tag": {
+            "type": "string",
+            "description": "Filter by tag."
+          },
+          "count": {
+            "type": "integer",
+            "description": "The number of bounces to retrieve. A page has 25 bounces. To know how much your bounces are, you need to request a portion first, usually the first page, and the service will return the count in the TotalCount property in the response."
+          },
+          "offset": {
+            "type": "integer",
+            "description": "The offset from where to start retrieving bounces. Starts at 0."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "Accept",
+          "count",
+          "offset"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "bounces.bounceID.get",
+      "title": "bounces.bounceID.get",
+      "description": "Gets details about a single bounce. Note that the bounce ID is a numeric value that you typically obtain after a getting a list of bounces.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "The content type of the request. Must be set to application/json, text/json, or text/x-json.",
+            "enum": [
+              "application/json",
+              "text/json",
+              "text/x-json"
+            ]
+          },
+          "Accept": {
+            "type": "string",
+            "description": "The accepted type for the response. Must be set to application/json, text/json, or text/x-json.",
+            "enum": [
+              "application/json",
+              "text/json",
+              "text/x-json"
+            ]
+          },
+          "bounceID": {
+            "type": "integer",
+            "description": "A bounce ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "Accept",
+          "bounceID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "bounces.bounceID.dump.get",
+      "title": "bounces.bounceID.dump.get",
+      "description": "Returns the raw source of the bounce we accepted. If Postmark does not have a dump for that bounce, it will return an empty string.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "The content type of the request. Must be set to application/json, text/json, or text/x-json.",
+            "enum": [
+              "application/json",
+              "text/json",
+              "text/x-json"
+            ]
+          },
+          "Accept": {
+            "type": "string",
+            "description": "The accepted type for the response. Must be set to application/json, text/json, or text/x-json.",
+            "enum": [
+              "application/json",
+              "text/json",
+              "text/x-json"
+            ]
+          },
+          "bounceID": {
+            "type": "integer",
+            "description": "A bounce ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "Accept",
+          "bounceID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "bounces.tags.get",
+      "title": "bounces.tags.get",
+      "description": "Returns a list of tags used for the current server.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "The content type of the request. Must be set to application/json, text/json, or text/x-json.",
+            "enum": [
+              "application/json",
+              "text/json",
+              "text/x-json"
+            ]
+          },
+          "Accept": {
+            "type": "string",
+            "description": "The accepted type for the response. Must be set to application/json, text/json, or text/x-json.",
+            "enum": [
+              "application/json",
+              "text/json",
+              "text/x-json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "Accept"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "bounces.bounceID.activate.put",
+      "title": "bounces.bounceID.activate.put",
+      "description": "Activates a deactivated bounce. Note that you do not need to send anything in the request body.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "The content type of the request. Must be set to application/json, text/json, or text/x-json.",
+            "enum": [
+              "application/json",
+              "text/json",
+              "text/x-json"
+            ]
+          },
+          "Accept": {
+            "type": "string",
+            "description": "The accepted type for the response. Must be set to application/json, text/json, or text/x-json.",
+            "enum": [
+              "application/json",
+              "text/json",
+              "text/x-json"
+            ]
+          },
+          "bounceID": {
+            "type": "integer",
+            "description": "A bounce ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "Accept",
+          "bounceID"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "server.get",
+      "title": "server.get",
+      "description": "Gets the server details and figures out your unique InboundHash where you can forward your email. This can be found in the web app in your server's Credentials tab or via the API.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "The content type of the request. Must be set to application/json, text/json, or text/x-json.",
+            "enum": [
+              "application/json",
+              "text/json",
+              "text/x-json"
+            ]
+          },
+          "Accept": {
+            "type": "string",
+            "description": "The accepted type for the response. Must be set to application/json, text/json, or text/x-json.",
+            "enum": [
+              "application/json",
+              "text/json",
+              "text/x-json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "Accept"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "server.post",
+      "title": "server.post",
+      "description": "Sets the URL where we should send JSON data. In order for your application receive the emails that we parse, you will need to tell Postmark where to send the JSON data for each inbound email it processes, which is done via an HTTP POST to a URL of your choice. You can set this URL in the Settings page for your Postmark server in the web app, or using the InboundHookUrl field in the API. It also lets you choose a domain that you would like to listen on for incoming email to be processed by Postmark. We recommend a separate subdomain, like inbound.yourdomain.com. Each server can listen to one unique domain, so make sure to set the X-Postmark-Server-Token to the correct server token in the API call below.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "The content type of the request. Must be set to application/json, text/json, or text/x-json.",
+            "enum": [
+              "application/json",
+              "text/json",
+              "text/x-json"
+            ]
+          },
+          "Accept": {
+            "type": "string",
+            "description": "The accepted type for the response. Must be set to application/json, text/json, or text/x-json.",
+            "enum": [
+              "application/json",
+              "text/json",
+              "text/x-json"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "Accept"
+        ]
+      },
+      "outputSchema": {}
+    }
+  ]
+}

@@ -1,0 +1,411 @@
+{
+  "swagger": "2.0",
+  "host": "api.pinboard.in",
+  "basePath": "/v1",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/posts/update": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns the most recent time a bookmark was added, updated or deleted. Use this before calling posts/all to see if the data has changed since the last fetch.",
+        "externalDocs": {
+          "url": "https://pinboard.in/api/#posts_update"
+        },
+        "operationId": "posts.update.get"
+      }
+    },
+    "/posts/add": {
+      "parameters": [
+        {
+          "name": "url",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "description": "The URL of the item."
+        },
+        {
+          "name": "description",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "description": "Title of the item. This field is unfortunately named 'description' for backwards compatibility with the delicious API."
+        },
+        {
+          "name": "extended",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Description of the item. Called 'extended' for backwards compatibility with delicious API."
+        },
+        {
+          "name": "tags",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "List of up to 100 tags."
+        },
+        {
+          "name": "dt",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Creation time for this bookmark. Defaults to current time. Datestamps more than 10 minutes ahead of server time will be reset to current server time."
+        },
+        {
+          "name": "replace",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "yes",
+          "description": "Replace any existing bookmark with this URL. Default is yes. If set to no, will throw an error if bookmark exists."
+        },
+        {
+          "name": "shared",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "yes",
+          "description": "Make bookmark public. Default is \"yes\" unless user has enabled the \"save all bookmarks as private\" user setting, in which case default is \"no\"."
+        },
+        {
+          "name": "toread",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "no",
+          "description": "Marks the bookmark as unread. Default is \"no\"."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Add a new bookmark.",
+        "externalDocs": {
+          "url": "http://pinboard.in/api#posts_add"
+        },
+        "operationId": "posts.add.get"
+      }
+    },
+    "/posts/delete": {
+      "parameters": [
+        {
+          "name": "url",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "description": "The URL of the item."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Delete a bookmark.",
+        "externalDocs": {
+          "url": "http://pinboard.in/api#posts_delete"
+        },
+        "operationId": "posts.delete.get"
+      }
+    },
+    "/posts/get": {
+      "parameters": [
+        {
+          "name": "tag",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Filter by up to three tags."
+        },
+        {
+          "name": "dt",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Return results bookmarked on this day."
+        },
+        {
+          "name": "url",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Return bookmark for this URL."
+        },
+        {
+          "name": "meta",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "yes",
+          "description": "Include a change detection signature in a meta attribute (yes/no)."
+        },
+        {
+          "name": "format",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "xml",
+          "description": "Default is xml."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns one or more posts on a single day matching the arguments. If no date or url is given, date of most recent bookmark will be used.",
+        "externalDocs": {
+          "url": "http://pinboard.in/api#posts_get"
+        },
+        "operationId": "posts.get.get"
+      }
+    },
+    "/posts/dates": {
+      "parameters": [
+        {
+          "name": "tag",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Filter by up to three tags."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns a list of dates with the number of posts at each date.",
+        "externalDocs": {
+          "url": "http://pinboard.in/api#posts_dates"
+        },
+        "operationId": "posts.dates.get"
+      }
+    },
+    "/posts/recent": {
+      "parameters": [
+        {
+          "name": "tag",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Filter by up to three tags."
+        },
+        {
+          "name": "count",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "default": 15,
+          "description": "Number of results to return. Default is 15, max is 100."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns a list of the user's most recent posts, filtered by tag.",
+        "externalDocs": {
+          "url": "http://pinboard.in/api#posts_recent"
+        },
+        "operationId": "posts.recent.get"
+      }
+    },
+    "/posts/all": {
+      "parameters": [
+        {
+          "name": "tag",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Filter by up to three tags."
+        },
+        {
+          "name": "start",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "default": 0,
+          "description": "Offset value (default is 0)."
+        },
+        {
+          "name": "results",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "description": "Number of results to return. Default is all."
+        },
+        {
+          "name": "fromdt",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Return only bookmarks created after this time."
+        },
+        {
+          "name": "todt",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Return only bookmarks created before this time."
+        },
+        {
+          "name": "meta",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "description": "Include a change detection signature for each bookmark."
+        },
+        {
+          "name": "format",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "xml",
+          "description": "Default is xml."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns all bookmarks in the user's account.",
+        "externalDocs": {
+          "url": "http://pinboard.in/api#posts_all"
+        },
+        "operationId": "posts.all.get"
+      }
+    },
+    "/posts/suggest": {
+      "parameters": [
+        {
+          "name": "url",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "description": "The URL of the item."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns a list of popular tags and recommended tags for a given URL. Popular tags are tags used site-wide for the url; recommended tags are drawn from the user's own tags.",
+        "externalDocs": {
+          "url": "http://pinboard.in/api#posts_suggest"
+        },
+        "operationId": "posts.suggest.get"
+      }
+    },
+    "/tags/get": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns a full list of the user's tags along with the number of times they were used.",
+        "externalDocs": {
+          "url": "https://pinboard.in/api/#tags_get"
+        },
+        "operationId": "tags.get.get"
+      }
+    },
+    "/tags/delete": {
+      "parameters": [
+        {
+          "name": "tag",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "description": "The tag to delete."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Delete an existing tag.",
+        "externalDocs": {
+          "url": "http://pinboard.in/api#tags_delete"
+        },
+        "operationId": "tags.delete.get"
+      }
+    },
+    "/tags/rename": {
+      "parameters": [
+        {
+          "name": "old",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "description": "The tag to rename. Note: match is not case sensitive."
+        },
+        {
+          "name": "new",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "description": "The new name. If empty, nothing will happen."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Rename an tag, or fold it in to an existing tag.",
+        "externalDocs": {
+          "url": "http://pinboard.in/api#tags_rename"
+        },
+        "operationId": "tags.rename.get"
+      }
+    },
+    "/user/secret": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Get the secret RSS token (allows viewing user's private RSS feeds).",
+        "externalDocs": {
+          "url": "http://pinboard.in/api#user_secret"
+        },
+        "operationId": "user.secret.get"
+      }
+    }
+  },
+  "info": {
+    "title": "Pinboard",
+    "description": "Store, manage and share bookmarks on Pinboard",
+    "x-datafire": {
+      "name": "pinboard",
+      "type": "openapi"
+    }
+  }
+}

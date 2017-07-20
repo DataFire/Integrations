@@ -1,0 +1,273 @@
+{
+  "swagger": "2.0",
+  "host": "api2.yp.com",
+  "basePath": "/listings/v1",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/listingmap": {
+      "parameters": [
+        {
+          "name": "listingid",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "description": "YP listing ID."
+        },
+        {
+          "name": "pixel_width",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "default": 400,
+          "description": "Integer representing the width in pixels of the map (Default = 400). Examples: 400, 200, 123."
+        },
+        {
+          "name": "pixel_height",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "default": 400,
+          "description": "Integer representing the height in pixels of the map (Default = 400). Examples: 400, 200, 123."
+        },
+        {
+          "name": "image_format",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "gif",
+          "description": "String representing the mime-type of map you want returned. Valid values: jpg, png and gif.",
+          "enum": [
+            "jpg",
+            "png",
+            "gif"
+          ]
+        },
+        {
+          "name": "zoom",
+          "required": false,
+          "in": "query",
+          "default": 1,
+          "description": "Sets the zoom factor for the map, expressed as a fraction from .1 to 1."
+        },
+        {
+          "name": "pan_vertical",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "0",
+          "description": "A positive or negative number reflecting the percentage of the map image to pan south (negative) or north (positive). (Default = 0). Examples: 0.5 (50% north) -0.4 (40% south). Postiive numbers tilt to the north, negative numbers tilt to the south."
+        },
+        {
+          "name": "pan_horizontal",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "A positive or negative number reflecting the percentage of the map image to pan west (negative) or east (positive). (Default = 0). Examples: 0.5 (50% east) -0.4 (40% west). Postiive numbers tilt to the north, negative numbers tilt to the south."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns an URL for a graphical map for a specified business listing.",
+        "externalDocs": {
+          "url": "http://developer.yp.com/api/Listings%2520Endpoints/Business%2520Listing%2520Map"
+        },
+        "operationId": "listingmap.get"
+      }
+    },
+    "/search": {
+      "parameters": [
+        {
+          "name": "term",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "description": "Unparsed, user-entered search term. Note: For applications where users may provide the search term and location in a single input field (e.g. pizza, Los Angeles), the user-entered value can be sent in the term parameter thus avoiding the need to parse the term and location on the client side. To make this work, do not send a value for searchloc."
+        },
+        {
+          "name": "searchloc",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "description": "Unparsed, user-entered search location. Please ensure that all values are URL encoded. If no value is passed for searchloc, then the search engine will attempt to find a valid geo location string in the term parameter's value.\nValid inputs are:\n- city, state (example: searchloc=Glendale%2C+CA).\n- zip code (example: searchloc=91203).\n- lat:long (example: searchloc=37.7752%3A-122.4192 for San Francisco,CA).\n- street1 and street2, city, state (example: searchloc=olive+and+san+fernando%2C+burbank+CA).\n- street1 and street2, zip (example: searchloc=olive+and+san+fernando%2C+91502).\n- street, zip (example: searchloc=611+North+Brand%2C+91203).\n- street, city, state (example: searchloc=611+North+Brand%2C+Glendale+CA).\n- neighborhood, city, state (example: searchloc=chinatown%2C+san+francisco%2C+CA).\n- point of interest, city, state (example: searchloc=golden+gate+bridge%2C+san+francisco%2C+CA)."
+        },
+        {
+          "name": "phonesearch",
+          "required": false,
+          "in": "query",
+          "type": "boolean",
+          "description": "Indicates that the term parameter contains a phone number, formatted as a 10-digit integer, e.g. 8775551212."
+        },
+        {
+          "name": "listingcount",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "default": 5,
+          "description": "Total number of listings to return. Defaults to 5."
+        },
+        {
+          "name": "shorturl",
+          "required": false,
+          "in": "query",
+          "type": "boolean",
+          "default": false,
+          "description": "Enables short URL formats in the API response. Typically only used for SMS applications. Set to true for short URL format. Defaults to false."
+        },
+        {
+          "name": "format",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "xml",
+          "description": "Desired format of the response. Possible values: xml and json. Defaults to xml.",
+          "enum": [
+            "xml",
+            "json"
+          ]
+        },
+        {
+          "name": "pagenum",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "default": 1,
+          "description": "The page index of the block of results to return. Defaults to 1."
+        },
+        {
+          "name": "sort",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Select the sort criteria for Organic Listings (only).\nValid inputs are:\n- distance: Sort results by distance.\n- name: Sort results alphabetically by name.",
+          "enum": [
+            "distance",
+            "name"
+          ]
+        },
+        {
+          "name": "radius",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "description": "Maximum search radius (in miles) from center of target location for Organic Results (only)."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "User-Agent",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "Chrome",
+            "description": "User agent."
+          }
+        ],
+        "description": "Supports a number of specific use cases for finding a listing. The search request must include a searchloc value to set the geographic context for the search. The term value can include both name and category keywords. Note that if your implementation uses a single search box, you can combine geograpy and keywords in the term value and the API will parse them. This can potentially cause inaccurate matches if the business name includes place names, however. For example, the \"LA wine Company\" might be found in a search for \"wine+LA\" where LA is intended to mean Louisiana. Therefore, where possible, use the searchloc + term combination.",
+        "externalDocs": {
+          "url": "http://developer.yp.com/api/Listings%2520Endpoints/Search"
+        },
+        "operationId": "search.get"
+      }
+    },
+    "/details": {
+      "parameters": [
+        {
+          "name": "listingid",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "description": "The unique identifier for the business listing."
+        },
+        {
+          "name": "format",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "xml",
+          "description": "Desired format of the response. Possible values: xml and json. Defaults to xml.",
+          "enum": [
+            "xml",
+            "json"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "User-Agent",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "Chrome",
+            "description": "User agent."
+          }
+        ],
+        "description": "Returns all available data for a given business listing, including hours of operation, website URL, etc.",
+        "externalDocs": {
+          "url": "http://developer.yp.com/api/Listings%2520Endpoints/Details"
+        },
+        "operationId": "details.get"
+      }
+    },
+    "/reviews": {
+      "parameters": [
+        {
+          "name": "listingid",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "description": "The unique identifier for the business listing."
+        },
+        {
+          "name": "format",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "xml",
+          "description": "Desired format of the response. Possible values: xml and json. Defaults to xml.",
+          "enum": [
+            "xml",
+            "json"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns all available user reviews for a given business listing.",
+        "externalDocs": {
+          "url": "http://developer.yp.com/api/Listings%2520Endpoints/Reviews"
+        },
+        "operationId": "reviews.get"
+      }
+    }
+  },
+  "info": {
+    "title": "Yellow Pages",
+    "description": "Use YP Places API to power your web and mobile apps with business listings, reviews, maps and much more...",
+    "x-datafire": {
+      "name": "yellowpages",
+      "type": "openapi"
+    }
+  }
+}

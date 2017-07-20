@@ -1,0 +1,1252 @@
+{
+  "id": "salesforcechatter",
+  "title": "Salesforce Chatter",
+  "description": "Create applications for the social enterprise with Salesforce's collaboration platform",
+  "security": {},
+  "logo": {
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/salesforcechatter.png"
+  },
+  "tags": [],
+  "actions": [
+    {
+      "id": "chatter.comments.commentId.get",
+      "title": "chatter.comments.commentId.get",
+      "description": "Gets info on a comment.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "commentId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "commentId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.comments.commentId.delete",
+      "title": "chatter.comments.commentId.delete",
+      "description": "Deletes a comment.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "commentId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "commentId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feed_items.feedItemId.get",
+      "title": "chatter.feed_items.feedItemId.get",
+      "description": "Gets info on a feedItem.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string"
+          },
+          "feedItemId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "feedItemId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feed_items.feedItemId.delete",
+      "title": "chatter.feed_items.feedItemId.delete",
+      "description": "Deletes a feedItem.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "feedItemId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "feedItemId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feed_items.feedItemId.comments.get",
+      "title": "chatter.feed_items.feedItemId.comments.get",
+      "description": "Gets comments on a feedItem.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string"
+          },
+          "feedItemId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "feedItemId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feed_items.feedItemId.comments.post",
+      "title": "chatter.feed_items.feedItemId.comments.post",
+      "description": "Post a comment on a feedItem.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "feedItemId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text",
+          "feedItemId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feed_items.feedItemId.likes.get",
+      "title": "chatter.feed_items.feedItemId.likes.get",
+      "description": "Gets likes on a feedItem.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string"
+          },
+          "feedItemId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "feedItemId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feed_items.feedItemId.likes.post",
+      "title": "chatter.feed_items.feedItemId.likes.post",
+      "description": "Post a like on a feedItem.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "feedItemId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "feedItemId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.group_memberships.membershipId.get",
+      "title": "chatter.group_memberships.membershipId.get",
+      "description": "Gets info on a subscriber to a group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "membershipId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "membershipId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.group_memberships.membershipId.delete",
+      "title": "chatter.group_memberships.membershipId.delete",
+      "description": "Deletes a subscriber.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "membershipId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "membershipId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.groups.groupId.get",
+      "title": "chatter.groups.groupId.get",
+      "description": "Gets info on a group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "groupId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "groupId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.groups.groupId.members.get",
+      "title": "chatter.groups.groupId.members.get",
+      "description": "Gets members of a group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string"
+          },
+          "groupId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "groupId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.groups.groupId.members.post",
+      "title": "chatter.groups.groupId.members.post",
+      "description": "Add member to a group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "groupId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "groupId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.groups.groupId.photos.get",
+      "title": "chatter.groups.groupId.photos.get",
+      "description": "Gets photos of a group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "groupId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "groupId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.groups.groupId.photos.post",
+      "title": "chatter.groups.groupId.photos.post",
+      "description": "Post photos to a group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "groupId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "groupId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.groups.groupId.photos.delete",
+      "title": "chatter.groups.groupId.photos.delete",
+      "description": "Post photos to a group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "groupId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "groupId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.likes.likeId.get",
+      "title": "chatter.likes.likeId.get",
+      "description": "Gets info on a specified like.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "likeId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "likeId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.likes.likeId.delete",
+      "title": "chatter.likes.likeId.delete",
+      "description": "Deletes a specified like.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "likeId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "likeId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feeds.news.me.feed_items.get",
+      "title": "chatter.feeds.news.me.feed_items.get",
+      "description": "Gets news on a specified feed.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feeds.news.me.feed_items.post",
+      "title": "chatter.feeds.news.me.feed_items.post",
+      "description": "Posts news on a specified feed.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "contentDocumentId": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "feedItemFileUpload": {
+            "type": "string"
+          },
+          "desc": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "urlName": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feeds.news.userId.feed_items.get",
+      "title": "chatter.feeds.news.userId.feed_items.get",
+      "description": "Gets news on a specified user's feed items.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feeds.news.userId.feed_items.post",
+      "title": "chatter.feeds.news.userId.feed_items.post",
+      "description": "Post news on a specified user's feed items.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "contentDocumentId": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "feedItemFileUpload": {
+            "type": "string"
+          },
+          "desc": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "urlName": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feeds.record.me.feed_items.get",
+      "title": "chatter.feeds.record.me.feed_items.get",
+      "description": "Gets records on a specified feed.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "contentDocumentId": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "feedItemFileUpload": {
+            "type": "string"
+          },
+          "desc": {
+            "type": "string"
+          },
+          "urlName": {
+            "type": "string"
+          },
+          "recordId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text",
+          "recordId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feeds.record.me.feed_items.post",
+      "title": "chatter.feeds.record.me.feed_items.post",
+      "description": "Posts a record on a specified feed.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "contentDocumentId": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "feedItemFileUpload": {
+            "type": "string"
+          },
+          "desc": {
+            "type": "string"
+          },
+          "urlName": {
+            "type": "string"
+          },
+          "recordId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text",
+          "recordId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feeds.record.userId.feed_items.get",
+      "title": "chatter.feeds.record.userId.feed_items.get",
+      "description": "Gets records on a specified user's feed items.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feeds.record.userId.feed_items.post",
+      "title": "chatter.feeds.record.userId.feed_items.post",
+      "description": "Post record on a specified user's feed items.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "contentDocumentId": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "feedItemFileUpload": {
+            "type": "string"
+          },
+          "desc": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "urlName": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.subscriptions.subscriptionId.get",
+      "title": "chatter.subscriptions.subscriptionId.get",
+      "description": "Gets info on a specified subscription.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.subscriptions.subscriptionId.delete",
+      "title": "chatter.subscriptions.subscriptionId.delete",
+      "description": "Deletes a specified subscription.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subscriptionId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subscriptionId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feeds.to.me.feed_items.get",
+      "title": "chatter.feeds.to.me.feed_items.get",
+      "description": "Gets @mentions of the current user.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feeds.to.me.feed_items.post",
+      "title": "chatter.feeds.to.me.feed_items.post",
+      "description": "Posts a @mention on the current user.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "contentDocumentId": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "feedItemFileUpload": {
+            "type": "string"
+          },
+          "desc": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "urlName": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feeds.to.userId.feed_items.get",
+      "title": "chatter.feeds.to.userId.feed_items.get",
+      "description": "Gets @mentions on a specified user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feeds.to.userId.feed_items.post",
+      "title": "chatter.feeds.to.userId.feed_items.post",
+      "description": "Post @mentions on a specified user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "contentDocumentId": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "feedItemFileUpload": {
+            "type": "string"
+          },
+          "desc": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "urlName": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feeds.user_profile.me.feed_items.get",
+      "title": "chatter.feeds.user_profile.me.feed_items.get",
+      "description": "Gets profile feed of the current user.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feeds.user_profile.me.feed_items.post",
+      "title": "chatter.feeds.user_profile.me.feed_items.post",
+      "description": "Posts a profile feed on the current user.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "contentDocumentId": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "feedItemFileUpload": {
+            "type": "string"
+          },
+          "desc": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "urlName": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feeds.user_profile.userId.feed_items.get",
+      "title": "chatter.feeds.user_profile.userId.feed_items.get",
+      "description": "Gets profile feed on a specified user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.feeds.user_profile.userId.feed_items.post",
+      "title": "chatter.feeds.user_profile.userId.feed_items.post",
+      "description": "Post profile feed on a specified user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "contentDocumentId": {
+            "type": "string"
+          },
+          "fileName": {
+            "type": "string"
+          },
+          "feedItemFileUpload": {
+            "type": "string"
+          },
+          "desc": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "urlName": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.me.get",
+      "title": "chatter.users.me.get",
+      "description": "Returns information on the current user.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.me.followers.get",
+      "title": "chatter.users.me.followers.get",
+      "description": "Returns information on followers of the current user.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.me.following.get",
+      "title": "chatter.users.me.following.get",
+      "description": "Returns information on who the current user follows.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.me.following.post",
+      "title": "chatter.users.me.following.post",
+      "description": "Posts information on who the current user follows.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subjectId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subjectId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.me.groups.get",
+      "title": "chatter.users.me.groups.get",
+      "description": "Returns information on groups the current user is in.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.me.photo.get",
+      "title": "chatter.users.me.photo.get",
+      "description": "Returns information on the current user's photos.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.me.photo.post",
+      "title": "chatter.users.me.photo.post",
+      "description": "Post photo to current user's profile.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.me.photo.delete",
+      "title": "chatter.users.me.photo.delete",
+      "description": "Delete photo of current user's profile.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.me.status.get",
+      "title": "chatter.users.me.status.get",
+      "description": "Returns info of current user's status.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.me.status.post",
+      "title": "chatter.users.me.status.post",
+      "description": "Post text to current user's status.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.me.status.delete",
+      "title": "chatter.users.me.status.delete",
+      "description": "Delete current user's status containing text.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.userId.get",
+      "title": "chatter.users.userId.get",
+      "description": "Returns information on the specified user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.userId.followers.get",
+      "title": "chatter.users.userId.followers.get",
+      "description": "Returns information on followers of the specified user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.userId.following.get",
+      "title": "chatter.users.userId.following.get",
+      "description": "Returns information on who the specified user follows.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.userId.following.post",
+      "title": "chatter.users.userId.following.post",
+      "description": "Posts information on who the specified user follows.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subjectId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "subjectId",
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.userId.groups.get",
+      "title": "chatter.users.userId.groups.get",
+      "description": "Returns information on groups the specified user is in.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.userId.photo.get",
+      "title": "chatter.users.userId.photo.get",
+      "description": "Returns information on the specified user's photos.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.userId.photo.post",
+      "title": "chatter.users.userId.photo.post",
+      "description": "Post photo to specified user's profile.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.userId.photo.delete",
+      "title": "chatter.users.userId.photo.delete",
+      "description": "Delete photo of specified user's profile.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.userId.status.get",
+      "title": "chatter.users.userId.status.get",
+      "description": "Returns info of specified user's status.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.userId.status.post",
+      "title": "chatter.users.userId.status.post",
+      "description": "Post text to specified user's status.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text",
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "chatter.users.userId.status.delete",
+      "title": "chatter.users.userId.status.delete",
+      "description": "Delete specified user's status containing text.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "text",
+          "userId"
+        ]
+      },
+      "outputSchema": {}
+    }
+  ]
+}

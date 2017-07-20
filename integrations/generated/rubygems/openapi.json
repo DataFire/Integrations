@@ -1,0 +1,805 @@
+{
+  "swagger": "2.0",
+  "host": "rubygems.org",
+  "basePath": "/api/v1",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/gems/{name}.{format}": {
+      "parameters": [
+        {
+          "name": "name",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "rails",
+          "description": "Gem name."
+        },
+        {
+          "name": "format",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "json",
+          "description": "Response format.",
+          "enum": [
+            "json",
+            "xml",
+            "yaml"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns some basic information about the given gem.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#gem"
+        },
+        "operationId": "gems.name.format.get"
+      }
+    },
+    "/search.{format}": {
+      "parameters": [
+        {
+          "name": "format",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "json",
+          "description": "Response format.",
+          "enum": [
+            "json",
+            "xml",
+            "yaml"
+          ]
+        },
+        {
+          "name": "query",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "cucumber",
+          "description": "Query to search for."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Submit a search to Gemcutter for active gems, just like a search query on the site.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#gem"
+        },
+        "operationId": "search.format.get"
+      }
+    },
+    "/gems.{format}": {
+      "parameters": [
+        {
+          "name": "format",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "json",
+          "description": "Response format.",
+          "enum": [
+            "json",
+            "xml",
+            "yaml"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "List all gems that you own.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#gem"
+        },
+        "operationId": "gems.format.get"
+      }
+    },
+    "/gems": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Submit a gem to RubyGems.org. Must post a built RubyGem in the request body.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#gem"
+        },
+        "operationId": "gems.post"
+      }
+    },
+    "/gems/yank": {
+      "parameters": [
+        {
+          "name": "gem_name",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "bills",
+          "description": "Gem name."
+        },
+        {
+          "name": "version",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "0.0.1",
+          "description": "Gem version."
+        },
+        {
+          "name": "platform",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "x86-darwin-10",
+          "description": "Gem platform."
+        }
+      ],
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Remove a gem from RubyGems.org’s index.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#gem"
+        },
+        "operationId": "gems.yank.delete"
+      }
+    },
+    "/gems/unyank": {
+      "parameters": [
+        {
+          "name": "gem_name",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "bills",
+          "description": "Gem name."
+        },
+        {
+          "name": "version",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "0.0.1",
+          "description": "Gem version."
+        },
+        {
+          "name": "platform",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "x86-darwin-10",
+          "description": "Gem platform."
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Update a previously yanked gem back into RubyGems.org’s index.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#gem"
+        },
+        "operationId": "gems.unyank.put"
+      }
+    },
+    "/gems/latest.{format}": {
+      "parameters": [
+        {
+          "name": "format",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "json",
+          "description": "Response format.",
+          "enum": [
+            "json",
+            "xml",
+            "yaml"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Pulls the 50 newest first-version gems added to RubyGems.org.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#gem"
+        },
+        "operationId": "gems.latest.format.get"
+      }
+    },
+    "/gems/just_updated.{format}": {
+      "parameters": [
+        {
+          "name": "format",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "json",
+          "description": "Response format.",
+          "enum": [
+            "json",
+            "xml",
+            "yaml"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Pulls the 50 most recently updated gems.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#gem"
+        },
+        "operationId": "gems.just_updated.format.get"
+      }
+    },
+    "/versions/{name}.{format}": {
+      "parameters": [
+        {
+          "name": "name",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "coulda",
+          "description": "Gem name."
+        },
+        {
+          "name": "format",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "json",
+          "description": "Response format.",
+          "enum": [
+            "json",
+            "xml",
+            "yaml"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns an array of gem version details.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#gemversion"
+        },
+        "operationId": "versions.name.format.get"
+      }
+    },
+    "/downloads.{format}": {
+      "parameters": [
+        {
+          "name": "format",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "json",
+          "description": "Response format.",
+          "enum": [
+            "json",
+            "xml",
+            "yaml"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns an object containing the total number of downloads on RubyGems.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#gemdownloads"
+        },
+        "operationId": "downloads.format.get"
+      }
+    },
+    "/downloads/top.{format}": {
+      "parameters": [
+        {
+          "name": "format",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "json",
+          "description": "Response format.",
+          "enum": [
+            "json",
+            "xml",
+            "yaml"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns an object containing the top 50 downloaded gem versions for today.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#gemdownloads"
+        },
+        "operationId": "downloads.top.format.get"
+      }
+    },
+    "/downloads/all.{format}": {
+      "parameters": [
+        {
+          "name": "format",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "json",
+          "description": "Response format.",
+          "enum": [
+            "json",
+            "xml",
+            "yaml"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns an object containing the top 50 downloaded gem versions of all time.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#gemdownloads"
+        },
+        "operationId": "downloads.all.format.get"
+      }
+    },
+    "/downloads/{name}-{version}.{format}": {
+      "parameters": [
+        {
+          "name": "name",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "rails_admin",
+          "description": "Gem name."
+        },
+        {
+          "name": "version",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "0.0.0",
+          "description": "Gem version."
+        },
+        {
+          "name": "format",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "json",
+          "description": "Response format.",
+          "enum": [
+            "json",
+            "xml",
+            "yaml"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns an object containing the total number of downloads for a paritcular gem as well as the total number of downloads for the specified version.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#gemdownloads"
+        },
+        "operationId": "downloads.name_version.format.get"
+      }
+    },
+    "/versions/{name}-{version}/downloads.{format}": {
+      "parameters": [
+        {
+          "name": "name",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "coulda",
+          "description": "Gem name."
+        },
+        {
+          "name": "version",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "0.6.3",
+          "description": "Gem version."
+        },
+        {
+          "name": "format",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "json",
+          "description": "Response format.",
+          "enum": [
+            "json",
+            "yaml"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns an object containing the number of downloads by day for a particular gem version for 90 days of data.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#gemdownloads"
+        },
+        "operationId": "versions.name_version.downloads.format.get"
+      }
+    },
+    "/versions/{name}-{version}/downloads/search.{format}": {
+      "parameters": [
+        {
+          "name": "name",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "coulda",
+          "description": "Gem name."
+        },
+        {
+          "name": "version",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "0.6.3",
+          "description": "Gem version."
+        },
+        {
+          "name": "format",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "json",
+          "description": "Response format.",
+          "enum": [
+            "json",
+            "yaml"
+          ]
+        },
+        {
+          "name": "from",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "2011-11-01",
+          "description": "Start date from where to search for. (YYYY-MM-DD)"
+        },
+        {
+          "name": "to",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "2011-11-05",
+          "description": "End date to where to search for. (YYYY-MM-DD)"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns an object containing the number of downloads by day for a particular gem version between a date range, specified by the parameters from and to. Dates values should be specified in the format YYYY-MM-DD.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#gemdownloads"
+        },
+        "operationId": "versions.name_version.downloads.search.format.get"
+      }
+    },
+    "/gems/{name}/owners.{format}": {
+      "parameters": [
+        {
+          "name": "name",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "gemcutter",
+          "description": "Gem name."
+        },
+        {
+          "name": "format",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "json",
+          "description": "Response format.",
+          "enum": [
+            "json",
+            "xml",
+            "yaml"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "View all owners of a gem. These users can all push to this gem.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#owner"
+        },
+        "operationId": "gems.name.owners.format.get"
+      }
+    },
+    "/gems/{name}/owners": {
+      "parameters": [
+        {
+          "name": "name",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "gemcutter",
+          "description": "Gem name."
+        },
+        {
+          "name": "email",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "nick@gemcutter.org",
+          "description": "Gem owner email."
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Add an owner to a RubyGem you own, giving that user permission to manage it.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#owner"
+        },
+        "operationId": "gems.name.owners.post"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Remove a user’s permission to manage a RubyGem you own.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#owner"
+        },
+        "operationId": "gems.name.owners.delete"
+      }
+    },
+    "/web_hooks.{format}": {
+      "parameters": [
+        {
+          "name": "format",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "json",
+          "description": "Response format.",
+          "enum": [
+            "json",
+            "xml",
+            "yaml"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "List the webhooks registered under your account.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#webhook"
+        },
+        "operationId": "web_hooks.format.get"
+      }
+    },
+    "/web_hooks": {
+      "parameters": [
+        {
+          "name": "gem_name",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "description": "Gem name. Could specify * to apply the hook globally to all gems."
+        },
+        {
+          "name": "url",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "http://example.com",
+          "description": "WebHook URL."
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Create a webhook.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#webhook"
+        },
+        "operationId": "web_hooks.post"
+      }
+    },
+    "/web_hooks/remove": {
+      "parameters": [
+        {
+          "name": "gem_name",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "rails",
+          "description": "Gem name. Could specify * to apply the hook globally to all gems."
+        },
+        {
+          "name": "url",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "http://example.com",
+          "description": "WebHook URL."
+        }
+      ],
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Remove a webhook.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#webhook"
+        },
+        "operationId": "web_hooks.remove.delete"
+      }
+    },
+    "/web_hooks/fire": {
+      "parameters": [
+        {
+          "name": "gem_name",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "rails",
+          "description": "Gem name. Could specify * to apply the hook globally to all gems."
+        },
+        {
+          "name": "url",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "http://example.com",
+          "description": "WebHook URL."
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Test fire a webhook. This can be used to test out an endpoint at any time, for example when you’re developing your application.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#webhook"
+        },
+        "operationId": "web_hooks.fire.post"
+      }
+    },
+    "/api_key.{format}": {
+      "parameters": [
+        {
+          "name": "format",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "json",
+          "description": "Response format.",
+          "enum": [
+            "json",
+            "xml",
+            "yaml"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieve your API key using HTTP basic auth.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#misc"
+        },
+        "operationId": "api_key.format.get"
+      }
+    },
+    "/dependencies": {
+      "parameters": [
+        {
+          "name": "gems",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "rails,thor",
+          "description": "Comma delimited Gem names."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns a marshalled array of hashes for all versions of given gems. Each hash contains a gem version with its dependencies making this useful for resolving dependencies.",
+        "externalDocs": {
+          "url": "http://guides.rubygems.org/rubygems-org-api/#misc"
+        },
+        "operationId": "dependencies.get"
+      }
+    }
+  },
+  "info": {
+    "title": "Ruby Gems",
+    "description": "Interact with RubyGems.org to query and create gems, mange owners and more.",
+    "x-datafire": {
+      "name": "rubygems",
+      "type": "openapi"
+    }
+  }
+}

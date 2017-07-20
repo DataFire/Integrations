@@ -1,0 +1,365 @@
+{
+  "swagger": "2.0",
+  "host": "api.groupon.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/status.{format}": {
+      "parameters": [
+        {
+          "name": "format",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "json",
+          "enum": [
+            "json"
+          ]
+        },
+        {
+          "name": "client_id",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "enter_your_client_id_please"
+        },
+        {
+          "name": "device_id",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "user_agent",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "iPhone/1.0.4"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns the status of Groupon's API and all the currently available versions of the API.",
+        "externalDocs": {
+          "url": "https://api.groupon.com/status"
+        },
+        "operationId": "status.format.get"
+      }
+    },
+    "/divisions.{format}": {
+      "parameters": [
+        {
+          "name": "format",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "json",
+          "enum": [
+            "json",
+            "xml"
+          ]
+        },
+        {
+          "name": "client_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "enter_your_client_id_please"
+        },
+        {
+          "name": "show",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "all"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns the list of all launched divisions.",
+        "externalDocs": {
+          "url": "https://api.groupon.com/v2/divisions"
+        },
+        "operationId": "divisions.format.get"
+      }
+    },
+    "/groupon_says.{format}": {
+      "parameters": [
+        {
+          "name": "format",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "json",
+          "enum": [
+            "json",
+            "xml"
+          ]
+        },
+        {
+          "name": "client_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "enter_your_client_id_please "
+        },
+        {
+          "name": "limit",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "10"
+        },
+        {
+          "name": "random",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "false"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns the list of recent (or random) Groupon Says commentaries.",
+        "externalDocs": {
+          "url": "https://api.groupon.com/v2/groupon_says"
+        },
+        "operationId": "groupon_says.format.get"
+      }
+    },
+    "/deals/{id}.{format}": {
+      "parameters": [
+        {
+          "name": "id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "paddy-longs-beer-pub-1"
+        },
+        {
+          "name": "format",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "json",
+          "enum": [
+            "json",
+            "xml"
+          ]
+        },
+        {
+          "name": "client_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "enter_your_client_id_please"
+        },
+        {
+          "name": "show",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "all"
+        },
+        {
+          "name": "email_address",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "area",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "east-bay"
+        },
+        {
+          "name": "referral_id",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "uu1234567"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns the detailed information about a specified deal.",
+        "externalDocs": {
+          "url": "http://api.groupon.com/v2/deals"
+        },
+        "operationId": "deals.id.format.get"
+      }
+    },
+    "/deals.{format}": {
+      "parameters": [
+        {
+          "name": "format",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "json",
+          "enum": [
+            "json",
+            "xml"
+          ]
+        },
+        {
+          "name": "client_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "enter_your_client_id_please "
+        },
+        {
+          "name": "show",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "all"
+        },
+        {
+          "name": "email_address",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "area",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "east-bay"
+        },
+        {
+          "name": "lat",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "41.896579"
+        },
+        {
+          "name": "lng",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "-87.643583"
+        },
+        {
+          "name": "radius",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "100"
+        },
+        {
+          "name": "division_id",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "chicago"
+        },
+        {
+          "name": "device_token",
+          "required": false,
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "subscriber_id ",
+          "required": false,
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "affiliate",
+          "required": false,
+          "in": "query",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns an ordered list of deals that are currently launched for a specific division.",
+        "externalDocs": {
+          "url": "http://api.groupon.com/v2/deals"
+        },
+        "operationId": "deals.format.get"
+      }
+    },
+    "/deals/{deal_id}/posts.{format}": {
+      "parameters": [
+        {
+          "name": "format",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "json",
+          "enum": [
+            "json",
+            "xml"
+          ]
+        },
+        {
+          "name": "client_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "enter_your_client_id_please"
+        },
+        {
+          "name": "deal_id",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "troya-restaurant-san-francisco"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns the lists of all the discussion posts for the specified deal.",
+        "externalDocs": {
+          "url": "http://api.groupon.com/v2/deals"
+        },
+        "operationId": "deals.deal_id.posts.format.get"
+      }
+    }
+  },
+  "info": {
+    "title": "Groupon API2",
+    "description": "Put all those great ideas for Groupon improvements, extensions, and multiple-platform interfaces to work.",
+    "x-datafire": {
+      "name": "groupon",
+      "type": "openapi"
+    }
+  }
+}

@@ -46,6 +46,9 @@
       }
     }
   },
+  "logo": {
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/reddit.svg"
+  },
   "tags": [],
   "actions": [
     {

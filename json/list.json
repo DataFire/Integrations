@@ -5221,6 +5221,9 @@
     "title": "Etsy",
     "description": "Bring Etsy's handmade marketplace and community into your apps.",
     "security": {},
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/etsy.png"
+    },
     "tags": [],
     "actionCount": 115,
     "latestVersion": "2.0.1"
@@ -5316,6 +5319,9 @@
         }
       }
     },
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/facebook.jpg"
+    },
     "tags": [],
     "actionCount": 195,
     "latestVersion": "2.0.1"
@@ -5399,6 +5405,9 @@
           "type": "oauth2"
         }
       }
+    },
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/fitbit.png"
     },
     "tags": [],
     "actionCount": 74,
@@ -9883,6 +9892,18 @@
     "actionCount": 2,
     "latestVersion": "2.0.1"
   },
+  "groupon": {
+    "id": "groupon",
+    "title": "Groupon API2",
+    "description": "Put all those great ideas for Groupon improvements, extensions, and multiple-platform interfaces to work.",
+    "security": {},
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/groupon.jpg"
+    },
+    "tags": [],
+    "actionCount": 6,
+    "latestVersion": "2.0.1"
+  },
   "hacker_news": {
     "id": "hacker_news",
     "title": "Hacker News",
@@ -9932,6 +9953,9 @@
           "type": "oauth2"
         }
       }
+    },
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/heroku.png"
     },
     "tags": [],
     "actionCount": 32,
@@ -10151,6 +10175,18 @@
     "actionCount": 9,
     "latestVersion": "2.0.1"
   },
+  "infoconnect": {
+    "id": "infoconnect",
+    "title": "Infoconnect",
+    "description": "Search our rich and robust data on companies and people. Utilize our fuzzy matching to power your new app or website wit...",
+    "security": {},
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/infoconnect.jpg"
+    },
+    "tags": [],
+    "actionCount": 12,
+    "latestVersion": "2.0.1"
+  },
   "instagram": {
     "id": "instagram",
     "title": "Instagram",
@@ -10282,6 +10318,9 @@
         }
       }
     },
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/linkedin.png"
+    },
     "tags": [],
     "actionCount": 20,
     "latestVersion": "2.0.1"
@@ -10350,6 +10389,25 @@
       "financial"
     ],
     "actionCount": 6,
+    "latestVersion": "2.0.1"
+  },
+  "mailchimp": {
+    "id": "mailchimp",
+    "title": "MailChimp",
+    "description": "Create plugins that connect MailChimp to your CMS, your blog, your e-commerce shopping cart, and more.",
+    "security": {
+      "mailchimp": {
+        "integration": "mailchimp",
+        "fields": {
+          "apiKey": "API key"
+        }
+      }
+    },
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/mailchimp.jpg"
+    },
+    "tags": [],
+    "actionCount": 96,
     "latestVersion": "2.0.1"
   },
   "mandrillapp": {
@@ -10492,6 +10550,18 @@
     "actionCount": 17,
     "latestVersion": "2.0.1"
   },
+  "myspace": {
+    "id": "myspace",
+    "title": "MySpace",
+    "description": "Create apps and games within the MySpace platform. Monetize through advertising and virtual goods.",
+    "security": {},
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/myspace.png"
+    },
+    "tags": [],
+    "actionCount": 52,
+    "latestVersion": "2.0.1"
+  },
   "nativeads": {
     "id": "nativeads",
     "title": "Native Ads Publisher",
@@ -10615,6 +10685,18 @@
       "text"
     ],
     "actionCount": 25,
+    "latestVersion": "2.0.1"
+  },
+  "nextcaller": {
+    "id": "nextcaller",
+    "title": "Next Caller",
+    "description": "Advanced Caller ID. Obtain name, address, and email of your inbound callers.",
+    "security": {},
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/nextcaller.png"
+    },
+    "tags": [],
+    "actionCount": 2,
     "latestVersion": "2.0.1"
   },
   "npr_rss": {
@@ -10938,6 +11020,18 @@
     "actionCount": 1,
     "latestVersion": "2.0.1"
   },
+  "onenote": {
+    "id": "onenote",
+    "title": "OneNote",
+    "description": "Easily capture content into OneNote with this REST API.",
+    "security": {},
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/onenote.png"
+    },
+    "tags": [],
+    "actionCount": 19,
+    "latestVersion": "2.0.1"
+  },
   "openapi_converter_herokuapp": {
     "id": "openapi_converter_herokuapp",
     "title": "Swagger2OpenAPI Converter",
@@ -11060,6 +11154,18 @@
     "actionCount": 15,
     "latestVersion": "2.0.1"
   },
+  "paypal": {
+    "id": "paypal",
+    "title": "PayPal (Sandbox)",
+    "description": "Bring payments to apps, mobile and social with Adaptive Payments (Sandbox API).",
+    "security": {},
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/paypal.png"
+    },
+    "tags": [],
+    "actionCount": 32,
+    "latestVersion": "2.0.1"
+  },
   "peel_ci": {
     "id": "peel_ci",
     "title": "Peel Tune-in API",
@@ -11072,6 +11178,54 @@
       "media"
     ],
     "actionCount": 5,
+    "latestVersion": "2.0.1"
+  },
+  "picasa": {
+    "id": "picasa",
+    "title": "Picasa",
+    "description": "Create buttons to export images from Picasa into other apps and services. (Active but deprecated by Google)",
+    "security": {},
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/picasa.jpg"
+    },
+    "tags": [],
+    "actionCount": 14,
+    "latestVersion": "2.0.1"
+  },
+  "pinboard": {
+    "id": "pinboard",
+    "title": "Pinboard",
+    "description": "Store, manage and share bookmarks on Pinboard",
+    "security": {},
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/pinboard.png"
+    },
+    "tags": [],
+    "actionCount": 12,
+    "latestVersion": "2.0.1"
+  },
+  "pivotaltracker": {
+    "id": "pivotaltracker",
+    "title": "Pivotal Tracker",
+    "description": "Access and manipulate agile project management data including projects, stories and tasks.",
+    "security": {},
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/pivotaltracker.png"
+    },
+    "tags": [],
+    "actionCount": 31,
+    "latestVersion": "2.0.1"
+  },
+  "postmark": {
+    "id": "postmark",
+    "title": "Postmark",
+    "description": "Send emails, retrieve bounces and start accepting inbound emails, all via an easy-to-use HTTP API.",
+    "security": {},
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/postmark.png"
+    },
+    "tags": [],
+    "actionCount": 10,
     "latestVersion": "2.0.1"
   },
   "posty": {
@@ -11108,6 +11262,9 @@
         }
       }
     },
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/producthunt.png"
+    },
     "tags": [],
     "actionCount": 4,
     "latestVersion": "2.0.1"
@@ -11123,6 +11280,9 @@
           "apiKey": "API key"
         }
       }
+    },
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/quandl.png"
     },
     "tags": [],
     "actionCount": 8,
@@ -11221,6 +11381,9 @@
         }
       }
     },
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/reddit.svg"
+    },
     "tags": [],
     "actionCount": 199,
     "latestVersion": "2.0.1"
@@ -11296,6 +11459,18 @@
     "actionCount": 163,
     "latestVersion": "2.0.1"
   },
+  "rhapsody": {
+    "id": "rhapsody",
+    "title": "Rhapsody",
+    "description": "Access Rhapsody technologies and content, including metadeta, search and music player.",
+    "security": {},
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/rhapsody.png"
+    },
+    "tags": [],
+    "actionCount": 20,
+    "latestVersion": "2.0.1"
+  },
   "ritc": {
     "id": "ritc",
     "title": "Ritc",
@@ -11336,6 +11511,18 @@
       "media"
     ],
     "actionCount": 18,
+    "latestVersion": "2.0.1"
+  },
+  "rubygems": {
+    "id": "rubygems",
+    "title": "Ruby Gems",
+    "description": "Interact with RubyGems.org to query and create gems, mange owners and more.",
+    "security": {},
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/rubygems.ico"
+    },
+    "tags": [],
+    "actionCount": 24,
     "latestVersion": "2.0.1"
   },
   "rummblelabs": {
@@ -11425,8 +11612,23 @@
         }
       }
     },
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/salesforce.png"
+    },
     "tags": [],
     "actionCount": 17,
+    "latestVersion": "2.0.1"
+  },
+  "salesforcechatter": {
+    "id": "salesforcechatter",
+    "title": "Salesforce Chatter",
+    "description": "Create applications for the social enterprise with Salesforce's collaboration platform",
+    "security": {},
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/salesforcechatter.png"
+    },
+    "tags": [],
+    "actionCount": 58,
     "latestVersion": "2.0.1"
   },
   "schooldigger": {
@@ -11490,6 +11692,18 @@
     "actionCount": 231,
     "latestVersion": "2.0.1"
   },
+  "shopping_com": {
+    "id": "shopping_com",
+    "title": "Shopping.com",
+    "description": "Shopping.com offers Publishers rich content via the Shopping.com's API.",
+    "security": {},
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/shopping_com.jpg"
+    },
+    "tags": [],
+    "actionCount": 2,
+    "latestVersion": "2.0.1"
+  },
   "simplyrets": {
     "id": "simplyrets",
     "title": "SimplyRETS",
@@ -11505,6 +11719,18 @@
     },
     "tags": [],
     "actionCount": 4,
+    "latestVersion": "2.0.1"
+  },
+  "skyrock": {
+    "id": "skyrock",
+    "title": "Skyrock",
+    "description": "Interact with Skyrock.com features: blogs, profiles, messaging, 'what's new', friends & activities!",
+    "security": {},
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/skyrock.jpeg"
+    },
+    "tags": [],
+    "actionCount": 70,
     "latestVersion": "2.0.1"
   },
   "slack": {
@@ -11655,6 +11881,9 @@
           "type": "oauth2"
         }
       }
+    },
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/soundcloud.png"
     },
     "tags": [],
     "actionCount": 52,
@@ -12011,6 +12240,34 @@
     "actionCount": 324,
     "latestVersion": "2.0.1"
   },
+  "tumblr": {
+    "id": "tumblr",
+    "title": "Tumblr",
+    "description": "",
+    "security": {
+      "tumblr": {
+        "integration": "tumblr",
+        "fields": {
+          "access_token": "An OAuth access token",
+          "refresh_token": "An OAuth refresh token (optional)",
+          "client_id": "An OAuth client ID (optional)",
+          "client_secret": "An OAuth client secret (optional)",
+          "redirect_uri": "The callback URL for your application"
+        },
+        "oauth": {
+          "description": "OAuth 2.0 authentication",
+          "flow": "oauth1",
+          "type": "oauth2"
+        }
+      }
+    },
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/tumblr.png"
+    },
+    "tags": [],
+    "actionCount": 18,
+    "latestVersion": "2.0.1"
+  },
   "twilio": {
     "id": "twilio",
     "title": "Twilio",
@@ -12046,6 +12303,18 @@
       "location"
     ],
     "actionCount": 54,
+    "latestVersion": "2.0.1"
+  },
+  "urbanairship": {
+    "id": "urbanairship",
+    "title": "Urban Airship",
+    "description": "The Urban Airship's API powers mobile applications with push, rich push, in-app purchases and subscription services.",
+    "security": {},
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/urbanairship.png"
+    },
+    "tags": [],
+    "actionCount": 59,
     "latestVersion": "2.0.1"
   },
   "vatapi": {
@@ -12324,6 +12593,30 @@
     "tags": [
       "media"
     ],
+    "actionCount": 2,
+    "latestVersion": "2.0.1"
+  },
+  "yellowpages": {
+    "id": "yellowpages",
+    "title": "Yellow Pages",
+    "description": "Use YP Places API to power your web and mobile apps with business listings, reviews, maps and much more...",
+    "security": {},
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/yellowpages.png"
+    },
+    "tags": [],
+    "actionCount": 4,
+    "latestVersion": "2.0.1"
+  },
+  "youphoric": {
+    "id": "youphoric",
+    "title": "Youphoric",
+    "description": "Youphoric SMS API allows you to create and launch SMS-based apps quickly to reach Smart subscribers in the Philippines. ",
+    "security": {},
+    "logo": {
+      "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/youphoric.png"
+    },
+    "tags": [],
     "actionCount": 2,
     "latestVersion": "2.0.1"
   },

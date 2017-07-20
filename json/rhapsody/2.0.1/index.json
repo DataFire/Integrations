@@ -1,0 +1,426 @@
+{
+  "id": "rhapsody",
+  "title": "Rhapsody",
+  "description": "Access Rhapsody technologies and content, including metadeta, search and music player.",
+  "security": {},
+  "logo": {
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/rhapsody.png"
+  },
+  "tags": [],
+  "actions": [
+    {
+      "id": "artists.top.get",
+      "title": "artists.top.get",
+      "description": "Returns a list of top artists.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apikey": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "string",
+            "description": ""
+          },
+          "offset": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apikey"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "artists.art.id.get",
+      "title": "artists.art.id.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apikey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apikey"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "artists.art.id.full.get",
+      "title": "artists.art.id.full.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apikey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apikey"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "artists.art.id.albums.get",
+      "title": "artists.art.id.albums.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apikey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apikey"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "artists.art.id.recommendations.get",
+      "title": "artists.art.id.recommendations.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apikey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apikey"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "artists.art.id.similar.get",
+      "title": "artists.art.id.similar.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apikey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apikey"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "artists.art.id.tracks.top.get",
+      "title": "artists.art.id.tracks.top.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apikey": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "string",
+            "description": ""
+          },
+          "offset": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apikey"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "albums.top.get",
+      "title": "albums.top.get",
+      "description": "Returns a list of top albums.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apikey": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "string",
+            "description": ""
+          },
+          "offset": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apikey"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "albums.new.get",
+      "title": "albums.new.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apikey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apikey"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "albums.alb.id.get",
+      "title": "albums.alb.id.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apikey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apikey"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "albums.alb.id.tracks.get",
+      "title": "albums.alb.id.tracks.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apikey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apikey"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "albums.alb.id.similar.get",
+      "title": "albums.alb.id.similar.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apikey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apikey"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "albums.alb.id.recommendations.get",
+      "title": "albums.alb.id.recommendations.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apikey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apikey"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "albums.alb.id.reviews.get",
+      "title": "albums.alb.id.reviews.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apikey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apikey"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "search.typeahead.get",
+      "title": "search.typeahead.get",
+      "description": "Returns a list of tracks, artists and albums based on the search term for authenticated users.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apikey": {
+            "type": "string"
+          },
+          "q": {
+            "type": "string",
+            "description": "Typeahead search term."
+          },
+          "limit": {
+            "type": "string",
+            "description": ""
+          },
+          "offset": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apikey",
+          "q"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "tracks.top.get",
+      "title": "tracks.top.get",
+      "description": "Returns a list of top tracks.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apikey": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "string",
+            "description": ""
+          },
+          "offset": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apikey"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "tracks.tra.id.get",
+      "title": "tracks.tra.id.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apikey": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "string",
+            "description": ""
+          },
+          "offset": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apikey"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "tracks.tra.id.recommendations.get",
+      "title": "tracks.tra.id.recommendations.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apikey": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "string",
+            "description": ""
+          },
+          "offset": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apikey"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "genres.get",
+      "title": "genres.get",
+      "description": "Returns a list of available genres.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apikey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apikey"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "genres.g.id.get",
+      "title": "genres.g.id.get",
+      "description": "",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apikey": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apikey"
+        ]
+      },
+      "outputSchema": {}
+    }
+  ]
+}

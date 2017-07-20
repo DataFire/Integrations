@@ -1,0 +1,156 @@
+{
+  "swagger": "2.0",
+  "host": "youphoriclabs.com",
+  "basePath": "/sms/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/register.php?": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "client",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "apigee"
+          },
+          {
+            "name": "FirstName",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "description": "First Name"
+          },
+          {
+            "name": "LastName",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "description": "Last Name"
+          },
+          {
+            "name": "MiddleName",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Middle Name"
+          },
+          {
+            "name": "Street",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Street"
+          },
+          {
+            "name": "Barangay",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Barangay"
+          },
+          {
+            "name": "CityTown",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "City or Town"
+          },
+          {
+            "name": "Province",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Province"
+          },
+          {
+            "name": "ZipCode",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Zip or Postal Code"
+          },
+          {
+            "name": "username",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "description": "Username"
+          },
+          {
+            "name": "password",
+            "required": true,
+            "in": "query",
+            "description": "Password"
+          },
+          {
+            "name": "email",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "description": "Email"
+          },
+          {
+            "name": "contactno",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "description": "Mobile or Telephone"
+          }
+        ],
+        "operationId": "register.php_.get"
+      }
+    },
+    "/mt.php?": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "from",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "description": "Characters limit 11"
+          },
+          {
+            "name": "to",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "description": "Mobile Number."
+          },
+          {
+            "name": "text",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "default": "",
+            "description": "Text Message"
+          }
+        ],
+        "operationId": "mt.php_.post"
+      }
+    }
+  },
+  "info": {
+    "title": "Youphoric",
+    "description": "Youphoric SMS API allows you to create and launch SMS-based apps quickly to reach Smart subscribers in the Philippines. ",
+    "x-datafire": {
+      "name": "youphoric",
+      "type": "openapi"
+    }
+  }
+}

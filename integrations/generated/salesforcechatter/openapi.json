@@ -1,0 +1,1507 @@
+{
+  "swagger": "2.0",
+  "host": "na1.salesforce.com",
+  "basePath": "/services/data/v23.0/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/chatter/comments/{commentId}": {
+      "parameters": [
+        {
+          "name": "commentId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Gets info on a comment.",
+        "operationId": "chatter.comments.commentId.get"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes a comment.",
+        "operationId": "chatter.comments.commentId.delete"
+      }
+    },
+    "/chatter/feed-items/{feedItemId}": {
+      "parameters": [
+        {
+          "name": "feedItemId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Gets info on a feedItem.",
+        "operationId": "chatter.feed_items.feedItemId.get"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes a feedItem.",
+        "operationId": "chatter.feed_items.feedItemId.delete"
+      }
+    },
+    "/chatter/feed-items/{feedItemId}/comments": {
+      "parameters": [
+        {
+          "name": "feedItemId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Gets comments on a feedItem.",
+        "operationId": "chatter.feed_items.feedItemId.comments.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "text",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Post a comment on a feedItem.",
+        "operationId": "chatter.feed_items.feedItemId.comments.post"
+      }
+    },
+    "/chatter/feed-items/{feedItemId}/likes": {
+      "parameters": [
+        {
+          "name": "feedItemId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Gets likes on a feedItem.",
+        "operationId": "chatter.feed_items.feedItemId.likes.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Post a like on a feedItem.",
+        "operationId": "chatter.feed_items.feedItemId.likes.post"
+      }
+    },
+    "/chatter/group-memberships/{membershipId}": {
+      "parameters": [
+        {
+          "name": "membershipId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Gets info on a subscriber to a group.",
+        "operationId": "chatter.group_memberships.membershipId.get"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes a subscriber.",
+        "operationId": "chatter.group_memberships.membershipId.delete"
+      }
+    },
+    "/chatter/groups/{groupId}": {
+      "parameters": [
+        {
+          "name": "groupId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Gets info on a group.",
+        "operationId": "chatter.groups.groupId.get"
+      }
+    },
+    "/chatter/groups/{groupId}/members": {
+      "parameters": [
+        {
+          "name": "groupId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Gets members of a group.",
+        "operationId": "chatter.groups.groupId.members.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Add member to a group.",
+        "operationId": "chatter.groups.groupId.members.post"
+      }
+    },
+    "/chatter/groups/{groupId}/photos": {
+      "parameters": [
+        {
+          "name": "groupId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Gets photos of a group.",
+        "operationId": "chatter.groups.groupId.photos.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Post photos to a group.",
+        "operationId": "chatter.groups.groupId.photos.post"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Post photos to a group.",
+        "operationId": "chatter.groups.groupId.photos.delete"
+      }
+    },
+    "/chatter/likes/{likeId}": {
+      "parameters": [
+        {
+          "name": "likeId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Gets info on a specified like.",
+        "operationId": "chatter.likes.likeId.get"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes a specified like.",
+        "operationId": "chatter.likes.likeId.delete"
+      }
+    },
+    "/chatter/feeds/news/me/feed-items": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Gets news on a specified feed.",
+        "operationId": "chatter.feeds.news.me.feed_items.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "contentDocumentId",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "fileName",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "feedItemFileUpload",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "desc",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "text",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "url",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "urlName",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Posts news on a specified feed.",
+        "operationId": "chatter.feeds.news.me.feed_items.post"
+      }
+    },
+    "/chatter/feeds/news/{userId}/feed-items": {
+      "parameters": [
+        {
+          "name": "userId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Gets news on a specified user's feed items.",
+        "operationId": "chatter.feeds.news.userId.feed_items.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "contentDocumentId",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "fileName",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "feedItemFileUpload",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "desc",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "text",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "url",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "urlName",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Post news on a specified user's feed items.",
+        "operationId": "chatter.feeds.news.userId.feed_items.post"
+      }
+    },
+    "/chatter/feeds/record/me/feed-items": {
+      "parameters": [
+        {
+          "name": "text",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "url",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "contentDocumentId",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "fileName",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "feedItemFileUpload",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "desc",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "urlName",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "name": "recordId",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Gets records on a specified feed.",
+        "operationId": "chatter.feeds.record.me.feed_items.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "contentDocumentId",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "fileName",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "feedItemFileUpload",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "desc",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "text",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "url",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "urlName",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Posts a record on a specified feed.",
+        "operationId": "chatter.feeds.record.me.feed_items.post"
+      }
+    },
+    "/chatter/feeds/record/{userId}/feed-items": {
+      "parameters": [
+        {
+          "name": "userId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Gets records on a specified user's feed items.",
+        "operationId": "chatter.feeds.record.userId.feed_items.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "contentDocumentId",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "fileName",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "feedItemFileUpload",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "desc",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "text",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "url",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "urlName",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Post record on a specified user's feed items.",
+        "operationId": "chatter.feeds.record.userId.feed_items.post"
+      }
+    },
+    "/chatter/subscriptions/{subscriptionId}": {
+      "parameters": [
+        {
+          "name": "subscriptionId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Gets info on a specified subscription.",
+        "operationId": "chatter.subscriptions.subscriptionId.get"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes a specified subscription.",
+        "operationId": "chatter.subscriptions.subscriptionId.delete"
+      }
+    },
+    "/chatter/feeds/to/me/feed-items": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Gets @mentions of the current user.",
+        "operationId": "chatter.feeds.to.me.feed_items.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "contentDocumentId",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "fileName",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "feedItemFileUpload",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "desc",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "text",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "url",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "urlName",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Posts a @mention on the current user.",
+        "operationId": "chatter.feeds.to.me.feed_items.post"
+      }
+    },
+    "/chatter/feeds/to/{userId}/feed-items": {
+      "parameters": [
+        {
+          "name": "userId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Gets @mentions on a specified user.",
+        "operationId": "chatter.feeds.to.userId.feed_items.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "contentDocumentId",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "fileName",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "feedItemFileUpload",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "desc",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "text",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "url",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "urlName",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Post @mentions on a specified user.",
+        "operationId": "chatter.feeds.to.userId.feed_items.post"
+      }
+    },
+    "/chatter/feeds/user-profile/me/feed-items": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Gets profile feed of the current user.",
+        "operationId": "chatter.feeds.user_profile.me.feed_items.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "contentDocumentId",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "fileName",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "feedItemFileUpload",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "desc",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "text",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "url",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "urlName",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Posts a profile feed on the current user.",
+        "operationId": "chatter.feeds.user_profile.me.feed_items.post"
+      }
+    },
+    "/chatter/feeds/user-profile/{userId}/feed-items": {
+      "parameters": [
+        {
+          "name": "userId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Gets profile feed on a specified user.",
+        "operationId": "chatter.feeds.user_profile.userId.feed_items.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "contentDocumentId",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "fileName",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "feedItemFileUpload",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "desc",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "text",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "url",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "urlName",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Post profile feed on a specified user.",
+        "operationId": "chatter.feeds.user_profile.userId.feed_items.post"
+      }
+    },
+    "/chatter/users/me": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "default": 0
+          }
+        ],
+        "description": "Returns information on the current user.",
+        "operationId": "chatter.users.me.get"
+      }
+    },
+    "/chatter/users/me/followers": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "default": 0
+          }
+        ],
+        "description": "Returns information on followers of the current user.",
+        "operationId": "chatter.users.me.followers.get"
+      }
+    },
+    "/chatter/users/me/following": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "default": 0
+          }
+        ],
+        "description": "Returns information on who the current user follows.",
+        "operationId": "chatter.users.me.following.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "subjectId",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Posts information on who the current user follows.",
+        "operationId": "chatter.users.me.following.post"
+      }
+    },
+    "/chatter/users/me/groups": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "default": 0
+          }
+        ],
+        "description": "Returns information on groups the current user is in.",
+        "operationId": "chatter.users.me.groups.get"
+      }
+    },
+    "/chatter/users/me/photo": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns information on the current user's photos.",
+        "operationId": "chatter.users.me.photo.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Post photo to current user's profile.",
+        "operationId": "chatter.users.me.photo.post"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Delete photo of current user's profile.",
+        "operationId": "chatter.users.me.photo.delete"
+      }
+    },
+    "/chatter/users/me/status": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns info of current user's status.",
+        "operationId": "chatter.users.me.status.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "text",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Post text to current user's status.",
+        "operationId": "chatter.users.me.status.post"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "text",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Delete current user's status containing text.",
+        "operationId": "chatter.users.me.status.delete"
+      }
+    },
+    "/chatter/users/{userId}": {
+      "parameters": [
+        {
+          "name": "userId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "default": 0
+          }
+        ],
+        "description": "Returns information on the specified user.",
+        "operationId": "chatter.users.userId.get"
+      }
+    },
+    "/chatter/users/{userId}/followers": {
+      "parameters": [
+        {
+          "name": "userId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "default": 0
+          }
+        ],
+        "description": "Returns information on followers of the specified user.",
+        "operationId": "chatter.users.userId.followers.get"
+      }
+    },
+    "/chatter/users/{userId}/following": {
+      "parameters": [
+        {
+          "name": "userId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "default": 0
+          }
+        ],
+        "description": "Returns information on who the specified user follows.",
+        "operationId": "chatter.users.userId.following.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "subjectId",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Posts information on who the specified user follows.",
+        "operationId": "chatter.users.userId.following.post"
+      }
+    },
+    "/chatter/users/{userId}/groups": {
+      "parameters": [
+        {
+          "name": "userId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "default": 0
+          }
+        ],
+        "description": "Returns information on groups the specified user is in.",
+        "operationId": "chatter.users.userId.groups.get"
+      }
+    },
+    "/chatter/users/{userId}/photo": {
+      "parameters": [
+        {
+          "name": "userId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns information on the specified user's photos.",
+        "operationId": "chatter.users.userId.photo.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Post photo to specified user's profile.",
+        "operationId": "chatter.users.userId.photo.post"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Delete photo of specified user's profile.",
+        "operationId": "chatter.users.userId.photo.delete"
+      }
+    },
+    "/chatter/users/{userId}/status": {
+      "parameters": [
+        {
+          "name": "userId",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns info of specified user's status.",
+        "operationId": "chatter.users.userId.status.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "text",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Post text to specified user's status.",
+        "operationId": "chatter.users.userId.status.post"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "text",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "description": "Delete specified user's status containing text.",
+        "operationId": "chatter.users.userId.status.delete"
+      }
+    }
+  },
+  "info": {
+    "title": "Salesforce Chatter",
+    "description": "Create applications for the social enterprise with Salesforce's collaboration platform",
+    "x-datafire": {
+      "name": "salesforcechatter",
+      "type": "openapi"
+    }
+  }
+}

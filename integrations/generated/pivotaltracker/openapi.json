@@ -1,0 +1,779 @@
+{
+  "swagger": "2.0",
+  "host": "www.pivotaltracker.com",
+  "basePath": "/services/v3/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/tokens/active": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns an API token associated with the user. This method requires HTTP Basic authentication.",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#retrieve_token_basic_auth"
+        },
+        "operationId": "tokens.active.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "username",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "description": "The user's name."
+          },
+          {
+            "name": "password",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "description": "The user's password."
+          }
+        ],
+        "description": "Returns an API token associated with the user.",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#retrieve_token_post"
+        },
+        "operationId": "tokens.active.post"
+      }
+    },
+    "/activities": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "default": 10,
+            "description": "Limits the number of activity feed items. Note the default value is 10, and there is a upper cap of 100"
+          },
+          {
+            "name": "occurred_since_date",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Restricts the activity feed to only those items that occurred after a supplied date (example format: 2009/12/18 21:00:00 UTC)"
+          },
+          {
+            "name": "newer_than_version",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Restricts the activity feed to only those items that have a greater than supplied version"
+          }
+        ],
+        "description": "Retrieves the recent activity of all your projects.",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#get_all_activity"
+        },
+        "operationId": "activities.get"
+      }
+    },
+    "/projects/{PROJECT_ID}/activities": {
+      "parameters": [
+        {
+          "name": "PROJECT_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the project to retrieve the activity for"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "default": 10,
+            "description": "Limits the number of activity feed items. Note the default value is 10, and there is a upper cap of 100"
+          },
+          {
+            "name": "occurred_since_date",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Restricts the activity feed to only those items that occurred after a supplied date (example format: 2009/12/18 21:00:00 UTC)"
+          }
+        ],
+        "description": "Retrieves the recent activity of a specific project.",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#get_project_activity"
+        },
+        "operationId": "projects.PROJECT_ID.activities.get"
+      }
+    },
+    "/projects/{PROJECT_ID}": {
+      "parameters": [
+        {
+          "name": "PROJECT_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the project to retrieve"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves information about a project.",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#get_project_info"
+        },
+        "operationId": "projects.PROJECT_ID.get"
+      }
+    },
+    "/projects": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves all of the user's projects.",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#get_project_all_projects"
+        },
+        "operationId": "projects.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Adds a new project.",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#add_project"
+        },
+        "operationId": "projects.post"
+      }
+    },
+    "/projects/{PROJECT_ID}/memberships": {
+      "parameters": [
+        {
+          "name": "PROJECT_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the project"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves all memberships for a project.",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#get_memberships"
+        },
+        "operationId": "projects.PROJECT_ID.memberships.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Adds a new membership to a project.",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#add_membership"
+        },
+        "operationId": "projects.PROJECT_ID.memberships.post"
+      }
+    },
+    "/projects/{PROJECT_ID}/memberships/{MEMBERSHIP_ID}": {
+      "parameters": [
+        {
+          "name": "PROJECT_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the project"
+        },
+        {
+          "name": "MEMBERSHIP_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the membership"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves information about a single membership.",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#get_membership_info"
+        },
+        "operationId": "projects.PROJECT_ID.memberships.MEMBERSHIP_ID.get"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Removes a membership from a project",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#remove_membership"
+        },
+        "operationId": "projects.PROJECT_ID.memberships.MEMBERSHIP_ID.delete"
+      }
+    },
+    "/projects/{PROJECT_ID}/iterations": {
+      "parameters": [
+        {
+          "name": "PROJECT_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the project"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves all iterations, with stories.",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#get_iterations"
+        },
+        "operationId": "projects.PROJECT_ID.iterations.get"
+      }
+    },
+    "/projects/{PROJECT_ID}/iterations/done": {
+      "parameters": [
+        {
+          "name": "PROJECT_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the project"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "description": "Controls the number of iterations to skip from the beginning of the result."
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "description": "Controls the maximum number of iterations returned."
+          }
+        ],
+        "description": "Retrieves iterations from the \"done\" group, with stories.",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#get_iterations"
+        },
+        "operationId": "projects.PROJECT_ID.iterations.done.get"
+      }
+    },
+    "/projects/{PROJECT_ID}/iterations/current": {
+      "parameters": [
+        {
+          "name": "PROJECT_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the project"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves iterations from the \"current\" group, with stories.",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#get_iterations"
+        },
+        "operationId": "projects.PROJECT_ID.iterations.current.get"
+      }
+    },
+    "/projects/{PROJECT_ID}/iterations/backlog": {
+      "parameters": [
+        {
+          "name": "PROJECT_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the project"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "description": "Controls the number of iterations to skip from the beginning of the result."
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "description": "Controls the maximum number of iterations returned."
+          }
+        ],
+        "description": "Retrieves iterations from the \"backlog\" group, with stories.",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#get_iterations"
+        },
+        "operationId": "projects.PROJECT_ID.iterations.backlog.get"
+      }
+    },
+    "/projects/{PROJECT_ID}/iterations/current_backlog": {
+      "parameters": [
+        {
+          "name": "PROJECT_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the project"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "description": "Controls the number of iterations to skip from the beginning of the result."
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "description": "Controls the maximum number of iterations returned."
+          }
+        ],
+        "description": "Retrieves iterations from the \"current\" and \"backlog\" groups, with stories.",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#get_iterations"
+        },
+        "operationId": "projects.PROJECT_ID.iterations.current_backlog.get"
+      }
+    },
+    "/projects/{PROJECT_ID}/stories/{STORY_ID}": {
+      "parameters": [
+        {
+          "name": "PROJECT_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the project"
+        },
+        {
+          "name": "STORY_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the story"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves information about a single story.",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#get_story"
+        },
+        "operationId": "projects.PROJECT_ID.stories.STORY_ID.get"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Updates a story",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#update_story"
+        },
+        "operationId": "projects.PROJECT_ID.stories.STORY_ID.put"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes a story",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#delete_story"
+        },
+        "operationId": "projects.PROJECT_ID.stories.STORY_ID.delete"
+      }
+    },
+    "/projects/{PROJECT_ID}/stories": {
+      "parameters": [
+        {
+          "name": "PROJECT_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the project"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "A filter for the returned stories to match. See the API documentation for more details."
+          },
+          {
+            "name": "offset",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "description": "Controls the number of stories to skip from the beginning of the result."
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "description": "Controls the maximum number of stories returned."
+          }
+        ],
+        "description": "Retrieves all stories for a project, or those matching filter(s)",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#get_all_stories"
+        },
+        "operationId": "projects.PROJECT_ID.stories.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Adds a new story",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#add_story"
+        },
+        "operationId": "projects.PROJECT_ID.stories.post"
+      }
+    },
+    "/projects/{PROJECT_ID}/stories/{STORY_ID}/notes": {
+      "parameters": [
+        {
+          "name": "PROJECT_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the project"
+        },
+        {
+          "name": "STORY_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the story"
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Adds a note (comment)",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#add_note"
+        },
+        "operationId": "projects.PROJECT_ID.stories.STORY_ID.notes.put"
+      }
+    },
+    "/projects/{PROJECT_ID}/stories/deliver_all_finished": {
+      "parameters": [
+        {
+          "name": "PROJECT_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the project"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Takes all finished stories and marks them as delivered. This could be used to automate a demo deploy process. The updated stories are returned as the result.",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#deliver_all_finished"
+        },
+        "operationId": "projects.PROJECT_ID.stories.deliver_all_finished.post"
+      }
+    },
+    "/projects/{PROJECT_ID}/stories/{STORY_ID}/moves": {
+      "parameters": [
+        {
+          "name": "PROJECT_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the project"
+        },
+        {
+          "name": "STORY_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the story"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Moves a story before or after another story. The moved story is returned in the response.",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#move_stories"
+        },
+        "operationId": "projects.PROJECT_ID.stories.STORY_ID.moves.post"
+      }
+    },
+    "/projects/{PROJECT_ID}/stories/{STORY_ID}/tasks/{TASK_ID}": {
+      "parameters": [
+        {
+          "name": "PROJECT_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the project"
+        },
+        {
+          "name": "STORY_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the story"
+        },
+        {
+          "name": "TASK_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the task"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns information about a single task",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#view_task"
+        },
+        "operationId": "projects.PROJECT_ID.stories.STORY_ID.tasks.TASK_ID.get"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Updates a task",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#update_task"
+        },
+        "operationId": "projects.PROJECT_ID.stories.STORY_ID.tasks.TASK_ID.put"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes a task",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#delete_task"
+        },
+        "operationId": "projects.PROJECT_ID.stories.STORY_ID.tasks.TASK_ID.delete"
+      }
+    },
+    "/projects/{PROJECT_ID}/stories/{STORY_ID}/tasks": {
+      "parameters": [
+        {
+          "name": "PROJECT_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the project"
+        },
+        {
+          "name": "STORY_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the story"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns all tasks for a story",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#view_task"
+        },
+        "operationId": "projects.PROJECT_ID.stories.STORY_ID.tasks.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Adds a task to a story",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#add_task"
+        },
+        "operationId": "projects.PROJECT_ID.stories.STORY_ID.tasks.post"
+      }
+    },
+    "/projects/{PROJECT_ID}/stories/{STORY_ID}/attachments": {
+      "parameters": [
+        {
+          "name": "PROJECT_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the project"
+        },
+        {
+          "name": "STORY_ID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the story"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Uploads an attachment to a story.",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#upload_attachment"
+        },
+        "operationId": "projects.PROJECT_ID.stories.STORY_ID.attachments.post"
+      }
+    },
+    "/source_commits": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Allows integration with post-commit hooks of Source Control Management (SCM) systems such as Subversion, Git, etc.",
+        "externalDocs": {
+          "url": "https://www.pivotaltracker.com/help/api?version=v3#scm_post_commit"
+        },
+        "operationId": "source_commits.post"
+      }
+    }
+  },
+  "info": {
+    "title": "Pivotal Tracker",
+    "description": "Access and manipulate agile project management data including projects, stories and tasks.",
+    "x-datafire": {
+      "name": "pivotaltracker",
+      "type": "openapi"
+    }
+  }
+}

@@ -1,0 +1,1412 @@
+{
+  "swagger": "2.0",
+  "host": "go.urbanairship.com",
+  "basePath": "/api",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/device_tokens/{token}": {
+      "parameters": [
+        {
+          "name": "token",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "Device tokens should be represented as an uppercase string, 64 characters long, without spaces or other separators. An example device token is: FE66489F304DC75B8D6E8200DFF8A456E8DAEACEC428B427E9518741C92C6660."
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Registers a device token.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Push+iOS"
+        },
+        "operationId": "device_tokens.token.put"
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Gets a device token’s alias.",
+        "externalDocs": {
+          "url": "http://urbanairship.com/docs/push.html#registration"
+        },
+        "operationId": "device_tokens.token.get"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Marks the device token as inactive. No notifications will be delivered to it until a PUT is executed again. The DELETE returns HTTP 204 No Content, and needs no payload. When a token is deleted in this manner, any alias or tags will be cleared.",
+        "externalDocs": {
+          "url": "http://urbanairship.com/docs/push.html#registration"
+        },
+        "operationId": "device_tokens.token.delete"
+      }
+    },
+    "/push": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Sends a push message to one or more users. Only one of aliases, tags, or device_pins is required, but they can be mixed and matched as much as you’d like.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Push+BlackBerry"
+        },
+        "operationId": "push.post"
+      }
+    },
+    "/push/scheduled/{notification}": {
+      "parameters": [
+        {
+          "name": "notification",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "Scheduled notification ID."
+        }
+      ],
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Cancels a scheduled notification.  A successful delete will have an HTTP status code of 204. If the scheduled notification does not exist, has already been successfully deleted, or was sent, the status code will be 404.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Push+iOS"
+        },
+        "operationId": "push.scheduled.notification.delete"
+      }
+    },
+    "/push/scheduled": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Bulk deletes scheduled notifications. If you include URLs or aliases for scheduled notifications that don’t exist or have already been sent, they will be ignored. Any device token in the cancel_device_tokens payload will have every notification that is sent to it removed. This will not prevent it from receiving scheduled notifications to tags or broadcast messages.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Push+iOS"
+        },
+        "operationId": "push.scheduled.post"
+      }
+    },
+    "/push/scheduled/alias/{alias}": {
+      "parameters": [
+        {
+          "name": "alias",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "Scheduled notification alias."
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Changes a scheduled notification alias. Aliases for scheduled notifications are unique per Urban Airship application, so you might want to hash the aliases with a device ID or use some other mechanism to ensure uniqueness. The only other limit is that they must be 255 characters or less.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Push+iOS"
+        },
+        "operationId": "push.scheduled.alias.alias.put"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes a scheduled notification alias.  If you attempt to schedule an aliased scheduled notification with an alias that already exists for your application, it will overwrite the existing one.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Push+iOS"
+        },
+        "operationId": "push.scheduled.alias.alias.delete"
+      }
+    },
+    "/push/batch": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Sends a push message to all the listed PINs. Each item in the list can contain 0 or many device_pins and 0 or many aliases or tags, and the blackberry payload is in the same format as for individual pushes.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Push+BlackBerry"
+        },
+        "operationId": "push.batch.post"
+      }
+    },
+    "/push/broadcast": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Sends a push message to all active APIDs (Broadcast). Important: The maximum message size is 1024 bytes. This is calculated as the UTF-8 lengths of alert and extra fields together.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Push+Android"
+        },
+        "operationId": "push.broadcast.post"
+      }
+    },
+    "/push/stats": {
+      "parameters": [
+        {
+          "name": "start",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "description": "Start date in UTC format. Example: 2009-06-22."
+        },
+        {
+          "name": "end",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "description": "End date in UTC format. Example: 2009-06-22+06:00."
+        },
+        {
+          "name": "format",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Response format.",
+          "enum": [
+            "json",
+            "csv"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns hourly message counts for your application. By default, results are returned in JSON. For CSV, either add the header:Accept:text/csv or append &format=csv to the query string. Times are in UTC, and data is provided for each push platform (currently: iOS, BlackBerry, Android, and C2DM, in that order). The statistics system is updated every 15 minutes, so the final count for an hour will be done at the latest 15 minutes after the hour is done.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Push+iOS"
+        },
+        "operationId": "push.stats.get"
+      }
+    },
+    "/device_tokens": {
+      "parameters": [
+        {
+          "name": "page",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "description": "The page number."
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "description": "The total items to return. By default, we paginate at 5000 device tokens."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Gets information about all of your device tokens. If your application has a large number of device tokens, we’ll paginate the request for you. By default, we paginate at 5000 device tokens. You can receive the next page simply by retrieving the URL from \"next_page\" - in this way it is easy to export all of your device tokens and all their data.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Push+iOS"
+        },
+        "operationId": "device_tokens.get"
+      }
+    },
+    "/device_tokens/count": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Gets the number of device tokens you have registered.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Push+iOS"
+        },
+        "operationId": "device_tokens.count.get"
+      }
+    },
+    "/device_tokens/feedback": {
+      "parameters": [
+        {
+          "name": "since",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "description": "Since timestamp in ISO 8601 format. Example: 2012-03-01+13:00:00."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Gets what device tokens are now invalid. Apple informs us when a push notification is sent to a device that can’t receive it because the application has been uninstalled. We mark the device token as inactive and immediately stop sending notifications to that device. Once a day is a good interval for querying the feedback service, but you can do it more often to save on bandwidth from unnecessary notifications. In the response, what does marked_inactive_on mean? Apple sends a timestamp for each device token returned via the feedback service. Since a device can be off the network for a while, this can be a point in the recent past. In order to make this API work smoothly for you, we record the timestamp we marked as inactive. This means you only need to query for data since the last time you queried. Once a day is a good timeframe, or once a week for very small or infrequently used applications. A few times a day is good for applications with heavy use.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Push+iOS"
+        },
+        "operationId": "device_tokens.feedback.get"
+      }
+    },
+    "/apids/{apid}": {
+      "parameters": [
+        {
+          "name": "apid",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "An APID (Android Push ID) is the Urban Airship ID of a device to which a message can be pushed."
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Registers an APID. Unlike registration for iOS and BlackBerry applications, basic registration tying an APID to your application happens automatically. The registration API can be used to set aliases or tags. This returns HTTP 200 OK for any updates. Registering without any body is a no-op. Not including the alias field will clear it. To clear the list of tags, set it to the empty list []. If you are registering an APID to be used with C2DM, you will also need to include a C2DM registration ID.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Push+Android"
+        },
+        "operationId": "apids.apid.put"
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Gets APID information.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Push+Android"
+        },
+        "operationId": "apids.apid.get"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Marks an APID as invalid. No notifications will be delivered to it until it re-registers.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Push+Android"
+        },
+        "operationId": "apids.apid.delete"
+      }
+    },
+    "/apids": {
+      "parameters": [
+        {
+          "name": "start",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "description": "APID from where to start from."
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "description": "Control how many APIDs are returned at a time. The maximum limit is 5000."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Gets APIDs. You can control how many APIDs are returned at a time by using the limit GET argument. The maximum limit is 5000.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Push+Android"
+        },
+        "operationId": "apids.get"
+      }
+    },
+    "/device_pins/{pin}": {
+      "parameters": [
+        {
+          "name": "pin",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "A BlackBerry PIN. Device PINs should be 8 character strings, without spaces."
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Registers a BlackBerry PIN. This is optional, but recommended, for BlackBerry push messages. This returns HTTP 201 Created for the first registration and 200 OK for any updates. If you wish to include additional information about a device pin, for instance an alias or tags, include a JSON payload along with this request. Not including one of these keys removes it from the device pin.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Push+BlackBerry"
+        },
+        "operationId": "device_pins.pin.put"
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Gets Device PIN information.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Push+BlackBerry"
+        },
+        "operationId": "device_pins.pin.get"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Marks a PIN as inactive. No notifications will be delivered to it until a PUT is executed again.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Push+BlackBerry"
+        },
+        "operationId": "device_pins.pin.delete"
+      }
+    },
+    "/user": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Creates a new user and returns the credentials.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Subscription"
+        },
+        "operationId": "user.post"
+      }
+    },
+    "/user/{user_id}": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "User ID."
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Changes properties of an user - for example, changing or adding an email address.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Subscription"
+        },
+        "operationId": "user.user_id.put"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes an user.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Subscription"
+        },
+        "operationId": "user.user_id.delete"
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves an user’s subscription information.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Subscription"
+        },
+        "operationId": "user.user_id.get"
+      }
+    },
+    "/user/{user_id}/creds/reset": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "User ID."
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Changes the password of an user.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Subscription"
+        },
+        "operationId": "user.user_id.creds.reset.post"
+      }
+    },
+    "/airmail/send": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Sends a message. All fields except message are optional, but at least one of tags, users or aliases must be specified. Much like the push API, we have a batch API call that can make sending multiple messages easier. It’s located at /api/airmail/send/batch/ and accepts a list of messages in the same format as the standard push call.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Rich+Push"
+        },
+        "operationId": "airmail.send.post"
+      }
+    },
+    "/airmail/send/broadcast": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Sends a message to all users (broadcast). Only message is required. The message will be sent out to every registered user. Badge numbers will be handled automatically as long as the push key is present.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Rich+Push"
+        },
+        "operationId": "airmail.send.broadcast.post"
+      }
+    },
+    "/user/{user_id}/messages": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The user ID."
+        },
+        {
+          "name": "full_list",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Get the full message included in this list (which might take a while to download)."
+        },
+        {
+          "name": "since",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Return only new items. Example: since=some_message_id will return all messages sent after the message ID of some_message_id."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns a list of messages and some metadata about them. It will also include some metadata about the user.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Rich+Push"
+        },
+        "operationId": "user.user_id.messages.get"
+      }
+    },
+    "/user/{user_id}/messages/unread": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The user ID."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns a list of unread message IDs and their URLs.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Rich+Push"
+        },
+        "operationId": "user.user_id.messages.unread.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Marks multiple messages as read at once. If a message has already been marked as read, it will be silently skipped.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Rich+Push"
+        },
+        "operationId": "user.user_id.messages.unread.post"
+      }
+    },
+    "/user/{user_id}/messages/message/{message_id}": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The user ID."
+        },
+        {
+          "name": "message_id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The message ID."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Gets a message.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Rich+Push"
+        },
+        "operationId": "user.user_id.messages.message.message_id.get"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes a message.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Rich+Push"
+        },
+        "operationId": "user.user_id.messages.message.message_id.delete"
+      }
+    },
+    "/user/{user_id}/messages/message/{message_id}/body": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The user ID."
+        },
+        {
+          "name": "message_id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The message ID."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Gets a message's body.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Rich+Push"
+        },
+        "operationId": "user.user_id.messages.message.message_id.body.get"
+      }
+    },
+    "/user/{user_id}/messages/message/{message_id}/read": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The user ID."
+        },
+        {
+          "name": "message_id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The message ID."
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Marks a message as read.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Rich+Push"
+        },
+        "operationId": "user.user_id.messages.message.message_id.read.post"
+      }
+    },
+    "/user/{user_id}/messages/delete": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The user ID."
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Deletes multiple messages at once. If a message has already been deleted, it will be silently skipped.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Rich+Push"
+        },
+        "operationId": "user.user_id.messages.delete.post"
+      }
+    },
+    "/app/content": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Gets the store inventory.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+In+App+Purchase"
+        },
+        "operationId": "app.content.get"
+      }
+    },
+    "/app/content/{product_id}/download": {
+      "parameters": [
+        {
+          "name": "product_id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The product ID."
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Returns a temporary URL where the client can download the content. In the payload, the receipt string is the receipt data from the purchase. It should be unaltered from how Apple delivers it to your application.udid is an optional field to help identify a particular user’s purchases, which can aid debugging. It should always be a hash of the UDID, not the actual UDID, to ensure compliance with Apple’s TOS. The optional version field should be the StoreFront library version, or custom if you’re building your own.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+In+App+Purchase"
+        },
+        "operationId": "app.content.product_id.download.post"
+      }
+    },
+    "/app/updates": {
+      "parameters": [
+        {
+          "name": "product_id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The product ID."
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Checks for updates. It can be useful on application launch to compare a list of installed updates with our server to see if there are any updates to be had for the content.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+In+App+Purchase"
+        },
+        "operationId": "app.updates.post"
+      }
+    },
+    "/user/recover": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Uses the user’s email address as a way to restore subscription content across devices.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Subscription"
+        },
+        "operationId": "user.recover.post"
+      }
+    },
+    "/user/recover/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "ID of the user’s account recovery."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Checks the recovery status.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Subscription"
+        },
+        "operationId": "user.recover.id.get"
+      }
+    },
+    "/user/{user_id}/available_subscriptions": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "User ID."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves subscription options.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Subscription"
+        },
+        "operationId": "user.user_id.available_subscriptions.get"
+      }
+    },
+    "/user/{user_id}/subscriptions/{subscription_key}/purchase": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "User ID."
+        },
+        {
+          "name": "subscription_key",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "Subscription Key."
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Adds a new subscription.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Subscription"
+        },
+        "operationId": "user.user_id.subscriptions.subscription_key.purchase.post"
+      }
+    },
+    "/user/{user_id}/subscription_content": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "User ID."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns a list of available content.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Subscription"
+        },
+        "operationId": "user.user_id.subscription_content.get"
+      }
+    },
+    "/user/{user_id}/subscriptions/content/{content_id}/download": {
+      "parameters": [
+        {
+          "name": "user_id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "User ID."
+        },
+        {
+          "name": "content_id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "Content ID."
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Downloads the content.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Subscription"
+        },
+        "operationId": "user.user_id.subscriptions.content.content_id.download.post"
+      }
+    },
+    "/feeds": {
+      "parameters": [],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Creates a new feed item.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Feed"
+        },
+        "operationId": "feeds.post"
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Gets a list of feeds.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Feed"
+        },
+        "operationId": "feeds.get"
+      }
+    },
+    "/feeds/{feed_id}": {
+      "parameters": [
+        {
+          "name": "feed_id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "A particular feed."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns information about a particular feed.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Feed"
+        },
+        "operationId": "feeds.feed_id.get"
+      },
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Updates a feed.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Feed"
+        },
+        "operationId": "feeds.feed_id.put"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes a feed.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Feed"
+        },
+        "operationId": "feeds.feed_id.delete"
+      }
+    },
+    "/tags": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns all the tags that you have created.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Tag"
+        },
+        "operationId": "tags.get"
+      }
+    },
+    "/tags/{tag}": {
+      "parameters": [
+        {
+          "name": "tag",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "Tags can be of any format you wish, but we recommend that they be URL-safe in order to make less work for you. The maximum length of a tag is 128 characters."
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Deletes a tag.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Tag"
+        },
+        "operationId": "tags.tag.put"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Modifies device tokens on a tag.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Tag"
+        },
+        "operationId": "tags.tag.post"
+      }
+    },
+    "/device_tokens/{device_token}/tags": {
+      "parameters": [
+        {
+          "name": "device_token",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "A specific device token."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Gets tags for a specific device token.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Tag"
+        },
+        "operationId": "device_tokens.device_token.tags.get"
+      }
+    },
+    "/device_tokens/{device_token}/tags/{tag}": {
+      "parameters": [
+        {
+          "name": "device_token",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "A specific device token."
+        },
+        {
+          "name": "tag",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "Tags can be of any format you wish, but we recommend that they be URL-safe in order to make less work for you. The maximum length of a tag is 128 characters."
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Creates a tag and associate it with the specific device token.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Tag"
+        },
+        "operationId": "device_tokens.device_token.tags.tag.put"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Removes a single tag from a device token.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Partner"
+        },
+        "operationId": "device_tokens.device_token.tags.tag.delete"
+      }
+    },
+    "/partner/apps": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "List applications.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Partner"
+        },
+        "operationId": "partner.apps.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Adds a new application.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Tag"
+        },
+        "operationId": "partner.apps.post"
+      }
+    },
+    "/partner/apps/{app_id}": {
+      "parameters": [
+        {
+          "name": "app_id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "A specific application."
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json",
+            "description": "Content type."
+          }
+        ],
+        "description": "Updates an application.",
+        "externalDocs": {
+          "url": "https://docs.urbanairship.com/display/DOCS/APIs%3A+Tag"
+        },
+        "operationId": "partner.apps.app_id.put"
+      }
+    }
+  },
+  "info": {
+    "title": "Urban Airship",
+    "description": "The Urban Airship's API powers mobile applications with push, rich push, in-app purchases and subscription services.",
+    "x-datafire": {
+      "name": "urbanairship",
+      "type": "openapi"
+    }
+  }
+}

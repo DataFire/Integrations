@@ -1,0 +1,620 @@
+{
+  "swagger": "2.0",
+  "host": "api.infoconnect.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/v1/companies/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "A nine to ten digit Infogroup identification number. A number referencing the company assigned by Infogroup. This number will always refer to a single company and the reference will never change, unless the resource is permanently removed. Requesting a record by {id} will always return zero or one response."
+        },
+        {
+          "name": "resourcetype",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "basic",
+          "description": "Identifies the resource type for the response. The default value basic returns a base resource type that is valid across all methods; the resource type parameter is not needed to produce this response. To get a more detailed response set the resource type parameter to enhanced. To retrieve resources with Id's only, set the resource type parameter to core.",
+          "enum": [
+            "basic",
+            "enhanced",
+            "core"
+          ]
+        },
+        {
+          "name": "Content-Type",
+          "required": true,
+          "in": "header",
+          "type": "string",
+          "default": "application/json",
+          "description": "The content type.",
+          "enum": [
+            "application/json",
+            "application/xml"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves details of the Company identified by the resource.",
+        "externalDocs": {
+          "url": "http://developer.infoconnect.com/get-search"
+        },
+        "operationId": "v1.companies.id.get"
+      }
+    },
+    "/v1/companies": {
+      "parameters": [
+        {
+          "name": "resourcetype",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "basic",
+          "description": "Identifies the resource type for the response. The default value basic returns a base resource type that is valid across all methods; the resource type parameter is not needed to produce this response. To get a more detailed response set the resource type parameter to enhanced. To retrieve resources with Id's only, set the resource type parameter to core.",
+          "enum": [
+            "basic",
+            "enhanced",
+            "core"
+          ]
+        },
+        {
+          "name": "city",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "Omaha",
+          "description": "Filters through the Companies collection by city name."
+        },
+        {
+          "name": "companyname",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "ABC",
+          "description": "Filters through the Companies collection and returns resources by company name."
+        },
+        {
+          "name": "ein",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "521492843",
+          "description": "Filters through the Companies collection and returns resources with an Employer Identification Number (EIN)."
+        },
+        {
+          "name": "email",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "johndoe@abcco.com",
+          "description": "Filters through the Companies collection and returns resources with a case-insensitive email address match at the level."
+        },
+        {
+          "name": "firstname",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "bill",
+          "description": "Filters through the Companies collection by the primary contact's first name."
+        },
+        {
+          "name": "lastname",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "doe",
+          "description": "Filters through the Companies collection by the primary contact's last name."
+        },
+        {
+          "name": "phone",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "5558675309",
+          "description": "Filters through the Companies collection and returns resources with an ten-digit phone number match."
+        },
+        {
+          "name": "postalcode",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "68046",
+          "description": "Filters through the Companies collection by ZIP code or Postal code."
+        },
+        {
+          "name": "stateprovince",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "NE",
+          "description": "Filters through the Companies collection by State or Province abbreviation."
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "default": 10,
+          "description": "Number of responses to return. If used, must be a number between 1 and 10. Default is 10."
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "default": 0,
+          "description": "Number of responses to be skipped for generating the output. If used, must be a number between 0-100 minus limit. Default is 0."
+        },
+        {
+          "name": "Content-Type",
+          "required": true,
+          "in": "header",
+          "type": "string",
+          "default": "application/json",
+          "description": "The content type.",
+          "enum": [
+            "application/json",
+            "application/xml"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves lists of companies.",
+        "externalDocs": {
+          "url": "http://developer.infoconnect.com/get-search"
+        },
+        "operationId": "v1.companies.get"
+      }
+    },
+    "/v1/companies/search": {
+      "parameters": [
+        {
+          "name": "Content-Type",
+          "required": true,
+          "in": "header",
+          "type": "string",
+          "default": "application/json",
+          "description": "The content type.",
+          "enum": [
+            "application/json",
+            "application/xml"
+          ]
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [],
+        "description": "Retrieves details of resources matching a given set of search fields that are submitted along with the request.",
+        "externalDocs": {
+          "url": "http://developer.infoconnect.com/post-search"
+        },
+        "operationId": "v1.companies.search.post"
+      }
+    },
+    "/v1/companies/counts": {
+      "parameters": [
+        {
+          "name": "Content-Type",
+          "required": true,
+          "in": "header",
+          "type": "string",
+          "default": "application/json",
+          "description": "The content type.",
+          "enum": [
+            "application/json",
+            "application/xml"
+          ]
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [],
+        "description": "Retrieves counts on resources matching a given set of search fields that are submitted along with the request.",
+        "externalDocs": {
+          "url": "http://developer.infoconnect.com/post-count"
+        },
+        "operationId": "v1.companies.counts.post"
+      }
+    },
+    "/v1/people/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "A twelve digit Infogroup identification number. A number referencing the individual assigned by Infogroup. This number will always refer to a single individual and the reference will never change, unless the resource is permanently removed. Requesting a record by {id} will always return zero or one response."
+        },
+        {
+          "name": "resourcetype",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "basic",
+          "description": "Identifies the resource type for the response. The default value basic returns a base resource type that is valid across all methods; the resource type parameter is not needed to produce this response. To get a more detailed response set the resource type parameter to enhanced. To retrieve resources with Id's only, set the resource type parameter to core. Additional ResourceTypes are Core, LifeStyle and TargetReady.",
+          "enum": [
+            "basic",
+            "enhanced",
+            "core",
+            "LifeStyle",
+            "TargetReady"
+          ]
+        },
+        {
+          "name": "Content-Type",
+          "required": true,
+          "in": "header",
+          "type": "string",
+          "default": "application/json",
+          "description": "The content type.",
+          "enum": [
+            "application/json",
+            "application/xml"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves details of the individual identified by the resource.",
+        "externalDocs": {
+          "url": "http://developer.infoconnect.com/get-search-0"
+        },
+        "operationId": "v1.people.id.get"
+      }
+    },
+    "/v1/people": {
+      "parameters": [
+        {
+          "name": "resourcetype",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "basic",
+          "description": "Identifies the resource type for the response. The default value basic returns a base resource type that is valid across all methods; the resource type parameter is not needed to produce this response. To get a more detailed response set the resource type parameter to enhanced. To retrieve resources with Id's only, set the resource type parameter to core. Additional ResourceTypes are Core, LifeStyle and TargetReady.",
+          "enum": [
+            "basic",
+            "enhanced",
+            "core",
+            "LifeStyle",
+            "TargetReady"
+          ]
+        },
+        {
+          "name": "city",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "Omaha",
+          "description": "Filters through the People collection by city name."
+        },
+        {
+          "name": "email",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "johndoe@abcco.com",
+          "description": "Filters through the People collection and returns resources with a case-insensitive email address match at the level."
+        },
+        {
+          "name": "emailsha1upper",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "9d2972490f8c6a9a3a8e052d6050f9d3fde2e54d",
+          "description": "Filters through the People collection and returns resources with a case-insensitive email address match at the level. If used, must be a SHA1 hashed upper case email address."
+        },
+        {
+          "name": "includehistoricalemail",
+          "required": false,
+          "in": "query",
+          "type": "boolean",
+          "description": "IncludeHistoricalEmail can only be used in combination with Email or EmailSha1Upper. IncludeHistoricalEmail is used to retrieve historical records. Including this limits the ResourceType to Basic only. These records do not have an Id therefore cannot be used to return an Enhanced ResourceType. If used, must be True or False. Default is False."
+        },
+        {
+          "name": "firstname",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "bill",
+          "description": "Filters through the People collection by the primary contact's first name."
+        },
+        {
+          "name": "lastname",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "doe",
+          "description": "Filters through the People collection by the primary contact's last name."
+        },
+        {
+          "name": "phone",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "5558675309",
+          "description": "Filters through the People collection and returns resources with an ten-digit phone number match."
+        },
+        {
+          "name": "postalcode",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "68046",
+          "description": "Filters through the People collection by ZIP code or Postal code."
+        },
+        {
+          "name": "stateprovince",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "default": "NE",
+          "description": "Filters through the People collection by State or Province abbreviation."
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "default": 10,
+          "description": "Number of responses to return. If used, must be a number between 1 and 10. Default is 10."
+        },
+        {
+          "name": "offset",
+          "required": false,
+          "in": "query",
+          "type": "integer",
+          "default": 0,
+          "description": "Number of responses to be skipped for generating the output. If used, must be a number between 0-100 minus limit. Default is 0."
+        },
+        {
+          "name": "Content-Type",
+          "required": true,
+          "in": "header",
+          "type": "string",
+          "default": "application/json",
+          "description": "The content type.",
+          "enum": [
+            "application/json",
+            "application/xml"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves lists of people.",
+        "externalDocs": {
+          "url": "http://developer.infoconnect.com/get-search-0"
+        },
+        "operationId": "v1.people.get"
+      }
+    },
+    "/v1/people/search": {
+      "parameters": [
+        {
+          "name": "Content-Type",
+          "required": true,
+          "in": "header",
+          "type": "string",
+          "default": "application/json",
+          "description": "The content type.",
+          "enum": [
+            "application/json",
+            "application/xml"
+          ]
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [],
+        "description": "Retrieves details of resources matching a given set of search fields that are submitted along with the request.",
+        "externalDocs": {
+          "url": "http://developer.infoconnect.com/post-search-0"
+        },
+        "operationId": "v1.people.search.post"
+      }
+    },
+    "/v1/people/counts": {
+      "parameters": [
+        {
+          "name": "Content-Type",
+          "required": true,
+          "in": "header",
+          "type": "string",
+          "default": "application/json",
+          "description": "The content type.",
+          "enum": [
+            "application/json",
+            "application/xml"
+          ]
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [],
+        "description": "Retrieves counts on resources matching a given set of search fields that are submitted along with the request.",
+        "externalDocs": {
+          "url": "http://developer.infoconnect.com/post-count-0"
+        },
+        "operationId": "v1.people.counts.post"
+      }
+    },
+    "/v3/match": {
+      "parameters": [
+        {
+          "name": "Content-Type",
+          "required": true,
+          "in": "header",
+          "type": "string",
+          "default": "application/json",
+          "description": "The content type.",
+          "enum": [
+            "application/json",
+            "application/xml"
+          ]
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [],
+        "description": "Matching and data append for partial name and address.",
+        "externalDocs": {
+          "url": "http://developer.infoconnect.com/post-match"
+        },
+        "operationId": "v3.match.post"
+      }
+    },
+    "/v3/multiplematch": {
+      "parameters": [
+        {
+          "name": "Content-Type",
+          "required": true,
+          "in": "header",
+          "type": "string",
+          "default": "application/json",
+          "description": "The content type.",
+          "enum": [
+            "application/json",
+            "application/xml"
+          ]
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [],
+        "description": "Multiple matching and data append for partial name and address.",
+        "externalDocs": {
+          "url": "http://developer.infoconnect.com/post-multiple-match"
+        },
+        "operationId": "v3.multiplematch.post"
+      }
+    },
+    "/v1/sics/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "A two, four, or six numeric Standard Identification Classification (SIC) code."
+        },
+        {
+          "name": "Content-Type",
+          "required": true,
+          "in": "header",
+          "type": "string",
+          "default": "application/json",
+          "description": "The content type.",
+          "enum": [
+            "application/json",
+            "application/xml"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves details of Standard Identification Classification (SIC) code.",
+        "externalDocs": {
+          "url": "http://developer.infoconnect.com/get-sic"
+        },
+        "operationId": "v1.sics.id.get"
+      }
+    },
+    "/v1/sics": {
+      "parameters": [
+        {
+          "name": "keyword",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "barber",
+          "description": "By SIC description. Example \"barber\"."
+        },
+        {
+          "name": "Content-Type",
+          "required": true,
+          "in": "header",
+          "type": "string",
+          "default": "application/json",
+          "description": "The content type.",
+          "enum": [
+            "application/json",
+            "application/xml"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Retrieves details of Standard Identification Classification (SIC) code.",
+        "externalDocs": {
+          "url": "http://developer.infoconnect.com/get-sic"
+        },
+        "operationId": "v1.sics.get"
+      }
+    }
+  },
+  "info": {
+    "title": "Infoconnect",
+    "description": "Search our rich and robust data on companies and people. Utilize our fuzzy matching to power your new app or website with Infoconnect from Infogroup Targeting Solutions.",
+    "x-datafire": {
+      "name": "infoconnect",
+      "type": "openapi"
+    }
+  }
+}

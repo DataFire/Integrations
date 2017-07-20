@@ -1,0 +1,2567 @@
+{
+  "info": {
+    "description": "Interact with Skyrock.com features: blogs, profiles, messaging, 'what's new', friends & activities!",
+    "title": "Skyrock",
+    "x-datafire": {
+      "name": "skyrock",
+      "type": "openapi"
+    }
+  },
+  "paths": {
+    "/message/reply_thread.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#reply-thread"
+        },
+        "description": "Replies to a thread.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "message.reply_thread.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/message/create_thread.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#create-thread"
+        },
+        "description": "Creates a multi-recipient thread.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "message.create_thread.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/message/send_message.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#send-message"
+        },
+        "description": "Sends a message to a single recipient.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "message.send_message.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/message/delete_message.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#delete-message"
+        },
+        "description": "Deletes a message.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "message.delete_message.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/message/delete_thread.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#delete-thread"
+        },
+        "description": "Deletes a message thread.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "message.delete_thread.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/message/set_thread_as_read.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#set-thread-as-read"
+        },
+        "description": "Marks a message thread as read.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "message.set_thread_as_read.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/message/get_thread.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#get-thread"
+        },
+        "description": "Returns a message thread (15 messages per page).",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "message.get_thread.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "Message thread ID.",
+          "type": "integer",
+          "in": "query",
+          "required": true,
+          "name": "id_thread"
+        },
+        {
+          "description": "Page number (optional).",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "page"
+        }
+      ]
+    },
+    "/message/list_threads.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#list-threads"
+        },
+        "description": "Returns the authenticated user's message threads (15 threads per page).",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "message.list_threads.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "enum": [
+            "all",
+            "unread"
+          ],
+          "description": "Thread selection filter (all/unread).",
+          "default": "all",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "filter"
+        },
+        {
+          "description": "Page number (optional).",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "page"
+        }
+      ]
+    },
+    "/newsfeed/list_alerts_types.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#list-alerts-types"
+        },
+        "description": "Returns descriptions of alerts types, for developer information.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "newsfeed.list_alerts_types.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/newsfeed/list_alerts.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#list-alerts"
+        },
+        "description": "Lists user's alerts (notifications).",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "newsfeed.list_alerts.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/newsfeed/list_events_types.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#list-events-types"
+        },
+        "description": "Returns descriptions of events types, for developer information.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "newsfeed.list_events_types.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/newsfeed/list_events.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#list-events"
+        },
+        "description": "Lists events in the user's dash-board (eg. newsfeed).",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "newsfeed.list_events.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "enum": [
+            "own",
+            "friends"
+          ],
+          "description": "Events category. Possible values: own (display own events), friends (display friends' events).",
+          "default": "own",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "events_category"
+        }
+      ]
+    },
+    "/newsfeed/send_alert.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#send-alert"
+        },
+        "description": "Sends a free text as alert to the authenticated user's alerts (notifications). The message is not localized and should be send in the user language. Unlike events, alerts are personal.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "newsfeed.send_alert.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/newsfeed/send_event.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#send-event"
+        },
+        "description": "Sends a free text as event to the authenticated user's dash-board (eg. newsfeed). Events also appear in the dash-board of the user's friends. The message is not localized and should be send in the user language.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "newsfeed.send_event.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/mood/delete_mood.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#delete-mood"
+        },
+        "description": "Deletes an user's mood.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "mood.delete_mood.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/mood/set_mood.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#set-mood"
+        },
+        "description": "Sets an user's mood.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "mood.set_mood.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/mood/get_mood.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#get-mood"
+        },
+        "description": "Returns an user last mood.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "mood.get_mood.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "User ID (optional if OAuthenticated).",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "id_user"
+        },
+        {
+          "description": "Username (optional if OAuthenticated).",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "username"
+        }
+      ]
+    },
+    "/mood/list_moods.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#list-moods"
+        },
+        "description": "Returns an user's mood list.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "mood.list_moods.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "User ID (optional if OAuthenticated).",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "id_user"
+        },
+        {
+          "description": "Username (optional if OAuthenticated).",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "username"
+        }
+      ]
+    },
+    "/profile/get_tags_types.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#get-tags-types"
+        },
+        "description": "Returns user profile's tags types.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "profile.get_tags_types.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/profile/get_tags.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#get-tags"
+        },
+        "description": "Returns an user profile's tags.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "profile.get_tags.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "User ID (optional if OAuthenticated).",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "id_user"
+        },
+        {
+          "description": "Username (optional if OAuthenticated).",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "username"
+        }
+      ]
+    },
+    "/profile/set_tags.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#set-tags"
+        },
+        "description": "Sets an user profile's tags.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "profile.set_tags.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/profile/get_property_values.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#get-property-values"
+        },
+        "description": "Returns possible values for a given property. These properties can be set using set or set_config.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "profile.get_property_values.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "enum": [
+            "gender",
+            "gender_preference",
+            "looks_for",
+            "status",
+            "town",
+            "country",
+            "department",
+            "occupation",
+            "place",
+            "personality",
+            "smoker",
+            "hair_color",
+            "eye_color",
+            "height",
+            "weight",
+            "block_friends",
+            "block_honors",
+            "block_groups",
+            "block_gifts",
+            "show_visits_counter",
+            "show_comments_counter",
+            "show_kiffs_counter",
+            "show_my_websites",
+            "show_mood",
+            "display_policy",
+            "allow_share",
+            "allow_facebook_like",
+            "allow_votes",
+            "allow_kiffs",
+            "default_page",
+            "show_me_page",
+            "show_news_page",
+            "show_photos_page",
+            "show_videos_page",
+            "allow_comments"
+          ],
+          "description": "Property name. Possible values: gender, gender_preference, looks_for, status, town, country, department, occupation, place, personality, smoker, hair_color, eye_color, height, weight, block_friends, block_honors, block_groups, block_gifts, show_visits_counter, show_comments_counter, show_kiffs_counter, show_my_websites, show_mood, display_policy, allow_share, allow_facebook_like, allow_votes, allow_kiffs, default_page, show_me_page, show_news_page, show_photos_page, show_videos_page, allow_comments.",
+          "type": "string",
+          "in": "query",
+          "required": true,
+          "name": "property"
+        }
+      ]
+    },
+    "/profile/set_config.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#set-config"
+        },
+        "description": "Sets informations about a profile's (see get_property_values for possible values to set).",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "profile.set_config.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/profile/get_config.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#get-config"
+        },
+        "description": "Returns settings about current user's profile.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "profile.get_config.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/profile/delete_picture.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#delete-picture"
+        },
+        "description": "Deletes a picture.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "profile.delete_picture.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/profile/set_picture.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#set-picture"
+        },
+        "description": "Sets a picture's properties.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "profile.set_picture.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/profile/get_picture.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#get-picture"
+        },
+        "description": "Returns a specified picture.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "profile.get_picture.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "Album ID.",
+          "type": "integer",
+          "in": "query",
+          "required": true,
+          "name": "id_album"
+        },
+        {
+          "description": "Picture ID.",
+          "type": "integer",
+          "in": "query",
+          "required": true,
+          "name": "id_picture"
+        }
+      ]
+    },
+    "/profile/list_pictures.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#id5"
+        },
+        "description": "Returns the list of pictures associated with a profile.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "profile.list_pictures.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "User ID (optional if OAuthenticated).",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "id_user"
+        },
+        {
+          "description": "Username (optional if OAuthenticated).",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "username"
+        },
+        {
+          "description": "Album ID.",
+          "type": "integer",
+          "in": "query",
+          "required": true,
+          "name": "id_album"
+        }
+      ]
+    },
+    "/profile/add_picture.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#add-picture"
+        },
+        "description": "Adds a picture to the profile.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "profile.add_picture.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/profile/delete_album.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#delete-album"
+        },
+        "description": "Deletes an empty album. Main album (id_album = 1) cannot be deleted.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "profile.delete_album.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/profile/set_album.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#set-album"
+        },
+        "description": "Sets an album's title.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "profile.set_album.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/profile/list_albums.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#list-albums"
+        },
+        "description": "Returns the list of albums associated with a profile. Main album has id_album = 1.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "profile.list_albums.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "User ID (optional if OAuthenticated).",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "id_user"
+        },
+        {
+          "description": "Username (optional if OAuthenticated).",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "username"
+        }
+      ]
+    },
+    "/profile/add_album.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#add-album"
+        },
+        "description": "Adds an album to the profile.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "profile.add_album.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/profile/set.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#id4"
+        },
+        "description": "Sets an user's profile public data.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "profile.set.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/profile/get.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#id3"
+        },
+        "description": "Returns an user's profile public data.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "profile.get.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "User ID (optional if OAuthenticated).",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "id_user"
+        },
+        {
+          "description": "Username (optional if OAuthenticated).",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "username"
+        },
+        {
+          "enum": [
+            "html",
+            "bbcode"
+          ],
+          "description": "Defines which format to output, for specific rich text fields. Possible values: 'html' (default), 'bbcode'.",
+          "default": "html",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "output_format"
+        }
+      ]
+    },
+    "/blog/list_pictures.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#list-pictures"
+        },
+        "description": "Returns the list of pictures from all blog's articles, paginated (35 pictures per page).",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "blog.list_pictures.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "User ID (optional if OAuthenticated).",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "id_user"
+        },
+        {
+          "description": "Username (optional if OAuthenticated).",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "username"
+        },
+        {
+          "description": "Page number.",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "page"
+        }
+      ]
+    },
+    "/blog/list_skins.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#list-skins"
+        },
+        "description": "Returns available skins.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "blog.list_skins.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/blog/get_post_comment.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#get-post-comment"
+        },
+        "description": "Returns a post's comment.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "blog.get_post_comment.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "User ID (optional if OAuthenticated).",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "id_user"
+        },
+        {
+          "description": "Username (optional if OAuthenticated).",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "username"
+        },
+        {
+          "description": "Post ID.",
+          "type": "integer",
+          "in": "query",
+          "required": true,
+          "name": "id_post"
+        },
+        {
+          "description": "Post comment ID.",
+          "type": "integer",
+          "in": "query",
+          "required": true,
+          "name": "id_comment"
+        }
+      ]
+    },
+    "/blog/list_post_comments.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#list-post-comments"
+        },
+        "description": "Lists a post's comments.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "blog.list_post_comments.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "User ID (optional if OAuthenticated).",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "id_user"
+        },
+        {
+          "description": "Username (optional if OAuthenticated).",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "username"
+        },
+        {
+          "description": "Post ID.",
+          "type": "integer",
+          "in": "query",
+          "required": true,
+          "name": "id_post"
+        },
+        {
+          "description": "Page number.",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "page"
+        }
+      ]
+    },
+    "/blog/delete_post_media.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#delete-post-media"
+        },
+        "description": "Deletes a post's media.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "blog.delete_post_media.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/blog/new_post_media.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#new-post-media"
+        },
+        "description": "Associates media with a blog post.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "blog.new_post_media.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/blog/list_post_medias.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#list-post-medias"
+        },
+        "description": "Returns a post's medias list.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "blog.list_post_medias.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "User ID (optional if OAuthenticated).",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "id_user"
+        },
+        {
+          "description": "Username (optional if OAuthenticated).",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "username"
+        },
+        {
+          "description": "Post ID.",
+          "type": "integer",
+          "in": "query",
+          "required": true,
+          "name": "id_post"
+        }
+      ]
+    },
+    "/blog/delete_post.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#delete-post"
+        },
+        "description": "Deletes a blog post.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "blog.delete_post.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/blog/set_post.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#set-post"
+        },
+        "description": "Edits a blog post.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "blog.set_post.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/blog/get_post.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#get-post"
+        },
+        "description": "Returns an user's blog post. Only online posts will be returned, unless authenticated user is its creator.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "blog.get_post.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "User ID (optional if OAuthenticated).",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "id_user"
+        },
+        {
+          "description": "Username (optional if OAuthenticated).",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "username"
+        },
+        {
+          "description": "Post ID.",
+          "type": "integer",
+          "in": "query",
+          "required": true,
+          "name": "id_post"
+        },
+        {
+          "enum": [
+            "html",
+            "bbcode"
+          ],
+          "description": "Defines which format to output, for specific rich text fields. Possible values: 'html' (default), 'bbcode'.",
+          "default": "html",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "output_format"
+        }
+      ]
+    },
+    "/blog/new_post.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#new-post"
+        },
+        "description": "Creates a new blog post.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "blog.new_post.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/blog/list_offline_posts.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#list-offline-posts"
+        },
+        "description": "Returns current user's blog posts list (offline only), paginated.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "blog.list_offline_posts.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "Page number.",
+          "default": 1,
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "page"
+        },
+        {
+          "description": "Allow authenticated blog owner to show secret posts (false by default).",
+          "default": false,
+          "type": "boolean",
+          "in": "query",
+          "required": false,
+          "name": "with_secret"
+        },
+        {
+          "enum": [
+            "html",
+            "bbcode"
+          ],
+          "description": "Defines which format to output, for specific rich text fields. Possible values: 'html' (default), 'bbcode'.",
+          "default": "html",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "output_format"
+        }
+      ]
+    },
+    "/blog/list_posts.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#list-posts"
+        },
+        "description": "Returns an user's blog posts list (online only), paginated (10 articles per page).",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "blog.list_posts.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "User ID (optional if OAuthenticated).",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "id_user"
+        },
+        {
+          "description": "Username (optional if OAuthenticated).",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "username"
+        },
+        {
+          "description": "Page number.",
+          "default": 1,
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "page"
+        },
+        {
+          "description": "Allow authenticated blog owner to show secret posts (false by default).",
+          "default": false,
+          "type": "boolean",
+          "in": "query",
+          "required": false,
+          "name": "with_secret"
+        },
+        {
+          "enum": [
+            "html",
+            "bbcode"
+          ],
+          "description": "Defines which format to output, for specific rich text fields. Possible values: 'html' (default), 'bbcode'.",
+          "default": "html",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "output_format"
+        }
+      ]
+    },
+    "/blog/change_avatar.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#change-avatar"
+        },
+        "description": "Changes authenticated user's blog avatar.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "blog.change_avatar.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "Content type.",
+          "default": "multipart/form-data",
+          "type": "string",
+          "in": "header",
+          "required": true,
+          "name": "Content-Type"
+        }
+      ]
+    },
+    "/blog/set.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#set"
+        },
+        "description": "Sets authenticated user's blog data. Each parameter is optional, you can either set one or many at once.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "blog.set.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/blog/get.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#id2"
+        },
+        "description": "Returns a blog public data. If the call is authenticated and username is not provided, the method returns data about the current user's Skyrock blog.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "blog.get.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "User ID (optional if OAuthenticated).",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "id_user"
+        },
+        {
+          "description": "Username (optional if OAuthenticated).",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "username"
+        },
+        {
+          "enum": [
+            "html",
+            "bbcode"
+          ],
+          "description": "Defines which format to output, for specific rich text fields. Possible values: 'html' (default), 'bbcode'.",
+          "default": "html",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "output_format"
+        }
+      ]
+    },
+    "/user/list_groups.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#list-groups"
+        },
+        "description": "List of user's groups.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.list_groups.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "User ID (optional if OAuthenticated).",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "id_user"
+        },
+        {
+          "description": "Username (optional if OAuthenticated).",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "username"
+        }
+      ]
+    },
+    "/user/remove_user_from_blacklist.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#remove-user-from-blacklist"
+        },
+        "description": "Removes a user from the blacklist.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.remove_user_from_blacklist.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/add_user_to_blacklist.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#add-user-to-blacklist"
+        },
+        "description": "Adds a user to the blacklist.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.add_user_to_blacklist.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/list_blacklist.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#list-blacklist"
+        },
+        "description": "List of users in blacklist.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.list_blacklist.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/get_counters.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#get-counters"
+        },
+        "description": "Returns current user counters.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.get_counters.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/is_friend.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#is-friend"
+        },
+        "description": "Checks friend relation between two users.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.is_friend.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "First user ID.",
+          "type": "integer",
+          "in": "query",
+          "required": true,
+          "name": "id_user_1"
+        },
+        {
+          "description": "Second user ID.",
+          "type": "integer",
+          "in": "query",
+          "required": true,
+          "name": "id_user_2"
+        }
+      ]
+    },
+    "/user/deny_friend_request.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#deny-friend-request"
+        },
+        "description": "Denies a friend request.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.deny_friend_request.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/accept_friend_request.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#accept-friend-request"
+        },
+        "description": "Accepts a friend request.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.accept_friend_request.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/list_friend_requests.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#list-friend-requests"
+        },
+        "description": "List of friend requests.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.list_friend_requests.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/remove_from_friends.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#remove-from-friends"
+        },
+        "description": "Removes a friend from the friend list.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.remove_from_friends.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/remove_from_best_friends.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#remove-from-best-friends"
+        },
+        "description": "Removes a friend from the best friend list. The friend user should be a best friend of current user.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.remove_from_best_friends.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/add_to_best_friends.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#add-to-best-friends"
+        },
+        "description": "Adds a friend to the best friend list. The friend user should be a friend of current user.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.add_to_best_friends.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/send_friend_request.{format}": {
+      "post": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#send-friend-request"
+        },
+        "description": "Sends a friend request.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.send_friend_request.format.post"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    },
+    "/user/list_online_friends.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#list-online-friends"
+        },
+        "description": "List of online friends.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.list_online_friends.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "User ID (optional if OAuthenticated).",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "id_user"
+        },
+        {
+          "description": "Username (optional if OAuthenticated).",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "username"
+        }
+      ]
+    },
+    "/user/list_best_friends.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#list-best-friends"
+        },
+        "description": "List of best friends (paginated).",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.list_best_friends.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "Page number.",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "page"
+        },
+        {
+          "description": "Results order. Possible values:\n- DEFAULT: default order.\n- ALPHA: sort alphabetically.\n- OLDEST_TO_NEWEST: sort by oldest to newest friends (by date of friendship).\n- NEWEST_TO_OLDEST: sort by newest to oldest friends (by date of friendship).\n- BEST_FIRST: default order, with best friends first.\n- BEST_LAST: default order, with best friends last.",
+          "default": "DEFAULT",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "order"
+        }
+      ]
+    },
+    "/user/list_friends_ids.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#list-friends-ids"
+        },
+        "description": "List of friends ids (paginated).",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.list_friends_ids.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "Page number.",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "page"
+        },
+        {
+          "description": "Results order. Possible values:\n- DEFAULT: default order.\n- ALPHA: sort alphabetically.\n- OLDEST_TO_NEWEST: sort by oldest to newest friends (by date of friendship).\n- NEWEST_TO_OLDEST: sort by newest to oldest friends (by date of friendship).\n- BEST_FIRST: default order, with best friends first.\n- BEST_LAST: default order, with best friends last.",
+          "default": "DEFAULT",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "order"
+        }
+      ]
+    },
+    "/user/list_friends.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#list-friends"
+        },
+        "description": "List of friends (paginated).",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.list_friends.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "User ID (optional if OAuthenticated).",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "id_user"
+        },
+        {
+          "description": "Username (optional if OAuthenticated).",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "username"
+        },
+        {
+          "description": "Page number.",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "page"
+        },
+        {
+          "description": "Results order. Possible values:\n- DEFAULT: default order.\n- ALPHA: sort alphabetically.\n- OLDEST_TO_NEWEST: sort by oldest to newest friends (by date of friendship).\n- NEWEST_TO_OLDEST: sort by newest to oldest friends (by date of friendship).\n- BEST_FIRST: default order, with best friends first.\n- BEST_LAST: default order, with best friends last.",
+          "default": "DEFAULT",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "order"
+        }
+      ]
+    },
+    "/user/get.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#get"
+        },
+        "description": "Returns an user's public data. If the call is authenticated and username is not provided, the method returns data about the current user's Skyrock account.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "user.get.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        },
+        {
+          "description": "User ID (optional if OAuthenticated).",
+          "type": "integer",
+          "in": "query",
+          "required": false,
+          "name": "id_user"
+        },
+        {
+          "description": "Username (optional if OAuthenticated).",
+          "type": "string",
+          "in": "query",
+          "required": false,
+          "name": "username"
+        }
+      ]
+    },
+    "/check_rate_limit.{format}": {
+      "get": {
+        "externalDocs": {
+          "url": "http://en.skyrock.com/developer/documentation/api/#check-rate-limit"
+        },
+        "description": "Returns the number of remaining queries (see http://en.skyrock.com/developer/documentation/api/#request-rate-limits). Calls to this method are not counted against the limits.",
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "operationId": "check_rate_limit.format.get"
+      },
+      "parameters": [
+        {
+          "enum": [
+            "json",
+            "xml"
+          ],
+          "description": "Response format.",
+          "default": "json",
+          "type": "string",
+          "in": "path",
+          "required": true,
+          "name": "format"
+        }
+      ]
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "basePath": "/v2",
+  "host": "api.skyrock.com",
+  "swagger": "2.0"
+}

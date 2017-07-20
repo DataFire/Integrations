@@ -1,0 +1,123 @@
+{
+  "swagger": "2.0",
+  "host": "api.nextcaller.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/{version}/records/": {
+      "parameters": [
+        {
+          "name": "version",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "v2",
+          "description": "Specifies a api version.",
+          "enum": [
+            "v2",
+            "v3"
+          ]
+        },
+        {
+          "name": "phone",
+          "required": true,
+          "in": "query",
+          "type": "integer",
+          "minimum": -9223372036854776000,
+          "maximum": 9223372036854776000,
+          "description": "Specifies the caller's phone number."
+        },
+        {
+          "name": "format",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "json",
+          "description": "Specifies a format of response: JSON or XML.",
+          "enum": [
+            "json",
+            "xml"
+          ]
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "description": "Returns Nextcaller member detailed info.",
+        "externalDocs": {
+          "url": "https://dev.nextcaller.com/documentation/#/get-profile/python"
+        },
+        "operationId": "version.records.get"
+      }
+    },
+    "/{version}/users/{nextcaller_id}/?format={format}": {
+      "parameters": [
+        {
+          "name": "version",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "default": "v2",
+          "description": "Specifies a api version.",
+          "enum": [
+            "v2",
+            "v3"
+          ]
+        },
+        {
+          "name": "nextcaller_id",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The ID of the user whose profile you wish to edit"
+        },
+        {
+          "name": "format",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "default": "json",
+          "description": "Specifies a format of response: JSON or XML.",
+          "enum": [
+            "json",
+            "xml"
+          ]
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/json"
+          }
+        ],
+        "description": "Allows you to update caller's info on Nextcaller.",
+        "externalDocs": {
+          "url": "https://dev.nextcaller.com/documentation/#/post-profile/python"
+        },
+        "operationId": "version.users.nextcaller_id._format_format.post"
+      }
+    }
+  },
+  "info": {
+    "title": "Next Caller",
+    "description": "Advanced Caller ID. Obtain name, address, and email of your inbound callers.",
+    "x-datafire": {
+      "name": "nextcaller",
+      "type": "openapi"
+    }
+  }
+}

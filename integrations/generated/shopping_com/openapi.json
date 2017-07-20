@@ -1,0 +1,165 @@
+{
+  "swagger": "2.0",
+  "host": "sandbox.api.shopping.com",
+  "basePath": "/publisher/3.0/rest/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/GeneralSearch": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "subTrackingId",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "User generated ID used to further break down traffic sources beyond SDC campaign level tracking. You may choose any arbitrary character sequence (up to 36 characters), and use as many different IDs as required.  Please note that you must contact your account manager to have reporting enabled for this sub-tracking ID - otherwise the parameter will simply be ignored."
+          },
+          {
+            "name": "visitorUserAgent",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "The browser user-agent of the visitor to which this data is being presented.  This data helps Shopping.com to differentiate real users from web crawlers or robots."
+          },
+          {
+            "name": "visitorIPAddress",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "The IP address of the visitor to which this data is being presented.  Like visitorUserAgent, this data helps Shopping.com to differentiate real users from web crawlers or robots."
+          },
+          {
+            "name": "groupItemsByCategory",
+            "required": false,
+            "in": "query",
+            "type": "boolean",
+            "default": false,
+            "description": "Control whether or not items are separated into different categories. By default, searches don't separate items by category. Instead, a single category (with id \"0\") is returned containing items from different categories."
+          },
+          {
+            "name": "postalCode",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Set the postal code of the current user, for tax and shipping purposes. Tax and shipping costs will be provided along with each offer returned by the API (when available) if a valid postal code is included in the request. These costs will be added to the offer's base price to calculate a total price, which is then used for sorting by price."
+          },
+          {
+            "name": "showAllMatchingCategories",
+            "required": false,
+            "in": "query",
+            "type": "boolean",
+            "description": "Control whether or not this query will return all matching categories, regardless of relevance. When performing a keyword search, the Shopping.com API will normally return 0 or more matching categories up to a relevance threshold. This means that even if the search engine finds 100 categories matching the keyword, it may only return a fraction of those if it determines that the remaining categories are outside of the relevance threshold. Setting the numCategories parameter to 100 will not change this behavior, as numCategories is overruled by relevance thresholds.\n                            If you would like to see all matching categories (sorted alphabetically), regardless of relevance thresholds, use the showAllMatchingCategories parameter. Keep in mind, however, that due to the large number of categories normally returned, the API will not return items per category for this type of result. If, on the other hand, your keyword search has skipped to a single category, and you would simply like to see results from more than that one category (still subject to relevance thresholds), use the doSkipping parameter instead."
+          },
+          {
+            "name": "offerSortType",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Set the method of sorting offers. The API will return offers ordered to maximize yield by default. If you would like to use a different type of ordering (e.g. the user requested to sort by price) for results containing only offers, use the offerSortType parameter to control the type of sorting, and the offerSortOrder to control the direction of sorting.",
+            "enum": [
+              "store-name",
+              "store-rating",
+              "price",
+              "relevance",
+              "featured-store"
+            ]
+          },
+          {
+            "name": "offerSortOrder",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Control whether results containing only offers will be sorted in ascending or descending order."
+          },
+          {
+            "name": "showSmartBuy",
+            "required": false,
+            "in": "query",
+            "type": "boolean",
+            "description": "Control whether or not the lowest-price offer from a trusted store will be flagged. The Shopping.com Smart Buy is the lowest offer from a trusted store within the list of offers for any given product. By enabling the showSmartBuy parameter, the offer matching these criteria (if one exists) will be marked as the smartBuy. Additionally, if using the \"featured-store\" offer sort type, the smartBuy will be moved to the first position below any featured offers."
+          },
+          {
+            "name": "numFeatured",
+            "required": false,
+            "in": "query",
+            "type": "integer",
+            "minimum": 1,
+            "default": 3,
+            "description": "Set the maximum number of featured stores to include in a result containing a list of offers, when using the 'featured-store' offer sort type. By default, up to 3 featured stores will be included."
+          },
+          {
+            "name": "productReviewSortType",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "default": "review-date",
+            "description": "Control how to sort product reviews listings. The API will return product reviews ordered by review date by default. If you would like to use a different type of ordering (e.g. the user requested to sort by rating) for product reviews, use the productReviewsSortType parameter to control the type of sorting, and the productReviewsSortOrder to control the direction of sorting.",
+            "enum": [
+              "review-date",
+              "product-rating"
+            ]
+          },
+          {
+            "name": "productReviewsSortOrder",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "Control whether product reviews listings will be sorted in ascending or descending order."
+          }
+        ],
+        "description": "Searches for products by offer. See API docs for request parameters/format.",
+        "externalDocs": {
+          "url": "http://developer.shopping.com/docs/API_Use_Cases#Searching"
+        },
+        "operationId": "GeneralSearch.get"
+      }
+    },
+    "/CategoryTree": {
+      "parameters": [],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "categoryId",
+            "required": false,
+            "in": "query",
+            "type": "string",
+            "description": "The ID of the category for to return information for, as well as the information for all its immediate children (if any). To see all top level categories, use category ID '0', or simply omit the categoryId parameter altogether."
+          },
+          {
+            "name": "showAllDescendants",
+            "required": false,
+            "in": "query",
+            "type": "boolean",
+            "description": "Specifies that information for all descendants of the specified category should be returned."
+          }
+        ],
+        "description": "Returns information on a single category (e.g. name) or the relationship hierarchy between categories.",
+        "externalDocs": {
+          "url": "http://developer.shopping.com/docs/API_Use_Cases#Categorytree"
+        },
+        "operationId": "CategoryTree.get"
+      }
+    }
+  },
+  "info": {
+    "title": "Shopping.com",
+    "description": "Shopping.com offers Publishers rich content via the Shopping.com's API.",
+    "x-datafire": {
+      "name": "shopping_com",
+      "type": "openapi"
+    }
+  }
+}

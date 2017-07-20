@@ -1,0 +1,1053 @@
+{
+  "swagger": "2.0",
+  "host": "picasaweb.google.com",
+  "basePath": "/data",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/feed/api/user/{userID}": {
+      "parameters": [
+        {
+          "name": "userID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The Picasa User ID. The string \"default\" can be used in place of a real user ID, in which case the ID of the user whose credentials authenticated the request is used."
+        },
+        {
+          "name": "kind",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Picasa Web Albums-specific query parameter for kind queries.\nApplicable values:\n- album: Feed includes some or all of the albums the specified user has in their gallery. Which albums are returned depends on the visibility value specified.   User-based feed\n- photo: Feed includes the photos in an album (album-based), recent photos uploaded by a user (user-based) or photos uploaded by all users (community search).   Album-based, user-based and community search feeds\n- comment: Feed includes the comments that have been made on a photo.  Photo-based and user-based feeds\n- tag: Includes all tags associated with the specified user, album, or photo. For user-based and album-based feeds, the tags include a weight value indicating how often they occurred.    User-based, album-based, and photo-based feeds\n- user: Feed includes entries representing users.",
+          "enum": [
+            "album",
+            "photo",
+            "comment",
+            "tag",
+            "user"
+          ]
+        },
+        {
+          "name": "access",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Visibility parameter.\nApplicable values:\n- all: Shows all data, both public and private. Requires authentication. Default for the owner, and only the owner can specify this value.\n- private: Shows only private data.    Requires authentication. Only the owner can specify this value.\n- public: Shows only public data. Does not require authentication. Most often used by an authenticated user to see only the publicly visible photos, corresponding to \"View My Public Gallery\" in the Picasa Web Albums GUI.\n- visible: Shows all data the user has access to, including both all public photos or albums and any photos or albums that the owner has explicitly given the authenticated user rights to (using ACLs).   Does not require authentication. Default for unauthenticated requests and for non-owners. For unauthenticated requests, this is the same as public. For authenticated non-owners, this returns the data that the owner has given them access to. For authenticated requests from the owner, this is the same as all.",
+          "enum": [
+            "all",
+            "private",
+            "public",
+            "visible"
+          ]
+        },
+        {
+          "name": "alt",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Alternative representation type. If you don't specify an alt parameter, the service returns an Atom feed. This is equivalent to alt=atom.\nApplicable values:\n- rss: returns an RSS 2.0 result feed (for reads only). When you request data from a service in RSS format, the service supplies a feed (or other representation of the resource) in RSS format. If there's no equivalent RSS property for a given Data API property, the service uses the Atom property, labeling it with an appropriate namespace to indicate that it's an extension to RSS.\n- json: returns a JSON representation of the feed. More information\n- json-in-script: Requests a response that wraps JSON in a script tag. More information\n- atom-in-script: Requests an Atom response that wraps an XML string in a script tag.\n- rss-in-script: Requests an RSS response that wraps an XML string in a script tag.\n- atom-service: Requests an Atom service document that describes the feed.",
+          "enum": [
+            "rss",
+            "json",
+            "json-in-script",
+            "atom-in-script",
+            "rss-in-script",
+            "atom-service"
+          ]
+        },
+        {
+          "name": "bbox",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Bounding-box search of geo coordinates. Searches for data in the specified bounding box. The coordinates should be in the following order: west, south, east, north."
+        },
+        {
+          "name": "fields",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Response filter Returns only the requested portions of the resource representation, for improved performance and efficiency, rather than the full resource representation.\nFor example:\nhttp://www.example.com/feeds?fields=link,entry(@gd:etag,id,updated,link[@rel='edit']))\nWhen it receives this request, the server returns a response that contains only only link and entry elements for the feed. In addition, the entry elements returned are partial entries that contain only ETag, ID, updated, and edit link relations.\nThe fields value must be URL encoded, as with all query parameter values. This parameter is currently an experimental feature."
+        },
+        {
+          "name": "imgmax",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Image size parameter. Valid with album or photo kinds; specifies what image size to use for the media:content. Only a single value may be specified. Refer to the list of valid values below."
+        },
+        {
+          "name": "l",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Named search of geo data. Searches for data in the named location. An example location would be London."
+        },
+        {
+          "name": "max-results",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Maximum number of results to be retrieved. For any service that has a default max-results value (to limit default feed size), you can specify a very large number if you want to receive the entire feed."
+        },
+        {
+          "name": "prettyprint",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Returns an XML response with identations and line breaks. If prettyprint=true, the XML returned by the server will be human readable (pretty printed). Default: false"
+        },
+        {
+          "name": "start-index",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "1-based index of the first result to be retrieved. Note that this isn't a general cursoring mechanism. If you first send a query with ?start-index=1&max-results=10 and then send another query with ?start-index=11&max-results=10, the service cannot guarantee that the results are equivalent to ?start-index=1&max-results=20, because insertions and deletions could have taken place in between the two queries."
+        },
+        {
+          "name": "tag",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Tag filter parameter. Filters photos in the user-based and album-based feeds by the specified tag."
+        },
+        {
+          "name": "thumbsize",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Thumbnail size parameter. Valid with album or photo kinds; specifies what image size to use for thumbnails. Multiple values may be specified using a comma-delimited list. If multiple values are specified, multiple media:thumbnail elements will be returned in the feed. Refer to the list of valid values below."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "GData-Version",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "2",
+            "description": "The API version. Current version is 2."
+          },
+          {
+            "name": "kind",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "default": "comment",
+            "description": "Picasa Web Albums-specific query parameter for kind queries."
+          }
+        ],
+        "description": "Returns a feed of comments on a userID's photos.",
+        "externalDocs": {
+          "url": "http://code.google.com/intl/en/apis/picasaweb/docs/2.0/developers_guide_protocol.html#ListComments"
+        },
+        "operationId": "feed.api.user.userID.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "GData-Version",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "2",
+            "description": "The API version. Current version is 2."
+          },
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/atom+xml",
+            "description": "Content type."
+          }
+        ],
+        "description": "Creates an album.",
+        "externalDocs": {
+          "url": "http://code.google.com/intl/en/apis/picasaweb/docs/2.0/developers_guide_protocol.html#AddAlbums"
+        },
+        "operationId": "feed.api.user.userID.post"
+      }
+    },
+    "/feed/api/user/{userID}/albumid/{albumID}": {
+      "parameters": [
+        {
+          "name": "userID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The Picasa User ID. The string \"default\" can be used in place of a real user ID, in which case the ID of the user whose credentials authenticated the request is used."
+        },
+        {
+          "name": "albumID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The album ID."
+        },
+        {
+          "name": "kind",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Picasa Web Albums-specific query parameter for kind queries.\nApplicable values:\n- album: Feed includes some or all of the albums the specified user has in their gallery. Which albums are returned depends on the visibility value specified.   User-based feed\n- photo: Feed includes the photos in an album (album-based), recent photos uploaded by a user (user-based) or photos uploaded by all users (community search).   Album-based, user-based and community search feeds\n- comment: Feed includes the comments that have been made on a photo.  Photo-based and user-based feeds\n- tag: Includes all tags associated with the specified user, album, or photo. For user-based and album-based feeds, the tags include a weight value indicating how often they occurred.    User-based, album-based, and photo-based feeds\n- user: Feed includes entries representing users.",
+          "enum": [
+            "album",
+            "photo",
+            "comment",
+            "tag",
+            "user"
+          ]
+        },
+        {
+          "name": "access",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Visibility parameter.\nApplicable values:\n- all: Shows all data, both public and private. Requires authentication. Default for the owner, and only the owner can specify this value.\n- private: Shows only private data.    Requires authentication. Only the owner can specify this value.\n- public: Shows only public data. Does not require authentication. Most often used by an authenticated user to see only the publicly visible photos, corresponding to \"View My Public Gallery\" in the Picasa Web Albums GUI.\n- visible: Shows all data the user has access to, including both all public photos or albums and any photos or albums that the owner has explicitly given the authenticated user rights to (using ACLs).   Does not require authentication. Default for unauthenticated requests and for non-owners. For unauthenticated requests, this is the same as public. For authenticated non-owners, this returns the data that the owner has given them access to. For authenticated requests from the owner, this is the same as all.",
+          "enum": [
+            "all",
+            "private",
+            "public",
+            "visible"
+          ]
+        },
+        {
+          "name": "alt",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Alternative representation type. If you don't specify an alt parameter, the service returns an Atom feed. This is equivalent to alt=atom.\nApplicable values:\n- rss: returns an RSS 2.0 result feed (for reads only). When you request data from a service in RSS format, the service supplies a feed (or other representation of the resource) in RSS format. If there's no equivalent RSS property for a given Data API property, the service uses the Atom property, labeling it with an appropriate namespace to indicate that it's an extension to RSS.\n- json: returns a JSON representation of the feed. More information\n- json-in-script: Requests a response that wraps JSON in a script tag. More information\n- atom-in-script: Requests an Atom response that wraps an XML string in a script tag.\n- rss-in-script: Requests an RSS response that wraps an XML string in a script tag.\n- atom-service: Requests an Atom service document that describes the feed.",
+          "enum": [
+            "rss",
+            "json",
+            "json-in-script",
+            "atom-in-script",
+            "rss-in-script",
+            "atom-service"
+          ]
+        },
+        {
+          "name": "bbox",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Bounding-box search of geo coordinates. Searches for data in the specified bounding box. The coordinates should be in the following order: west, south, east, north."
+        },
+        {
+          "name": "fields",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Response filter Returns only the requested portions of the resource representation, for improved performance and efficiency, rather than the full resource representation.\nFor example:\nhttp://www.example.com/feeds?fields=link,entry(@gd:etag,id,updated,link[@rel='edit']))\nWhen it receives this request, the server returns a response that contains only only link and entry elements for the feed. In addition, the entry elements returned are partial entries that contain only ETag, ID, updated, and edit link relations.\nThe fields value must be URL encoded, as with all query parameter values. This parameter is currently an experimental feature."
+        },
+        {
+          "name": "imgmax",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Image size parameter. Valid with album or photo kinds; specifies what image size to use for the media:content. Only a single value may be specified. Refer to the list of valid values below."
+        },
+        {
+          "name": "l",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Named search of geo data. Searches for data in the named location. An example location would be London."
+        },
+        {
+          "name": "max-results",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Maximum number of results to be retrieved. For any service that has a default max-results value (to limit default feed size), you can specify a very large number if you want to receive the entire feed."
+        },
+        {
+          "name": "prettyprint",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Returns an XML response with identations and line breaks. If prettyprint=true, the XML returned by the server will be human readable (pretty printed). Default: false"
+        },
+        {
+          "name": "start-index",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "1-based index of the first result to be retrieved. Note that this isn't a general cursoring mechanism. If you first send a query with ?start-index=1&max-results=10 and then send another query with ?start-index=11&max-results=10, the service cannot guarantee that the results are equivalent to ?start-index=1&max-results=20, because insertions and deletions could have taken place in between the two queries."
+        },
+        {
+          "name": "tag",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Tag filter parameter. Filters photos in the user-based and album-based feeds by the specified tag."
+        },
+        {
+          "name": "thumbsize",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Thumbnail size parameter. Valid with album or photo kinds; specifies what image size to use for thumbnails. Multiple values may be specified using a comma-delimited list. If multiple values are specified, multiple media:thumbnail elements will be returned in the feed. Refer to the list of valid values below."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "GData-Version",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "2",
+            "description": "The API version. Current version is 2."
+          },
+          {
+            "name": "kind",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "default": "photo",
+            "description": "Picasa Web Albums-specific query parameter for kind queries."
+          }
+        ],
+        "description": "Searches for all photos in albumID belonging to userID that are tagged with the specified comma-separated tags.",
+        "externalDocs": {
+          "url": "http://code.google.com/intl/en/apis/picasaweb/docs/2.0/developers_guide_protocol.html#SearchByTags"
+        },
+        "operationId": "feed.api.user.userID.albumid.albumID.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "GData-Version",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "2",
+            "description": "The API version. Current version is 2."
+          },
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "description": "Content type.",
+            "enum": [
+              "multipart/related; boundary=\"END_OF_PART\"",
+              "image/bmp",
+              "image/gif",
+              "image/jpeg",
+              "image/png",
+              "video/3gpp",
+              "video/avi",
+              "video/quicktime",
+              "video/mp4",
+              "video/mpeg",
+              "video/mpeg4",
+              "video/msvideo",
+              "video/x-ms-asf",
+              "video/x-ms-wmv",
+              "video/x-msvideo"
+            ]
+          },
+          {
+            "name": "MIME-version",
+            "required": false,
+            "in": "header",
+            "type": "string",
+            "default": "1",
+            "description": "MIME version."
+          },
+          {
+            "name": "Slug",
+            "required": false,
+            "in": "header",
+            "type": "string",
+            "description": "When posting a photo without metadata, one could specify a filename for Picasa Web Albums to use for the photo using this parameter. Not specifying a Slug causes the server to use a default title for the image. When posting with metadata, use the <title> element within the request body for the filename you want to use for the image."
+          }
+        ],
+        "description": "There are two ways to add a photo to an album using the Data API:\nUpload the binary image data along with its metadata. To do this, use MIME content type \"multipart/related\"; send photo metadata in one part of the POST body, and binary-encoded image data in another part. This is the preferred approach.\nUpload the binary image data without the metadata.\nWhile all photos appearing on the Picasa Web Albums site are in the JPEG format, photos of any of the following types can be uploaded using the API:\n- image/bmp\n- image/gif\n- image/jpeg\n- image/png\n\nA video is posted in the same way as a photo with metadata (Note: You cannot submit a video without metadata at this time, you must use a MIME multipart). Instead of an image MIME type you have to use an appropriate video MIME type (refer to http://code.google.com/intl/en/apis/picasaweb/docs/2.0/developers_guide_protocol.html#PostVideo).\nThe recognized video MIME types are:\n- video/3gpp\n- video/avi\n- video/quicktime\n- video/mp4\n- video/mpeg\n- video/mpeg4\n- video/msvideo\n- video/x-ms-asf\n- video/x-ms-wmv\n- video/x-msvideo",
+        "externalDocs": {
+          "url": "http://code.google.com/intl/en/apis/picasaweb/docs/2.0/developers_guide_protocol.html#PostPhotos"
+        },
+        "operationId": "feed.api.user.userID.albumid.albumID.post"
+      }
+    },
+    "/entry/api/user/{userID}/albumid/{albumID}": {
+      "parameters": [
+        {
+          "name": "userID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The Picasa User ID. The string \"default\" can be used in place of a real user ID, in which case the ID of the user whose credentials authenticated the request is used."
+        },
+        {
+          "name": "albumID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The album ID."
+        },
+        {
+          "name": "tok",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "description": "Authorization Key."
+        },
+        {
+          "name": "authkey",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "description": "Authorization Key."
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "GData-Version",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "2",
+            "description": "The API version. Current version is 2."
+          },
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/atom+xml",
+            "description": "Content type."
+          },
+          {
+            "name": "If-Match",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "*",
+            "description": "To make sure that your update doesn't overwrite another client's changes, include an HTTP If-Match header that contains the original album's ETag value. You can determine the original album's ETag value by examining the <entry> element's gd:etag attribute. If you want to update the album regardless of whether someone else has updated it since you retrieved it, then use If-Match: * and don't include the ETag."
+          }
+        ],
+        "description": "Modifies an album.",
+        "externalDocs": {
+          "url": "http://code.google.com/intl/en/apis/picasaweb/docs/2.0/developers_guide_protocol.html#ModifyAlbums"
+        },
+        "operationId": "entry.api.user.userID.albumid.albumID.put"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "GData-Version",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "2",
+            "description": "The API version. Current version is 2."
+          },
+          {
+            "name": "If-Match",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "*",
+            "description": "If you want to make sure that you don't delete an album that has been changed by another client since you retrieved it, include an HTTP If-Match header that contains the original album's ETag value. You can determine the original album's ETag value by examining the <entry> element's gd:etag attribute. If you want to delete the album regardless of whether someone else has updated it since you retrieved it, then use If-Match: * and don't include the ETag. (In this case, you don't need to retrieve the album before deleting it.)"
+          }
+        ],
+        "description": "Deletes an album.",
+        "externalDocs": {
+          "url": "http://code.google.com/intl/en/apis/picasaweb/docs/2.0/developers_guide_protocol.html#DeleteAlbums"
+        },
+        "operationId": "entry.api.user.userID.albumid.albumID.delete"
+      }
+    },
+    "/feed/api/user/{userID}/albumid/{albumID}/photoid/{photoID}": {
+      "parameters": [
+        {
+          "name": "userID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The Picasa User ID. The string \"default\" can be used in place of a real user ID, in which case the ID of the user whose credentials authenticated the request is used."
+        },
+        {
+          "name": "albumID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The album ID."
+        },
+        {
+          "name": "photoID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The photo ID."
+        },
+        {
+          "name": "kind",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Picasa Web Albums-specific query parameter for kind queries.\nApplicable values:\n- album: Feed includes some or all of the albums the specified user has in their gallery. Which albums are returned depends on the visibility value specified.   User-based feed\n- photo: Feed includes the photos in an album (album-based), recent photos uploaded by a user (user-based) or photos uploaded by all users (community search).   Album-based, user-based and community search feeds\n- comment: Feed includes the comments that have been made on a photo.  Photo-based and user-based feeds\n- tag: Includes all tags associated with the specified user, album, or photo. For user-based and album-based feeds, the tags include a weight value indicating how often they occurred.    User-based, album-based, and photo-based feeds\n- user: Feed includes entries representing users.",
+          "enum": [
+            "album",
+            "photo",
+            "comment",
+            "tag",
+            "user"
+          ]
+        },
+        {
+          "name": "access",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Visibility parameter.\nApplicable values:\n- all: Shows all data, both public and private. Requires authentication. Default for the owner, and only the owner can specify this value.\n- private: Shows only private data.    Requires authentication. Only the owner can specify this value.\n- public: Shows only public data. Does not require authentication. Most often used by an authenticated user to see only the publicly visible photos, corresponding to \"View My Public Gallery\" in the Picasa Web Albums GUI.\n- visible: Shows all data the user has access to, including both all public photos or albums and any photos or albums that the owner has explicitly given the authenticated user rights to (using ACLs).   Does not require authentication. Default for unauthenticated requests and for non-owners. For unauthenticated requests, this is the same as public. For authenticated non-owners, this returns the data that the owner has given them access to. For authenticated requests from the owner, this is the same as all.",
+          "enum": [
+            "all",
+            "private",
+            "public",
+            "visible"
+          ]
+        },
+        {
+          "name": "alt",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Alternative representation type. If you don't specify an alt parameter, the service returns an Atom feed. This is equivalent to alt=atom.\nApplicable values:\n- rss: returns an RSS 2.0 result feed (for reads only). When you request data from a service in RSS format, the service supplies a feed (or other representation of the resource) in RSS format. If there's no equivalent RSS property for a given Data API property, the service uses the Atom property, labeling it with an appropriate namespace to indicate that it's an extension to RSS.\n- json: returns a JSON representation of the feed. More information\n- json-in-script: Requests a response that wraps JSON in a script tag. More information\n- atom-in-script: Requests an Atom response that wraps an XML string in a script tag.\n- rss-in-script: Requests an RSS response that wraps an XML string in a script tag.\n- atom-service: Requests an Atom service document that describes the feed.",
+          "enum": [
+            "rss",
+            "json",
+            "json-in-script",
+            "atom-in-script",
+            "rss-in-script",
+            "atom-service"
+          ]
+        },
+        {
+          "name": "bbox",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Bounding-box search of geo coordinates. Searches for data in the specified bounding box. The coordinates should be in the following order: west, south, east, north."
+        },
+        {
+          "name": "fields",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Response filter Returns only the requested portions of the resource representation, for improved performance and efficiency, rather than the full resource representation.\nFor example:\nhttp://www.example.com/feeds?fields=link,entry(@gd:etag,id,updated,link[@rel='edit']))\nWhen it receives this request, the server returns a response that contains only only link and entry elements for the feed. In addition, the entry elements returned are partial entries that contain only ETag, ID, updated, and edit link relations.\nThe fields value must be URL encoded, as with all query parameter values. This parameter is currently an experimental feature."
+        },
+        {
+          "name": "imgmax",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Image size parameter. Valid with album or photo kinds; specifies what image size to use for the media:content. Only a single value may be specified. Refer to the list of valid values below."
+        },
+        {
+          "name": "l",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Named search of geo data. Searches for data in the named location. An example location would be London."
+        },
+        {
+          "name": "max-results",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Maximum number of results to be retrieved. For any service that has a default max-results value (to limit default feed size), you can specify a very large number if you want to receive the entire feed."
+        },
+        {
+          "name": "prettyprint",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Returns an XML response with identations and line breaks. If prettyprint=true, the XML returned by the server will be human readable (pretty printed). Default: false"
+        },
+        {
+          "name": "start-index",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "1-based index of the first result to be retrieved. Note that this isn't a general cursoring mechanism. If you first send a query with ?start-index=1&max-results=10 and then send another query with ?start-index=11&max-results=10, the service cannot guarantee that the results are equivalent to ?start-index=1&max-results=20, because insertions and deletions could have taken place in between the two queries."
+        },
+        {
+          "name": "tag",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Tag filter parameter. Filters photos in the user-based and album-based feeds by the specified tag."
+        },
+        {
+          "name": "thumbsize",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Thumbnail size parameter. Valid with album or photo kinds; specifies what image size to use for thumbnails. Multiple values may be specified using a comma-delimited list. If multiple values are specified, multiple media:thumbnail elements will be returned in the feed. Refer to the list of valid values below."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "GData-Version",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "2",
+            "description": "The API version. Current version is 2."
+          },
+          {
+            "name": "kind",
+            "required": true,
+            "in": "query",
+            "type": "string",
+            "default": "comment",
+            "description": "Picasa Web Albums-specific query parameter for kind queries."
+          }
+        ],
+        "description": "Retrieves a feed of the comments on the photo identified by photoID, inside of the album with ID albumID, owned by the user userID.",
+        "externalDocs": {
+          "url": "http://code.google.com/intl/en/apis/picasaweb/docs/2.0/developers_guide_protocol.html#ListPhotosComments"
+        },
+        "operationId": "feed.api.user.userID.albumid.albumID.photoid.photoID.get"
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "GData-Version",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "2",
+            "description": "The API version. Current version is 2."
+          },
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/atom+xml",
+            "description": "Content type."
+          }
+        ],
+        "description": "Adds a comment to the photo identified by photoID in the album with ID albumID owned by userID.",
+        "externalDocs": {
+          "url": "http://code.google.com/intl/en/apis/picasaweb/docs/2.0/developers_guide_protocol.html#AddComments"
+        },
+        "operationId": "feed.api.user.userID.albumid.albumID.photoid.photoID.post"
+      }
+    },
+    "/media/api/user/{userID}/albumid/{albumID}/photoid/{photoID}": {
+      "parameters": [],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "GData-Version",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "2",
+            "description": "The API version. Current version is 2."
+          },
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "image/jpeg",
+            "description": "Content type.",
+            "enum": [
+              "image/bmp",
+              "image/gif",
+              "image/jpeg",
+              "image/png"
+            ]
+          },
+          {
+            "name": "If-Match",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "*",
+            "description": "To make sure that your update doesn't overwrite another client's changes, include an HTTP If-Match header that contains the original album's ETag value. You can determine the original album's ETag value by examining the <entry> element's gd:etag attribute. If you want to update the album regardless of whether someone else has updated it since you retrieved it, then use If-Match: * and don't include the ETag."
+          }
+        ],
+        "description": "Replaces the binary image data for a photo. Include in the request body the replacement image data, in the same format that you used to do the POST without metadata.",
+        "externalDocs": {
+          "url": "http://code.google.com/intl/en/apis/picasaweb/docs/2.0/developers_guide_protocol.html#UpdatePhotoOnly"
+        },
+        "operationId": "media.api.user.userID.albumid.albumID.photoid.photoID.put"
+      }
+    },
+    "/entry/api/user/{userID}/albumid/{albumID}/photoid/{photoID}": {
+      "parameters": [],
+      "put": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "application/atom+xml",
+            "description": "Content type."
+          },
+          {
+            "name": "If-Match",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "*",
+            "description": "To make sure that your update doesn't overwrite another client's changes, include an HTTP If-Match header that contains the original album's ETag value. You can determine the original album's ETag value by examining the <entry> element's gd:etag attribute. If you want to update the album regardless of whether someone else has updated it since you retrieved it, then use If-Match: * and don't include the ETag."
+          }
+        ],
+        "description": "Replaces only the photo's metadata (and not the image itself). Must provide in the request body the updated metadata, in the form of an <atom:entry> element containing image metadata. The photo itself is not re-sent to the server.",
+        "externalDocs": {
+          "url": "http://code.google.com/intl/en/apis/picasaweb/docs/2.0/developers_guide_protocol.html#UpdatePhotoMetadataOnly"
+        },
+        "operationId": "entry.api.user.userID.albumid.albumID.photoid.photoID.put"
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "If-Match",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "*",
+            "description": "To make sure that your update doesn't overwrite another client's changes, include an HTTP If-Match header that contains the original album's ETag value. You can determine the original album's ETag value by examining the <entry> element's gd:etag attribute. If you want to update the album regardless of whether someone else has updated it since you retrieved it, then use If-Match: * and don't include the ETag."
+          }
+        ],
+        "description": "Deletes a photo and its metadata.",
+        "externalDocs": {
+          "url": "http://code.google.com/intl/en/apis/picasaweb/docs/2.0/developers_guide_protocol.html#DeletePhotos"
+        },
+        "operationId": "entry.api.user.userID.albumid.albumID.photoid.photoID.delete"
+      }
+    },
+    "/entry/api/user/{userID}/albumid/{albumID}/photoid/{photoID}/tag/{tagID}": {
+      "parameters": [
+        {
+          "name": "userID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The Picasa User ID. The string \"default\" can be used in place of a real user ID, in which case the ID of the user whose credentials authenticated the request is used."
+        },
+        {
+          "name": "albumID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The album ID."
+        },
+        {
+          "name": "photoID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The photo ID."
+        },
+        {
+          "name": "tagID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The tag ID."
+        }
+      ],
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "GData-Version",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "2",
+            "description": "The API version. Current version is 2."
+          }
+        ],
+        "description": "Deletes the tag tagID on the photo identified by photoID, inside of the album with ID albumID, owned by the user userID.",
+        "externalDocs": {
+          "url": "http://code.google.com/intl/en/apis/picasaweb/docs/2.0/developers_guide_protocol.html#DeleteTags"
+        },
+        "operationId": "entry.api.user.userID.albumid.albumID.photoid.photoID.tag.tagID.delete"
+      }
+    },
+    "/entry/api/user/{userID}/albumid/{albumID}/photoid/{photoID}/commentid/{commentID}": {
+      "parameters": [
+        {
+          "name": "userID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The Picasa User ID. The string \"default\" can be used in place of a real user ID, in which case the ID of the user whose credentials authenticated the request is used."
+        },
+        {
+          "name": "albumID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The album ID."
+        },
+        {
+          "name": "photoID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The photo ID."
+        },
+        {
+          "name": "tagID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The tag ID."
+        },
+        {
+          "name": "commentID",
+          "required": true,
+          "in": "path",
+          "type": "string",
+          "description": "The comment ID."
+        }
+      ],
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "GData-Version",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "2",
+            "description": "The API version. Current version is 2."
+          }
+        ],
+        "description": "Deletes a comment commentID on the photo identified by photoID, inside of the album with ID albumID, owned by the user userID.",
+        "externalDocs": {
+          "url": "http://code.google.com/intl/en/apis/picasaweb/docs/2.0/developers_guide_protocol.html#DeleteComments"
+        },
+        "operationId": "entry.api.user.userID.albumid.albumID.photoid.photoID.commentid.commentID.delete"
+      }
+    },
+    "/feed/api/all": {
+      "parameters": [
+        {
+          "name": "q",
+          "required": true,
+          "in": "query",
+          "type": "string",
+          "description": "Full-text query string. When creating a query, list search terms separated by spaces, in the form q=term1 term2 term3. (As with all of the query parameter values, the spaces must be URL encoded.) The service returns all entries that match all of the search terms (like using AND between terms). Like Google's web search, a service searches on complete words (and related words with the same stem), not substrings.\nTo search for an exact phrase, enclose the phrase in quotation marks: q=\"exact phrase\". To exclude entries that match a given term, use the form q=-term. The search is case-insensitive.\nExample: to search for all entries that contain the exact phrase \"Elizabeth Bennet\" and the word \"Darcy\" but don't contain the word \"Austen\", use the following query: ?q=\"Elizabeth Bennet\" Darcy -Austen"
+        },
+        {
+          "name": "kind",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Picasa Web Albums-specific query parameter for kind queries.\nApplicable values:\n- album: Feed includes some or all of the albums the specified user has in their gallery. Which albums are returned depends on the visibility value specified.   User-based feed\n- photo: Feed includes the photos in an album (album-based), recent photos uploaded by a user (user-based) or photos uploaded by all users (community search).   Album-based, user-based and community search feeds\n- comment: Feed includes the comments that have been made on a photo.  Photo-based and user-based feeds\n- tag: Includes all tags associated with the specified user, album, or photo. For user-based and album-based feeds, the tags include a weight value indicating how often they occurred.    User-based, album-based, and photo-based feeds\n- user: Feed includes entries representing users.",
+          "enum": [
+            "album",
+            "photo",
+            "comment",
+            "tag",
+            "user"
+          ]
+        },
+        {
+          "name": "access",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Visibility parameter.\nApplicable values:\n- all: Shows all data, both public and private. Requires authentication. Default for the owner, and only the owner can specify this value.\n- private: Shows only private data.    Requires authentication. Only the owner can specify this value.\n- public: Shows only public data. Does not require authentication. Most often used by an authenticated user to see only the publicly visible photos, corresponding to \"View My Public Gallery\" in the Picasa Web Albums GUI.\n- visible: Shows all data the user has access to, including both all public photos or albums and any photos or albums that the owner has explicitly given the authenticated user rights to (using ACLs).   Does not require authentication. Default for unauthenticated requests and for non-owners. For unauthenticated requests, this is the same as public. For authenticated non-owners, this returns the data that the owner has given them access to. For authenticated requests from the owner, this is the same as all.",
+          "enum": [
+            "all",
+            "private",
+            "public",
+            "visible"
+          ]
+        },
+        {
+          "name": "alt",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Alternative representation type. If you don't specify an alt parameter, the service returns an Atom feed. This is equivalent to alt=atom.\nApplicable values:\n- rss: returns an RSS 2.0 result feed (for reads only). When you request data from a service in RSS format, the service supplies a feed (or other representation of the resource) in RSS format. If there's no equivalent RSS property for a given Data API property, the service uses the Atom property, labeling it with an appropriate namespace to indicate that it's an extension to RSS.\n- json: returns a JSON representation of the feed. More information\n- json-in-script: Requests a response that wraps JSON in a script tag. More information\n- atom-in-script: Requests an Atom response that wraps an XML string in a script tag.\n- rss-in-script: Requests an RSS response that wraps an XML string in a script tag.\n- atom-service: Requests an Atom service document that describes the feed.",
+          "enum": [
+            "rss",
+            "json",
+            "json-in-script",
+            "atom-in-script",
+            "rss-in-script",
+            "atom-service"
+          ]
+        },
+        {
+          "name": "bbox",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Bounding-box search of geo coordinates. Searches for data in the specified bounding box. The coordinates should be in the following order: west, south, east, north."
+        },
+        {
+          "name": "fields",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Response filter Returns only the requested portions of the resource representation, for improved performance and efficiency, rather than the full resource representation.\nFor example:\nhttp://www.example.com/feeds?fields=link,entry(@gd:etag,id,updated,link[@rel='edit']))\nWhen it receives this request, the server returns a response that contains only only link and entry elements for the feed. In addition, the entry elements returned are partial entries that contain only ETag, ID, updated, and edit link relations.\nThe fields value must be URL encoded, as with all query parameter values. This parameter is currently an experimental feature."
+        },
+        {
+          "name": "imgmax",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Image size parameter. Valid with album or photo kinds; specifies what image size to use for the media:content. Only a single value may be specified. Refer to the list of valid values below."
+        },
+        {
+          "name": "l",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Named search of geo data. Searches for data in the named location. An example location would be London."
+        },
+        {
+          "name": "max-results",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Maximum number of results to be retrieved. For any service that has a default max-results value (to limit default feed size), you can specify a very large number if you want to receive the entire feed."
+        },
+        {
+          "name": "prettyprint",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Returns an XML response with identations and line breaks. If prettyprint=true, the XML returned by the server will be human readable (pretty printed). Default: false"
+        },
+        {
+          "name": "start-index",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "1-based index of the first result to be retrieved. Note that this isn't a general cursoring mechanism. If you first send a query with ?start-index=1&max-results=10 and then send another query with ?start-index=11&max-results=10, the service cannot guarantee that the results are equivalent to ?start-index=1&max-results=20, because insertions and deletions could have taken place in between the two queries."
+        },
+        {
+          "name": "tag",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Tag filter parameter. Filters photos in the user-based and album-based feeds by the specified tag."
+        },
+        {
+          "name": "thumbsize",
+          "required": false,
+          "in": "query",
+          "type": "string",
+          "description": "Thumbnail size parameter. Valid with album or photo kinds; specifies what image size to use for thumbnails. Multiple values may be specified using a comma-delimited list. If multiple values are specified, multiple media:thumbnail elements will be returned in the feed. Refer to the list of valid values below."
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          }
+        },
+        "parameters": [
+          {
+            "name": "GData-Version",
+            "required": true,
+            "in": "header",
+            "type": "string",
+            "default": "2",
+            "description": "The API version. Current version is 2."
+          }
+        ],
+        "description": "Searches photos uploaded by other users, as long as they are in a public album.",
+        "externalDocs": {
+          "url": "http://code.google.com/intl/en/apis/picasaweb/docs/2.0/developers_guide_protocol.html#ListCommunityPhotos"
+        },
+        "operationId": "feed.api.all.get"
+      }
+    }
+  },
+  "info": {
+    "title": "Picasa",
+    "description": "Create buttons to export images from Picasa into other apps and services. (Active but deprecated by Google)",
+    "x-datafire": {
+      "name": "picasa",
+      "type": "openapi"
+    }
+  }
+}

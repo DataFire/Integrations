@@ -60,6 +60,9 @@
       }
     }
   },
+  "logo": {
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/facebook.jpg"
+  },
   "tags": [],
   "actions": [
     {

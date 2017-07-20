@@ -1,0 +1,1212 @@
+{
+  "id": "urbanairship",
+  "title": "Urban Airship",
+  "description": "The Urban Airship's API powers mobile applications with push, rich push, in-app purchases and subscription services.",
+  "security": {},
+  "logo": {
+    "url": "http://datafire-logos.s3-website-us-west-2.amazonaws.com/urbanairship.png"
+  },
+  "tags": [],
+  "actions": [
+    {
+      "id": "device_tokens.token.put",
+      "title": "device_tokens.token.put",
+      "description": "Registers a device token.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "Device tokens should be represented as an uppercase string, 64 characters long, without spaces or other separators. An example device token is: FE66489F304DC75B8D6E8200DFF8A456E8DAEACEC428B427E9518741C92C6660."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "token"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "device_tokens.token.get",
+      "title": "device_tokens.token.get",
+      "description": "Gets a device token’s alias.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "Device tokens should be represented as an uppercase string, 64 characters long, without spaces or other separators. An example device token is: FE66489F304DC75B8D6E8200DFF8A456E8DAEACEC428B427E9518741C92C6660."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "token"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "device_tokens.token.delete",
+      "title": "device_tokens.token.delete",
+      "description": "Marks the device token as inactive. No notifications will be delivered to it until a PUT is executed again. The DELETE returns HTTP 204 No Content, and needs no payload. When a token is deleted in this manner, any alias or tags will be cleared.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "Device tokens should be represented as an uppercase string, 64 characters long, without spaces or other separators. An example device token is: FE66489F304DC75B8D6E8200DFF8A456E8DAEACEC428B427E9518741C92C6660."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "token"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "push.post",
+      "title": "push.post",
+      "description": "Sends a push message to one or more users. Only one of aliases, tags, or device_pins is required, but they can be mixed and matched as much as you’d like.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "push.scheduled.notification.delete",
+      "title": "push.scheduled.notification.delete",
+      "description": "Cancels a scheduled notification.  A successful delete will have an HTTP status code of 204. If the scheduled notification does not exist, has already been successfully deleted, or was sent, the status code will be 404.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "notification": {
+            "type": "string",
+            "description": "Scheduled notification ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "notification"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "push.scheduled.post",
+      "title": "push.scheduled.post",
+      "description": "Bulk deletes scheduled notifications. If you include URLs or aliases for scheduled notifications that don’t exist or have already been sent, they will be ignored. Any device token in the cancel_device_tokens payload will have every notification that is sent to it removed. This will not prevent it from receiving scheduled notifications to tags or broadcast messages.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "push.scheduled.alias.alias.put",
+      "title": "push.scheduled.alias.alias.put",
+      "description": "Changes a scheduled notification alias. Aliases for scheduled notifications are unique per Urban Airship application, so you might want to hash the aliases with a device ID or use some other mechanism to ensure uniqueness. The only other limit is that they must be 255 characters or less.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          },
+          "alias": {
+            "type": "string",
+            "description": "Scheduled notification alias."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "alias"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "push.scheduled.alias.alias.delete",
+      "title": "push.scheduled.alias.alias.delete",
+      "description": "Deletes a scheduled notification alias.  If you attempt to schedule an aliased scheduled notification with an alias that already exists for your application, it will overwrite the existing one.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "alias": {
+            "type": "string",
+            "description": "Scheduled notification alias."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "alias"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "push.batch.post",
+      "title": "push.batch.post",
+      "description": "Sends a push message to all the listed PINs. Each item in the list can contain 0 or many device_pins and 0 or many aliases or tags, and the blackberry payload is in the same format as for individual pushes.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "push.broadcast.post",
+      "title": "push.broadcast.post",
+      "description": "Sends a push message to all active APIDs (Broadcast). Important: The maximum message size is 1024 bytes. This is calculated as the UTF-8 lengths of alert and extra fields together.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "push.stats.get",
+      "title": "push.stats.get",
+      "description": "Returns hourly message counts for your application. By default, results are returned in JSON. For CSV, either add the header:Accept:text/csv or append &format=csv to the query string. Times are in UTC, and data is provided for each push platform (currently: iOS, BlackBerry, Android, and C2DM, in that order). The statistics system is updated every 15 minutes, so the final count for an hour will be done at the latest 15 minutes after the hour is done.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "type": "string",
+            "description": "Start date in UTC format. Example: 2009-06-22."
+          },
+          "end": {
+            "type": "string",
+            "description": "End date in UTC format. Example: 2009-06-22+06:00."
+          },
+          "format": {
+            "type": "string",
+            "description": "Response format.",
+            "enum": [
+              "json",
+              "csv"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "start",
+          "end"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "device_tokens.get",
+      "title": "device_tokens.get",
+      "description": "Gets information about all of your device tokens. If your application has a large number of device tokens, we’ll paginate the request for you. By default, we paginate at 5000 device tokens. You can receive the next page simply by retrieving the URL from \"next_page\" - in this way it is easy to export all of your device tokens and all their data.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "description": "The page number."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "The total items to return. By default, we paginate at 5000 device tokens."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "device_tokens.count.get",
+      "title": "device_tokens.count.get",
+      "description": "Gets the number of device tokens you have registered.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "device_tokens.feedback.get",
+      "title": "device_tokens.feedback.get",
+      "description": "Gets what device tokens are now invalid. Apple informs us when a push notification is sent to a device that can’t receive it because the application has been uninstalled. We mark the device token as inactive and immediately stop sending notifications to that device. Once a day is a good interval for querying the feedback service, but you can do it more often to save on bandwidth from unnecessary notifications. In the response, what does marked_inactive_on mean? Apple sends a timestamp for each device token returned via the feedback service. Since a device can be off the network for a while, this can be a point in the recent past. In order to make this API work smoothly for you, we record the timestamp we marked as inactive. This means you only need to query for data since the last time you queried. Once a day is a good timeframe, or once a week for very small or infrequently used applications. A few times a day is good for applications with heavy use.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "since": {
+            "type": "string",
+            "description": "Since timestamp in ISO 8601 format. Example: 2012-03-01+13:00:00."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "since"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "apids.apid.put",
+      "title": "apids.apid.put",
+      "description": "Registers an APID. Unlike registration for iOS and BlackBerry applications, basic registration tying an APID to your application happens automatically. The registration API can be used to set aliases or tags. This returns HTTP 200 OK for any updates. Registering without any body is a no-op. Not including the alias field will clear it. To clear the list of tags, set it to the empty list []. If you are registering an APID to be used with C2DM, you will also need to include a C2DM registration ID.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          },
+          "apid": {
+            "type": "string",
+            "description": "An APID (Android Push ID) is the Urban Airship ID of a device to which a message can be pushed."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "apid"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "apids.apid.get",
+      "title": "apids.apid.get",
+      "description": "Gets APID information.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apid": {
+            "type": "string",
+            "description": "An APID (Android Push ID) is the Urban Airship ID of a device to which a message can be pushed."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apid"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "apids.apid.delete",
+      "title": "apids.apid.delete",
+      "description": "Marks an APID as invalid. No notifications will be delivered to it until it re-registers.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apid": {
+            "type": "string",
+            "description": "An APID (Android Push ID) is the Urban Airship ID of a device to which a message can be pushed."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "apid"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "apids.get",
+      "title": "apids.get",
+      "description": "Gets APIDs. You can control how many APIDs are returned at a time by using the limit GET argument. The maximum limit is 5000.",
+      "inputSchema": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "properties": {
+          "start": {
+            "type": "integer",
+            "description": "APID from where to start from."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Control how many APIDs are returned at a time. The maximum limit is 5000."
+          }
+        },
+        "additionalProperties": false
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "device_pins.pin.put",
+      "title": "device_pins.pin.put",
+      "description": "Registers a BlackBerry PIN. This is optional, but recommended, for BlackBerry push messages. This returns HTTP 201 Created for the first registration and 200 OK for any updates. If you wish to include additional information about a device pin, for instance an alias or tags, include a JSON payload along with this request. Not including one of these keys removes it from the device pin.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          },
+          "pin": {
+            "type": "string",
+            "description": "A BlackBerry PIN. Device PINs should be 8 character strings, without spaces."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "pin"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "device_pins.pin.get",
+      "title": "device_pins.pin.get",
+      "description": "Gets Device PIN information.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pin": {
+            "type": "string",
+            "description": "A BlackBerry PIN. Device PINs should be 8 character strings, without spaces."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "pin"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "device_pins.pin.delete",
+      "title": "device_pins.pin.delete",
+      "description": "Marks a PIN as inactive. No notifications will be delivered to it until a PUT is executed again.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "pin": {
+            "type": "string",
+            "description": "A BlackBerry PIN. Device PINs should be 8 character strings, without spaces."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "pin"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.post",
+      "title": "user.post",
+      "description": "Creates a new user and returns the credentials.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.user_id.put",
+      "title": "user.user_id.put",
+      "description": "Changes properties of an user - for example, changing or adding an email address.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "User ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.user_id.delete",
+      "title": "user.user_id.delete",
+      "description": "Deletes an user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "User ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.user_id.get",
+      "title": "user.user_id.get",
+      "description": "Retrieves an user’s subscription information.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "User ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.user_id.creds.reset.post",
+      "title": "user.user_id.creds.reset.post",
+      "description": "Changes the password of an user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "User ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "airmail.send.post",
+      "title": "airmail.send.post",
+      "description": "Sends a message. All fields except message are optional, but at least one of tags, users or aliases must be specified. Much like the push API, we have a batch API call that can make sending multiple messages easier. It’s located at /api/airmail/send/batch/ and accepts a list of messages in the same format as the standard push call.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "airmail.send.broadcast.post",
+      "title": "airmail.send.broadcast.post",
+      "description": "Sends a message to all users (broadcast). Only message is required. The message will be sent out to every registered user. Badge numbers will be handled automatically as long as the push key is present.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.user_id.messages.get",
+      "title": "user.user_id.messages.get",
+      "description": "Returns a list of messages and some metadata about them. It will also include some metadata about the user.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "The user ID."
+          },
+          "full_list": {
+            "type": "string",
+            "description": "Get the full message included in this list (which might take a while to download)."
+          },
+          "since": {
+            "type": "string",
+            "description": "Return only new items. Example: since=some_message_id will return all messages sent after the message ID of some_message_id."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.user_id.messages.unread.get",
+      "title": "user.user_id.messages.unread.get",
+      "description": "Returns a list of unread message IDs and their URLs.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "The user ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.user_id.messages.unread.post",
+      "title": "user.user_id.messages.unread.post",
+      "description": "Marks multiple messages as read at once. If a message has already been marked as read, it will be silently skipped.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "The user ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.user_id.messages.message.message_id.get",
+      "title": "user.user_id.messages.message.message_id.get",
+      "description": "Gets a message.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "The user ID."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "The message ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "message_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.user_id.messages.message.message_id.delete",
+      "title": "user.user_id.messages.message.message_id.delete",
+      "description": "Deletes a message.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "The user ID."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "The message ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "message_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.user_id.messages.message.message_id.body.get",
+      "title": "user.user_id.messages.message.message_id.body.get",
+      "description": "Gets a message's body.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "The user ID."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "The message ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "message_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.user_id.messages.message.message_id.read.post",
+      "title": "user.user_id.messages.message.message_id.read.post",
+      "description": "Marks a message as read.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "The user ID."
+          },
+          "message_id": {
+            "type": "string",
+            "description": "The message ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id",
+          "message_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.user_id.messages.delete.post",
+      "title": "user.user_id.messages.delete.post",
+      "description": "Deletes multiple messages at once. If a message has already been deleted, it will be silently skipped.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "The user ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "app.content.get",
+      "title": "app.content.get",
+      "description": "Gets the store inventory.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "app.content.product_id.download.post",
+      "title": "app.content.product_id.download.post",
+      "description": "Returns a temporary URL where the client can download the content. In the payload, the receipt string is the receipt data from the purchase. It should be unaltered from how Apple delivers it to your application.udid is an optional field to help identify a particular user’s purchases, which can aid debugging. It should always be a hash of the UDID, not the actual UDID, to ensure compliance with Apple’s TOS. The optional version field should be the StoreFront library version, or custom if you’re building your own.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          },
+          "product_id": {
+            "type": "string",
+            "description": "The product ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "product_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "app.updates.post",
+      "title": "app.updates.post",
+      "description": "Checks for updates. It can be useful on application launch to compare a list of installed updates with our server to see if there are any updates to be had for the content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          },
+          "product_id": {
+            "type": "string",
+            "description": "The product ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "product_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.recover.post",
+      "title": "user.recover.post",
+      "description": "Uses the user’s email address as a way to restore subscription content across devices.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.recover.id.get",
+      "title": "user.recover.id.get",
+      "description": "Checks the recovery status.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of the user’s account recovery."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.user_id.available_subscriptions.get",
+      "title": "user.user_id.available_subscriptions.get",
+      "description": "Retrieves subscription options.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "User ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.user_id.subscriptions.subscription_key.purchase.post",
+      "title": "user.user_id.subscriptions.subscription_key.purchase.post",
+      "description": "Adds a new subscription.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "User ID."
+          },
+          "subscription_key": {
+            "type": "string",
+            "description": "Subscription Key."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "user_id",
+          "subscription_key"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.user_id.subscription_content.get",
+      "title": "user.user_id.subscription_content.get",
+      "description": "Returns a list of available content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "User ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "user_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "user.user_id.subscriptions.content.content_id.download.post",
+      "title": "user.user_id.subscriptions.content.content_id.download.post",
+      "description": "Downloads the content.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          },
+          "user_id": {
+            "type": "string",
+            "description": "User ID."
+          },
+          "content_id": {
+            "type": "string",
+            "description": "Content ID."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "user_id",
+          "content_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "feeds.post",
+      "title": "feeds.post",
+      "description": "Creates a new feed item.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "feeds.get",
+      "title": "feeds.get",
+      "description": "Gets a list of feeds.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "feeds.feed_id.get",
+      "title": "feeds.feed_id.get",
+      "description": "Returns information about a particular feed.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "feed_id": {
+            "type": "string",
+            "description": "A particular feed."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "feed_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "feeds.feed_id.put",
+      "title": "feeds.feed_id.put",
+      "description": "Updates a feed.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          },
+          "feed_id": {
+            "type": "string",
+            "description": "A particular feed."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "feed_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "feeds.feed_id.delete",
+      "title": "feeds.feed_id.delete",
+      "description": "Deletes a feed.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "feed_id": {
+            "type": "string",
+            "description": "A particular feed."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "feed_id"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "tags.get",
+      "title": "tags.get",
+      "description": "Returns all the tags that you have created.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "tags.tag.put",
+      "title": "tags.tag.put",
+      "description": "Deletes a tag.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "tag": {
+            "type": "string",
+            "description": "Tags can be of any format you wish, but we recommend that they be URL-safe in order to make less work for you. The maximum length of a tag is 128 characters."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "tag"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "tags.tag.post",
+      "title": "tags.tag.post",
+      "description": "Modifies device tokens on a tag.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          },
+          "tag": {
+            "type": "string",
+            "description": "Tags can be of any format you wish, but we recommend that they be URL-safe in order to make less work for you. The maximum length of a tag is 128 characters."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "tag"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "device_tokens.device_token.tags.get",
+      "title": "device_tokens.device_token.tags.get",
+      "description": "Gets tags for a specific device token.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "device_token": {
+            "type": "string",
+            "description": "A specific device token."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "device_token"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "device_tokens.device_token.tags.tag.put",
+      "title": "device_tokens.device_token.tags.tag.put",
+      "description": "Creates a tag and associate it with the specific device token.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "device_token": {
+            "type": "string",
+            "description": "A specific device token."
+          },
+          "tag": {
+            "type": "string",
+            "description": "Tags can be of any format you wish, but we recommend that they be URL-safe in order to make less work for you. The maximum length of a tag is 128 characters."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "device_token",
+          "tag"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "device_tokens.device_token.tags.tag.delete",
+      "title": "device_tokens.device_token.tags.tag.delete",
+      "description": "Removes a single tag from a device token.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "device_token": {
+            "type": "string",
+            "description": "A specific device token."
+          },
+          "tag": {
+            "type": "string",
+            "description": "Tags can be of any format you wish, but we recommend that they be URL-safe in order to make less work for you. The maximum length of a tag is 128 characters."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "device_token",
+          "tag"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "partner.apps.get",
+      "title": "partner.apps.get",
+      "description": "List applications.",
+      "inputSchema": {},
+      "outputSchema": {}
+    },
+    {
+      "id": "partner.apps.post",
+      "title": "partner.apps.post",
+      "description": "Adds a new application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type"
+        ]
+      },
+      "outputSchema": {}
+    },
+    {
+      "id": "partner.apps.app_id.put",
+      "title": "partner.apps.app_id.put",
+      "description": "Updates an application.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "Content-Type": {
+            "type": "string",
+            "description": "Content type."
+          },
+          "app_id": {
+            "type": "string",
+            "description": "A specific application."
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "Content-Type",
+          "app_id"
+        ]
+      },
+      "outputSchema": {}
+    }
+  ]
+}
